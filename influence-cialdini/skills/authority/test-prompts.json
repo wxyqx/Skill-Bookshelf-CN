@@ -1,0 +1,52 @@
+{
+  "skill": "authority",
+  "version": "0.1.0",
+  "source_book": "影响力 — Robert B. Cialdini",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "一个LinkedIn显示前Google首席工程师的人推荐了个付费课程，我应该因为他的背景就信任吗",
+      "expected_behavior": "应激活 authority, 引导两问法: (1)他的专长与课程内容匹配吗？(2)他有利益关系吗？",
+      "notes": "正面场景: 权威背书+需要验证"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "护士接到医生电话让给一个明显超剂量的药，她应该直接执行吗",
+      "expected_behavior": "应激活 authority, 引导两问法: (1)这个'医生'是真正的专家吗？(2)医嘱本身合理吗？识别权威象征压倒专业判断",
+      "notes": "正面场景: 权威象征压倒专业训练"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我老板让我做一个我觉得不太对的任务，但他是我领导，我该怎么判断要不要执行",
+      "expected_behavior": "应激活 authority, 引导两问法: (1)他在这个具体问题上是专家吗？(2)他有什么动机？将盲目服从转化为有选择的参考",
+      "notes": "正面场景: 职场权威服从"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想考个PMP认证，这个证含金量怎么样",
+      "expected_behavior": "不应激活本 skill, 因为这是评估认证价值，不是面对权威影响时是否服从",
+      "notes": "诱饵: 评估认证价值"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个App Store显示10万人下载、4.8星，应该靠谱吧",
+      "expected_behavior": "不应激活 authority, 应激活 social-proof。用户描述的是'很多人在做'（社会认同），不是'专家说的'（权威）",
+      "notes": "跨 skill 混淆诱饵: 应触发 social-proof 而非 authority"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我的医生让我做一个手术，但我对手术方案有疑问",
+      "expected_behavior": "边界场景。医生是相关领域的真正专家（第一问通过），但用户仍有疑问。应激活后引导第二问: 医生有没有动机做不必要的手术？并建议寻求第二意见。不是盲目服从也不是盲目拒绝",
+      "notes": "边界: 合理的权威参考 vs 需要验证的权威"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆) + 1 条 edge_case"
+}

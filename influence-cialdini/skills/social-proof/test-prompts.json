@@ -1,0 +1,52 @@
+{
+  "skill": "social-proof",
+  "version": "0.1.0",
+  "source_book": "影响力 — Robert B. Cialdini",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这个App显示10万人下载、4.8星评价，应该靠谱吧",
+      "expected_behavior": "应激活 social-proof, 引导用户验证社会证据: 来源是否可追溯、评价是否独立、是否所有评价完全一致(虚假信号)",
+      "notes": "正面场景: 用社会证据做判断"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我在街上看到有人摔倒了，周围好多人但没人去扶，大家是不是都觉得不严重",
+      "expected_behavior": "应激活 social-proof, 识别多元无知——不是不关心而是误判形势，引导用户指定一人给出明确指令",
+      "notes": "正面场景: 多元无知/旁观者效应"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "为什么这家餐厅门口排长队我就觉得一定好吃",
+      "expected_behavior": "应激活 social-proof, 解释社会认同原理使'很多人在做'自动等同于'这是好的'，引导与客观事实交叉验证",
+      "notes": "正面场景: 排队=好的自动联想"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下今年中国GDP增长率",
+      "expected_behavior": "不应激活本 skill, 因为这是信息查询，不涉及社会认同",
+      "notes": "诱饵: 纯信息查询"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个商品页面显示'仅剩3件'，我很想马上买",
+      "expected_behavior": "不应激活 social-proof, 应激活 scarcity。用户描述的是短缺信号触发冲动，不是社会证据（很多人在做）",
+      "notes": "跨 skill 混淆诱饵: 应触发 scarcity 而非 social-proof"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我朋友圈好多人都在转发这篇文章，是不是说明写得很好",
+      "expected_behavior": "边界场景。可能是社会认同（很多人转=好文章），但需要验证: 朋友转发的动机是什么？是真正觉得好还是社交 obligation？如果是后者，这是虚假社会证据。应激活后引导验证转发动机",
+      "notes": "边界: 真实社会证据 vs 社交压力驱动的转发"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆) + 1 条 edge_case"
+}

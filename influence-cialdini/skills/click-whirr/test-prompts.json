@@ -1,0 +1,52 @@
+{
+  "skill": "click-whirr",
+  "version": "0.1.0",
+  "source_book": "影响力 — Robert B. Cialdini",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我昨天在商场莫名其妙就买了一堆东西，回来想想根本不知道为什么会买",
+      "expected_behavior": "应激活 click-whirr, 引导用户回溯决策时刻，找出触发行为的启动特征（价格标签、促销词、环境暗示等）",
+      "notes": "正面场景: 用户描述'莫名其妙'做了某事，是典型的自动反应信号"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么那个超市把面包放在最里面，一进去就先闻到面包香？这种布局有什么心理学原理吗",
+      "expected_behavior": "应激活 click-whirr, 解释气味作为启动特征触发'新鲜=好'的自动反应，并引导识别启动特征",
+      "notes": "正面场景: 用户在分析为什么一个看似不合理的营销策略有效"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我朋友说他在车展上看到一辆车，销售员一说话他就觉得特别靠谱，但回来想想也没说什么实质内容",
+      "expected_behavior": "应激活 click-whirr, 识别销售员的话术中的启动特征（如'因为'、头衔、权威暗示）如何绕过理性分析",
+      "notes": "正面场景: '没想就觉得很靠谱'是自动反应信号"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下今天上海到北京的高铁票",
+      "expected_behavior": "不应激活本 skill, 因为这是纯信息查询，不涉及自动反应或决策回顾",
+      "notes": "诱饵: 完全无关的信息查询场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我答应帮同事加班，后来发现那天正好有重要面试，但我觉得已经答应了不好反悔",
+      "expected_behavior": "不应激活 click-whirr, 应激活 commitment-consistency。用户描述的是承诺后的锁定效应，不是瞬间的自动反应",
+      "notes": "跨 skill 混淆诱饵: 应触发 commitment-consistency 而非 click-whirr"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我每天早上起来都不假思索地先刷手机，这算不算你说的自动反应",
+      "expected_behavior": "边界场景。可能不激活或激活后明确排除: 刷手机是有意识形成的习惯行为，不是被外部启动特征触发的自动反应。click-whirr 关注的是外部刺激触发行为，而非内部习惯",
+      "notes": "边界: 区分外部触发的自动反应和内部习惯行为"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆) + 1 条 edge_case"
+}

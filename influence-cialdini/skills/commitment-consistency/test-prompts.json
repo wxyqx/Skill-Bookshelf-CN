@@ -1,0 +1,52 @@
+{
+  "skill": "commitment-consistency",
+  "version": "0.1.0",
+  "source_book": "影响力 — Robert B. Cialdini",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我答应帮朋友搬家，后来发现那天正好有重要面试，但我觉得已经答应了不好反悔",
+      "expected_behavior": "应激活 commitment-consistency, 引导用户用'时间倒流测试'问'如果一开始就知道有面试，我会答应吗'，捕捉第一闪念",
+      "notes": "正面场景: 承诺锁定效应"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我买了个课程，学了几节发现质量很差，但已经付了钱，还在继续找理由说服自己值",
+      "expected_behavior": "应激活 commitment-consistency, 识别'承诺长出自己的腿'——为已做的选择找新理由，用肠胃信号+时间倒流测试逃脱",
+      "notes": "正面场景: 机械一致+为失败选择找理由"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司让员工公开签一份承诺书，说自愿加班，签了之后大家加班明显更多了",
+      "expected_behavior": "应激活 commitment-consistency, 解释公开+书面承诺的固化效果，识别'自愿'可能是被设计的",
+      "notes": "正面场景: 公开书面承诺的固化"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我坚持每天跑步三个月了，虽然有时候想偷懒但还是坚持下来了",
+      "expected_behavior": "不应激活本 skill, 因为这是有意识的理性坚持（基于持续评估），不是机械一致的锁定",
+      "notes": "诱饵: 理性坚持 vs 机械一致"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "销售先送了我一个免费试用装，然后让我买正装，我觉得不买不好意思",
+      "expected_behavior": "不应激活 commitment-consistency, 应激活 reciprocity-defense。用户描述的是收到好处产生负债感（互惠），不是承诺后的前后一致压力",
+      "notes": "跨 skill 混淆诱饵: 应触发 reciprocity-defense 而非 commitment-consistency"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我在群里说了一定要完成这个项目，现在发现可能做不完，我在纠结要不要继续",
+      "expected_behavior": "边界场景。公开承诺（群里说了）确实触发一致压力，但用户在'纠结'说明还在理性评估阶段。可能激活后需区分: 如果用户已经在为'做不完'找新理由继续硬撑→机械一致(应防御); 如果用户在认真评估是否该调整→理性坚持(不需防御)",
+      "notes": "边界: 公开承诺+还在理性评估"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆) + 1 条 edge_case"
+}

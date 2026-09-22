@@ -1,0 +1,52 @@
+{
+  "skill": "reciprocity-defense",
+  "version": "0.1.0",
+  "source_book": "影响力 — Robert B. Cialdini",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "超市免费试吃后，促销员就开始推销产品，我觉得不买好像不太好",
+      "expected_behavior": "应激活 reciprocity-defense, 引导用户识别试吃是'促销手段'而非'礼物'，重新定义后互惠义务即被解除",
+      "notes": "正面场景: 不请自来的好处制造负债感"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "一个SaaS销售先免费发了我一本行业白皮书，然后约我产品演示，我有义务听他推销吗",
+      "expected_behavior": "应激活 reciprocity-defense, 引导重新定义白皮书是'获客工具'还是'礼物'，定义后义务即解除",
+      "notes": "正面场景: B2B场景下的不请自来好处"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "为什么免费的东西反而最贵？收到赠品就觉得自己欠了人情",
+      "expected_behavior": "应激活 reciprocity-defense, 解释互惠原理如何用不请自来的好处制造负债感，并教重新定义法",
+      "notes": "正面场景: 用户用'负债感'语言描述"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "朋友过生日我该送什么礼物好",
+      "expected_behavior": "不应激活本 skill, 因为这是正常礼尚往来，不涉及被利用的互惠",
+      "notes": "诱饵: 正常社交互赠"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "供应商先报了100万，我拒绝后他说那就60万吧，我觉得好像可以接受",
+      "expected_behavior": "不应激活 reciprocity-defense, 应激活 rejection-retreat。用户描述的是'先大后小'的拒绝退让策略，虽然它利用了互惠原理，但具体策略模式应触发 rejection-retreat",
+      "notes": "跨 skill 混淆诱饵: 应触发 rejection-retreat 而非 reciprocity-defense"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "面试官在面试中夸了我几句，然后问了一个比较难的问题，我觉得是不是因为夸我才让我更想答好",
+      "expected_behavior": "边界场景。称赞可能是喜好原理（liking）的触发器而非互惠。但如果称赞被感知为'好处'并产生负债感，则互惠适用。需区分: 对方是否在'给好处后提请求'(互惠) 还是'让我对他有好感后提请求'(liking)",
+      "notes": "边界: 互惠(负债感) vs 喜好(好感)的交叉场景"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆) + 1 条 edge_case"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "scarcity",
+  "version": "0.1.0",
+  "source_book": "影响力 — Robert B. Cialdini",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "限时秒杀页面显示'仅剩3件，倒计时2分钟'，我心跳加速想买，该怎么办",
+      "expected_behavior": "应激活 scarcity, 第一步用情绪冲动作为停止信号，第二步问'我为什么想要它'——为使用还是为拥有",
+      "notes": "正面场景: 短缺信号+情绪冲动"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么越不让得到的东西越想要？限量的东西一定更好吗",
+      "expected_behavior": "应激活 scarcity, 解释心理抗拒——限制自由本身创造欲望，而非东西本身更好。短缺不改变功能价值",
+      "notes": "正面场景: 分析短缺原理和心理抗拒"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "房产中介说这个户型就剩最后一套了，别人还在看，我该马上定吗",
+      "expected_behavior": "应激活 scarcity, 识别短缺+竞争组合，用情绪作为停止信号，冷静后独立评估房产本身价值",
+      "notes": "正面场景: 短缺+竞争的魔鬼组合"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下这个型号的手机在哪些渠道有货",
+      "expected_behavior": "不应激活本 skill, 因为这是库存查询，不涉及心理防御",
+      "notes": "诱饵: 纯库存查询"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个App显示10万人下载、4.8星评价，应该靠谱吧",
+      "expected_behavior": "不应激活 scarcity, 应激活 social-proof。用户描述的是社会证据（很多人在用），不是短缺信号（快没了）",
+      "notes": "跨 skill 混淆诱饵: 应触发 social-proof 而非 scarcity"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "限量版球鞋只有500双，我排了一晚上队买到了，这算被操纵了吗",
+      "expected_behavior": "边界场景。限量确实是短缺信号，但用户已经买到了（情绪已释放）。需区分: 如果买是因为真心喜欢球鞋文化→正常消费; 如果买是因为'500双'的稀缺感→心理抗拒在起作用。激活后引导回顾'如果不限量，我还会排一晚上队吗'",
+      "notes": "边界: 正常限量消费 vs 短缺操纵"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆) + 1 条 edge_case"
+}

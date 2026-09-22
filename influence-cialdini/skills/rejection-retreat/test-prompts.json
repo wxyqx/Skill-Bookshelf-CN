@@ -1,0 +1,52 @@
+{
+  "skill": "rejection-retreat",
+  "version": "0.1.0",
+  "source_book": "影响力 — Robert B. Cialdini",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "供应商先报了100万，我拒绝后他说那就60万吧，我觉得好像可以接受了",
+      "expected_behavior": "应激活 rejection-retreat, 引导用户忽略100万锚，独立评估60万是否合理，识别'让步'是策略而非善意",
+      "notes": "正面场景: 经典的先大后小策略"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "募捐的人先问我能不能捐500，我说太多了，他说那50也行，我就捐了50",
+      "expected_behavior": "应激活 rejection-retreat, 解释先大后小利用互惠+对比双重机制，引导独立评估50元是否合理",
+      "notes": "正面场景: 日常募捐场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "老板先让我负责一个不可能完成的大项目，我拒绝后他说那至少帮个小忙，我就答应了",
+      "expected_behavior": "应激活 rejection-retreat, 识别先大后小策略，引导独立评估'小忙'是否合理",
+      "notes": "正面场景: 职场中的拒绝退让"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我买衣服的时候和卖家讨价还价，从200砍到150成交了",
+      "expected_behavior": "不应激活本 skill, 因为这是正常讨价还价（双方协商），不是单方面设计的先大后小圈套",
+      "notes": "诱饵: 正常讨价还价"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "销售先送了我一瓶水然后开始推销，我觉得不买不好意思",
+      "expected_behavior": "不应激活 rejection-retreat, 应激活 reciprocity-defense。用户描述的是不请自来的好处制造负债感（互惠），不是先大后小的拒绝退让",
+      "notes": "跨 skill 混淆诱饵: 应触发 reciprocity-defense 而非 rejection-retreat"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "中介先说这个房子要500万，我说太贵了，他说那你看看旁边那套350万的",
+      "expected_behavior": "边界场景。可能是对比原理（先贵后便宜的感知放大）也可能是拒绝退让（如果500万是故意报高以使350万显得合理）。区分: 如果500万是真实报价只是买不起→对比原理; 如果500万是故意虚高设计为被拒→拒绝退让",
+      "notes": "边界: 对比原理 vs 拒绝退让的交叉场景"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆) + 1 条 edge_case"
+}

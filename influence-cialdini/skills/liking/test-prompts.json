@@ -1,0 +1,52 @@
+{
+  "skill": "liking",
+  "version": "0.1.0",
+  "source_book": "影响力 — Robert B. Cialdini",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "猎头跟我聊了半小时，夸我项目做得好，说他也做过Java，然后推荐一个岗位。我该考虑吗",
+      "expected_behavior": "应激活 liking, 引导用户分离人与交易: '如果不是这个人推荐，我会对这个岗位感兴趣吗？'识别称赞+相似性是喜好触发器",
+      "notes": "正面场景: 称赞+相似性触发好感"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我因为销售人很好就买了保险，回来想想其实那个产品并不适合我",
+      "expected_behavior": "应激活 liking, 引导分离人与交易，识别好感来源（称赞/相似/外表）与交易本身无关",
+      "notes": "正面场景: 好感驱动了不合理的购买"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "为什么品牌要请明星代言？明星又不懂那个产品",
+      "expected_behavior": "应激活 liking, 解释关联原理——将明星的正面形象自动关联到产品，即使无因果关系",
+      "notes": "正面场景: 分析关联原理在广告中的运作"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我该怎么提升自己的社交能力",
+      "expected_behavior": "不应激活本 skill, 因为这是社交技巧咨询，不是防御喜好被利用",
+      "notes": "诱饵: 社交技巧咨询"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "供应商先送了我一瓶水然后开始推销，我觉得不买不好意思",
+      "expected_behavior": "不应激活 liking, 应激活 reciprocity-defense。用户描述的是收到好处产生负债感（互惠），不是对人的好感",
+      "notes": "跨 skill 混淆诱饵: 应触发 reciprocity-defense 而非 liking"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "面试官很和蔼，我觉得聊得很开心，这是好事还是坏事",
+      "expected_behavior": "边界场景。和蔼本身不一定是操纵。但如果和蔼使你放松警惕、降低对岗位的批判性评估→喜好原理在起作用。需区分: 正常的好印象 vs 好感使你忽略了对岗位的理性评估",
+      "notes": "边界: 正常好感 vs 好感影响判断"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆) + 1 条 edge_case"
+}

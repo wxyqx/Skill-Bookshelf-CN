@@ -10,7 +10,7 @@
 
 ## 目录总览
 
-**11 本书 · 136 个 skills**（最后更新：2026-09-19）
+**12 本书 · 145 个 skills**（最后更新：2026-09-22）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -25,6 +25,7 @@
 | 《思考，快与慢》*Thinking, Fast and Slow* | 卡尼曼 · 2025 | 认知偏差 / 判断决策 | 28 | [`thinking-fast-and-slow/`](./thinking-fast-and-slow/) |
 | 《权力的48条法则》*The 48 Laws of Power* | 罗伯特·格林 · 1998 | 权力 / 策略 / 人际 | 15 | [`power-48-laws/`](./power-48-laws/) |
 | 《稀缺》*Scarcity* | 穆来纳森、沙菲尔 · 2022 | 稀缺 / 带宽 / 决策 | 7 | [`scarcity/`](./scarcity/) |
+| 《影响力》*Influence* | 罗伯特·西奥迪尼 · 2016 | 说服 / 心理 / 防御 | 9 | [`influence-cialdini/`](./influence-cialdini/) |
 
 ---
 
@@ -96,6 +97,12 @@
 - **一句话**：稀缺会俘获大脑，造成管窥心态与带宽负担，通过借用、杂耍等行为自我强化成难以逃脱的陷阱——应对之道不是靠意志力，而是靠设计环境与系统。
 - **Skills**：`bandwidth-management` · `tunneling-decision-check` · `borrowing-vigilance-checklist` · `pull-into-tunnel` · `slack-building-strategy` · `abundance-planning` · `scarcity-trap-escape`
 
+### 12. 《影响力：你为什么说"是"》 — *Influence: The Psychology of Persuasion* · [`influence-cialdini/`](./influence-cialdini/)
+
+- **作者**：罗伯特·西奥迪尼（Robert B. Cialdini）· 2016（初版 1984）
+- **一句话**：六大心理原理（互惠、承诺一致、社会认同、喜好、权威、短缺）如何自动触发人类的「卡嗒，哗」依从反应，以及如何识别与防御。
+- **Skills**：`click-whirr` · `contrast-principle` · `reciprocity-defense` · `commitment-consistency` · `social-proof` · `liking` · `authority` · `scarcity` · `rejection-retreat`
+
 ---
 
 ## 安装
@@ -103,7 +110,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 136 个 skills（用户级，所有项目可用）
+# 一次性安装全部 145 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -132,7 +139,8 @@ skill-bookshelf/
 ├── rich-dad-poor-dad-series/ # 《富爸爸穷爸爸系列》（18 skills）
 ├── thinking-fast-and-slow/   # 《思考，快与慢》（28 skills）
 ├── power-48-laws/            # 《权力的48条法则》（15 skills）
-└── scarcity/                 # 《稀缺》（7 skills）
+├── scarcity/                 # 《稀缺》（7 skills）
+└── influence-cialdini/       # 《影响力》（9 skills）
 ```
 
 ---
