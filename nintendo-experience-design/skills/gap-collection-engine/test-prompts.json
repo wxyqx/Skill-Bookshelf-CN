@@ -1,0 +1,38 @@
+{
+  "skill": "gap-collection-engine",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "团队知识库建了 300 篇文档，但半年没人主动贡献新内容，怎么让它活起来？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "想让孩子练字能坚持下来，现在每天规定写三页，他越来越抗拒，怎么让他自己想练？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "产品要加成就系统，同事提议直接上积分和徽章排行榜，总觉得哪里不对，积分到底该怎么用？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "用户填完表单就走了，怎么设计表单让他一次填完？"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "健身 App 想给用户'稳妥计划'和'高强度计划'两种选择，让他们自己挑，反馈怎么设计才能让选择有意义？",
+      "expected_sibling": "risk-reward-choice-feedback"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "想让用户在我们的电商 App 里'停不下来'地刷商品，用不给停顿的方式做？",
+      "expected_behavior": "激活但触发 B 段红线：'停不下来'用于消费场景即成瘾设计，本书前提（促成长）必须成立——明确拒绝该用法"
+    }
+  ]
+}

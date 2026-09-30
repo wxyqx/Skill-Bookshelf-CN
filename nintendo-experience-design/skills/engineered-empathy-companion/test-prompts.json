@@ -1,0 +1,39 @@
+{
+  "skill": "engineered-empathy-companion",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们品牌的吉祥物设计得特别完美可爱，用户调研却都说'没感觉'，怎么让人对它有感情？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "客服团队和研发团队因为一次大事故互相指责半年了，行政想安排一次'把话说开'的会议，这个会该怎么设计？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "连载漫画第二部想让读者和配角建立深厚感情，配角现在太完美了没有记忆点，怎么改？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "客服话术里怎么表达共情，让投诉用户感觉被理解？",
+      "expected_behavior": "方向相反：这是设计者共情用户的服务话术，不是让用户与角色/彼此产生共鸣的叙事施工（A2 区分段明写）"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "想让读者追更时更投入主角的命运，开头要不要安排他遭遇重大挫折？怎么安排？",
+      "expected_sibling": "story-design-user-growth 诊断后落到本 skill 的'打击主人公'施工——边界：单一手法问题可由本 skill 直接处理，判定为可激活（边缘通过）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "给儿童教育产品设计一个'会添乱的捣蛋精灵'角色，让孩子和它产生感情，可行吗？",
+      "expected_behavior": "激活但调 B 段：未成年人内容的'麻烦/绝境'尺度需大幅降级（用小恶作剧+小失利替代死亡/绝望），结构保留"
+    }
+  ]
+}

@@ -10,7 +10,7 @@
 
 ## 目录总览
 
-**17 本书 · 313 个 skills**（最后更新：2026-09-30）
+**18 本书 · 326 个 skills**（最后更新：2026-10-01）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -31,6 +31,7 @@
 | 《精益创业 2.0》*The Startup Way* | 埃里克·莱斯 · 2017 | 企业创新 / 精益方法 / 组织变革 | 36 | [`lean-startup-2/`](./lean-startup-2/) |
 | 《领导梯队建设系列（共5册）》 | 拉姆·查兰 等 · 2001–2016 | 领导梯队 / 执行 / 人才培养 | 59 | [`leadership-pipeline-series/`](./leadership-pipeline-series/) |
 | 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./effective-executive/) |
+| 《任天堂的体验设计——创造不知不觉打动人心的体验》*任天堂の体験設計* | 玉树真一郎 · 2021 | 体验设计 / 打动人心 / 游戏化 | 13 | [`nintendo-experience-design/`](./nintendo-experience-design/) |
 
 ---
 
@@ -138,6 +139,12 @@
 - **一句话**：有效性不是天赋而是可以学会的习惯——知识工作者通过记录时间、聚焦贡献、发挥长处、要事优先、有效决策五项实践，把自己管理成能对组织成果负责的「管理者」，让平凡人做出不平凡的事。
 - **Skills**：`effectiveness-five-habits` · `results-outside-the-organization` · `know-thy-time` · `time-diagnosis-questions` · `time-waste-institution-scan` · `consolidate-free-time` · `contribution-question` · `three-domains-of-contribution` · `make-output-usable` · `strengths-based-staffing` · `appraisal-four-questions` · `manage-your-boss` · `use-your-own-strengths` · `one-thing-at-a-time` · `abandon-yesterday` · `priority-and-posterior` · `decision-five-elements` · `problem-classification` · `boundary-conditions` · `correct-before-compromise` · `decision-to-action` · `feedback-and-inspect` · `opinions-first` · `dissent-as-resource` · `decide-and-act-fully`
 
+### 18. 《任天堂的体验设计——创造不知不觉打动人心的体验》 — *任天堂の体験設計* · [`nintendo-experience-design/`](./nintendo-experience-design/)
+
+- **作者**：玉树真一郎（前任天堂 Wii 策划开发） · 2021（电子工业出版社中文版，王芳译；日文原版约 2020）
+- **一句话**：任何人都能创造打动人心的体验——把"用户经历体验的过程"本身当设计对象，用直觉设计让人不由自主地行动、惊喜设计让人不由自主地着迷、故事设计让人不由自主地想叙述。
+- **Skills**：`intuition-design-loop` · `comprehension-first-affordance` · `primacy-frontload-first-timers` · `fatigue-timing-management` · `surprise-design-two-beliefs` · `taboo-theme-toolkit` · `story-design-user-growth` · `gap-collection-engine` · `risk-reward-choice-feedback` · `engineered-empathy-companion` · `foreshadow-payoff-homecoming` · `psychological-context-redesign` · `stop-design-graceful-endings`
+
 ---
 
 ## 安装
@@ -145,7 +152,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 313 个 skills（用户级，所有项目可用）
+# 一次性安装全部 326 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -180,7 +187,8 @@ skill-bookshelf/
 ├── seven-habits/             # 《高效能人士的七个习惯》（29 skills）
 ├── lean-startup-2/           # 《精益创业 2.0》（36 skills）
 ├── leadership-pipeline-series/ # 《领导梯队建设系列》（59 skills）
-└── effective-executive/      # 《卓有成效的管理者》（25 skills）
+├── effective-executive/      # 《卓有成效的管理者》（25 skills）
+└── nintendo-experience-design/ # 《任天堂的体验设计》（13 skills）
 ```
 
 ---

@@ -1,0 +1,44 @@
+{
+  "skill": "surprise-design-two-beliefs",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "周年庆想搞一个让老员工记十年的环节，大家已经看腻了颁奖和抽奖，想要真正的'没想到'。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们播客一直是很严肃的商业访谈风格，想在中段设计一次彻底的风格反转让观众记住，怎么铺垫才不突兀？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "孩子每天刷牙都是应付，怎么制造一个让他重新认真刷牙的瞬间？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "新用户注册当天送什么开屏礼物比较有惊喜感？"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "同一批学员我们去年用过'导师突然扮丑'的反转，今年再用一次加强版？",
+      "expected_behavior": "应拒绝：惊喜一次性，用第二次归零（ce14）——description 明写'高频重复场景不适用'"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "想做一个'匿名交换真心话'的环节，大家平时职场里不会说的话，有没有能用的主题清单？",
+      "expected_sibling": "taboo-theme-toolkit"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是对公金融服务商，能不能在客户答谢会上安排' fooled you '式的整蛊反转？",
+      "expected_behavior": "激活但 B 段红线：信任型关系/'被骗'有真实代价的场景不适用——边界回答"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "skill": "primacy-frontload-first-timers",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "10 周的新员工入职培训，HR 打算把 5 个最难的概念平均铺到每周一个，这样科学吗？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老用户一直抱怨我们的新手教程又长又烦，产品经理想直接砍掉，新用户又确实需要，怎么办？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "下一版 roadmap 资源有限：是给资深用户做高级批量操作功能，还是先把注册到首次使用的流程做顺？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "背单词软件的复习计划怎么按遗忘曲线安排？"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "新手引导第一屏做干净了，用户也愿意学了，但学的时候挫败感很强，试一次失败就走。",
+      "expected_sibling": "intuition-design-loop（10秒确认/成功概率）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们产品用户全都是用了 5 年的老会计，还需要'优先第一次的用户'吗？",
+      "expected_behavior": "边界回答：受众全是熟练者时该规则失去对象，自然失效（B 段明写）"
+    }
+  ]
+}

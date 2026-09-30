@@ -1,0 +1,38 @@
+{
+  "skill": "foreshadow-payoff-homecoming",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "三天培训最后大家说'挺好的'，但让他们说说自己哪里变了就说不出来，结业环节怎么设计？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "季度汇报的结尾永远是'谢谢大家'，想设计一个让人会后忍不住讨论的收尾。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "技术分享开头我想放一个当时没人看懂的东西，结尾再让它变得有意义，这种手法具体怎么做才不生硬？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "安全须知必须放在最前面，一个字都不能往后挪。"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "想让学员在课程期间每天回来打卡补全自己的技能图谱，越学越想集齐，这个怎么设计？",
+      "expected_sibling": "gap-collection-engine"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "5 分钟的短视频结尾做'回到起点'呼应开头，值得吗？",
+      "expected_behavior": "边界回答：一次性短内容没有时间差可用（B 段明写），重放显得重复；短视频更适合单点钩子而非首尾结构"
+    }
+  ]
+}

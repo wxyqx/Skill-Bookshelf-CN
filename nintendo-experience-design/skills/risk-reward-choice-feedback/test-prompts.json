@@ -1,0 +1,39 @@
+{
+  "skill": "risk-reward-choice-feedback",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "同一门课统一教完，学员水平还是参差不齐，要不要按水平分班分层教学？有没有别的思路？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "游戏被吐槽太难，策划想直接降低怪物数值，但老玩家又嫌没挑战，除了调数值还有什么设计办法？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "用户操作失败时，我们现在的提示是'网络波动，不是你的问题'，产品总说要安抚用户，这样对吗？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "支付流程里用户选错银行卡类型导致失败，怎么避免？",
+      "expected_behavior": "安全关键/资金操作必须收窄为单一安全路径（B 段反场景）——不应激活去'给选项'"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "想让用户在产品里集齐一套徽章，每次收集都有进度确认，怎么设计收集体系？",
+      "expected_sibling": "gap-collection-engine"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "麻醉监护软件要不要给医生提供'激进/保守'两种用药策略选项让他自己斟酌？",
+      "expected_behavior": "边界回答：安全关键场景不允许'用户自己承担风险'（B 段明写）——不适用"
+    }
+  ]
+}

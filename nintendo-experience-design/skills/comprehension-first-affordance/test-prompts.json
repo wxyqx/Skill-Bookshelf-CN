@@ -1,0 +1,44 @@
+{
+  "skill": "comprehension-first-affordance",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们产品首页放了获奖记录、媒体报道、团队合影和四个功能入口，注册转化率一直上不去，帮我看看首屏该怎么改。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "下周要给投资人演示，第一页放什么？大家吵着要把公司里程碑全放上去。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "用户调研里很多人说'打开软件不知道第一步该干嘛'，界面信息其实都全的，问题出在哪？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "把这篇公众号文章的错别字检查一遍。"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的新手引导页文案没问题，但学员学完第一个功能就流失了，后面还有六个功能没人继续学。",
+      "expected_sibling": "primacy-frontload-first-timers（或 intuition-design-loop 编排）"
+    },
+    {
+      "id": "cross-decoy-02",
+      "type": "should_not_trigger",
+      "prompt": "投放邮件打开率只有 12%，文案改了三轮还是不行，是不是邮件标题的问题？",
+      "expected_sibling": "psychological-context-redesign"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是美术馆，展陈就应该是'好、正确'本身，追求美有没有错？",
+      "expected_behavior": "不机械套用——skill B 段明确'纯品牌/审美场景'不适用；应回答审美场景合法，但导视系统仍适用了解优先"
+    }
+  ]
+}

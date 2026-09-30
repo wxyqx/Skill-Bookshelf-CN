@@ -1,0 +1,43 @@
+{
+  "skill": "intuition-design-loop",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们 App 的新手教程完成率只有 25%，团队想把教程改成强制弹窗强制看完，你怎么看？有什么更好的办法吗？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我想教我爸用微信，告诉他步骤他转头就忘，怎么让他自己学会？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "在写一份 Excel 函数培训手册，希望学员不是看完就忘，而是边看边动手、有成就感，这个手册应该怎么设计？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下这个 API 的鉴权参数怎么传。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "把这段产品介绍润色得更有文采一些。"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "线上课程第 6 章开始完课率断崖下跌，前面章节大家反馈都还不错，是内容变差了吗？",
+      "expected_sibling": "fatigue-timing-management"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司要求新员工必须完成消防安全培训并通过考试，能不能用'让他们自己探索'的方式设计？",
+      "expected_behavior": "应调用但必须先声明边界：安全合规类指令必须明示，自发性只适用于学习意愿，考核标准不能靠自发探索——skill 的 B 段反场景"
+    }
+  ]
+}

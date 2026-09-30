@@ -1,0 +1,38 @@
+{
+  "skill": "story-design-user-growth",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的课程体验流畅、NPS 也不错，但学员结课后和平台再无联系，说不出带走了什么，怎么让体验有意义？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "博物馆展项趣味评分很高，但观众说不出收获了什么，馆里打算再加十个互动装置，你觉得方向对吗？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "产品要不要做开放式结局？让用户自己决定故事走向并留下自己的解读，会不会显得我们没做完？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这个品牌故事的文案写得更感人。"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "结课仪式我想让学员重做第一天的同一道题，亲眼看到自己进步了，具体怎么编排这个环节？",
+      "expected_sibling": "foreshadow-payoff-homecoming（回到起点路径）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一个查词典的小工具，要不要也设计'成长叙事'让用户有留恋？",
+      "expected_behavior": "边界回答：纯工具型单次任务无成长预期，强加意义层是负担（B 段明写）——不适用"
+    }
+  ]
+}

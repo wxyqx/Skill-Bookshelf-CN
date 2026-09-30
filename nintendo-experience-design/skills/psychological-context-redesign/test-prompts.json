@@ -1,0 +1,38 @@
+{
+  "skill": "psychological-context-redesign",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这个落地页我们改了八版了，每版都更精致，数据就是不动。还有什么可改的？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "同一个功能，A 公司上线用户疯狂转发，我们上线反响平平，功能长得几乎一样，问题会出在哪？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "复盘认证：用户在'提交订单'按钮上流失率最高，但那个按钮明明是最醒目的，为什么偏偏是那里？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "页面加载要 8 秒，先把性能优化一下。"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "诊断完了：用户流失是因为打开页面时根本不知道下一步干嘛。那第一屏到底该怎么排？",
+      "expected_sibling": "comprehension-first-affordance"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "用户投诉支付偶尔失败，但复现率很低，先改文案安慰一下？",
+      "expected_behavior": "不适用——支付失败是硬缺陷/正确性问题，必须先修（B 段反场景），文案安慰是伪解"
+    }
+  ]
+}

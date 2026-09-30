@@ -1,0 +1,39 @@
+{
+  "skill": "fatigue-timing-management",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的线上训练营前两周满勤，第三周开始大面积请假，用户访谈说'挺好的就是坚持不下来了'，怎么改节奏？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "年会流程排了 8 个部门汇报，每年到第 4 个开始全场刷手机，今年想安排几个'提神'的环节，放在哪儿合适？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "连载更新到 30 章之后追更数据一直在掉，读者说'腻了但还想看'，这种状态怎么破？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "第一章就没几个人看完，是不是我们写得不行？",
+      "expected_behavior": "开头流失不是中途疲劳；且'写得不行'要先分诊内容价值——不应激活"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "想给第 8 周的学员设计一个让他们'哇'出来的惊喜环节，具体怎么设计这个反转？",
+      "expected_sibling": "surprise-design-two-beliefs（本 skill 判定时机后移交）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们理财课中途流失很严重，想在流失点加一轮'高收益案例'刺激一下，行不行？",
+      "expected_behavior": "激活但触发 B 段红线：把疲劳当变现工具/在金融语境用兴奋刺激需谨慎；先分诊流失原因是价值还是节奏"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "skill": "stop-design-graceful-endings",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们内容 App 的日均使用时长从 47 分钟掉到 39 分钟，增长团队很慌，准备上'自动播放下一条'和'再看看相似内容'，怎么看？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "网课平台想加'连续学习 100 天'徽章和断签焦虑提醒来拉留存，这个功能该怎么评估？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "课程要做'结课'体验了，希望学员结课时不觉得是被抛弃，而是圆满结束还想回来买下一门，收尾怎么设计？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "用户填了一半的表单因为接电话中断了，回来找不到继续入口，怎么设计？",
+      "expected_behavior": "中断续接=onboarding 续接问题，不是体面收尾——description 明写不适用"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "第 12 周开始学员疲惫了，但课程还有 4 周，怎么让他们撑完？",
+      "expected_sibling": "fatigue-timing-management"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是做戒断类健康 App 的，'让用户停止使用我们'听起来像自杀，这个理念对我们适用吗？",
+      "expected_behavior": "激活并正面处理：'用完即走的完成质量'正是戒断类产品的核心指标；立场审计（E1）恰好是这类产品的天然框架——适用且价值最大"
+    }
+  ]
+}
