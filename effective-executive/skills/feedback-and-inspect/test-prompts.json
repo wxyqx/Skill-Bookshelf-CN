@@ -1,0 +1,52 @@
+{
+  "skill": "feedback-and-inspect",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克（许是祥 译）",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "怎么判断去年定的战略今天还成立？前提是不是已经变了？",
+      "expected_behavior": "应激活 feedback-and-inspect，并做两层检查：决策前反馈（当初的衡量方法是否仍适用）与执行反馈（亲自查看、不只看报告）；前提已变则按抛弃或重做处理",
+      "notes": "正面场景：直接对应 V2 预测力问题（旧战略是否仍成立）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们这套考核指标用了好多年，总觉得哪里不对，是不是该换了？",
+      "expected_behavior": "应激活 feedback-and-inspect，并用决策前反馈检验衡量方法本身：传统衡量方法反映的是昨天的决策，可参照平均数/每公里事故率的判例复核",
+      "notes": "正面场景：衡量方法失效（L1703–1707）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "The dashboards all look green, but I don't trust them. Should I get out and see for myself?",
+      "expected_behavior": "应激活 feedback-and-inspect，并安排亲自视察（至少指定独立现场检查人），说明报告与沟通不一定靠得住",
+      "notes": "英文触发场景，验证中英双写 trigger（亲自视察）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我做个月度项目进度看板，任务状态自动刷新。",
+      "expected_behavior": "不应激活本 skill，因为这是运营跟踪与工具制作需求，不是决策前提与衡量方法的检验",
+      "notes": "诱饵：把「信息反馈」误当本 skill 场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "团队争论要不要做这个功能，双方都说自己有数据，怎么破？",
+      "expected_behavior": "不应激活本 skill，应激活 opinions-first：先指出双方立场不同、要求各自申明验证见解所需的衡量标准与事实",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：见解与衡量标准的争论属 opinions-first；反馈机制解决的是前提检验与现场核实"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我管的是内容策略，根本没有食堂可以去看，怎么「亲自视察」？",
+      "expected_behavior": "可激活本 skill 并给出替代渠道：与产出的直接使用者对话、亲自完整走一遍用户路径、抽查原始样本而非二手汇报；说明无现场可到的知识型决策要改用其他直接证据渠道",
+      "notes": "边界：无实体现场的决策如何满足直接反馈要求"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

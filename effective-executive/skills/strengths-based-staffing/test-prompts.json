@@ -1,0 +1,52 @@
+{
+  "skill": "strengths-based-staffing",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》— 彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们团队里有个产出极高的技术大牛，但脾气很差、不服管教，其他人都快受不了了，要留他吗？",
+      "expected_behavior": "应激活 strengths-based-staffing, 先问三件事（某方面是否确有长处、是否为任务所需、是否确能表现得与众不同）, 是则留用并设计位置让短处不产生作用（不带团队/自设工作方式）; 同时检查是否出现'少不了某人'信号",
+      "notes": "正面场景: 本书读后诊断的原始新问题（高产出但不服管教的天才）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这个岗位两年换了三个人都做不好，是不是得去外面挖一个更厉害的人来？",
+      "expected_behavior": "应激活 strengths-based-staffing, 指出先后两三人失败说明是职位问题而非人选问题, 必须重新设计职位, 不要去找天才",
+      "notes": "正面场景: 命中'职位设计不得超出常人'的第一原则与硬判据"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "\"We can't move him, we can't do without him.\" - my manager keeps saying this about one of our key people. Is that a problem?",
+      "expected_behavior": "应激活 strengths-based-staffing, 说明'少不了某人'的三种坏信号（某人其实并不行/主官能力太差/掩盖了严重问题）, 主张尽快调职, 并提示人事处置须依当地劳动法规与组织程序",
+      "notes": "正面场景: 英文提问命中'少不了某人'判据与调职机制"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我设计一套培训计划，把这位同事的沟通短板补起来，让他能胜任管理岗。",
+      "expected_behavior": "不应激活本 skill 的核心动作, 因为本 skill 主张短处几乎不可改变、管理者的任务不是改变人; 应改为评估此人长处与任务是否匹配, 或调整职位设计使短处不产生作用",
+      "notes": "诱饵: 补短板式培养计划, 方向与德鲁克主张相反"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "年终了，要跟下属做一轮绩效面谈，除了打分数还能谈什么？",
+      "expected_behavior": "不应激活本 skill, 应激活 appraisal-four-questions（列出期望贡献、对照实际绩效、再问四问，含正直否决项）",
+      "notes": "跨 skill 混淆诱饵: 同书兄弟 skill, 都属人事, 但面谈评估流程归考评四问"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我手下有位同事的设计能力很强，但他最近被发现虚报报销单。还能用'用人所长'留下他吗？",
+      "expected_behavior": "不应按长处/短处权衡继续留用, 因为正直缺口是资格否决项而非绩效限制; 应指出'有这种缺点的人，没有资格做管理者', 并说明处置须依组织程序与法规",
+      "notes": "边界: 长处导向的四原则遇到正直问题时要让位于资格门槛（与 appraisal-four-questions 的第 4 问交叉）"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）, 且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

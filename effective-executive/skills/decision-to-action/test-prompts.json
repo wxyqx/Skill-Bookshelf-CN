@@ -1,0 +1,52 @@
+{
+  "skill": "decision-to-action",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克（许是祥 译）",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司发了新政策文件，三个月后没人执行，为什么？",
+      "expected_behavior": "应激活 decision-to-action，并按四问回查：谁应该了解（常常不是发文就够）、采取什么行动、谁采取行动、行动如何遵循；必要时检查执行者能力与衡量激励是否同步",
+      "notes": "正面场景：直接对应 V2 预测力问题（新政策无人执行）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们要推行一套新流程，要求大家改变工作习惯，怎么写才不是空喊口号？",
+      "expected_behavior": "应激活 decision-to-action，并列出行动步骤与责任人，同时逐条检查绩效衡量与激励制度是否同步修改，指出不改的后果",
+      "notes": "正面场景：决策要求行为改变时的衡量与激励同步（费尔 vs 变革落空）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We announced the decision but nothing happened. How do we make it happen and who owns it?",
+      "expected_behavior": "应激活 decision-to-action，并输出四问清单（谁知道/什么行动/谁行动/如何遵循）与责任指派",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这个季度的项目排个甘特图，资源冲突也一起解决下。",
+      "expected_behavior": "不应激活本 skill，因为这是执行排期与项目资源管理需求；本 skill 处理的是决策是否自带行动承诺与激励对齐",
+      "notes": "诱饵：把「落地」一律理解为本 skill 场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "去年定的区域策略，当初的前提还成立吗？什么条件下该把它换掉？",
+      "expected_behavior": "不应激活本 skill，应激活 boundary-conditions（或 feedback-and-inspect）：前者定抛弃触发条件，后者检验前提是否仍有效",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：决策的「抛弃与检验」不属于行动承诺环节"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这四个问题我都答了，但改考核和激励根本不在我的权限内，怎么办？",
+      "expected_behavior": "可激活本 skill 并给出受限条件下的做法：把需改动的衡量/激励条目与「不改则行为不会变」的后果写成书面清单，提交决策者；本 skill 的贡献到此为止，同时说明德鲁克未提供无权限者的推动路径（B 段盲点）",
+      "notes": "边界：行动承诺四问可答，但激励同步受权限限制"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "appraisal-four-questions",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下周要做年终绩效面谈了，我下属技术很强但沟通差、老跟产品吵架。我该怎么评、怎么谈？",
+      "expected_behavior": "应激活 appraisal-four-questions，并用四问结构给出面谈提纲：先说清做得好的方面与可能做得更好的方向，再谈为发挥长处该学什么，把沟通问题作为发挥长处的限制附带处理；同时检查是否需要走第四问资格判断",
+      "notes": "verified.md f10 的 V2 验证原始新问题（年终面谈除了打分还能谈什么）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司让我盘点高潜人才，HR给的表格让给每个人打潜力分。我总觉得哪里不对，能给个不同的做法吗？",
+      "expected_behavior": "应激活 appraisal-four-questions：指出潜能不可评估、能评估的只有绩效（可用'有希望'只是代名词），改为按期望贡献对照实际绩效列长处清单，再走四问",
+      "notes": "'高潜盘点/潜力评估'是四问法最直接的对治场景（p41 并入 f10）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有个下属业绩一直不错，但我发现他在报销上做过手脚、还让新人替他背锅。要不要继续用他、明年要不要提他做主管？",
+      "expected_behavior": "应激活 appraisal-four-questions 并触发第四问（正直否决）：缺正直与诚实者没有资格做管理者，且该缺点'不能仅视为绩效的限制'，不进入长处/短处的容忍换算；同时提示处置须依当地法规与组织程序",
+      "notes": "正直否决项的典型触发（p22 并入 f10；verified.md 证据 L1116–1118）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我准备招一个海外市场负责人，这个岗位前两任都干不到一年就崩了。我该怎么重新设计这个职位和招聘标准？",
+      "expected_behavior": "不应激活本 skill，应激活 strengths-based-staffing（f09）：问题在职位设计与择人（'坑人的职位'须重新设计，先后两三人失败即是判据），还没有在岗者的绩效可供四问评估",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f10 管在岗者的考评, f09 管事前择人与职位设计"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我自己每天忙得要死却看不到成果，想盘一盘自己到底擅长什么、该怎么调整工作方式。",
+      "expected_behavior": "不应激活本 skill，应激活 use-your-own-strengths（f12）：评估对象是用户自己，应做自我长处盘点与工作习惯对齐，而不是对下属的考评面谈工具",
+      "notes": "诱饵：同为'评估与长处'语汇，但方向相反（评估自己 vs 评估下属）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我要评一个产出极高的明星员工，但他公开说'我脾气就这样，受不了的可以走'，团队一半人怕他。用四问会不会只看长处把这个问题放过去了？",
+      "expected_behavior": "边界判断：可调用本 skill，但须区分两件事——脾气/风格属短处，按四问作为'发挥长处的限制'处理并可设计组织手段（不让他带团队）；只有当行为具体表现为不正直（欺骗、倾轧、侵害他人）时才升级为第四问资格否决。回答问题时要先要具体行为事实，避免用'脾气'标签直接否决或直接放行",
+      "notes": "边界：短处容忍 vs 正直否决的界线（B 段详述，防止两方向误用）"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

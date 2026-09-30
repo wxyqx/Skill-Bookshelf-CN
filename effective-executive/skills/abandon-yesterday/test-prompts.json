@@ -1,0 +1,52 @@
+{
+  "skill": "abandon-yesterday",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司要开一条新业务线，说会给我加两个人，让我兼着管。但我们现在每个人都满负荷，能接吗？",
+      "expected_behavior": "应激活 abandon-yesterday：先做'推陈'检查——新业务须由被验证过的人主持，而这样的人一定忙；除非先删掉一项现有业务腾出他，否则新业务会自生自灭（新聘新人主持是赌上加赌）；据此可拒绝'加人但不减事'的接法，要求先确定放弃哪一项",
+      "notes": "verified.md f14 的 V2 验证原始新问题（新业务说加人能不能接）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们有个产品是公司起家的老产品，现在每年微利、占着两个最好的工程师。每次提关停老板就说'我们靠它起家'。这题怎么破？",
+      "expected_behavior": "应激活 abandon-yesterday：用'如果还没做这件事，现在该不该开始'之问过一遍；指认'我们靠它起家'正是'经营管理上的自我主义的资产'的典型保留理由；给出放弃/搁置与精锐人力回收方案，并提示关停须叠加合规与人员过渡安排",
+      "notes": "对应反例 ce21（舍不得昨天的成功）的对治场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我是部门负责人，手上五六个老项目早就不产生价值了，但每年还是照批预算。想清理一遍，不知道该用什么标准。",
+      "expected_behavior": "应激活 abandon-yesterday：给出判据——保留必须能证明'确属有效及需要'（观念从'无法证明无效就继续'扭转为'无法证明有效就放弃'），并建立定期复审/到期失效机制",
+      "notes": "该不该开始之问 + 计划报废原则的组合场景（L1310–1316）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我手头三件都挺重要的事，一件是季度审计、一件是新品发布、一件是团队梯队建设。都该做，但时间有限，该怎么排先后？",
+      "expected_behavior": "不应激活本 skill，应激活 priority-and-posterior（f15）：三件事都值得做，问题是排定次序与敢定优后，而不是放弃存量",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f14 管'该不该继续做'（放弃），f15 管'都该做时先做哪个'（排序）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我想把每天刷短视频、无效社交这两个坏习惯戒掉，但总是失败，有没有办法？",
+      "expected_behavior": "不应激活本 skill，因为这是个人行为习惯的改变（属于行为设计/自制力范畴），不是组织性活动的放弃决策；德鲁克的'摆脱昨天'对象是占用组织资源的业务、计划与制度，误用会导致把方法用错层次",
+      "notes": "诱饵：表面同属'减掉不再有价值的东西'，但对象与机制不同"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们有个老产品线虽然利润薄，但养着三十多个老员工，当地就这一个厂。说关就关，是不是太冷血了？",
+      "expected_behavior": "边界判断：应调用本 skill 完成'该不该继续'的成果判断，但必须显式声明——放弃决策的执行涉及员工安置与当地社区，须依劳动法规与组织程序，并给过渡期设计；skill 不得被用来把社会责任问题简化为'没成果就砍'",
+      "notes": "边界：放弃决策与合规/社会责任的交界（承接 ce18/ce19 强制边界）"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

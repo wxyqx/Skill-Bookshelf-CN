@@ -1,0 +1,52 @@
+{
+  "skill": "contribution-question",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》— 彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我被提名加入一个行业委员会的秘书处，不确定该不该接受，怕又是浪费时间。",
+      "expected_behavior": "应激活 contribution-question, 用'在这里我能对谁产出什么成果'过滤：能说出具体受益者与产出才接受, 说不出则按谢绝处理; 并可反向检验（若答案是'对我升职有没有用'说明还没进入贡献视角）",
+      "notes": "正面场景: 本书读后诊断的原始新问题（是否接受委员会职务）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "写年度总结的时候我发现只能说出一堆做过的事，说不出给谁带来了什么成果，怎么办？",
+      "expected_behavior": "应激活 contribution-question, 区分'职务定义式回答'与'贡献式回答', 帮助用户重写成含具体受益者与成果的贡献陈述, 并指出勤奋/职权不是成果语言",
+      "notes": "正面场景: 述职场景, 命中'重视勤奋忽略成果'的失败模式"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "团队里人际关系总在扯皮，我一直靠和气维持，但事情推不动。有没有别的标准？",
+      "expected_behavior": "应激活 contribution-question, 给出'人际关系的基础是贡献而非融洽'的标准, 并用互相沟通/团队合作/自我发展/培养他人四项要求逐条自检",
+      "notes": "正面场景: 关系语境, 属 f06 吸收的 p16 部分"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我准备一下跟老板谈涨薪的话术，我想把过去一年的成绩都说出来。",
+      "expected_behavior": "不应激活本 skill, 因为这是谈薪与说服技巧请求; 贡献问句是自我要求与成果定向, 不是邀功话术",
+      "notes": "诱饵: 看似与'展示成果'相关, 实则用途相反"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我这季度汇报只能想到使用量一个指标，除了这个还应该报什么才算完整？",
+      "expected_behavior": "不应激活本 skill, 应激活 three-domains-of-contribution（直接成果 / 价值观 / 人才三条线, 缺一即衰败）",
+      "notes": "跨 skill 混淆诱饵: 同书兄弟 skill, 用户已过'贡献什么'阶段, 要的是三领域配比检查"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我在公司里被边缘化两年了，手上没有资源也没有项目，这时候还谈'我能贡献什么'是不是自欺欺人？",
+      "expected_behavior": "可激活本 skill 但要先做边界处理：承认权力与机会分配的现实约束, 把贡献问句降为'在当前可动范围内产出什么'的小尺度追问, 明确不把结构性挤压解释成个人不努力",
+      "notes": "边界: 贡献问句在不平等/政治化环境中的适用限度, 对应 BOOK_OVERVIEW 的立场盲点"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）, 且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

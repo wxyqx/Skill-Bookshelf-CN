@@ -1,0 +1,52 @@
+{
+  "skill": "one-thing-at-a-time",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我同时推进三个项目，现在全部延期，老板问进度我都不知道先汇报哪个。先砍哪一个、先救哪一个？",
+      "expected_behavior": "应激活 one-thing-at-a-time：指出问题不在选择顺序而在并行本身——每件要事都有最低整块时间配额，并行使每件都拿不到；做法是只保留一件为当前唯一要事并配足连续时间，其余明确搁置（并提示搁置≈取消的时机风险）",
+      "notes": "verified.md f13 的 V2 验证原始新问题（同时推三个项目全部延期先砍哪个）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我每天日程排满、会议间隙回消息，晚上十点才有空，结果最重要的方案一个字没写，已经拖两周了。",
+      "expected_behavior": "应激活 one-thing-at-a-time：先核算可用整块时间，若碎片化是主因则衔接 consolidate-free-time（f05）；选定唯一要事、占定连续块并设防守规则，同时修正'估算不足/赶工'两个配套错误",
+      "notes": "deep work 缺失的典型场景，触发低门槛识别信号"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们组被同时派了三个'公司最高优先级'的项目，每天都像救火，感觉哪个都推进不下去。",
+      "expected_behavior": "应激活 one-thing-at-a-time（并可衔接 f15 做取舍）：说明'全都第一优先'等于没有优先、多要事并行互相拖累，要求团队在一段时间内只集中做一件要事并给出搁置声明",
+      "notes": "组织级多重要事并行的场景（对应反例 ce20 与 ce24 的交叉）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我总觉得自己忙了一天却没产出。想先按书里的方法记录两周时间，看看时间到底花哪了，然后清理掉浪费的部分。",
+      "expected_behavior": "不应激活本 skill，应激活 consolidate-free-time（f05，含时间记录与清理的入口）或 know-thy-time（f02）：用户要做的是时间资源的记录与合并，而不是任务并行度的调整",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f13 管任务串行，f05/f02 管时间资源侧"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们有个老产品线还在微利，占着两个骨干。新业务要上，我是不是该狠心把它关掉？人手从哪来？",
+      "expected_behavior": "不应激活本 skill，应激活 abandon-yesterday（f14）：这是'该不该继续做昨天的事'的放弃决策与先删后开规则，不是并行度问题",
+      "notes": "诱饵：表面同属'优先级/资源不够'语汇，但核心动作是存量放弃（f14）而非串行（f13）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我在医院急诊科当班，根本不可能'一次只做一件事'，这本方法论对我还有用吗？",
+      "expected_behavior": "边界判断：应说明本 skill 不适用于响应型/值守型岗位的日常事务（那类工作本质要求并行响应）；可用部分仅限'要事'层面——如科室改进项目、研究、排班优化等需要连续时间的工作，仍应按一次一件推进；不得用本 skill 指责一线人员'不够专注'",
+      "notes": "边界：岗位性质决定适用面（B 段'值守型岗位'反场景的具体化）"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "boundary-conditions",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克（许是祥 译）",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板说这个产品先上线再迭代，我该不该同意？帮我定一下这件事的最低要求是什么。",
+      "expected_behavior": "应激活 boundary-conditions，并写出决策目的与最低需要、逐条做必要性检验，若方案不满足边界条件则判定无效；对“先上线”做临时措施永久化测试",
+      "notes": "正面场景：直接对应 V2 预测力问题（先上线再迭代的边界条件判断）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "去年定的这套区域策略，当时的前提还成立吗？什么情况下我们应该把它抛弃？",
+      "expected_behavior": "应激活 boundary-conditions，并列出该决策的边界条件与「抛弃触发器」：哪条条件不再成立时该决策应被抛弃或重做",
+      "notes": "正面场景：边界条件的第三个用途——判定何时抛弃（罗斯福/舒利芬对照）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We keep debating whether this plan qualifies. I need the minimum must-haves and the boundary conditions before we commit.",
+      "expected_behavior": "应激活 boundary-conditions，并输出「最低必须达成」清单、必要性检验结果与勉强可行风险提示",
+      "notes": "英文触发场景，验证中英双写 trigger；对应“定标准/判生死”两个用途"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我给办公室的打印机选个型号，预算八百块以内。",
+      "expected_behavior": "不应激活本 skill，因为这是琐碎、可逆、后果极小的日常选择，为其写边界条件属于过度工程（“行政长官不宜考虑鸡毛蒜皮之类的事情”）",
+      "notes": "诱饵：误把「解决任何小选择」都当作需要边界条件"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "要不要启动一次大的流程改造？公司流程有十个小毛病，我想先判断这件事值不值得做决策。",
+      "expected_behavior": "不应激活本 skill，应激活 decide-and-act-fully：先过「是否需要决策」的门槛（保持现状会有什么后果）",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：决定「要不要做决策」属 decide-and-act-fully；边界条件服务已决心要做的决策"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "讨论时发现各方对「这个方案必须满足什么」看法完全不同，谁的边界条件才算数？",
+      "expected_behavior": "可激活本 skill 并给出受限条件下的做法：把各方版本写成书面清单对齐，逐条用「去掉它目的还能达成吗」检验、找出冲突项；同时说明德鲁克未提供裁决程序，需由责任人裁定或升级决策（BOOK_OVERVIEW 批判节）",
+      "notes": "边界：边界条件「不易找全且人人不同」时，方法本身不含裁决机制"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

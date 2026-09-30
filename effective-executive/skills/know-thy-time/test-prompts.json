@@ -1,0 +1,52 @@
+{
+  "skill": "know-thy-time",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》— 彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我每天都觉得没干什么正事，想记录一下时间，具体该怎么记才准？",
+      "expected_behavior": "应激活 know-thy-time, 给出记录规范（处理工作时当时记、连续三四个星期为一个时段、一年两三个时段）, 并说明记录是为了被分析, 下一步将转入诊断",
+      "notes": "正面场景: 用户要开始时间记录, 正是本 skill 的核心入口"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "Should I start with a to-do list or a time log? Planning never seems to work for me.",
+      "expected_behavior": "应激活 know-thy-time, 解释德鲁克的排序主张：不以计划为起点, 认识时间用在何处才是起点, 并给出记录规范",
+      "notes": "正面场景: 英文提问, 直指'计划 vs 记录'的起点排序"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "远程办公之后我更没有时间概念了，有没有办法先测量一下我的时间到底去哪了？",
+      "expected_behavior": "应激活 know-thy-time, 建议先采集 2-4 周原始记录再谈管理, 并提醒记忆估计不可靠",
+      "notes": "正面场景: 书外新情境（远程办公）直接外推记录规范"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我推荐一个能统计屏幕使用时间的 App，最好能自动分类。",
+      "expected_behavior": "不应激活本 skill, 因为这是工具选型请求, 与'当时记录用途样本'的采样规范无关",
+      "notes": "诱饵: 工具推荐类请求, 看似与时间记录相关"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我的时间记录做完了，现在想逐项砍掉没有贡献的事情，该从哪问起？",
+      "expected_behavior": "不应激活本 skill, 应激活 time-diagnosis-questions（不做会怎样 / 能否别人代做 / 我在浪费谁的时间）",
+      "notes": "跨 skill 混淆诱饵: 时间记录已完成, 进入诊断环节, 属兄弟 skill 的场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我是在急诊科上班的，工作时间全被病人排满了，根本不可能有空认真做时间记录。",
+      "expected_behavior": "可激活本 skill, 但必须改用'无时间自主权岗位'的替代动作：只记录可自主的片段与被打断次数, 不做自责式结算, 并说明其目的只是找出可改的一小块",
+      "notes": "边界: 时间被结构性占满, 记录方法需要降级使用, 不能强推完整三步"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）, 且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

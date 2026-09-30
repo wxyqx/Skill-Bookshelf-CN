@@ -1,0 +1,52 @@
+{
+  "skill": "dissent-as-resource",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克（许是祥 译）",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "团队里没人反对我的方案，可以直接推进吗？",
+      "expected_behavior": "应激活 dissent-as-resource，并把一致当警号：做俘虏风险自查、主动制造反对意见（指定反方案研究/魔鬼代言人/站对立面论证）、要求“另一方案”成型",
+      "notes": "正面场景：直接对应 V2 预测力问题（无人反对）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "投决会开成了走过场，每次都是一致通过，怎么让决策真正被检验过？",
+      "expected_behavior": "应激活 dissent-as-resource，并给出制造异议的具体做法与异议处理纪律（先理解“如果他的立场正当，他的看法将如何”，再判是非）",
+      "notes": "正面场景：一致同意的组织化形态"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Everyone agrees with the plan. Should I still get a devil's advocate or is that a waste of time?",
+      "expected_behavior": "应激活 dissent-as-resource，并说明一致往往是没人思考或不敢说话的产物；给出制造反面意见与备好替代方案的动作",
+      "notes": "英文触发场景（devil's advocate），验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "生产线突然停了，先别讨论，赶紧告诉我谁去处理。",
+      "expected_behavior": "不应激活本 skill，因为这是危机处置现场，先执行预案与止损；对抗性检验应在事后复盘或下不为例时进行",
+      "notes": "诱饵：把“需要决策”一律当作本 skill 场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "双方都说自己有数据，谁也不服谁，怎么破？",
+      "expected_behavior": "不应激活本 skill，应激活 opinions-first：把各方见解转为可证伪假设、先定衡量标准与需要验证的事实",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：见解与标准之争属 opinions-first；本 skill 管的是主动制造并消化异议"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司里提反对意见的人上次被穿了小鞋，现在谁都不肯说话，我还怎么制造异议？",
+      "expected_behavior": "可激活本 skill 但必须先执行防操纵与保护判断：引入外部或匿名渠道、由决策者本人先示弱提反方案、明确不追责规则；说明书中无提出异议者的保护机制（B 段盲点），组织文化未改善前不宜强推对抗式检验",
+      "notes": "边界：高政治化组织中异议机制可能伤人，须与防操纵判停配套"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

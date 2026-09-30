@@ -1,0 +1,52 @@
+{
+  "skill": "results-outside-the-organization",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克（许是祥 译）",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "为什么我们内部指标越来越好，客户投诉却越来越多？",
+      "expected_behavior": "应激活 results-outside-the-organization，并用内/外定律诊断：内部只有人工与成本、内部数字是过滤后的抽象；检查注意力是否投向外部接触、观察外部是否发生质变",
+      "notes": "正面场景：直接对应 V2 预测力问题（内部指标与客户投诉背离）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "组织越来越大，我整天在开内部会、批流程，几乎没时间见客户，怎么办？",
+      "expected_behavior": "应激活 results-outside-the-organization，并指出高位者注意力的内部化是结构性趋势、须付出特殊努力与制度化安排（麦克纳马拉判据）保持外部接触",
+      "notes": "正面场景：L370“地位越高越容易被内部问题困住”"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Our internal dashboards look great but customers keep complaining. Are we too inside-out?",
+      "expected_behavior": "应激活 results-outside-the-organization，并给出外部定向体检：界定外部是谁、统计接触占比、追问外部是否发生质变而非仅看趋势",
+      "notes": "英文触发场景（inside-out），验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把内部审批流程再提效 20%，减少几个签批节点。",
+      "expected_behavior": "不应激活本 skill，因为这是内部流程优化任务；本定律关注注意力的内外方向，不否定内部职能的必要性",
+      "notes": "诱饵：把任何内部问题都当作本 skill 场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我想反思一下自己在岗位上到底贡献了什么，该怎样问自己？",
+      "expected_behavior": "不应激活本 skill，应激活 contribution-question：用“我能贡献什么”的自问句把注意力转向绩效与成果",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：个人自省问句属 contribution-question；本 skill 是结构定律与定向诊断"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是公立学校，外部到底是谁？学生、家长、还是纳税人？",
+      "expected_behavior": "可激活本 skill 但须先界定外部口径：分别列出学生、家长、纳税人等委托方及其成果含义，说明多重外部需排优先级；并声明德鲁克只举了医院和大学例子、未给公共组织可操作判据（B 段盲点）",
+      "notes": "边界：公共组织的“外部”界定在书中未解决"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

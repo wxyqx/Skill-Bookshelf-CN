@@ -1,0 +1,52 @@
+{
+  "skill": "time-diagnosis-questions",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》— 彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我被拉进了十几个微信群和一堆例行会，怎么判断哪些可以直接退出？",
+      "expected_behavior": "应激活 time-diagnosis-questions, 对每一项依次过三问：不做会有什么后果（无影响即退）、能否由别人代为参加而不影响效果、再问相关人'我常做哪些浪费你时间的事'",
+      "notes": "正面场景: 现代群聊/例会形态的逐项裁决, 三问可直接外推"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "How do I delegate without it looking like I'm dumping my own work on others?",
+      "expected_behavior": "应激活 time-diagnosis-questions, 先纠正授权语义（交出的是'可由别人做的事', 不是'我的工作'; 也不是追求越闲越好）, 再用'能否由别人代为参加而不影响效果'逐项筛选",
+      "notes": "正面场景: 英文提问命中'授权正解'这一问"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我做完了时间记录，现在想每一条都判断一下该不该继续做，有什么标准吗？",
+      "expected_behavior": "应激活 time-diagnosis-questions, 给出三问清单及各自的完成标准（后果测试/可代做测试/问相关人）, 并提示删减风险远小于直觉",
+      "notes": "正面场景: 记录已完成, 进入逐项裁决环节"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我写一封委婉拒绝行业协会晚宴邀请的邮件。",
+      "expected_behavior": "不应激活本 skill, 因为这是写作执行类请求; 只有在需要判断'该不该拒绝'时才调用三问",
+      "notes": "诱饵: 只差一步的执行请求, 看似与取消活动相关"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们部门每到季末都要全员加班冲刺，我怀疑这不是业务特性而是管理问题，该怎么判断？",
+      "expected_behavior": "不应激活本 skill, 应激活 time-waste-institution-scan（重复危机是否可预见、会议占比 1/4、人际耗时 1/10 等制度判据）",
+      "notes": "跨 skill 混淆诱饵: 同为时间类, 但问题在制度病灶而非个人活动取舍"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我是部门里唯一的合规专员，法定要求的几项检查我实在不想做，能用'不做会有什么后果'把它们砍掉吗？",
+      "expected_behavior": "不应据此取消该 skill 的适用, 但必须明确指出边界：三问的前提是'对成果无影响的非生产性活动', 法定/合规/安全义务有明确后果, 不属于可取消项; 应引导用户改用'能否由别人代做'或改进执行方式",
+      "notes": "边界: 用户试图把'我不想做'包装成'无后果', 需要守住判据的含义"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）, 且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

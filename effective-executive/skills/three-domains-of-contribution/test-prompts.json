@@ -1,0 +1,52 @@
+{
+  "skill": "three-domains-of-contribution",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》— 彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们负责一个新成立的内部平台团队，季度汇报只报使用量感觉不完整，还应该报什么？",
+      "expected_behavior": "应激活 three-domains-of-contribution, 给出三条线：直接成果（使用量等）、价值观承诺与质量标准、人才产出（团队与使用方长出了什么能力）, 并说明哪一条可以为零、哪一条不能",
+      "notes": "正面场景: 本书读后诊断的原始新问题（平台团队季度汇报）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司几十年来只看营收，现在老员工一批批退休，发现没人能接班，是不是有问题？",
+      "expected_behavior": "应激活 three-domains-of-contribution, 指出长期只抓直接成果导致第三条线（明天的人才）为零, 并给出把人才培养落成具体机制（而非政策文件）的动作",
+      "notes": "正面场景: 人才线缺失的典型组织症状"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Our company states values in the handbook, but everyone says the standard is just 'hit the number'. How should we think about this?",
+      "expected_behavior": "应激活 three-domains-of-contribution, 用'价值观的承诺与实现'这条线检查：价值观必须像直接成果一样可被检验, 只宣示不兑现会走向解体、混乱与瘫痪",
+      "notes": "正面场景: 英文提问命中价值观线, 检验英文 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我做一份本季度的财务 KPI 拆解表，把营收目标分解到各区域。",
+      "expected_behavior": "不应激活本 skill, 因为这是指标拆解与财务规划任务; 三领域是成效构成的判别清单, 不是 KPI 拆解工具",
+      "notes": "诱饵: 指标类请求, 看似与'报什么指标'相关"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我最近很迷茫，不知道自己在这个岗位上到底能贡献什么，你能帮我理一理吗？",
+      "expected_behavior": "不应激活本 skill, 应激活 contribution-question（先把职务定义式回答换成含受益者与成果的贡献陈述）",
+      "notes": "跨 skill 混淆诱饵: 同书兄弟 skill, 用户尚未有贡献方向, 应先在 contribution-question 完成定向"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是一家公立医院，政府要我们控制成本，病人要我们不惜代价救人，我们自己还想做研究。这三样算是三种'直接成果'吗？",
+      "expected_behavior": "可激活本 skill, 但必须处理'谁的价值观'问题：先判定哪些属于互相冲突的直接成果（须做取舍或明确主次）、哪些属于价值观承诺, 并说明公共组织的目标冲突未必是管理糊涂, 也可能是政治必然",
+      "notes": "边界: 多目标公共组织的适用限度, 对应 BOOK_OVERVIEW 的'价值中立假象'盲点"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）, 且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

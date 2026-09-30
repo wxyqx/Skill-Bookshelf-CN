@@ -1,0 +1,52 @@
+{
+  "skill": "consolidate-free-time",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》— 彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我要写一份重要的战略报告，但日程全是碎片，每次坐下来不到二十分钟就被打断，写了几周还是空白。",
+      "expected_behavior": "应激活 consolidate-free-time, 先标出该任务的最低整块门槛（写作约 6-8 小时）, 再估算自由时间总量并保留连续块（如 90 分钟单元/半天）, 同时设计打扰拦截与防守规则",
+      "notes": "正面场景: 典型'碎片时间等于没有时间'的整块需求"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我把周三上午空出来了，但很快又被各种新冒出来的紧急事占满，怎么才能守住这段整块时间？",
+      "expected_behavior": "应激活 consolidate-free-time, 给出防守机制：识别被蚕食信号、重做时间记录、再筛次要工作, 并用完成期限表（紧急事件表/无兴趣但必做表）标记流失",
+      "notes": "正面场景: 集中后的防守问题, 正是本 skill 的独特环节"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "现在流行用碎片时间学习、做微任务，对需要深度思考的工作管用吗？",
+      "expected_behavior": "应激活 consolidate-free-time, 说明思考与写作存在最低整块时间门槛, 低于门槛等于白做（再做就得从头开始）, 因此应造大块而非挤碎片",
+      "notes": "正面场景: 需要辨别'碎片时间法'的适用边界, 直接命中 V2 预测力"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我在日历里设置一个每 25 分钟响一次的专注计时器。",
+      "expected_behavior": "不应激活本 skill, 因为这只是工具设置请求; 本 skill 的目标是把碎片合成大块, 与按固定节奏切分工作的工具逻辑相反",
+      "notes": "诱饵: 工具操作类请求, 方向与德鲁克主张相反"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我手头三个项目同时推进，全都延期了，现在该集中做哪一个？",
+      "expected_behavior": "不应激活本 skill, 应激活 one-thing-at-a-time（最低整块时间门槛 + 人无法并行多件要事 + 只保留一件当前要事）",
+      "notes": "跨 skill 混淆诱饵: 同书兄弟 skill, 都涉及时间, 但那边解决'并行度与任务选择', 本 skill 解决'时间块的形状'"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我在门店做店员，上班时间完全由排班决定，中间随时有顾客，也想有一段不被打断的时间，怎么办？",
+      "expected_behavior": "可激活本 skill, 但必须降级使用：不承诺固定整块, 改为一周保留一段可协商的短块并只保护它、不自责其余, 优先减少切换次数而非增加总时长",
+      "notes": "边界: 无时间自主权岗位, 需要替代动作而非标准方案"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）, 且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

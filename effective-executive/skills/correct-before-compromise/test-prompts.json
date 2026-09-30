@@ -1,0 +1,52 @@
+{
+  "skill": "correct-before-compromise",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克（许是祥 译）",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "跨部门项目谈判，对方要求双方各让一步先落地，我该怎么让？",
+      "expected_behavior": "应激活 correct-before-compromise，并先算出满足边界条件的正确方案，再把让步分为仍满足边界条件（半片面包，可谈）与不满足边界条件（半个婴儿，须拒绝）两类",
+      "notes": "正面场景：直接对应 V2 预测力问题（跨部门各让一步）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我写这个提案的时候老在想领导会不会反对，结果越改越软，怎么办？",
+      "expected_behavior": "应激活 correct-before-compromise，并指出“一开头就问别人肯不肯接受”会阻止提出最重要的结论；恢复正确版本、核对担心的具体后果",
+      "notes": "正面场景：自我审查型失败模式（L1598）的识别与纠正"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We've conceded three rounds already. How do I know which concessions are still half a loaf and which one kills the deal?",
+      "expected_behavior": "应激活 correct-before-compromise，并用边界条件逐条筛让步：满足者为半片面包，不满足者为半个婴儿",
+      "notes": "英文触发场景（half a loaf），验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "两家供应商就在互相压价，谁也不图长期合作，帮我想想怎么拿到最低价。",
+      "expected_behavior": "不应激活本 skill，因为这是零和立场博弈，不存在双方共同承认的“正确方案/边界条件”；应使用谈判与筹码分析类方法",
+      "notes": "诱饵：把“要不要让步”一律当作本 skill 场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个产品的数据报告没人看，同事说看不懂，我怎么改交付方式？",
+      "expected_behavior": "不应激活本 skill，应激活 make-output-usable：责任在产出方，按使用者需要重设形式、时机与语言",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：把“被接受”问题误当折中问题——交付设计改的是形式，不是目标折中"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是乙方，算出“正确方案”又怎样？甲方根本不会听，只能接受他的版本。",
+      "expected_behavior": "可激活本 skill 并给出受限条件下的做法：把“正确方案”写进内部记录与报价依据，区分本次谈判可让与不可让，并评估谈崩的备选（BATNA）；同时说明德鲁克未提供权力不对等下的实施杠杆（BOOK_OVERVIEW 批判节）",
+      "notes": "边界：权力不对等时，本方法只完成“辨别”，不保证“守住”"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

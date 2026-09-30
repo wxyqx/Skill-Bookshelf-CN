@@ -1,0 +1,52 @@
+{
+  "skill": "opinions-first",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克（许是祥 译）",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "团队争论要不要做这个功能，双方都说自己有数据，怎么破？",
+      "expected_behavior": "应激活 opinions-first，并指出双方立场不同导致认定的事实不同；要求各自申明“要验证我的见解需要什么标准、什么事实”，把衡量方法本身列为议题",
+      "notes": "正面场景：直接对应 V2 预测力问题（双方都有数据）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老板说先别带观点，把事实收集齐再决策，可我们连要收集什么都不定。",
+      "expected_behavior": "应激活 opinions-first，并说明“先搜集事实”在无标准时做不到（事件本身并非事实）；把各人见解转写为可证伪假设，先定衡量标准与待验证清单",
+      "notes": "正面场景：反教科书主张的典型触发（先事实 vs 见解为先）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Which metric should we use for this decision? Everyone has a different number and nobody agrees on the standard.",
+      "expected_behavior": "应激活 opinions-first，并把衡量标准作为核心议题：先假定传统衡量方法未必适当、列出多种衡量方案并测后选定",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下我们上季度的营收和毛利率是多少。",
+      "expected_behavior": "不应激活本 skill，因为这是可由数据直接回答的事实查询，不涉及见解与衡量标准的争议",
+      "notes": "诱饵：把任何涉及数字的问题都当作决策标准问题"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "团队里没人反对我的方案，我是不是可以直接推进了？",
+      "expected_behavior": "不应激活本 skill，应激活 dissent-as-resource：把一致当警号、主动制造反面意见并按纪律处理异议",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：见解的制造与运用属 dissent-as-resource；本 skill 处理见解与事实/标准的关系"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "两边都把自己的见解写得能验证，验证出来结果却互相矛盾，听谁的？",
+      "expected_behavior": "可激活本 skill 并给出受限条件下的做法：检查两套验证各自使用的衡量标准是否可比、引入第三方标准或责任人裁定；同时说明德鲁克未提供“标准冲突”的裁决程序（B 段盲点）",
+      "notes": "边界：验证结果冲突时的裁决缺口"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

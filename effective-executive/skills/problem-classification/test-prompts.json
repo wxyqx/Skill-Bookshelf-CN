@@ -1,0 +1,52 @@
+{
+  "skill": "problem-classification",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "客服连续三个月反馈同一个问题（同类投诉），每次都是单独赔礼道歉退款，下周又冒出来。该怎么处理？",
+      "expected_behavior": "应激活 problem-classification：不逐单打补丁——先按四分类定位（服务线上反复出现→第一类经常性问题），制定规则/政策/原则根治，并把可预见的重复变成例行作业；若确属偶发才个案处置，但仍先怀疑它是不是新的经常问题的首次出现",
+      "notes": "verified.md f17 的 V2 验证原始新问题（同类投诉连续三个月）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们生产线上一个接头老是坏，每次派人去修，修好过段时间又坏。是不是该换掉供应商？",
+      "expected_behavior": "应激活 problem-classification：指出反复出现的个别问题只是表面现象（书中管子接头案例），先假定为经常性问题，经较长时间分析找出根本原因（温度/压力超负荷→重新设计），而不是把每起故障当独立事件修理或直接归罪供应商",
+      "notes": "书中 L1500 的管子接头案例正是'表面各别实为经常'的原型场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们要制定一条新的供应商合规审查规则，但有人说'就一次特殊情况别搞那么复杂'。我该怎么判断要不要立规则？",
+      "expected_behavior": "应激活 problem-classification：用四分类判断——供应商问题在企业界属经常性范畴（可参考第二类'特殊情况下的经常性问题'），默认假定经常性；立规则时写明规则及其成立假定，并预置验证与复审机制",
+      "notes": "规则/个案选择场景，含默认经常性假说的应用（L1544）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司要收并购一家同行，董事会要我给一个完整的审查框架，从问题定性到执行反馈都要。",
+      "expected_behavior": "不应激活本 skill（可作为五要素第一步引用），应激活 decision-five-elements（f16）：用户要的是覆盖问题性质、边界条件、正确方案、行动化、反馈的全景审计框架",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f17 只管第一要素，f16 是全景框架"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "退货规则我们三个月前就定好发全员了，规则本身没问题，但门店就是执行不到位。怎么让新政策真正落地？",
+      "expected_behavior": "不应激活本 skill，应激活 decision-to-action（f20）：问题定性已完成、规则已存在，缺的是化决策为行动（谁应该了解、步骤与责任人、执行者能力、衡量与激励是否同步）；重新分类解决不了执行问题",
+      "notes": "诱饵：同为'规则'语汇，但卡点在决策后的行动承诺而非问题定性"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们行业因为新政策突然被整顿，同行都在观望。这算偶发事件还是经常性问题？我感觉谁都说不准。",
+      "expected_behavior": "边界判断：应调用本 skill 并如实呈现不确定性——按第四类'经常事件的首次出现'处理最稳妥（先找规则性解法并留出修正空间），同时明示：分类可随证据修正（书中大停电、沙立度胺也是事后才判定）；涉及全行业利益冲突的部分不是纯技术定性问题，需承认政治维度而非把冲突当管理糊涂",
+      "notes": "边界：四分类在结构性/政治性问题上的适用限度，以及归类可修正的义务（B 段）"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "decision-five-elements",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司准备做一次重大并购，董事会要我给一个审查框架。能不能给我一套系统的审查清单？",
+      "expected_behavior": "应激活 decision-five-elements：按五要素做审计——①这是经常性问题还是唯一事件（并购是企业界经常性问题→按原则决策）；②边界条件（最低要达成什么，写清以便日后抛弃）；③先研究'正确'方案再谈可接受的折中；④化决策为行动四问；⑤反馈设计（含亲自视察）",
+      "notes": "verified.md f16 的 V2 验证原始新问题（并购审查框架）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "三个月前高层拍板了组织调整方案，文件也发了，但现在没人动，各条线都按老样子干。到底哪里出了问题？",
+      "expected_behavior": "应激活 decision-five-elements（重点核对要素四）：回查谁应该了解是否都知道、是否列了行动步骤与责任人、执行者能力是否匹配、衡量与激励是否同步改变；指出'没有行动步骤的决策最多只是一种意愿'",
+      "notes": "决策推行失败的典型回查场景（对应反例 ce28/ce29）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们做了个重大投资决策，当时开会很快通过，三位高管都觉得没问题。现在回头看有点心里没底，想系统复盘一遍。",
+      "expected_behavior": "应激活 decision-five-elements 做五步复盘：问题性质、边界条件、正确方案与折中、行动承诺、反馈机制逐项回查；指出快速一致通过本身值得警惕（衔接 f23 反面意见），并由要素二判断该决策是否已到应抛弃之时",
+      "notes": "复盘场景：以五要素为审计清单（verified.md f16 V1 证据 L1475–1488 与 L1400–1404）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "客服连续三个月收到同一类投诉，每次都是单独赔礼道歉解决，下周又冒出来。到底应该怎么定性这个问题？",
+      "expected_behavior": "不应激活本 skill（最多作为背景提及），应激活 problem-classification（f17）：这是问题四分类与'经常性优先假说'的具体应用，应先定问题性质再谈其他要素",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：用户已锁定单一要素（问题性质），应由 f17 深挖"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司流程上有十个小毛病，要不要干脆启动一次大的流程改造？我有点吃不准。",
+      "expected_behavior": "不应激活本 skill，应激活 decide-and-act-fully（f24）：用户要先判断'是不是真需要一项决策'（保持现状会有什么后果；小毛病不值得大动干戈），而不是系统化执行一次决策",
+      "notes": "诱饵：同为决策语汇，但前置问题是'是否需要决策'（f24），不是'如何做全五要素'"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "工厂半夜出了设备爆裂事故，我是值班负责人，需要马上决定停整条线还是换备用线续产。能用五要素吗？",
+      "expected_behavior": "边界判断：应急判断不适用完整五要素程序（德鲁克自己指出重大决策需要宽松时间、五要素是规范程序）；当场应按规定预案拍板；但事后复盘与制度修正（同一隐患反复出现→经常性问题→建规则）可回到本 skill 与 f17",
+      "notes": "边界：程序性决策 vs 危机即时决策的适用分界"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

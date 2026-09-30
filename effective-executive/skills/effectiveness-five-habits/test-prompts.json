@@ -1,0 +1,52 @@
+{
+  "skill": "effectiveness-five-habits",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》— 彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我是做研发的，每天都很忙，但总觉得没做出什么成果。你能帮我从整体上看看该从哪儿查起吗？",
+      "expected_behavior": "应激活 effectiveness-five-habits, 先立'有效性是习惯不是天赋'的前提, 再按五项习惯给出诊断顺序（先做 2-4 周时间记录, 再看贡献/长处/要事/决策）, 并指出唯一的第一个动作",
+      "notes": "正面场景: 典型'忙而无果'的知识工作者, 需要整体诊断路径而非单点技巧"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "How do I become an effective executive? I keep hearing about Drucker's five habits of effectiveness.",
+      "expected_behavior": "应激活 effectiveness-five-habits, 用英文对应概念列出五项习惯（time / contribution / strengths / first things first / effective decisions）并给出从时间记录入手的执行顺序",
+      "notes": "正面场景: 英文提问直指五项习惯, 检验英文 trigger 词"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我想给自己做一份'有效性自检表'，覆盖时间、贡献、用人、优先次序和决策这几个方面，该怎么设计？",
+      "expected_behavior": "应激活 effectiveness-five-habits, 输出五习惯自检表（每项含可观察的判据与'待采集'标注）, 并说明哪些面需要先采集数据",
+      "notes": "正面场景: 自评清单设计, 属本 skill 的组织化用法"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把今天的待办事项按重要紧急四象限排一下。",
+      "expected_behavior": "不应激活本 skill, 因为这是通用生产力工具的排序操作, 与五项习惯的诊断框架无关（德鲁克也没有四象限法）",
+      "notes": "诱饵: 通用时间/任务管理工具请求, 看似相关但属纯操作"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我总觉得时间不够用，想先搞清楚我的时间到底花在哪了，要不要先做个记录？",
+      "expected_behavior": "不应激活本 skill, 应激活 know-thy-time（记录规范：当时记、连续三四个星期、一年两三个时段）",
+      "notes": "跨 skill 混淆诱饵: 同书兄弟 skill, 用户只要求第一步（记录时间）时直接进入 know-thy-time"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们团队要开一次复盘会，想用德鲁克的有效性框架做集体检查，但只有一小时。",
+      "expected_behavior": "可激活本 skill 提供五项检查清单, 但必须说明一小时只够挑一项深入（通常选时间记录或贡献问句）, 不可五项平均用力, 并给出会后各自采集数据的安排",
+      "notes": "边界: 框架适用于集体自检, 但受时间预算约束, 需按'浅尝辄止是一事无成'的警告裁剪用法"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）, 且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

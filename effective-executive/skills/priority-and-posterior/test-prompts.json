@@ -1,0 +1,52 @@
+{
+  "skill": "priority-and-posterior",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板要求所有五个重点项目都保持第一优先，资源又不够。我该怎么跟他讲？",
+      "expected_behavior": "应激活 priority-and-posterior：指出'全面优先'等于没有优先；先按四原则重排（将来/机会/自主方向/高目标），再逼出真正的决定——哪一项暂缓（并明确它可能等于取消、有时机风险）；若老板不愿取舍，用压力偏差清单说明后果",
+      "notes": "verified.md f15 的 V2 验证原始新问题（老板要求所有重点项目保持第一优先）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我每天被各种紧急的事追着跑，季度规划里最重要的那件事已经连续六周没动过一页纸了。",
+      "expected_behavior": "应激活 priority-and-posterior：识别'压力决定优先'的偏差（偏爱内部、昨天、危机、紧急），按四原则重排并用书面化的'优后'清单把资源锁给优先项，衔接 f13/f05 配连续时间",
+      "notes": "重要不紧急持续被推迟的典型场景（对应反例 ce23 的警戒信号）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我要给团队定下半年的重点，列了十二项都删不下去，每一项都是'必须做'。怎么才砍得下去？",
+      "expected_behavior": "应激活 priority-and-posterior：解释排序的困难在'优后'并需坚持（'我们的优后往往是别人的优先'），用四原则对十二项逐项检验，产出'暂缓/不做'清单；同时提醒暂缓的时机代价",
+      "notes": "定重点时删不下去的场景（对应反例 ce24 事事都办、浅尝辄止）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们那个老产品线占着两个骨干、五年没增长，我想论证该不该把它关掉，为新业务腾人。",
+      "expected_behavior": "不应激活本 skill，应激活 abandon-yesterday（f14）：这是'该不该继续做昨天的业务'的放弃判断与先删后开规则，不是多个都有价值选项之间的排序",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f15 排'都值得做'的次序, f14 判'该不该继续做'"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我已经确定这季度就死磕客户留存这一件事，但总是被会议打断、拿不到连续时间。怎么保住整块时间？",
+      "expected_behavior": "不应激活本 skill：取舍已经完成（唯一要事已定），用户的问题在时间资源的集中与防守，应激活 consolidate-free-time（f05）或 one-thing-at-a-time（f13）",
+      "notes": "诱饵：问题出在已排序之后的执行环节，不该再上排序 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我在公司没有资源调配权，是个不带团队的产品经理。我能不能自己定'优后'、把某个跨部门需求宣布暂缓？",
+      "expected_behavior": "边界判断：应说明'优后'决定需要与权限匹配——用户能定的是个人注意力与工作产出的优后，组织级项目的暂缓须由有权者做出；本 skill 可为用户提供可提交给决策者的四原则论据与压力偏差分析，但不能替代组织决策程序",
+      "notes": "边界：权力约束下的适用面（BOOK_OVERVIEW '结构约束不可个人化'的延伸）"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

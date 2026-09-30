@@ -1,0 +1,52 @@
+{
+  "skill": "decide-and-act-fully",
+  "version": "0.1.0",
+  "source_book": "《卓有成效的管理者（中英文双语珍藏版）》 — [美]彼得·德鲁克（许是祥 译）",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司流程有十个小毛病，要不要启动一次大的流程改造？",
+      "expected_behavior": "应激活 decide-and-act-fully，并逐个测试“保持现状会有什么后果”——后果小的建议不做；剩下真正需要改的按两项原则收尾（利益远大于成本风险则行动、一旦行动就做全）",
+      "notes": "正面场景：直接对应 V2 预测力问题（十个小毛病要不要大改造）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "方案、得失都清楚了，我们还在说再研究研究，这算不算拖延？",
+      "expected_behavior": "应激活 decide-and-act-fully，并用两问检验再研究要求（能否出新方案、新方案是否一定更好），给出拍板时限与“略事犹豫”的量级",
+      "notes": "正面场景：以拖延代替决策（ce34）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Do we really need a decision here, or should we just do half of it and see?",
+      "expected_behavior": "应激活 decide-and-act-fully，并先过“是否需要决策”门槛，再判定“只做一半”不符合边界条件、属半截行动",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "已经决定要换掉这套系统了，帮我把行动步骤和责任人理一下。",
+      "expected_behavior": "不应激活本 skill，应激活 decision-to-action：决策已定，进入四问（谁知道/什么行动/谁行动/如何遵循）与激励同步",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：已定决策的落地不属本 skill 的两端判据"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "同时推进三个项目全延期了，先砍哪个、先救哪个？",
+      "expected_behavior": "不应激活本 skill，应激活 one-thing-at-a-time（或 priority-and-posterior）：问题在多线并行与最低整块时间，不在单个决策的启动与收尾",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：多事项取舍属要事优先类 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这件事我判断必须做，但拍板权限不在我，领导又一直拖着。",
+      "expected_behavior": "可激活本 skill 并给出受限条件下的做法：用两端判据写成书面建议（保持现状的后果、利益与风险比、不做半截），附拍板时限说明提交决策者；同时说明书中无授权不足情形的处理路径（B 段盲点）",
+      "notes": "边界：判据可给出，但拍板权不在使用者手中"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}
