@@ -10,7 +10,7 @@
 
 ## 目录总览
 
-**12 本书 · 145 个 skills**（最后更新：2026-09-22）
+**17 本书 · 313 个 skills**（最后更新：2026-09-30）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -26,6 +26,11 @@
 | 《权力的48条法则》*The 48 Laws of Power* | 罗伯特·格林 · 1998 | 权力 / 策略 / 人际 | 15 | [`power-48-laws/`](./power-48-laws/) |
 | 《稀缺》*Scarcity* | 穆来纳森、沙菲尔 · 2022 | 稀缺 / 带宽 / 决策 | 7 | [`scarcity/`](./scarcity/) |
 | 《影响力》*Influence* | 罗伯特·西奥迪尼 · 2016 | 说服 / 心理 / 防御 | 9 | [`influence-cialdini/`](./influence-cialdini/) |
+| 《当下的力量（白金版）》*The Power of Now* | 埃克哈特·托利 · 1997 | 临在 / 当下 / 心灵成长 | 19 | [`power-of-now/`](./power-of-now/) |
+| 《高效能人士的七个习惯（30周年纪念版）》*The 7 Habits of Highly Effective People* | 史蒂芬·柯维 · 1989 | 个人管理 / 领导力 / 思维方式 | 29 | [`seven-habits/`](./seven-habits/) |
+| 《精益创业 2.0》*The Startup Way* | 埃里克·莱斯 · 2017 | 企业创新 / 精益方法 / 组织变革 | 36 | [`lean-startup-2/`](./lean-startup-2/) |
+| 《领导梯队建设系列（共5册）》 | 拉姆·查兰 等 · 2001–2016 | 领导梯队 / 执行 / 人才培养 | 59 | [`leadership-pipeline-series/`](./leadership-pipeline-series/) |
+| 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./effective-executive/) |
 
 ---
 
@@ -103,6 +108,36 @@
 - **一句话**：六大心理原理（互惠、承诺一致、社会认同、喜好、权威、短缺）如何自动触发人类的「卡嗒，哗」依从反应，以及如何识别与防御。
 - **Skills**：`click-whirr` · `contrast-principle` · `reciprocity-defense` · `commitment-consistency` · `social-proof` · `liking` · `authority` · `scarcity` · `rejection-retreat`
 
+### 13. 《当下的力量（白金版）》 — *The Power of Now* · [`power-of-now/`](./power-of-now/)
+
+- **作者**：埃克哈特·托利（Eckhart Tolle），译者 曹植 · 1997（白金版 2009 中文版）
+- **一句话**：痛苦不来自发生了什么，而来自对思维与时间的两个认同——把注意力从思维中撤回、完全接纳当下时刻（临在），痛苦之身便失去燃料；当下是你唯一拥有、也唯一能借力的东西。
+- **Skills**：`observe-the-thinker` · `inner-body-connection` · `silence-and-space` · `pain-body-awareness` · `unconsciousness-levels` · `clock-time-vs-psychological-time` · `no-problem-in-now` · `pressure-here-wanting-there` · `emotion-as-truth-check` · `accept-then-act` · `two-surrender-chances` · `non-reactive-no` · `fake-acceptance-alert` · `waiting-state-exit` · `inner-purpose-vs-outer-purpose` · `no-understanding-the-past` · `present-forgiveness` · `fully-accept-your-partner` · `relationship-as-awareness-dojo`
+
+### 14. 《高效能人士的七个习惯（30周年纪念版）》 — *The 7 Habits of Highly Effective People* · [`seven-habits/`](./seven-habits/)
+
+- **作者**：史蒂芬·柯维（Stephen R. Covey）· 1989（本批以 30 周年纪念版为底本）
+- **一句话**：高效能不是技巧的叠加，而是把普遍永恒的原则内化为习惯、由内而外（先个人领域成功、后公众领域成功）地实现「产出/产能平衡」的持续过程。
+- **Skills**：`paradigm-shift-first` · `habit-knowledge-skill-desire` · `maturity-continuum` · `ppc-balance` · `influence-circle` · `stimulus-response-gap` · `proactive-language` · `make-and-keep-promises` · `two-creations` · `leadership-before-management` · `personal-mission-statement` · `life-center-diagnosis` · `funeral-exercise` · `transition-person` · `fourth-gen-time-management` · `stewardship-delegation` · `effectiveness-not-efficiency-with-people` · `emotional-bank-account` · `clarify-expectations` · `honor-the-absent` · `win-win-five-dimensions` · `six-interaction-modes` · `win-win-or-no-deal` · `no-involvement-no-commitment` · `seek-first-to-understand` · `diagnose-before-prescribe` · `synergy-third-alternative` · `affirm-potential` · `sharpen-the-saw-four-dimensions`
+
+### 15. 《精益创业 2.0》 — *The Startup Way* · [`lean-startup-2/`](./lean-startup-2/)
+
+- **作者**：埃里克·莱斯（Eric Ries）· 2017（中文版中信 2020）
+- **一句话**：创业管理应当成为成熟企业的第二套核心管理体制——像设立财务部一样设立「创业部」，用创新核算与里程碑式拨款问责，分三个阶段完成一场可以反复进行的「二次创业」。
+- **Skills**：`organizational-experiment-loop` · `leap-of-faith-assumption-audit` · `value-and-growth-hypotheses` · `good-experiment-four-traits` · `mvp-trio-and-scorecard` · `mvp-for-learning-not-scale` · `prfaq-working-backwards` · `business-model-six-questions` · `lean-for-non-startup-work` · `innovation-accounting-three-levels` · `audit-against-past-not-plan` · `bingo-card-diagnostic` · `growth-board-design` · `milestone-based-funding` · `innovation-needs-constraints` · `wield-the-sword` · `one-page-preapproval` · `one-team-success-is-enough` · `startup-team-basic-unit` · `dedicated-cross-functional-teams` · `three-tier-support-structure` · `train-the-veto-holders` · `gatekeeper-to-enabler` · `unified-entrepreneurial-theory` · `internal-change-owner` · `three-stage-transformation` · `pivot-persevere-cadence` · `leaders-two-questions` · `coach-assume-they-are-right` · `coach-not-leader-not-spy` · `reward-useful-failure` · `innovate-in-the-open` · `accountability-method-culture` · `behavior-before-tools` · `voluntary-adoption-indicator` · `localize-dont-copy`
+
+### 16. 《领导梯队建设系列（共 5 册）》 · [`leadership-pipeline-series/`](./leadership-pipeline-series/)
+
+- **作者**：拉姆·查兰（Ram Charan）、斯蒂芬·德罗特（Stephen Drotter）、詹姆斯·诺埃尔（James Noel）、拉里·博西迪（Larry Bossidy）等 · 2001–2016 系列（系列 5 册合并蒸馏）
+- **一句话**：公司的成败很大程度上取决于能否成批量、可预见地从内部培养出各层级领导者——五册合并给出层级标准（领导梯队）、业绩契约（业绩梯队）、轮岗培养（高管路径）、商业语言（CEO说）与执行系统（执行）的完整操作系统。
+- **Skills**：`leadership-pipeline-six-passages` · `three-dimension-transition` · `first-manager-three-transitions` · `manager-transition-tactics-three-steps` · `managing-managers-role` · `functional-manager-maturity` · `business-manager-complexity-triangle` · `group-executive-indirect-success` · `ceo-five-challenges` · `diagnosis-five-steps` · `role-clarity-gaps-overlaps` · `performance-gap-circle` · `succession-five-steps` · `potential-three-types` · `nine-box-actions` · `leadership-deficit-four-causes` · `corporate-function-six-relations` · `dual-track-management-technical` · `promotion-due-diligence` · `customize-not-copy` · `performance-pipeline-interview-build` · `job-essence-two-factors` · `control-three-points-immune-system` · `functional-vp-four-results` · `environment-three-variables` · `mealer-transition-six-steps` · `performance-dialogue-evidence` · `apprenticeship-model` · `concentric-learning-job-design` · `deliberate-practice-feedback-loop` · `leadership-potential-double-helix` · `ceo-selection-process` · `tolerate-failure-conditions` · `developing-talent-is-every-leaders-job` · `assessment-dual-track` · `leadership-is-work-not-honor` · `business-acumen-six-elements` · `r-m-v-return-decomposition` · `cash-net-inflow-everyones-business` · `direct-customer-contact` · `complexity-to-priorities` · `priority-focus-three-to-four` · `pe-multiple-wealth-mechanism` · `company-panorama-seven-questions` · `coaching-two-tracks` · `social-operating-mechanism` · `profitable-sustainable-growth` · `not-betting-is-betting` · `execution-system-architecture` · `question-to-reality` · `field-visit-protocol` · `culture-performance-linkage` · `talent-review-meeting-mrr` · `underperformer-tiered-handling` · `bedrock-strategy-one-pager` · `strategy-review-question-set` · `operations-plan-three-step` · `assumptions-and-contingency` · `follow-through-discipline`
+
+### 17. 《卓有成效的管理者（中英文双语珍藏版）》 — *The Effective Executive* · [`effective-executive/`](./effective-executive/)
+
+- **作者**：彼得·德鲁克（Peter F. Drucker），译者 许是祥 · 1966
+- **一句话**：有效性不是天赋而是可以学会的习惯——知识工作者通过记录时间、聚焦贡献、发挥长处、要事优先、有效决策五项实践，把自己管理成能对组织成果负责的「管理者」，让平凡人做出不平凡的事。
+- **Skills**：`effectiveness-five-habits` · `results-outside-the-organization` · `know-thy-time` · `time-diagnosis-questions` · `time-waste-institution-scan` · `consolidate-free-time` · `contribution-question` · `three-domains-of-contribution` · `make-output-usable` · `strengths-based-staffing` · `appraisal-four-questions` · `manage-your-boss` · `use-your-own-strengths` · `one-thing-at-a-time` · `abandon-yesterday` · `priority-and-posterior` · `decision-five-elements` · `problem-classification` · `boundary-conditions` · `correct-before-compromise` · `decision-to-action` · `feedback-and-inspect` · `opinions-first` · `dissent-as-resource` · `decide-and-act-fully`
+
 ---
 
 ## 安装
@@ -110,7 +145,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 145 个 skills（用户级，所有项目可用）
+# 一次性安装全部 313 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -140,7 +175,12 @@ skill-bookshelf/
 ├── thinking-fast-and-slow/   # 《思考，快与慢》（28 skills）
 ├── power-48-laws/            # 《权力的48条法则》（15 skills）
 ├── scarcity/                 # 《稀缺》（7 skills）
-└── influence-cialdini/       # 《影响力》（9 skills）
+├── influence-cialdini/       # 《影响力》（9 skills）
+├── power-of-now/             # 《当下的力量（白金版）》（19 skills）
+├── seven-habits/             # 《高效能人士的七个习惯》（29 skills）
+├── lean-startup-2/           # 《精益创业 2.0》（36 skills）
+├── leadership-pipeline-series/ # 《领导梯队建设系列》（59 skills）
+└── effective-executive/      # 《卓有成效的管理者》（25 skills）
 ```
 
 ---
