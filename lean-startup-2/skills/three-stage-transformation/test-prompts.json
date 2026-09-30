@@ -1,0 +1,52 @@
+{
+  "skill": "three-stage-transformation",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新 CEO 上任第一个月就说要重做全公司的绩效考核和薪酬体系， HR 总监来问我该不该支持这个动作。",
+      "expected_behavior": "应激活 three-stage-transformation：按三阶段判断——无试点证据与政治资本时触碰深层机制等于自杀（p22）；建议先要一个季度的边缘试点+一页纸证据，把制度变革排到第二阶段末。",
+      "notes": "正面场景：verified.md f10 的 V2 novel question，时机判断是本 skill 的核心交付。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们公司去年送了一批骨干去学创新方法，大家回来都说方法好，但半年过去各部门还是老样子，问题出在哪？",
+      "expected_behavior": "应激活 three-stage-transformation：诊断为 ce18'只培训个人不改文化'——停在第一阶段；应补第二阶段的制度配套（培训铺开、教练、里程碑拨款、中层新激励），否则个人方法改变无法存活。",
+      "notes": "正面场景：'停在阶段一'是路线图最常见病灶，需要 three-stage-transformation 的阶段补课判断。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "咨询公司给我们做了个数字化转型方案，说顶层设计一步到位、全公司同步切换，这个思路可行吗？",
+      "expected_behavior": "应激活 three-stage-transformation：以三阶段路线图评估其时序风险——无边缘试点攒证据、无临界规模、直接触碰深层机制，属于'过早接触第三轨道'；建议改为分阶段试点方案并确认内部专人专责。",
+      "notes": "正面场景：外部方案评估是路线图作为'时序判据'的第二用法。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "全公司推广新工作法半年了，领导要一份诊断报告说明推广效果卡在哪一层，用什么指标矩阵来做？",
+      "expected_behavior": "不应激活本 skill，应激活 bingo-card-diagnostic（宾果卡）：用户要的是'规模×阶段'的指标诊断矩阵（测的效果），不是推进时序的政治判断（three-stage-transformation）。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：three-stage-transformation 管'下一步做什么'、bingo-card-diagnostic 管'做了之后怎么测'，问效果诊断归 bingo-card-diagnostic。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们是个 8 人的创业团队，产品方向老变，合伙人吵着要定组织架构和晋升制度，怎么设计？",
+      "expected_behavior": "不应激活本 skill——初创团队没有深层机制与把关部门可改造，属《精益创业》正传语境；8 人团队谈晋升制度本身可能就是过早组织化，建议回到实验循环问题。",
+      "notes": "诱饵：'转型'一词在初创语境的同域误用（本 skill 的 B 段反场景）。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们公司刚经历一次大危机，客户流失严重，CEO 要求'一边救火一边全面转型，两线作战'，这个安排合理吗？",
+      "expected_behavior": "边界判断：部分认同但需拆解——危机可以是转型的能量释放点（医保网案例：先修复再转化），但'两线全面作战'违背阶段逻辑；合理建议是先用作战室式急救稳住业务（止血），用修复公信力作为第一阶段试点证据，转型按路线图逐阶段推进。预期回答引用 three-stage-transformation 的阶段判断而非全面否决或全盘接受。",
+      "notes": "边界：危机启动转型（c02）与危机中全面转型（ce06）的分界正是本 skill 的接缝场景。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（bingo-card-diagnostic）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

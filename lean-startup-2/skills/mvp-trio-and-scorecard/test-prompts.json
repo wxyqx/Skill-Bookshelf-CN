@@ -1,0 +1,52 @@
+{
+  "skill": "mvp-trio-and-scorecard",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我想验证大学生愿不愿意为一个时间管理 app 付费，MVP 应该怎么设计？",
+      "expected_behavior": "应激活 mvp-trio-and-scorecard：产出现有版/镀金版/极简版三个候选（如：demo 讲解→开学地推完整产品→发群消息人工帮排课表并收费），用记分卡按单位成本换学习量选型，极简版须满足镜像规则。",
+      "notes": "正面场景：verified.md f04 的 V2 novel question，三件套头脑风暴的标准情境。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "团队提交的验证方案要花 80 万开发半年，我总觉得测试同一个东西应该有便宜十倍的办法，怎么论证让他们砍预算？",
+      "expected_behavior": "应激活 mvp-trio-and-scorecard 的裁决规则：同一假设的 MVP 经费相差悬殊时必须淘汰贵者；帮用户把便宜候选与贵候选放在记分卡上对同一假设比较，给出淘汰依据。",
+      "notes": "正面场景：'淘汰贵的'是本书 V3 独有的可操作裁决规则。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "下周的员工会议上想让大家给手头项目想一些轻量验证点子，有没有像司各特·库克那种 15 分钟的练习流程？",
+      "expected_behavior": "应激活 mvp-trio-and-scorecard：给出 15 分钟三段练习——5 分钟写信仰飞跃假设、5 分钟选指标、5 分钟为指标想 MVP，并附主持要点。",
+      "notes": "正面场景：15 分钟练习是 mvp-trio-and-scorecard 的组成部分（第 4 章）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们已经决定用预售页来测需求，帮我检查一下这个实验设计得规不规范、有没有漏洞。",
+      "expected_behavior": "不应激活本 skill，应激活 good-experiment-four-traits（好实验四特征）：载体已选定，用户要的是可证伪假设/下一步/风险控制/绑定假设的质量检查，不是方案发散。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：mvp-trio-and-scorecard 生成候选、good-experiment-four-traits 验收候选，'检查已定方案'归 good-experiment-four-traits。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "客户已签约定制系统，需求清单和排期都确认了，团队问我需求要不要再精简一下做成 MVP。",
+      "expected_behavior": "不应激活本 skill——签约交付是执行任务，需求已由合同验证，做减法是项目管理/范围谈判问题，不存在待测的信仰飞跃假设。",
+      "notes": "诱饵：MVP 词汇出现在执行语境中，缺学习目标。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们想做一个人工服务的极简 MVP，但运营只有半个人力，撑不起手工接单，这算可行方案吗？",
+      "expected_behavior": "边界判断：mvp-trio-and-scorecard 适用但须修正——人工服务的极简版仍要过 good-experiment-four-traits 的风险控制与可行性检查；若极简版的运行成本已接近镀金版，说明它不是真极简，应重新发散或缩小测试人数。预期回答既帮着调整设计，也点明判据在'单位成本换学习量'。",
+      "notes": "边界：极简版自身的可行性判别仍在 mvp-trio-and-scorecard 框架内，但需与 good-experiment-four-traits 检查衔接。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（good-experiment-four-traits）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

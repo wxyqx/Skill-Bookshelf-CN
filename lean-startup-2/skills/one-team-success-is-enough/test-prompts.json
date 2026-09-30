@@ -1,0 +1,52 @@
+{
+  "skill": "one-team-success-is-enough",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们第一批 5 个内部创新试点全都没做成，董事会有人质疑转型失败了，怎么回应？",
+      "expected_behavior": "应激活 one-team-success-is-enough：按组合评估回答两个问题——失败是否留下可审计学习？证据是否足够说服第二批？并核对表演性成功信号的反面。",
+      "notes": "正面场景：与 verified.md V2 novel question 同构。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "下周五个试点团队要向管理层汇报，老板说一个都不许失败，这种气氛下汇报会不会出问题？",
+      "expected_behavior": "应激活 one-team-success-is-enough：指出 100% 成功率要求必然催生绿黄红表演与失败隐藏，建议上场前书面化组合级成功定义。",
+      "notes": "正面场景：上场前的期望管理，原则的原始使用场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "How should we set success expectations for our first batch of internal startup pilots? Is 100% success rate realistic?",
+      "expected_behavior": "应激活 one-team-success-is-enough（英文 trigger：portfolio / pilot batch / expectation），给出'一个团队成功即胜利'的组合判据。",
+      "notes": "英文提问 trigger 验证。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们产线今年良品率必须达标，团队连续三个月没完成指标，怎么问责改进？",
+      "expected_behavior": "不应激活本 skill：确定性生产属传统管理问责，组合容错不适用于成熟业务 KPI，两套体制不应互相覆盖。",
+      "notes": "反场景诱饵：把'容错'泛化到确定性问题。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "其中一个试点团队自己主动提出来终止项目，因为他们证伪了核心假设。这种团队终止后的表彰和叙述该怎么安排？",
+      "expected_behavior": "不应激活本 skill，应激活 p19（奖励有益的失败，终止叙述权归创业者）：用户问的是失败后的仪式设计（谁来讲、讲什么、奖给谁），不是组合期望定义。",
+      "notes": "跨 skill 混淆诱饵（同书）：one-team-success-is-enough 管上场前期望，reward-useful-failure 管失败后仪式，同属失败文化但工序不同。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的试点汇报里 10 个项目 9 个绿灯 1 个黄灯，零红灯，看起来很健康，有问题吗？",
+      "expected_behavior": "应激活本 skill 的诊断部分：零红灯+比例异常稳定是 ce02 表演信号；合理动作是抽查失败去哪了、追问每格绿灯背后的可审计学习，而非直接采信或直接指控。",
+      "notes": "边界：'看起来健康'恰是需要表演识别的场景，判断需证据而非直觉。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（reward-useful-failure 奖励有益的失败）混淆场景。"
+}

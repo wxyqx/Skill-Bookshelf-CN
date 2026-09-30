@@ -1,0 +1,52 @@
+{
+  "skill": "voluntary-adoption-indicator",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新审批流程在两个部门试点很成功，CIO 现在要求下季度强制全员切换，我觉得不对但拿不出理由，双轨并行又怕永远切换不了。",
+      "expected_behavior": "应激活 voluntary-adoption-indicator：给出双轨+观察自愿迁移率的裁决依据——强制只测合规、烧掉纠错信息；迁移率即流程质量的领先指标，设退出机制与回读周期。",
+      "notes": "对应 verified.md p21 V2 novel_question 的直接外推：强制切换还是双轨并行。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们在推新的项目管理方法，现在部署率 85%，但只有 3 个团队是真在用的。汇报里该拿什么数字证明推广效果？",
+      "expected_behavior": "应激活 voluntary-adoption-indicator：把验收指标从部署率换成自愿迁移率/主动接入团队数，并访谈未加入团队把异议变成改进清单。",
+      "notes": "“部署率高但没人真用”是 ce15 的噪声测量场景，自愿率是其替代指标。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We're launching an internal design system. Should usage be mandatory, or should we keep the old components around and watch which one teams pick?",
+      "expected_behavior": "应激活 voluntary-adoption-indicator（英文 trigger: mandatory / opt-in / pick）：建议保留旧轨并跟踪自愿迁移率作为制度质量的领先指标。",
+      "notes": "英文提问场景，检验 trigger 中英双写是否生效。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "生产车间的安全上报新系统 9 月 1 日必须全员上线使用，这是安监要求，宣传物料怎么写让大家接受度高一点？",
+      "expected_behavior": "不应激活本 skill：安全合规类必须全员执行的上线不适用自愿原则（B 段反场景），自愿率无意义；这是宣传与培训问题，不是采纳指标问题。",
+      "notes": "诱饵: 把“合规强制上线”误判为“推广策略选择”。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司要上新绩效系统，9000 人一次铺开，我先培训两周再统计使用率——这个推广顺序对吗？",
+      "expected_behavior": "不应激活本 skill，应激活同书 p20（技术只是手段：先改行为与文化再上工具）——用户问的是部署顺序（先行为实验还是先铺开），不是验收指标与强制/自愿的选择；此处行为证据尚未建立。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): behavior-before-tools 与 voluntary-adoption-indicator 是同书最相邻的一对（顺序 vs 度量），防止互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "开放自愿报名三个月，报名的团队越来越多，但用得最好的反而是被强制接入的财务部。自愿率还能当指标吗？",
+      "expected_behavior": "边界判断：自愿率仍作为领先指标使用，但须与后端测量（f07 宾果卡的行为/用户影响格）并读——自愿流入证明价值主张成立，使用质量须另行验证；财务部的高使用率可能来自强制而非价值，检查其可持续性（退出后是否继续用）。",
+      "notes": "边界: 检验“自愿率不能替代后端测量”这一 B 段限制的运用。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（behavior-before-tools 技术只是手段）的跨 skill 混淆测试。"
+}

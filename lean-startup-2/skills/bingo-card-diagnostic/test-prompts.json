@@ -1,0 +1,52 @@
+{
+  "skill": "bingo-card-diagnostic",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们部门这季度办了 3 场创新方法培训，出勤率 95%，但领导问'到底有没有效果'，我该怎么回答才不是瞎编？",
+      "expected_behavior": "应激活 bingo-card-diagnostic：指出出勤率只是实施格指标，逐格下钻——行为格（培训后有人真做了实验吗）→用户影响格（同事可感知变化吗）→财务格（省了多少工时），在哪格断掉就回上一格改设计。",
+      "notes": "正面场景：verified.md f07 的 V2 novel question，逐格诊断的标准情境。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "新 OA 系统全公司强制上线三个月了，部署率 100%，但各部门都在绕开它用 Excel 抄数据，问题到底出在哪、该测什么？",
+      "expected_behavior": "应激活 bingo-card-diagnostic：判定为跳格推广（ce15）——行为格为零时，后续测生产力/满意度全是噪声；先测自愿使用率（行为格），回退到实施/行为格修设计而非继续加压。",
+      "notes": "正面场景：跳格强制推广是宾果卡的第一类失败模式（第 9 章原文实例）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司要给 20 个团队的转型项目建一个统一的仪表板，领导层想一眼看出哪个环节卡住了，矩阵该怎么设计？",
+      "expected_behavior": "应激活 bingo-card-diagnostic：按三规模×四阶段建矩阵，每格一个关键问题+指标，写明'每格是下一格的领先性指标'的预测关系与断格回退规则。",
+      "notes": "正面场景：宾果卡作为组织级仪表板的原生用途（IA 规模化）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们这个新产品项目想建一套记账指标，从行为指标到商业案例再到净现值，该怎么一步步搭？",
+      "expected_behavior": "不应激活本 skill，应激活 innovation-accounting-three-levels（创新核算三层次）：单个项目的记账深度问题（L1→L2→L3），不是跨团队推广的规模×阶段诊断。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：innovation-accounting-three-levels 管深度、bingo-card-diagnostic 管广度，单项目记账归 innovation-accounting-three-levels。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "下季度公司 OKR 要对齐了，帮我设计各部门的目标和关键结果模板。",
+      "expected_behavior": "不应激活本 skill——OKR 是目标对齐与承诺工具，不承担'逐格预测、断格回退'的诊断职能；宾果卡也不是 OKR 的替代品。",
+      "notes": "诱饵：指标体系类请求的同域误用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "领导让我们把宾果卡纳入部门 KPI 考核，每格都要打分排名，这样用对吗？",
+      "expected_behavior": "边界判断：不应照办——宾果卡自称'只是一种聚焦工具'，变成 KPI 排名会诱发格子造数（红绿灯表演的翻版）。合理响应是保留其诊断用法（逐格问答、断格回退），建议考核只取个别格的客观数据或干脆不进考核，并向领导说明理由。",
+      "notes": "边界：工具被挪用为考核表是本 skill B 段明确的反场景，属于'部分拒绝'型 edge case。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（innovation-accounting-three-levels）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

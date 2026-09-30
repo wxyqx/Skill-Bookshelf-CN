@@ -1,0 +1,52 @@
+{
+  "skill": "three-tier-support-structure",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的创新项目总卡在财务审批，有前辈说再找个高管支持一下就好了，可我不知道该找个什么级别、让他具体干什么。",
+      "expected_behavior": "应激活 three-tier-support-structure：先诊断缺哪层（日常清障缺发起人/制度背书缺支持者/方法卡壳缺教练），再按层找人对号入座——找错层级的支持等于没支持。",
+      "notes": "正面场景：verified.md f17 的 V2 novel question（'再找个高管'该找哪种）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们要给内部创业团队配支持体系，教练、导师、高管保荐人这些角色怎么分工？会不会重复设人？",
+      "expected_behavior": "应激活 three-tier-support-structure：三层不可互换——发起人保项目（特事特办清障）、支持者保工作法（排除别人排除不了的障碍）、教练保学习（非领导非间谍），并按时序配齐（发起人先行→支持者第二阶段→教练岗位化）。",
+      "notes": "正面场景：设计支持体系正是三层结构的直接用途。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "老板让我'顺便盯一下'创新团队的进度，每周给他汇报他们的内部动态，我该答应吗？",
+      "expected_behavior": "应激活 three-tier-support-structure：按教练层边界判断——一旦兼任监视者，团队将只汇报好消息，教练通道关闭；应拒绝情报职能、保留方法职能，把进度问题引向增长委员会（与 `coach-not-leader-not-spy` 同判）。",
+      "notes": "正面场景：角色混淆的典型现场，三层结构的边界判定。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们跟发起人约好了面谈，想用项目成果换他的政策豁免和专职人手，这次谈话的结构该怎么设计？",
+      "expected_behavior": "不应激活本 skill，应激活 `wield-the-sword`（舞动宝剑）：支持者已就位，用户问的是谈判交换结构（报成果换清障、锁定期望管理）——`three-tier-support-structure` 管找谁与分工，`wield-the-sword` 管怎么谈。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为'高层支持'家族，three-tier-support-structure 是人事结构、wield-the-sword 是谈判技术。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司想设一个创新委员会来审批内部团队的预算申请，委员会该怎么设计，多少人、什么规则？",
+      "expected_behavior": "不应激活本 skill，应激活 `growth-board-design`（增长委员会）：问的是拨款问责机构的设计（三大职责+基德五条+铁律）；支持者三层是人际支持网络，不能替代有支票权的问责机构。",
+      "notes": "诱饵：'支持创新的组织'字样与治理机构的混淆。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们找到了一位愿意支持的副总裁，但他要求项目先保密进行，别让其他部门知道。",
+      "expected_behavior": "边界判断：可接受为过渡态但须设定转换点——按 `innovate-in-the-open` 公开创新边界，地下是存量、公开是出路，长期保密=资源与合法性双输；接受支持的同时谈定'下一个里程碑必须公开争取转正'，并把这条写进支持条款。",
+      "notes": "边界：检验三层结构与公开创新原则的接缝（马汉冰箱案例的地下→公开转换）。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（`wield-the-sword`（舞动宝剑））混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

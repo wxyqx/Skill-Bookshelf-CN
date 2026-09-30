@@ -1,0 +1,52 @@
+{
+  "skill": "localize-dont-copy",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板刚参加完硅谷研学回来，要求我们照搬 GE 的 FastWorks，连名字都要一样，明年年中就要见效。怎么落地？",
+      "expected_behavior": "应激活 localize-dont-copy：援引“你无法复制”，把整套照搬降级为机制级本地实验，换成本公司语言，用内部案例重写教材；连 FastWorks 这个名字都要重起。",
+      "notes": "对应 verified.md p17 V2 novel_question 的直接外推：学完本书能否直接照搬 GE。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们买了咨询公司的 OKR 落地模板，员工培训完说“工具好是好，但回部门完全用不上，说的话大家都听不懂”。",
+      "expected_behavior": "应激活 localize-dont-copy：这是 ce18 式的照搬后遗症——用本组织语言重述机制、用本部门试点重写教材，而不是继续加码培训。",
+      "notes": "“格格不入”是 ce18 的标志症状，语言与机制未本地化是病因。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We want to replicate Google's 20% time exactly, including the name. Our COO says just copy-paste the policy. Thoughts?",
+      "expected_behavior": "应激活 localize-dont-copy（英文 trigger: replicate / copy-paste / benchmark）：复制判为不可能，建议挑机制做本地实验并改用本公司语言。",
+      "notes": "英文提问场景，检验 trigger 中英双写是否生效。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们部门把“周报”改名叫“成长复盘”，内容格式还是原来那套，员工说这是走形式，怎么让大家认可这个新名字？",
+      "expected_behavior": "不应激活本 skill：这是给旧做法换新名词的口号包装（B 段反场景）——本地化的对象必须是机制而非修辞；应指出先改机制再改名，或坦承这只是宣传动作。",
+      "notes": "诱饵: “换名字”的表象相似，检验是否把握“重述的对象是机制不是修辞”。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司转型推了半年，现在没有专人负责，各部门各干各的，董事会问出了问题该找谁，我该推荐谁出来挑头？",
+      "expected_behavior": "不应激活本 skill，应激活同书 p24（变革必须内部专人专责）——用户的问题是变革责任归属（谁主导、怎么授权），不是方法与语言的本地化。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): localize-dont-copy 与 internal-change-owner 同属转型落地话题（怎么学 vs 谁来管），防止互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是一家 20 人的小公司，就 3 个部门，造不出“本公司语言”，是不是就没法用这套方法了？",
+      "expected_behavior": "边界判断：部分适用。小组织的“语言重述”可以轻量执行——不必发明新词，用团队已有的口语叫法即可；核心仍是机制级本地实验，而非词汇工程。作者盲点里已注明书中未讨论小组织情形。",
+      "notes": "边界: 检验是否把“本地化”误执行为形式主义的新词发明，而非机制实验。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（internal-change-owner 变革必须内部专人专责）的跨 skill 混淆测试。"
+}

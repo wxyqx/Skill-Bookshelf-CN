@@ -1,0 +1,52 @@
+{
+  "skill": "coach-not-leader-not-spy",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我最近在给两个创新团队当内部教练，老板昨天跟我说：你反正每周都见他们，顺便帮我盯着点他们的进度，有什么情况直接告诉我。",
+      "expected_behavior": "应激活 coach-not-leader-not-spy：拒绝情报职能——一旦兼任监视者，团队将只报好消息，教练通道关闭；保留方法职能，把进度问题引导到团队自己的汇报渠道。",
+      "notes": "对应 verified.md p16 V2 novel_question 的直接外推：“顺便盯一下”是该单元最核心的触发场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司想建内部教练队伍，HR 问教练算什么岗位、要不要考核、向谁汇报，现在全是热心员工在兼职，干半年就累跑了。",
+      "expected_behavior": "应激活 coach-not-leader-not-spy：按 ce14 三病诊断（义务撑不住、积极者先走、专长片面），给出岗位化处方——严格培训、正式考核、职业路径缺一不可。",
+      "notes": "教练流失与兼职拼凑是三病的典型症状，岗位化设计是本 skill 的组织侧动作。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We hired an external lean coach and the team now complains she reports everything to our VP. Should coaches sit in performance reviews?",
+      "expected_behavior": "应激活 coach-not-leader-not-spy（英文 trigger: coach / reports to / role boundary）：明确教练不进考评、不做间谍，重建信息单向流动的边界。",
+      "notes": "英文提问场景，检验 trigger 中英双写是否生效。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们创新团队总卡在财务审批和预算上，是不是也该找个厉害的教练帮我们搞定？",
+      "expected_behavior": "不应激活本 skill：瓶颈是资源与清障而非方法——按 f17（支持者三层结构）应找能随时拍板的发起人或 CEO 级支持者；教练保学习，不保项目生存。",
+      "notes": "诱饵: 把“缺清障”误诊为“缺教练”，检验 three-tier-support-structure 与 coach-not-leader-not-spy 的分工。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "团队特别固执，谁的话都不听，觉得自己肯定能成。有没有什么招能让他们接受现实、愿意出去见用户？",
+      "expected_behavior": "不应激活本 skill，应激活同书 p12（教练立场“假定你们是对的，我是错的”）——用户问的是面对固执团队的单次辅导技术（设计自证实验），不是教练角色边界与岗位设计。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): coach-assume-they-are-right 与 coach-not-leader-not-spy 是同书最相邻的一对（辅导技术 vs 角色边界），防止互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "教练发现团队在实验里伪造用户数据，要不要悄悄告诉他们的老板？",
+      "expected_behavior": "边界判断：不适用“绝不向上汇报”的默认边界——伪造数据不是团队隐私而是诚信与问责问题，属于增长委员会问责范畴；合理动作是先当面对质、要求团队自行纠正并向委员会披露，而非“悄悄”私线汇报。检验用户能否区分“进度隐私”与“诚信问题”。",
+      "notes": "边界: 三不边界并非无底线的保密义务，检验对边界的精细把握。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（coach-assume-they-are-right 教练立场）的跨 skill 混淆测试。"
+}

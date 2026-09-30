@@ -1,0 +1,52 @@
+{
+  "skill": "innovation-accounting-three-levels",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们是个公益项目，捐赠人总问我们到底有没有进展，可我们只有活动量数据（办了 12 场活动、服务 800 人次），怎么证明我们在进步而不是在瞎忙？",
+      "expected_behavior": "应激活 innovation-accounting-three-levels：搭 L1 仪表板（单位受益人行为指标如复训率/转介率），只报告环比进步；再按项目阶段决定是否升级 L2/L3，向捐赠人报告的是指标端点的移动而非活动总量。",
+      "notes": "正面场景：verified.md f05 的 V2 novel question，IA 三层次的标准启动情境。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "财务部要求我们的内部创新项目出示投资回报率，MVP 阶段根本算不出 ROI，项目眼看要在评审会上被砍，怎么办？",
+      "expected_behavior": "应激活 innovation-accounting-three-levels：这是 ce12'用 ROI 杀死种子'场景——为探索期项目换用创新核算语言（L1 学习指标→L2 商业案例对账），让财务从把关者转为建设者；同时指出需要增长委员会类机制（growth-board-design）替代单一 ROI 问责。",
+      "notes": "正面场景：财务冲突是 IA 存在的直接理由（第 9 章'财务的作用'）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们每月用户数都在涨，可转化率一直不动，老板觉得一切良好，我怀疑我们在看虚荣指标，怎么搭一个能看出真相的仪表板？",
+      "expected_behavior": "应激活 innovation-accounting-three-levels 的 L1：识别虚荣指标（总量随投入自增），换成 3-5 个单位用户行为指标（转化/留存/单客收入），只问'哪些指标在一段时期内有进步'。",
+      "notes": "正面场景：ce05 虚荣指标的反向修正，L1 仪表板的标准用法。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们要立项一个新产品，价值假设和增长假设分别该用什么指标来验证、门槛定多少？",
+      "expected_behavior": "不应激活本 skill，应激活 value-and-growth-hypotheses（价值/增长假设二分）：用户问的是两个根本假设的判据与门槛，属于假设层；innovation-accounting-three-levels 是在判据定了之后的全套记账体系。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：value-and-growth-hypotheses 定门槛、innovation-accounting-three-levels 记账，问'定什么指标门槛'时 innovation-accounting-three-levels 不得抢调。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司要出年度财报了，帮我看看利润表和现金流量表的数据口径有没有问题。",
+      "expected_behavior": "不应激活本 skill——传统财务报表审计属于会计/审计专业领域，作者明确 IA 不是财务会计的替代（且特意与'创新型会计'撇清）。",
+      "notes": "诱饵：'核算'一词的会计同域误用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "HR 想给员工敬业度提升项目也搞一套'创新核算'，把学习换算成净现值向管理层汇报，可行吗？",
+      "expected_behavior": "边界判断：部分适用——L1/L2（行为领先指标+假设对账）可用；L3（NPV）在书中从未于 HR 类项目走通（PD@GE 停在领先指标层），应明确告知该局限并建议止步于 L1/L2。这是调用 innovation-accounting-three-levels 但按其 B 段边界裁剪的情形。",
+      "notes": "边界：难量化部门的 NPV 适用性是本 skill 在 verified.md 中被明确要求的 B 段限定，edge case 正面检验这一点。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（value-and-growth-hypotheses）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "business-model-six-questions",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的知识付费课卖不动，团队讨论来讨论去就是降价和打折，除了价格还能动什么？",
+      "expected_behavior": "应激活 business-model-six-questions：逐问过六问找结构杠杆——产品/服务分界（课+陪跑合并）、按效果收费（考试通过再付）、承担中间环节、与用户利益对齐（学会才收费）、新竞争位（不卖课卖'通过率'）；并先确认价值假设状态。",
+      "notes": "正面场景：verified.md f14 的 V2 novel question，'只会降价'是六问的标准入口。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的新产品做成了一单大生意，但财务和产品部为'这笔升级收入算产品还是服务'吵翻了，客户单子眼看要黄。",
+      "expected_behavior": "应激活 business-model-six-questions：这是 GE 燃气涡轮案（c10）的地盘之争形态——收入归属是新模式落地最凶的暗礁；按步骤 4 把裁决标准（用户满意优先）提前升级到高层，避免部门博弈葬送交易。",
+      "notes": "正面场景：'收入算产品还是服务'直接对应第 6 章原文冲突。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们的硬件从设计到铺进门店要一年多，瓶颈其实是经销商不愿意花钱改造陈列室，技术上早就做完了。",
+      "expected_behavior": "应激活 business-model-six-questions：命中'承担中间环节'一问——把改造陈列室的成本从经销商移到自己身上（相对开发成本极低），以缩短开发-测量-认知周期中的非技术环节。",
+      "notes": "正面场景：经销商陈列成本上移是第 6 章同章实例（V1 证据）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们产品上线三个月，留存很差，用户用了几次就走了，是不是该先做增长投放拉新？",
+      "expected_behavior": "不应激活本 skill，应激活 `value-and-growth-hypotheses`（价值假设与增长假设二分）：留存差说明价值假设未过，先对现有用户验证价值（愿付稀缺物/留存证据），增长与商业模式重构都排在价值证据之后——这正是本 skill 的判停条件。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同属'生意不好怎么办'家族，value-and-growth-hypotheses 管验证排序、business-model-six-questions 管结构杠杆。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司要给创新团队发钱了，每笔钱按学习里程碑分期拨付还是一年一拨，怎么设计？",
+      "expected_behavior": "不应激活本 skill，应激活 `milestone-based-funding`（里程碑式资金拨付 vs 按指定用途拨款（对偶模型））：问的是公司对团队的拨款制度（对内），不是团队对市场的收费与交付结构（对外）。",
+      "notes": "诱饵：'资金/拨付'字样与对内资金制度的混淆。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们想按效果收费，但销售说客户不接受，财务说对账做不了，这算商业模式问题还是执行问题？",
+      "expected_behavior": "边界判断：按'与用户利益对齐'一问的完成标准处理——先做一个最小合同实验测真实拒绝面（是渠道习惯还是用户意愿），对账能力按'履约能力前提'处理；若用户行为数据显示意愿存在，是内部履约与归属问题，转步骤 4 处理地盘与能力；若意愿为零，则该杠杆不适用，回步骤 2 换杠杆，不强行推进。",
+      "notes": "边界：检验'商业模式改动必须以真实履约能力与用户验证为前提'的 B 段约束。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（`value-and-growth-hypotheses`（价值假设与增长假设二分））混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "growth-board-design",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "明年预算被砍了三成，我们两个探索项目只能活一个，两个负责人都说得头头是道，老板让我拿个裁决办法。",
+      "expected_behavior": "应激活 growth-board-design：设增长委员会当场裁——不听故事，只验'上笔钱换来了什么可审计学习'；不出席者不投票；不能证明学习的那支当场终止，把裁决标准从'谁会哭'变成'谁在学习'。",
+      "notes": "正面场景：verified.md f08 的 V2 novel question，委员会作为裁决机制的标准情境。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们有个内部创新项目做了三年没成果，年年汇报年年续命，老板心软总被项目负责人的'再给我一年'说动，怎么破？",
+      "expected_behavior": "应激活 growth-board-design：用增长委员会+铁律治理僵尸项目——续命条件只认可审计的验证式学习，且把终止主导权交给团队本人（油气集团 50% 终止率的健康先例）。",
+      "notes": "正面场景：僵尸项目与'心软高层'正是铁律针对的两类失败（第 9 章原文）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "CEO 想搞'内部风投'，让我们设计一个创新项目评审委员会：多少人、多久开一次、按什么规则投钱？",
+      "expected_behavior": "应激活 growth-board-design：给出完整设计——6-8 名决策层小而精、至少每季度开会、会上当场定去留、以证据不以'正确答案'、不出席者不投票，并挂上三大职责与铁律。",
+      "notes": "正面场景：基德五条+三大职责是委员会设计的标准交付物。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "委员会裁项目时该用什么标准？我们想给每个创新项目建仪表板、把学习换算成净现值，具体指标怎么定？",
+      "expected_behavior": "不应激活本 skill，应激活 innovation-accounting-three-levels（创新核算三层次）：用户问的是裁决所用的度量语言与指标体系（innovation-accounting-three-levels 供给），不是裁决机构本身的设计（growth-board-design）。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：innovation-accounting-three-levels 供给语言、growth-board-design 消费语言做裁决，问'指标怎么定'归 innovation-accounting-three-levels。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的 ERP 替换项目到了第三阶段验收，按合同里程碑检查交付物就行了吧？",
+      "expected_behavior": "不应激活本 skill——ERP 替换是需求明确的执行型项目，适用传统项目管理与阶段验收；增长委员会管的是极端不确定的创新组合，不是执行项目的交付验收。",
+      "notes": "诱饵：'委员会+阶段'字样与阶段门径/项目验收的混淆。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "老板答应设增长委员会，但拨款权还在财务的年度预算流程里，委员会只能给建议不能开支票，还要设吗？",
+      "expected_behavior": "边界判断：按 growth-board-design 的判停条件——没有真实支票权的委员会会沦为表演；应先解决资金制度（转 milestone-based-funding 里程碑式拨款）或推动授权，否则建议缓设。合理回答是给出'有授权→设；无授权→先修拨款制度'的判定路径。",
+      "notes": "边界：机构（growth-board-design）与资金制度（milestone-based-funding）的依存关系正是两 skill 的接缝，此场景检验判停条件的应用。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（innovation-accounting-three-levels）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

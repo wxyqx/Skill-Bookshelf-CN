@@ -1,0 +1,52 @@
+{
+  "skill": "leaders-two-questions",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "孩子的月考成绩掉了十几名，我不想一开口就骂，第一句话该问什么？",
+      "expected_behavior": "应激活 leaders-two-questions：教家长改问'这次你学到了什么？怎么知道的？'，把对话从分数转到证据与改进，并用第二问防止'我觉得下次会好'式假学习。",
+      "notes": "正面场景：verified.md V2 的亲子变体，两问适用于非工作情境。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "下属负责的新产品上市遇挫，下午要来汇报坏消息，我怕自己忍不住先骂人，怎么准备这场谈话？",
+      "expected_behavior": "应激活 leaders-two-questions：忍住'为什么没做到'，先问学到了什么、再问怎么知道的，基于证据决定坚持或转型。",
+      "notes": "正面场景：中欧销售区业绩电话的同构情境。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "In our review meeting, what should a leader ask first when a project misses its targets?",
+      "expected_behavior": "应激活 leaders-two-questions（英文 trigger：what did you learn / how do you know），给出两问的顺序与判停条件。",
+      "notes": "英文提问 trigger 验证。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "仓库昨晚丢了一批货，监控查清楚了是老张没按流程锁门，这种情况怎么处理他？",
+      "expected_behavior": "不应激活本 skill：这是流程明确的执行力问题，直接按制度处理，套用两问会变成纵容。",
+      "notes": "反场景诱饵：无不确定性场合误用学习式问责。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们转型会开得太少，项目总是拖到最后一刻才讨论要不要转向，怎么把这种会制度化地排进日程？",
+      "expected_behavior": "不应激活本 skill，应激活 f19（转型/坚持会议节奏设计）：用户问的是'什么时候谈'的节奏机制，不是'谈的时候怎么问'。",
+      "notes": "跨 skill 混淆诱饵（同书）：pivot-persevere-cadence 管节奏与场合，leaders-two-questions 管会上语言，同一场景的两个切面。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "下属汇报'项目虽然没达标，但我们收获特别大'，然后讲了一堆感悟，没有任何数字，我该用两问吗？",
+      "expected_behavior": "应激活本 skill 并直接进入第二问：'你是怎么知道的？'——这正是 ce19 续命游说的识别时刻；若仍拿不出证据，转共同设计最小实验。属两问的典型适用场景与 ce19 的交界。",
+      "notes": "边界：看起来像'谈感悟'，实际是证据审计的用武之地。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（pivot-persevere-cadence 转型/坚持会议）混淆场景。"
+}

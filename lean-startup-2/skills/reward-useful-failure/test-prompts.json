@@ -1,0 +1,52 @@
+{
+  "skill": "reward-useful-failure",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下属负责的创新项目上周黄了，及时止损只花了很少的钱。下周全员大会，这个项目黄了的事我该怎么讲？",
+      "expected_behavior": "应激活 reward-useful-failure：把叙述权还给项目负责人本人，领导只补三件事（测了什么假设、花了多少、省下了什么），用对比数字量化赞美，切忌代讲“我否了它”。",
+      "notes": "对应 verified.md p19 V2 novel_question 的直接外推：全员会上怎么讲下属的失败。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司年会刚宣布“拥抱失败”，结果季度考核里项目失败一票否决，现在没人敢提前砍项目，全在硬撑。怎么改？",
+      "expected_behavior": "应激活 reward-useful-failure：诊断 ce02 式口号与制度信号相反，逐条对照奖励/晋升/考核列出不一致条款，推动责任制修改并设计终止表彰机制。",
+      "notes": "“口号与考核相反”是该单元 B 段与 ce02 的核心触发信号。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Our team killed their own project early and saved us millions. Leadership wants to punish the 'failure'. How do organizations handle celebrating a well-executed shutdown?",
+      "expected_behavior": "应激活 reward-useful-failure（英文 trigger: killed their own project / celebrate failure / termination）：按“谁来讲、讲什么、奖给谁”给出处置，建议公开表彰及时证伪并给团队再配置去向。",
+      "notes": "英文提问场景，检验 trigger 中英双写是否生效。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "产线上这个月出了 3 起质量事故，客诉率翻倍，质量管理部问要不要对事故责任人宽容处理，毕竟公司提倡宽容失败。",
+      "expected_behavior": "不应激活本 skill：确定性生产中的质量事故是缺陷而非探索性失败，六西格玛纪律照常适用（B 段反场景）；应明确拒绝以容错名义豁免质量责任。",
+      "notes": "诱饵: 把“探索失败”偷换成“质量事故”，检验 reward-useful-failure 的适用域。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "第一批 5 个内部试点项目全都没做成，高层开始怀疑转型失败了。这种组合层面的预期该怎么管理？",
+      "expected_behavior": "不应激活本 skill，应激活同书 p09（只要一个团队成功就是胜利）——用户问的是组合层的事前期望管理（问“失败是否留下可审计学习”），不是单次终止的叙事与激励处置。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): one-team-success-is-enough 与 reward-useful-failure 是同书失败话题的一对（组合预期 vs 终止仪式），防止互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "有位同事连续三个项目都黄了，每次都说“学到了很多”，但说不出测过什么假设、指标变化是什么。公司要不要继续给他机会？",
+      "expected_behavior": "边界判断：不适用表彰流程——讲不出所测假设的失败不受“奖励有益失败”保护（ce13 冒牌创业者信号）；但也不宜直接处分，应转交增长委员会按铁律重审其学习真实性，并要求下个项目先交假设清单。",
+      "notes": "边界: 检验“奖励只给有益的失败”与失败污点豁免被反向利用之间的分界。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（one-team-success-is-enough 只要一个团队成功就是胜利）的跨 skill 混淆测试。"
+}

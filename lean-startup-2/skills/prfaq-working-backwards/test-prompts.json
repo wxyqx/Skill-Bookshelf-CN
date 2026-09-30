@@ -1,0 +1,52 @@
+{
+  "skill": "prfaq-working-backwards",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我想推动公司换一套新的协作流程，但怕强推下去雷声大雨点小，能不能在消耗政治资本之前先测测大家真实的意愿？",
+      "expected_behavior": "应激活 prfaq-working-backwards：先写'流程已上线'的公告+FAQ（含切换日期与成本），发给将被影响的真实用户收反馈——冷场=别提，追问=找到首批合著者，拒绝是最便宜的教训。",
+      "notes": "正面场景：verified.md f16 的 V2 novel question（换流程前测意愿）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们团队有个新功能想法，老板问要不要直接排期开发，有没有比直接做原型更早、更便宜的验证办法？",
+      "expected_behavior": "应激活 prfaq-working-backwards：PRFAQ 是 MVP 之前的零代码闸门——写含发布日期与预估价格的虚构新闻稿+FAQ，拿给真实用户谈话，按冷场/追问/新需求三分支决定要不要进 MVP。",
+      "notes": "正面场景：'比 MVP 更早的验证'正指向 PRFAQ 的定位。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "听说亚马逊内部立项要先开一场新闻稿发布会，具体怎么操作？我们想做内部工具能不能也这么干？",
+      "expected_behavior": "应激活 prfaq-working-backwards：按亚马逊逆向工作法操作——新闻稿必须说清问题本身、现有方案、新方案如何'更好'，听众是真实的内部与外部用户；说不清'更好'就什么都不要生产；内部用户同样有效。",
+      "notes": "正面场景：直接点名亚马逊逆向工作法（第 1 章证据）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们准备给信仰飞跃假设做审计了，想先列出所有'我认为……'的假设清单再挑最不舒服的来测，具体怎么列？",
+      "expected_behavior": "不应激活本 skill，应激活 `leap-of-faith-assumption-audit`（信仰飞跃假设审计）：用户要的是假设清单的列法与排序（写'我认为…'、四自问、假设饮食法）；PRFAQ 是审计之后把某个假设物化去测的工件，顺序上在 `leap-of-faith-assumption-audit` 之后。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为'动手前先想清楚'家族，leap-of-faith-assumption-audit 想假设、prfaq-working-backwards 测反应。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "产品概念已经验证过了，现在要正式立项，请帮我们写一份给开发团队的需求规格文档，把功能范围定下来。",
+      "expected_behavior": "不应激活本 skill：用户要的是 PRD（给开发团队的执行规格），不是给用户的虚构新闻稿；本 skill 的测试对象是未验证的需求，且明确不替代已验证后的执行排期。",
+      "notes": "诱饵：'写文档'字样与 PRD 的混淆——虚构事实 vs 执行规格。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们把 PRFAQ 发给了十几个真实用户，反馈都说'挺好的、支持'，但没有一个人愿意留下联系方式跟进。",
+      "expected_behavior": "边界判断：口头肯定+零跟进是'冷场'的变体（礼貌性兴趣），按三分支应记为弱拒绝——不立项，先改写新闻稿或降低承诺粒度再测；若两轮后仍是这个形态，视为价值信号不足，转 `value-and-growth-hypotheses` 用行为型实验（预售/试用）补测，不靠更多访谈。",
+      "notes": "边界：检验'表达性偏好不等于显示性偏好'——PRFAQ 反馈也要防社会称许性。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（`leap-of-faith-assumption-audit`（信仰飞跃假设审计））混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

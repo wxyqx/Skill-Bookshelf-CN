@@ -1,0 +1,52 @@
+{
+  "skill": "one-page-preapproval",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "学校怕担安全责任，干脆禁止学生做任何自主实验项目。有没有比一刀切禁止更好的办法？",
+      "expected_behavior": "应激活 one-page-preapproval：用参数化预批替代禁令——材料成本<X、人数<Y、有监督人在场=免批；超档需签字，再超需面谈；把禁令变成显性边界，让学生自动选择小实验。",
+      "notes": "正面场景：verified.md f12 的 V2 novel question，禁令参数化的标准情境。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们法务审批一个内部实验要三周，法务自己也抱怨制度僵化，但那份审批文件已经二十多页了，怎么改？",
+      "expected_behavior": "应激活 one-page-preapproval：先诊断审批的真触发参数（用户数/负债/成本），改写成三档预批规则，再把文件本身当 MVP 交给内部用户迭代压缩——书中十页压成一页的完整路径。",
+      "notes": "正面场景：一页纸法务文件（c26）的直接对应。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "怎么设计合规规则才能让团队自愿把实验做小，而不是个个都报大数字？",
+      "expected_behavior": "应激活 one-page-preapproval：预批参数的反向激励正是本 skill 的设计意图——每位用户都要过审时，团队会自发选择 100 人而非 10000 人的实验规模（第 8 章行 2944）。",
+      "notes": "正面场景：反向激励是 V3 判定的独有机制。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们整个采购部都想转型：把采购从审批者变成服务内部客户赋能者，系统、人员、考核全要重设计。",
+      "expected_behavior": "不应激活本 skill，应激活 `gatekeeper-to-enabler`（把关部门→赋能部门改造路径）：用户问的是职能部门整体改造路径（含考核、定位、验收），单个审批文件的参数化只是其中法务/合规场景的一个工件。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为第 8 章把关部门改造家族，区分在单件规则 vs 整部门路径。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们这个实验就这一次，涉及某项政策红线，领导已经口头同意了，怎么把这次豁免落实下来？",
+      "expected_behavior": "不应激活本 skill，应激活 `wield-the-sword`（舞动宝剑）：个案豁免走成果换清障的交易谈判（书面确认兑现路径），不需要参数化的常设预批规则。",
+      "notes": "诱饵：'豁免'字样与一次性清障的混淆——预批解决'每一批'，宝剑解决'这一次'。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们起草了预批参数，但把关部门一位主管说：出事他要个人担责，所以宁可全审。",
+      "expected_behavior": "边界判断：这是预批机制的已知失效前提（审批人担事故责却不担延误责）——按判停条件不应继续压参数，先转 `accountability-method-culture`（责任制→方法→文化）调整该部门的问责对称性，或由高层为参数区间内的放行背书担责，再回来做参数化。",
+      "notes": "边界：检验 B 段'作者盲点'——参数化依赖把关部门问责对称，此场景恰是对称性缺失。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（`gatekeeper-to-enabler`（把关部门→赋能部门改造路径））混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

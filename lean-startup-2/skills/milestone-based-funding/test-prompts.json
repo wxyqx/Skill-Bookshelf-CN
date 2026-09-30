@@ -1,0 +1,52 @@
+{
+  "skill": "milestone-based-funding",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我想给团队的探索项目设计预算：是按季度分批打款盯着他们花，还是一次性给足让他们自己支配？怎么设计才能让他们既自主又有交代？",
+      "expected_behavior": "应激活 milestone-based-funding：给出里程碑式拨款设计——整笔预付随意支配+团队承担全部成本，期内不追问用途，复审只看'用这笔钱验证了什么'；分批 drip 会培养汇报表演，整笔+严格复审培养学习优先级。",
+      "notes": "正面场景：verified.md f09 的 V2 novel question（个人/团队版），对偶模型的标准应用。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们有个创新项目立项五年了，年年预算滚动、团队越招越多，上市日期一推再推，但谁也不敢提取消，钱该不该断？",
+      "expected_behavior": "应激活 milestone-based-funding：判定为水龙头式拨款（ce11）——复审标准应从进度改为'这笔钱换回了什么可审计学习'，不能证明验证式学习就不再拨款。",
+      "notes": "正面场景：水龙头体制诊断与断供判据是 milestone-based-funding 的核心职责。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "基金会在考虑资助一个探索性质的乡村教育项目，一次给一大笔还是分阶段给？各阶段怎么设门槛？",
+      "expected_behavior": "应激活 milestone-based-funding：按 GIF 模式分期（小额起步、逐级放大），早期阶段的钱'是给你学习用的'，学习/成果配比从 8:2 渐变到 2:8，每阶段设一条可测假设作解锁条件。",
+      "notes": "正面场景：GIF/SafeBoda（c19）是 milestone-based-funding 的原生案例，非营利资金设计直接对应。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们准备设一个委员会来定期裁决创新项目的资金去留，委员会该几个人、多久开一次会、按什么规则投票？",
+      "expected_behavior": "不应激活本 skill，应激活 growth-board-design（增长委员会）：用户问的是裁决机构的设计（构成/节拍/规则），不是资金拨付制度本身。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：milestone-based-funding 管钱的制度、growth-board-design 管判的机构，问'委员会怎么设'归 growth-board-design。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "装修公司装修我们的办公室，合同分三期付款，第三期该不该扣尾款？",
+      "expected_behavior": "不应激活本 skill——装修是需求明确的合同交付，分期付款对应交付节点验收，不存在'验证式学习'这种裁决标准。",
+      "notes": "诱饵：'分期付款+里程碑'字样在执行场景的同域误用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "老板愿意给创新团队一笔 500 万自主预算，但不想设任何复审，说'要信任就彻底信任'，这样行吗？",
+      "expected_behavior": "边界判断：不行——这是 ce22'给了钱没给问责'的独角兽式失误，milestone-based-funding 的核心正是'钱与复审必须同时设计'；应建议保留里程碑复审但放开期内用途（自由与问责分开设计），否则应拒绝该方案。",
+      "notes": "边界：'只给自由无问责'是 milestone-based-funding 在 verified.md B 段对应的反例（ce22 绑定 growth-board-design/milestone-based-funding），属于'部分拒绝'型 edge case。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（growth-board-design）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

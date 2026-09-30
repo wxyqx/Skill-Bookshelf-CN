@@ -1,0 +1,52 @@
+{
+  "skill": "accountability-method-culture",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司墙上贴满了'拥抱变化''不断革新'的价值观海报，团建也没少搞，但大家该保守还是保守，为什么没人当真？",
+      "expected_behavior": "应激活 accountability-method-culture：用责任制→方法→文化因果链诊断——文化是过去责任制与方法的残留，海报处在输出端；找出奖励旧行为/惩罚新行为的考核条款，从责任制入口改起。",
+      "notes": "正面场景：verified.md f13 的 V2 novel question（贴海报为什么无效）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们送了两批骨干去学创新方法，回来都说好，但三个月了没有一个实验落地，说是老板还是按老一套问进度。",
+      "expected_behavior": "应激活 accountability-method-culture：这是 ce18'只培训个人不改文化'的标准形态——主管的问责方式未变（问责传导未发生）；参照白板工作法把问责点移到管理层行为层，再谈方法落地。",
+      "notes": "正面场景：培训失效+老板问责方式不变，正是因果模型的应用情境。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "团队明明知道有更好的开发方案，但那个方案会增加返工量，影响他们的绩效评级，所以全员拒绝，怎么办？",
+      "expected_behavior": "应激活 accountability-method-culture：这是 ce09 EMS 激励矩阵的形态——局部考核指标的刚性传导；必须先修改考核条款（取消对返工量的惩罚）再谈方案，改方法不改责任制必然失败。",
+      "notes": "正面场景：'考核 A 却期望行为 B'的矛盾条款诊断是本 skill 步骤 1 的核心。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们买了新的绩效管理软件，想全公司推广，怎么让员工尽快用起来？",
+      "expected_behavior": "不应激活本 skill，应激活 `behavior-before-tools`（技术只是手段：先改行为与文化，再上工具）：用户的问题在工具上线顺序（应先小群体行为实验再迭代工具），不是文化因果诊断；除非诊断出存在惩罚使用行为的考核条款，才转本 skill。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为'文化缺位'家族，behavior-before-tools 管上线顺序、accountability-method-culture 管因果来源。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "法务部审批太慢拖累所有项目，想请你们帮我们把法务流程改造成服务内部用户的赋能部门。",
+      "expected_behavior": "不应激活本 skill，应激活 `gatekeeper-to-enabler`（把关部门→赋能部门改造路径）：用户要的是具体职能部门的改造施工（预批参数、红黄绿清单、行为验收），`accountability-method-culture` 只提供其底层的因果诊断；若施工中发现该部门考核与目标冲突，再回 `accountability-method-culture`。",
+      "notes": "诱饵：'部门文化/变革'字样与具体改造路径的混淆。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是个刚成立三个月的新团队，老板说想从一开始就建立好文化，需要做文化诊断吗？",
+      "expected_behavior": "边界判断：不激活改造流程——新团队无历史残留，直接设计责任制（考核什么、奖惩什么）与方法即可，'改造因果链'的整套诊断是给有残留的组织的；但可引用本 skill 的因果模型作为设计原则（先定责任制，文化会自己长出来）。",
+      "notes": "边界：检验 B 段反场景——模型对无残留组织的适用方式是设计原则而非改造流程。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（`behavior-before-tools`（技术只是手段））混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

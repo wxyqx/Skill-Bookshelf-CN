@@ -1,0 +1,52 @@
+{
+  "skill": "internal-change-owner",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "董事会刚批准了数字化转型，CIO 问是不是把项目整体外包给某大咨询公司主导，内部只需要配合。这样行得通吗？",
+      "expected_behavior": "应激活 internal-change-owner：按“变革必须由真正懂本公司文化的内部人设计”判据回答——外部顾问只能任教练（方法供应），主导权与署名权必须在内部专人手里；建议先指名内部负责人再谈合作结构。",
+      "notes": "对应 verified.md p24 V2 novel_question 的直接外推：请外部咨询公司主导行不行。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们推新工作法推了半年，没有专人负责，各部门各干各的，上周开总结会老板问“出了问题到底该找谁”，全场没人接话。",
+      "expected_behavior": "应激活 internal-change-owner：判定处于权力真空（坏方法潜藏其中）；按第 10 章判据这是“工作上的疏忽”，给出最低配置处方——指名道姓设专人并配齐授权（资源/汇报线/实验权），随后做无主事项扫描。",
+      "notes": "“出了问题该找谁”无答案是权力真空的标志症状。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Our transformation office head has the title but no budget, reports through three layers, and just executes HQ directives. Is that a real owner?",
+      "expected_behavior": "应激活 internal-change-owner（英文 trigger: transformation owner / title without authority）：按第 10 章判据——兼职做改革、只执行总部指令=事实上还没派人；需补授权三件套，否则属领导层疏忽。",
+      "notes": "英文提问场景，检验 trigger 中英双写是否生效。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "报销流程从 5 天压到 1 天的小改进定了方案，部门里几个人认领一下执行就行，需要专门设个“变革负责人”吗？",
+      "expected_behavior": "不应激活本 skill：一次性小改进不需要专人专责（B 段反场景），现有流程票决或认领即可；为小事设转型岗位是形式主义。",
+      "notes": "诱饵: 把“指派执行”泛化为“变革专责”，检验适用域的量级分界。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司请了咨询公司做转型教练，方法模板都是现成的。现在要把 GE 那套东西翻译成我们自己的说法、换个名字落地，该注意什么？",
+      "expected_behavior": "不应激活本 skill，应激活同书 p17（用本公司语言重述方法，不照搬复制）——用户问的是方法与语言的本地化改造，不是变革责任的归属与授权；且此处内部负责人问题尚未出现。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): localize-dont-copy 与 internal-change-owner 同属“外部人+内部落地”话题（怎么学 vs 谁主导），防止互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一位中层骨干主动请缨负责转型，但 CEO 只肯口头支持：不给预算、不调整他的汇报线、也不发正式任命。他该接受这个角色吗？",
+      "expected_behavior": "边界判断：按本 skill 判停规则——书面授权三件不齐即属“事实上没派人”，此时接受任命只是成为替罪羊预备役；建议先完成授权谈判（哪怕先要最小资源与一条直通 CEO 的汇报线），谈不下来则不接。同时提示森佩尔先例：请缨的正当性恰恰来自要求真授权。",
+      "notes": "边界: 检验“专人”与“替罪羊预备役”的分界，以及判停条件的实际运用。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（localize-dont-copy 用本公司语言重述方法）的跨 skill 混淆测试。"
+}

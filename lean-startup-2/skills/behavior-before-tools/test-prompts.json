@@ -1,0 +1,52 @@
+{
+  "skill": "behavior-before-tools",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司花了 80 万买的知识库软件上线三个月，文档库基本是空的，行政要求每人每周至少写两篇，结果大家复制粘贴凑数。是软件不行吗？",
+      "expected_behavior": "应激活 behavior-before-tools：归因于环境（写作行为无激励、无文化许可）而非软件；先小群实验“谁在什么时刻需要写”，让工具跟着行为迭代，暂停行政摊派。",
+      "notes": "对应 verified.md p20 V2 novel_question 的直接外推：上了知识库没人写文档。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们准备给全公司 9000 人上一个新绩效 app，计划一次铺开，培训两周后统计完成率。这个方案有问题吗？",
+      "expected_behavior": "应激活 behavior-before-tools：指出部署优先顺序是反的——应先做 20-100 人行为实验（PD@GE 曾两周零反馈），行为证据到手再分层扩大；完成率只能测合规不能测行为。",
+      "notes": "“一次铺开+培训完成率验收”是 ce10/ce15 的标准触发场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We rolled out a new collaboration tool company-wide. Adoption is at 12% and nobody volunteers feedback. Should we buy a better tool or change our approach?",
+      "expected_behavior": "应激活 behavior-before-tools（英文 trigger: rolled out / adoption / tool）：先归因环境而非工具，按“行为假设→小群实验→环境修复→工具迭代”顺序重做。",
+      "notes": "英文提问场景，检验 trigger 中英双写是否生效。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "线上接口平均响应时间涨到 4 秒，运维说要把数据库从 MySQL 换成分布式数据库，这个方案怎么评估？",
+      "expected_behavior": "不应激活本 skill：纯技术性能升级没有行为/文化变量（B 段反场景），按工程评审流程走即可；强套“先行为后工具”不适用。",
+      "notes": "诱饵: “换工具”的表象相似，检验 behavior-before-tools 的适用域（行为型工具 vs 技术设施）。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "新流程已经小范围试点成功，现在要决定推广节奏：是强制所有部门下季度切换，还是保留旧流程双轨并行让大家自己选？",
+      "expected_behavior": "不应激活本 skill，应激活同书 p21（自愿参加是领先性指标）——用户问的是推广验收方式（强制切换 vs 双轨并行的自愿迁移率），而 p20 管的是“行为证据先于工具部署”的顺序问题，此处顺序前提已满足。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): behavior-before-tools 与 voluntary-adoption-indicator 是同书最相邻的一对（顺序规则 vs 度量规则），防止互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "生产安全上报系统必须全员 100% 使用，这是合规硬要求，但一线工人确实不爱用，怎么按你们说的行为实验来做？",
+      "expected_behavior": "边界判断：合规硬要求不适用“自愿扩大”，但行为设计仍然适用——100% 上报是底线（不可自愿），如何让上报真实、低负担、不造假仍需小群行为实验与激励检查；应明确区分“参与率不可谈判”与“使用质量可以做行为实验”。",
+      "notes": "边界: 检验 B 段“安全合规类不适用”与行为设计仍有用武之地之间的分界。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（voluntary-adoption-indicator 自愿参加是领先性指标）的跨 skill 混淆测试。"
+}

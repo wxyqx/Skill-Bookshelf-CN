@@ -1,0 +1,52 @@
+{
+  "skill": "value-and-growth-hypotheses",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我的 Newsletter 有 5000 订阅但没人付费，我是先把订阅数做到 5 万，还是先做一个付费层试试？",
+      "expected_behavior": "应激活 value-and-growth-hypotheses：判定价值假设未过（留存/愿付证据为零），先对现有 5000 人测愿付稀缺物、设行为门槛，过门槛后再启用增长引擎；冻结纯拉新投入。",
+      "notes": "正面场景：verified.md f02 的 V2 novel question，先价值后增长排序的标准情境。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "写商业计划书时，投资人问我们的留存和增长机制，我想用 NPS 得分来证明用户喜欢我们，可以吗？",
+      "expected_behavior": "应激活 value-and-growth-hypotheses：指出满意度代理变量（NPS）不能换算成货币、不可当过关判据，改用重复购买/保留/愿多付/推荐等行为指标，并把门槛设为能让商业模型电子表格说得通的数字。",
+      "notes": "正面场景：本书独有的会计化判据（NPS 不可用）是 value-and-growth-hypotheses 的 V3 核心区分点。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们产品的增长引擎应该按黏性、付费还是病毒式来设计？怎么判断产品市场匹配到了没有？",
+      "expected_behavior": "应激活 value-and-growth-hypotheses 的增长面：按三引擎判据（口碑>流失/收入可再投入/正常使用自带传播）归类，并给出所选引擎下可计算的 PMF 门槛数字。",
+      "notes": "正面场景：g17 增长引擎三分已并入 value-and-growth-hypotheses 作增长面子模块（f06 淘汰合并）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们要向理事会汇报公益项目这半年的进展，怎么把'学习成果'整理成能审计的指标和估值？",
+      "expected_behavior": "不应激活本 skill，应激活 innovation-accounting-three-levels（创新核算三层次）：用户要的是整套记账与汇报体系（仪表板→商业案例→NPV），不是两个假设的分类与门槛。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：innovation-accounting-three-levels 是 value-and-growth-hypotheses 的下游记账体系，问'怎么记账汇报'时 value-and-growth-hypotheses 不得抢调。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们电商店要做双十一投放计划，预算 50 万怎么分配到各个渠道比较合适？",
+      "expected_behavior": "不应激活本 skill——成熟业务的渠道投放是执行优化问题，价值已被购买行为证明，不涉及价值/增长假设的二分与排序。",
+      "notes": "诱饵：出现'增长'字样但属成熟业务执行，非假设验证情境。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们App注册转化率很高但次月留存只有 3%，老板让市场部先冲一波下载量冲个榜单好融资，我该劝吗？",
+      "expected_behavior": "边界判断：应激活 value-and-growth-hypotheses——留存 3% 说明价值假设未过，冲量正是'先增长后价值'的反例；合理的期望是既给出 value-and-growth-hypotheses 的排序结论（先修价值面），也承认融资政治现实，建议用小规模增长实验（organizational-experiment-loop/innovation-accounting-three-levels）给董事会看行为数据而非榜单。",
+      "notes": "边界：情境明确指向价值未过的判断（value-and-growth-hypotheses 适用），但夹杂组织政治，需说明 value-and-growth-hypotheses 只解决判据问题、不解决说服问题。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（innovation-accounting-three-levels）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

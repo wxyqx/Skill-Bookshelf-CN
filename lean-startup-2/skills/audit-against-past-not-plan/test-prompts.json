@@ -1,0 +1,52 @@
+{
+  "skill": "audit-against-past-not-plan",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的探索项目做半年了还没有一分钱收入，下周要向董事会汇报，怎么写才能既诚实又站得住？",
+      "expected_behavior": "应激活 audit-against-past-not-plan：把基线从立项预测换成环比学习曲线（单位用户行为指标移动、被证伪的假设数、下阶段门槛），按投资额分层只承诺 3-5 个学习指标。",
+      "notes": "对应 verified.md p14 V2 novel_question 的直接外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "项目到期没完成责任制目标，团队说这半年收获特别大，想再要一年时间和 1000 万，我该批吗？",
+      "expected_behavior": "应激活 audit-against-past-not-plan：检查“收获”能否指认到具体环比指标变化，对照 ce19 续命游说信号（每次都“就差一点儿”），把裁决交给里程碑复审而非叙事说服。",
+      "notes": "“收获特别大”是 ce19 的标志性话术，audit-against-past-not-plan 的对照过去审计正是其解药。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Our internal venture is being audited against the original business case and every quarter looks like a failure. Is that the right baseline?",
+      "expected_behavior": "应激活 audit-against-past-not-plan（英文 trigger: audited / baseline / business case）：指出应改用对照过去的环比基线，预测在极端不确定下本来就是编造的猜想。",
+      "notes": "英文提问场景，检验 trigger 中英双写是否生效。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "财务部要审上一年度的费用报销合规性，帮我看看内控流程有没有漏洞。",
+      "expected_behavior": "不应激活本 skill：这是传统财务合规审计，对照的是规则与账实相符，不是创新项目的学习曲线；本 skill 明确只适用于探索期项目评估。",
+      "notes": "诱饵: “审计”一词的语义混淆——合规审计 vs 创新审计。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们想把创新项目的进展画成一页仪表板，转化率、留存这些指标该怎么设计、按什么顺序搭？",
+      "expected_behavior": "不应激活本 skill，应激活同书 f05（创新核算制度三层次）——用户问的是指标体系怎么建（L1 仪表板→L2 商业案例→L3 NPV），不是审计拿什么当基线。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): innovation-accounting-three-levels 与 audit-against-past-not-plan 是同书最相邻的一对（记账 vs 审计），防止互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们创新项目连续三期环比都在进步，但三年下来离当初的目标越来越远，还要继续吗？",
+      "expected_behavior": "边界判断：本 skill 管汇报与审计基线（环比确实在进步，汇报应如实写），但“要不要继续”超出其边界——应明确告知需交转型/坚持会议与增长委员会按铁律裁决，环比进步不构成续期理由。",
+      "notes": "边界: 检验是否清楚 audit-against-past-not-plan 只解决“怎么读进步”，不解决“值不值得继续”，防止被误用为无限续命的工具。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（innovation-accounting-three-levels 创新核算制度三层次）的跨 skill 混淆测试。"
+}

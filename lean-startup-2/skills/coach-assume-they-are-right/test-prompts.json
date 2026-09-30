@@ -1,0 +1,52 @@
+{
+  "skill": "coach-assume-they-are-right",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "一位固执的资深同事认为他的方案肯定行，完全不肯做任何验证，正面讲道理已经讲不通了，怎么让他试试实验？",
+      "expected_behavior": "应激活 coach-assume-they-are-right：停止辩论，声明'假定你对、我错'，把他的信心翻译成封存的预测，设计自证实验让现实做说服者。",
+      "notes": "正面场景：与 verified.md V2 novel question 同构。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们团队都是十年老兵，说'用户要什么我们最清楚'，拒绝一切用户调研，作为教练我该怎么介入？",
+      "expected_behavior": "应激活 coach-assume-they-are-right：不教'走出大楼'，改为围绕团队既有计划设计最小测量点+预测封存（展会信封模式）。",
+      "notes": "正面场景：展会信封实验的同构情境。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "How do you coach a resistant senior team that refuses to validate its assumptions?",
+      "expected_behavior": "应激活 coach-assume-they-are-right（英文 trigger：assume they are right / resistant team），给出四步自证实验流程。",
+      "notes": "英文提问 trigger 验证。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "团队是新招的几个应届生，还没掌握实验方法，帮我设计一个两周的精益方法入门培训。",
+      "expected_behavior": "不应激活本 skill：自证实验是为自信老手设计的说服技术；新手直接教标准方法更有效率（B 段反场景）。",
+      "notes": "对象诱饵：同一方法对新手和老手的适用性不同。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "团队挺配合的，愿意做假设盘点，帮我们把'用户会喜欢这个功能'背后的假设全部列出来排个序。",
+      "expected_behavior": "不应激活本 skill，应激活 f22（信仰飞跃假设审计）：团队已愿意合作，需要的是全面假设盘点，不是对拒绝者的自证实验。",
+      "notes": "跨 skill 混淆诱饵（同书）：coach-assume-they-are-right 面对拒绝者，leap-of-faith-assumption-audit 面对合作者——同一实验体系的两道门。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我嘴上说'假定你们是对的'，其实我打算让他们的实验失败后好接受我的方案，这样用有问题吗？",
+      "expected_behavior": "应激活本 skill 但立即触发其边界：设局式使用被 B 段明令禁止——一旦被识破会永久关闭教练通道；应改为真诚立场或放弃教练角色。",
+      "notes": "边界：区分'真诚的方法论立场'与'话术包装'是使用本 skill 的前提。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（leap-of-faith-assumption-audit 信仰飞跃假设审计）混淆场景。"
+}

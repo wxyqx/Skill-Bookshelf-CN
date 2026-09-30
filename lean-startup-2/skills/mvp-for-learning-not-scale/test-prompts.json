@@ -1,0 +1,52 @@
+{
+  "skill": "mvp-for-learning-not-scale",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板说我们这个验证用的 MVP 也要过高可用评审，不然不让上线测，我该照办吗？",
+      "expected_behavior": "应激活 mvp-for-learning-not-scale：先问加码增加什么学习，无增量则用风险控制（限用户数/时限/赔偿承诺）替代工程加码，并建议按学习目标重谈评审标准。",
+      "notes": "正面场景：与 verified.md V2 novel question 同构。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "架构师说虽然只有 50 个试点用户，但现在就得按 100 万用户设计，不然以后重构代价太大，怎么看？",
+      "expected_behavior": "应激活 mvp-for-learning-not-scale：识别这是 ce21'提前投资可扩展基础设施'失败模式，用'该加码增加什么学习'裁决。",
+      "notes": "正面场景：premature scaling 的典型话术。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Our MVP looks too rough for demos. Should we polish it for scale or keep it ugly for learning?",
+      "expected_behavior": "应激活 mvp-for-learning-not-scale（英文 trigger：for learning not for scale / MVP quality bar），给出裁决规则。",
+      "notes": "英文提问 trigger 验证。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "产品已经验证成功了，下季度正式发布给全部客户，帮我定 SLA 和高可用架构方案。",
+      "expected_behavior": "不应激活本 skill：已进入执行期/规模化阶段，质量就是价值，'为学习而优化'不适用。",
+      "notes": "阶段诱饵：验证期规则误用到执行期。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们要验证学生愿不愿意为时间管理 app 付费，帮我头脑风暴几种最省钱的测试载体，分别要花多少钱。",
+      "expected_behavior": "不应激活本 skill，应激活 f04（MVP 三件套头脑风暴与记分卡）：这是选型/开工前的头脑风暴工序，不是评审时的打磨标准之争。",
+      "notes": "跨 skill 混淆诱饵（同书）：mvp-for-learning-not-scale 管'选定后怎么优化'，mvp-trio-and-scorecard 管'用哪个载体测'。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的 MVP 涉及患者数据，法务说必须先过数据安全评估才能找用户测，这算不算无谓的工程加码？",
+      "expected_behavior": "合理判断：合规底线不可绕（B 段反场景），但可激活本 skill 的一半——把'合规'与'高可用'分开，用参数化预批（f12）把合规成本压到与实验规模匹配，而非放弃实验。",
+      "notes": "边界：强监管场景中合规是底线、加码是浪费，两者要在同一对话里切开。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（mvp-trio-and-scorecard MVP 三件套）混淆场景。"
+}

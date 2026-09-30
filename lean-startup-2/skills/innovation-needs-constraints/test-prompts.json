@@ -1,0 +1,52 @@
+{
+  "skill": "innovation-needs-constraints",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们部门今年拿到一笔 500 万的创新专项资金，领导说让我们放手干，别心疼钱。我怎么安排比较好？",
+      "expected_behavior": "应激活 innovation-needs-constraints：建议先自我设限（不可展期的时间盒与资源上限），把 500 万重定义为“可失败次数”，并警告资金过剩的高死亡率。",
+      "notes": "对应 verified.md p13 V2 novel_question 的外推场景：拿到大笔创新预算第一步做什么。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们这个内部项目立项三年了，每年预算都续，上线时间一推再推，团队倒是越加越多，老板最近开始质疑了。",
+      "expected_behavior": "应激活 innovation-needs-constraints：诊断“水龙头”拨款机制与僵尸项目症状，建议设置里程碑复审与终止条款，而非继续追加资源。",
+      "notes": "范围蔓延+续命拨款是 ce04/ce11 描述的典型症状，约束设计是本书处方。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We just got approved for double the headcount and budget for our moonshot team. Should we celebrate or worry?",
+      "expected_behavior": "应激活 innovation-needs-constraints（英文 trigger: budget / moonshot / resource abundance）：提示 resource abundance 反而提高死亡率，需主动设计约束。",
+      "notes": "英文提问场景，检验 trigger 中英双写是否生效。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司要压缩成本，行政部让我们把差旅标准再降 20%，怎么执行阻力最小？",
+      "expected_behavior": "不应激活本 skill：这是确定性的成本压缩问题，不是为实验设限；“制约”被误用为省钱时本 skill 明确不适用（B 段反场景）。",
+      "notes": "诱饵: 把“资源约束”偷换成“成本压缩”的语义混淆。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "两个探索项目下季度争一笔预算，老板让我当裁判，criteria 该怎么定才服众？",
+      "expected_behavior": "不应激活本 skill，应激活同书 f08（增长委员会设计）——用户要的是裁决机构与裁决规则（唯一问责点、当场决定、只验可审计学习），而不是团队侧的自我设限原则。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 拨款裁决(growth-board-design)与资源纪律(innovation-needs-constraints)是同书相邻概念，防止互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "领导批了我们无限期、不设 KPI 的自由，但同时也不给钱不给专人，说“先把氛围搞起来”。",
+      "expected_behavior": "边界判断：部分适用。无 KPI 属于有自由无问责（ce22 风险），无钱无专人则逼近“审批过紧”一侧；应建议按“有限但可靠”原则重新谈判资源与复审结构，而不是接受两个方向的极端。",
+      "notes": "边界: 同时踩中资源过剩与审批过紧两个失败方向的混合场景，检验是否把握“有限但可靠”的精确表述。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（growth-board-design 增长委员会设计）的跨 skill 混淆测试。"
+}

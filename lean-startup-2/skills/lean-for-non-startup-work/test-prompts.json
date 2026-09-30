@@ -1,0 +1,52 @@
+{
+  "skill": "lean-for-non-startup-work",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我是个行政，公司马上开年会，领导让我负责排议程。都说精益创业好，可我又不做产品，这套方法跟我有什么关系？",
+      "expected_behavior": "应激活 lean-for-non-startup-work：把年会筹备当实验——写一页假设（大家想要抽奖还是想让 CEO 讲话），做 5 人快速访谈这类半天级验证，按行为数据排议程。",
+      "notes": "对应 verified.md p23 V2 novel_question 的直接外推：行政岗与这套方法何干。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老板让我发个招聘广告招数字能源团队的工程师，我就是个 HR 专员，有什么办法能让这个招聘做得比以前聪明点？",
+      "expected_behavior": "应激活 lean-for-non-startup-work：对照 Current 团队招聘广告实验——先拿 20 个岗位试嵌入视频并搜集反馈，速战速决、有效再扩大，而不是等大商业案例与专家评审。",
+      "notes": "对应第 8 章 Current 招聘广告案例（日常 FastWorks 的标准实例）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "I'm not a PM, just an office admin. Is lean startup stuff even relevant for someone like me, or is it only for building products?",
+      "expected_behavior": "应激活 lean-for-non-startup-work（英文 trigger: not a PM / lean for non-startup / relevant for someone like me）：明确方法适用于非创业工作并给最小入口动作。",
+      "notes": "英文提问场景，检验 trigger 中英双写是否生效。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "财务月结每个月都要按时完成，报表格式的口径最近总出错，怎么把这套流程做得更稳不出错？",
+      "expected_behavior": "不应激活本 skill：有成熟 SOP 的确定性执行工作（B 段反场景），创业管理不能替代传统管理；这是流程稳定化问题，应走标准作业与质量控制。",
+      "notes": "诱饵: 把“日常工作改进”泛化成“处处实验”，检验适用域。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司推了半年精益工作法，现在没有专人负责，各部门各干各的，培训回来的同事都说“格格不入”。该派谁出来挑头？",
+      "expected_behavior": "不应激活本 skill，应激活同书 p24（变革必须内部专人专责）——用户的核心问题是变革责任归属与授权真空，不是个体岗位如何用实验方法。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): lean-for-non-startup-work 与 internal-change-owner 都涉及“普通员工与转型”，防止互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我给老板做 PPT 前想先找三个同事测试一下哪些图表看得懂，结果被老板说“就十几页片子搞这么复杂，先干正事”。我还要坚持实验吗？",
+      "expected_behavior": "边界判断：方法仍适用但应降成本——验证可以压缩到发消息问两个同事这类分钟级动作，不声张、不立项；同时提示 ce18 风险：若组织持续否定个体实验，先积累成果再讲方法，不要正面争论。",
+      "notes": "边界: 检验“为琐事实验的轻量分寸”与“组织不容忍时的自我保护”两条边界。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（internal-change-owner 变革必须内部专人专责）的跨 skill 混淆测试。"
+}

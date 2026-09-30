@@ -1,0 +1,52 @@
+{
+  "skill": "startup-team-basic-unit",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们成熟产品线业绩还行，老板想在里面搞个创新小分队，你觉得有必要吗？要设的话怎么定考核和汇报关系？",
+      "expected_behavior": "应激活 startup-team-basic-unit：先定位连续体——成熟线不缺新团队，缺的是重新投入创业基因调整实验/执行配比（现有业务的创新团队同样是创意源泉）；只有实验对象是新市场/新商业模式才设独立团队，且须专职跨职能、向增长委员会问责。",
+      "notes": "正面场景：verified.md f18 的 V2 novel question（成熟线要不要创新小分队）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的内部实验做成了，结果现有部门、孵化器、业务线都来说这个成果该归他们，团队被架在中间，当初没说好归谁。",
+      "expected_behavior": "应激活 startup-team-basic-unit：这是'成功后的威胁比失败更大'的组织排异——按落地预谈判补课：立即启动书面谈判（被吸收还是新部门、决定人、判据指标），并吸取教训把预谈判前置到下一个项目的立项书。",
+      "notes": "正面场景：成功后各方认领是第 2 章'一体化'节的标准症状。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司说每个部门都要组建跨职能创新团队，结果都是兼职拼凑的虚拟小组，这算真正的创业团队吗？",
+      "expected_behavior": "应激活 startup-team-basic-unit：按定义判定——创业团队必须专职跨职能（研发严谨+用户中心+工程规范）、把项目当实验、可申请转型、直接向增长委员会汇报；兼职虚拟小组不满足定义，不应套用创新问责（转 `dedicated-cross-functional-teams` 解决构成或明确按执行项目问责）。",
+      "notes": "正面场景：检验'基本工作单元'定义的判定用途。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司想设一个创业部来统管新产品、内部产品、并购和公司转型四类活动，部门的定位和职责该怎么设计？",
+      "expected_behavior": "不应激活本 skill，应激活 `unified-entrepreneurial-theory`（统一的创业理论）：用户问的是公司层归口设计（四类活动+七项职责+创业部定位）；`startup-team-basic-unit` 只处理工作单元层的团队设计与落地路径，是 `unified-entrepreneurial-theory` 体系内的原子。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为组织设计家族，unified-entrepreneurial-theory 是部门层、startup-team-basic-unit 是团队层。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的支付系统重构项目已经立项，需求和技术方案都清楚了，想按敏捷小队组织人力，两周一个迭代。",
+      "expected_behavior": "不应激活本 skill：这是需求明确的执行型项目，适用执行问责（交付标准、迭代节奏）；创业团队定义只在极端不确定、项目本质是实验时适用——套用会逃避执行问责（B 段反场景）。",
+      "notes": "诱饵：'团队/跨职能'字样与执行项目组织的混淆。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "高管很支持我们的内部实验，但拒绝在立项时谈'成功后归谁'，说等做成了再说，可以接受吗？",
+      "expected_behavior": "边界判断：不可照单全收——落地预谈判必须在立项时完成，否则成功即排异（第 2 章警告：反应来得快且致命）；合理路径是退而求其次：缩小实验范围或改用带预先责任约束的自由岛（g04），并把'预谈判未完成'明示为有意限制；同时用 `wield-the-sword` 争取高层为承接条款背书。",
+      "notes": "边界：检验'落地路径必须预先谈判'这一步的刚性与其替代方案。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（`unified-entrepreneurial-theory`（统一的创业理论））混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "train-the-veto-holders",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司要推内部新工具和新工作法，培训预算只够一轮，先培训一线员工还是先培训各部门负责人？",
+      "expected_behavior": "应激活 train-the-veto-holders：建议把预算/合规/HR/IT 等否决权持有者先于或同步于实践者请进教室，并按'喊停者'定制风险语言内容。",
+      "notes": "正面场景：培训对象排序是本 skill 的核心命题。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的新流程试点效果很好，但每次提交审批都被财务打回来，理由永远是'没有先例'，怎么破？",
+      "expected_behavior": "应激活 train-the-veto-holders：诊断喊停者未与新方法对齐的问题，画否决权地图，把财务负责人纳入培训并对齐预批参数与风险控制语言。",
+      "notes": "正面场景：审批口击毙是未培训喊停者的典型后果。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Who should we train first when rolling out the new methodology—practitioners or the gatekeepers who can veto it?",
+      "expected_behavior": "应激活 train-the-veto-holders（英文 trigger：gatekeepers / veto / stakeholder training），给出否决者先行的名单纪律。",
+      "notes": "英文提问 trigger 验证。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "员工年度合规培训完成率只有 70%，怎么把全员合规课的完课率提上去？",
+      "expected_behavior": "不应激活本 skill：这是以培训本身为目的的项目管理问题，不是变革传播中的对象排序问题。",
+      "notes": "语义诱饵：'培训'一词的两种目的。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "创新团队想请一位法务每周来团队坐班，随时解答合规问题，怎么说服法务部出这个人？",
+      "expected_behavior": "不应激活本 skill，应激活 p10（跨职能团队必须专职，缺编就借义工）：这是把执行职能请进团队的 staffing 问题，不是把否决者请进教室的传播问题。",
+      "notes": "跨 skill 混淆诱饵（同书）：'法务进团队'（dedicated-cross-functional-teams）与'法务进教室'（train-the-veto-holders）是两个工序不同、最易互抢的场景。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "把法务总监请进培训教室，他当场表态'我反对整个这套东西'，这是不是失败了？",
+      "expected_behavior": "属本 skill 的边界情形：当场反对不等于失败——目的已达成一半（否决依据从隐性变显性），接下来应把他的反对意见转成可讨论的风险参数（f12），并按判停条件把残余僵局升级给支持者。",
+      "notes": "边界：培训喊停者的目标是信息同频而非立场驯服，判断时要分清这两层。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（dedicated-cross-functional-teams 跨职能团队专职）混淆场景。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "unified-entrepreneurial-theory",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司想让 CIO 兼管创新，我担心这又是个荣誉头衔，怎么判断给他的是不是实职？",
+      "expected_behavior": "应激活 unified-entrepreneurial-theory，用七项职责审计逐项检查，重点核对'真实经营职责'（支票本）一项，给出封号式创新官的判停建议。",
+      "notes": "正面场景：创新职能实权判断，正是 V2 novel question 场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们公司的新产品、IT 政策、并购和数字化转型各归各的部门管，各有一套考核，要不要统一设一个部门？",
+      "expected_behavior": "应激活 unified-entrepreneurial-theory，识别这是四类活动的归口问题，盘点现状后按七项职责设计归口方案。",
+      "notes": "正面场景：四类活动统一管理的核心命题。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Should we set up a dedicated innovation function and appoint a chief innovation officer? What would make it real rather than ceremonial?",
+      "expected_behavior": "应激活 unified-entrepreneurial-theory（description 含英文 trigger：chief innovation officer / innovation function），给出七项职责审计框架。",
+      "notes": "英文提问 trigger 验证。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的内部 ERP 项目部署太慢了，18 个月才上一套，怎么用实验方法把这个流程做快？",
+      "expected_behavior": "不应激活本 skill：这是单个内部项目怎么用实验循环做的问题，应激活实验循环/MVP 类 skill，而非组织归口设计。",
+      "notes": "层级诱饵：项目层 vs 职能层。ERP 案例虽出自 unified-entrepreneurial-theory 的 A1 段，但用户问的是项目执行。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "部门里两个探索项目都在烧钱，下个季度预算只够留一个，该怎么裁？",
+      "expected_behavior": "不应激活本 skill，应激活 f08（增长委员会设计）：这是组合裁决问题，不是创新职能的组织归口问题。",
+      "notes": "跨 skill 混淆诱饵（同书）：同为组织级创新管理，但增长委员会管裁决，本 skill 管归口与职责审计。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们要新设一个'创业部'，第一任负责人应该从内部提拔懂文化的，还是从外面请做过风投的？",
+      "expected_behavior": "可激活本 skill 的一部分（七项职责中的交叉培训与心智模式条目支持'重要的是心智模式，不是履历'的讨论），但选拔评估本身超出本 skill 的执行步骤，应指出边界并聚焦职责落实。",
+      "notes": "边界：招聘选拔问题与本框架相邻但不重合，只应借用其判据。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（growth-board-design 增长委员会）混淆场景。"
+}

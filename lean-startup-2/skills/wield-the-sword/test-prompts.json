@@ -1,0 +1,52 @@
+{
+  "skill": "wield-the-sword",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的内部创新项目被审批流程拖了半年，法务和采购层层设卡，我想向 VP 争取实质支持，该怎么开口？",
+      "expected_behavior": "应激活 wield-the-sword：先清点团队可交付结果（周期/学习/开支），把诉求翻译成清障清单（政策豁免、专职人手、免于干预），按'你得到什么/你付出什么'的交易结构向 VP 陈述，并配套'一个团队成功就是胜利'的期望管理。",
+      "notes": "正面场景：内部提案被官僚摩擦卡住是舞动宝剑的标准情境（第 6 章过堂会）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "下周培训结束要开过堂会，公司让每个试点团队向高管提条件，我们该提什么才不会显得狮子大开口？",
+      "expected_behavior": "应激活 wield-the-sword：经验规则是团队很少要钱、要的是清障——提政策支持、借调专职人手、高层承诺中层不干预；先报可交付成果再开条件。",
+      "notes": "正面场景：'过堂会+提条件'直接对应第 6 章原文机制。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "大家都说合规部肯定不会同意我们的实验，但没人真的去问过，我能不能直接找管合规的副总裁？",
+      "expected_behavior": "应激活 wield-the-sword：这正是'谁是法务'的同构场景——把最坏风险量化成对方语言（如'最坏总负债 X 美元'），直通唯一有豁免权的人，跳过层级化恐惧。",
+      "notes": "正面场景：第 6 章行 2301-2316'谁是法务'是宝剑的微观同构（V1 证据之一）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司给创新团队的预算应该怎么设计？是一次拨一年还是按里程碑分期给？",
+      "expected_behavior": "不应激活本 skill，应激活 `milestone-based-funding`（里程碑式资金拨付 vs 按指定用途拨款（对偶模型））：用户问的是资金制度本身的对偶设计，不是向高层的清障谈判；且'团队很少要钱'正是两 skill 的分界。",
+      "notes": "诱饵：'要资源'字样与资金制度设计的混淆。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们想设一个常设评审委员会，每季度审所有创新项目的学习证据，当场决定拨款还是终止。",
+      "expected_behavior": "不应激活本 skill，应激活 `growth-board-design`（增长委员会）：用户要的是常设问责机构的设计（三大职责+基德五条+铁律），不是一次性清障谈判；宝剑发生在试点起步期，委员会是长期治理。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为'向高层争取/裁决创新'家族，区分在一次性交易 vs 常设机构。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "高管主动说'你们要什么我都支持'，我们反而不知道该要什么了。",
+      "expected_behavior": "边界判断：仍属本 skill 场景，但执行重心移到步骤 1-2（筹码清点与清障翻译）——高层已愿付剑，缺的是团队的报价单；若清点后发现无可审计成果作筹码，则判停转创新核算补证据。",
+      "notes": "边界：检验'宝剑是交换结构'这一定义——付剑方就位不等于交易成立。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-02 为同书兄弟 skill（`growth-board-design`（增长委员会））混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

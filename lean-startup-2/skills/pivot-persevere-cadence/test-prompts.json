@@ -1,0 +1,52 @@
+{
+  "skill": "pivot-persevere-cadence",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我想转行这件事拖了两年了，天天焦虑但一直没有认真坐下来决定过，怎么办？",
+      "expected_behavior": "应激活 pivot-persevere-cadence：把'要不要转'从深夜焦虑改成日历事件——约一个半月一次、每次只带证据（新尝试换回了什么学习）；节奏上限防焦虑化、下限防搁置，决策频率本身成为反沉没成本装置。",
+      "notes": "正面场景：verified.md f19 的 V2 novel question（个人转型节奏）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们项目每季度汇报都是'就差一点儿'，负责人每次都说收获特别大、再给一年肯定行，三年了还没结果。",
+      "expected_behavior": "应激活 pivot-persevere-cadence：按节奏设转型/坚持会议，只收证据（验证了哪些假设、行为指标环比）不收'收获特别大'式叙事（ce19）；会上二选一——转型（列新假设）或坚持（定下一版 MVP 门槛），终止也是合法输出。",
+      "notes": "正面场景：续命游说+无决策节奏是本 skill 的标准靶子。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "团队最近疯狂加功能、还在提前搭建能扛十倍流量的架构，我总觉得不对但又说不出哪里不对。",
+      "expected_behavior": "应激活 pivot-persevere-cadence：这是 ce21'提前优化/过度建设'——正是缺少转型/坚持节奏的二阶对冲；排期会议后，成员会在间隔期自问'眼下工作对下次会议有利吗'，从而自发收缩提前建设。",
+      "notes": "正面场景：'疯狂建设不停下问策略'直指节奏缺失的二阶症状。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们设了增长委员会来主持创新项目的继续/终止决定，委员会的构成、开会规则和拨款铁律该怎么定？",
+      "expected_behavior": "不应激活本 skill，应激活 `growth-board-design`（增长委员会）：用户问的是主持机构的机构设计（三大职责+基德五条+铁律）；`pivot-persevere-cadence` 只设计会议节奏与会议输入，且明确'没有委员会也可按节奏开会'。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为'继续还是停止'家族，growth-board-design 是机构、pivot-persevere-cadence 是节奏。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们成熟产品的季度经营复盘会想优化一下流程：上次交付延期、这个月客户投诉上升，怎么把复盘开得更有效？",
+      "expected_behavior": "不应激活本 skill：这是执行型业务的运营复盘（连续体执行端），问题是交付与效率，不涉及'策略是否有效'的转型/坚持判断；高频转型会反而打乱执行节奏（B 段反场景）。",
+      "notes": "诱饵：'复盘会/定期会'字样与执行复盘的混淆。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们按节奏开了转型/坚持会议，但老板每次都以'再观察一下'拖过去，从不出决定。",
+      "expected_behavior": "边界判断：节奏在、决定权虚置——按判停与 B 段'把会议当汇报仪式'反场景处理：先确认决定权者是否在场并有权拍板；若结构上无权决定（拨款权在别处），转 `growth-board-design` 推动设增长委员会承接决定，或缩小实验范围让当前层级有权决定；不建议继续空转开会。",
+      "notes": "边界：检验'决定权者在场是排期前提'这一步的刚性。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（`growth-board-design`（增长委员会））混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

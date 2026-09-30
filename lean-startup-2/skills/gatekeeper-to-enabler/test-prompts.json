@@ -1,0 +1,52 @@
+{
+  "skill": "gatekeeper-to-enabler",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "教务处审批一个社团活动要三周，学生早就没热情了，我们到底是绕开它、投诉它，还是有什么别的办法？",
+      "expected_behavior": "应激活 gatekeeper-to-enabler：把教务处当服务'内部用户'（师生）的创业团队——访谈内部用户拿行为级痛点，用 MVP 方法重构其自身流程（预批参数+模板迭代），以师生行为数据验收——而不是绕开或投诉。",
+      "notes": "正面场景：verified.md f15 的 V2 novel question。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我是公司 IT 负责人，CEO 要求我部门支持创新，可我们自己的系统建设流程还是瀑布式大项目，该从哪儿改起？",
+      "expected_behavior": "应激活 gatekeeper-to-enabler：按五实例对照路径——先落实内部 owner 与实验假设，选 IT 路径（样机进现场、小痛点试点、连续反馈回路），以一线行为指标（处理时长、自愿使用率）而非'上线率'验收。",
+      "notes": "正面场景：职能部门负责人自身转型是本 skill 的第二类标准用户。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们花两千万上的数字化系统，一线员工宁可手工抄数据也不用，是系统不行还是别的什么问题？",
+      "expected_behavior": "应激活 gatekeeper-to-enabler：这是 ce17 洞穴与针式打印机的形态——数字化以'上线'为里程碑、一线流程从未被实地观察；按路径诊断内部用户真实操作流程，把里程碑从'上线'改为'处理时间缩短'，重做现场实验。",
+      "notes": "正面场景：'系统没人用/比旧流程还慢'是 IT 把关部门未改造的标志症状。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们法务部的审批文件有二十多页，想把它压缩成一页纸的预批规则，参数怎么定？",
+      "expected_behavior": "不应激活本 skill，应激活 `one-page-preapproval`（一页纸预批文件）：用户问的是单个审批工件的参数化与迭代（`one-page-preapproval` 的全部内容）；`gatekeeper-to-enabler` 是整个职能部门的改造路径，只在用户问'法务部整体怎么转型'时才启用。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为第 8 章把关部门家族，one-page-preapproval 是工件、gatekeeper-to-enabler 是路径。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司刚启动转型三个月，第一批试点还没出结果，有人说应该趁热打铁马上改造财务和法务这些深层部门，对吗？",
+      "expected_behavior": "不应激活本 skill，应激活 `three-stage-transformation`（转型三阶段路线图与时机判断）：用户问的是时序判断——深层机制属第三阶段，过早触及等于自杀（`three-stage-transformation`）；应先在第一、二阶段攒政治资本，`gatekeeper-to-enabler` 只回答'动的时候怎么改'。",
+      "notes": "诱饵：'改造职能部门'字样与转型时序判断的混淆。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们请了知名咨询公司给采购部做流程再造方案，方案很好，但落地三个月没变化，接下来怎么办？",
+      "expected_behavior": "边界判断：咨询方案本身不是错，错在主导权归属——按 `internal-change-owner` 判据与 B 段反场景，应转内部专人接手（外部退为教练），把方案拆成本部门可执行的 MVP 实验重新立项，以内部用户行为验收；不建议再追加咨询预算买下一版方案。",
+      "notes": "边界：检验'改造必须内部人主导'与'把方案转译为实验'的接缝判断。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（`one-page-preapproval`（一页纸预批文件））混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

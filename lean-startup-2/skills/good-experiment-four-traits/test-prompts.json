@@ -1,0 +1,52 @@
+{
+  "skill": "good-experiment-four-traits",
+  "version": "0.1.0",
+  "source_book": "《精益创业 2.0》（The Startup Way） — [美] 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我想在公司群里发个问卷，测测大家对新的弹性福利政策的态度，这算一个合格的实验吗？",
+      "expected_behavior": "应激活 good-experiment-four-traits：指出问卷测表达偏好而非行为（不可证伪于真实选择）、无下一步行动设计、未绑定假设，并按四特征改造为小范围真实试用+回收使用数据的方案。",
+      "notes": "正面场景：verified.md f03 的 V2 novel question，四特征的典型判别情境。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "法务部担心我们的试点惹麻烦，实验提案总被打回来——怎么设计实验的风险控制才既能跑又能过审？",
+      "expected_behavior": "应激活 good-experiment-four-traits 的风险控制细则：限用户数、MVP 不贴企业商标、合规不打折、退款承诺、违约主动付罚金，把'失败可控'写成明确条款去换审批。",
+      "notes": "正面场景：风险控制五项是本书 V3 独有机制（把失败可控写成合同条款）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "帮我看看这份试点申请值不值得批：他们想推 200 个门店试卖新品，说'先试试看市场反应'。",
+      "expected_behavior": "应激活 good-experiment-four-traits 做评审：逐项检查四特征——假设可证伪吗（'试试看'不是假设）、下一步行动是什么、风险控制有哪些、绑定哪条信仰飞跃假设，给出改进意见或否决理由。",
+      "notes": "正面场景：评审实验提案是四特征作为清单的第二用法。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们要给新产品想几个便宜的验证方式，除了做完整版还有什么轻量的方案，比如预售页、人工服务这种？",
+      "expected_behavior": "不应激活本 skill，应激活 mvp-trio-and-scorecard（MVP 三件套头脑风暴与记分卡）：用户要的是生成候选载体（现有版/镀金版/极简版）并按成本选型，不是单个实验的质量检查。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：mvp-trio-and-scorecard 生成方案、good-experiment-four-traits 验收方案，'想几个方案'归 mvp-trio-and-scorecard。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们产线的焊接不良率要降下来，帮我设计一个参数优化实验方案。",
+      "expected_behavior": "不应激活本 skill——确定性生产环境的参数优化属于 DOE/六西格玛领域，不存在需要证伪的商业假设，作者明确把两套管理体制定位在适用域不同的两侧。",
+      "notes": "诱饵：'实验'一词的同域误用——质量管理实验与不确定性实验是两套体制。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "合规部说我们的实验涉及用户数据，必须先过完整的安全评审才能跑，可评审要排队三个月，实验窗口早过了，怎么办？",
+      "expected_behavior": "边界判断：good-experiment-four-traits 的'合规不打折'条款说明不能绕过评审；但制度性排队问题超出单次实验设计的范围——合理响应是声明 good-experiment-four-traits 只能给出'不牺牲合规'的约束，然后把用户导向 f12（一页纸预批：把合规规则参数化为免批区间）或 f11（舞动宝剑：向高层一次性清障）。",
+      "notes": "边界：单实验风险控制（good-experiment-four-traits）与把关流程改造（one-page-preapproval）的接缝场景，判定在于问题是'这次怎么控'还是'规则本身怎么改'。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（mvp-trio-and-scorecard）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}
