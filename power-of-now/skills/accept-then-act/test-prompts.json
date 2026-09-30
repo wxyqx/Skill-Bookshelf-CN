@@ -1,0 +1,59 @@
+{
+  "skill": "accept-then-act",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "回家过年被催婚，饭桌气压极低，我憋着火又不能摔门走人，怎么办？",
+      "expected_behavior": "应激活 accept-then-act：先接纳“这顿饭就是这个气氛”（像它是自己选择的一样）清掉对抗能量，再行动——明确立场、设边界或缩短饭局。",
+      "notes": "V2 外推场景：走不了又咽不下的典型处境。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司把我调到了不喜欢的组，短期走不了，天天边干边骂，怎么不内耗地把活干好？",
+      "expected_behavior": "应激活 accept-then-act：拆分“已发生改不了”与“此刻能做”，先内心说“是”，再带干净心智行动，并约定防假接纳复查。",
+      "notes": "“边干边骂/不内耗地干”是硬 trigger。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "航班突然取消了，行程全打乱，我气得不行，但现在最要紧的是改签和安排住宿。",
+      "expected_behavior": "应激活 accept-then-act：先对既成事实说“是”，再列此刻必须做的事并执行，行动不带怒气。",
+      "notes": "计划被打乱的当场场景，验证“接纳先于行动”的顺序。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我上午接到通知，母亲查出重病住院了，我整个人是懵的，完全接受不了这个事实。",
+      "expected_behavior": "不应激活本 skill，应激活 two-surrender-chances：重大厄运的两级臣服程序（先事实后感受），且涉及医疗情境须提示专业支持，不是日常“接纳+行动”组合。",
+      "notes": "跨 skill 混淆诱饵：同样有“接受不了”，但量级是厄运而非日常处境。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我把“允许一切发生”当签名一年了，可该难受还是难受，朋友说我这是自欺。",
+      "expected_behavior": "不应激活本 skill，应激活 fake-acceptance-alert：用户已有接纳话术，问题在真假接纳的元诊断与“不再创造”阶段，不在教接纳。",
+      "notes": "跨 skill 混淆诱饵：同属接纳主题，但诉求是诊断而非学习。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "合租室友长期偷用我的东西还偷拿外卖，我一直在忍，要不要继续接纳？",
+      "expected_behavior": "不应把本 skill 当终点激活：这是可改变且必须改变的处境（权益受损），主路径是沟通、换锁、搬走或投诉；“接纳”只可用于行动前清情绪，不得用于继续忍受侵害。",
+      "notes": "边界诱饵：检验 B 段“泥沼要脱身不忍受”的硬边界。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "岗位被 AI 冲击，公司不裁人但活越来越少，我感觉自己在慢慢被边缘化。",
+      "expected_behavior": "边界调用：处境部分可改（学新技能、内部转岗、外部求职）——先用本 skill 接纳当下事实并行动，同时明确“行动”包含长期改变选项；不可停在接纳。",
+      "notes": "边界：可改与不可改并存，判据是步骤 1 的拆分是否产出真实行动项。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-01、should-not-02 为同书兄弟 skill 混淆测试（two-surrender-chances / fake-acceptance-alert）。"
+}

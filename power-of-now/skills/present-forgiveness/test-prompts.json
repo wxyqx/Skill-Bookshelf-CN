@@ -1,0 +1,59 @@
+{
+  "skill": "present-forgiveness",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "同事抢了我的功劳，事情过去一个月了，之后每次开会看到他都膈应，怎么办？",
+      "expected_behavior": "应激活 present-forgiveness：定位时间轴（事后清库），检查责备/自怜模式，做即时允许练习，并把宽恕与主张分离（署名更正照常反映）。",
+      "notes": "V2 外推场景：职场抢功后的怨恨清库。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "父母的偏心我到现在都记得清清楚楚，三十岁了，我知道该放下但就是放不下。",
+      "expected_behavior": "应激活 present-forgiveness：指认怨恨喂养模式（自怜/责备），注意力倾注练习；同时注意“知道该放下但放不下”的自责循环本身也是自怨模式。",
+      "notes": "旧恨反复泛起是本 skill 核心场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "和室友闹矛盾这一个月，我天天在心里给她记账，她每次占便宜我都添一笔。",
+      "expected_behavior": "应激活 present-forgiveness：识别“边争执边记账”的库存行为，引导事中即时宽恕，不把摩擦攒成总账；若室友行为持续侵权，另行走止损/协商路径。",
+      "notes": "事中记账场景，对应“宽恕每一刻”。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我总觉得等我搞明白他当年为什么那样对我，我就能放下了。",
+      "expected_behavior": "不应激活本 skill，应激活 no-understanding-the-past：用户把回溯理解设为放下的前置条件，先做“是否研究过去”的路线裁决，裁决完才回到宽恕操作。",
+      "notes": "跨 skill 混淆诱饵：同涉过去伤害，但诉求是路线裁决。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "伴侣和我说话总是心不在焉，说过很多次了也没用。",
+      "expected_behavior": "不应激活本 skill，应激活 fully-accept-your-partner：这是日用摩擦的接受/改造工程问题，不涉及伤害事件的怨恨清库。",
+      "notes": "跨 skill 混淆诱饵：同涉“对伴侣的不满”，但层次是习惯接受。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我妹妹总劝我“你要大度点，原谅那个伤害过你的人”，她说得对吗？",
+      "expected_behavior": "不应把本 skill 用于支持该劝告：宽恕只能由受伤者自主采用，用它催促受害者“大度”是道德绑架；应指出该劝告的问题，宽恕决定权在用户自己。",
+      "notes": "误用诱饵：检验 B 段“不得催促受害者”的边界。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "当年侵害过我的人最近托人带话说想道歉，我在想要不要原谅他。",
+      "expected_behavior": "边界调用：涉及创伤史——不以本 skill 催促宽恕决定，明确“接不接触、原不原谅”是用户的自主权，建议在专业支持下处理；可提供“宽恕与是否见面解绑、与主张解绑”的信息。",
+      "notes": "边界：创伤语境下的宽恕请求，专业支持优先。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-01、should-not-02 为同书兄弟 skill 混淆测试（no-understanding-the-past / fully-accept-your-partner）。"
+}

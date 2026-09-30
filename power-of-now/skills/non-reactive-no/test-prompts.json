@@ -1,0 +1,59 @@
+{
+  "skill": "non-reactive-no",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "开会时领导把我的方案说成是他做的，我血往头上涌，手指已经在打反驳的字了，当场要不要怼回去？",
+      "expected_behavior": "应激活 non-reactive-no：先引导观察反应能量（小我防卫），再把事实主张从攻击能量中剥离（一句话事实陈述），给出当众陈述或事后书面留痕两种形态，并用“轻松、清晰、宁静”信号验收。",
+      "notes": "典型职场抢功冲突现场，V2 外推场景，语言信号“怼回去/血往头上涌”明确。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "朋友最近老阴阳怪气讽刺我，我不想撕破脸但也不想忍气吞声，这个“不”该怎么说？",
+      "expected_behavior": "应激活 non-reactive-no：区分事实主张与反应能量，构造不带消极情绪的高质量“不”。",
+      "notes": "人际激将+拒绝场景，“怎么说这个不”是硬 trigger。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "刚跟人吵完架，满脑子都是“我当时应该那么说”，越想越气，正常吗？",
+      "expected_behavior": "应激活 non-reactive-no：识别“必须赢/错误=死亡”的小我机制与事后反刍，引导观察而非补写辩论稿。",
+      "notes": "冲突后反刍是 ce06 警示信号，仍属本 skill 场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我上午被公司突然裁员了，脑子一片空白，情绪特别大，我不知道该怎么面对这件事。",
+      "expected_behavior": "不应激活本 skill，应激活 two-surrender-chances：这是重大厄运的接纳（先接受事实、接受不了则接受感受），不是人际冲突现场的反应管理。",
+      "notes": "跨 skill 混淆诱饵：同为“情绪+冲突感”，但无对手、无“说不”需求。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我坚持正念冥想一年了，为什么遇到堵车还是会暴怒？是不是白练了？",
+      "expected_behavior": "不应激活本 skill，应激活 fake-acceptance-alert：这是修炼平台期的假接纳诊断（停在“精神标记”、未拆再创造机制），不是冲突现场。",
+      "notes": "跨 skill 混淆诱饵：同样涉及“愤怒与修行”，但诉求是元诊断。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我上级长期抢我的功劳还威胁我闭嘴，我已经留了证据，这种情况该怎么办？",
+      "expected_behavior": "不应把本 skill 当主路径激活：这是持续权力侵害，主路径是维权程序（举报、人事、法律），本 skill 只能作辅助心理稳定；若调用必须先声明程序优先。",
+      "notes": "边界诱饵：检验 B 段“先程序后心理”的硬边界是否生效。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "有人在群里造谣我，我该不该公开反驳？反驳怕越描越黑，不反驳咽不下这口气。",
+      "expected_behavior": "边界调用：可用本 skill 的序列（观察反应能量→剥离攻击能量的事实陈述→选择当众回应或私下/平台投诉）帮助决定回应形态，但需提示保留证据、利用平台举报等程序选项。",
+      "notes": "边界：兼具“冲突现场反应”与“维权程序”双重属性，判据是回应是否出自洞见而非反应。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-01、should-not-02 为同书兄弟 skill 混淆测试（two-surrender-chances / fake-acceptance-alert）。"
+}

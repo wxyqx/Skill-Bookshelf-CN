@@ -1,0 +1,52 @@
+{
+  "skill": "waiting-state-exit",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "等 offer 的这两周我天天刷邮箱，坐立难安，感觉拿到结果我的生活才会真正开始。",
+      "expected_behavior": "应激活 waiting-state-exit：识别小等待（刷邮箱）+大等待（'生活才开始'），执行撤离动作并重定义等待期为练习场。",
+      "notes": "对应 verified.md V2 novel_question 的求职场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "等孩子上幼儿园我就去学画画，等还完房贷我们就去旅居——但我发现我一直没开始过自己想要的生活。",
+      "expected_behavior": "应激活 waiting-state-exit：大等待警报，指出'用一生等待开始新的生活'结构，撤离至当下可启动的最小版本。",
+      "notes": "多重'等……就……'句式叠加，典型大等待。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我每天通勤单程一小时，全程刷手机但也无聊得难受，到公司已经心很累了。",
+      "expected_behavior": "应激活 waiting-state-exit：把通勤重定义为练习场（感受内在身体/听寂静），提供具体方案。",
+      "notes": "对应第六章堵车排队练习的应用侧场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我在等签证结果，帮我梳理一下材料清单还缺什么，以及大概的审批时间线。",
+      "expected_behavior": "不应激活本 skill，因为这是等待期内的必要事务处理（钟表时间），用户请求的是行动清单而非等待状态的处理。",
+      "notes": "诱饵: '等'字出现但诉求是行动规划。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我拿到晋升通知一个月了，一点都不开心，反而怀疑这个目标到底有什么意义。",
+      "expected_behavior": "不应激活本 skill，应激活同书兄弟 skill inner-purpose-vs-outer-purpose——目标已达成，问题是意义与空虚，不是在途等待。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我在等活检结果，医生说下周出。我知道该活在当下，但真的做不到，一直心慌。",
+      "expected_behavior": "边界判断：可温和提供撤离动作（呼吸、身体锚定）作为辅助支持，但必须先确认用户有医疗与情感支持系统，不以'享受等待'为要求；若心慌伴随惊恐症状建议就医陪同。",
+      "notes": "边界: 高应激等待场景，触发判停条件与支持确认。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

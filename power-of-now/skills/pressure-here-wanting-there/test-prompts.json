@@ -1,0 +1,59 @@
+{
+  "skill": "pressure-here-wanting-there",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "deadline 前必须通宵赶工，心跳很快，怕自己扛不住。",
+      "expected_behavior": "应激活 pressure-here-wanting-there：定位分裂（手在敲键盘，心在想象明天交不了差），允许手快、禁止心逃，把心跳快重读为能量流动。",
+      "notes": "V2 外推场景：高压赶工的定位与处方。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我同时赶三个项目，人已经劈叉了，总觉得来不及，睡前脑子里还在排明天的日程。",
+      "expected_behavior": "应激活 pressure-here-wanting-there：一次只做一件事，把一百件事写成清单出脑，脑内只留此刻一件。",
+      "notes": "多线并行的内在分裂场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "出门要迟到了，一路狂奔，越跑越烦躁，心跳得厉害。",
+      "expected_behavior": "应激活 pressure-here-wanting-there：用“你可以用跑的，但不必心逃”的原文处方——允许身体快，把注意力放回跑步动作与呼吸。",
+      "notes": "赶路场景，对应原文“甚至用跑的”。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "等体检结果的两周，我天天刷手机坐立难安，什么都干不进去。",
+      "expected_behavior": "不应激活本 skill，应激活 waiting-state-exit：这是“需要未来而不要现在”的等待状态（小等待/大等待识别与撤离），不是赶工分裂。",
+      "notes": "跨 skill 混淆诱饵：同为时间性不适，但方向是“等”而非“赶”。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "凌晨三点想到明天的竞标，心跳加速睡不着。",
+      "expected_behavior": "不应激活本 skill，应激活 no-problem-in-now：躺着的此刻无行动可言，用“此刻你有什么问题”清零焦虑燃料，把担心换算成此刻能做的一件事（过一遍材料、定闹钟）。",
+      "notes": "跨 skill 混淆诱饵：同为“竞标+心跳快”，但情境是失眠而非赶工。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我连续加班三个月了，每天只睡五个小时，周末也在改需求，感觉整个人被掏空。",
+      "expected_behavior": "不应把本 skill 当主路径激活：这是慢性过载/职业倦怠，主路径是减负、休息与边界谈判（砍需求、调排期、寻求支持），必要时就医评估；本 skill 的“享受忙碌”在此即滥用。",
+      "notes": "边界诱饵：检验 B 段“倦怠不适用”与医疗警示。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "老板派的活永远不可能全部按时完成，我天天很焦虑。",
+      "expected_behavior": "边界调用：先用本 skill 处理执行时的内在分裂（手快心不逃），但必须同时指出结构性问题需要向上沟通、重排优先级——压力不完全归因于心态。",
+      "notes": "边界：心理处方与制度问题并存，先制度后心理。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-01、should-not-02 为同书兄弟 skill 混淆测试（waiting-state-exit / no-problem-in-now）。"
+}

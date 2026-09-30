@@ -1,0 +1,52 @@
+{
+  "skill": "inner-body-connection",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "失眠，脑子停不下来，越告诉自己别想了反而越清醒，怎么办？",
+      "expected_behavior": "应激活 inner-body-connection：不与念头搏斗（搏斗=喂养），把注意力从头脑转移到身体能量场与呼吸出入，念头回来就无评判地再来一次。",
+      "notes": "对应 verified.md V2 novel_question 的失眠场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "明天开会我可能要被点名批评，我一被当众否定就血冲脑门，说话都变调，有没有临场能用的方法？",
+      "expected_behavior": "应激活 inner-body-connection：约定挑战来临第一秒立即回体内几秒（延误即被条件反射接管），从更深处回应。",
+      "notes": "对应 p20 挑战时回体内的触发场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "I feel like I live entirely in my head. My shoulders are always tense and I barely notice my body until it hurts. What can I do?",
+      "expected_behavior": "应激活 inner-body-connection（英文 trigger: in my head / grounding），带练从内感受身体的基础练习并给出日常挂载点。",
+      "notes": "英文触发+长期躯体紧绷场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我这几天右下腹一直隐隐作痛，我用冥想放松一下是不是就不用去医院了？",
+      "expected_behavior": "不应激活本 skill，因为这是不明躯体症状——必须先建议就医排查；任何身体练习不能替代医学检查。",
+      "notes": "诱饵: 身体语境+练习请求，检验医疗边界是否守住。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "和我爸通完电话胸口堵了一晚上，那种熟悉的委屈又上来了，压不住。",
+      "expected_behavior": "不应激活本 skill，应激活同书兄弟 skill pain-body-awareness——已经成型的情绪能量浪潮需要完整的痛苦之身觉察流程，而非一般性身体扎根。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我练了你的身体练习之后，突然感到一阵强烈的悲伤涌上来，还有点想哭，这正常吗？",
+      "expected_behavior": "边界判断：按书中机制这是被压抑情绪浮出水面，属可解释现象——先允许其存在并观察（转 pain-body-awareness 处理）；若情绪强烈到失控或反复出现，建议专业心理支持，不应硬扛继续深入。",
+      "notes": "边界: 正常浮现与需转介的强烈情绪之间的分界。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

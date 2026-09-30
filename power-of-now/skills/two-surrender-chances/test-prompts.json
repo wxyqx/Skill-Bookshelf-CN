@@ -1,0 +1,52 @@
+{
+  "skill": "two-surrender-chances",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "今天上午公司突然把我裁了，赔偿还没谈，我现在手抖得打字都困难，感觉天塌了，我该先做什么？",
+      "expected_behavior": "应激活 two-surrender-chances：先定级（事实已定+赔偿可谈）→第一机会列必须做的事（确认赔偿口径、社保衔接）→因情绪压倒转第二机会（不压抑、不写剧本、全面感受）→危机判停检查。",
+      "notes": "对应 verified.md V2 novel_question 的裁员场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "昨晚发现伴侣出轨，我一夜没睡，一直问自己为什么是我，我知道该接受现实但我真的做不到。",
+      "expected_behavior": "应激活 two-surrender-chances：'做不到接受事件'直接触发第二机会——向内心感受臣服，并检查是否开始积累怨恨（是则后续移交 present-forgiveness）。",
+      "notes": "'知道该接受但做不到'是两级程序的标志句式。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "My father passed away suddenly last week. Everyone tells me to stay strong and accept it, but I feel nothing and I'm afraid that means I'm broken.",
+      "expected_behavior": "应激活 two-surrender-chances（英文 trigger: accept it / can't），识别'feel nothing'可能是情感切断而非臣服（切断感受不是臣服），允许感受在,并说明哀伤的自然进程与专业支持选项。",
+      "notes": "英文触发+哀伤场景，同时检验 B 段'不强行转化哀伤'的边界。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我今天和同事闹了点矛盾，他说的话很过分，但我决定不理他了，就当接受现实吧。",
+      "expected_behavior": "不应激活本 skill：这是人际冲突的日常级场景且用户话术有假接纳嫌疑——应移交 fake-acceptance-alert 或 non-reactive-no，而非厄运级臣服程序。",
+      "notes": "诱饵: '接受现实'字面出现但既非厄运级也非真接纳。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个烂项目我实在受不了了，帮我想想怎么跟领导提条件改善现状，实在不行我就申请调岗。",
+      "expected_behavior": "不应激活本 skill，应激活同书兄弟 skill accept-then-act——事实仍可改变（谈判/调岗），用户要走的是'接纳然后行动'的日常行动线，不是厄运级两级程序。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我确诊了慢性病，医生说能控制但治不好。我现在既想着积极配合治疗，又觉得心里过不去这个坎，晚上会突然崩溃大哭。",
+      "expected_behavior": "边界判断：应激活本 skill 的完整两级程序——第一机会承认'病已确诊'并配合治疗（钟表时间的行动），第二机会向恐惧与悲伤的感受臣服；同时明确医疗决策遵循医生、崩溃哭是正常哀悼而非失败，若情绪持续恶化建议心理支持。",
+      "notes": "边界: 臣服程序与医疗依从、正常哀悼三者的叠加场景。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

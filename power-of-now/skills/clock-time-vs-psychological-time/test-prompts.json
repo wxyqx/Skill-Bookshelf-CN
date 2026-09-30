@@ -1,0 +1,52 @@
+{
+  "skill": "clock-time-vs-psychological-time",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下周复盘会上我要不要公开检讨自己那次失误？我怕大家拿这个说事，又觉得不检讨不真诚，这几天一直在想。",
+      "expected_behavior": "应激活 clock-time-vs-psychological-time，用判别器拆解：提取教训并落成流程变更=钟表时间（应该做）；自我清算与形象防卫=心理时间（停止）。",
+      "notes": "对应 verified.md V2 novel_question 的职场复盘场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "分手半年了，我半夜还在想'当时我要是少说那句话就好了'，这个错误我放不下。",
+      "expected_behavior": "应激活 clock-time-vs-psychological-time，识别过去向心理时间（悔恨认同），执行两栏拆分与归档话术。",
+      "notes": "'要是当初'句式+放不下，语言信号直接命中。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我总觉得现在每一天都是在为两年后上岸做准备，上岸了生活才算开始。这样对吗？",
+      "expected_behavior": "应激活 clock-time-vs-psychological-time：目标至上=心理时间的未来向变体，当下沦为踏脚石；改 how 不改 what。",
+      "notes": "目标压迫型心理时间。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我看看我下周的日程安排合不合理，我感觉事情排得太满了。",
+      "expected_behavior": "不应激活本 skill，因为这是日程工具问题，没有悔恨/自责/认同的信号；那是普通时间管理咨询。",
+      "notes": "诱饵: '时间'字面相关的工具性请求。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "明天要竞标，我现在心跳加速睡不着，脑子一直在过明天的场景。此刻我到底有什么问题？",
+      "expected_behavior": "不应激活本 skill，应激活同书兄弟 skill no-problem-in-now——用户要做的是'此刻问题清零'的当场检查，而非过去未来的长期判别。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我小时候经历过一些不好的事，最近读了很多原生家庭的书，想弄明白我为什么会变成这样。",
+      "expected_behavior": "边界判断：本 skill 只处理'使用过去的方式'，不处理'是否探究过去原因'——那是 no-understanding-the-past 的领域；且涉及创伤场景时须先提示专业支持的必要性，再谈任何自助方法。",
+      "notes": "边界: 判别器与'不研究过去'原则的分工，叠加创伤转介义务。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

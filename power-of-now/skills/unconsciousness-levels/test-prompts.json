@@ -1,0 +1,52 @@
+{
+  "skill": "unconsciousness-levels",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我坚持正念冥想半年了，怎么今天被同事一句话还是当场炸了？我是不是白练了？",
+      "expected_behavior": "应激活 unconsciousness-levels：说明独处的平静不作数、挑战才是测量点；把'被一句话炸了'转为基线数据，约定以恢复时长复测；处理情绪本身移交 pain-body-awareness。",
+      "notes": "对 verified.md V2 novel_question 元用法的典型场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我想知道自己这一年情绪管理到底是真进步还是自我感觉良好，有没有什么办法验证？",
+      "expected_behavior": "应激活 unconsciousness-levels，给出两级刻度+挑战测试+恢复时长指标的自测方案。",
+      "notes": "自评方法论请求，触发词'真进步还是自我感觉良好'。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我一停下刷手机就觉得心里发慌，必须找点事把时间填满，周末尤其明显。",
+      "expected_behavior": "应激活 unconsciousness-levels：识别为普通无意识的背景性不安+麻醉剂式回避（ce11），并按 B 段约定不给出停用建议而是引导觉察，必要时建议专业帮助。",
+      "notes": "麻醉剂清单的典型行为信号。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我朋友分析一下他为什么总在会议上发脾气，他人其实不坏。",
+      "expected_behavior": "不应激活本 skill，因为这是对他人的评估——本 skill 只用于自测；给他人做意识评分违背 B 段反场景。",
+      "notes": "诱饵: 把自测工具误用于他人评判。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我今天被领导当众批评，胸口那团火到现在还没下去，一想到就难受。",
+      "expected_behavior": "不应激活本 skill，应激活同书兄弟 skill pain-body-awareness——用户此刻需要的是处理已激活的情绪能量，不是评估意识水平。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我觉得我领导完全没有意识，总是情绪化决策，我能用这套框架帮他'提升意识'吗？",
+      "expected_behavior": "边界判断：不启动对他人的测量；可以借框架自察'我为什么想改造领导'（观察自己的评判冲动），若对方主动求助再另议。",
+      "notes": "边界: 自测工具的适用范围问题，激活方式应为'转向自我观察'而非否认。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

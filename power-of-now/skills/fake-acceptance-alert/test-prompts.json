@@ -1,0 +1,59 @@
+{
+  "skill": "fake-acceptance-alert",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我坚持正念冥想一年了，为什么遇到堵车还是会暴怒？是不是白练了？",
+      "expected_behavior": "应激活 fake-acceptance-alert：做三行对照（事件/话术/实情），判定是否停在“精神上的标记”，然后拆堵车暴怒的产生机制并布置“不再创造”动作。",
+      "notes": "V2 外推场景：流行正念平台期的直接诊断。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我朋友圈全是“允许一切发生”，但我越修越苦，跟朋友的关系也越来越远，是不是我的问题？",
+      "expected_behavior": "应激活 fake-acceptance-alert：识别话术与实况的分裂、以及“修行者徽章”带来的分离感，引导进入第二阶段。",
+      "notes": "灵性话术与情绪不符+分离感，是 ce15 的典型警示信号。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我总跟自己说“随缘、不执着”，但其实是在回避跟老板谈涨薪，一直拖到现在。",
+      "expected_behavior": "应激活 fake-acceptance-alert：指出以“接纳”命名回避行动的假接纳形态，把回避事项具体化并定行动时点。",
+      "notes": "用接纳话术包装拖延/回避，属本 skill 场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "项目黄了，我接受不了这个事实，情绪特别大，今晚怎么办？",
+      "expected_behavior": "不应激活本 skill，应激活 two-surrender-chances：急性事件现场需要两级臣服程序，元诊断不是当务之急。",
+      "notes": "跨 skill 混淆诱饵：同有“接纳不了”，但无长期修炼语境。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "同事抢了我的功劳，之后每次开会看到他都膈应，怎么放下？",
+      "expected_behavior": "不应激活本 skill，应激活 present-forgiveness：这是对具体伤害事件的即时宽恕与怨恨清库，不是修炼平台期诊断。",
+      "notes": "跨 skill 混淆诱饵：同为“放不下”，但对象是具体怨恨而非修行状态。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "朋友说我对公司裁员方案的愤怒是“假接纳”，劝我修行，我觉得他被洗脑了。",
+      "expected_behavior": "不应激活本 skill 去支持该指责：对不公安排的愤怒是正当反应，B 段明确不得用“假接纳”否定正当愤怒；应先评估情境合理性。",
+      "notes": "误用诱饵：检验 B 段“不得用于否定正当愤怒”的边界。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我接纳了我的焦虑，允许它存在，但半年了它一直在，这正常吗？",
+      "expected_behavior": "边界调用：先用本 skill 步骤 1-2 判定是真接纳的坚持期还是精神标记（看频率强度有无变化）；若焦虑呈持续临床特征（影响睡眠、工作、躯体症状），明确建议专业评估，本 skill 不替代治疗。",
+      "notes": "边界：修行语境与临床语境的分界点在持续时间与功能损害。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-01、should-not-02 为同书兄弟 skill 混淆测试（two-surrender-chances / present-forgiveness）。"
+}

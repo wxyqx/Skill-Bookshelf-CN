@@ -1,0 +1,52 @@
+{
+  "skill": "inner-purpose-vs-outer-purpose",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司让我外派两年，升职加薪，但我舍不得家。两边都有道理，我到底该不该去？",
+      "expected_behavior": "应激活 inner-purpose-vs-outer-purpose：外在轴上两个选项都是合法的'游戏'，不构成答案；把决策权重转到'在哪个选择里我能以更高的意识质量做事'，并预先解除赌注。",
+      "notes": "对应 verified.md V2 novel_question 的职业抉择场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我去年终于考上编制，高兴了一个月，现在每天上班还是空虚得要命。我图什么呢？",
+      "expected_behavior": "应激活 inner-purpose-vs-outer-purpose：识别'外在目的不给持久满足'，执行自检问句与改 how 步骤。",
+      "notes": "'得到之后空虚'是 ce07 与 f09 的交汇场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "My startup just failed after three years. Was it all a waste? I feel so empty chasing goals that never pay off.",
+      "expected_behavior": "应激活 inner-purpose-vs-outer-purpose（英文 trigger: chasing goals / empty / waste），先解除'白干'赌注（教训=钟表时间的收获），再定位内在目的。",
+      "notes": "英文提问+失败后意义怀疑。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我对比一下这两个 offer 的薪资结构和晋升路径，我想做个表格分析。",
+      "expected_behavior": "不应激活本 skill，因为这是实务性对比分析请求，用户要的是信息与工具，不是意义定位。",
+      "notes": "诱饵: 抉择语境但诉求纯实务。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我天天加班赶项目，心跳很快，手在敲代码心已经飞到下周的交付日了。",
+      "expected_behavior": "不应激活本 skill，应激活同书兄弟 skill pressure-here-wanting-there——问题形态是'身在此心在彼'的压力分裂，不是意义与空虚。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我连续两个月对什么都提不起兴趣，包括以前最喜欢的事，睡觉也变差了，觉得做什么都没意义。",
+      "expected_behavior": "边界判断：不启动双轴练习。兴趣丧失+睡眠改变+持续无意义感是抑郁筛查信号，应先建议专业评估；本 skill 缓行至症状缓解后。",
+      "notes": "边界: 哲学性空虚与抑郁性空虚的分界，触发判停条件。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

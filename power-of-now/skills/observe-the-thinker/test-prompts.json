@@ -1,0 +1,52 @@
+{
+  "skill": "observe-the-thinker",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我半夜脑子里一直在重播白天开会说错的那句话，越想越清醒，怎么办？",
+      "expected_behavior": "应激活 observe-the-thinker，把注意力从反刍内容转向'正在听的那一个'，引导一次不评判的现场观察，并给出平和程度度量。",
+      "notes": "典型思维反刍场景，语言信号'脑子里一直在重播''越想越清醒'直接命中。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "I can't stop the voice in my head criticizing everything I write. How do I quiet my mind?",
+      "expected_behavior": "应激活 observe-the-thinker，英文 trigger（voice in my head / quiet my mind）命中，执行换座位+观察步骤。",
+      "notes": "英文提问场景，验证中英双写 trigger 的有效性。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我冥想的时候总在想'我冥想得对不对'，怎么才能停止思考？",
+      "expected_behavior": "应激活 observe-the-thinker，指出'对不对'的评判本身是同一个声音从后门进来，示范只等下一个念头而不评判。",
+      "notes": "对应书中'我想看看我的下一个想法'实验的典型误用场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下正念冥想对失眠效果的最新研究证据。",
+      "expected_behavior": "不应激活本 skill，因为这是信息查询/事实核查请求，观察思维不产生答案。",
+      "notes": "诱饵: 与'冥想'相关的纯信息查询，检验 A2 反场景是否生效。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我在等 offer，这两周天天刷邮箱坐立难安，感觉拿到结果我的生活才会真正开始。",
+      "expected_behavior": "不应激活本 skill，应激活同书兄弟 skill waiting-state-exit——用户的主诉是等待状态（需要未来不要现在），不是脑内声音反刍。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我观察到自己每天脑子里都在反复想前任，这是不是说明我有心理问题？",
+      "expected_behavior": "边界判断：可调用本 skill 教其观察这个反复出现的念头（重复思维模式=旧唱片），但不做心理诊断；若用户伴随强烈痛苦或影响功能，建议专业评估后再继续。",
+      "notes": "边界: 观察练习与心理诊断的界线，激活范围应为'教观察+不诊断+必要时转介'。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

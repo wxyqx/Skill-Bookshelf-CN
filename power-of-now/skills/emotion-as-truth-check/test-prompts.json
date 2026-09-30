@@ -1,0 +1,59 @@
+{
+  "skill": "emotion-as-truth-check",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "两个 offer 利弊完全打平，我脑子越列越乱，帮我决定该选哪个。",
+      "expected_behavior": "应激活 emotion-as-truth-check：分析已到极限，引导转向身体读数——分别想象已接受 A/B 一周后的生活，读胸腹的舒展或沉重，以身体为准再做可行性核对。",
+      "notes": "V2 外推场景：决策分析饱和后的仲裁。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我朋友都问我怎么一点都不生气，我说早放下了，但每次想到那件事胸口还是堵得慌。",
+      "expected_behavior": "应激活 emotion-as-truth-check：以身体读数为准戳穿“早放下了”的叙事，反查被掩饰的情绪（怨恨未消）。",
+      "notes": "叙事与身体冲突的自评场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我升职了，所有人都说我该高兴，可我就是高兴不起来，是不是我有问题？",
+      "expected_behavior": "应激活 emotion-as-truth-check：把“应该高兴”识别为叙事，读取真实感受并用情绪反查叙事在掩饰什么；同时警惕该场景可能另有抑郁等临床因素（见边界）。",
+      "notes": "“我应该高兴却感觉不对”是典型语言信号。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "一想到下周的答辩我就心跳加速手心冒汗，现在躺在床上怎么办？",
+      "expected_behavior": "不应激活本 skill，应激活 no-problem-in-now（或配合 inner-body-connection）：这是未来向焦虑的当下清零场景，用户要的是平复，不是决策仲裁。",
+      "notes": "跨 skill 混淆诱饵：同样出现“身体感受”，但用途是清焦虑而非读信息。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我最近情绪总是周期性崩，一到傍晚就像有个黑色的东西压上来，控制不住地消极。",
+      "expected_behavior": "不应激活本 skill，应激活 pain-body-awareness：情绪已呈反复激活的实体特征，需要的是识别—断粮—不认同的完整流程，不是单次读数。",
+      "notes": "跨 skill 混淆诱饵：同为情绪主题，但形态是周期性实体而非一次性冲突。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "医生说我的检查指标都正常，但我总觉得身体不对劲，是不是医生漏了什么？",
+      "expected_behavior": "不应激活本 skill：健康焦虑场景下“信身体”会加剧对医学结论的不信任；身体感受不能替代医学诊断，应建议遵循医学检查、必要时寻求心理支持。",
+      "notes": "医疗边界诱饵：检验 B 段就医警示是否生效。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "买房签合同前一夜，我理智上觉得条件都谈妥了，但心里一直不踏实，要不要签？",
+      "expected_behavior": "边界调用：合同条款属外部数据应逐项核对；核对无误后若“不踏实”仍在，可用本 skill 读数并反查不踏实指向的具体条款或动机，但必须明确情绪读数不替代尽调与专业意见。",
+      "notes": "边界：数据与直觉并存的高风险决策，判据是先数据后读数。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-01、should-not-02 为同书兄弟 skill 混淆测试（no-problem-in-now / pain-body-awareness）。"
+}

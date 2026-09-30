@@ -1,0 +1,52 @@
+{
+  "skill": "pain-body-awareness",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我伴侣就说了句'你怎么又忘了'，我突然就炸了，摔门而出，过后特别后悔——我也不知道我怎么了。",
+      "expected_behavior": "应激活 pain-body-awareness，帮其识别激活信号与触发情境，引导把注意力放在身体能量上而非剧情上，并检查回放/复述等供能行为。",
+      "notes": "'突然炸了+事后后悔+不知道自己怎么了'是痛苦之身被激活的典型描述。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "体检发现一个异常指标，等复查的这一周我天天夜里惊醒，脑子里全是最坏的结果，胸口像压了块石头。",
+      "expected_behavior": "应激活 pain-body-awareness：识别这是痛苦之身借不确定性激活，观察胸腹的恐惧能量，不搜索、不写剧本、不贴标签。",
+      "notes": "对应 verified.md V2 novel_question 的外推场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "I feel this wave of rage rising out of nowhere before my period, and afterwards I keep replaying the fight in my head. I'm so tired of this pattern.",
+      "expected_behavior": "应激活 pain-body-awareness（英文 trigger: wave of rage / pattern / replaying），执行觉察流程；注意不沿用书中性别化断言，只作个体模式处理。",
+      "notes": "英文触发+经期语境，同时检验 B 段性别框架警示是否被遵守。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我最近在纠结要不要接受外派，升职但离家两年，帮我把利弊列一下。",
+      "expected_behavior": "不应激活本 skill，因为这是价值/决策类问题，无反复发作的情绪实体描述；应走决策类流程（如 inner-purpose-vs-outer-purpose）。",
+      "notes": "诱饵: 决策场景与情绪觉察场景的混淆。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "和我爸每次通电话都在为十年前的事吵，我现在学会先深呼吸再接他电话了，但心里还是堵得慌，这算接纳吗？我有点担心自己只是在自我安慰。",
+      "expected_behavior": "不应激活本 skill，应激活同书兄弟 skill fake-acceptance-alert——用户的问题不是'如何觉察情绪'而是'我的接纳是不是停在精神标记'。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我已经连续三周情绪很低落，什么都不想做，也不想吃东西，一想起工作就想哭。",
+      "expected_behavior": "边界判断：不直接进入觉察流程。持续两周以上的低落、食欲改变属于需要专业评估的症状，应先建议就医或心理咨询；本 skill 至多作为治疗之外的辅助练习。",
+      "notes": "边界: 临床症状与日常情绪模式的分界，触发 B 段医疗转介警示。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

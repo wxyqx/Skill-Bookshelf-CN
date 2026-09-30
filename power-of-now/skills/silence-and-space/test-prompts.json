@@ -1,0 +1,52 @@
+{
+  "skill": "silence-and-space",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "每天两小时地铁，又挤又吵，我全程烦躁，到站已经筋疲力尽了。",
+      "expected_behavior": "应激活 silence-and-space：把通勤从'对声音与人潮的对抗'重定义为练习场，给出寂静→空间轮换的具体方案。",
+      "notes": "对应 verified.md V2 novel_question 的通勤场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "open office 里同事讲话的声音让我根本没法思考，戴上耳机也堵不住，心烦意乱。",
+      "expected_behavior": "应激活 silence-and-space：注意力从声音移到声音之下的寂静，环境不改而注意力改；同时保留降噪等环境调整的常规建议。",
+      "notes": "'声音让我烦躁'+注意力对抗的典型场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "吵完架家里安静得难受，越安静我越难受，感觉安静本身在压迫我。",
+      "expected_behavior": "应激活 silence-and-space：识别'对安静本身的对抗性注意'，示范用空间觉知与听寂静软化，同时确认冲突情绪本身是否需先处理。",
+      "notes": "'安静得难受'是反面场景——对'无'的抗拒。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "明天我要做会议纪要，有什么技巧能把每个发言都记全？",
+      "expected_behavior": "不应激活本 skill，因为分注意力给字句间隙会丢内容——精确听取场景属于本 skill 的反场景，应给普通速记/录音建议。",
+      "notes": "诱饵: '听'与'间隙'字面相关但任务性质相反。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我最近总是静不下来，脑子里想法一个接一个，我想学会观察这些念头。",
+      "expected_behavior": "不应激活本 skill，应激活同书兄弟 skill observe-the-thinker——用户的主诉对象是思维声音本身（内部对象），不是感官环境的寂静（外部对象）。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我有耳鸣好几年了，安静的时候嗡嗡声特别明显，练这个'听寂静'会不会有帮助？",
+      "expected_behavior": "边界判断：不作为耳鸣的干预手段——先确认用户已就医评估；在此前提下若用户想尝试注意力调整可以，但须明确本 skill 不治疗耳鸣，且以'不与耳鸣对抗'为前提，避免把注意力练习变成对症状的监控。",
+      "notes": "边界: 听力健康问题与注意力练习的分界，触发判停条件。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

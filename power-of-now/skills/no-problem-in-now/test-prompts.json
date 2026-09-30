@@ -1,0 +1,52 @@
+{
+  "skill": "no-problem-in-now",
+  "version": "0.1.0",
+  "source_book": "《当下的力量（白金版）》 — [德] 埃克哈特·托利 著 曹植 译",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "凌晨三点想到明天的竞标，心跳加速睡不着，满脑子都是明天的场景。",
+      "expected_behavior": "应激活 no-problem-in-now，执行'此刻你有什么问题？'检查——答案是没有，竞标是未来情境；把担心换算成此刻能做的一件事（过一遍材料、定闹钟），做完回呼吸。",
+      "notes": "对应 verified.md V2 novel_question 的失眠场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "等体检复查结果的这几天，我反复想象最坏的诊断，什么都做不进去，万一真是坏结果怎么办？",
+      "expected_behavior": "应激活 no-problem-in-now：此刻无事可做，指出'最坏诊断'此刻并不存在；同时识别若恐惧已成强烈身体浪潮可先转 pain-body-awareness。",
+      "notes": "'万一……怎么办'+此刻无法行动，是清零法的标准场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我把最近要做的事列了二十多条，越列越焦虑，一条都没动，感觉被这些事压垮了。",
+      "expected_behavior": "应激活 no-problem-in-now，用'一百件事的重担'换算：把清单收成'此刻能做的一件事'。",
+      "notes": "对应书中'100件未来事情的重担'原文场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我明天下午三点有个重要客户会议，帮我看看议程怎么安排比较合理。",
+      "expected_behavior": "不应激活本 skill，因为存在具体此刻事务（安排议程），属于正常执行请求，不是对不存在情境的心理反刍。",
+      "notes": "诱饵: 未来事项+焦虑语气，但有真实可做的当下行动。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "最近赶项目天天通宵，心跳很快，手在敲键盘但心一直在想明天交不了差怎么办。",
+      "expected_behavior": "不应激活本 skill，应激活同书兄弟 skill pressure-here-wanting-there——用户有正在做的事（敲键盘），问题是'身在此心在彼'的分裂，而非此刻无事可做的空转。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我最近总觉得'反正当下也没什么问题'，所以一直拖着没跟老板谈加薪，这样对吗？",
+      "expected_behavior": "边界判断：清零提问被用作拖延时不应继续用本 skill 支持该行为——'谈加薪'是此刻能应付的真实事项，应转 accept-then-act 的行动线，并提示这可能落入 fake-acceptance-alert 的假接纳。",
+      "notes": "边界: 清零法与灵性逃避的分界，需双向判断。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}
