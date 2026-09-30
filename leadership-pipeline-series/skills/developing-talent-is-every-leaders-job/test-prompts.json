@@ -1,0 +1,52 @@
+{
+  "skill": "developing-talent-is-every-leaders-job",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·高管路径：轮岗培养领导人才》 — 拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "中层老是抱怨没时间带人，业务都忙不完，怎么破？",
+      "expected_behavior": "应激活 developing-talent-is-every-leaders-job，把带人从额外任务改为岗位职责：给出观察与反馈的时间配额、把为其他单位输送人才纳入评价、对不称职者给出奖惩路径，并强调 CEO 先以身作则",
+      "notes": "正面场景：直接对应 V2 预测力问题（中层抱怨没时间带人）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们想把培养人才写进管理者的绩效考核里，具体该考核什么、怎么奖惩？",
+      "expected_behavior": "应激活 developing-talent-is-every-leaders-job，输出职责文本、可操作投入要求、考核项与奖惩后果、人才流动机制，并提示见效需要两三年",
+      "notes": "正面场景：本单元的核心操作即职责化＋考核奖惩"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Where should talent development sit? HR keeps running it but nothing changes.",
+      "expected_behavior": "应激活 developing-talent-is-every-leaders-job，说明业务领导是主力军、HR 是推动与专业支持方，并把育人写进职责与考核、由高层先行",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我规划一下明年整体的人才培养项目日历，包括课程和行动学习。",
+      "expected_behavior": "不应激活本 skill，应激活 apprenticeship-model：这是培养体系的整体设计，不是责任与考核安排",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：体系设计 vs 责任制度"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "有个部门经理把下属当私人资源，拒绝让骨干转岗到我们部门，我该怎么处理这件事？",
+      "expected_behavior": "不应激活本 skill，因为这是具体人事纠纷；本 skill 只给机制建议（空缺公告、输送人才纳入考核），实际处置须由 HR 按程序介入",
+      "notes": "诱饵：同属'人才被私藏'话题，但是个案处置而非制度设计"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司文化比较温和，直接说'不愿育人就离开领导岗位'会不会太激烈？",
+      "expected_behavior": "可激活并给出折中路径：先公开透明（评估结果与人才输送记录）、再影响奖金与晋升，同时明确这会拉长见效时间；不承诺短期内按书中强度执行",
+      "notes": "边界：书中强制度的本地化与渐进落地"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

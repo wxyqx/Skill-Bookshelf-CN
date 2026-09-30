@@ -1,0 +1,52 @@
+{
+  "skill": "culture-performance-linkage",
+  "version": "0.1.0",
+  "source_book": "《执行：如何完成任务的学问（白金版）》 — 博西迪/查兰/伯克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们推「客户第一」文化，宣讲半年了，没人改变行为，问题到底在哪？",
+      "expected_behavior": "应激活 culture-performance-linkage，并按目标—条件—奖励—教练/处置四步逐环查断点，指出文化是四步循环运行的副产品",
+      "notes": "正面场景：直接对应 V2 预测力问题（文化推不动）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "价值观都挂在墙上了，可奖励还是大锅饭，优秀的人和平庸的人拿得差不多。",
+      "expected_behavior": "应激活 culture-performance-linkage，并指出奖励与业绩脱钩会抵消价值观宣示，先修奖励系统",
+      "notes": "正面场景：奖励与行为挂钩是本框架的硬约束"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "our culture change isn't landing — lots of slogans but no behavior change. Where do we start?",
+      "expected_behavior": "应激活 culture-performance-linkage，并执行「从什么状态到什么状态→从哪里开始（我们自己）」的顺序追问",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我写一篇企业文化节的宣传稿和活动方案。",
+      "expected_behavior": "不应激活本 skill，因为这是活动策划与文案写作，不是行为与激励工程",
+      "notes": "诱饵：同属「文化」话题但性质是活动策划"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "员工说评估是走形式，会上没人争论、会后无人负责，我想整体诊断执行体系哪里断了。",
+      "expected_behavior": "不应激活本 skill，应激活 execution-system-architecture",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill，整体执行系统诊断应交给三基石三流程架构"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "分公司老板想做文化变革，先发一份全员价值观问卷做诊断，这样对吗？",
+      "expected_behavior": "可部分激活并纠偏：问卷式文化诊断不是本框架的入口（书中案例正是咨询问卷报告未触及行为）；应先问「从什么状态到什么状态」并把起点放在管理层自己",
+      "notes": "边界：文化诊断方式的常见误用"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

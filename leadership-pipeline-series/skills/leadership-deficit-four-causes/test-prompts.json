@@ -1,0 +1,52 @@
+{
+  "skill": "leadership-deficit-four-causes",
+  "version": "0.1.0",
+  "source_book": "《领导梯队：全面打造领导力驱动型公司》 — 查兰/诺埃尔/德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们高薪挖来的一位高管半年就不行了，老板要复盘，这到底该怪谁？",
+      "expected_behavior": "应激活 leadership-deficit-four-causes，并逐条过四因（选错人/留太久/不听反馈/不定义工作）与组织三缺失，把结论落在'缺陷本质上是公司层面的问题'",
+      "notes": "正面场景：对应 V2 预测力问题'空降高管半年不行了，复盘该怪谁'"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司连续三任同一个岗位的负责人都失败了，我怀疑不是人的问题，怎么系统性排查？",
+      "expected_behavior": "应激活本 skill，并用三缺失（领导力框架/共同语言/分级绩效标准）＋第五因坦诚检查组织侧病因，避免继续换人了事",
+      "notes": "正面场景：连续失败是组织缺陷的典型信号，本框架的核心适用场合"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "A senior hire is clearly failing. Before we blame him, how do we do a proper post-mortem on whether our system set him up to fail?",
+      "expected_behavior": "应激活本 skill，并过四因＋三缺失，输出机制修复动作与合法处置边界声明",
+      "notes": "英文触发场景，验证中英双写 trigger 的准确率"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我起草一份和这位高管解除劳动合同的沟通方案和补偿测算。",
+      "expected_behavior": "不应激活本 skill，因为这是法律与人事执行事务，本框架不做处置指令，须依当地劳动法与公司流程处理",
+      "notes": "诱饵：解雇执行类请求，本 skill 明确声明不构成人力资源法律意见"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "销售部副总说产品开发计划归他管，产品部也说是自己的活，两边天天扯皮，怎么根治？",
+      "expected_behavior": "不应激活本 skill，应激活 role-clarity-gaps-overlaps",
+      "notes": "跨 skill 混淆诱饵（硬性要求至少 1 条）：同书兄弟 skill——职责重叠是四因之四的子症状，但用户诉求是边界澄清，应走职责三步法"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们一位负责新兴市场的负责人失败，主要是当地政策突变导致市场消失，也要按四因复盘吗？",
+      "expected_behavior": "可激活但须先排除不可抗力：作者明确把消费偏好突变一类不可抗因素排除在可预防范围之外，应先确认失败是否属于此类，再对可预防部分（选人标准、反馈机制、职责定义）做检查",
+      "notes": "边界：不可抗力与可预防原因的区分"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

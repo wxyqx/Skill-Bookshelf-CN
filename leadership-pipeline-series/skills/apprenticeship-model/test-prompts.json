@@ -1,0 +1,52 @@
+{
+  "skill": "apprenticeship-model",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·高管路径：轮岗培养领导人才》 — 拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司招了一批校招生，想把其中有潜力的那几个培养成未来的部门负责人，培养路径该怎么设计？",
+      "expected_behavior": "应激活 apprenticeship-model，并按四要件输出方案：尽早识别（行为证据）＋挑战递增的岗位序列＋直接上级作导师给反馈＋年度评估制度化",
+      "notes": "正面场景：直接对应 V2 预测力问题（校招生培养路径）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "每次关键岗位空缺都只能从外面招人，我们想学 GE、高露洁那样自己造血，该抄哪些东西？",
+      "expected_behavior": "应激活 apprenticeship-model，并指出要抄的是四要件与经营嵌入，而不是表格与课程；同时提示新体系两三年才见效",
+      "notes": "正面场景：借鉴对象即书中样板公司"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We rotate high potentials every year, but nobody seems to grow. What's wrong with our rotation program?",
+      "expected_behavior": "应激活 apprenticeship-model，并用'挑战递增＋反馈闭环＋掌握必备技能才换岗'三要件诊断其轮岗为何失效",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我推荐几门适合中层管理者的领导力培训课程。",
+      "expected_behavior": "不应激活本 skill，因为这是课程采购需求；本框架的立场是课堂只作加速器，不提供课程清单",
+      "notes": "诱饵：同属人才培养话题但指向培训采购"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "销售总监年底退休，继任人选怎么定、什么时候对外公布？",
+      "expected_behavior": "不应激活本 skill，应激活 ceo-selection-process（若属董事会层面的高管选拔治理）或 b5-f27 succession-five-steps（若属通用继任流程）",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：本 skill 是常年培养引擎，不负责单个岗位的继任决策"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司一共 45 个人，老板也想搞轮岗培养，是不是也要按书里那样搞五个岗位、25 年？",
+      "expected_behavior": "可激活并说明：四要件的原则（行为识别、挑战递增、上级当导师、定期评估）可保留，但岗位数量、周期与会议形式必须按组织规模折算；数十人公司优先创造'全面负责'的机会而非搭大体系",
+      "notes": "边界：书中 25 年/五岗位的大公司原型与中小组织的定制"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "performance-dialogue-evidence",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·业绩梯队：让各层级领导者做出正确的业绩》 — 斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "季度复盘每次都变成念数据、走过场，员工也没什么反应。怎么写、怎么谈才能不流于形式？",
+      "expected_behavior": "应激活 performance-dialogue-evidence，给出证据＝业绩＋环境背景的规则、每月节奏（第一个月末最关键）、活动/概括陈述的排除清单，以及把重心放在'接下来做什么、有何障碍、需要什么帮助'。",
+      "notes": "典型正向场景：季度复盘怎么不流于形式（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "下属汇报全是'我访问了多少客户、开了多少会'，我看不出他到底做成了什么。该怎么追问？",
+      "expected_behavior": "应激活本 skill，用活动陈述排除法追问'这样的活动带来的可见结果是什么、提高的结果是什么'，并要求补足环境背景作为证据第二要素。",
+      "notes": "正向场景：活动陈述与证据法的实际使用。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们要给下属做年度评价，但担心被问'你凭什么这么评'。有没有一套让年终等级自然显现的做法？",
+      "expected_behavior": "应激活本 skill，建议按标准逐月记录事实证据形成实录（全面业绩标准放第一栏），使年终等级自然显现，并用固定问题清单收口。",
+      "notes": "正向场景：证据记录与年终结论的设计。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们公司现在连各层级的业绩标准都没有，想先从零把每层该交什么结果搭起来，从哪开始？",
+      "expected_behavior": "不应激活本 skill，应激活 performance-pipeline-interview-build（建队六步骤）；没有标准，月度讨论无框架。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill（建标准 vs 用标准）的分界。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "有个员工最近状态很差、频繁请假，我怀疑他是不是有心理问题，该怎么和他谈？",
+      "expected_behavior": "不应激活本 skill，因为这涉及个人心理健康与劳动关系处理，应转向员工支持/HR与专业程序，并注意'避免以态度为名随意处理'的伦理边界。",
+      "notes": "诱饵：把'业绩谈不拢'误当'业绩讨论方法'场景。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们团队有个人数字没达标，但市场今年整体下滑了三成，他其实做得很拼；另一个数字达标了，但市场涨了五成。这种情形怎么评？",
+      "expected_behavior": "边界场景：应调用本 skill，用'业绩＋环境背景'的证据规则指出——环境约束下3/5达标可能是卓越业绩、市场顺风下4/5达标可能只是称职，须结合实际资源与环境做情景分析，不可盲目按预算数字评价。",
+      "notes": "边界：环境背景如何改变业绩判定（书中原文明确此例），考察是否机械按数字评级。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

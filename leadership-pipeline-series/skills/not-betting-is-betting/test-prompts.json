@@ -1,0 +1,52 @@
+{
+  "skill": "not-betting-is-betting",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·CEO说：像企业家一样思考》（What the CEO Wants You to Know） — [美]拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "要不要等竞品先发布、市场明朗了我们再跟进？团队都倾向再观望一下。",
+      "expected_behavior": "应激活 not-betting-is-betting：把'等待'重新定价——等待不等于中立，而是押注现状不变（竞争格局、市场结构正在变）；要么现在用 3~4 项优先事项下注并承担后果，要么明确写下'暂不进入'及依据与复查时点；两种都是下注，都要认账，最差的是长期悬置、随时改口。",
+      "notes": "正面场景：verified.md b3-p08 的 V2 novel question 原形。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这个决策会开了三次了，每次都要求再看一个季度的数据，大家都怕犯错，怎么破？",
+      "expected_behavior": "应激活 not-betting-is-betting：识别'长期悬置、随时改口'这一最差形态；把关键未知限制在 3 条以内并给出获取期限，然后强制二选一（下注或明确暂缓＋复查时点），并写下可证伪假设与退出条件。",
+      "notes": "正面场景：A2 场景 2/4 的典型形态（怕犯错导致的悬置）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们想立一个'暂不进入该市场'的决定，但发现没人对它负责，也没人写依据，这样有问题吗？",
+      "expected_behavior": "应激活 not-betting-is-betting：'暂不进入'本身是合法下注（相当于押注现状），但必须写明依据、复查时点与负责人；否则它退化为被动漂移——用'再观察'延续现状、无人对结果负责。",
+      "notes": "正面场景：E 段步骤 3'两种注都认账'的典型用途。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们还没搞清楚外部环境对我们意味着什么，因素太多理不清，该从哪下手分析？",
+      "expected_behavior": "不应激活本 skill，应激活 `complexity-to-priorities`（化繁为简决策路径）：用户尚处在'怎么想清楚'阶段（因素→关系→基本行为→优先事项），本 skill 处理的是分析之后'敢不敢在信息不完备时下注'；先想清楚再下注，顺序不能颠倒。",
+      "notes": "同书兄弟 skill 混淆诱饵（硬性要求）：两个 skill 是先后步骤，最易互抢。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们有20个改进项目，资源打架，想砍到几个重点往下推。",
+      "expected_behavior": "不应激活本 skill，应激活 `priority-focus-three-to-four`（优先事项聚焦）：用户的问题在'选太多'（数量与稳定性纪律、两栏取舍），不在'不敢选'；本 skill 的产出可以调用 f07 收口，但不承担取舍纪律。",
+      "notes": "同书兄弟 skill 混淆诱饵：聚焦纪律与决断纪律易混。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们要不要上一条新产线，投资挺大的，但关键的成本数据还得两周才能拿到，那要不要等？",
+      "expected_behavior": "边界判断：这种情形可以等——关键未知能在短期（两周）内低成本消除，因此先取证再决策（转 b1-f03 追问到现实）；注意区分'关键未知'与'无关未知'，并核对行动是否可逆：若不可逆且机会窗口有限，则不应等，应按本 skill 把等待显性定价后下注。",
+      "notes": "边界：检验 E 段步骤 2 的判停条件（关键未知可低成本短期消除时可以等）。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01/02 均为同书兄弟 skill（complexity-to-priorities / priority-focus-three-to-four）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

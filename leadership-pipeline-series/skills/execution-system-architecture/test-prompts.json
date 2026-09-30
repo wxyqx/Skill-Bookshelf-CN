@@ -1,0 +1,52 @@
+{
+  "skill": "execution-system-architecture",
+  "version": "0.1.0",
+  "source_book": "《执行：如何完成任务的学问（白金版）》 — 博西迪/查兰/伯克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司上了 OKR 和季度复盘，目标还是完不成，是不是该换一套工具？",
+      "expected_behavior": "应激活 execution-system-architecture，并先诊断现有执行系统（人员/战略/运营三条流程与三基石）哪一环脱钩，明确不叠加新工具",
+      "notes": "正面场景：工具叠加无效是本书最典型的入口问题，对应 V2 预测力问题"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "战略讲得挺清楚，落地总是一塌糊涂，我想搞清楚到底断在哪一环。",
+      "expected_behavior": "应激活 execution-system-architecture，并逐环检查人员、战略、运营流程的连接点，定位最弱环",
+      "notes": "正面场景：典型的\"目标与结果之间的鸿沟\"诊断诉求"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "execution gap: our strategy looks right but results never land. How do I figure out where the breakdown is?",
+      "expected_behavior": "应激活 execution-system-architecture，并输出三基石×三流程的系统地图与脱钩点清单",
+      "notes": "英文触发场景，验证中英双写 trigger 的触发准确率"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我写一份下周部门周会的议程模板。",
+      "expected_behavior": "不应激活本 skill，因为这是具体文书制作任务，不涉及执行系统诊断",
+      "notes": "诱饵：行政文书类请求，看似与\"会议/执行\"相关但无诊断诉求"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们每年做一次人才盘点，做完没人看、没人动，怎么救？",
+      "expected_behavior": "不应激活本 skill，应激活 talent-review-meeting-mrr",
+      "notes": "跨 skill 混淆诱饵（硬性要求至少 1 条）：同书兄弟 skill，人才评估机制的具体问题应交给 MRR，而不是执行系统总架构"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是一家 30 人的创业公司，没有正式流程，但老板总觉得执行差，要不要按三流程体系搭一遍？",
+      "expected_behavior": "可部分激活并给出边界说明：三流程架构取自大型分权公司，30 人组织直接照搬会产生空转，应只保留\"目标—责任人—跟进\"的最小闭环",
+      "notes": "边界：小组织套用大公司架构的适用性问题"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

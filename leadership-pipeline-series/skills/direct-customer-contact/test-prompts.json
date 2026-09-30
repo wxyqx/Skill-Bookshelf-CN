@@ -1,0 +1,52 @@
+{
+  "skill": "direct-customer-contact",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·CEO说：像企业家一样思考》（What the CEO Wants You to Know） — [美]拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们B2B业务客户满意度分数一直很高，但客户续约率在掉，销售说客户都很满意。我总觉得哪里不对，该怎么查？",
+      "expected_behavior": "应激活 direct-customer-contact：分数是过滤信息——先区分顾客（采购/渠道）与消费者（最终使用者），再安排到使用现场直接观察（谁在什么场景用、谁决定续约、哪一步在替客户制造麻烦），从直接接触中找未满足的特定领域。",
+      "notes": "正面场景：verified.md b3-f05 的 V2 novel question 原形（满意度高分但客户流失）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的产品保不住原价了，一降价毛利就崩，分销商那边给的说法和终端反馈又对不上，到底该听谁的？",
+      "expected_behavior": "应激活 direct-customer-contact：作者明确以'不能保持原价和维持原有毛利'为触发信号——领导者应直接、不经过滤地观察消费者，而不是通过分销商或其他中间人的眼睛；分别理解渠道与终端两群人的需求。",
+      "notes": "正面场景：直接引用 L6512 的触发条件与'过滤机制'识别。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们想判断年轻消费者对汽车配置的偏好变化，问卷和焦点小组做了几轮，结论都很模糊，管理层吵不出结果。",
+      "expected_behavior": "应激活 direct-customer-contact：这类问题问卷问不出来——参照纳塞尔与年轻车主同车观察（附件被车主视为'车的一部分'而自己想不到），安排现场接触获取未经过滤的第一手信息，再形成判断。",
+      "notes": "正面场景：A1 核心案例 b3-c16 的同类情境。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们想让一线主管学会追问下属、把计划落实到人，有没有一套标准动作？",
+      "expected_behavior": "不应激活本 skill，应激活 `b1-f03` question-to-reality（追问到现实）：用户要的是组织内部的追问与落实纪律，不是市场侧顾客观察；同是'下现场取证'家族，对象不同。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：与册1 的'追问到现实'同属'未过滤信息'原则，容易误激活。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我要给公司做一次全面经营体检，第一次上手，手上只有年报，应该先看哪几个数字？",
+      "expected_behavior": "不应激活本 skill，应激活 `company-panorama-seven-questions`（公司全景诊断七问）：用户要的是用年报数据做内部财务全景体检，不是到顾客现场取证。",
+      "notes": "同书兄弟 skill 混淆诱饵：'快速了解公司'症状相同，但七问走财务数字侧、本 skill 走顾客现场侧。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是纯线上SaaS公司，没有门店也没有经销商，用户行为都在后台日志里。这算'直接接触'吗？",
+      "expected_behavior": "边界判断：可以部分调用，但需改造形态——'直接、未过滤'的精神可用（亲自看原始行为数据、亲自接听客服、亲自做用户访谈），但纯看二手报表不算直接接触；应说明线上场景的替代直接接触方式，并声明局限（无法观察线下使用场景）。",
+      "notes": "边界：检验 B 段'无法接触终端时须明确声明并设计替代证据链'的适用方式。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为跨册'未过滤信息'家族混淆诱饵，should-not-trigger-02 为同书兄弟 skill（company-panorama-seven-questions）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "business-acumen-six-elements",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·CEO说：像企业家一样思考》 — 拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我刚跳槽到一家 SaaS 公司做 HR，完全不懂这行。怎么快速搞懂这家公司到底靠什么赚钱？",
+      "expected_behavior": "应激活 business-acumen-six-elements，用六要素（现金、利润、周转率、资产收益率、增长、顾客）逐项翻译，并叠加两基础（知人善任、沟通机制），给出粗算与比较的方法。",
+      "notes": "典型正向场景：非财务人员快速搞懂公司怎么赚钱（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们开会时各部门各说各话，销售只看收入、生产只看成本，都不谈公司整体。有没有一套共同的'生意语言'？",
+      "expected_behavior": "应激活本 skill，用'竖井思维'诊断并给出六要素＋两基础作为共同语言，配合驾驶隐喻帮助跨职能对齐。",
+      "notes": "正向场景：跨职能共同语言与打破竖井。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我想给团队做一次商业扫盲培训，让他们明白自己的工作跟公司赚钱有什么关系。有什么够简单又够本质的框架？",
+      "expected_behavior": "应激活本 skill，给出六要素＋两基础的最小知识地图，并落到'我的工作影响哪一格'的岗位翻译动作。",
+      "notes": "正向场景：商业扫盲与共享语言落地。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下某上市公司去年的现金净流入、利润和资产周转率的具体数字，越快越好。",
+      "expected_behavior": "不应激活本 skill，因为用户要的是具体财务数据查询，不是建立商业语言框架（可直接引导查年报或数据源）。",
+      "notes": "诱饵：把'查数据'误当'学框架'。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们公司两家子公司资产收益率都是15%，我想搞清楚哪家的生意质量更高、改进点在哪。",
+      "expected_behavior": "不应激活本 skill，应激活 r-m-v-return-decomposition（把收益率拆成利润率×周转率看结构）。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill（总框架 vs 单要素深入）的分界。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是一家做免费App、靠烧钱换用户的公司，用'六要素'看我们几乎没有利润、现金也在流出，是不是说明我们经营得很差？",
+      "expected_behavior": "边界场景：应调用本 skill 但明确其适用性边界——六要素对平台型/软件型（边际成本近零、网络效应、烧钱换市场）并不直接适用，需先补充该模式下的现金流与单位经济逻辑（用户留存、获客成本、变现路径），再判断经营质量。",
+      "notes": "边界：BOOK_OVERVIEW 批判节明确指出六要素对平台型/软件型业务不直接适用，防止机械套用。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

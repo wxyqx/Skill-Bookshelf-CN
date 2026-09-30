@@ -1,0 +1,52 @@
+{
+  "skill": "bedrock-strategy-one-pager",
+  "version": "0.1.0",
+  "source_book": "《执行：如何完成任务的学问（白金版）》 — 博西迪/查兰/伯克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "董事会只给我 10 分钟讲明年的战略，我该讲什么？",
+      "expected_behavior": "应激活 bedrock-strategy-one-pager，并先找出战略的几块基石，每块给出可证伪的承诺与责任人，再压缩成 20 分钟可讲清的一页纸",
+      "notes": "正面场景：直接对应 V2 预测力问题（10 分钟讲战略）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "战略文件写了 40 页还是讲不清，团队复述不出来，怎么压缩？",
+      "expected_behavior": "应激活 bedrock-strategy-one-pager，并强调先重构基石再压缩，禁止用删 PPT 代替思考",
+      "notes": "正面场景：书中明确警告「不能用页面数量替代思考」"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "My strategy is too complex to explain in one page. How do I simplify it?",
+      "expected_behavior": "应激活 bedrock-strategy-one-pager，并输出基石清单与一页纸结构",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这份战略文档翻译成英文。",
+      "expected_behavior": "不应激活本 skill，因为这是翻译任务，不涉及战略的构建与简化",
+      "notes": "诱饵：处理对象同为战略文档，但动作是语言转换"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "下周要开战略评审会，各部门交来的计划怎么审、该问什么问题？",
+      "expected_behavior": "不应激活本 skill，应激活 strategy-review-question-set",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill，构建表达与评审检验互为表里但不可互相替代"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "业务还在探索期，投资人就要求一份一页纸战略，我能写吗？",
+      "expected_behavior": "可激活但须声明边界：探索期过早压缩会把战略变成口号；若必须交，可写「假设式一页纸」并标注未验证前提，同时转 assumptions-and-contingency 做前提取证",
+      "notes": "边界：探索期与压缩表达之间的张力"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "environment-three-variables",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·业绩梯队：让各层级领导者做出正确的业绩》 — 斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我是一家公司的新任CEO，想推行变革。应该先换人，还是先改环境？",
+      "expected_behavior": "应激活 environment-three-variables，用文化要求、运营模式、组织设计三个变量先做土地诊断，并说明只换人不动土地，新种子长不出来。",
+      "notes": "典型正向场景：变革先动人还是先改环境（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司这几年换了两任总裁、请了顾问、做了培训，问题还是老样子。是不是根本不是人的问题？",
+      "expected_behavior": "应激活本 skill，引导用运营模式变量判断'模式是否已不适合当前规模'，并做文化三取向（知晓者/学习者、家庭/团队、短期/长期）诊断。",
+      "notes": "正向场景：换人无效时转向环境诊断。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们要推数字化转型，但员工不敢说自己不会、不敢提问，也不愿意暴露问题。培训做了好几轮都没用，怎么办？",
+      "expected_behavior": "应激活本 skill，诊断为知晓者文化（不容错、不求助、知识垄断），给出向学习者文化转变的检查与移除障碍的动作（以土地检查访谈开始）。",
+      "notes": "正向场景：文化变量的实际使用。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们准备重新搭各层级的业绩标准，让每层领导清楚自己该交什么结果，流程该怎么走？",
+      "expected_behavior": "不应激活本 skill，应激活 performance-pipeline-interview-build；业绩梯队是土地上的'营养物'，不是土地诊断本身。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill（建标准 vs 改环境）的分界。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "周末想组织一次团队建设活动，改善一下大家的关系，有什么好玩的形式？",
+      "expected_behavior": "不应激活本 skill，因为这是活动策划而非组织环境诊断；本框架要求领导者亲自周期性检查与移除障碍，不是一次性活动。",
+      "notes": "诱饵：把'文化'误当团建活动。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是只有六十人的创业公司，感觉'知晓者文化'这句话很像我们——创始人什么都懂、没人敢说问题。这套框架我们能用吗？",
+      "expected_behavior": "边界场景：可以调用但需简化——三变量在小组织中可收敛为'文化取向＋决策方式'，土地检查的自测问题与不责备原则仍然适用；不要求全套机制（10%领导季度检查等）。",
+      "notes": "边界：框架以大型多层级公司为原型，小组织需简化落地。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

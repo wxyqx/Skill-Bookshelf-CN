@@ -1,0 +1,52 @@
+{
+  "skill": "control-three-points-immune-system",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·业绩梯队：让各层级领导者做出正确的业绩》 — 斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我每天审批到深夜，越忙公司越乱，问题出在哪？是不是该加强控制？",
+      "expected_behavior": "应激活 control-three-points-immune-system，用三时点（事前/事中/事后）与免疫系统逐项体检，并指出CEO审批量过大本身即为控制机制缺位的反向指标。",
+      "notes": "典型正向场景：CEO陷入审批瓶颈（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司刚做了一轮大授权，但我心里没底。有没有一套机制能让我放权之后仍然知道底下在发生什么？",
+      "expected_behavior": "应激活本 skill，给出事中控制（一对一、巡视）与免疫系统（财务/HR下沉、要求回应、升级评估）的设计，并检查事前方向是否讲清。",
+      "notes": "正向场景：授权后的控制设计。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们出了一次招聘失误和一次报表瞒报，想建立能提前发现问题的机制，从哪设计？",
+      "expected_behavior": "应激活本 skill，用免疫系统的三类病毒（不合理雇用、错误或虚假汇报、压住重要事实）对照设计下沉与升级通道，并补齐三时点机制。",
+      "notes": "正向场景：免疫系统的直接用途。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "下周我要去分公司视察，行程怎么安排、现场该看什么、问哪些问题？",
+      "expected_behavior": "不应激活本 skill，应激活 field-visit-protocol（深入一线视察流程）；视察只是本 skill 事中控制的一个手法。",
+      "notes": "跨 skill 混淆诱饵：同系列（册1）skill 的流程细节与册2控制架构的区分。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们各层级的业绩标准刚建好，现在想设计每个月和下属的业绩讨论会，怎么谈才能激励人而不是审判人？",
+      "expected_behavior": "不应激活本 skill，应激活 performance-dialogue-evidence（业绩讨论与证据法）。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：防止同书 skill 互相抢调用——控制机制讲组织级三时点布局，月度业绩对话讲逐人证据与激励。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是受强监管的银行，很多事项按法规就必须CEO签字，这种情况下我的审批量高是不是也是控制缺位？",
+      "expected_behavior": "边界场景：部分调用本 skill 并保持审慎——应指出三时点框架仍可用于区分'法定必须审批'与'因机制缺位而上浮的审批'，对后者按框架治理；但不能简单以审批量高下结论，须先剥离合规硬性要求。",
+      "notes": "边界：作者把审批量一律当缺位信号，但强监管行业存在合理的刚性审批，需做区分。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "potential-three-types",
+  "version": "0.1.0",
+  "source_book": "《领导梯队：全面打造领导力驱动型公司》 — 查兰/诺埃尔/德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "团队里有个老员工，绩效一般但从不出错，我该怎么评价他？是不是该考虑让他走了？",
+      "expected_behavior": "应激活 potential-three-types，并用三类潜能替代'行/不行'判断：结合其绩效证据判为熟练或成长潜能，明确三类对公司都有价值，先做发展对话而不是淘汰",
+      "notes": "正面场景：对应 V2 预测力问题'绩效一般但从不出错的老员工怎么评价'"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们要评选年度高潜人才名单，除了'高潜/非高潜'，有没有更细、更能说服人的分类办法？",
+      "expected_behavior": "应激活本 skill，并输出转型/成长/熟练三类定义＋证据规则（持续三年高绩效→转型；绩效不稳定→成长）＋半年复核纪律",
+      "notes": "正面场景：'高潜/非高潜'二分正是本单元要替换的业界惯例"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "An employee asks whether he's promotable. How do I answer with a real standard instead of vague encouragement?",
+      "expected_behavior": "应激活本 skill，并用'哪一类潜能＋证据＋3~5年时间窗'的格式给出可讨论的回答",
+      "notes": "英文触发场景，验证中英双写 trigger 的准确率"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我设计一套销售团队的月度提成计算规则。",
+      "expected_behavior": "不应激活本 skill，因为这是薪酬规则设计，不涉及潜能判定",
+      "notes": "诱饵：薪酬计算类请求，与人事评价仅字面相关"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "人才盘点会上大家凭印象把人填进九宫格，怎么让填格有依据、每格的人分别怎么处理？",
+      "expected_behavior": "不应激活本 skill，应激活 nine-box-actions",
+      "notes": "跨 skill 混淆诱饵（硬性要求至少 1 条）：同书兄弟 skill——潜能判定是九格矩阵的输入之一，但用户诉求已是矩阵使用纪律与每格行动"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一个候选人业绩一直很亮眼，但他现在的岗位明显放错了层级，能直接按转型潜能上报吗？",
+      "expected_behavior": "可激活但须加前提：错层者的绩效证据受岗位错配污染，应先归位或调整职责后再评估；作者原话是'能够在适当的层级工作，就可能开发出转型潜能'",
+      "notes": "边界：错层与潜能判断的相互干扰"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

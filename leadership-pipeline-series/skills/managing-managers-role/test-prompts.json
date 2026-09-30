@@ -1,0 +1,52 @@
+{
+  "skill": "managing-managers-role",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·领导梯队：全面打造领导力驱动型公司》 — 拉姆·查兰/詹姆斯·诺埃尔/斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我是部门总监，手下有十个一线经理。部门业绩还行，但我总觉得自己在打杂，天天救火，预算和长期计划都没时间做。这是哪里出了问题？",
+      "expected_behavior": "应激活 managing-managers-role：用四项技能对表（选拔培养一线经理、让一线经理对管理工作负责、配置资源、协调跨部门），指出时间花在技术问题与救火上就已跌回一线层级，并给出提问句式转换（你打算怎么保证……）与授权重建动作。",
+      "notes": "正向场景：部门总监的自我定位（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们公司一线经理基本被架空了，员工都越过他们直接找上面的总监，总监也习惯直接给员工派活。这个怎么纠？",
+      "expected_behavior": "应激活本 skill：按“让一线经理对管理工作负责”与授权/问责系统纠偏——把项目决策与检查权交还一线经理，总监时间转向观察评估下属经理的三维度；同时用提问句式与九问补齐资源配置职责。",
+      "notes": "正向场景：授权与问责失守（b5-c04 维克案例的核心教训）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们要推一个新流程，结果整层中层干部集体消极抵制，推不动。是这层人不行吗？",
+      "expected_behavior": "应激活本 skill：用“混凝土层”与“不明确地带”解释组织级原因——该层上不参与战略、下不碰产品，若不给预算权与长期计划参与权、不培养大局观，就会成为变革阻碍；并给出增加要求（预算权、长期计划）而非只怪个人的处方。",
+      "notes": "正向场景：中层变革阻力的组织级归因（b5-c25、b5-ce07）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的研发总监（事业部副总）技术很强，但只关心自己管的那块研发，从不考虑业务整体赢利，也不太会跟其他部门打交道。他这是成熟度不够吗？",
+      "expected_behavior": "不应激活本 skill，应激活 functional-manager-maturity（领导力成熟度三维：职能视角/业务视角/沟通视角，使命是为业务建立竞争优势）；本条讲的是管经理的人的阶段。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：第二阶段与第三阶段的角色差异。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们两个部门总为“谁负责这件事”扯皮：计划明明上面制定，但没人管资源评估；同一件事两个层级都说是自己的。怎么根治？",
+      "expected_behavior": "不应激活本 skill，应激活 role-clarity-gaps-overlaps（明确职责三步法与职责断裂/重叠检查，用层级图逐对画圈纠正）。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：职责边界问题 vs 角色技能问题。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是家一百来人的公司，没有正式的“部门总监”这一层，是我和三个业务负责人直接管十几个组长。这套四项技能对我们适用吗？",
+      "expected_behavior": "边界场景：应调用本 skill 的精神但重命名——先确认“管经理的人”这一职能是否存在（谁在让组长对管理工作负责、谁在跨部门配置资源），存在即按四件事对照，不存在的层级不要硬造；同时提示六阶段层数可按公司规模为 5 或 7。",
+      "notes": "边界：小公司层数定制（模型允许调整层数，作者明确关键在相邻要求可界定）。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "role-clarity-gaps-overlaps",
+  "version": "0.1.0",
+  "source_book": "《领导梯队：全面打造领导力驱动型公司》 — 查兰/诺埃尔/德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "销售部和产品部为'产品开发计划到底归谁'吵了半年，开会开了好几次也没定论，怎么根治？",
+      "expected_behavior": "应激活 role-clarity-gaps-overlaps，并画出两岗位的层级图、按断裂/重叠/错层三查定位冲突结构，给出纠偏与生效时间",
+      "notes": "正面场景：书中的职责重叠原型（事业部总经理 vs 销售经理），对应 V2 预测力问题"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我刚接手一个大部门，发现岗位说明书写的和实际干的不是一回事，好几个活没人管，我该怎么理清？",
+      "expected_behavior": "应激活本 skill，并按三步法：定位层级→与上下级对齐要求→列出断裂与重叠清单并纠偏",
+      "notes": "正面场景：新任领导做职责体检，是本书三步法最直接的应用场合"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "There's serious role ambiguity in my org — two levels both give instructions to the same frontline manager. How do I sort out who owns what?",
+      "expected_behavior": "应激活本 skill，并用层级图逐对可视化、区分断裂与重叠后给出纠正动作",
+      "notes": "英文触发场景，验证中英双写 trigger 的准确率"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我起草一份数据分析师的岗位说明书模板，要包含主要职责和任职要求。",
+      "expected_behavior": "不应激活本 skill，因为这是文书制作任务，没有职责诊断与冲突纠偏诉求",
+      "notes": "诱饵：岗位文书类请求，看似与'职责'相关但不涉及断裂/重叠诊断"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我刚把一个下属提拔成主管，想给他定个培养计划，怎么知道他缺什么？",
+      "expected_behavior": "不应激活本 skill，应激活 performance-gap-circle",
+      "notes": "跨 skill 混淆诱饵（硬性要求至少 1 条）：同书兄弟 skill——职责澄清是前置步骤，但用户诉求已是'定培养计划'，应由绩效圆圈与缺口接手"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是一个 8 人的创业团队，没有正式层级，但最近总为'这活归谁'争论，要不要按领导梯队划一遍职责？",
+      "expected_behavior": "可部分激活并说明边界：层级尚未成型时不宜套用六阶段模型，只需用'断裂/重叠'两查法列出无人认领与重复认领的工作并当场分工",
+      "notes": "边界：小团队无层级结构时的适用性裁剪"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

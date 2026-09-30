@@ -1,0 +1,52 @@
+{
+  "skill": "dual-track-management-technical",
+  "version": "0.1.0",
+  "source_book": "《领导梯队：全面打造领导力驱动型公司》 — 查兰/诺埃尔/德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们团队最好的工程师明确说不想做管理，但公司只有管理岗才能加薪，怎么留住他？",
+      "expected_behavior": "应激活 dual-track-management-technical，并设计技术轨岗位序列（以业务业绩为目的、参加业务会议、与同层管理岗薪酬对标），避免用假头衔凑数",
+      "notes": "正面场景：对应 V2 预测力问题'最好的工程师不想做管理，怎么留住他'"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们把一个销售明星提成经理，两年了他和团队都很痛苦，现在怎么办？",
+      "expected_behavior": "应激活本 skill，并把'放回专业岗（如从销售员到超级销售员）'作为官方出口，给出岗位、薪酬、公开说法与合法协商要点",
+      "notes": "正面场景：作者把工作调整列为初任经理转型失败的正式处置手段"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Our company has way too many managers with one or two reports — the titles are becoming a joke. How do we fix the reward system?",
+      "expected_behavior": "应激活本 skill，识别'多领导综合征'与伪管理岗，给出技术轨与头衔治理方案及合规提醒",
+      "notes": "英文触发场景，验证中英双写 trigger 的准确率"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我写一份首席工程师岗位的招聘 JD 和技术面试题。",
+      "expected_behavior": "不应激活本 skill，因为这是招聘执行任务，不涉及双轨设计或留人机制",
+      "notes": "诱饵：招聘文书类请求，看似与'技术岗'相关但无通道设计诉求"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我刚接任集团财务负责人，业务线总经理和职能上司的要求经常打架，怎么处理这些关系？",
+      "expected_behavior": "不应激活本 skill，应激活 corporate-function-six-relations",
+      "notes": "跨 skill 混淆诱饵（硬性要求至少 1 条）：同书兄弟 skill——职能主管的矩阵关系问题属于六关系点框架，不是专家双轨问题"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一个经理管理幅度只有两个人，但公司坚持说这是'培养他'，要不要直接砍掉这个岗位？",
+      "expected_behavior": "可激活但须谨慎：先判断是刻意培养（有明确发展计划、时限与真实管理要求）还是伪管理岗；若属后者，给出合并/转轨方案，同时提醒取消头衔或调整职级涉及劳动法与员工预期，须合法协商",
+      "notes": "边界：培养性岗位与头衔化伪管理岗的区分"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

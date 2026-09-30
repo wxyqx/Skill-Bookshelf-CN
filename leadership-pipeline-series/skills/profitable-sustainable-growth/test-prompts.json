@@ -1,0 +1,52 @@
+{
+  "skill": "profitable-sustainable-growth",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·CEO说：像企业家一样思考》（What the CEO Wants You to Know） — [美]拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司打算 all-in 出海，说收入能翻三倍，让我批预算。我该看什么？",
+      "expected_behavior": "应激活 profitable-sustainable-growth：先过四项同步检查——是否赢利、现金能否同步、利润率与周转率是否改善、是否可持续；再查激励设计是否在奖励销售额而非利润；规模冲动不能替代经济标准，增长的心理效应是加分项不是理由。",
+      "notes": "正面场景：verified.md b3-p03 的 V2 novel question 原形。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们销售激励是按签约金额发的，这两年单子接得越来越多，但利润率一直在掉，怎么回事？",
+      "expected_behavior": "应激活 profitable-sustainable-growth：这是 b3-ce05'错误激励制造非赢利性增长'（注模公司案例）的标准形态——激励指标与赢利目标脱钩，员工理性地最大化个人收益并侵蚀公司收益；应把激励与毛利/回款/利润贡献绑定。",
+      "notes": "正面场景：反例 b3-ce05（L6455）与 A1 案例 b3-c11 的同构问题。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "团队说现在是抢市场的窗口期，先亏几年换规模，等格局定了再盈利。这个逻辑成立吗？",
+      "expected_behavior": "应激活 profitable-sustainable-growth（并提示模型边界）：用四项同步标准检验（是否赢利、现金同步、质量同步、可持续），并检查三个失败机制；同时明确说明本原则对烧钱型/平台型新模式的适用性有限——不要机械套用，应结合现金存活期分析（转 b3-f04）。",
+      "notes": "正面场景＋边界提示：'先做大再说'是本书最想反对的默认假设，但也需声明六要素的非普适性。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们现在现金快断粮了，下个月工资都紧张，该怎么收缩？",
+      "expected_behavior": "不应激活本 skill：这是危机中的生存性问题，应先做现金视角分析（`b3-f04` cash-net-inflow-everyones-business）保偿付能力；增长验收标准属于常态经营工具，此时不适用。",
+      "notes": "同书兄弟 skill 混淆诱饵（硬性要求）：都涉及现金，但一是验收增长、一是生存救援。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们准备收购一家公司，怎么判断它贵不贵？",
+      "expected_behavior": "不应激活本 skill，应激活 `pe-multiple-wealth-mechanism`（P-E 值财富机制）：用户问的是估值判断（赢利模式质量＋可预见性），不是增长计划的验收；两者可用同一套六要素数据但结论对象不同。",
+      "notes": "同书兄弟 skill 混淆诱饵：'判断一家公司/一块业务'是共同语境。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是一家公益基金会办的社企，收入不追求利润最大化，只想覆盖成本并持续扩大服务规模，这套标准适用吗？",
+      "expected_behavior": "边界判断：需要改写后部分适用——使命型/非营利组织目标函数不同，'赢利'标准应替换为'可持续覆盖成本＋使命产出效率'；但现金同步与周转率检查仍然有用（不产出现金的扩张同样会拖垮组织）。",
+      "notes": "边界：检验 B 段'非营利与使命型组织需要改写后再用'的条件。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（cash-net-inflow-everyones-business）混淆诱饵，should-not-trigger-02 为同书兄弟 skill（pe-multiple-wealth-mechanism）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

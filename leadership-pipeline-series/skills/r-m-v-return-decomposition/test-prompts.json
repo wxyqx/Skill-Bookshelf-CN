@@ -1,0 +1,52 @@
+{
+  "skill": "r-m-v-return-decomposition",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·CEO说：像企业家一样思考》 — 拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "两家公司 ROE 都是 15%，但一家是奢侈品公司、一家是超市，哪家质量更高？改进点分别在哪？",
+      "expected_behavior": "应激活 r-m-v-return-decomposition，把 R 拆成 M×V 看结构：高利润率低周转 vs 低利润率高周转是两种生意，改进动作与风险/杠杆空间不同，并提示用比较而非精确会计。",
+      "notes": "典型正向场景：同 R 不同结构的判别（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们事业部利润率很薄，老板想砍掉这条业务。但我觉得还能救，该怎么判断？",
+      "expected_behavior": "应激活本 skill，用 R=M×V 拆解判断是靠周转还是靠利润率，与资本成本率门槛比较，给出'保留并改善 / 限期改善 / 剥离'的结论与两条腿的改善动作。",
+      "notes": "正向场景：业务组合的保留/改善/剥离判断。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "老板说要把库存压下来，但销售团队反对，说会影响交付。我该怎么用他们听得懂的方式说明为什么要压库存？",
+      "expected_behavior": "应激活本 skill，用 R=M×V 中 V 的作用解释周转如何直接改善收益率（存货占用资产的代价、过时跌价的双重危险），并可引用低利润率行业靠高周转成功的例子。",
+      "notes": "正向场景：用公式向非财务团队解释周转的意义。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想系统搞懂一家公司是怎么赚钱的，从顾客、增长到现金、利润，有没有一套完整框架？",
+      "expected_behavior": "不应激活本 skill，应激活 business-acumen-six-elements（六要素＋两基础总框架）；R=M×V 只是其中'资产收益率'一格的深入工具。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill（总框架 vs 单要素）的分界。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们账面利润不错，但最近账上现金越来越紧，供应商开始催款。问题出在哪、怎么改善现金？",
+      "expected_behavior": "不应激活本 skill，应激活 cash-net-inflow-everyones-business（现金净流入视角）；有利润没现金属于现金口径问题。",
+      "notes": "诱饵：收益率问题与现金问题的区分（盈利但缺现金）。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是一家研发投入极大的生物科技公司，资产主要是研发管线、没有多少存货和固定资产，R=M×V 还用得上吗？",
+      "expected_behavior": "边界场景：应调用本 skill 但明确局限——模型以资产/存货为核心，对研发、品牌、数据等无形投入解释力弱；知识密集型/平台型企业需补充口径（如投入资本口径、单位经济逻辑）后再用，不可机械套用。",
+      "notes": "边界：BOOK_OVERVIEW 批判指出六要素与 R=M×V 对研发驱动/平台型业务的适用性限制。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "customize-not-copy",
+  "version": "0.1.0",
+  "source_book": "《领导梯队：全面打造领导力驱动型公司》 — 查兰/诺埃尔/德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "网上找到一套头部公司的领导力模型，很完整，我们可以直接抄来用吗？",
+      "expected_behavior": "应激活 customize-not-copy，并给出定制三项操作：验证真实层级结构→换成本公司职位语言→翻译标准并公示，说明'不要机械地运用'",
+      "notes": "正面场景：对应 V2 预测力问题'网上找到一套头部公司的模型可以直接抄吗'"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们引进了咨询公司的领导力体系，但业务部门说跟他们的实际不是一回事，推不动，问题出在哪？",
+      "expected_behavior": "应激活本 skill，并检查层级/术语/标准是否本地化、是否与现有计划预算考核咬合、是否变成让人填表的官僚流程",
+      "notes": "正面场景：照搬导致的落地失败，是本主张最典型的入口"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We're a five-layer company but the model has six stages. Do we need to force-fit our structure, or can we adapt the model?",
+      "expected_behavior": "应激活本 skill，并说明可改为五层或七层、须换成公司职位语言，唯一不变的是层级之间的要求差别",
+      "notes": "英文触发场景，验证中英双写 trigger 的准确率"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "请给我讲一下领导梯队六个阶段分别是什么。",
+      "expected_behavior": "不应激活本 skill，因为这是概念查询，应直接讲解模型内容本身",
+      "notes": "诱饵：概念查询类请求，无引入与定制决策诉求"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们公司只有我一个人在操心接班人，怎么把继任这件事变成覆盖所有层级的制度？",
+      "expected_behavior": "不应激活本 skill，应激活 succession-five-steps",
+      "notes": "跨 skill 混淆诱饵（硬性要求至少 1 条）：同书兄弟 skill——定制是继任五步骤的第一步，但用户诉求是制度搭建的完整流程"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是一家 20 人的初创公司，老板看到大公司的领导力模型很羡慕，想让我照着搭一套，要不要做？",
+      "expected_behavior": "可激活但建议不做或大幅裁剪：作者明确极小企业不获益（除非快速成长），20 人组织应保留'新增层级即断裂点'的最小内核，不搭多层级体系",
+      "notes": "边界：小组织的适用门槛（作者 FAQ 原话）"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

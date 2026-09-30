@@ -1,0 +1,52 @@
+{
+  "skill": "question-to-reality",
+  "version": "0.1.0",
+  "source_book": "《执行：如何完成任务的学问（白金版）》 — 博西迪/查兰/伯克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下属交来一份 AI 转型方案，PPT 很漂亮，我该怎么审？",
+      "expected_behavior": "应激活 question-to-reality，并按\"实现途径→产品→客户理由→竞争反应→阶段目标→人员激励\"逐层下钻，暴露前提漏洞",
+      "notes": "正面场景：直接对应 V2 预测力问题（AI 转型方案评审）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "他汇报得头头是道，我心里没底，但说不清哪里不对，该问他什么？",
+      "expected_behavior": "应激活 question-to-reality，并给出固定顺序的追问清单与「追问到前提暴露为止」的判停标准",
+      "notes": "正面场景：语言信号\"说不出哪里不对\"是追问式领导的典型触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "how should I probe this business plan? I want to challenge the assumptions without rewriting it for them.",
+      "expected_behavior": "应激活 question-to-reality，并示范用追问完成教练辅导、不代替对方改方案",
+      "notes": "英文触发场景，含 coaching 边界（不越位）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我看看这份采购合同有没有法律风险。",
+      "expected_behavior": "不应激活本 skill，因为这是专业法律审查，不是用提问暴露业务计划的前提",
+      "notes": "诱饵：\"审查\"字样相似但对象与目的完全不同"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "下周我要去外地工厂视察，去了该看什么、怎么才能不是走马观花？",
+      "expected_behavior": "不应激活本 skill，应激活 field-visit-protocol",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill，现场视察与会议追问的场景不同"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我在会上连问了七八个问题，下属脸色已经很难看了，还要继续问吗？",
+      "expected_behavior": "可激活并转入判停：追问的目的是暴露前提而非羞辱；若对方已无回答条件或转为情绪对抗，应停止连环追问、改为会后单独沟通或转入教练辅导",
+      "notes": "边界：追问过度的临界判断"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

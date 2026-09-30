@@ -1,0 +1,52 @@
+{
+  "skill": "cash-net-inflow-everyones-business",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·CEO说：像企业家一样思考》 — 拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们账面利润不错，但账上现金越来越紧，供应商开始催款，钱到底去哪了？",
+      "expected_behavior": "应激活 cash-net-inflow-everyones-business，用三提问（是否产出、源泉、如何使用）诊断，并检查应收/应付账期与存货占用的时间差。",
+      "notes": "典型正向场景：有利润没现金的诊断。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我是采购经理，老板说要人人对现金负责。我这个岗位到底能怎么帮公司改善现金？",
+      "expected_behavior": "应激活本 skill，把岗位动作映射到现金（账期谈判、供应商融资、存货周转、发票与付款处理速度），并强调现金责任不只是财务部的事。",
+      "notes": "正向场景：岗位级现金映射（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司业务增长很快，但反而越来越缺钱，为什么会这样？是不是该慢下来？",
+      "expected_behavior": "应激活本 skill，检查现金结构（先收后付 vs 先付后收、存货与应收膨胀），识别是否在把增长做成吞钱机器，并给出改善现金净流入的动作，而非简单劝其减速。",
+      "notes": "正向场景：增长吞掉现金的情形。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "两家子公司资产收益率都是12%，我想判断哪家用资产赚钱的效率更高、该从哪里改进。",
+      "expected_behavior": "不应激活本 skill，应激活 r-m-v-return-decomposition（R=M×V 拆解利润率×周转率）。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill（现金口径 vs 收益率口径）的分界。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们准备做一轮美元债融资，帮我评估一下发债规模、期限和成本哪个方案更优。",
+      "expected_behavior": "不应激活本 skill，因为这是融资方案设计，属于专业财务/资金范畴，超出本框架（只提供现金诊断视角）。",
+      "notes": "诱饵：把'现金'话题误当现金视角框架的适用场景。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是做长周期项目的工程公司，客户按里程碑付款、供应商也要垫资，现金流天生就是负的。这种情形该怎么用这个框架？",
+      "expected_behavior": "边界场景：应调用本 skill 但调整期望——不能追求'正现金流模式'的普遍性，而应聚焦三提问中的'现金怎样被使用'与里程碑收款节奏、垫资规模、项目间现金错配的管理；同时提示作者案例多为短周期消费品与制造业务，长周期项目需另行建模。",
+      "notes": "边界：作者模式源自短周期业务，长周期/项目型业务的现金结构需要本地化调整。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

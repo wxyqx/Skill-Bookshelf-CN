@@ -1,0 +1,52 @@
+{
+  "skill": "three-dimension-transition",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·领导梯队：全面打造领导力驱动型公司》 — 拉姆·查兰/詹姆斯·诺埃尔/斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "一个技术大牛升了总监，每周还在写 60% 的代码。培训也上了，道理他都懂，但行为就是不变。问题到底出在哪？",
+      "expected_behavior": "应激活 three-dimension-transition：用技能/时间/理念三把尺子分开量，先看日程表（时间占比即角色证据），再查理念的四条证据通道，指出理念是枢纽，避免直接开“效率或技能培训”的处方。",
+      "notes": "正向场景：升职后行为未变的断点定位（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们想给新提拔的一线经理写一份“新岗位到底要求什么变了”的说明，让他知道该放弃哪些原来的工作方式。",
+      "expected_behavior": "应激活本 skill：按领导技能、时间分配结构、工作理念三栏分别写该层级的具体要求，并给出可观察证据（日程表、如何评价下属、计划立场）。",
+      "notes": "正向场景：把三维度用于岗位转型说明与培养计划。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有位部门经理口头总说“我现在是管理者了”，但一到关键项目还是自己上，把下属晾在一边。怎么判断他是真转变还是演给我们看的？",
+      "expected_behavior": "应激活本 skill：说明口头宣布不算理念转变，须走四条证据通道（教训复盘、日程表、如何评价与发展下属、提交计划的立场），并提示风格上的短暂调整不等于理念转变。",
+      "notes": "正向场景：理念取证的典型使用（b5-f24 四条证据通道并入本条）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们想系统排查一下整个公司到底哪一层的领导梯队堵住了，是先从一线经理查还是从事业部总经理查？",
+      "expected_behavior": "不应激活本 skill，应激活 diagnosis-five-steps（个体诊断五步＋组织诊断四步，按层级汇总找阻滞点）；本 skill 只提供单个转型体检的三把尺子。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：三维度是诊断量表，完整流程属于 diagnosis-five-steps。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "他从销售冠军提拔成销售经理后，团队业绩一塌糊涂，客户投诉也多了。是不是该考虑把他换掉？",
+      "expected_behavior": "不应激活本 skill 直接回答去留问题：这是人事处置场景，应说明本书框架不构成人事处置依据，须依当地劳动法与公司程序，并提供改进机会；如需管理视角分析，可先做转型体检但不产出解雇建议。",
+      "notes": "诱饵：人事处置红线（BOOK_OVERVIEW 系列级伦理边界②）。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是扁平化组织，一个总监同时管着七八个跨职能小组，他的时间被打得很散。这种情况下用日程表判断他的角色层级还准吗？",
+      "expected_behavior": "边界场景：应调用本 skill 但校准证据权重——日程表仍是重要证据，但扁平/矩阵组织下需结合“他实际做的是哪一层级的决策、交付什么结果”来判断，不能单靠时间占比；同时提示模型本身以科层制大公司为原型。",
+      "notes": "边界：时间证据在非科层组织中的适用性受作者时代局限。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

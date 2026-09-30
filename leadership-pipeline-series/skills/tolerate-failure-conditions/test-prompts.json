@@ -1,0 +1,52 @@
+{
+  "skill": "tolerate-failure-conditions",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·高管路径：轮岗培养领导人才》 — 拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "想派一个高潜去接手一块很烂的业务，但怕他搞砸，怎么权衡？",
+      "expected_behavior": "应激活 tolerate-failure-conditions，先做三条件体检（能否重新定义目标、能否自主组队做人事决策、能否平衡短长期），再做失败预算（事前评估万一失败公司能否承受）",
+      "notes": "正面场景：直接对应 V2 预测力问题（派高潜接手烂摊子）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "他新岗位上没做成，是不是说明这个人不行、该放弃培养了？",
+      "expected_behavior": "应激活 tolerate-failure-conditions，按失败归因三分类处理（人与机会搭配错误／文化适应问题／进展过激进），据此调整路径而非终止培养，同时检查是否存在根深蒂固的个人缺点",
+      "notes": "正面场景：失败后的归因与路径调整是本框架的核心动作"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "How much freedom should I give this new business head? If I set the targets for him, is that micromanaging?",
+      "expected_behavior": "应激活 tolerate-failure-conditions，说明三项自由的具体边界（重新定义工作内容、带团队、平衡短长期），并给出协商制定指标的做法与例外管理",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "他连续两个季度没完成指标，我该按什么流程处理他？",
+      "expected_behavior": "不应激活本 skill，应激活 underperformer-tiered-handling 与绩效管理程序：这是持续不胜任的处置问题，不是成长性挫折的归因问题",
+      "notes": "诱饵：同属'表现不好'话题但性质是绩效处置"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "他打算给这个业务留下三年投入期、牺牲当期利润，这个决定合理吗？",
+      "expected_behavior": "不应激活本 skill，应激活 assessment-dual-track 或者战略/预算类判断（如 b1-f17、b1-f20）：这是业务决策评估，不是人才培养的自由设计",
+      "notes": "同书兄弟 skill 混淆诱饵（硬性要求）：业务投资决策 vs 培养性授权"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "他做砸了那单生意，但过程中确实成长很快。既然允许失败，是不是就不用追究了？",
+      "expected_behavior": "应说明边界：允许失败指学习性挫折与可控风险，不等于豁免责任；涉及合规、客户损失或诚信问题须按制度处理，同时可以用三分类归因指导其下一步安排",
+      "notes": "边界：宽容失败与责任追究的边界"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

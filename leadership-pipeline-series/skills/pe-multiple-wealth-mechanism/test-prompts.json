@@ -1,0 +1,52 @@
+{
+  "skill": "pe-multiple-wealth-mechanism",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·CEO说：像企业家一样思考》（What the CEO Wants You to Know） — [美]拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们想收购一家公司，对方要价不低，怎么判断它贵不贵？",
+      "expected_behavior": "应激活 pe-multiple-wealth-mechanism：不只看利润规模——拆两半：赢利模式质量（六要素综合与对手比较）与可预见性（是否持续达成、预测是否稳定）；查其历史一贯性，不连贯就下调倍数假设；提示合规红线（不得建议数字操纵）。",
+      "notes": "正面场景：verified.md b3-f08 的 V2 novel question 原形。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "同样一年赚10亿，为什么我们市值只有同行的一半？老板让我分析原因。",
+      "expected_behavior": "应激活 pe-multiple-wealth-mechanism：用双变量拆解——赢利模式质量（现金净流入、利润、周转率、ROA、增长的综合与对手比较）＋投资者信心（一贯性与可预见性）；指出最弱要素并转成经营改善的 3~4 项优先事项。",
+      "notes": "正面场景：可口可乐 vs 百事案例（b3-c22）的同构问题。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "季度目标和我们需要的长期研发投入老是打架，CFO说必须保证每股收益达标，这事该怎么处理？",
+      "expected_behavior": "应激活 pe-multiple-wealth-mechanism（并必须携带短期主义与合规 Boundary）：解释市场惩罚的是'预期不连续'，但不得为达预期而挤压长期投入或做盈余管理——明确引用 b3-ce08 risk_note：不得建议任何形式的数字操纵，估值沟通须符合证券法规与信息披露规则。",
+      "notes": "正面场景＋边界场景：本单元在 verified.md 中被明确要求'使用必须携带短期主义 Boundary'。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "市场传言要变天，我先想弄清楚我们这个行业未来两年到底会怎样、我们该抓哪几个重点。",
+      "expected_behavior": "不应激活本 skill，应激活 `complexity-to-priorities`（化繁为简决策路径）：用户问的是从复杂因素推优先事项，不是估值/财富创造机制；若最终发现结论关乎估值判断，再转本 skill。",
+      "notes": "同书兄弟 skill 混淆诱饵（硬性要求）：'看懂局面'与'看懂估值'是两条路径。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我讲讲我们公司现在的经营状况怎么样，第一次接手，想快速看一遍。",
+      "expected_behavior": "不应激活本 skill，应激活 `company-panorama-seven-questions`（公司全景诊断七问）：用户要的是当前经营全景体检（销售收入/增长/利润率/对手对比/周转/ROA/现金），不是估值机制与财富创造；七问中若发现现金异常，再转相关 skill。",
+      "notes": "同书兄弟 skill 混淆诱饵：'看公司'与'看估值'语境相近。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是家未上市的家族企业，也不打算卖，P-E 这些跟我们有什么关系吗？",
+      "expected_behavior": "边界判断：原则上不必围绕 P-E 设计经营动作——作者只是原则性地说私营公司同样适用（终将被出售或上市）；可把它降格为管理参照：用'赢利模式质量＋一贯性'的思维检查经营，但不必管理倍数本身；若未来有出售/上市计划，再回到完整框架。",
+      "notes": "边界：检验 B 段'未上市且无出售/上市计划时不围绕 P-E 管理'的反场景。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01/02 均为同书兄弟 skill（complexity-to-priorities / company-panorama-seven-questions）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。本 skill 测试必须检查短期主义与合规 Boundary 是否随调用携带。"
+}

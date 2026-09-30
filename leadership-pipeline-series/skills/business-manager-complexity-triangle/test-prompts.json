@@ -1,0 +1,52 @@
+{
+  "skill": "business-manager-complexity-triangle",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·领导梯队：全面打造领导力驱动型公司》 — 拉姆·查兰/詹姆斯·诺埃尔/斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我刚接手一个事业部，利润在掉、份额也在掉。第一刀该砍哪里？要不要先降价冲量？",
+      "expected_behavior": "应激活 business-manager-complexity-triangle：用协同三角形逐角检查（战略方向=价值主张是否失效、组织能力=流程结构是否支撑、人员能力=团队是否有合适的人），形成组合方案而不是降价这类单一动作；提醒组织能力角最常缺失。",
+      "notes": "正向场景：接手新业务的诊断（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我管着一个业务单元，每天忙到通宵，什么事都自己上，可各个部门还是各干各的，团队跟散沙一样。我哪里做错了？",
+      "expected_behavior": "应激活本 skill：指出“单打独斗就要遭受和卡特琳娜一样的失败”，事业部总经理必须把部门经理整合成团队；同时检查两条硬要求（创建业务导向团队是主要工作、战略不可完全授权、对直接下属一对一教练）。",
+      "notes": "正向场景：超人式努力的失效（b5-p10 并入内容的实战用法）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们总经理一有问题就盯着成熟产品的运营效率，把过时的产品线做得更高效，但从来没人讨论这条产品线还要不要留。这是不是层级没转过来？",
+      "expected_behavior": "应激活本 skill：用“从能不能做到该不该做”的里程碑转变诊断——卡特琳娜式“把事情做得更好”而非“我们应该做这件事情吗”；给出三角检查（战略方向角该做取舍）与放弃/重构的决策路径。",
+      "notes": "正向场景：该不该做的里程碑转变（b5-c08、b5-c21 的判据）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们从技术专家提上来的职能主管，只关心自己那块研发，从不考虑业务整体怎么赚钱。他这算是成熟度不足吗？",
+      "expected_behavior": "不应激活本 skill，应激活 functional-manager-maturity（成熟度三视角与“为业务建竞争优势”的使命）；本条面向对盈亏全面负责的事业部总经理。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：第三阶段 vs 第四阶段。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我管着三个事业部的总经理，每天比他们还忙，什么业务决策都替他们做。集团层面该怎么定位我的角色？",
+      "expected_behavior": "不应激活本 skill，应激活 group-executive-indirect-success（间接成功与三项理念自问：组合决策、培养事业部总经理、公司总体战略优先；时间基准 50% 育人等）。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：单业务整合 vs 多业务组合管理。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是平台型业务，烧钱换增长是行业惯例，没有传统利润表可看。协同三角形这套还管用吗？",
+      "expected_behavior": "边界场景：应调用本 skill 但重构三角内容——战略方向角改为单位经济与网络效应判断、组织能力角改为产品与技术流程、人员能力角保留；同时明确提示本书三角以 2000 年代美国大公司（金融、制造、交易）为背景，对边际成本近零、网络效应型业务的取舍逻辑未覆盖，需自行本地化。",
+      "notes": "边界：模型的时代与行业前提（BOOK_OVERVIEW 批判节）。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

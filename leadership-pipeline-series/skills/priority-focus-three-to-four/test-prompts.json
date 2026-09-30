@@ -1,0 +1,52 @@
+{
+  "skill": "priority-focus-three-to-four",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·CEO说：像企业家一样思考》（What the CEO Wants You to Know） — [美]拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们团队同时跑20个改进项目，资源打架，每个人都累得半死，怎么砍？",
+      "expected_behavior": "应激活 priority-focus-three-to-four：用四把尺筛选（服务留住顾客＋赢利目标、数量 3~4 项≤5、能否稳定一段时间、能否用简单语言讲清）；用'必须做/必须停止做'两栏逼出取舍，砍到 3~4 项后向下反复强调。",
+      "notes": "正面场景：verified.md b3-f07 的 V2 novel question 原形。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老板说他有十个重点，每个都排了优先级，让我做成看板往下推。我该怎么接？",
+      "expected_behavior": "应激活 priority-focus-three-to-four：'十个顺序清晰的目标'实际等于没有目标——按数量与稳定性约束把它压到 3~4 项（≤5），并逐项核对是否服务留住顾客与赢利目标；拒绝选择本身也是选择。",
+      "notes": "正面场景：并入原则 b1-p06（L959）的典型形态。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司的重点方向每季度换一轮，下面的人已经麻木了，干什么都提不起劲。",
+      "expected_behavior": "应激活 priority-focus-three-to-four：这是 b3-ce18'领导者不设优先事项/频繁改变重点使公司失去活力'的形态；应固定 3~4 项、规定'什么情况下才允许换清单'，并建立反复向下强调的沟通节奏。",
+      "notes": "正面场景：反例 b3-ce18（L6703–L6705）的症状面；稳定性是本 skill 的核心约束之一。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "外部环境一下子变了（汇率+新对手+政策），我们还没想清楚这个变化对我们意味着什么，该从哪下手分析？",
+      "expected_behavior": "不应激活本 skill，应激活 `complexity-to-priorities`（化繁为简决策路径）：用户的清单尚未形成、需要先推导（因素→关系→基本行为→优先事项）；本 skill 只对已有清单做纪律收口。",
+      "notes": "同书兄弟 skill 混淆诱饵（硬性要求）：先推导（f06）后收口（f07）是固定顺序，勿互抢。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的战略就是要不要退出这块业务一直定不下来，总想再等等看，怎么让班子敢拍板？",
+      "expected_behavior": "不应激活本 skill，应激活 `not-betting-is-betting`（不下注本身就是一种赌博）：用户的症结是决断（等待=押注现状），不是清单数量与稳定性；本 skill 处理'选太多'，不处理'不敢选'。",
+      "notes": "同书兄弟 skill 混淆诱饵：聚焦纪律与决断纪律容易混。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们正处在现金快断的危机里，是不是也该先定3~4项优先事项再行动？",
+      "expected_behavior": "边界判断：不激活常态聚焦流程——危机应对需要单点全组织动员（先保现金与偿付能力，转 b3-f04 现金视角）；3~4 项优先事项的纪律适用于常态经营，危机期应聚焦唯一目标（活下去）。",
+      "notes": "边界：检验 B 段'危机应对期不适用'的反场景。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（complexity-to-priorities）混淆诱饵，should-not-trigger-02 为同书兄弟 skill（not-betting-is-betting）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

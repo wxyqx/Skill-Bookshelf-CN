@@ -1,0 +1,52 @@
+{
+  "skill": "talent-review-meeting-mrr",
+  "version": "0.1.0",
+  "source_book": "《执行：如何完成任务的学问（白金版）》 — 博西迪/查兰/伯克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们每年做一次人才盘点，做完没人看、没人动，怎么救？",
+      "expected_behavior": "应激活 talent-review-meeting-mrr，并按 MRR 要件改造：固定节律与战略/运营咬合、会前书面评估与退回重写、会中行为举证、会后信件固定结论",
+      "notes": "正面场景：直接对应 V2 预测力问题（盘点无后续动作）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "想给几个关键岗位准备继任者名单，但收到的评价都是「表现不错」这种话，怎么办？",
+      "expected_behavior": "应激活 talent-review-meeting-mrr，并示范用「找五个认识他的人开诚布公地谈」收集具体行为证据",
+      "notes": "正面场景：形容词式评价是本机制要解决的核心病症"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "How do I run a talent review that produces honest evidence instead of impressions?",
+      "expected_behavior": "应激活 talent-review-meeting-mrr，并输出会前/会中/会后三阶段的程序与退回规则",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我设计一份员工满意度调查问卷。",
+      "expected_behavior": "不应激活本 skill，因为问卷调研属于诊断数据采集工具，不涉及人才决策会议机制",
+      "notes": "诱饵：同属 HR 工具但用途不同（且书中明确批评过问卷式文化诊断）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "一位老员工连续两年不达标，人缘很好，我该怎么处置他？",
+      "expected_behavior": "不应激活本 skill，应激活 underperformer-tiered-handling",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill，评估机制与个人处置流程的分工不同"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们公司只有 40 人，也要开两天的人才评估会吗？",
+      "expected_behavior": "可激活并说明：机制要件（会前书面评估、行为证据、会后结论与跟进、反对意见记录）必须保留，但规模与时长可轻量化；两天会期是大公司原型，不必照搬",
+      "notes": "边界：大公司原型与中小组织的定制"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "ceo-selection-process",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·高管路径：轮岗培养领导人才》 — 拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "董事长让我加入 CEO 继任委员会，第一次会议该做什么？",
+      "expected_behavior": "应激活 ceo-selection-process，先立程序再谈人：按 8 阶段设计（流程/权责/外部顾问→信息收集定义需求→资格分层→结构化深度面谈→必要时看外部→集体决策→聘约→交接），并确立'一同开始、一同完成'的规则",
+      "notes": "正面场景：直接对应 V2 预测力问题（第一次继任委员会会议）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们在讨论接班人，有位董事说某位外部高管在上一家公司业绩很漂亮，是不是应该挖他过来？",
+      "expected_behavior": "应激活 ceo-selection-process，用第二原则纠偏：没有两位 CEO 角色相同，先定义公司未来 3~5 年最需要的能力，再评估契合度；明星业绩可能来自不同情境",
+      "notes": "正面场景：明星企业家迷思是本流程要纠的主要偏差之一"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "The board wants to name the successor early so we don't lose him. Is that a good idea?",
+      "expected_behavior": "应激活 ceo-selection-process，说明过早暗示继任者的三类风险（逼宫游说、猎头围猎、现任抓紧权杖），并给出保密与信息发布边界的合规提醒",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我设计一下部门经理这个岗位的招聘面试问题。",
+      "expected_behavior": "不应激活本 skill，因为这是中基层招聘面试设计，不涉及 CEO 层级的治理程序与资格分层",
+      "notes": "诱饵：同属选拔话题但层级与程序完全不同"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们想把公司未来三年的高潜培养路径排出来，从哪些岗位开始轮？",
+      "expected_behavior": "不应激活本 skill，应激活 apprenticeship-model 或 concentric-learning-job-design：这是培养引擎与岗位路径设计，不是最高层选拔决策程序",
+      "notes": "同书兄弟 skill 混淆诱饵（硬性要求）：培养 vs 选拔治理"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们有三位内部候选人，董事会打算让落选的那位留下来当 COO 支持新 CEO，这样安排稳妥吗？",
+      "expected_behavior": "可激活并给出判断：把落选者硬塞给新 CEO（尤其任命为 COO）可能是错误决定，董事会应放手让新 CEO 组建团队；若落选者自愿留下也需尊重与透明，并提示高管合同与劳动法边界",
+      "notes": "边界：落选者处理既是治理判断也涉及合规，须给风险提示而非直接指令"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

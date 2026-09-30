@@ -1,0 +1,52 @@
+{
+  "skill": "operations-plan-three-step",
+  "version": "0.1.0",
+  "source_book": "《执行：如何完成任务的学问（白金版）》 — 博西迪/查兰/伯克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "明年的预算会怎么开才有用？每年都是分数字、讨价还价，开完就完了。",
+      "expected_behavior": "应激活 operations-plan-three-step，并反转顺序：先讨论前提与运营计划，预算由计划推导；给出三步法与会后跟进要求",
+      "notes": "正面场景：直接对应 V2 预测力问题（预算会怎么开）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "战略和预算两张皮，计划定了也没人执行，怎么把它们接起来？",
+      "expected_behavior": "应激活 operations-plan-three-step，并给出目标（由外到内、由上到下）、行动计划（短长期平衡）、共识与跟进三步，及执行者参与目标制定的纪律",
+      "notes": "正面场景：计划与预算脱节是本书第 9 章的核心批评"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "How should we run the annual operating plan and budget cycle so it actually drives execution?",
+      "expected_behavior": "应激活 operations-plan-three-step，并说明同步预算/同场对话的做法与\"没精力跟进就不要批准\"的反向规则",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我做一份明年的费用报销标准表。",
+      "expected_behavior": "不应激活本 skill，因为这是财务制度文书，不涉及运营计划流程",
+      "notes": "诱饵：同属预算/财务话题但性质是制度表单"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们想先把明年计划的几个关键前提拿出来逐条取证、做压力测试。",
+      "expected_behavior": "不应激活本 skill，应激活 assumptions-and-contingency",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill，前提假设的专门处理交给 b1-f22，本 skill 负责整体三步流程"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司现金流紧张，这个月就要断粮，还来得及先花时间讨论前提和计划吗？",
+      "expected_behavior": "可给出边界判断：紧急止血优先（先做现金流决策与应急措施），之后再按流程重排运营计划；快速版仍需标注关键假设，不能跳过前提讨论",
+      "notes": "边界：应急场景与完整流程的先后"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

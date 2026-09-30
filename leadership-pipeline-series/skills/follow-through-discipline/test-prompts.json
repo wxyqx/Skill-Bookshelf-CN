@@ -1,0 +1,52 @@
+{
+  "skill": "follow-through-discipline",
+  "version": "0.1.0",
+  "source_book": "《执行：如何完成任务的学问（白金版）》 — 博西迪/查兰/伯克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "会议开得很好，共识也很多，可两个月后什么都没动，怎么防？",
+      "expected_behavior": "应激活 follow-through-discipline，并给出会后跟进计划六要素、书面备忘录、固定核查周期与\"无跟进不批准\"的反向规则",
+      "notes": "正面场景：直接对应 V2 预测力问题（会后无动作）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我在批项目的时候总没有精力彻底跟进，是不是就不该批？",
+      "expected_behavior": "应激活 follow-through-discipline，并确认反向规则——没有精力彻底跟进的项目不要批准，同时给出可执行的跟进设计替代方案",
+      "notes": "正面场景：书中原话「千万不要批准这个项目」"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Nothing moved after the meeting. How do I make decisions stick?",
+      "expected_behavior": "应激活 follow-through-discipline，并输出跟进计划模板、责任人与下次核查的设定方法",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这次会议的录音整理成文字稿。",
+      "expected_behavior": "不应激活本 skill，因为这是记录整理事务，不是承诺与跟进的纪律设计",
+      "notes": "诱饵：同为会议产出，但诉求是转录而非跟进闭环"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "年度预算会怎么开才有用？每次都是分数字、谈条件。",
+      "expected_behavior": "不应激活本 skill，应激活 operations-plan-three-step",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill，计划生成与会后跟进的分工"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们团队只有五个人，每周站会，还需要正式的跟进备忘录吗？",
+      "expected_behavior": "可激活并给出轻量化方案：六要素可以口头或一条清单落实，但「无跟进不批准」与「书面固定共识」的原则保留；五人的团队可用站会清单替代正式备忘录",
+      "notes": "边界：小团队与文书轻量化"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

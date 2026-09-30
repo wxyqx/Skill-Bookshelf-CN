@@ -1,0 +1,52 @@
+{
+  "skill": "deliberate-practice-feedback-loop",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·高管路径：轮岗培养领导人才》 — 拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我很努力地带团队，但一年下来感觉自己没什么长进，到底缺什么？",
+      "expected_behavior": "应激活 deliberate-practice-feedback-loop，检查反馈加改进闭环的四环：针对一两项的重复实践、高人的及时具体反馈、自我修正、再实践，并建议主动向上级索要聚焦反馈",
+      "notes": "正面场景：直接对应 V2 预测力问题（一年没长进）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我跟一个高潜谈过三次了，他每次都点头，但做事还是老样子，怎么破？",
+      "expected_behavior": "应激活 deliberate-practice-feedback-loop，先收敛到一两项关键项、把反馈落到可检验的下一步、在真实场景中验证行为是否改变，必要时检查是否岗位错配",
+      "notes": "正面场景：反馈无实效是本书闭环要解决的核心病症"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Our high potential has an executive coach. Should we still expect his manager to give feedback?",
+      "expected_behavior": "应激活 deliberate-practice-feedback-loop，说明外部教练的位置局限（看不到真实工作现场、不懂业务），上级仍须承担主要观察与反馈职责，教练只作专长范围内的辅助",
+      "notes": "英文触发场景，验证中英双写 trigger；覆盖 b4-ce11 外部教练边界"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "一个下属连续两个季度考核不达标，按公司规定我该怎么走改进和处置流程？",
+      "expected_behavior": "不应激活本 skill，应激活 underperformer-tiered-handling 类流程（跨册）；本 skill 是发展性反馈机制，不是绩效处置程序",
+      "notes": "诱饵：同属'对人的反馈'话题但性质是绩效管理与处置"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们年底要做一次领导力评估，把高潜的情况集中盘一盘，还需要和业绩考核分开吗？",
+      "expected_behavior": "不应激活本 skill，应激活 assessment-dual-track：这是组织层面的评估制度（两轨分工）问题，不是一对一反馈闭环问题",
+      "notes": "同书兄弟 skill 混淆诱饵（硬性要求）：评估会议制度 vs 日常反馈闭环"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "下属情绪失控、和团队爆发冲突，我先做几次聚焦反馈，还是直接启动正式程序？",
+      "expected_behavior": "应说明超出本 skill 范围：涉及情绪与行为红线时应先按公司制度与专业资源处理，发展性反馈只适用于可培养的领导能力议题",
+      "notes": "边界：发展性反馈与正式管理程序的边界"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

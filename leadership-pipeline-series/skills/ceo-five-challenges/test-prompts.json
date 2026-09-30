@@ -1,0 +1,52 @@
+{
+  "skill": "ceo-five-challenges",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·领导梯队：全面打造领导力驱动型公司》 — 拉姆·查兰/詹姆斯·诺埃尔/斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我刚当上 CEO，前 90 天该抓什么？董事会和大家都在看着。",
+      "expected_behavior": "应激活 ceo-five-challenges：先按五项挑战排优先级（短长期平衡、方向定义、软实力、执行到位、全球化与社会责任），再按执行到位五问建立信息流（预测 8 个季度、保持与顾客一线的直接联系、确保坏消息上得来、检查董事会是否橡皮图章、检查高管团队是否团结）；提示许多失败 CEO 恰是出色的战略家，输在技能/时间/理念未随角色改变。",
+      "notes": "正向场景：新官上任的优先级排序（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们 CEO 好像只活在自己的世界里，运营一塌糊涂也不了解细节；每次董事会都在追问同一个问题。这是不是要出事？",
+      "expected_behavior": "应激活本 skill：对照 CEO 困境四类信号（忽略公司如何实现目标、时间过度偏向外部、软实力投入不足、董事会反复追问同一问题）做诊断，并给出执行到位五问的纠正动作。",
+      "notes": "正向场景：CEO 失败信号的识别（b5-ce17）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们想培养下一代 CEO 的接班人，要不要让他先去管人力资源？他好像很不情愿。",
+      "expected_behavior": "应激活本 skill：说明作者对“让未来高管主管人力资源”的论证（业务型高管越是不屑，就越需要这方面的历练；能培养研究、分析、长期计划与测量评估的基本功，并加深对人力资源的重视），同时提示直面董事会与分析师的配套做法。",
+      "notes": "正向场景：CEO 培养路径（b5-p16 并入内容）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我管着三个业务群组，每天跑市场做交易，比事业部总经理们还忙。我该怎么调整？",
+      "expected_behavior": "不应激活本 skill，应激活 group-executive-indirect-success（间接成功三问、四项技能、时间基准与连锁越俎代庖）；用户的角色是集团高管而非 CEO。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：集团高管 vs CEO。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们董事会在选下一任 CEO，有内部两个候选人，也考虑外部找人。这个流程该怎么设计、落选的人怎么安排？",
+      "expected_behavior": "不应激活本 skill，应激活 b4 的 ceo-selection-process（CEO 选拔流程与治理、8 阶段、董事会参与、落选者处理）；本条处理在任 CEO 的角色要求，不是选拔程序。",
+      "notes": "跨 skill 混淆诱饵（同书/同系列相邻 skill）：选拔 vs 在任要求。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是创始人控制的非上市公司，没有股价压力，也没有强势董事会。五项挑战里的“平衡华尔街预期”“检查董事会是不是橡皮图章”还适用吗？",
+      "expected_behavior": "边界场景：应调用本 skill 但重述前提——把“资本市场信誉”替换为其他利益相关方的信任（客户、员工、银行/投资人），把“董事会”替换为相应的治理与监督结构；保留五项挑战的实质（短长期平衡、方向、软实力、执行、社会责任），并明确提示本书以 2000 年代美国上市公司为原型。",
+      "notes": "边界：时代与治理前提（BOOK_OVERVIEW 批判节）。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

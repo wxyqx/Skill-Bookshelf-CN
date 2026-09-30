@@ -1,0 +1,52 @@
+{
+  "skill": "leadership-is-work-not-honor",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·高管路径：轮岗培养领导人才》 — 拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我带的年轻骨干为了冲业绩开始打擦边球，我该怎么跟他谈？",
+      "expected_behavior": "应激活 leadership-is-work-not-honor，把诚信设为硬门槛而非评优项，指出自恋—投机—不择手段的滑坡路径，并示范用'我赢得了别人的信任吗？我的诚信是否受到质疑？'两问展开对话",
+      "notes": "正面场景：直接对应 V2 预测力问题（骨干打擦边球）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "有个很能干的同事要被推上管理岗，但他自己一直犹豫，说不知道当领导图什么。",
+      "expected_behavior": "应激活 leadership-is-work-not-honor，把问题拆成'这份工作本身愿不愿意做'与'两轴是否有证据'，并明确抱负与干劲是必要条件而非充分条件，承认不适合是被允许的",
+      "notes": "正面场景：领导是工作而非荣誉的核心应用场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "I'm up for a bigger role but I keep asking myself: is this what I actually want to do, or am I just chasing the title?",
+      "expected_behavior": "应激活 leadership-is-work-not-honor，引导区分工作内容与头衔荣誉，并给出诚信体检与个人侧自我管理动作（约谈节律、主动索取反馈）",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "他这半年状态很差、失眠、对什么都提不起劲，我该怎么帮他？",
+      "expected_behavior": "不应激活本 skill：这涉及心理健康，应转介专业资源；本框架是伦理与职业判断题，不做心理诊断",
+      "notes": "诱饵：同属'个人状态'话题但属健康议题"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "董事长让我负责 CEO 继任委员会，候选人名单和面谈该怎么安排？",
+      "expected_behavior": "不应激活本 skill，应激活 ceo-selection-process：这是最高层选拔的治理程序，不是个人伦理与职业选择问题",
+      "notes": "同书兄弟 skill 混淆诱饵（硬性要求）：选拔程序 vs 个人伦理判断"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们公司开会总是和和气气、决议反复推翻，我该忍还是走？",
+      "expected_behavior": "可激活并给出判断：先用两类文化陷阱的判据确认是否属于无效共治（决策反复、无人担责）且自己无法改变，再列出换环境的具体条件与准备动作；同时提示这是个体的职业选择建议，不适用于所有文化情境",
+      "notes": "边界：环境裁决是个人选择建议，须避免一刀切"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

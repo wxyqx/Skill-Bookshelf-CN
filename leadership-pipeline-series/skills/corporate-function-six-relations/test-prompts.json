@@ -1,0 +1,52 @@
+{
+  "skill": "corporate-function-six-relations",
+  "version": "0.1.0",
+  "source_book": "《领导梯队：全面打造领导力驱动型公司》 — 查兰/诺埃尔/德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我刚接任集团人力资源负责人，直接上司是集团高管，职能上又归公司 HR 管，还要面对各事业部总经理，这关系怎么处理？",
+      "expected_behavior": "应激活 corporate-function-six-relations，并画出六关系点、获取业务优先级、前置处理矛盾、明确不让下属选边",
+      "notes": "正面场景：对应 V2 预测力问题'刚接任集团 HR 负责人，怎么处理和业务线总经理的关系'"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们公司的职能主管们天天在救火、对谁都不敢说不，本职能给公司创造什么价值也说不清，怎么诊断和纠偏？",
+      "expected_behavior": "应激活本 skill，用未尽职三标志（政客化/过度干涉职能经理/围着集团高管转）与角色重定义、时间纪律做体检与纠偏",
+      "notes": "正面场景：作者点名的三类失职形态，是本框架的核心诊断入口"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "As a new corporate function head, I'm caught in matrix reporting — the business GM and my functional boss want opposite things. How do I manage this?",
+      "expected_behavior": "应激活本 skill，并给出六关系点地图、共同点寻找方法与优先级设定纪律",
+      "notes": "英文触发场景，验证中英双写 trigger 的准确率"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我搭一个 HR 共享服务中心的流程和人员编制方案。",
+      "expected_behavior": "不应激活本 skill，因为这是职能内部运营设计任务，不涉及多关系点定位与角色重定义",
+      "notes": "诱饵：职能运营设计类请求，看似与'职能'相关但无矩阵关系诊断诉求"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司里最好的架构师不想做管理，一心想走技术路线，怎么留住他？",
+      "expected_behavior": "不应激活本 skill，应激活 dual-track-management-technical",
+      "notes": "跨 skill 混淆诱饵（硬性要求至少 1 条）：同书兄弟 skill——职能主管矩阵关系与专家双轨通道是两个不同问题"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是一家 150 人的公司，只有一个 HR 主管，向 CEO 汇报，也谈不上业务线总经理，需要用六关系点框架吗？",
+      "expected_behavior": "可部分激活但须裁剪：无矩阵结构时应退化为'直接上司＋内部客户＋下属'的三关系简化版，不必强套六个关系点",
+      "notes": "边界：矩阵结构不存在时框架的适用性裁剪"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

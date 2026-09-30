@@ -1,0 +1,52 @@
+{
+  "skill": "performance-pipeline-interview-build",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·业绩梯队：让各层级领导者做出正确的业绩》 — 斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司各层级职责很乱，有人做着上级的活、有人只做下级的活，我想从零建立每个层级该交什么业绩的标准，该怎么做？",
+      "expected_behavior": "应激活 performance-pipeline-interview-build，并按六步流程启动：先明确要解决的业务问题，再设计分层访谈，依次完成名词归类、四栏标准定义、集体确认与本地化。",
+      "notes": "典型正向场景：从零搭建各层级业绩标准（业绩梯队）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "We want to build a performance pipeline for our company. How do we run the clarification interviews and define job standards by level?",
+      "expected_behavior": "应激活本 skill，给出六步流程与访谈设计要点（每层5~10人、90分钟、保密声明），并说明名词提取与全面/卓越双栏的用法。",
+      "notes": "英文触发场景，验证中英双写 trigger 有效。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "新战略刚定下来，原来的KPI和岗位描述都不适用了。怎么把战略翻译成各层领导该交的结果，并定出衡量标准？",
+      "expected_behavior": "应激活本 skill，从步骤1（明确目的）开始，围绕当年运营计划选取20~25项最重要任务设定标准，并提示标准宁少而高。",
+      "notes": "战略翻译为层级业绩是建梯流程的直接用途之一。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这个岗位的职位说明书改一改，措辞专业一点就行。",
+      "expected_behavior": "不应激活本 skill，因为这只是单个岗位的文档润色，不涉及跨层级业绩标准重建。",
+      "notes": "诱饵：把'岗位描述'误当'建业绩梯队'。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们已经有各层级的业绩标准了，现在想做好每月一次的业绩复盘：怎么判断一条业绩证据够不够硬？",
+      "expected_behavior": "不应激活本 skill，应激活 performance-dialogue-evidence（业绩讨论与证据法）。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill（建标准 vs 用标准）的分界。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们只有五个管理层级、两百来号人，也想做业绩梯队，但集团高管这一层我们是没有的，还要照书上的七层做吗？",
+      "expected_behavior": "这是调用边界场景：可以调用本 skill，但必须走本地化路径——按实际存在的层级重新分配任务（没有的层级把其业绩分给相邻层级）、用公司自己的头衔与术语替换，不做机械照搬。",
+      "notes": "边界：模型核心是方法（访谈→名词→标准→确认），不是固定层数；书中明确允许按组织规模调整与本地化。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

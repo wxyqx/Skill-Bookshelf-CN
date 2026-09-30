@@ -1,0 +1,52 @@
+{
+  "skill": "field-visit-protocol",
+  "version": "0.1.0",
+  "source_book": "《执行：如何完成任务的学问（白金版）》 — 博西迪/查兰/伯克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我一年去不了两次分公司，下属报喜不报忧，怎么才能真正了解情况？",
+      "expected_behavior": "应激活 field-visit-protocol，并给出带假设入场、先听负责人、全员开放问答、书面结论与复查的完整视察程序",
+      "notes": "正面场景：信息被过滤是本书第 3 章的核心问题"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "下周要去工厂视察，去了该看什么、问什么，才不至于走马观花？",
+      "expected_behavior": "应激活 field-visit-protocol，并输出视察前的假设清单、现场四段式与\"尖锐问题出现率\"等验收标准",
+      "notes": "正面场景：直接把视察从礼节性拜访改造为有程序的现场访问"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "My team is fully remote now — how do I get unfiltered information about what is really happening?",
+      "expected_behavior": "应激活 field-visit-protocol，并把四要素迁移到远程场景（带假设、开放问答、书面结论、设复查期）",
+      "notes": "英文触发场景，对应 V2 预测力问题（远程团队的真实状态）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我准备一份工厂安全生产审计的检查清单。",
+      "expected_behavior": "不应激活本 skill，因为这是合规审计任务，需要专业标准而非领导视察程序",
+      "notes": "诱饵：同在现场、同为清单，但目的（合规）与手段（专业审计）都不同"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "同事交来一份扩张计划，我总觉得数字有问题，会上该怎么追问？",
+      "expected_behavior": "不应激活本 skill，应激活 question-to-reality",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill，会议室追问计划与现场视察是两种场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "团队全远程，我把每月的视频全员会当作视察来做，够吗？",
+      "expected_behavior": "可激活并说明：形式可替代，但四要素不能省——带假设入场、鼓励尖锐问题、结论书面化、约定复查期；缺任一项就退化为走马观花",
+      "notes": "边界：远程替代形式的适用条件"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

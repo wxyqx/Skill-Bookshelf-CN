@@ -1,0 +1,52 @@
+{
+  "skill": "job-essence-two-factors",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·业绩梯队：让各层级领导者做出正确的业绩》 — 斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司两个都叫'区域总监'的岗位，工资差了一倍，员工说不公平。到底该怎么判断这两个岗位是不是同一种工作？",
+      "expected_behavior": "应激活 job-essence-two-factors，用决策权与障碍两因素逐项比对两个岗位，给出是否同一种工作的结论及依据。",
+      "notes": "典型正向场景：同名岗位的职级/薪酬公平性判断（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "面试一位候选人时，他说自己在上家公司'负责整个区域的战略'。我想追问出这份工作真正的本质，该问什么？",
+      "expected_behavior": "应激活本 skill，将追问转成决策权与障碍两个方向（最终拍板什么、对什么后果负责；要克服什么障碍、哪些支持已建立）。",
+      "notes": "正向场景：用双因素设计招聘/访谈追问（对应书中问题3A/3B/4）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "同一批'产品经理'里，有人在成熟产品线维护，有人从零做新产品线，公司想把他们放进同一个职级，可以吗？",
+      "expected_behavior": "应激活本 skill，从障碍因素（有无品牌、分销、支持体系）与决策权两项分别评估，指出双因素不同即不是同一种工作，不能只按头衔归类。",
+      "notes": "正向场景：岗位对标与职级归并。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这个'高级运营专员'的岗位说明书重写一下，加上几条职责描述。",
+      "expected_behavior": "不应激活本 skill，因为这只是文档撰写任务，不涉及判断两个岗位是否同一种工作。",
+      "notes": "诱饵：把'写职位描述'当成'判定工作本质'。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们想给公司各层级重新搭一套业绩标准，从一线经理到事业部总经理每层该交什么结果都要写清楚，该怎么启动？",
+      "expected_behavior": "不应激活本 skill，应激活 performance-pipeline-interview-build（业绩梯队建队六步骤）；双因素只是该流程访谈中的一个分析判据。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill（母流程 vs 子判据）的分界。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一个岗位的头衔和职责描述跟另一个完全一样，但其中一个要天天跟监管部门周旋、还要在资源被砍一半的情况下交付，这算同一种工作吗？",
+      "expected_behavior": "边界场景但应判定为不同工作：决策权可能相同，但障碍因素显著不同（监管环境、资源约束），依两因素独立性，任一不同即不是同一种工作。agent 应明确给出该结论并说明这是'描述相同、本质不同'的情形。",
+      "notes": "边界：看似'同一岗位'但障碍不同——考察是否机械比对头衔与职责描述。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

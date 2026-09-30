@@ -1,0 +1,52 @@
+{
+  "skill": "coaching-two-tracks",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·CEO说：像企业家一样思考》（What the CEO Wants You to Know） — [美]拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下属刚被提拔，业绩数字还行，但团队怨声载道，我该辅导他什么？",
+      "expected_behavior": "应激活 coaching-two-tracks：分两轨——业务轨（能否理清复杂问题、列出优先事项、分解落实、完成任务）与行为轨（具体行为弱点及其对他人的影响，如接受不合理计划）；给少数可操作改进项并说明公司会支持；强调个性化、直接真诚、帮对方自我觉察、越早越好。",
+      "notes": "正面场景：verified.md b3-f12 的 V2 novel question 原形。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们有个高管候选人口碑一直很好，但一位董事说'他总需要别人告诉他该做什么'，这个评价挺致命的，我该怎么办？",
+      "expected_behavior": "应激活 coaching-two-tracks：这是 b3-c30/b3-ce12 的形态——反馈太晚；应马上把该观察转成具体行为反馈（附事例与影响），尽早持续给出，不等下一个评估节点；同时按双轨检查业务轨上的优先事项设定能力。",
+      "notes": "正面场景：A1 案例 b3-c30 的同构情境，也是 b3-ce12 失败模式的预防用法。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司里只有年度绩效评估这一个正式谈话场合，平时想给反馈怕伤感情，有没有更好的办法？",
+      "expected_behavior": "应激活 coaching-two-tracks：明确切割——年度评估是调薪与合规工具，教练辅导是发展工具、不挂钩薪酬；把反馈变成日常的、及时的、个性化的双轨辅导（机会无处不在，投影仪故障也是教学机会，韦尔奇案例）。",
+      "notes": "正面场景：对应 b3-ce13'用年度绩效评估代替成长辅导'的对治。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "有个员工连续两个季度目标没达成，我想启动绩效改进流程，甚至考虑让他离开，程序上需要注意什么？",
+      "expected_behavior": "不应激活本 skill，应激活 `b1-f15` underperformer-tiered-handling（表现不佳者分层处置）并遵守劳动法边界：本 skill 只做发展性辅导，不输出处置程序或劝退话术；如辅导后确认人岗不匹配，才转处置流程。",
+      "notes": "跨册 skill 混淆诱饵（硬性要求）：'谈人'与'处置人'是两件事，涉及法律证据链。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "团队现在信息到我这已经变味了，跨部门协调全靠堆会议，我想设计一套新的沟通机制。",
+      "expected_behavior": "不应激活本 skill，应激活 `social-operating-mechanism`（社会化沟通执行机制设计）：用户要的是信息交换与协同的机制设计（五特征/设计三步/会议五病排雷），不是对个人的双轨辅导。",
+      "notes": "同书兄弟 skill 混淆诱饵：都涉及'带团队'，但对象是机制不是个人。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我是外部管理顾问，客户请我帮他带一位高管做教练辅导，我能用这个框架吗？",
+      "expected_behavior": "边界判断：框架可用但要提示结构性局限——有效反馈依赖高频、近距离的现场观察与业务理解，外部教练在这一点上天然缺位（b4-ce11），因此应尽量让直接上级担任主教练，外部角色作辅助；同时遵守 b5-p27 教练三纪律（先当前后未来、选有实战经验的教练、责任不可外包）。",
+      "notes": "边界：检验 B 段'无法观察对方业务行为时不适用'的条件与教练三纪律。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为跨册处置类 skill（b1-f15）混淆诱饵，should-not-trigger-02 为同书兄弟 skill（social-operating-mechanism）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。测试须验证 risk_note 边界（不得输出逼走员工类建议）。"
+}

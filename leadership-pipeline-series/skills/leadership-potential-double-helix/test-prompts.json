@@ -1,0 +1,52 @@
+{
+  "skill": "leadership-potential-double-helix",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·高管路径：轮岗培养领导人才》 — 拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "面试一个年轻人，我要怎么判断他十年后能不能带一块业务？现在只能看他的专业能力和表达。",
+      "expected_behavior": "应激活 leadership-potential-double-helix，并用两轴的早期证据取证：驭人（是否让他人成功、敢不敢干预破坏协作的行为、跨边界人脉）与经商（是否懂钱怎么赚、能否权衡取舍果断决策），靠行为与决策而非自我陈述",
+      "notes": "正面场景：直接对应 V2 预测力问题（判断年轻人能否带业务）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "销售冠军连续三年第一，现在有个区域总监空缺，是不是该直接提他？",
+      "expected_behavior": "应激活 leadership-potential-double-helix，说明业绩最好不是潜质判据，须用驭人与经商的行为证据单独评估，并指出业绩最好者可能是个人贡献者而非领导者",
+      "notes": "正面场景：以业绩替代潜质的典型误判，书中明确排除'业绩最好'这一判据"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "How do I build a high-potential list? Right now every manager just sends in the people they like.",
+      "expected_behavior": "应激活 leadership-potential-double-helix，输出判据表（两轴＋公司定制）、行为取证方式（12 问）、多人交叉验证与年度重审",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我评估一下这个岗位需要什么胜任力，好写进招聘 JD。",
+      "expected_behavior": "不应激活本 skill，因为这是岗位胜任力与说明书写作；本 skill 判断的是个人的领导潜质底层判据，不负责岗位描述",
+      "notes": "诱饵：同属'选人标准'话题但对象是岗位而非个人"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "已经确定让他来接这块业务了，接下来该怎么给他设计岗位和挑战？",
+      "expected_behavior": "不应激活本 skill，应激活 concentric-learning-job-design：识别已完成，此阶段是岗位路径设计",
+      "notes": "同书兄弟 skill 混淆诱饵（硬性要求）：识人 vs 岗位设计的分工"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一个候选人能力很强，但我们对他的领导行为几乎没观察过，现在有个高潜名额，要不要先把他放进去再说？",
+      "expected_behavior": "可激活并给出判断：证据不足时应标记为'待观察'并约定观察场景与下一次评估时间，不要默认通过；也不要在证据不足时用关键岗位做试验",
+      "notes": "边界：证据不足时的处理，避免为了填名单而放水"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

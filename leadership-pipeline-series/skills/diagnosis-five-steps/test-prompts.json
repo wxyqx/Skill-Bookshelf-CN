@@ -1,0 +1,52 @@
+{
+  "skill": "diagnosis-five-steps",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·领导梯队：全面打造领导力驱动型公司》 — 拉姆·查兰/詹姆斯·诺埃尔/斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们团队执行力一直不行，我想找出到底是哪个人的问题，该怎么查？",
+      "expected_behavior": "应激活 diagnosis-five-steps：先看工作再看人（哪些目标没完成、哪些关键工作无人做、谁的下属没被培养），再走个体诊断五步（观察谈话加看日程表、了解他对下属与他人的影响、对应层级三维度、判差距、以理念为中心的培训计划）；并提醒先排除组织因素（薪酬、职责、资源、上司）。",
+      "notes": "正向场景：找责任人的冲动需要被纠正（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司里感觉每个层级都有问题，说不清卡在哪一层。有没有办法系统排查一遍？",
+      "expected_behavior": "应激活本 skill：先对团队中的领导者逐人评价，再检测各层三维度符合度，归纳差距的具体构成，最后按层汇总定位“领导梯队在哪里发生阻滞”。",
+      "notes": "正向场景：组织级诊断四步的使用。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有个高潜明星越提拔越出问题，360 度反馈也很差。我想先搞清楚他到底缺什么，再决定怎么培养。",
+      "expected_behavior": "应激活本 skill：按个体五步取证（尤其日程表与对下属的影响），对照他跳过的层级与三维度找差距；可引用千人教练项目案例说明跳级明星在绩效管理上的集体短板，并给以理念为中心的培养计划。",
+      "notes": "正向场景：高潜诊断与培养计划（b5-ce20、b5-c28）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "他升了总监之后还是天天写代码，我想判断问题到底出在技能、时间还是理念上。有没有一套快速自检的方法？",
+      "expected_behavior": "不应激活本 skill 的完整流程，应激活 three-dimension-transition（三把尺子分开量，日程表与理念四条证据通道）；若用户要的是单点快速体检而非系统诊断，前者更贴切。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：单项体检 vs 完整诊断流程。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我怀疑我们某位经理已经不胜任了，想拿这次诊断结果作为降职或劝退的依据。你能帮我出个报告吗？",
+      "expected_behavior": "不应激活本 skill 用于人事处置：须说明诊断结论仅作为发展对话的输入，不得据此单方面给员工贴错层标签；处置前应排除组织因素，涉及调岗或解除须依当地劳动法与公司程序执行（b5-ce01 ethics_legal_note）。",
+      "notes": "诱饵：人事处置红线（BOOK_OVERVIEW 系列级伦理边界①）。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们只有五十来人，层级很浅，也请不起外部顾问。这套五天访谈加汇总的诊断我们做不动，有没有简化版本？",
+      "expected_behavior": "边界场景：应调用本 skill 的精神但做减法——保留“先看工作再看人”“先查组织再下个人结论”“看日程表”三条底线，把逐人五步压缩为对关键岗位的抽查、把组织四步压缩为按现有层级归纳差距；同时提示诊断依赖对业务细节的了解，小公司可由业务负责人与 HR 共同完成。",
+      "notes": "边界：方法对使用者经验与组织规模的前提（书中自我声明模型需按组织定制）。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

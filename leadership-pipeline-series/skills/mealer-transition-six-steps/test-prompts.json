@@ -1,0 +1,52 @@
+{
+  "skill": "mealer-transition-six-steps",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·业绩梯队：让各层级领导者做出正确的业绩》 — 斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我朋友刚升总监三个月，就想把前任的战略全部推翻重做，我该劝他吗？",
+      "expected_behavior": "应激活 mealer-transition-six-steps，用六步按序检查他是否完成了意义与动力两步，判断是否为'过早实施大创意'，并给出先谈缺哪步、再谈战略本身的建议；须声明该模型神经科学包装薄弱。",
+      "notes": "典型正向场景：新领导过早推大创意（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司要给新晋升的总监设计上任计划，培训加任务清单够了吗？有什么标准动作？",
+      "expected_behavior": "应激活本 skill，指出'充满行动的过渡计划'会造成短期成功假象，应按意义→动力→行动→学习→根植→重新振作的顺序设计，并给出老板与HR的介入动作。",
+      "notes": "正向场景：新任领导的上任/过渡计划设计。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我用 MEALER 模型看我自己：新岗位上总觉得自己很特别、融不进新同事，下属也不太买账，问题出在哪一步？",
+      "expected_behavior": "应激活本 skill，诊断为第1步'工作意义'缺失（以'我很特别'代偿归属感问题），并给出建立新角色身份与归属的具体动作。",
+      "notes": "正向场景：MEALER 六步的自查使用。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "一位新上任的一线经理，总是把难题自己解决、不教下属，该用哪个框架帮他？",
+      "expected_behavior": "不应激活本 skill，应优先激活 first-manager-three-transitions（初任经理三项工作转型，册5）；MEALER 是通用六阶段顺序模型，适用时作为补充。",
+      "notes": "跨 skill 混淆诱饵：初任经理场景与通用过渡模型的分界。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们新提了一位部门总监，但公司各层级职责一直很乱、上下都在做错层的事，想先把每层该交什么结果定义清楚。",
+      "expected_behavior": "不应激活本 skill，应激活 performance-pipeline-interview-build（业绩梯队建队六步骤）。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：防止同书 skill 互相抢调用——MEALER 处理个人过渡过程，建队流程处理各层业绩标准定义。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们空降了一位总经理，公司正处在现金流危机中，他一上来先救火，没时间谈什么角色意义。这种情况 MEALER 还适用吗？",
+      "expected_behavior": "边界场景：应调用本 skill 但调整顺序假设——先承认危机情境下救火优先，同时指出意义与动力不可无限期搁置，需在救火的同时安排角色对齐，否则会落入'被推着走、无法发挥该层级作用'的失败形态。",
+      "notes": "边界：书中未处理 turnaround 情境对六步顺序的现实冲击，需显式提示局限。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

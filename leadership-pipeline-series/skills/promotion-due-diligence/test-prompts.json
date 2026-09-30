@@ -1,0 +1,52 @@
+{
+  "skill": "promotion-due-diligence",
+  "version": "0.1.0",
+  "source_book": "《领导梯队：全面打造领导力驱动型公司》 — 查兰/诺埃尔/德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "有个候选人过去三年业绩全优，但要接的岗位跟他现在干的完全不是一回事，我敢提吗？",
+      "expected_behavior": "应激活 promotion-due-diligence，并逐条执行三必问：能否在明显不同环境做出成绩、能否接受新理念、是否具备新技能且愿意重排时间，最后给出提拔/历练/不提拔建议",
+      "notes": "正面场景：对应 V2 预测力问题'候选人过去三年业绩全优，但要接的岗位完全不同，敢提吗'"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "CEO 想提他的老部下上高位，理由就是'他业绩一直很好'，我怎么帮他做一次真正的用人尽调？",
+      "expected_behavior": "应激活本 skill，并补足三问证据、做'同一套模式'逆镜检查，提醒私交对评价的扭曲",
+      "notes": "正面场景：杰瑞式错误的预防场景，单因提拔＋旧交情双重风险"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Is this candidate really ready for promotion? His numbers are great but the new role is a different animal.",
+      "expected_behavior": "应激活本 skill，并输出三必问的证据清单与'提拔他就是在让他走向失败'的底线判据",
+      "notes": "英文触发场景，验证中英双写 trigger 的准确率"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这位候选人的晋升材料整理成一份给董事会的汇报 PPT。",
+      "expected_behavior": "不应激活本 skill，因为这是材料制作任务，不涉及是否该提拔的证据审查",
+      "notes": "诱饵：文书演示类请求，看似与'晋升'相关但无决策尽调诉求"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "一位高管上任一年明显不行了，董事会要复盘这到底怪谁。",
+      "expected_behavior": "不应激活本 skill，应激活 leadership-deficit-four-causes",
+      "notes": "跨 skill 混淆诱饵（硬性要求至少 1 条）：同书兄弟 skill——本 skill 是事前尽调，失败后的归因复盘属于四因框架"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "候选人业绩一般，但他在一次跨部门危机里表现得很好，这种情况算通过尽调吗？",
+      "expected_behavior": "可激活并部分通过：跨环境逆境成绩正是第一问要的证据，但仍须补齐第二、三问（新理念接受度、新技能与时间重排意愿），单点亮点不足以支撑提拔决定",
+      "notes": "边界：单次亮眼表现与系统性证据的区别"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

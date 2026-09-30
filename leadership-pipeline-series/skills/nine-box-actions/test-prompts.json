@@ -1,0 +1,52 @@
+{
+  "skill": "nine-box-actions",
+  "version": "0.1.0",
+  "source_book": "《领导梯队：全面打造领导力驱动型公司》 — 查兰/诺埃尔/德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的人才盘点会上，大家凭印象就把人填进九宫格了，填完也没有后续动作，怎么改进？",
+      "expected_behavior": "应激活 nine-box-actions，并给出'先标准公示→再证据审查→后填格'的顺序，把每格动作作为会议产出，引用'九格矩阵只是面粉而非蛋糕'",
+      "notes": "正面场景：对应 V2 预测力问题'盘点会凭印象填九宫格怎么改进'"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "盘点结果说某人是'卓越/转型'，另一个是'非全面/熟练'，这两种格子分别应该采取什么行动？",
+      "expected_behavior": "应激活本 skill，按方格1立即安排升级或新业务并防被猎、方格9先查管理与组织因素再决定重新安排或退出，逐格给出动作",
+      "notes": "正面场景：每格动作规定是本单元相对通用九宫格的核心差异"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Our nine-box review feels like a formality — people just get slotted by gut feel. How do we make the matrix produce real actions?",
+      "expected_behavior": "应激活本 skill，并强调证据先于填格、六个月豁免、每半年复核与逐格行动",
+      "notes": "英文触发场景，验证中英双写 trigger 的准确率"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我做一个 Excel 的九宫格模板，带下拉选项和自动着色。",
+      "expected_behavior": "不应激活本 skill，因为这是表格制作任务，不涉及评估标准、证据或行动规定",
+      "notes": "诱饵：工具制作类请求，看似与'九宫格'直接相关但无人才评估诉求"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们公司只有我一个人在操心接班人，想把继任变成覆盖所有层级的制度，从哪下手？",
+      "expected_behavior": "不应激活本 skill，应激活 succession-five-steps",
+      "notes": "跨 skill 混淆诱饵（硬性要求至少 1 条）：同书兄弟 skill——九格矩阵只是继任五步骤中的第四步工具，制度设计应由 succession-five-steps 接手"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一个刚提拔三个月的经理表现明显不达标，能不能直接填进'非全面'那一行？",
+      "expected_behavior": "不应填格：矩阵不适用于任职未满 6 个月者，该作者原话；应改用绩效缺口框架给时间与训练，满六个月后再评估",
+      "notes": "边界：六个月豁免规则与'新任者正常缺口'的区分"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

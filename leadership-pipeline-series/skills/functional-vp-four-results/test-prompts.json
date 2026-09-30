@@ -1,0 +1,52 @@
+{
+  "skill": "functional-vp-four-results",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·业绩梯队：让各层级领导者做出正确的业绩》 — 斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "一位技术出身的营销副总，怎样才能证明自己配得上'副总'这个头衔？我该怎么评估他是不是还在做上一层级的工作？",
+      "expected_behavior": "应激活 functional-vp-four-results，用四项关键业绩逐项验收（竞争性分析、技术对标与多事业部信息、战略与高绩效组织含接班人、多事业部视角），并提示四条警示自查。",
+      "notes": "典型正向场景：职能副总的层级转型与验收（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们有位工程副总整天泡在实验室，跟其他事业部几乎不来往，销售那边很有意见。这是个人性格问题还是别的原因？",
+      "expected_behavior": "应激活本 skill，用'自我孤立'与'只重技术业绩'两条警示做诊断，并给出第四项业绩（多事业部视角的流程与团队关系）为缺失项及改进动作。",
+      "notes": "正向场景：四条警示的实际使用。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司要给职能副总设计考核标准，除了专业指标外还必须包含哪些业绩？要不要把培养接班人写进去？",
+      "expected_behavior": "应激活本 skill，指出高绩效组织包含技术与领导双重高绩效，并明确应包含'至少培养一位本岗位接班人'及跨事业部思考的流程要求。",
+      "notes": "正向场景：把本单元的业绩清单用于标准设计。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想评估我们公司职能部门主管的成熟度，看他是不是只知道执行、不懂业务全局。",
+      "expected_behavior": "不应激活本 skill，应激活 functional-manager-maturity（职能主管成熟度，册5）；本 skill 面向事业部副总经理这一层的具体业绩与警示。",
+      "notes": "跨 skill 混淆诱饵：册5 同层级另一视角与册2 本单元的区分。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们两位营销负责人头衔一样、职责描述也差不多，但薪酬差了一截，该怎么判断这两个岗位是不是同一种工作？",
+      "expected_behavior": "不应激活本 skill，应激活 job-essence-two-factors（用决策权＋障碍双因素判定岗位是否同一工作）。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：防止同书 skill 互相抢调用——职能副总讲'这个岗位该交什么业绩'，双因素讲'两个岗位是否同一种工作'。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是技术驱动型公司，工程副总保持很深的技术参与度其实是我们的竞争力来源。这算'只重技术业绩'的失败模式吗？",
+      "expected_behavior": "边界场景：应调用本 skill 但保持审慎——区分'偶尔帮助并教会下属方法'（可取的）与'亲自解决大多数问题、下属依赖不学'（警示）；技术参与度本身不是问题，是否挤占战略与人才培养时间才是判据。",
+      "notes": "边界：书中的警示有明确限定语（偶尔帮忙并教方法可取），防止机械标签化。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "underperformer-tiered-handling",
+  "version": "0.1.0",
+  "source_book": "《执行：如何完成任务的学问（白金版）》 — 博西迪/查兰/伯克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "一个老员工业绩下滑，资历深人缘好，直接解雇还是留着？",
+      "expected_behavior": "应激活 underperformer-tiered-handling，并先分层（岗位不匹配 vs 确实不胜任），再用事实取证、给出处置路径与体面程序",
+      "notes": "正面场景：直接对应 V2 预测力问题（老员工去留）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "有个下属业绩达标但行为恶劣，团队都在忍，我该不该动他？",
+      "expected_behavior": "应激活 underperformer-tiered-handling，并给出二选一谈话（改变行为或离开）与行为证据准备（书中示范为十份投诉与加班记录）",
+      "notes": "正面场景：关键的不仅是任务是否完成，而是行为"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "I keep postponing the conversation about letting someone go. How should I handle this?",
+      "expected_behavior": "应激活 underperformer-tiered-handling，并指出拖延的代价、给出谈话脚本与合规检查点",
+      "notes": "英文触发场景，含情感强度与拖延主题"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我算一下解除劳动合同该给多少补偿金。",
+      "expected_behavior": "不应激活本 skill，因为这是法律与 HR 专业测算，本 skill 不构成人力资源法律意见",
+      "notes": "诱饵：同属人事处置但诉求是法律计算，应转 HR/法务"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我想把公司的人才评估会开成能说真话、有行为证据的会议。",
+      "expected_behavior": "不应激活本 skill，应激活 talent-review-meeting-mrr",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill，会议机制设计与个人处置流程的分工不同"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "某人连续两个季度没达标，但他的薪酬被长期压着、职责边界也不清楚，该不该启动处置？",
+      "expected_behavior": "不应直接进入处置流程：先排除组织因素（薪酬、职责、资源、上司），确认问题不在组织侧后才考虑个人处置",
+      "notes": "边界：组织因素与个人问题的优先级"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

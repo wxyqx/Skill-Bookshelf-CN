@@ -1,0 +1,52 @@
+{
+  "skill": "strategy-review-question-set",
+  "version": "0.1.0",
+  "source_book": "《执行：如何完成任务的学问（白金版）》 — 博西迪/查兰/伯克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下周要开战略评审会，怎么开才能问出真问题，而不是念一遍 PPT？",
+      "expected_behavior": "应激活 strategy-review-question-set，并给出总纲三问与逐项清单（竞争形势、执行能力打分、聚焦度、发展思路四问、人员/运营联结）",
+      "notes": "正面场景：会议形式化的典型入口"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "并购标的的业务计划书该怎么审？我不想漏掉关键点。",
+      "expected_behavior": "应激活 strategy-review-question-set，并输出以三问开场、逐项带证据、结论与责任人书面落地的评审程序",
+      "notes": "正面场景：直接对应 V2 预测力问题（并购标的计划书评审）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Our strategy review meetings are just slide-reading. What questions should I actually ask?",
+      "expected_behavior": "应激活 strategy-review-question-set，并给出关键问题前置（会前交换清单）与会上举证要求",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把下周三战略评审会的会议通知写一下，订个会议室。",
+      "expected_behavior": "不应激活本 skill，因为这是会务执行事务，不涉及评审程序与问题框架",
+      "notes": "诱饵：同属会议事项，但诉求是文书与后勤"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "怎么把我们自己的战略压缩成一页纸，好在董事会上讲清楚？",
+      "expected_behavior": "不应激活本 skill，应激活 bedrock-strategy-one-pager",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill，表达构建与评审检验的分工"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是 50 人的 SaaS 公司，也要按这套清单逐项过吗？",
+      "expected_behavior": "可激活并裁剪：清单可简化，但三问（计划是否合理、是否前后一致、组织是否具备执行能力）与会后结论/责任人必须保留；技术类评审项需按业务定制",
+      "notes": "边界：工业/电信语境清单在软件业务上的适配"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "assumptions-and-contingency",
+  "version": "0.1.0",
+  "source_book": "《执行：如何完成任务的学问（白金版）》 — 博西迪/查兰/伯克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "海外建厂提案，怎么做压力测试？",
+      "expected_behavior": "应激活 assumptions-and-contingency，并列出不超过六个前提、逐条取证、标记最可能变化项并预设应急方案、以最坏情况为讨论起点",
+      "notes": "正面场景：直接对应 V2 预测力问题（海外建厂压力测试）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "预算会上各部门数字对不上，谁也不说自己的假设是什么。",
+      "expected_behavior": "应激活 assumptions-and-contingency，并让各方公开前提假设、逐条论证真伪、由领导提出尖锐问题后按现实权衡",
+      "notes": "正面场景：前提假设不公开是书中批评的典型预算病"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "What if our worst-case assumptions are wrong? How do I stress-test this plan before we commit?",
+      "expected_behavior": "应激活 assumptions-and-contingency，并输出前提清单、取证对象、应急触发条件与措施",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我们做一份竞品价格监测表，每周更新一次。",
+      "expected_behavior": "不应激活本 skill，因为这是数据采集与报表工具需求，不是计划前提的评审与应急设计",
+      "notes": "诱饵：同属外部环境信息但诉求是工具制作"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "预算会怎么开才能让运营计划真正落地、预算从属计划？",
+      "expected_behavior": "不应激活本 skill，应激活 operations-plan-three-step",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill，整体流程与前提专项的分工"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "关键前提的数据根本拿不到，对方也不肯说真话，怎么办？",
+      "expected_behavior": "可激活并给出受限条件下的做法：把无法核实的前提显式标注为未核实项、改用条件句（若 X 则 Y）与多情景设计，明确告知用户不能把未取证假设当作事实使用",
+      "notes": "边界：取证受限时的处理"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

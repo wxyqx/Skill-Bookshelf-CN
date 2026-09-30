@@ -1,0 +1,52 @@
+{
+  "skill": "concentric-learning-job-design",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·高管路径：轮岗培养领导人才》 — 拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们部门的研发负责人想转管理线，下一步该安排他去哪儿？他自己想当总监，但我觉得时机不对。",
+      "expected_behavior": "应激活 concentric-learning-job-design，并按其步骤输出：目标方向→禀赋与缺口评估→现岗是否脱颖而出→下一站挑战递增设计→载体选择→风险评估",
+      "notes": "正面场景：直接对应 V2 预测力问题（技术骨干下一步安排）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司想把一个高潜调到另一个大区去，级别不变，他觉得自己被降职了，我要怎么判断这次调动值不值得、怎么跟他谈？",
+      "expected_behavior": "应激活 concentric-learning-job-design，用平行调动的学习设计逻辑（视角整合、接受更大挑战、不被新部门同化）判断价值，并示范如实说明原因与风险",
+      "notes": "正面场景：平行调动的典型焦虑"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Is it worth creating a new role just to give a high potential more stretch? HR says it adds a layer.",
+      "expected_behavior": "应激活 concentric-learning-job-design，先做挑战递增与风险评估，再明确提示'为培养增设组织层级'属于失败模式，改用任务小组／产品线全责等不改架构的载体",
+      "notes": "英文触发场景，验证中英双写 trigger；同时覆盖增设层级这一边界"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我设计一份覆盖全公司 200 人的高潜培养体系，包括选拔、课程和评估机制。",
+      "expected_behavior": "不应激活本 skill，应激活 apprenticeship-model：这是制度层的体系设计，不是某一个人的岗位安排",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：单点岗位设计 vs 体系搭建"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "员工拒绝异地调动，劳动合同和社保要办什么手续？",
+      "expected_behavior": "不应激活本 skill，因为这是劳动法与用工合规事务；本 skill 只处理培养逻辑，不构成法律意见",
+      "notes": "诱饵：同属调动话题但指向合规程序"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "候选人很优秀但现岗业绩只是中等，公司有个更大的空缺急着要人，能不能先让他上、边干边学？",
+      "expected_behavior": "可激活并说明：先判断现岗是否有'战胜挑战'的证据，再看新岗位是否有不可失守的业务约束与失败承受力；若证据不足且岗位关键，应先在本岗或低风险载体补证据，而不是直接上任",
+      "notes": "边界：提拔时机与风险承受力的权衡"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

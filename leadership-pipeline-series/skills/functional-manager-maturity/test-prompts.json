@@ -1,0 +1,52 @@
+{
+  "skill": "functional-manager-maturity",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·领导梯队：全面打造领导力驱动型公司》 — 拉姆·查兰/詹姆斯·诺埃尔/斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我刚从技术专家升为研发总监，最怕自己变成一个“大号工程师”。这个岗位到底要求什么变了？",
+      "expected_behavior": "应激活 functional-manager-maturity：用成熟度三视角体检（职能视角=为总体业务目标权衡并可改造职能结构、业务视角=像商人而非官员思考、沟通视角=敢委派并与多层级分散群体交流），并指出使命是“为业务建立竞争优势”而非“把职能做到最好”。",
+      "notes": "正向场景：技术专家转型职能主管（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的人力资源总监专业上很扎实，招聘项目质量很高，但业务线总说人力资源帮不上忙。这算什么问题？",
+      "expected_behavior": "应激活本 skill：用“对专业而非企业忠诚/职能孤岛”诊断——职能工作符合专业标准却不支持业务战略；给出使命重定义（为业务建立竞争优势）、倾听八问与职能战略五项要求的补课动作。",
+      "notes": "正向场景：职能孤岛化（b5-ce11）的典型表现。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有个很聪明的年轻人，两年就做到了部门总监，势头很好。要不要直接把他放到事业部副总的位置上？",
+      "expected_behavior": "应激活本 skill：提示作者对“急于任命职能部门主管”的警告——这些职位太重要，不能交给没有做好准备的人，不管他们有多聪明；情感成熟需数年积累，建议先让其承担跨职能任务并检验成熟度三视角；同时提示不得以成熟度为名做年龄/性别等歧视性筛选。",
+      "notes": "正向场景：提拔准备度评估（b5-ce10、b5-p08 并入内容）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我这个部门总监管着十二个一线经理，每天早上他们排队来请示，我连部门预算都没时间做。问题出在哪？",
+      "expected_behavior": "不应激活本 skill，应激活 managing-managers-role（部门总监四项技能、授权与问责系统、提问句式、九问与两年期计划）；条件反射地跳到“成熟度”会错过该层最直接的授权失守问题。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：相邻层级的角色要求不同。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我接手一个新事业部，利润在掉。我想先从降价和砍人下手，你帮我把诊断做扎实一点。",
+      "expected_behavior": "不应激活本 skill，应激活 business-manager-complexity-triangle（过协同三角：战略方向、组织能力、人员能力逐角检查，避免单一动作误治）；本条面向职能主管层级而非事业部总经理。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：职能主管与事业部总经理的业务诊断工具不同。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们公司只有一个业务，首席执行官既是事业部总经理也是 CEO，所以我们的财务负责人同时要管公司层面的职能和事业部的职能。这套成熟度标准怎么用？",
+      "expected_behavior": "边界场景：应调用本 skill 但先做角色界定——作者明确单一业务公司里职能主管同时领导公司职能与事业部职能，两类职责的性质与优先级不同；成熟度三视角仍适用，但“为业务建立竞争优势”这一使命需同时覆盖维持企业运营与行业地位的职能责任。",
+      "notes": "边界：第4章一线观察中的岗位界定问题（L10640–L10644）。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

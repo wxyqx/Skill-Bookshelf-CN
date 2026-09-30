@@ -1,0 +1,52 @@
+{
+  "skill": "assessment-dual-track",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·高管路径：轮岗培养领导人才》 — 拉姆·查兰",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "销售冠军今年数字翻倍，是不是该直接提拔他做区域总监？",
+      "expected_behavior": "应激活 assessment-dual-track，把两轨拆开：业绩轨看数字与报酬但必须追因（翻倍是市场红利还是他带团队做对了什么）；领导力轨单独评估能力与潜质，看其在明显不同环境中复制成绩的可能性",
+      "notes": "正面场景：直接对应 V2 预测力问题（销售冠军该不该提拔）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的年度考核就一套表，既定奖金又要决定谁该培养，总觉得哪里不对。",
+      "expected_behavior": "应激活 assessment-dual-track，指出两轨在会议、证据与用途上必须分离：业绩考核管报酬，领导力评估管潜质与培养；并给出可落地的分离方式（独立议程／独立结论与记录）",
+      "notes": "正面场景：评估机制设计是双轨原则的核心应用"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "His numbers were great this year, but the whole market was up. How should we judge him?",
+      "expected_behavior": "应激活 assessment-dual-track，示范追因提问：在什么条件下完成、他做了哪些动作、换个环境能否复制；并提示好年份平庸者也能达标",
+      "notes": "英文触发场景，验证中英双写 trigger"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这个季度毛利掉了 5 个点，帮我做个业务复盘。",
+      "expected_behavior": "不应激活本 skill，因为这是业务与运营分析，不是人才评估；书中也明确业绩考核与业务复盘是两条不同用途的工作",
+      "notes": "诱饵：同属'看数字'话题但对象是业务不是人"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "他的反馈我都给了，但行为没变化，该怎么持续辅导他？",
+      "expected_behavior": "不应激活本 skill，应激活 deliberate-practice-feedback-loop：这是一对一的反馈闭环问题，不是组织层面的评估制度设计",
+      "notes": "同书兄弟 skill 混淆诱饵（硬性要求）：评估制度 vs 反馈闭环"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司只有 80 人，年会一次就把奖金和培养都定了，非要拆成两套会议吗？",
+      "expected_behavior": "可激活并说明：原则是两轨的证据、结论与用途必须分开，形式上可合并一次会议为两个议程段落；但讨论领导力时不应参照报酬结论，记录也要分开",
+      "notes": "边界：双轨原则在小组织中的轻量化落地"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

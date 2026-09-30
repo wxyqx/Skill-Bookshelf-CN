@@ -1,0 +1,52 @@
+{
+  "skill": "manager-transition-tactics-three-steps",
+  "version": "0.1.0",
+  "source_book": "《领导梯队建设系列·领导梯队：全面打造领导力驱动型公司》 — 拉姆·查兰/詹姆斯·诺埃尔/斯蒂芬·德罗特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新提拔的经理三个月了还在自己做业务，我是他上司。我该等他自己悟，还是现在就出手干预？",
+      "expected_behavior": "应激活 manager-transition-tactics-three-steps：按准备—监督—干预三步走——先确认任命前是否把三维度要求讲清并配了培训；再用观察旁听、360 度或抽样、差距分析核实转型状态；然后定期一对一反馈与教练。强调转型第一责任人是上司，等待等于放弃职责。",
+      "notes": "正向场景：上司角度的经典犹豫（verified V2 的经典问题）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们发现一个当了八个月的一线经理带不动团队，教也教了，还是不行。除了让他走人还有别的办法吗？",
+      "expected_behavior": "应激活本 skill：说明干预中的“工作调整”选项——未准备好的可重返员工岗继续锻炼，本质不适合领导工作的转入专业轨道（如超级销售员）；同时强调调整须以监督记录为依据、遵照当地劳动法与公司程序执行。",
+      "notes": "正向场景：干预环节的第四类方法（工作调整），也是回避直接淘汰的替代路径。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们想给一线经理队伍建立年度盘点机制，一年看一次够不够？不合格的多久必须调整？",
+      "expected_behavior": "应激活本 skill：给出“至少每年调整一次一线经理队伍、6~12 个月仍不能胜任者必须做出调整”的节奏，并说明盘点目标是把队伍做成精干高效（有人提拔、有人长期胜任该层）。",
+      "notes": "正向场景：配套纪律 b5-p05 的机制化使用。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "一位新经理上任半年，我还是看不出他到底卡在技能、时间还是理念上。你帮我设计一套把他三个维度分开量的方法吧。",
+      "expected_behavior": "不应激活本 skill 为主，应激活 three-dimension-transition（用三把尺子分别取证，日程表与理念四条证据通道）；本 skill 的三步战术可作后续干预框架引出，但不负责三维度取证方法本身。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：三维度取证 vs 上司三步流程。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我这个部门总监管着 12 个一线经理，天天被请去找项目问题，自己没时间做预算和长期计划。我给你说说该怎么帮他？",
+      "expected_behavior": "不应激活本 skill，应激活 managing-managers-role（部门总监四项技能与两年期杠杆）；本 skill 的三步战术针对初任一线经理，直接套到部门总监层会错配诊断与处方。",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：相邻层级角色差异。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们公司小，没有 HR，提拔一线经理就是我和他吃个饭说两句‘以后你带人’。这套准备—监督—干预对我们是不是太重了？",
+      "expected_behavior": "边界场景：应调用本 skill 的精神但做减法——准备只需把三维度要求讲清（哪怕一页纸）、监督用旁听加简单的抽样、干预用定期一对一；保留“第一责任人是上司”和“留好书面记录”两条底线，不要求全套 360 度工具。",
+      "notes": "边界：小公司/无 HR 场景下的裁剪使用（模型本身作者也声明需按组织定制）。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}
