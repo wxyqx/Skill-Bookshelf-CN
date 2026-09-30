@@ -1,0 +1,52 @@
+{
+  "skill": "internal-trigger-anchoring",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们做了个番茄钟 App，用户只在 deadline 临近时才用，平时完全想不起它。怎么让它进入日常？",
+      "expected_behavior": "应激活 internal-trigger-anchoring：找出 deadline 恐慌之外的高频情绪锚点（如开始工作时的'启动困难'感），把'一坐下就开一个番茄钟'设计成对该情绪的即时回应，再安排数周的外部触发喂养直至自动出现；若找不到能即时缓解的高频情绪则判停。",
+      "notes": "正面场景：verified.md V2 记录的番茄钟问题即为本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "用户访谈里大家都说产品不错，但回家后根本不会想起我们，除非我们发推送。问题出在哪？",
+      "expected_behavior": "应激活 internal-trigger-anchoring：诊断为内部触发未建立——推送撤出后没有情绪接管召回；按三步走：列高频情绪候选→验证产品是该情绪的即时药方→设计喂养期，并用'每当用户感到 X 就会 Y'句式落成绑定设计。",
+      "notes": "正面场景：'功能没问题但用户不惦记'是 A2 情境 1，绑定句式是 E 段步骤 2 的硬产出。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我发现自己一觉得无聊就下意识刷短视频，刷完更空虚。这个'一……就……'的机制到底是怎么回事？",
+      "expected_behavior": "应激活 internal-trigger-anchoring（反向用法）：用情绪→产品条件反射机制解释无聊作为内部触发、短视频作为即时药方、喂养形成自动反射的链条，并帮助识别替代反应、重获对触发-行为弧的控制（自查而非设计用途）。",
+      "notes": "正面场景：跨域自查是 A2 情境 4，BOOK_OVERVIEW 批判节明确保留机制的两种用法。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "用户都嚷嚷着要'更快的报表'，我们提速了使用率也没涨。怎么从访谈里挖出他们真正想解决的情绪问题？",
+      "expected_behavior": "不应激活本 skill，应激活 five-whys-emotional-root：这是发现阶段——用五连问把表层功能请求挖到可锚定的情绪根源；本 skill 管的是发现之后的安装施工（绑定句式、喂养期设计）。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f06。'情绪根源'两 skill 都涉及，f06 负责挖、f05 负责绑；挖到情绪后要绑定时才轮到 f05。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们在讨论获客：投广告还是做老带新，预算怎么分配？",
+      "expected_behavior": "不应激活本 skill，应激活 external-triggers-four-types：这是外部触发的拉新渠道分工问题（付费型/人际型/回馈型），不涉及情绪绑定与条件反射安装。",
+      "notes": "跨 skill 混淆诱饵：同书 f04。同处第 2 章、都叫'触发'，外部（信息中的行动召唤）与内部（情绪锚点）含义不同。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们做的是企业财务系统，财务同事每天上班都必须用它。用户频率这么高，还需要再做情绪锚定吗？",
+      "expected_behavior": "边界判断：应激活本 skill 并给出克制回答——高频率不等于情绪绑定（强制使用场景的频率来自外部要求而非内部触发），且 B2B 强制场景对负面情绪（工作压力）做锚定既不合适也不必要；建议把预算放在降低摩擦与酬赏对齐上，仅在存在真实高频不适（如月结恐慌）且产品真能即时缓解时，才谨慎启用锚定设计。",
+      "notes": "边界：'频率高要不要锚定'考验是否机械套用机制——强制使用、B2B 伦理语境下应主动限缩适用面。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆 f06、1 条 f04）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

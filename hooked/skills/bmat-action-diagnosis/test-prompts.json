@@ -1,0 +1,52 @@
+{
+  "skill": "bmat-action-diagnosis",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们活动页广告点击率挺高，但注册表单填到一半就跑，完成率不到 20%。团队在吵：有人说要改文案，有人说要砍表单字段。该怎么判断改哪个？",
+      "expected_behavior": "应激活 bmat-action-diagnosis：按触发→能力→动机顺序归因，指出点击率高说明触发与初步动机尚可、完成率低典型指向能力/流程摩擦，按'先补能力'排序先查流程再谈文案。",
+      "notes": "正面场景：漏斗'点击多完成少'是 verified.md V2 记录的本 skill 标准外推场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "用户调研里大家都说想要报表导出功能，上线三个月用的人寥寥无几。为什么用户说的和做的不一样？",
+      "expected_behavior": "应激活 bmat-action-diagnosis：把'说要做没做'拆成动机/能力/触发三要素逐项排查，先查使用时是否有触发唤起、导出动作是否够简单，而非直接归因于'其实没需求'或马上加激励。",
+      "notes": "正面场景：调研-行为背离是三要素乘法归因的典型适用面。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "用福格行为模型分析一下，为什么我给学生布置的在线练习，一半人从来不打开？",
+      "expected_behavior": "应激活 bmat-action-diagnosis：用户点名 Fogg 模型/B=MAT，按三要素（提醒是否可见、练习入口是否易达、学生动机）给出诊断顺序与'先补能力'的修复建议。",
+      "notes": "正面场景：直接点名方法关键词 trigger。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们要做一个健身打卡社群，怎么设计才能让用户养成每天打开的习惯？核心情绪锚点应该选哪个？",
+      "expected_behavior": "不应激活本 skill，应激活 f05-internal-trigger-anchoring（内部触发锚定）：问题不是'行为为什么不发生'的归因诊断，而是从零设计情绪-产品绑定。",
+      "notes": "跨 skill 混淆诱饵：同书 f05。'习惯设计'场景先走触发端，不是 B=MAT 归因。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们想给产品加一套积分勋章排行榜，用户会买账吗？",
+      "expected_behavior": "不应激活本 skill，应激活 f12-three-variable-rewards：问题在酬赏类型选择与动机对齐（游戏化评估），不是行为缺失的三要素归因。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f12。积分/勋章/游戏化词面与'行动'相邻但属酬赏设计。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的 App 根本没人下载，是不是也是行动公式的问题？",
+      "expected_behavior": "边界判断：下载为 0 更可能是触达/触发端问题（无曝光或无安装动机），B=MAT 诊断通常在'用户已接触到产品入口'之后才适用；可先提及本 skill 的触发要素归因，但主体应转触发类工具（f04 外部触发四类型），并说明 0→1 阶段需先验证需求存在。",
+      "notes": "边界：'完全无行为'与'有入口不行动'的界限模糊，本 skill 的 B 段明确把纯触达量列为反场景，期望是审慎的部分调用或拒绝。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

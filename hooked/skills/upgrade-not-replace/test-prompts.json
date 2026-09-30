@@ -1,0 +1,52 @@
+{
+  "skill": "upgrade-not-replace",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司花大价钱买了套新协作工具，强制大家把周报流程迁过去，结果老员工都在偷偷用回旧表格，怎么办？",
+      "expected_behavior": "应激活 upgrade-not-replace：诊断'被迫换习惯'激活逆反——把新工具改写为既有周报行为的改良版（照旧写周报，只是自动归档可检索），保留旧路径一段时间、让选择权可见，再观察自愿迁移率。",
+      "notes": "正面场景：verified.md V2 记录的'公司推新协作工具老员工抵触'是本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们 App 这次改版把入口全挪了位置，应用商店一堆一星差评说'还我旧版'，改版策略哪里出了问题？",
+      "expected_behavior": "应激活 upgrade-not-replace：对照'在既有方式与改良模式间给选择'——改版若一次性替换用户熟悉的行为路径即触发逆反；建议恢复关键旧路径或提供过渡模式，并把'用户是否保有退回自由'作为改版健康度的检验标准。",
+      "notes": "正面场景：A2 情境 2，改版遭老用户抗议。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "想让我们社区的用户从纯文字发帖转向短视频发帖，直接上强引导行不行？",
+      "expected_behavior": "应激活 upgrade-not-replace：识别'纯文字发帖'是既有行为，建议改良而非替换——让短视频成为文字帖的可选增强（图文+视频并存），不砍文字路径、不强制迁移；评估阻力时可先查用户在旧形式上的储存价值（f15）。",
+      "notes": "正面场景：A2 情境 3，改变既有行为习惯的产品方案。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们想做一个全新的冥想习惯产品，目标用户现在根本没有冥想习惯，怎么让他们开始？",
+      "expected_behavior": "不应激活本 skill，应激活 f04-external-triggers-four-types 与 f05-internal-trigger-anchoring：没有既有行为可改良，属冷启动——先用外部触发拉新、再安装内部触发；'改良而非替换'只适用于用户已有对应行为的场景。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f04/f05。'培养新习惯'词面相邻，但无旧行为即无改良对象。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "怎么评估用户从我们产品迁移到竞品要付出多大代价？他们的曲线库、粉丝和信誉值都搬不走。",
+      "expected_behavior": "不应激活本 skill，应激活 f15-five-stored-values：问的是储存价值五形式的迁移性评估（静态盘点切换成本），不是导入新行为的迁移策略设计。",
+      "notes": "跨 skill 混淆诱饵：同书 f15。'迁移'一词两用：资产迁移性 vs 行为迁移路线。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "运营上确实必须让所有用户迁到新系统（旧系统下个月关停），'保留旧路径'根本做不到，这个 skill 是不是就没用了？",
+      "expected_behavior": "边界判断：应触发 E 段第 5 步判停而非简单放弃——强制替换确有业务理由时，本 skill 的残余价值在于诚实执行：明示关停时间表与强制原因、给足过渡期与储存价值补偿（数据导出、配置平移），禁止伪装成'可选升级'；期望输出的是诚实的强制迁移方案而非粉饰。",
+      "notes": "边界：强制迁移不可回避时的红线执行，考验 B 段'不得伪装改良'是否落地。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

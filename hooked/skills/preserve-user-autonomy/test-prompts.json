@@ -1,0 +1,52 @@
+{
+  "skill": "preserve-user-autonomy",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们请求通讯录权限的弹窗被大量拒绝，通过率不到 20%，文案上有什么办法能提高批准率？",
+      "expected_behavior": "应激活 preserve-user-autonomy：在请求中明示'你可以拒绝，核心功能不受影响'（顺从翻倍的机制），同时检查该权限是否被设成强依赖——强迫感本身即设计缺陷；给出逆反信号排查清单。",
+      "notes": "正面场景：verified.md V2 记录的通讯录权限场景是本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们把'显示谁看过你的主页'直接对全员默认开启了，用户在社区里炸锅了，怎么补救？",
+      "expected_behavior": "应激活 preserve-user-autonomy：对照 Quora 案例（无提示强加+收回匿名权→数周后撤回），建议立即提供关闭选项与诚实致歉，并指出信任损失的不对称性；后续任何涉及既有权利的功能须以'可拒绝'方式上线。",
+      "notes": "正面场景：A2 情境 3，功能改动引发抗议，对应 ce09。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "评审会上有同事坚持新用户必须填完 15 项资料才能进首页，说这样数据质量高，我觉得不对但说不出理由。",
+      "expected_behavior": "应激活 preserve-user-autonomy：给出'强迫感=设计缺陷'的判据（最成功的消费者技术从未强迫用户），并说明可与 f17 的时机粒度规则配合——资料收集改为酬赏之后的小步请求，且始终可跳过。",
+      "notes": "正面场景：A2 情境 2，设计评审中的强制项。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司要推一套新协作工具替换大家用惯的旧系统，老员工很抵触，迁移方案该怎么设计？",
+      "expected_behavior": "不应激活本 skill，应激活 p18-upgrade-not-replace：问的是新旧行为迁移的路线设计（改良版+保留旧路径+自主选择），p09 只处理单次要求的提法与退出权。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 p18。同源于逆反心理，但单点规则 vs 迁移路线。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们整个产品的增长模式越来越像在利用用户的心理漏洞，想系统性地自检一下该不该继续，有没有框架？",
+      "expected_behavior": "不应激活本 skill，应激活 f18-manipulation-matrix：问的是整产品'该不该做'的象限自检；p09 是其中自主权这一个具体设计规则。",
+      "notes": "跨 skill 混淆诱饵：同书 f18。伦理线粒度不同：单点规则 vs 整产品闸门。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "合规要求我们必须做实名认证，这没法给用户拒绝选项，是不是就没法用'自主权'这套了？",
+      "expected_behavior": "边界判断：应触发本 skill 的反场景并给出正确处理——法定强制场景不能伪装成可拒绝，'你有权拒绝'话术在此反而构成欺骗；期望是诚实告知义务来源与数据用途、把强制范围压到最小、其余功能照常保留选择权（最小强制+透明），并可提示告知方式上仍可沿用'解释为什么'的熨帖表达。",
+      "notes": "边界：法定强制与自主权规则的冲突场景，考验 B 段反场景是否被执行。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

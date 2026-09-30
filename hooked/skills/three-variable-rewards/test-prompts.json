@@ -1,0 +1,52 @@
+{
+  "skill": "three-variable-rewards",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "内部知识库没人贡献内容，老板让我加个积分商城，用户攒分能兑换礼品。这招有用吗？",
+      "expected_behavior": "应激活 three-variable-rewards：先对齐动机（贡献者要的是同行认可与助人的终结感），指出积分类低配猎物酬赏不仅可能无效还会挤出社交动机（Mahalo 教训），建议改用可见的使用量/致谢等社交酬赏，再谈变量。",
+      "notes": "正面场景：verified.md V2 记录的知识库场景为本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们社区的老用户越来越不发言了，新人提问都没人回。怎么设计贡献者的回报机制？",
+      "expected_behavior": "应激活 three-variable-rewards：按社交/猎物/自我三通道盘点现有回报，检查酬赏是否与贡献者动机对齐、是否可预测到失去吸引力，给出通道选择与变量方案。",
+      "notes": "正面场景：社区贡献回报设计是 A2 情境 2。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "游戏化方案评审：产品经理提了签到积分、等级勋章、周排行榜三件套，我怎么判断这套东西上不上？",
+      "expected_behavior": "应激活 three-variable-rewards：先问'用户为什么来'检查对齐，再查三件套只是载体而非酬赏设计，提醒无的放矢的游戏化无效以及社交替代性检查。",
+      "notes": "正面场景：游戏化评审是 A2 情境 1。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们课程页的转化率低，宣传语是该强调'升职加薪'还是'别被同龄人落下'？",
+      "expected_behavior": "不应激活本 skill，应激活 f08-three-core-motivations：这是行动前的文案动机杠杆选择（趋希望 vs 避恐惧），不是行动后的酬赏反馈设计。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f08。'动机'词面相同但环节不同（来之前 vs 来之后）。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的短视频产品留存挺好的，但内容团队担心用户三个月后看腻了，新鲜感怎么维持？",
+      "expected_behavior": "不应激活本 skill，应激活 f13-finite-infinite-variability：问题在变量的来源与存续（有限/无穷多变性），不在酬赏通道选择。",
+      "notes": "跨 skill 混淆诱饵：同书 f13。'看腻/新鲜感'指向多变性结构属性。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "运营想学拼多多做'开宝箱随机返现'，随机红包确实符合多变酬赏原理吧？",
+      "expected_behavior": "边界判断：技术上确属猎物酬赏+变量，但应触发本 skill 的伦理红线与 f18 操纵矩阵复核——赌博式变量机制用于诱导复购需检查是否绕过用户自主权、是否针对易感人群；期望是承认机制有效性的同时显式给出红线评估，而非直接背书。",
+      "notes": "边界：机制有效性与伦理合规叠加的场景，考验 B 段红线是否被执行。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

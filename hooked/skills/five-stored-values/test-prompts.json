@@ -1,0 +1,52 @@
+{
+  "skill": "five-stored-values",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的协作工具续约率一直在掉，用户说'也没啥不满，就是懒得续'。帮我分析一下用户在我们这里到底存了什么、缺什么。",
+      "expected_behavior": "应激活 five-stored-values：按内容/数据资料/关注者/信誉/技能五类盘点用户资产，定位最薄弱类别并设计对应投入点，把五形式当流失诊断清单使用。",
+      "notes": "正面场景：verified.md V2 记录的协作工具续约场景是本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "竞品界面比我们好看、价格还便宜三成，但老用户就是不搬。我们想再推出一个竞品打别人，该从哪里下手才有戏？",
+      "expected_behavior": "应激活 five-stored-values：用储存价值解释'更好的复制品打不动'（App.net 教训），对自家（防守）与竞品用户（进攻）各画一张五资产迁移性结构图，找资产最薄处切入。",
+      "notes": "正面场景：竞品攻防是 A2 情境 2，同时覆盖 ce05/ce15 两个反例。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "新用户注册完什么都不配置就走，第一天的体验里应该让他们'存下'点什么？",
+      "expected_behavior": "应激活 five-stored-values：为 onboarding 设计第一笔资产（导入数据/建第一个项目/关注几个人），并引用'哪怕一点点信息'判据做点滴式设计。",
+      "notes": "正面场景：资产冷启动是 A2 情境 3。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "用户说我们的产品'用着还行但没啥离不开的'，是不是酬赏不够多变？要不要加个每日抽奖？",
+      "expected_behavior": "不应激活本 skill，应激活 f12-three-variable-rewards（或 f13）：'离不开'若靠体验侧解决走酬赏/多变性设计；本 skill 管资产侧。且'每日抽奖'须过伦理红线，不是默认建议。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f12/f13。留存双支柱被混为一谈。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "试用期让用户先建项目再邀请同事，这些小投入为什么能提高付费转化？讲讲背后的心理学。",
+      "expected_behavior": "不应激活本 skill，应激活 f14-investment-changes-attitude：问的是投入为何有效（宜家效应/一致性/文饰作用三机制），不是沉淀成哪类资产。",
+      "notes": "跨 skill 混淆诱饵：同书 f14。'小投入'词面相邻，机制 vs 资产。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "法务说做数据一键导出会方便用户搬去竞品，建议我们只提供'申请人工导出、15 个工作日内办理'，这样合规吗、划算吗？",
+      "expected_behavior": "边界判断：应调用本 skill 并触发其红线条款——设置人为障碍属'价值留存'滑向'恶意锁定'的灰色地带（且可能与数据可携带权冲突）；期望是区分'合法但不正当'的锁定设计与真实价值留存，建议以导出便利为默认、以资产价值为留存理由，必要时提示 f18 复核。",
+      "notes": "边界：合规与设计伦理叠加的真实两难，考验 B 段'价值留存 vs 恶意锁定'判据。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

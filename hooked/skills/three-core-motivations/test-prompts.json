@@ -1,0 +1,52 @@
+{
+  "skill": "three-core-motivations",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的记账 App 要推会员，落地页文案有三个方向：省钱、避免年底报税手忙脚乱、和朋友比谁存得多。该主打哪一个？",
+      "expected_behavior": "应激活 three-core-motivations：把三个方向归入三组杠杆（快乐/希望/认同），建议按目标人群小样本测试敏感杠杆，再定主打方向。",
+      "notes": "正面场景：多候选卖点选杠杆是本 skill 标准用途。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "写募捐邮件时，用'你的帮助能改变一个孩子的人生'还是'不捐的话这些孩子将失学'？恐惧诉求会不会太负面？",
+      "expected_behavior": "应激活 three-core-motivations：指出杠杆的趋/避两面都可用（希望 vs 恐惧），负面情绪也可以充当动机且效果甚佳，但需对目标人群测试并对准真实性，建议同时过 f18 操纵矩阵。",
+      "notes": "正面场景：'恐惧诉求行不行'是 R 段 L859 直接覆盖的问题。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我想坚持晨跑但总是三天打鱼两天晒网，帮我分析用什么动机方式能撑下去？",
+      "expected_behavior": "应激活 three-core-motivations：为个人目标列出三组杠杆的趋/避选项（体感、预期、社交），并提示社交认同杠杆（跑团/打卡可见）通常摆幅最大。",
+      "notes": "正面场景：自我激励设计是跨域用途（BOOK_OVERVIEW A2 口径允许个人习惯场景）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "用户下载了我们的 App 但第一次打开后就不来了，是不是引导流程太复杂？",
+      "expected_behavior": "不应激活本 skill，应激活 bmat-action-diagnosis（或 f09 六要素）：'做了第一步不继续'更可能是能力/摩擦问题，先归因再谈动机。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f07/f09。行为缺失时先诊断要素，不能直接选杠杆。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "社区里贡献内容的用户越来越少了，给他们发点优惠券或者积分能救回来吗？",
+      "expected_behavior": "不应激活本 skill，应激活 f12-three-variable-rewards：贡献量问题首先是酬赏类型与动机对齐（社交认同 vs 经济激励）问题，不是行动前文案杠杆选择。",
+      "notes": "跨 skill 混淆诱饵：同书 f12。'激励'词面相近，但酬赏设计与动机选型分属不同环节。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "用户访谈说他们'就是想要更好用一点'，说不出什么被打动，这种情况还能用三组杠杆吗？",
+      "expected_behavior": "边界判断：可调用但降级使用——用户无法自报动机时，先从其实际行为与场景推断（或经 f06 五问法下钻到情绪词），再回到三组杠杆做假设与测试；期望是谨慎调用并显式说明推断链，而非拿'更好用'直接当杠杆写文案。",
+      "notes": "边界：'用户说不出动机'处于用户研究与动机选型的交界，期望行为是先研究后选杠杆。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

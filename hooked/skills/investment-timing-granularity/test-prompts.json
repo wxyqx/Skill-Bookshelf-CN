@@ -1,0 +1,52 @@
+{
+  "skill": "investment-timing-granularity",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们产品注册后直接让用户填 20 项资料，完成率不到三成。要不要精简？什么时候要资料比较合适？",
+      "expected_behavior": "应激活 investment-timing-granularity：套用两条规则——先给酬赏再收资料（时序），每次一个字段、先小后大、进度条可视、能预填则预填（粒度）；并给出逐级加深的资料完善阶梯。",
+      "notes": "正面场景：verified.md V2 记录的注册资料场景是本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "设置向导太长了用户总在中途放弃，可是这些配置以后都有用，丢掉哪步都可惜，怎么办？",
+      "expected_behavior": "应激活 investment-timing-granularity：诊断'要求太多'——把配置拆到循环中逐步加深（先默认值跑起来，用到相关功能时再引导补配置），配预填与进度可视；提醒行动环节减摩擦、投入环节才分段加。",
+      "notes": "正面场景：A2 情境 3，投入环节流失。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "听说洗车卡先打两个孔完成率反而更高，这个'目标渐近'在我们付费课程续费场景里怎么用？",
+      "expected_behavior": "应激活 investment-timing-granularity：解释目标渐近效应（L1105–1109），建议预填学习进度、可视化剩余课时接近感，且续费请求排在学员获得阶段性成果（酬赏）之后提出。",
+      "notes": "正面场景：用户引用书中实验（c19）并跨域到知识付费。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "为什么用户对自己亲手搭的工作台评价特别高，甚至高于功能更全的竞品？这种心理有名字吗？",
+      "expected_behavior": "不应激活本 skill，应激活 f14-investment-changes-attitude：问的是投入改变态度的心理机制（宜家效应/一致性/文饰作用），不是投入提出的时机与粒度规则。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f14。同在投入阶段，一为'为什么有效'、一为'怎么提要求'。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "新用户首次打开应用时，引导页的文案和按钮太复杂，第一步就点不下去，怎么把行动门槛降下来？",
+      "expected_behavior": "不应激活本 skill，应激活 f09-six-simplicity-elements（或 f07-bmat-action-diagnosis）：首次引导是行动阶段求即时满足，属六要素减摩擦诊断；'投入可加摩擦'的规则不适用于行动环节。",
+      "notes": "跨 skill 混淆诱饵：同书 f09。'流程摩擦'词面相邻，分段判据（行动减/投入可加）是区分点。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们想把注销账号的流程改得特别繁琐，多填几个理由、等 7 天冷静期，反正用户投入了这么多，拖着拖着就不走了，这不是你们说的投入设计吗？",
+      "expected_behavior": "边界判断：应触发本 skill 的红线而非常规调用——给注销加摩擦是制造锁定而非蓄未来价值的投入，违背'投入=提升后续服务质量'的定义（g14）；期望是拒绝该方案，可建议合规且诚实的挽留设计（说明价值、提供导出），并转 f18 复核。",
+      "notes": "边界：把'投入可加摩擦'挪用到退出端的灰色请求，考验 B 段红线。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

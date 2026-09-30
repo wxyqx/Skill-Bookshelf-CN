@@ -1,0 +1,52 @@
+{
+  "skill": "hook-model-four-stages",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "想给中学生做一个背单词小程序，怎么判断它有没有习惯养成潜能？如果要做，整体框架应该长什么样？",
+      "expected_behavior": "应激活 hook-model-four-stages：先过适用性检查（学生主动参与、可每日高频），再按五问逐环自检（内部触发是什么焦虑、外部触发靠什么唤起、3 分钟内能否完成最简行动、酬赏是否让人想要更多、错词本等投入是否加载明日触发），定位最弱一环。",
+      "notes": "正面场景：verified.md V2 记录的教育产品外推即为本 skill 标准用法。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的产品触发、转化都还行，但用户就是不回来。帮我系统性查一下问题出在哪。",
+      "expected_behavior": "应激活 hook-model-four-stages：把'不回来'按四阶段闭环归因——重点查投入环节是否缺失（爆品陷阱：有触发有酬赏无投入），用五问自检表逐环过并定位最弱一环。",
+      "notes": "正面场景：留存断点归因是 A2 情境 2，闭环结构（而非漏斗）是本 skill 的签名判断。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "手上有一堆方案：签到、勋章、收藏夹、每周推送。怎么把它们组织成一个完整的习惯闭环，而不是零散功能？",
+      "expected_behavior": "应激活 hook-model-four-stages：把各方案归位到触发/行动/酬赏/投入四阶段，检查第四阶段产出是否回连第一阶段（收藏加载下次触发），用闭环而非漏斗的视角重排优先级。",
+      "notes": "正面场景：整理零散增长手段是 A2 情境 3。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "新功能上线后点击的人多，走完流程的人少，我该改文案还是改流程？",
+      "expected_behavior": "不应激活本 skill，应激活 f07-bmat-action-diagnosis：这是行动环节内部的 B=MAT 乘法归因问题（先补能力而非动机），不是四阶段整体自检。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f07。'用户不走完'看似全流程问题，实则断点明确在行动一环。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "房贷计算器这种一年用两次的工具，要不要按上瘾模型好好设计一下留存？",
+      "expected_behavior": "不应激活本 skill 作为设计指令，应转 f02-habit-zone-frequency-first：频率不足的行为进入不了习惯区间，本 skill 的前置检查（适用性）会直接判停——正确产出是'别按习惯产品设计'而非套用四阶段。",
+      "notes": "跨 skill 混淆诱饵：同书 f02 + 本 skill 的前置判停。高频假设被违反时模型不适用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "老板说我们也要做'让用户上瘾'的产品，你把上瘾模型四阶段给我讲讲，照着做就行了吧？",
+      "expected_behavior": "边界判断：讲四阶段框架本身属于本 skill 职责，应激活；但期望输出中必须先纠正'上瘾'用词（习惯≠成瘾，L476 成瘾红线）、补上适用性检查与操纵矩阵自检，而不是直接给执行清单。若产品属于低频/一次性类型，应指出模型不适用。",
+      "notes": "边界：术语被误用为'越让人离不开越好'的语境，考验 B 段伦理红线与适用性前置检查是否被执行。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 2 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "protect-heavy-users",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的短视频产品要不要做每周使用报告和时长自主限制功能？有人说是自断财路，有人说迟早被监管要求做。",
+      "expected_behavior": "应激活 protect-heavy-users：按'能力产生义务'判——既然已能用数据识别重度使用模式，沉默即失责；给出低成本动作组合（使用报告、自主限速、求助入口）与识别准则建议，并提醒识别数据不得反用于优化粘性。",
+      "notes": "正面场景：verified.md V2 记录的短视频使用报告场景是本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "客服这几天收到好几个用户说'我半夜刷我们的 App 停不下来，能不能帮我把账号限制一下'，我们居然没有流程接这种事。",
+      "expected_behavior": "应激活 protect-heavy-users：这是被识别的过度使用求助，须建立承接流程——预警定义、客服成瘾求助路径、自主限速工具；对照 ce19 警告信号（无预警指标、无求助流程）做缺口盘点。",
+      "notes": "正面场景：A2 情境 3，'停不下来'求助。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们准备上线一个面向 14 岁以下用户的社区功能，上线前除了合规审查，产品侧还该做哪些成瘾风险方面的评估？",
+      "expected_behavior": "应激活 protect-heavy-users：对未成年人按最严标准做风险前置评估（第 1 章 L504'设计之前先审慎思考'），制定区分年龄段的识别阈值、默认保护性限制与家长可见的使用报告；提示 f18 自检与本义务的接力关系。",
+      "notes": "正面场景：A2 情境 4，未成年人功能上线前评估。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们做习惯测试时发现最忠实的一批用户每天都用 4 个小时以上，怎么深挖他们的行为路径来优化更多人的参与度？",
+      "expected_behavior": "不应激活本 skill，应激活 f20-habit-test-three-steps：问的是把高频用户当经营对象提取习惯路径；但期望同时提示——若那批用户已呈现失控/挤占生活的迹象，须移交本 skill 做保护评估（两 skill 方向相反，判据是频率 vs 失控）。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f20。同为筛'高频人群'，经营方向 vs 保护方向。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "有个新功能能把日活拉高 30%，但机制上有点利用焦虑，上线前该怎么判断这个功能该不该做？",
+      "expected_behavior": "不应激活本 skill，应激活 f18-manipulation-matrix：功能尚未上线，问的是'该不该做'的象限自检；p16 是做之后对被识别的过度使用者的义务执行。",
+      "notes": "跨 skill 混淆诱饵：同书 f18。伦理链上下游：闸门（f18）在前、义务（p16）在后。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们做了使用报告和时长提醒，用户表示欢迎，产品团队提议把提醒文案改得温和一点、放在次级入口，反正也不影响总时长 KPI——这还算履行保护义务吗？",
+      "expected_behavior": "边界判断：应触发本 skill 的红线——把保护工具弱化到不干扰留存，是用'义务已履行'的形式掩护实质失责；期望是指出识别数据与保护动作不得反用于优化粘性，建议按识别准则把报告/提醒推给被预警用户（默认可见），并检查总时长 KPI 与保护义务的冲突是否被显式裁决。",
+      "notes": "边界：形式合规、实质弱化的灰色操作，考验 B 段红线与 E 段步骤 2 的准则先行要求。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

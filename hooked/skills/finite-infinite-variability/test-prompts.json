@@ -1,0 +1,52 @@
+{
+  "skill": "finite-infinite-variability",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们做了个付费专栏，30 篇内容用户两周就读完了，然后基本没人再打开。这种完读即走有救吗？",
+      "expected_behavior": "应激活 finite-infinite-variability：判定消耗型内容天然是有限多变性，给出三选一出路（叠加读者互动/共创等无穷层、接受工作室模式按其成本结构运营、或放弃习惯定位），并明确内容本身无解。",
+      "notes": "正面场景：verified.md V2 记录的付费专栏场景是本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们休闲游戏 DAU 连跌三个月，运营说是因为没做好活动排期，我觉得问题更深层，帮我判断一下是不是产品结构性的。",
+      "expected_behavior": "应激活 finite-infinite-variability：检查不可预测性由谁制造，比对 Zynga 换皮警兆（体验长期未更新、老用户活跃系统性低于新用户），区分运营问题与结构问题。",
+      "notes": "正面场景：老用户流失归因是 A2 情境 4。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "要不要花力气给我们的设计社区做 UGC 功能？都说社区内容难管，值得吗？",
+      "expected_behavior": "应激活 finite-infinite-variability：说明 UGC 的结构价值是让其他用户制造不可预测性（无穷多变性，Dribbble 例），评估时把'变量制造者从设计者变成社区'作为核心判据，同时提示需与 f15 资产沉淀配合。",
+      "notes": "正面场景：UGC 决策是 A2 情境 3 与 R 段 L1492 的直接应用。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的笔记软件想加成就系统和徽章墙，让记录更有仪式感，该给用户奖什么？",
+      "expected_behavior": "不应激活本 skill，应激活 f12-three-variable-rewards：这是酬赏类型选择问题（社交/猎物/自我选通道、对齐动机），不是变量来源与存续的结构判断。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f12。'成就/奖励'词面相邻但 f13 只管'变量能否长期存续'。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "用户留存还行但客单价上不去，怎么让他们在我们店铺里存的东西更多、舍不得走？",
+      "expected_behavior": "不应激活本 skill，应激活 f15-five-stored-values：'存的东西更多、舍不得走'指向储存价值五形式（资产侧），不是多变性（体验侧）。",
+      "notes": "跨 skill 混淆诱饵：同书 f15。留存双支柱的两个不同侧面。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是做电动工具的，用户买完钻头就用很多年，需不需要担心'多变性耗尽'？",
+      "expected_behavior": "边界判断：倾向不调用——工具型产品的价值在可预测与耐用（本 skill B 段明确列为反场景），'低频长周期'不是'有限多变性'问题；正确动作是走可感知用途路线（f02），仅当用户提出要给工具加内容/社区运营时才部分调用本 skill。",
+      "notes": "边界：硬件工具与内容消费品的混淆测试，考验反场景识别。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

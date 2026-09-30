@@ -1,0 +1,52 @@
+{
+  "skill": "manipulation-matrix",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板让我做一个用打卡断签焦虑拉日活的功能，连续打卡 30 天断签就清零。我总觉得哪里不对，这个需求该接吗？",
+      "expected_behavior": "应激活 manipulation-matrix：过两问（我自己会用吗/能否大大提高用户生活质量），用羞愧判据检查是否在为需求辩护；若答案需要正当化，按'请立刻停手'驳回或重构需求（如把强制断签清零改为可选择的进步记录）。",
+      "notes": "正面场景：verified.md V2 记录的'用打卡焦虑拉 DAU 的增长需求'是本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "团队在吵盲盒式开箱要不要上：付费侧数据很好，但有人说这是在放大冲动消费。有没有个框架能判断这种事？",
+      "expected_behavior": "应激活 manipulation-matrix：给出两问四象限框架，把'付费侧数据好'排除在判断依据外（用商业成功论证道德是失败信号），检查收入是否与用户冲动/痛苦正相关（经销商象限警告信号），输出象限定位与处置建议。",
+      "notes": "正面场景：A2 情境 2，增长手段越线之争。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我在一家做游戏化的公司，产品我平时根本不用，同事也都不用，但我们都说用户会喜欢。我该担心吗？",
+      "expected_behavior": "应激活 manipulation-matrix：定位兜售商象限（不会用+声称用户需要），解释'现实扭曲场'使关键自问失效；建议先以第一人称真实使用产品，或把该自检结果如实带回团队与决策层。",
+      "notes": "正面场景：A2 情境 3，职业自检，对应 ce16 兜售商。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们被媒体报道说产品让人上瘾，想加一个每周使用报告和时长自主限制功能，该怎么设计？",
+      "expected_behavior": "不应激活本 skill，应激活 p16-protect-heavy-users：问的是对已识别过度使用的用户如何履行告知与保护义务（使用报告、限速选项、识别准则），是做之后的责任执行，不是做之前的'该不该'象限自检。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 p16。同属第 6 章伦理线，一为闸门（f18）、一为义务（p16）。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的权限弹窗被用户大量拒绝，怎么写文案能提高授权通过率？",
+      "expected_behavior": "不应激活本 skill，应激活 p09-preserve-user-autonomy：单次要求的交互设计问题（明示'可拒绝'反而使顺从翻倍），不是整产品的道德象限自检。",
+      "notes": "跨 skill 混淆诱饵：同书 p09。同为伦理线，粒度不同：单点规则 vs 整产品自检。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的短视频产品已过操纵矩阵自检（我自己天天用，也确实帮用户放松），但内部数据显示用户平均使用时长两年涨了三倍，还要不要重新自检？",
+      "expected_behavior": "边界判断：应触发本 skill 的'自检不等于免死金牌'边界——自报两问通过不豁免外部信号；时长整体暴涨提示分布左移（阶段 0 批判节对'1% 框定'的批评），期望是要求重新审视第二问的'大大提高生活质量'是否仍成立，引入外部证据（用户访谈、依赖模式数据）并评估 p16 的保护义务。",
+      "notes": "边界：自检通过但外部数据恶化，考验 B 段'矩阵对自欺无防御力'的局限是否被执行。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

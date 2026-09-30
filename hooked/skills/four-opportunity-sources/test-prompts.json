@@ -1,0 +1,52 @@
+{
+  "skill": "four-opportunity-sources",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "AI 编程助手已经卷成红海了，但我觉得还有缝。按照习惯产品的思路，有什么方法能系统地找找下一个切入点？",
+      "expected_behavior": "应激活 four-opportunity-sources：给四路扫描——照镜子（自己 AI 工作流里哪步还在硬扛）、新生行为（极客圈的边缘新玩法）、促成性技术（新模型让哪个行为骤然变容易）、界面更改（人与 AI 的交互迁移点），并提醒候选要再过 f02/f18 过滤。",
+      "notes": "正面场景：verified.md V2 记录的 AI 助手红海问题是本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们办公室有几个同事天天在用一个特别小众的笔记软件，看着就像个玩具，这种东西值得关注吗？",
+      "expected_behavior": "应激活 four-opportunity-sources：走'新生行为'方向——不看'有没有用'而看'谁在天天做'，引电话/飞机/互联网被看走眼的史料提醒直觉不可靠；同时给出对称警告（多数玩具就是玩具），建议观察使用频率与人群扩散再做判断。",
+      "notes": "正面场景：A2 情境 3，'像玩具'的判断。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "听说 Buffer 当初就是创始人自己烦才做的，这种'解决自己的问题'和真正的机会扫描是一回事吗？",
+      "expected_behavior": "应激活 four-opportunity-sources：确认这是第一路'照镜子'（格雷厄姆判据：我希望别人为我解决什么问题），给出 Buffer 案例细节，并指出照镜子需配合'谁与我同痛'验证、且只是四路之一。",
+      "notes": "正面场景：用户点名书中案例（c32）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的记账 App 上线半年了，怎么验证它有没有真的让用户形成记账习惯？",
+      "expected_behavior": "不应激活本 skill，应激活 f20-habit-test-three-steps：问的是现有产品的习惯验证（定义频率→5% 门槛→习惯路径），不是寻找新机会；同属第 8 章但方向相反。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f20，同章兄弟单元，'习惯'词面相邻。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们想到一个背单词的点子，怎么判断它有没有习惯养成潜力、频率够不够？",
+      "expected_behavior": "不应激活本 skill，应激活 f02-habit-zone-frequency-first（可配 f01 五问）：已有候选点子做可行性过滤属习惯区间判据的领地；f22 只负责点子从哪来。",
+      "notes": "跨 skill 混淆诱饵：同书 f02。扫描（f22）与过滤（f02）是两道工序。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我自己的生活里没什么烦心事，也没观察到什么小众新行为，是不是就找不到习惯产品机会了？",
+      "expected_behavior": "边界判断：可调用本 skill 但应显式降级照镜子与新生行为两路、加重后两路——促成性技术（哪个行为正被新技术变容易）与界面更改（当前交互迁移点在哪）；期望是说明四路扫描不要求四路全通，并诚实提示'照镜子失灵'时需要补真实用户观察，而非硬编需求。",
+      "notes": "边界：扫描法在'自我观察贫乏'情境下的适用度，考验 B 段'照镜子自我放大'边界与四路独立性。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

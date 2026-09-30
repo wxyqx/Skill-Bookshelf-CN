@@ -1,0 +1,52 @@
+{
+  "skill": "investment-changes-attitude",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的 SaaS 有 14 天免费试用，但用户大多只看看演示就走了，试用期该让他们做点什么才更容易付费？",
+      "expected_behavior": "应激活 investment-changes-attitude：建议安排能沉淀的小投入（建一个项目、邀请一位同事、导入一点数据），解释宜家效应抬高感知价值、小步承诺铺垫付费转化，明确'试用设计的目标是投入而非曝光'。",
+      "notes": "正面场景：verified.md V2 记录的试用场景是本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "用户调研里都说我们的产品'还行、凑合'，但他们每天都用还续费，这种态度和行为矛盾怎么解释？",
+      "expected_behavior": "应激活 investment-changes-attitude：用文饰作用/认知失调解释——用户已投入时间与数据，会调整态度为自己的持续使用辩护；提醒检查投入是否真实提升体验，而非仅靠合理化支撑。",
+      "notes": "正面场景：态度-行为背离解读是 A2 情境 3。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我想让女儿坚持练琴，光奖励贴纸没什么用，听说'宜家效应'也能用在习惯养成上？",
+      "expected_behavior": "应激活 investment-changes-attitude：建议让她在练习中留下自己的产出（自编小曲、录音集、自己布置曲谱），用动手造抬高珍视感，辅以小步承诺链；同时提示贴纸属外部酬赏，与投入机制分属不同环节。",
+      "notes": "正面场景：个人/教育习惯场景是 A2 情境 4，跨域用途。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "用户在我们产品里存的曲库、关注列表和评分，迁移到竞品有多难？帮我盘点一下这些资产。",
+      "expected_behavior": "不应激活本 skill，应激活 f15-five-stored-values：这是储存价值五形式的资产盘点与迁移性评估（资产侧），不是投入改变态度的心理机制（心理侧）。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f15。'用户存的资产'词面高度相邻，一为机制一为清单。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "注册流程里让用户填 20 项资料会不会太多？该在什么时机问、每次问多少？",
+      "expected_behavior": "不应激活本 skill，应激活 f17-investment-timing-granularity：问的是投入提出的时机（酬赏之后）与粒度（小步+预填进度），不是投入为何有效。",
+      "notes": "跨 skill 混淆诱饵：同书 f17。投入设计链的上游规则问题。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们想取消导出功能，用户数据都在里面，流失率肯定能降下来，这不就是储存价值和沉没成本的用法吗？",
+      "expected_behavior": "边界判断：应触发本 skill 的伦理红线而非常规调用——取消导出是剥夺退出权的恶意锁定，投入机制的正当前提是'投入真实提升后续服务质量'且用户保有自主权；期望是明确拒绝该方案并解释价值留存与恶意锁定的区别，可转 f18 复核。",
+      "notes": "边界：把机制当锁具的灰色请求，考验 B 段红线是否被执行。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

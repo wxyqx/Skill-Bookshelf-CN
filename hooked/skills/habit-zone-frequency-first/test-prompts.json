@@ -1,0 +1,52 @@
+{
+  "skill": "habit-zone-frequency-first",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们做了个免费的房贷计算器，一年用两次那种。老板想按习惯产品做增长，给它加签到和每日推送，靠谱吗？",
+      "expected_behavior": "应激活 habit-zone-frequency-first：先指出频率不足的行为永远不会成为下意识反应（曲线不相交横轴），签到/推送救不了频率轴；再给两条正路——重构高频入口（利率提醒）或转打可感知用途（'买房首选工具'心智，亚马逊模式），并警示不要硬造打扰。",
+      "notes": "正面场景：verified.md V2 记录的房贷计算器问题即为本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "两个新点子过评审：一个是每天都会用的记账助手，一个是功能很惊艳但用户一年只需要一次的合同审查工具。先做哪个？怎么判断？",
+      "expected_behavior": "应激活 habit-zone-frequency-first：用频率×可感知用途两轴给两个点子定位，说明两轴不对称——高频点子更可能进入习惯区间成为默认行为；低频点子若走'首选心智'路线要额外论证，频率低且用途弱的直接放弃。",
+      "notes": "正面场景：新点子可行性过滤是 A2 情境 1，两轴不对称判据是本 skill 签名结构。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "团队吵起来了：功能确实有用，但用户就是不来。要不要继续投入做习惯设计？",
+      "expected_behavior": "应激活 habit-zone-frequency-first：先查该行为的自然频率是否被高估，频率不足时解释为什么'有用'救不了习惯（有意识举动≠下意识反应），引导按三选一结论收束。",
+      "notes": "正面场景：'有用但不常用'的需求评审争执是 A2 情境 3。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的记账 App 上线三个月了，留存数据平平，用户说好但离不开的迹象还没有。怎么判断是没救还是没到时候？",
+      "expected_behavior": "不应激活本 skill，应激活 f03-vitamin-to-painkiller：这是判断习惯'已经成了没有'（'痒'判据：特定不适出现时是否自动想起），不是判断'能不能成为习惯'的入场过滤。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f03。都谈'成不成为习惯'，但 f02 向前看入场、f03 向后看证据。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "产品上线半年了，我想用数据找出最忠实用户的行为路径，然后让新用户照着走。怎么操作？",
+      "expected_behavior": "不应激活本 skill，应激活 f20-habit-test-three-steps：这是上线后的习惯测试三步（定义频率→5% 门槛→习惯路径→改产品），不是上线前的习惯区间判断。",
+      "notes": "跨 skill 混淆诱饵：同书 f20。'频率'词面相同，但一个是设计前判断、一个是上线后测量。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们产品目标行为是每周一次（健身计划打卡），做不成每日习惯的话是不是就别做习惯设计了？",
+      "expected_behavior": "边界判断：应激活本 skill 并给出结构化回答——习惯区间无固定数值门槛（'频率多高才算高'无定论），每周行为仍可能进入习惯区间（健身房、周报类）；期望是把'贴近每日'当作增强稳定性的方向而非一票否决线，同时提示旧习惯回转风险（新习惯需防复发），最终按三选一结论输出。",
+      "notes": "边界：频率介于每日与每年之间，考验是否机械套用'必须每日'而非使用两轴相对判断。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 2 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

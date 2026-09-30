@@ -1,0 +1,52 @@
+{
+  "skill": "external-triggers-four-types",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "冷启动预算只够二选一：投信息流广告，还是做内容营销去搏应用商店推荐？怎么配？",
+      "expected_behavior": "应激活 external-triggers-four-types：把两个选项落位为付费型与回馈型，指出二者都是拉新触发（付费快而贵、回馈免费但昙花一现），真正的关键选项是尽早拿到自主型许可（安装/通知授权）；分配依据从'哪种便宜'变成'哪类触发服务哪段旅程'。",
+      "notes": "正面场景：verified.md V2 记录的冷启动二选一问题即为本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的 App 一停投放，次日留存就腰斩，投放根本停不得。财务不肯加预算了，怎么办？",
+      "expected_behavior": "应激活 external-triggers-four-types：识别为付费型触发长期依赖（ce03：停投即流失、买曝光买不来情绪绑定）；判停——问题不在投放而在内部触发未建立，停止加码，转 internal-trigger-anchoring / bmat-action-diagnosis 诊断循环后段。",
+      "notes": "正面场景：ce03 的 warning_signs（停投即流失）与 E 段判停条件直接对应。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们想做老带新，但运营担心用户被邀请会觉得被套路。邀请机制怎么设计才不会透支朋友关系？",
+      "expected_behavior": "应激活 external-triggers-four-types：定位为人际型触发设计，给出黑暗模式三问自检（邀请对被邀请方是否透明、用户分享后是否尴尬、是否依赖加大诱导力度），并以 PayPal 收款场景说明'实际价值驱动自发传播'才是正道。",
+      "notes": "正面场景：A2 情境 2/5 的渠道结构审查 + ce01 伦理自检路径。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "有些用户不用推送提醒也会自动打开我们的 App，好像一到某个情绪点就想起我们。这种条件反射是怎么形成的？",
+      "expected_behavior": "不应激活本 skill，应激活 internal-trigger-anchoring：问的是情绪→产品的内部触发安装机制（第 2 章后半），不是外部触发的四分类与拉新留存分工。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f05。同处第 2 章、都叫'触发'，但外部（信息中的行动召唤）与内部（情绪锚点）含义不同。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "怎么让用户上一次的投入自动变成下一次回来的提醒？比如他建好了清单，第二天提醒就自然出现了，而不是我们群发推送。",
+      "expected_behavior": "不应激活本 skill，应激活 load-next-trigger：用户投入内生生成下一次召回触发（个性化、时机对准内部触发），与产品方统一铺设的外部触发是两个机制。",
+      "notes": "跨 skill 混淆诱饵：同书 f16。'触发/召回'词面相同，f04 是外铺通用触发，f16 是投入内生的个性化触发。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们被一个大 V 转发了，日活一周涨了五倍。老板要按这个峰值招人排期，怎么劝？",
+      "expected_behavior": "边界判断：应激活本 skill 并给出结构化回答——大 V 转发属回馈型触发，其流量高峰'很容易使企业盲目乐观，认为这就算大功告成，实则不然'（L604）；先查这批流量的自主型转化（授权/留存），再谈扩容，明确反对按峰值配置资源（ce02）。",
+      "notes": "边界：既是典型触发场景又考验是否给出'当脉冲不当饭吃'的操作判断，而非只贴类型标签。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 2 条同书兄弟 skill 混淆：f05、f16）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

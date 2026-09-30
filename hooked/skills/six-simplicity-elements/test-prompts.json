@@ -1,0 +1,52 @@
+{
+  "skill": "six-simplicity-elements",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的政务 App 老年用户注册率特别低，界面已经做了大字版了还是不行，问题出在哪？",
+      "expected_behavior": "应激活 six-simplicity-elements：逐项排查六要素，指出大字版只解决了脑力/视力，老年用户的卡点可能在脑力（流程复杂）、社会偏差（怕办错丢人）或非常规性（与线下办事习惯冲突），建议观察真实用户找最短板。",
+      "notes": "正面场景：verified.md V2 记录的政务 App 场景是本 skill 的标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "结账流程要填 11 个字段，购物车放弃率高达 75%。帮我看看哪一步最该砍。",
+      "expected_behavior": "应激活 six-simplicity-elements：列全必经步骤、逐项标注六要素摩擦、锁定最短板（此处典型是脑力/时间），给出删字段/默认值/分步等对应减法并要求改后对比验证。",
+      "notes": "正面场景：流程摩擦诊断是六要素清单的核心用途。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司新推的报销系统没人愿意用，财务说功能都齐了，员工就是嫌麻烦还怕填错被审计盯上。怎么分析？",
+      "expected_behavior": "应激活 six-simplicity-elements：'嫌麻烦'对应脑力/时间，'怕被审计盯上'对应社会偏差，逐项排查后补最短板，而不是继续堆功能或发通知催办。",
+      "notes": "正面场景：内部工具推广是 A2 情境 2/4 的组合。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "注册之后我们想让用户多填点个人资料、导入通讯录，这样推荐会更准。这些请求该什么时候提、怎么提？",
+      "expected_behavior": "不应激活本 skill，应激活 f17-investment-timing-granularity（投入时机与颗粒度）：这是投入阶段设计（酬赏之后、小步开始），方向是允许加摩擦而非减摩擦。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f17。'填资料流程'词面相似但属投入端，f09 的 B 段明确把投入阶段列为反场景。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "推送发出去打开率只有 2%，用户根本注意不到我们，怎么提高曝光？",
+      "expected_behavior": "不应激活本 skill，应激活 f04-external-triggers-four-types（或 f05）：这是触达/触发端问题，行为根本没被唤起，还没到能力摩擦排查。",
+      "notes": "跨 skill 混淆诱饵：同书 f04。'没人用'的原因在触发端时六要素不适用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "用户说我们的专业工具'上手有点难，但学会了效率确实高'，这类学习成本高但价值高的产品需要简化吗？",
+      "expected_behavior": "边界判断：可调用但要克制——技能习得本身是 f15 中的储存价值（技能类），过度简化会消灭投入与护城河；正确动作是用六要素定位'首次成功路径'（time-to-first-value）的最短板做定向减法，而非把产品整体儿童化。期望是部分调用并说明取舍。",
+      "notes": "边界：'学习成本即护城河'与'降低上手门槛'的张力是真实的设计权衡，考验对行动/投入分段的把握。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

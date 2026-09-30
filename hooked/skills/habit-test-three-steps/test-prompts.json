@@ -1,0 +1,52 @@
+{
+  "skill": "habit-test-three-steps",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们产品 DAU 看着还行，但投资人问我们'铁杆用户是谁、他们有什么共同行为'，我答不上来。怎么系统性地搞清楚？",
+      "expected_behavior": "应激活 habit-test-three-steps：走三步——先定义忠实用户应有的使用频率（不拿专业用户当标准），数出达标者是否 ≥5%，再从达标用户行为流反推共同序列（习惯路径），最后据此改产品导流。",
+      "notes": "正面场景：A2 情境 1，verified.md V2 的'DAU 不低但说不出谁是铁杆用户'场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "留存曲线一直在掉，但分析报告只有折线图没有结论，我不知道该改注册流程还是改功能。有没有更抓手的方法？",
+      "expected_behavior": "应激活 habit-test-three-steps：解释留存分析缺的是'习惯路径'这一产出物——对比忠实用户与普通用户的行为序列，找到类似 Twitter'关注 30 人'的临界行为，把新用户往该路径上导，并按 5% 门槛先做二元归因。",
+      "notes": "正面场景：A2 情境 2，与通用留存分析的区分点。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "活跃用户里大概多少比例算健康？我们周活里大概 4% 的人每天都来，这算有习惯基础吗？",
+      "expected_behavior": "应激活 habit-test-three-steps：给出 5% 基准与其二元归因（不足 5% 要么用户判断有误要么产品需重做），同时提醒先检查频率定义是否合理、4% 与 5% 的差距应该归因到画像还是产品，并给出补测步骤。",
+      "notes": "正面场景：用户直接使用 5% 门槛语义，步骤 2 判停点场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "房贷计算器这种一年用不了两次的工具，值不值得做习惯养成设计？",
+      "expected_behavior": "不应激活本 skill，应激活 f02-habit-zone-frequency-first：问的是低频产品该不该按频率轴做习惯设计（立项前的习惯区间过滤），不是上线后怎么测量习惯；两者同用'频率'一词但一在设计前一在数据后。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f02。'频率'语义相邻，过滤器 vs 测量仪。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "AI 编程助手现在这么火，我们想找一个还没被做烂的习惯产品机会，该从哪些方向找？",
+      "expected_behavior": "不应激活本 skill，应激活 f22-four-opportunity-sources：问的是新产品机会扫描（照镜子/新生行为/促成性技术/界面更改），不是现有产品的习惯验证；同属第 8 章但方向相反。",
+      "notes": "跨 skill 混淆诱饵：同书 f22，同章兄弟单元。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们按每天打开 3 次定义忠实用户，达标的有 7%，但发现很多人是被连续打卡清零的焦虑逼着打开的，这算习惯健康吗？",
+      "expected_behavior": "边界判断：应部分触发本 skill 并显式移交——按程序 7% 已过 5% 门槛且习惯路径可提取，但 B 段明确'只测频率不测质量'：焦虑驱动的达标须移交 f18 操纵矩阵复核该习惯是否值得经营、并按 p16 检查对过度使用者的义务；期望是同时输出测量结论与伦理移交。",
+      "notes": "边界：门槛通过但习惯质量存疑，考验 B 段'频率达标≠值得经营'的边界是否被执行。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

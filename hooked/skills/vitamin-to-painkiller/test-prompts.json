@@ -1,0 +1,52 @@
+{
+  "skill": "vitamin-to-painkiller",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的免费记账 App 上线三个月了，留存数据平平，用户都说好用，但看不到离不开的迹象。怎么判断是没救了还是没到时候？",
+      "expected_behavior": "应激活 vitamin-to-painkiller：用'无法实施即痛苦'（痒）判据做定性判断——不看留存曲线，查用户在记账焦虑出现时是否自动想起产品；给出维生素阶段定位（设计窗口而非失败判决）与分支动作（判据未过转内部触发挖掘，判据已过做保护）。",
+      "notes": "正面场景：verified.md V2 记录的记账 App 问题即为本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "投资人又要问那个老掉牙的问题：你们做的是维生素还是止痛药？我们这产品用户评价很好但谈不上强依赖。该怎么回答？",
+      "expected_behavior": "应激活 vitamin-to-painkiller：给出阶段论回答——先维生素后止痛药是正当路径（Facebook/Twitter/Instagram/Pinterest 都被这么低估过），配'无法实施即痛苦'的行为学判据，而不是硬编止痛药故事。",
+      "notes": "正面场景：融资答辩是 A2 情境 2，判据的'反用隐喻'结构是本 skill 签名。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "所有受访用户都不愿意卸载我们的工具，NPS 也很高，但我总觉得这不是真依赖。怎么验证他们是不是真习惯了？",
+      "expected_behavior": "应激活 vitamin-to-painkiller：指出态度数据（不愿卸载、NPS）不算判据证据，改用行为证据三问——特定不适出现时是否自动想起、中断一周后是否难受、有无自发绕路行为；并给出判据已过/未过两种分支。",
+      "notes": "正面场景：依赖真实性验证是 A2 情境 3，'判据只认行为'是 E 段硬约束。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们有个新点子，目标行为用户一年只发生一两次。这个点子该不该按习惯产品来做设计？",
+      "expected_behavior": "不应激活本 skill，应激活 habit-zone-frequency-first：这是入场前判断'能不能成为习惯'（频率×用途过滤），不是判断'已经成了没有'的证据判据。频率不足时本 skill 的痒判据永远过不了，也不该拿维生素阶段当借口。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f02。都谈'成不成为习惯'，f02 向前看入场、f03 向后看验收。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "有些用户不发推送也会自动打开我们的 App，好像一到某个情绪点就想起我们。这种自动回访的机制是怎么形成的，我想在新功能里复制它。",
+      "expected_behavior": "不应激活本 skill，应激活 internal-trigger-anchoring：问的是情绪→产品条件反射的安装机制（施工方），不是习惯是否形成的判据（验收方）。",
+      "notes": "跨 skill 混淆诱饵：同书 f05。'自动想起'词面两 skill 都涉及，f03 检测、f05 生成。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "用户对产品的典型评价是'挺好的，但我不用'，留存很低，不过几乎没人卸载。这算维生素阶段还有救，还是基本没戏？",
+      "expected_behavior": "边界判断：应激活本 skill 并给出结构化回答——'不愿卸载'是态度数据不算判据证据，当前信号更像'痒'的联结未建立；下一步不是下结论而是过判据三问收集行为证据，同时警惕频率轴问题（若目标行为本身低频，先回习惯区间判断路线）。",
+      "notes": "边界：态度证据与行为证据混杂、'有救/没戏'二选一的压力下，考验是否坚持判据流程而非直接站队。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 2 条同书兄弟 skill 混淆：f02、f05）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

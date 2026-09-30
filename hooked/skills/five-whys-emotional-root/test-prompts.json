@@ -1,0 +1,52 @@
+{
+  "skill": "five-whys-emotional-root",
+  "version": "0.1.0",
+  "source_book": "《上瘾：让用户养成使用习惯的四大产品逻辑》（Hooked） — 尼尔·埃亚尔、瑞安·胡佛",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "用户都嚷嚷着要'更快的报表'，我们提速 30% 了使用率也没涨。怎么找到他们真正要的东西？",
+      "expected_behavior": "应激活 five-whys-emotional-root：对'要更快的报表'这个表层请求连问五个为什么，直到出现情绪词（如'怕在会上被问住'）——那才是内部触发；提示起点要落在实际行为上、情绪词即停问信号，并把绑定句式作为产出。",
+      "notes": "正面场景：verified.md V2 记录的'更快的报表'问题即为本 skill 标准外推。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "要写新版落地页文案了，但我们只知道用户的功能愿望清单，不知道他们到底在什么情绪下需要我们。怎么挖？",
+      "expected_behavior": "应激活 five-whys-emotional-root：先校验起点（基于实际行为而非口头愿望），再设计五连问链条下钻到可锚定情绪，交叉验证情绪的高频性后交接给文案与触发设计。",
+      "notes": "正面场景：A2 情境 3，'文案不知道对准什么情绪'是典型入口。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "访谈对象说一套做一套，嘴上说重视数据分析，行为上从来不看我们推的周报。这种用户研究该怎么问下去？",
+      "expected_behavior": "应激活 five-whys-emotional-root：作者明言'言语不一定能反映出最真实的想法'（L684）、研究重心应放在实际行为而非内心愿景（L686）；从实际行为（为什么从不点开周报）起连问五个为什么，挖到行为背后的真实情绪。",
+      "notes": "正面场景：口是心非是本 skill 的起点纪律来源，A2 情境 2。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "五连问挖出来了：用户真正怕的是月度盘点时被老板问住。接下来怎么把这个恐惧跟产品绑成条件反射、安排推送喂养？",
+      "expected_behavior": "不应激活本 skill，应激活 internal-trigger-anchoring：发现已完成（f06 的产出），问句是安装施工——绑定句式落位、即时药方资格验证、外部触发喂养期设计。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书 f05。'情绪根源/恐惧'两 skill 都涉及，f06 负责挖、f05 负责绑。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "产线上一台设备本周反复停机，主管让我对每个故障原因连问五个为什么，一直问到能整改的流程根因为止。",
+      "expected_behavior": "不应激活本 skill：这是丰田原版 5 Whys 的根因分析场景，终点是流程/系统根因；本 skill 的终点判据是'出现情绪词'，只用于产品内部触发挖掘，两者不可混用。",
+      "notes": "邻近方法论诱饵：同源不同判据（丰田原版 vs 埃亚尔改用），B 段与 A2 区分条目直接对应。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "连问到第四个为什么，用户开始不耐烦，答案也变得越来越像在编。第五个为什么还要继续问吗？",
+      "expected_behavior": "边界判断：应激活本 skill 并给出克制回答——不机械凑满五问，两种合法收束：第四问已出现情绪词即停（停问判据是情绪词不是层数）；若属于访谈疲劳与防御，停止追问，改用情境推演或移情图补充，警惕编造的合理化答案，并用独立证据交叉验证。",
+      "notes": "边界：考验是否把'五问'当审讯脚本硬执行，而非按停问判据与访谈伦理灵活收束。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆 f05、1 条丰田原版方法论混淆）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}
