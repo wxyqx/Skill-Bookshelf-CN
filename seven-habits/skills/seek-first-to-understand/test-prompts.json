@@ -1,0 +1,52 @@
+{
+  "skill": "seek-first-to-understand",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我的方案数据齐全逻辑没问题，但每次汇报老板都不耐烦，直接打断我，怎么让他听进去？",
+      "expected_behavior": "应激活 seek-first-to-understand：诊断这是'急着解己、跳过知彼'的次序问题，先安排一次以理解老板关切为目的的对话（复述至认可），再重组表达。",
+      "notes": "'说得对但没人听'是最典型的次序律场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "跨部门会议每次都变成各自陈述，谁也不服谁，下个月的议程怎么设计能不吵？",
+      "expected_behavior": "应激活 seek-first-to-understand：按 V2 预测改排议程——每个方案陈述前，先由对方复述该方案至提案人认可（结构性知彼），再进入己方表达。",
+      "notes": "结构性知彼的会议设计，来自 verified.md p13 的 derived_answer。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "朋友失业天天向我倒苦水，我张嘴就想给他求职建议，又觉得不对劲，现在该怎么回应？",
+      "expected_behavior": "应激活 seek-first-to-understand：先给'心理空气'——复述他的处境与感受，诊断完成前不开药方；建议给求职建议推迟到他确认被理解之后。",
+      "notes": "V1 证据'朋友失业倒苦水'的直接对应场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "有人扬言今天下午要到公司闹事伤人，我该先安抚他还是先报警？",
+      "expected_behavior": "不应激活本 skill：涉及人身安全，立即采取行动与上报；按 B 段判停条件，移情聆听不替代行动。",
+      "notes": "诱饵：'沟通化解冲突'表象相似，但触发 B 段安全红线。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我和合伙人一个要学区房一个要改善居住，僵持半年了，怎么找到第三方案？",
+      "expected_behavior": "不应激活本 skill，应激活 synergy-third-alternative：分歧双方已有各自明确立场，目标是共创第三选择；本 skill 只是它的上游闸门（若连对方立场都未听进去，则先走知彼）。",
+      "notes": "同书兄弟 skill 混淆诱饵：防 p13 与 f15 抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我儿子看到我就把房门关上，我跟他说什么都被当耳旁风，是不是该先好好听他说话？",
+      "expected_behavior": "谨慎的双重判断：先查情感账户——青春期子女对长期只会纠错的父母关闭通道，属于账户透支（ce08），单次'好好听'可能被读作策略；应先做无条件的针对性存款（重视他重视的事），再进入移情聆听，两步并用并如实告知周期。",
+      "notes": "边界：次序问题与余额问题叠加，测试 f08 与 p13 的接力判断。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

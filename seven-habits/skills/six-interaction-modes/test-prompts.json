@@ -1,0 +1,52 @@
+{
+  "skill": "six-interaction-modes",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我老公什么都要争个输赢，连孩子成绩都要拿来跟亲戚比，我总让着他，最近憋不住发了一次大火。",
+      "expected_behavior": "应激活 six-interaction-modes，定性为赢/输（对方）+输/赢（自己）的摆荡结构，指出压抑与爆发的机制，再决定去向",
+      "notes": "ce11+ce12 的标准触发形态"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我儿子说反正努力也考不过别人，干脆弃赛不参加了，我该劝他要争一口气吗？",
+      "expected_behavior": "应激活 six-interaction-modes，定位为输/赢环境浸染下的模式固化；处方是先补勇气与自我价值支点，而非'鼓励竞争'或'不必争'的二选一",
+      "notes": "verified.md V2 novel question 的正面触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "跟同事合作项目，我处处让步息事宁人，结果他越来越过分，我们是不是一个愿打一个愿挨？",
+      "expected_behavior": "应激活 six-interaction-modes，识别'输/赢是赢/输的生存土壤'结构，并给出勇气/体谅两轴的定位",
+      "notes": "模式名实对照是本 skill 的核心动作"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "周末社区羽毛球比赛我想拿冠军，要不要故意让着对手维护邻里关系？",
+      "expected_behavior": "不应激活本 skill，因为竞技比赛属于书中明确承认的合法赢/输场合，'认清形势、不教条'正是本 skill 自身的边界",
+      "notes": "诱饵: '让不让着别人'诱发双赢泛化；竞技零和场合不适用"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们部门考核只奖个人排名，还要求大家协作，结果没人真配合，该怎么设计协作机制？",
+      "expected_behavior": "不应激活本 skill，应激活 win-win-five-dimensions——这是体系层与目标相悖的结构构建问题，不是单次交往姿态的定性问题",
+      "notes": "跨 skill 混淆诱饵: 同为习惯四，机制设计（f12）与模式识别（f13）分工不同"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "跟认识二十年的朋友合伙做生意，现在利益分配谈不拢，关系也开始变味了，我该坚持还是退出？",
+      "expected_behavior": "合理的判断是先定性当前滑向的模式（很可能已从双赢滑向赢/输或输/输），再转用好聚好散的原则：家族/友谊生意应先就'不能双赢就好聚好散'达成协议。两 skill 组合调用均可接受，关键是先定性再谈退出",
+      "notes": "边界: f13 与 p19（好聚好散）的交界地带，考察先诊断后行动的次序"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（win-win-five-dimensions）的混淆场景。"
+}

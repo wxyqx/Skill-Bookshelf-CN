@@ -1,0 +1,52 @@
+{
+  "skill": "leadership-before-management",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们团队执行力太差了，我在纠结是再招两个人、把慢的换掉，还是把流程重新捋一遍。你觉得哪个见效快？",
+      "expected_behavior": "应激活 leadership-before-management：先回答领导层问题'要砍的是不是这块丛林'（方向验证），再决定加人/换人/改流程，避免把领导失败误诊为管理问题",
+      "notes": "verified.md f04 的 V2 验证原始新问题"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我去年升了总监，薪资翻倍，但每天忙到半夜，心里越来越空。我是不是抑郁了？",
+      "expected_behavior": "应激活 leadership-before-management：用'梯子搭错墙'判据检查是否高效执行错误方向（ce07），先做自我领导层的方向复查，而非直接下情绪结论",
+      "notes": "达成目标后的空虚是 f04 V1 证据中的典型信号"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我天天陪孩子写作业盯到十一点，成绩没起色，亲子关系还越来越僵。是不是我管得还不够严？",
+      "expected_behavior": "应激活 leadership-before-management：指出'管得更严'是管理层加码，而孩子的人格与内动力属领导层问题（家庭版领导先于管理），先定方向再谈监督",
+      "notes": "对应书中'为人父母的管理误区'（L2904）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司方向刚跟董事会敲定了，现在的问题是我布置的任务下面总是返工，返工的活儿要不要干脆授权出去？",
+      "expected_behavior": "不应激活本 skill，应激活 stewardship-delegation（f18，批B）——方向已确认，问题在授权与任务交代方式",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f04 管方向验证，f18 管方向已定后的授权五要素"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "消防预案要求值班经理 30 秒内启动疏散流程，我想讨论一下这个流程设置得对不对。",
+      "expected_behavior": "不应激活本 skill，因为方向由安全规章与突发场景硬性锁定（B 段反场景），此处应直接优化流程执行质量",
+      "notes": "诱饵：'流程对不对'看似领导层问题，实为已锁定的执行优化"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们小团队十个人，方向是我一个人拍板的，但我总觉得执行力不行。你先帮我看看是不是方向的问题？",
+      "expected_behavior": "合理判断：调用本 skill 第 1 步做方向验证是恰当的；但须注意 B 段——若方向确认无误，应转入归因分诊（人/流程/资源/传达），并警惕'方向独断'本身可能是领导层缺陷（未让执行者参与认同，关联 p08）",
+      "notes": "边界：方向验证与参与式领导需同时检查，不能只验证不做参与诊断"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

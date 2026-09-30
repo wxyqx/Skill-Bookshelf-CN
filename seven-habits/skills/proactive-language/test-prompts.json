@@ -1,0 +1,52 @@
+{
+  "skill": "proactive-language",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们团队互相甩锅成风，会议纪要里全是'我不得不''要是老板支持就好了'，我想改变这种氛围，从哪里入手？",
+      "expected_behavior": "应激活 proactive-language，先做团队语言样本捕捉（摘出纪要中的决定论句式），再给出归因定位与替换表，并绑定影响圈内的团队练习。",
+      "notes": "语言信号（要是/我不得不/甩锅）+ 明确诉求，是典型的团队版正面场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我发现自己老说'我根本没时间''我就是这样的人'，越说越丧，怎么改？",
+      "expected_behavior": "应激活 proactive-language，按捕捉→归因定位→替换重写→绑定圈内最小行动四步执行。",
+      "notes": "用户原话自带三句典型消极句式，且诉求指向改变表达习惯。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "面试被拒了十次，我嘴上总说'要是学历更高就好了'，朋友说这话有问题，你觉得呢？",
+      "expected_behavior": "应激活 proactive-language，把'要是学历更高'改写为影响圈内表达（如'我可以补哪项技能/我可以换一种展示方式'），并接一个可验证行动。",
+      "notes": "'要是……就好了'句式 + 他人的消极评价，符合诊断场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我润色一下这段给客户的道歉邮件，语气别太冲，但别改内容。",
+      "expected_behavior": "不应激活本 skill，因为这是文风润色请求，不涉及责任归属练习或语言习惯改变。",
+      "notes": "诱饵：'语言/措辞'关键词相似，但任务类型完全不同。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "老板今天会上当众否定我的方案，我气得想当场回击，现在该怎么办？",
+      "expected_behavior": "不应激活本 skill，应激活 stimulus-response-gap（刺激与回应之间的距离）：这是刺激发生当下的回应选择问题，不是日常语言习惯问题。",
+      "notes": "同书兄弟 skill 混淆诱饵：'消极情绪+表达冲动'易被误判为消极语言场景，但时机维度不同（当下 vs 长期习惯）。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我失业三个月了，行情就是不好，这是事实不是抱怨——但朋友都说我太消极。",
+      "expected_behavior": "谨慎、有限度地调用：先区分事实陈述与宿命化语言——'行情不好'是事实，保留；但检查是否存在可转影响圈的表述（简历、现金流、约谈熟人），并明确告知用户本 skill 不做道德归因、不否认结构性现实。",
+      "notes": "边界：事实陈述与推责语言的分界模糊；按 B 段要求避免把结构性问题个人化。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

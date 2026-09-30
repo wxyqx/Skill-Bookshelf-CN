@@ -1,0 +1,52 @@
+{
+  "skill": "transition-person",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我发现自己冲孩子发火的语气跟我爸一模一样，吓了一跳，怎么才能不像他？",
+      "expected_behavior": "应激活 transition-person，走断链路径：把模式行为化→追溯触发→写进使命宣言→每日演练",
+      "notes": "verified.md V2 novel question 的正面触发"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我决定吼叫式教育到我这为止，但每次急了还是脱口而出，有什么办法真正改掉？",
+      "expected_behavior": "应激活 transition-person，指出仅靠意志警戒会复发，须以书面使命+每天的个人领域的成功演练替代",
+      "notes": "'到我这为止'是本 skill 的标志性语言信号"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "聊原生家庭我都能背出来了，可除了怪父母我什么也改变不了，接下来呢？",
+      "expected_behavior": "应激活 transition-person，把归因叙事转向断链操作（识别→承载→演练→理解与原谅）",
+      "notes": "'原生家庭'话题的行动化转折是本 skill 与大众叙事的分界"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我爸当年打我，你说我该不该原谅他？就想听听大家怎么看。",
+      "expected_behavior": "不应激活本 skill（或先以聆听接住情绪、说明边界），因为用户处于归因/情感倾诉阶段，未表达改变意愿；硬塞断链框架违背'先诊断后开方'",
+      "notes": "诱饵: '原生家庭+父母'词面诱发泛化；倾诉阶段不是行动阶段"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我感觉自己的人生剧本好像一直是别人帮我写的，想重新规划一下职业方向。",
+      "expected_behavior": "不应激活本 skill，应激活 two-creations（f03）——这是通用的人生剧本改写与职业方向问题，不是代际传承链条的断链",
+      "notes": "跨 skill 混淆诱饵: f03 与 f22 都有'改写剧本'，区别在有无代际维度"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我小时候被父亲打得很重，现在女儿一哭我就有动手的冲动，我很害怕。",
+      "expected_behavior": "合理的判断是先建议专业心理支持（B 段判停条件：严重创伤），在本 skill 内只提供'识别+止损'的最小框架（触发时离开现场、写入宣言的正面承诺），并明确声明这不是治疗替代品",
+      "notes": "边界: 考察 agent 是否执行'创伤先转介'的判停，而非直接跑完六步"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（two-creations / f03）的混淆场景。"
+}

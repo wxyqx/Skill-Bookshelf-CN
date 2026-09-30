@@ -1,0 +1,52 @@
+{
+  "skill": "diagnose-before-prescribe",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我闺蜜失业了天天跟我倒苦水，我是不是该直接帮她改简历、约面试？",
+      "expected_behavior": "应激活 diagnose-before-prescribe，指出倾诉期多数人先要'心理空气'，先走四阶段复述处境，诊断完成前不投简历式开方",
+      "notes": "verified.md V2 novel question 的正面触发"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "儿子说上学真无聊，我一听就急了开始讲大道理，他现在什么都不跟我说了，怎么破？",
+      "expected_behavior": "应激活 diagnose-before-prescribe，识别价值判断+好为人师的自传式回应，给出四阶段的父子对话操作",
+      "notes": "对应书中父子对话案例的标准场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "明天见客户，我准备了一大堆方案，朋友说别上来就讲，先听，具体该怎么听？",
+      "expected_behavior": "应激活 diagnose-before-prescribe，给出四阶段的具体话术结构与开方时机（对方问'你觉得呢'再讲方案）",
+      "notes": "对应房地产谈判案例的销售域泛化"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "Excel 里 vlookup 函数怎么写？急用。",
+      "expected_behavior": "不应激活本 skill，因为这是明确要答案的纯技术问答，直接回答即可",
+      "notes": "诱饵: '帮我'句式诱发聆听泛化；技术问题不属于诊断场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "跨部门会议大家各说各的谁也不服谁，议程该怎么设计才能让他们先互相理解再讨论？",
+      "expected_behavior": "不应激活本 skill，应激活 seek-first-to-understand（p13）——这是结构/议程层面的'结构性知彼'设计（如方案陈述前先由对方复述），不是一对一聆听操作",
+      "notes": "跨 skill 混淆诱饵: 原则（p13）与操作规程（f14）的分工，场景粒度不同"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "下属交来的报告漏洞百出，我火都上来了，是先骂还是先听？",
+      "expected_behavior": "合理的判断是先处理自己的情绪（刺激与回应之间的距离），再对下属走先诊断后开方——先了解漏洞背后的处境再纠正。两 skill 组合可接受，关键是不能跳过诊断直接批评",
+      "notes": "边界: f02（刺激与回应距离）与 f14 的组合场景，考察 agent 是否意识到'诊断自己'先于'诊断对方'"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（seek-first-to-understand / p13）的混淆场景。"
+}

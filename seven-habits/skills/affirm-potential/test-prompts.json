@@ -1,0 +1,52 @@
+{
+  "skill": "affirm-potential",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新来的下属上手特别慢，错误也多，其他人都说不行，我试用期到底该不该按辞退准备？",
+      "expected_behavior": "应激活 affirm-potential：先审计标签来源（他人评语还是直接观察），设计'明说的高期许+达标路径+配套支持'的对照实验，约定一个观察周期再裁决。",
+      "notes": "V2 预测问题'新下属上手慢要不要按辞退准备'的同型正面场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我儿子刚上初中就被老师断言'不是学数学的料'，他自己也开始信了，我该怎么办？",
+      "expected_behavior": "应激活 affirm-potential：指出标签的自我实现机制（c27 的教师期望效应），拒绝复读社会之镜，把对潜能的判断明说给孩子并配套真实支持与具体反馈。",
+      "notes": "'贴标签+当事人开始相信'是最典型的期望生态问题。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我老公创业失败后一直说'我就这样了，别管我'，怎么激励一个自己都不信自己的人？",
+      "expected_behavior": "应激活 affirm-potential：按'连你自己都不相信自己了，却有另一个人相信你'的机制，给出明说的高期许+移情聆听+责任不代偿的组合动作。",
+      "notes": "关系场景中的期望杠杆，对应 R 段'社会之镜'与 c03 杜尔西内亚。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "孩子连续三个月不做作业还撒谎，我已经发现他藏了三张不及格的卷子，这事该怎么处理？",
+      "expected_behavior": "不应单独激活本 skill：这是已确认的行为问题，需先处理行为后果与规则（问题行为不能被'期许'掩盖）；本 skill 只能在行为处理之后用于期望生态修复，且按 B 段'期许与问责并行'。",
+      "notes": "诱饵：'孩子表现差'表象相似，但撞上 B 段红线判定。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我儿子发火的样子越来越像他爸，一动怒就摔门，我是不是也快变成我妈那样了？",
+      "expected_behavior": "不应激活本 skill，应激活 transition-person：这是识别并改写代际遗传模式的自我改写问题，不是对他人的期望管理。",
+      "notes": "同书兄弟 skill 混淆诱饵：'期望与自我认知'主题相近，但对象方向相反（改自己 vs 期许他人）。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我想用'我相信你能行'来给团队打气，但其实我心里觉得他们这单肯定谈不成，这样说行吗？",
+      "expected_behavior": "不执行明说期许：按 c01 的核心教训——表面鼓励掩饰不住背后的真实信息，不真诚的期许会被对方接收为'你不行'；如实建议先处理用户自己的真实判断（换方案/换资源配置），诚意具备后再谈期许。",
+      "notes": "边界：测试'期许必须真诚'这一 E 段判停条件。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

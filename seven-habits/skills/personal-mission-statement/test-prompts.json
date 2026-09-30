@@ -1,0 +1,52 @@
+{
+  "skill": "personal-mission-statement",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我收到一个外派迪拜的 offer，薪资翻倍但全年驻外，孩子刚上小学。我和爱人吵了三轮了，谁也说服不了谁。",
+      "expected_behavior": "应激活 personal-mission-statement：以'宪法审查'代替临场权衡——按角色（丈夫/父亲/职业人）与原则逐条对照裁决，产出可辩护的接受/拒绝结论，'无论结果如何都心安理得'",
+      "notes": "verified.md f11 的 V2 验证原始新问题"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我想把自己的价值观整理成一份文字，写出来全是'努力奋斗、保持自律'这种空话，有没有方法写出真正管用的？",
+      "expected_behavior": "应激活 personal-mission-statement：按宪法三件套（品德/贡献/原则）重写，用葬礼演练或'只剩一学期'想象做输入采集，要求每条能对具体决定说'是/否'",
+      "notes": "空话价值观是宣言起草的直接入口"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们家墙上贴着家规，孩子从来不当回事。我爸说贴得不够显眼，要贴到每间房去，有用吗？",
+      "expected_behavior": "应激活 personal-mission-statement：按'唯有参与才有认同'判定贴得更显眼无效（缺少参与的规则没有认同），处方是让孩子参与起草并定期修订（柯维家每年 6 月/9 月）",
+      "notes": "对应 f11 V2 的家规场景与 p08/f11 绑定证据（旅馆宣言）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我最近情绪特别不稳定，一会儿觉得自己行一会儿觉得不行，同事一句话就能影响我一星期，帮我看看问题出在哪。",
+      "expected_behavior": "不应激活本 skill，应激活 life-center-diagnosis（f10）——症状是中心摇摆/价值感不稳，需先诊断中心而非直接立宪法",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f10 是诊断，f11 是处方"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们部门季度 OKR 要月底交了，帮我把这五个目标写成鼓动人心的句子，领导说要使命感。",
+      "expected_behavior": "不应激活本 skill——这是把'使命'当宣传文案的诉求，宪法是裁决程序而非口号装饰；季度目标属 OKR 工具范畴",
+      "notes": "诱饵：'使命/价值观'词汇齐备但用途相反"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "帮我给我 14 岁的儿子写一份个人使命宣言，他马上要选科了，希望这份东西能管他三年。",
+      "expected_behavior": "边界判断：不代写（B 段反场景——代写没有认同）；可提供方法与引导问题，由孩子本人起草、家长以参与者身份反馈，并提示青少年宪法应设更短的修订周期",
+      "notes": "边界：为他人（尤其未成年人）代写宣言是本 skill 的明示反场景，但引导式起草在方法之内"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "no-involvement-no-commitment",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "家规贴在客厅墙上一年了，孩子就是不遵守，我是不是应该把字写大一点、处罚再狠一点？",
+      "expected_behavior": "应激活 no-involvement-no-commitment：指出缺乏参与的规则没有认同，改为让孩子参与起草并定期修订（参照柯维家每年两次修订），纠正'加大宣传/加大惩罚'的默认方向。",
+      "notes": "V2 预测问题'家规贴在墙上孩子不遵守'的同型正面场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们公司使命宣言写得特别漂亮，宣贯会开三轮了，员工还是各干各的，为什么？",
+      "expected_behavior": "应激活 no-involvement-no-commitment：先跑四问检验定位卡点（多半卡在'参与拟定'档），再设计真实的参与式拟定流程与贯彻机制。",
+      "notes": "组织使命宣言不落地的经典场景，四问的验收用法。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我新任部门经理，想定一份团队公约，是我先起草好再让大家提意见，还是带着大家一起写？",
+      "expected_behavior": "应激活 no-involvement-no-commitment：按'唯有参与才有认同'建议共同拟定，给出参与形式、决策汇总与修订节奏的具体方案，并提醒决策权不可先内定。",
+      "notes": "'先写好再征求意见'是最常见的伪参与诱因，属于正面干预场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "今晚机房着火了，系统要紧急停机，我该通知哪些人、按什么顺序处理？",
+      "expected_behavior": "不应激活本 skill：紧急危机决策没有参与流程的时间窗口，应先决断后复盘；本 skill 的适用域是规则、目标与方向层。",
+      "notes": "诱饵：'组织协调'表象相似，但违反 B 段判停条件。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "总裁口头上天天讲互助合作，年底却只奖励业绩冠军部门，团队越来越内斗，怎么办？",
+      "expected_behavior": "不应激活本 skill，应激活 win-win-five-dimensions：卡点在双赢五要领的'体系层'（激励只表彰唯一赢家，百慕大结构），先改奖励机制再谈参与，工具本身无效。",
+      "notes": "同书兄弟 skill 混淆诱饵：'员工不认同目标'表象相同，但病根在体系层的赢/输激励，不是参与缺失。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "团队 10 个人有 6 个是刚入职两周的新人，下季度的作战计划是直接共创，还是主管定好了再宣讲？",
+      "expected_behavior": "有限度地调用：目标与标准层面让全员参与（新人也有利益关切），专业方法与分工细节由资深者主导——按 B 段区分'参与聚焦目标与标准，方法交给专业判断'，避免把外行共创变成平庸折中。",
+      "notes": "边界：参与原则遇上信息与经验严重不对称的群体，测试分寸拿捏。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "emotional-bank-account",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "跟我合作两年的同事最近突然疏远我，说话很客气但明显生分了。我想请他吃顿饭送个礼物缓和一下，你说送什么好？",
+      "expected_behavior": "应激活 emotional-bank-account：先查提款记录（是否失信/背后议论/忽视小节），定位提款源；透支状态下送礼会被按'操纵'计价（第八章证据），正确动作是针对性存款而非先示好",
+      "notes": "verified.md f08 的 V2 验证原始新问题；'先示好'直觉与模型结论相反"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我儿子上高中后什么都不跟我说了，我一开口他就说'你又来了'。我是不是该给他报个令营他开心开心？",
+      "expected_behavior": "应激活 emotional-bank-account：判定账户透支（'你又来了'=对技巧免疫），按判停路径停止纠错式接触，先用'听而不评判'等对方汇率存款（对照 L4595 存款方式清单）",
+      "notes": "青春期透支是书中 f08 的标志性场景（L4587-4595）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们部门新来的骨干，交代的活都干，但绝不主动多说一句多做一点，开会也从不表态。怎么把他激活？",
+      "expected_behavior": "应激活 emotional-bank-account：识别为'恶意服从'（L5230）信号，先查团队与其之间的提款源（失信/当众批评/期望不明），再按对方汇率存款",
+      "notes": "恶意服从是透支的行为学判据，属 f08 V1 证据"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "朋友失业了向我倒苦水，我很想直接给他推荐几个猎头和改简历的方法，是不是不合适？",
+      "expected_behavior": "不应激活本 skill，应激活 diagnose-before-prescribe（f14，批B）——问题是单次沟通中'先诊断后开方'的程序，不是长期信任余额问题",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f08 管账户余额，f14 管单次沟通程序"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "楼下便利店老板看我眼熟每次都多送我东西，我觉得他是想让我办储值卡，有点烦。",
+      "expected_behavior": "不应激活本 skill——一次性/纯交易关系按 B 段反场景不适用账户经营思维，用户的警惕直接回应商家即可",
+      "notes": "诱饵：'别人对我好'字样出现，但场景是交易关系"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我妈一辈子都在用'我为你付出这么多'让我愧疚。现在她老了，我该继续往这个账户里存钱吗？",
+      "expected_behavior": "边界判断：可调用本 skill 但必须带 B 段警示——'有条件的爱'（ce10）本身就是持续提款；此处不宜把无条件继续存款当成义务，应先澄清期望与边界（p16），必要时接受关系余额有限的事实",
+      "notes": "权力不对等+有条件的爱叠加：账户模型不能被用作道德绑架工具"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

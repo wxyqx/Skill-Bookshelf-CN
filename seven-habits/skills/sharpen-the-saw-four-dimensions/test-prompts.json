@@ -1,0 +1,52 @@
+{
+  "skill": "sharpen-the-saw-four-dimensions",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "工作五年感觉被掏空了，天天加班，我是该跳槽还是读个在职研究生？",
+      "expected_behavior": "应激活 sharpen-the-saw-four-dimensions，先做四层面审计定位失血层（瓶颈常在社会/情感或精神层而非智力层），再决定投资方向",
+      "notes": "verified.md V2 novel question 的正面触发"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我总觉得没时间锻炼和读书，可刷手机每天三小时，怎么破这个死循环？",
+      "expected_behavior": "应激活 sharpen-the-saw-four-dimensions，识别'锯树不磨锯'结构，制定每天一小时的更新单元",
+      "notes": "ce19 反例的正面触发形态"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司这两年业绩下滑，老板只砍成本不投员工培训，团队人心涣散，问题出在哪？",
+      "expected_behavior": "应激活 sharpen-the-saw-four-dimensions，用组织版四层面映射（体质=财务、心智=人力资源等）做失衡诊断",
+      "notes": "组织版映射是本 skill 的跨域应用面"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "医生说我腰椎间盘突出必须做手术，我很纠结要不要做。",
+      "expected_behavior": "不应激活本 skill，因为这是临床医疗决策，四层面审计不能替代诊断与治疗",
+      "notes": "诱饵: '身体层面'一词诱发泛化；医疗问题明确不适用"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我的每周计划总是周一就作废，是不是该换个待办工具？",
+      "expected_behavior": "不应激活本 skill，应激活 fourth-gen-time-management（f07）——'周计划承载角色与目标、日计划只做调整'的层次问题是日程结构问题，不是更新内容问题",
+      "notes": "跨 skill 混淆诱饵: f07 管日程结构，f16 管更新内容，二者在'每周'词面上高度相近"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我每天学英语三小时，坚持两年了，但跟家里人几乎不说话，这算不算自我提升？",
+      "expected_behavior": "合理的判断是调用本 skill 做失衡审计：单层（智力）高强度支出掩盖社会/情感层失血，属于'平衡检查'步骤要拦下的典型形态；可调用，但结论应是再平衡而非肯定",
+      "notes": "边界: 考察 agent 是否识别'以学习为名的失衡'，而非笼统表扬自律"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（fourth-gen-time-management / f07）的混淆场景。"
+}

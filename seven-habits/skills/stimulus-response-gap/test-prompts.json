@@ -1,0 +1,52 @@
+{
+  "skill": "stimulus-response-gap",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "同事当众抢了我的功劳，我特别想当场回击，现在心里全是火。该不该怼回去？",
+      "expected_behavior": "应激活 stimulus-response-gap：先在距离中调用自我意识与良知，列出至少 2 个可选回应（当场澄清/私下沟通/暂不动），再决定行动，而非直接建议回击与否",
+      "notes": "verified.md f02 的 V2 验证原始新问题；'回击与否取决于距离中的处理，而非刺激本身'"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "孩子一哭我就忍不住吼他，吼完又后悔，可下次还是这样。我是不是脾气天生就坏？",
+      "expected_behavior": "应激活 stimulus-response-gap：标记刺激与默认冲动、在距离中过四天赋；同时拒绝'天生就坏'的决定论归因（ce02），给出八级刻度自评",
+      "notes": "'忍不住+决定论自评'双信号；固定回路的单点练习属本 skill 范围"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "老板半夜发消息批评我，我写了三条怒气回复还没发。要不要现在发出去？",
+      "expected_behavior": "应激活 stimulus-response-gap：把'是否现在发'重构为'距离中如何处理'，先标记冲动、生成回应选项并延后发送",
+      "notes": "邮件/消息场景是 f02 的典型急性触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我最近每天都在抱怨公司和老板，负能量很多，朋友说我该调整心态。你帮我分析一下我该怎么安排精力？",
+      "expected_behavior": "不应激活本 skill，应激活 influence-circle（f01）——问题是长期精力投放与归圈，不是某次刺激下的瞬时回应",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f01 管宏观能量分配，f02 管秒级回应选择"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "上次跟人吵架没吵赢，回家路上我把当时每一句话都复盘了一遍，你帮我改改措辞，下次用词更狠一点。",
+      "expected_behavior": "不应激活本 skill，因为诉求是攻击性话术优化，与'在距离中选择负责任回应'的方法论目标相反",
+      "notes": "诱饵：表面涉及'回应'，实际是要赢/输话术，B 段反场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我刚被主管当众骂了一顿，回家路上一直发抖。道理我都懂，但此刻就是缓不过来。",
+      "expected_behavior": "边界判断：可调用本 skill 的第 1-2 步（标记刺激、承认冲动态）帮助命名情绪，但不应推进到'立刻选择回应'；急性应激下先安抚与恢复，24 小时判停后再进入选择环节",
+      "notes": "边界：情绪淹没状态下四天赋程序无法运转，需先恢复认知带宽"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

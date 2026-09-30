@@ -1,0 +1,52 @@
+{
+  "skill": "habit-knowledge-skill-desire",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "理财课学完了三套，记账 App 换了四个，还是月光，问题到底出在哪？",
+      "expected_behavior": "应激活 habit-knowledge-skill-desire，三栏定位后判定缺口在意愿侧（钱在其使命中无位置），预测补课与换 App 均无效",
+      "notes": "verified.md V2 novel question 的正面触发"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我知道锻炼重要也知道怎么练，就是不想动，这算懒吗？",
+      "expected_behavior": "应激活 habit-knowledge-skill-desire，定位意愿栏缺口并做 why-bother 追问，而非归因于懒或自制力",
+      "notes": "'知道+会+不想'是三要素的标准分裂形态"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司组织了新系统培训，大家考试都过了，回去还是用老办法，为什么？",
+      "expected_behavior": "应激活 habit-knowledge-skill-desire，区分技巧转化缺失与意愿缺失，给出对应不同栏位的干预",
+      "notes": "组织培训失效是三栏诊断的组织域应用"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "有没有好用的番茄钟 App 推荐？想要界面干净的。",
+      "expected_behavior": "不应激活本 skill，因为这是纯工具选择问题，不是习惯成分缺口诊断",
+      "notes": "诱饵: '坚持不了'语境的缺失使'工具'仅是偏好问题"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我的每周计划总是周一就作废，是不是我的计划排法有问题？",
+      "expected_behavior": "不应激活本 skill，应激活 fourth-gen-time-management（f07）——'日计划承载要务'的层次错误是日程结构问题；三要素模型不管排程结构",
+      "notes": "跨 skill 混淆诱饵: f07 与 f21 都处理'坚持不下来'，但一个管结构一个管成分"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我女儿知道玩游戏不好，也承认影响成绩，但她还是天天玩。",
+      "expected_behavior": "合理的判断是调用本 skill 定位意愿栏（她'知道'与'会'俱足，缺的是意愿），但干预不能是说教——应结合亲子关系产能（情感账户）与双赢协议设计意愿环境；可调用，但必须拦下'讲道理'式误用",
+      "notes": "边界: f21 定位缺口后的干预路径涉及 f08/f12，考察 agent 是否止于'定位'并给出合适的转介"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（fourth-gen-time-management / f07）的混淆场景。"
+}

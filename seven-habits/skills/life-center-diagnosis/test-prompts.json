@@ -1,0 +1,52 @@
+{
+  "skill": "life-center-diagnosis",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我最近情绪特别不稳定：老板夸我一句能开心一星期，开会点我一下名就整晚睡不着。我不想一直这样被别人的一句话摆布。",
+      "expected_behavior": "应激活 life-center-diagnosis：用两难回放与十中心归因反推中心（很可能在工作/名利/他人认可），做四要素审计，并给出'以原则为中心'的替换实验",
+      "notes": "verified.md f10 的 V2 验证原始新问题（情绪摆荡归因于摇摆中心）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我在纠结要不要接受一个涨薪 50% 但全年出差的工作，想了两周了，每次快决定又缩回来。",
+      "expected_behavior": "应激活 life-center-diagnosis：用该 offer 作为两难回放材料反推中心（金钱/家庭/自我的拉扯），再决定是否需要 personal-mission-statement 做宪法审查",
+      "notes": "重大两难是中心诊断的天然投射材料"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我离职半年了还是天天刷前公司的群和老板的动态，看到他出错甚至有点解气。我知道这样不好。",
+      "expected_behavior": "应激活 life-center-diagnosis：识别'以敌人为中心'（L3130——觉得遭不公平待遇后处处作对、耿耿于怀），做四要素审计并引导替换中心",
+      "notes": "以敌人为中心'实则相当普遍，只是本人不易觉察'（原文）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们家庭使命宣言已经写好了，现在就是下周要不要让孩子转学的决定，你帮我们按宣言过一遍就行。",
+      "expected_behavior": "不应激活本 skill，应激活 personal-mission-statement（f11）——中心已确认，用户要的是既定宪法的裁决程序，不是中心诊断",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f10 诊断中心，f11 用宪法裁决"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我先生最近两个月失眠、对什么都提不起劲，饭也吃得少。你说他是不是生活中心太摇摆了？",
+      "expected_behavior": "不应激活本 skill——症状符合临床筛查信号（B 段判停条件），应建议专业医学评估，而非归因为生活中心问题",
+      "notes": "诱饵：情绪词汇齐备但指向临床状况，诊断框架会误导"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "帮我测测我老婆是什么生活中心，我觉得她一切围着她妈转。",
+      "expected_behavior": "边界判断：不应替他人做中心诊断（B 段明示仅限自测）；可向用户解释十中心框架帮助理解，并建议以'她的两难回放'式沟通替代贴标签，或邀请其本人自测",
+      "notes": "边界：中心诊断的他测化会变成亲密关系中的定性攻击"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

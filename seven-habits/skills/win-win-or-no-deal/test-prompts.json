@@ -1,0 +1,52 @@
+{
+  "skill": "win-win-or-no-deal",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "续约谈判谈崩了，对方咬死要加一条明显不平等的独家条款，我要不要咬牙接受先保住这个合作？",
+      "expected_behavior": "应激活 win-win-or-no-deal：先检验'必须成交'假设与替代选项，再判定硬撑实为输/赢（被践踏的价值+隐藏怨恨），给出保留无交易选项反而改善谈判位势的路径。",
+      "notes": "V2 预测问题'续约崩了要不要硬撑'的同型正面场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我表哥想拉我合伙开餐饮店，起草合伙协议时，需不需要把将来闹掰了怎么散伙也写进去？会不会伤感情？",
+      "expected_behavior": "应激活 win-win-or-no-deal：按'家族式或建立在友谊基础上的生意启动之前，最好先就此达成协议'给出肯定建议，并协助起草触发条件与退出方式条款。",
+      "notes": "'家族/友谊生意先约定退出条款'是本 skill 的独特域。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "一家三口为假期去哪玩僵持两天了，谁都不服谁，是不是有人妥协一下就行？",
+      "expected_behavior": "应激活 win-win-or-no-deal 的家庭分支：散不了的关系不做'放弃交易'，先找第三选择；找不到时按柯维家庭版规则'不能双赢就干脆放弃这次安排'（另做别的），并纠正'总让同一人妥协'的积怨模式。",
+      "notes": "家庭版无交易（放弃看电影式），测试场景迁移的判定。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "对方公司谈判时放话说他们手上还有两个备选供应商，我们怎么应对这种施压？",
+      "expected_behavior": "不应激活本 skill：这是对方的博弈筹码，用户需要的是谈判应对与筹码识别；本 skill 服务于己方'是否启用退出选项'的决策，不是反施压话术。",
+      "notes": "诱饵：'无交易/备选'关键词相同，但使用者立场相反。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我和合伙人一个要砍产品线一个要加预算，两个方案都有道理，怎么找出一个比折中更好的新方案？",
+      "expected_behavior": "不应激活本 skill，应激活 synergy-third-alternative：双方尚在'你的方案 vs 我的方案'阶段且合作可续，应先移情各自真实关切再共创第三选择；无交易是第三选择失败后的出口。",
+      "notes": "同书兄弟 skill 混淆诱饵：防 p19 与 f15 抢调用，顺序是先第三选择后无交易。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我是这家供应商唯一的大客户经理，公司今年就指着这一单，真的一点退路都没有，还能用'不能双赢就好聚好散'吗？",
+      "expected_behavior": "有限度地调用：如实指出 BATNA 虚弱时'退出'不具备可信度，按 B 段权力不对等条款，不做空谈退路；改用'接受短期让步但明确记录再评估点+同步培育其他客户'的组合，诚实告知单源依赖的结构性风险。",
+      "notes": "边界：测试弱势方'无路可退'时本原则的适用极限。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

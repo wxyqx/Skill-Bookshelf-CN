@@ -1,0 +1,52 @@
+{
+  "skill": "effectiveness-not-efficiency-with-people",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下午既要陪重要客户喝咖啡又要赶内部报告，陪聊两小时太低效了，我该不该取消？",
+      "expected_behavior": "应激活 effectiveness-not-efficiency-with-people，先做人/事分类：对客户（人）讲效用，'低效'的倾听本身是投资；对报告（事）讲效率，可压缩可委托",
+      "notes": "verified.md V2 novel question 的正面触发"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "今天陪孩子一下午什么正事都没干，特别内疚，觉得自己效率太低了。",
+      "expected_behavior": "应激活 effectiveness-not-efficiency-with-people，判定内疚来自用效率尺衡量人（社会价值观错位），为人牺牲日程合法且不应内疚",
+      "notes": "对应书中'一事无成'判例的标准场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我把每个下属的沟通都控制在 15 分钟以提高效率，结果他们现在有事都不找我了。",
+      "expected_behavior": "应激活 effectiveness-not-efficiency-with-people，识别效率尺误用于人导致效用崩塌，给出人/事分界与受保护的效用时段",
+      "notes": "效率反噬效用的管理域变体"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "仓库拣货流程太慢，怎么优化路径提高效率？",
+      "expected_behavior": "不应激活本 skill，因为对象是事/物，效率标准完全正确；对人讲效用不适用",
+      "notes": "诱饵: '效率'词面直接诱发；对物讲效率恰是本 skill 不干预的场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我的每周计划总是排满了又完不成，想彻底重排整个日程系统。",
+      "expected_behavior": "不应激活本 skill，应激活 fourth-gen-time-management（f07）——整个日程体系失灵属排程结构问题（角色-周计划-四象限），p12 只管人/事标准的单次裁决",
+      "notes": "跨 skill 混淆诱饵: p12 出自第五章 f07 章节，'计划完不成'词面与 f07 高度相近"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我妈妈每天要打电话聊一小时，我已经快没时间工作了，可她真的很在乎我。",
+      "expected_behavior": "合理的判断是先按本 skill 分类（人是'人'），再检查关系结构：若互动双向滋养，用受保护时段安排而非砍光；若长期单向消耗，先转情感账户/六模式诊断再定边界。可调用，但结论不应是'全部取消'或'无限陪聊'两端",
+      "notes": "边界: p12 与 f08 的交界，考察 agent 是否做关系结构检查而非机械执行'人优先'"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（fourth-gen-time-management / f07）的混淆场景。"
+}

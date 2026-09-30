@@ -1,0 +1,52 @@
+{
+  "skill": "synergy-third-alternative",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我要买学区房，我老公想把这笔钱拿去换大房子改善居住，谁也说服不了谁，除了轮流妥协还有什么办法？",
+      "expected_behavior": "应激活 synergy-third-alternative，先检查三个先决条件，再把双方从立场下探到真实关切（教育焦虑 vs 生活质量），共创第三方案",
+      "notes": "verified.md V2 novel question 的正面触发"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "部门会议每次都是两边各自陈述然后投票，少数派口服心不服，怎么让大家真正共创出第三方案？",
+      "expected_behavior": "应激活 synergy-third-alternative，给出关切清单式共创流程（可参考书中保险公司企划会的改造）",
+      "notes": "会议共创是统合综效的组织域标准场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "上次家庭旅行我们各退一步，结果两个人都不开心还互相埋怨，是不是这种折中本身就有问题？",
+      "expected_behavior": "应激活 synergy-third-alternative，解释折中（1+1≈1.5）与第三选择（1+1>2）的档次差异，走关切下探流程",
+      "notes": "'折中后遗症'是本 skill 与常识妥协观的核心区分点"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "孩子的抚养权归属法院会怎么判？双方争议很大。",
+      "expected_behavior": "不应激活本 skill，因为这是法律红线与裁决性问题，不属于'共创第三选择'的适用域",
+      "notes": "诱饵: '双方争议大'诱发共创泛化；法律裁决域不适用"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "续约谈判眼看要崩，对方条款很强势，我要不要咬牙接受不平等条款先保住合作？",
+      "expected_behavior": "不应激活本 skill，应激活 win-win-or-no-deal（p19）——硬撑实为输/赢，保留'无交易'选项反而改善谈判位势，这是退出原则的管辖域",
+      "notes": "跨 skill 混淆诱饵: f15 是出口前的主路，p19 是出口本身；'要不要硬撑'是出口问题"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们夫妻最近关系很僵，估计互相的信任已经见底了，但我们确实有一个学区房之争要解决，还能找到第三选择吗？",
+      "expected_behavior": "合理的判断是先修复情感账户再做共创——按步骤 1 的判停条件，账户透支时先转入情感账户的针对性存款，暂缓方案共创；直接开共创会被读作操纵",
+      "notes": "边界: 考察 agent 是否执行先决条件检查，而非直接跳入共创流程"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（win-win-or-no-deal / p19）的混淆场景。"
+}

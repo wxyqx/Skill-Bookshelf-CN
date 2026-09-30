@@ -1,0 +1,52 @@
+{
+  "skill": "maturity-continuum",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "团队里有个技术特别强的人，但一协作就和别人冲突，大家都不愿意跟他组队。我该不该把他换掉？",
+      "expected_behavior": "应激活 maturity-continuum：先做三维度定位（此人多为情感未独立——价值感依赖他人评价），判定协作失败源于尚无'选择互赖'的资格，处方是先给独立的价值支点而非换人",
+      "notes": "verified.md f09 的 V2 验证原始新问题"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我老公都 35 岁了，换工作、搬家这种事还要先问他妈，自己做不了主。这样的婚姻有问题吗？",
+      "expected_behavior": "应激活 maturity-continuum：定位为依赖期滞留（情感维度），区分'依赖'与'互赖'的变体，处方方向是支持其建立独立决策经验而非直接训诫",
+      "notes": "成年个体依赖期滞留是本 skill 的核心诊断场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们公司花大钱上了协作工具、搞了两次团建，结果还是各干各的，互相甩锅。是不是该再请个老师培训一下？",
+      "expected_behavior": "应激活 maturity-continuum：先判定团队整体是否已过独立期（个体情感独立与否），预测在未立己的基础上加协作培训无效，给出'先立己再选互赖'的次序",
+      "notes": "对应 f09 V2 的预测逻辑：未独立者训诫协作会加深依赖"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我和合伙人这两年信任被消耗得差不多了，他背后跟客户说过我坏话。现在谈合作他总留一手，怎么修复信任？",
+      "expected_behavior": "不应激活本 skill，应激活 emotional-bank-account（f08）——双方均为独立个体，问题是互赖关系的账户余额与提款源修复",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f09 管成长阶段定位，f08 管账户余额修复"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我儿子 8 岁了还要我喂饭，邻居说这年纪早该独立了，我是不是惯坏他了？",
+      "expected_behavior": "不应激活本 skill 的互赖层诊断——8 岁属正常养育中的依赖期，问题在自理习惯的养成（习惯三要素 f21 或养育方式），而非成长阶段错位",
+      "notes": "诱饵：'独立'关键词出现，但年龄阶段判断不适用本 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我特别喜欢一个人工作，自由职业五年了，现在想回去上班又怕受不了团队的约束，这算不算不成熟？",
+      "expected_behavior": "边界判断：可调用本 skill 做定位——用户已具备独立能力（自由职业五年），'怕约束'不等于依赖期；应区分'未独立'与'选择独立的工作方式'，按 B 段提醒不把独立当缺陷，协作意愿可由用户自主决定",
+      "notes": "边界：独立是合法状态，本 skill 反对社会对独立的过度推崇"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "stewardship-delegation",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "给下属布置的任务总返工，改了三遍还是不对，是不是招错人了？",
+      "expected_behavior": "应激活 stewardship-delegation，先做五要素审计（返工通常缺指导方针或责任归属），而不是先归因于下属能力",
+      "notes": "verified.md V2 novel question 的正面触发"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我想让 10 岁的儿子自己管作业，可我天天忍不住催，一催就吵，怎么办？",
+      "expected_behavior": "应激活 stewardship-delegation，按庭院案例的路径：五要素共识+移交后只在协议框架内介入、协议外不催促",
+      "notes": "家庭域授权是书中庭院案例的直接对应"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "凡事都得我亲自盯着，团队离了我就转不动，我想放权又怕失控。",
+      "expected_behavior": "应激活 stewardship-delegation，区分指令型与责任型授权，给出五要素起草与按成熟度调权限的路径",
+      "notes": "'不敢放手'是本 skill 的第一触发信号"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "财务报销流程要求每张发票都要领导签字，这个环节能授权给别人吗？",
+      "expected_behavior": "不应激活本 skill（或明确判定不适用后简答），因为合规硬流程本身即指令型，无责任型授权空间",
+      "notes": "诱饵: '授权'一词诱发泛化；法定流程是 B 段反场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司推协作工具没人真协作，考核还是奖励个人排名，是不是该给每个团队配个协作教练？",
+      "expected_behavior": "不应激活本 skill，应激活 win-win-five-dimensions——问题在体系层（激励奖励唯一赢家），不在授权操作层",
+      "notes": "跨 skill 混淆诱饵: f12 与 f18 在'双赢协议五要素'上同构，但体系层诊断归 f12"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "新人入职两周，我想让他独立负责一个模块，但现在放手又怕他淹死。",
+      "expected_behavior": "合理的判断是调用本 skill 并按'按成熟度调权限'执行：目标不必太高、指示详尽、资源充分、考核频繁、奖惩直接；同时可配合'以潜能期许他人'设置观察周期。可调用，但权限参数必须按新人档位收窄",
+      "notes": "边界: f18 与 p22 的交界，考察成熟度校准是否被显式执行"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（win-win-five-dimensions / f12）的混淆场景。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "fourth-gen-time-management",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我每周日都认真做计划，周一上午被打断三次之后整周的计划就作废了，很有挫败感。是我不够自律，还是工具不对？",
+      "expected_behavior": "应激活 fourth-gen-time-management：判定病根在'日计划承载要务'的层次错误而非自律或工具，改为周计划承载角色与 II 象限目标、日计划降级为每日调整，'只要把握原则，任何调整都可以心安理得'",
+      "notes": "verified.md f07 的 V2 验证原始新问题"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我天天在救火，忙到没有时间带团队复盘和学习，但救火也不能不管啊。这种死循环怎么破？",
+      "expected_behavior": "应激活 fourth-gen-time-management：识别'多投 II 会减少 I'的结构，用四步骤把复盘与预防（重要不紧急）结构性排进周历",
+      "notes": "救火循环是第二象限组织法的核心场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我用了三四个待办 App 了，每个都坚持不到两周。有没有真正好用的时间管理方法？",
+      "expected_behavior": "应激活 fourth-gen-time-management：按反例 ce23 指出'工具换了一个又一个'的病根是缺角色与使命锚点，走四步骤；若角色写不出则判停转 personal-mission-statement",
+      "notes": "换工具型求助是本 skill 的高频入口，E 段带判停"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "接了个大项目，方向刚和老板对齐，但他给我的期限明显不合理，我想重新评估排期和里程碑。",
+      "expected_behavior": "不应激活本 skill，应激活 two-creations（f03）语境下的执行规划——方向已定，问题在蓝图与验收标准的第二次创造安排，而非第四代的角色/周计划体系",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f03 管蓝图补造，f07 管常态化的个人管理周期"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我媳妇总抱怨我陪她的时间不够，我想把每周三晚设成'陪伴时间'并设个闹钟提醒，这样安排行吗？",
+      "expected_behavior": "不应激活本 skill——对'人'用效率排期违反'对人讲效用'（p12）；问题应转向关系产能投入（f08）而非日程技巧",
+      "notes": "诱饵：'把陪伴排进日程'是本 skill 的明示反场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我是护士，排班表医院定死了，我的时间根本不归我管，你这套周规划对我没用吧？",
+      "expected_behavior": "边界判断：接受'日程被外部完全锁定'的限制（B 段反场景），但可缩小应用——在角色层面（护士/母亲/自己）各保留一个微小的 II 象限动作（如 15 分钟学习），而非完整周计划",
+      "notes": "外部锁定排期岗位：不应强行套用完整方法，也不应全盘否定"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

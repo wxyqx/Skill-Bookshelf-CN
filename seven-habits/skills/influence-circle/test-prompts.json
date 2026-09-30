@@ -1,0 +1,52 @@
+{
+  "skill": "influence-circle",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我被裁员三个月了，每天在业主群和朋友圈抱怨前公司和行情，越说越气，简历也没更新。我该怎么调整？",
+      "expected_behavior": "应激活 influence-circle：把'抱怨前雇主/行情'归入关注圈，审计精力投放，把行动（更新简历、盘点现金流、约谈目标行业熟人）拉回影响圈",
+      "notes": "verified.md f01 的 V2 验证原始新问题；受害者结构+精力错配双信号齐全"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我老板特别独断，开会根本不听我们意见，同事都在背后骂他。我每天上班前都很痛苦，怎么办？",
+      "expected_behavior": "应激活 influence-circle：区分'改变老板'（关注圈）与'自己的做法'（影响圈），参考独断总裁手下主管案例，给出在影响圈内提建议清单式的具体行动",
+      "notes": "难缠他人是影响圈类问题的最高频场景，对应 f01 V1 跨域证据"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "孩子马上高考了，我天天焦虑得睡不着，反复跟他说要注意这注意那，他越来越烦我。",
+      "expected_behavior": "应激活 influence-circle：指出反复说教属关注圈焦点且加重孩子依赖，把父母行动移回自己的回应方式与关系产能",
+      "notes": "亲子焦虑同样适用两圈归位（对应书中儿子学业案例 L2505-2509）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我的简历改了三版了，目标公司也列了清单，明天有两场面试，你帮我看看自我介绍怎么讲更好？",
+      "expected_behavior": "不应激活本 skill，因为用户已在影响圈内行动，要的是具体技巧辅导而非精力归位诊断",
+      "notes": "诱饵：表面同属'求职困境'，但归圈已完成，应答操作层面"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "同事当众抢了我的功劳，我当场气得说不出话，现在越想越憋屈，该不该找他理论？",
+      "expected_behavior": "不应激活本 skill，应激活 stimulus-response-gap（f02）——问题是'刺激临头那一刻如何选择回应'，而非长期精力投放",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f01 管周/月级能量分配，f02 管秒级回应选择"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们行业被新政策整个打没了，公司裁员一半，这明显不是我能控制的，你觉得抱怨有错吗？",
+      "expected_behavior": "边界判断：可调用本 skill 但必须带边界声明——先承认事实属关注圈且情绪正当，不指责用户'不够积极主动'；再问'政策之下哪些仍在影响圈'",
+      "notes": "结构性困境场景：B 段明示'对系统性弱势情境慎用'，agent 须主动降调，防止把制度问题个人化"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "paradigm-shift-first",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "团队士气低迷，组织个团建能有用吗？",
+      "expected_behavior": "应激活 paradigm-shift-first，做三层级判定：若士气低源于'公司没前途'的地图叙事，团建只动态度与行为层，预测无效，需先提供方向被验证的证据",
+      "notes": "verified.md V2 novel question 的正面触发"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我道理都懂，书也读了好多，行为就是不变，越自律越焦虑，是不是我哪个根本想法错了？",
+      "expected_behavior": "应激活 paradigm-shift-first，写出当前地图的隐含假设句，寻找反证或设计亲历体验",
+      "notes": "'道理都懂就是做不到'是地图层问题的典型语言信号"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我总认定新来的下属不行，看什么都像证据，这段关系还有救吗？",
+      "expected_behavior": "应激活 paradigm-shift-first，识别'地图在筛选事实'的机制，并区分瞬间转换与缓慢转换（需性格修炼）",
+      "notes": "对应书中儿子案例的缓慢思维转换形态"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我每天背 50 个单词的计划总是坚持不过一周，怎么提高执行力？",
+      "expected_behavior": "不应激活本 skill，应判为行为/技能与承诺机制问题（可转 habit 三要素或承诺信守），判停条件明确要求不硬造顿悟",
+      "notes": "诱饵: '坚持不下来'诱发'根本想法'泛化；纯行为层问题不适用"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "朋友失业向我倒苦水，我是不是该忍住别急着给建议？",
+      "expected_behavior": "不应激活本 skill，应激活 diagnose-before-prescribe（f14）——这是人际沟通域的先理解后开方，不是自我改变域的判层问题",
+      "notes": "跨 skill 混淆诱饵: f20 与 f14 都讲'先诊断'，但域不同（对自己判层 vs 对他人聆听）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我老板画大饼说'大家要先转变思维'，却不给任何资源，这算思维转换吗？",
+      "expected_behavior": "合理的判断是识别为滥用形态：思维转换不能被说教制造，无证据无资源的'转变思维'要求属于 B 段警告的话术误用；可调用本 skill 说明边界，但结论是拒绝该框架而非配合",
+      "notes": "边界: 考察 agent 是否识别'把思维转换当管理话术'的失败模式"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（diagnose-before-prescribe / f14）的混淆场景。"
+}

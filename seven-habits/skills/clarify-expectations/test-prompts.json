@@ -1,0 +1,52 @@
+{
+  "skill": "clarify-expectations",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新婚第一年，为过年回谁家爆发了第一次大吵，我们都觉得对方早就该懂自己，这架怎么解？",
+      "expected_behavior": "应激活 clarify-expectations：判定为含蓄期望冲突——双方各自的'心照不宣'从未言明；引导分别列出隐性期望清单，对表并约定轮替规则，纠正'讲道理分对错'的默认处理。",
+      "notes": "V2 预测问题'过年回谁家'的同型正面场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "给外包团队的需求说了三遍，交上来的总不是我想要的，每次都吵'你当初怎么说的'。",
+      "expected_behavior": "应激活 clarify-expectations：把期望落到'谁、什么时间、交付什么、按什么标准'的可检验形式，并对'情况变化时如何重新对表'补条款。",
+      "notes": "'你当初怎么说的'是本 skill 的核心语言信号。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我要接手一个新客户了，项目开始前我想把丑话说在前面，怎么把双方的期望一次对齐？",
+      "expected_behavior": "应激活 clarify-expectations：事前对表（角色、目标、标准、时限），并告知'事前多花的时远低于事后误会的代价'。",
+      "notes": "'一开始就明确期望'的时点前置场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "给下属布置的任务总返工，是不是我把任务说得不清楚？还是他能力不行？",
+      "expected_behavior": "不应激活本 skill，应激活 stewardship-delegation：授权返工的典型病因是五要素缺失（多为'指导方针'或'责任归属'未给），应按责任型授权五要素补齐共识，而非只做期望对表。",
+      "notes": "同书兄弟 skill 混淆诱饵：'预期成果'是五要素之一，但授权场景的完整诊断在 f18。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "同事最近对我特别冷淡，开会也不站在我这边了，我哪里得罪他了吗？",
+      "expected_behavior": "不应激活本 skill，应激活 emotional-bank-account：关系冷却需要先查提款记录定位透支源（是否失信/背后议论/忽视小节），没有明确的期望冲突迹象。",
+      "notes": "同书兄弟 skill 混淆诱饵：关系问题优先走余额诊断。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是个探索新方向的研发项目，老板要我下周就交一份'明确到月底的期望清单'，可方向本身还没验证，怎么办？",
+      "expected_behavior": "有限度地调用：按 B 段只对齐目标、决策节奏与资源边界，把细节期望改为随里程碑滚动更新；向老板说明探索性工作前期把细节定死会增加返工。",
+      "notes": "边界：测试 B 段'探索性前期不定细节'的判停条件。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

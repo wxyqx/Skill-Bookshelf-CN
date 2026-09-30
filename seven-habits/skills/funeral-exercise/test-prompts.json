@@ -1,0 +1,52 @@
+{
+  "skill": "funeral-exercise",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司给我升职机会，但外派两年，孩子正好在关键期。我到底该不该为了晋升牺牲陪孩子的时间？",
+      "expected_behavior": "应激活 funeral-exercise：引导四位发言人（亲人/挚友/同事/社团）的葬礼演练，产出 3-5 条评价标准，再用它们回称这个外派决定，给出可辩护的取舍结论。",
+      "notes": "人生级取舍，正是 V2 预测问题'该不该为晋升牺牲陪孩子时间'的同型场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我 35 岁了，房车都有了，可总觉得这辈子不是我要过的，怎么搞清楚自己到底在乎什么？",
+      "expected_behavior": "应激活 funeral-exercise：用葬礼心灵演练做价值观探测，写出四位发言人的悼词要点并提炼成标准句，作为后续方向的依据。",
+      "notes": "'成功后的空虚'+价值观澄清诉求，是演练的典型入口。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "如果生命只剩一年，你觉得我会怎么选？我想用这个视角帮我决定要不要换城市。",
+      "expected_behavior": "应激活 funeral-exercise：用户已自带终点视角，按演练结构补齐四位发言人框架，避免泛泛的'遗愿清单'，落到可复用标准并回称换城市决定。",
+      "notes": "用户主动提出终点视角，验证 trigger 词'向死而生/如果生命只剩'。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我写一份个人使命宣言吧，我想放在笔记本首页每天看。",
+      "expected_behavior": "不应激活本 skill，应激活 personal-mission-statement：用户要的是成品书面文件，不是价值观探测演练；演练只是其可选的前置输入。",
+      "notes": "同书兄弟 skill 混淆诱饵：葬礼演练与使命宣言是输入与成品的关系，防抢调用。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "周会上老板临时让我 tonight 加班，我买好了今晚音乐会的票，怎么选？",
+      "expected_behavior": "不应激活本 skill，应激活 life-center-diagnosis：这是当下两难的情境测试题，用于反推现有生活中心，不是人生级取舍与终点视角问题。",
+      "notes": "同书兄弟 skill 混淆诱饵：'两难取舍'表象相同，但时间尺度与目的不同（诊断现状 vs 生成应然标准）。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我父亲上个月刚去世，我总在想葬礼的事，别人劝我想想自己的葬礼'看开点'，有用吗？",
+      "expected_behavior": "不执行葬礼演练：用户处于急性哀伤期，按 B 段禁忌应先承认哀伤、稳定情绪，必要时建议专业支持；可说明该演练的适用前提，待情绪平稳后如需方向澄清再另行进行。",
+      "notes": "边界：测试 B 段新设的使用注意（原书未讨论），防止机械套用。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 2 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

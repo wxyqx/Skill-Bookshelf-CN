@@ -1,0 +1,52 @@
+{
+  "skill": "honor-the-absent",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我刚入职两周，老同事总拉我一起吐槽部门经理，不接话好像不合群，附和是不是融入最快的方式？",
+      "expected_behavior": "应激活 honor-the-absent：先拆解账目（在场者会推定你也会背后说他们），再给出不附和不说教的替代话术，并告知短期'格格不入'的代价与长期收益。",
+      "notes": "V2 预测问题'新入职被拉着吐槽某人'的同型正面场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "饭局上有人开始讲另一个同事的糗事换气氛，我夹在中间特别难受，怎么接？",
+      "expected_behavior": "应激活 honor-the-absent：判定为结盟攻击场景，产出 1-2 句转向当面沟通或转换话题的回应。",
+      "notes": "'不在场者被议论'的社交压力场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我之前跟别的家长抱怨过班主任，话传到她耳朵里了，现在孩子在学校很尴尬，怎么补救？",
+      "expected_behavior": "应激活 honor-the-absent 的修复分支：向被议论者当面承认并致歉，向听过的在场者不再重复，并把'先当面找班主任沟通'作为后续规则。",
+      "notes": "事后修复场景，对应 E 段第 5 步。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我发现财务总监在做假账挪用公款，要不要先跟信得过的同事私下通气商量一下？",
+      "expected_behavior": "不应激活本 skill：涉违法违纪，按 B 段判停应走正式举报渠道并留存证据，'维护不在场的人'不适用于掩盖问题；私下通气还可能构成串通风险。",
+      "notes": "诱饵：'背后谈论他人'表象相似，但性质是举报事项。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我答应了孩子每周末陪他去游泳，已经连着三周没兑现，他现在不太理我了。",
+      "expected_behavior": "不应激活本 skill，应激活 make-and-keep-promises：这是承诺-兑现问题（诚信的守约腿），不是背后议论问题（表里如一腿）。",
+      "notes": "同书兄弟 skill 混淆诱饵：同属'正直'主题，测试两条腿的分流。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我妹妹被她领导打压得很惨，天天跟我哭诉，我是不是也应该劝她'去找领导当面谈'？",
+      "expected_behavior": "谨慎处理：先识别这是受害者的正当倾诉而非结盟攻击——倾听与支持优先；'建议当面谈'要放在她情绪稳定且确实准备行动之后，机械套用'不附和'规则会造成二次伤害。",
+      "notes": "边界：测试倾诉与结盟攻击的区分（B 段反场景第 3 条）。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "make-and-keep-promises",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我的新年计划每年三周就崩，是不是我目标定得太小了？今年要不要定个大的逼自己一把？",
+      "expected_behavior": "应激活 make-and-keep-promises：指出目标大小不是关键变量、承诺频次与兑现率才是，设计每周 1-2 条的小事承诺循环，并给出失信处理规则。",
+      "notes": "对'定大目标逼自己'直觉的反向纠正，是本 skill V2 预测力的正面场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我又答应儿子周末去动物园又没去，他现在说什么都不信我了，怎么修？",
+      "expected_behavior": "应激活 make-and-keep-promises：先审计承诺记录定位失信模式，再启动小事承诺循环（对自己的承诺+对孩子的承诺），并明确'24 小时内向对方说明直到允许脱身'的补救纪律。",
+      "notes": "对孩子失信 + 信任受损，属于本 skill 的家庭场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有家公司想让我牵头一个大项目，我有点想答应但怕做不到，接之前该怎么评估自己能不能兑现？",
+      "expected_behavior": "应激活 make-and-keep-promises：按'许诺前把突发状况考虑进去'做可行性盘点（资源、时间、风险），给出'我这部分我保证/那部分我不承诺'的边界表达。",
+      "notes": "重大承诺前的评估场景，对应 R 段'不轻易许诺，许过就一定要兑现'。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "怎么给销售团队设计一个奖惩制度，完不成承诺业绩就扣奖金？",
+      "expected_behavior": "不应激活本 skill：这是激励机制设计（且是单方面奖惩条款），不是自我诚信训练；本 skill 明确反对用承诺奖惩操控他人。",
+      "notes": "诱饵：'承诺/奖惩'关键词相似，但对象与目的不同。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "同事最近突然疏远我，要不要请他吃饭送礼把关系修复一下？",
+      "expected_behavior": "不应激活本 skill，应激活 emotional-bank-account：先查提款记录定位透支源，再做针对性存款——透支状态下送礼会被按'操纵'计价。",
+      "notes": "同书兄弟 skill 混淆诱饵：都涉及信任修复，但那是关系余额诊断问题，不是承诺习惯问题。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我答应客户周五交方案，但今天周四发现质量达不到我自己设的标准，交还是不交？",
+      "expected_behavior": "可调用本 skill 的补救分支：两种选择都要走'向当事人说明直到允许脱身'——要么申请延期并给出新时间表，要么按现状交付但如实说明保留项；不应默默违约也不应默默降低标准。",
+      "notes": "边界：守信原则遇现实约束时的裁决，测试的是'解释脱身'规则而非简单二选一。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "ppc-balance",
+  "version": "0.1.0",
+  "source_book": "《高效能人士的七个习惯（30周年纪念版）》 — [美] 史蒂芬·柯维",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板让我把本季度利润做上去，我想砍掉一半客服预算，反正投诉又不算我的 KPI。",
+      "expected_behavior": "应激活 ppc-balance：识别客服是关系产能（鹅），砍掉即杀鹅取蛋，外推'本季达标、下下季流失加速'的延迟反噬，并为产能重设可观察指标",
+      "notes": "verified.md f05 的 V2 验证原始新问题；'账簿只显示金蛋'正是模型预警之处"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我家孩子 12 岁了，每次都是我吼一顿才去写作业，不吼就不动。最近他开始跟我对着干了。",
+      "expected_behavior": "应激活 ppc-balance：判定'吼出作业'是重蛋轻鹅（ce05）——孩子是产能鹅，恐惧换金蛋摧毁责任感与信任；同时提示若根源是指令型推动可转责任型授权（f18）",
+      "notes": "亲子场景是 f05 V1 证据（整洁房间与《星球大战》约会）的直接对应"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "项目交付就在下周，我连续熬夜两周了，天天心悸，但停不下来，怕一松劲进度就崩。",
+      "expected_behavior": "应激活 ppc-balance：指出身体是个人产能（第十章'习惯七就是个人产能'），持续透支会反噬产出；按判停路径做显式取舍并设止损线",
+      "notes": "健康透支类 burnout 场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "同事最近突然疏远我，你帮我列一下这段时间我有没有失信或者背后说过他，我想做针对性修复。",
+      "expected_behavior": "不应激活本 skill，应激活 emotional-bank-account（f08）——用户要的是人际账户的逐笔查账与针对性存款，不是 P/PC 宏观判定",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f05 管三类资产的效能判定，f08 管人际产能的具体记账"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "仓库里这批临期牛奶月底就过期了，要不要折价清掉？",
+      "expected_behavior": "不应激活本 skill，因为临期库存是一次性资产、没有长期产能（B 段反场景），清仓是纯处置决策",
+      "notes": "诱饵：'要不要处理资产'看似产能问题，实为无鹅可谈"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司账上的钱只够发两个月工资了，不砍培训和客服下个月就发不出薪水，这也要讲平衡吗？",
+      "expected_behavior": "边界判断：进入 E 段判停路径——显式取舍而非假装平衡：明确杀哪只鹅（短期砍培训）、写明补偿与止损线（如'回款后一个季度内恢复'），并指出此时仍应保住的最低产能线（核心员工信任）",
+      "notes": "生存性取舍：本 skill 的作用是让代价显式化，而非道德劝说"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条同书兄弟 skill 混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}
