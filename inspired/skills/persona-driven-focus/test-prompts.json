@@ -1,0 +1,59 @@
+{
+  "skill": "persona-driven-focus",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "功能清单又变长了：销售的客户要 A，客服说小白用户要 B，老板自己拍脑袋要 C。我想问个最根本的问题——我们这版产品到底是做给谁的？",
+      "expected_behavior": "应激活 persona-driven-focus，并建/用人物角色确定本版关键人物，用“玛丽 vs 山姆”式筛选裁决功能归属：对关键角色重要的才加，只服务其他角色的淘汰。",
+      "notes": "命中“功能清单越堆越长、销售与客服两边都要加”触发场景（A2 场景 1/2、A1 案例 1）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "要写新一版的产品方案，得先把目标用户讲清楚，结果每个人嘴里的“用户”都不一样。怎么把“用户是谁”定下来，还能让全团队认账？",
+      "expected_behavior": "应激活 persona-driven-focus，并从与真实用户面对面交流出发建立人物角色（行为、态度、目标三要素），作为全团队描述目标用户的共识依据；明确“谁不是目标用户”同样重要。",
+      "notes": "命中“写 PRD 前定目标用户”触发场景（A2 场景 3）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "同事提醒我：我设计功能全按自己的使用习惯来，可我根本不是典型用户。怎么防止一直在给自己做产品？",
+      "expected_behavior": "应激活 persona-driven-focus，并用人物角色对冲“把自己的需求当用户需求”的偏差——团队是超级用户，与真实用户的忍受度相去甚远；角色必须来自真实交流而非内省。",
+      "notes": "命中“怀疑在给自己做产品”触发场景（A2 场景 4）。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "Our app serves three very different user types. Every release adds a little something for each of them, and the product is getting bloated. How should we prioritize among user types?",
+      "expected_behavior": "应激活 persona-driven-focus，并按“每个发布周期只聚焦一类关键人物角色”重排用户类型优先级：宣称老少皆宜是自欺欺人，面面俱到的产品往往一无是处。",
+      "notes": "英文信号 user persona / who is this for＋A1 案例 3 场景（多类用户各加一点导致一团乱麻）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "团队老在为“上线速度和系统稳定到底哪个优先”重吵，我知道这不是用户画像能解决的——是我们压根没定过“什么更重要”。该用什么方法把它定下来？",
+      "expected_behavior": "不应激活本 skill，应激活 product-principles-priority。价值排序之争归产品原则裁决，人物角色裁决的是“为谁而做”——用户自己已点明问题不在用户排序。",
+      "notes": "跨 skill 混淆诱饵：prompt 主动把两个共识工具摆在一起，考查能否按“价值排序 vs 用户排序”归位到产品原则。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司年会让我出节目单，要求让所有人都开心，可众口难调，怎么办？",
+      "expected_behavior": "不应激活本 skill。日常琐事，不是产品功能取舍。",
+      "notes": "无关诱饵：仿“面面俱到难讨好所有人”的日常琐事，考查是否守住产品域。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "市场部要做信息流广告投放，让我把产品的人物角色直接拿去当定向人群包用。这套角色能这么用吗？",
+      "expected_behavior": "合理判断：应指出产品人物角色与营销定向的目的不同（产品用角色分析需求与行为，营销用角色找准目标消费者、激发需求，作者明言不能混为一谈），不宜直接照搬。可激活本 skill 解释区别并建议按营销目的另行细分，但不应支持“直接拿去投放”的动作。",
+      "notes": "边界：角色资产跨部门复用是真实高频诉求，评分看能否区分“同名词、不同目的”并给出正确去处，而不是一律答应或一律拒绝。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "7 条：4 条 should_trigger（含 1 条英文）＋2 条 should_not_trigger（1 条指向 product-principles-priority 的兄弟混淆诱饵＋1 条无关诱饵）＋1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

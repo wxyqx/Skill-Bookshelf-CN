@@ -10,7 +10,7 @@
 
 ## 目录总览
 
-**19 本书 · 347 个 skills**（最后更新：2026-10-01）
+**20 本书 · 365 个 skills**（最后更新：2026-10-01）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -33,6 +33,7 @@
 | 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./effective-executive/) |
 | 《任天堂的体验设计——创造不知不觉打动人心的体验》*任天堂の体験設計* | 玉树真一郎 · 2021 | 体验设计 / 打动人心 / 游戏化 | 13 | [`nintendo-experience-design/`](./nintendo-experience-design/) |
 | 《上瘾》*Hooked* | 尼尔·埃亚尔、瑞安·胡佛 · 2014 | 产品设计 / 习惯养成 / 增长 | 21 | [`hooked/`](./hooked/) |
+| 《启示录：打造用户喜爱的产品》*INSPIRED* | Marty Cagan · 2008 | 产品管理 / 产品探索 / 用户体验 | 18 | [`inspired/`](./inspired/) |
 
 ---
 
@@ -152,6 +153,12 @@
 - **一句话**：习惯养成类产品的引擎是「触发→行动→多变酬赏→投入」的四阶段闭环——用户的投入沉淀为储存价值并自动加载下一次触发，外部触发逐步内化为情绪绑定；设计者必须先用操纵矩阵问「该不该」，再问「能不能」。
 - **Skills**：`hook-model-four-stages` · `habit-zone-frequency-first` · `vitamin-to-painkiller` · `four-opportunity-sources` · `external-triggers-four-types` · `internal-trigger-anchoring` · `five-whys-emotional-root` · `bmat-action-diagnosis` · `three-core-motivations` · `six-simplicity-elements` · `three-variable-rewards` · `finite-infinite-variability` · `investment-changes-attitude` · `five-stored-values` · `load-next-trigger` · `investment-timing-granularity` · `habit-test-three-steps` · `manipulation-matrix` · `preserve-user-autonomy` · `protect-heavy-users` · `upgrade-not-replace`
 
+### 20. 《启示录：打造用户喜爱的产品》 — *INSPIRED: How to Create Tech Products Customers Love* · [`inspired/`](./inspired/)
+
+- **作者**：Marty Cagan（曾任惠普程序员、网景平台及工具部门副总裁、eBay 产品管理及设计高级副总裁） · 2008（华中科技大学出版社中文版 2011，七印部落 译）
+- **一句话**：产品经理的本职是探索出**有价值的、可用的、可行的**产品——在写第一行代码之前，用高保真原型和真实用户验证这三点；因为"如果产品没有市场价值，无论开发团队多么优秀也无济于事"。
+- **Skills**：`opportunity-assessment-ten-questions` · `discovery-execution-two-modes` · `product-validation-trio` · `minimal-product-definition` · `hi-fi-prototype-as-spec` · `charter-user-program` · `prototype-testing-playbook` · `user-research-limits` · `persona-driven-focus` · `irrational-user-signals` · `product-principles-priority` · `special-product-defense` · `emotion-based-demand` · `new-old-thing` · `metric-driven-improvement` · `smooth-deployment` · `rapid-response-window` · `tech-headroom-20percent`
+
 ---
 
 ## 安装
@@ -159,7 +166,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 347 个 skills（用户级，所有项目可用）
+# 一次性安装全部 365 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -196,7 +203,8 @@ skill-bookshelf/
 ├── leadership-pipeline-series/ # 《领导梯队建设系列》（59 skills）
 ├── effective-executive/      # 《卓有成效的管理者》（25 skills）
 ├── nintendo-experience-design/ # 《任天堂的体验设计》（13 skills）
-└── hooked/                   # 《上瘾》（21 skills）
+├── hooked/                   # 《上瘾》（21 skills）
+└── inspired/                 # 《启示录：打造用户喜爱的产品》（18 skills）
 ```
 
 ---

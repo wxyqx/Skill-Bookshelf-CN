@@ -1,0 +1,59 @@
+{
+  "skill": "charter-user-program",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新产品还有四个月发布，现在一个真实用户都没有。想找一批人从现在起深度参与：试原型、提意见，发布的时候还能帮我们说说话。这种事有没有成熟的做法？",
+      "expected_behavior": "应激活 charter-user-program，并按特约用户计划组建：项目之初物色 6 位（大众互联网服务 10~15 位）积极、有影响力的真实目标用户作为开发伙伴，合作贯穿研发全程，发布前逐一确认满意并邀请公开推荐。",
+      "notes": "命中“想找种子用户/发布前没人帮验证”触发场景（A2 场景 1/2）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们在论坛发帖招内测用户，两个星期只有 3 个人报名，还挺惨淡。这是不是说明这个需求根本不成立？",
+      "expected_behavior": "应激活 charter-user-program，并启用反向用法：招募困难是产品价值的免费试纸——“很可能是因为产品要解决的问题不像想象的那么重要”，应重新考虑产品计划，而不是降低标准或加钱凑数。",
+      "notes": "命中“招募试用用户没人报名”触发场景（A2 场景 3、A1 案例 2）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "销售建议把我们的用户顾问团从 6 个人扩到 50 个，顺便每人收 2999 的年费，说又能收集需求又能创收。我总觉得哪里不对。",
+      "expected_behavior": "应激活 charter-user-program，并守住三条硬约束：不收费（收费即从伙伴变客户）、绝不超过十人（超编则需求收集流于形式）、必须真实目标用户；扩编诉求用发布预览版承接。",
+      "notes": "命中“销售要求扩编用户团”触发场景（A2 场景 4），三条硬约束是本 skill 的身份标签。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "Quite a few beta applicants are obvious early adopters who love tinkering with new tools. Should we pick them as our design partners, or would that skew the product?",
+      "expected_behavior": "应激活 charter-user-program，并按硬约束排除尝鲜者：必须是产品的潜在目标用户——尝鲜者能容忍缺陷，按其需求做出的产品很可能只适合他们自己。",
+      "notes": "英文信号 target users as partners＋A2 场景 5（分不清特约用户和尝鲜者）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "特约用户已经定好 6 位。下周请其中三位到公司，拿新版原型给他们测一遍。这场测试具体怎么安排：流程、提问、打分、判断标准，帮我出个方案。",
+      "expected_behavior": "不应激活本 skill，应激活 prototype-testing-playbook。特约用户的关系池已就绪，现在要的是单场原型测试的招募以外的主持与判停操作。",
+      "notes": "跨 skill 混淆诱饵：特约用户正是物色测试者的第一渠道，两 skill 天然上下游相连，最易互相抢调用；区分点在管关系 vs 管单场操作。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "想建个微信群把老同学拉一起搞聚会，二十多个人，怎么拉人不显得尴尬？",
+      "expected_behavior": "不应激活本 skill。日常琐事，与产品研发的用户伙伴关系无关。",
+      "notes": "无关诱饵：沾“拉群聚人”字面但与产品无关。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们做 ToB，最大的三家客户愿意签付费协议进“联合设计委员会”，每周和我们过需求。这算特约用户计划吗？要不要照那三条硬约束来改？",
+      "expected_behavior": "合理判断：这不是特约用户计划——“不收费”与“面向大众的真实目标用户”两条硬约束已被打破，且大客户委员会极易滑向为单一客户定制（B 段边界）。正确动作是识别性质变化并先划界防特例化（可衔接 special-product-defense 的划界逻辑），而不是套用标准流程或简单改造。",
+      "notes": "边界：付费大客户委员会处于特约用户计划与特例产品之间，评分看能否识别硬约束已破、指出定制化风险，而不是硬套三步执行。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "7 条：4 条 should_trigger（含 1 条英文）＋2 条 should_not_trigger（1 条指向 prototype-testing-playbook 的兄弟混淆诱饵＋1 条无关诱饵）＋1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,59 @@
+{
+  "skill": "hi-fi-prototype-as-spec",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新接到的任务是给下个版本写 PRD。可我上家公司的 PRD 写完根本没人看，开发全靠口头问，文档改一版开发就猜一版。有没有更好的做法？",
+      "expected_behavior": "应激活 hi-fi-prototype-as-spec，并建议以高保真原型取代纸质文档作为交付开发的主文档，先按五条要求（完整／准确／直观／可修改／唯一主体）给现有文档做法体检。",
+      "notes": "命中“要写 PRD、文档没人读开发靠猜”触发场景（A2 场景 1）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们跟外包团队合作特别痛苦：需求文档发过去，做出来每次都跟预期差一大截，来回邮件扯皮快两个月了。",
+      "expected_behavior": "应激活 hi-fi-prototype-as-spec，并给出异地/外包场景的解法：借助高保真原型作为沟通语言，双方看同一个东西让歧义当场暴露，配合唯一接口人。",
+      "notes": "命中“异地或外包团队需求扯皮”触发场景（A2 场景 2、A1 案例 1）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "团队在吵：交互稿画到线框图就够了，还是必须做成能点的高保真原型才能交给开发？所谓高保真到底指什么？",
+      "expected_behavior": "应激活 hi-fi-prototype-as-spec，并澄清“高保真”指体验真实度（可交互、覆盖所有页面与主要用例、模拟后台流程和数据），不是视觉精细度；静态视觉稿与线框图都替代不了。",
+      "notes": "命中“争论原型该多保真”触发场景（A2 场景 3）。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "We borrowed a developer from another team to build the prototype, and now he wants to keep evolving that code into the real product. Is that a good idea?",
+      "expected_behavior": "应激活 hi-fi-prototype-as-spec，并执行“原型代码全部废弃”的纪律：原型代码与产品代码毫无关系，正式产品按原型另起炉灶实现，并事先向借调开发讲明。",
+      "notes": "英文信号 prototype as spec＋A1 案例 2 场景（想在原型代码上继续开发）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "原型做完了，开发催着排期。现在真正的问题是：这个方案到底值不值得开发？要验证哪些东西、按什么标准算过关，过关了才准进开发？",
+      "expected_behavior": "不应激活本 skill，应激活 product-validation-trio。问题指向“测什么、何时测、过关标准”（三验证框架），不是“交付开发的文档长什么样”（载体问题）。",
+      "notes": "跨 skill 混淆诱饵：同样以“原型做完”开场，验证框架与文档载体最容易互相抢调用；区分点在载体 vs 验证内容。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这份产品介绍 PPT 排版美化一下，下周路演要用，最好看起来高级一点。",
+      "expected_behavior": "不应激活本 skill。视觉排版美化任务，与“产品说明文档该用什么载体”无关。",
+      "notes": "无关诱饵：沾“产品文档”字面但实为设计排版杂务。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是个五人小团队，产品、设计、开发坐一屋，有问题吼一嗓子就解决了。还有必要把纸质 PRD 换成高保真原型吗？感觉维护原型也挺费时间的。",
+      "expected_behavior": "合理判断：载体形式可以灵活（B 段：已有稳定沟通流程且开发随时可问的小团队，形式可灵活），不必强制迁移；但“方案必须通过真实用户的可用性与价值测试才算合格、未经测试不开发”的标准不豁免。两种结论（换/不换）皆可接受，评分看是否守住测试红线而不是只论形式成本。",
+      "notes": "边界：正好压在 B 段第三条豁免上；考查能否区分“载体可灵活”与“可测试才合格”两条不同刚性的纪律。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "7 条：4 条 should_trigger（含 1 条英文）＋2 条 should_not_trigger（1 条指向 product-validation-trio 的兄弟混淆诱饵＋1 条无关诱饵）＋1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

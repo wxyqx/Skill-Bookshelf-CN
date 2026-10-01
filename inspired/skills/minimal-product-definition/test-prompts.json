@@ -1,0 +1,59 @@
+{
+  "skill": "minimal-product-definition",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "开发估算出来比原计划多了两个月，老板要求砍功能保住上线日期。我不想拍脑袋砍，怎么判断哪些功能碰不得、哪些真可以放到下一版？",
+      "expected_behavior": "应激活 minimal-product-definition，并逐条分离“基本”与“添彩”：通过用户测试的基本产品不可削减，估算超支只能延工期；若还能砍出东西，说明当初定义的不是基本产品，应回到定义重做。",
+      "notes": "命中“排期超了老板要砍功能赶工期”这一最典型触发场景（A2 场景 1、A1 案例 1）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们在规划第一个 MVP，功能清单已经列了二十多条。到底怎么定义“最小”？该包含哪些，砍到什么程度算够？",
+      "expected_behavior": "应激活 minimal-product-definition，并按基本产品三步收敛清单：只为实现商业目标的最基本功能做原型→请开发评估成本与可行性→请真实用户验证；明确基本产品是通过三验证的完整概念，不是“可以很糙、先发再改”。",
+      "notes": "命中“规划 MVP 功能清单”触发场景（A2 场景 2）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "产品做了三年越堆越臃肿，新版本想认真做一次减法。但怕减着减着伤了核心体验，有没有判断“还能不能减”的标准？",
+      "expected_behavior": "应激活 minimal-product-definition，并给出“减无可减”的判据：以基本要求（价值／可用性／可行性）为界，对目标无贡献的多余功能淘汰——过滤后产品反而因简单易用更受欢迎。",
+      "notes": "命中“产品功能越堆越多想做减法、判断清单是否减无可减”触发场景（A2 场景 3/5、A1 案例 2）。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "Engineering says the release is two months over the estimate. Should we cut scope or extend the deadline? We keep arguing back and forth with no criterion to settle it.",
+      "expected_behavior": "应激活 minimal-product-definition，并给出判据：若基本产品已通过用户测试则无可再砍，超支只延工期不砍功能；若还能砍出一份清单，先承认定义不良并重新定义。",
+      "notes": "英文信号 cut scope vs extend the deadline＋A1 案例 1 场景（工期谈判需要停止判据）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "App 上线两年了，看板显示设置页里 5 个功能月活不到 0.3%。我们想把这批低频功能下线精简，有没有按数据评估该下线哪些功能的方法？",
+      "expected_behavior": "不应激活本 skill，应激活 metric-driven-improvement。已上线功能的精简与下线属于指标驱动的改进范畴（contrasts-with 关系），本 skill 只管定义期的“减无可减”标准。",
+      "notes": "跨 skill 混淆诱饵：同样是“给产品做减法”，极易与基本产品定义互相抢调用；区分点在定义期 vs 上线后。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "下周搬家，东西太多，帮我列个清单决定哪些扔哪些留、怎么打包比较省事。",
+      "expected_behavior": "不应激活本 skill。日常琐事的取舍清单，与产品定义期无关。",
+      "notes": "无关诱饵：结构上形似“砍功能清单”的日常琐事，考查是否守住产品域。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "基本产品原型已通过用户测试、范围也冻结了，可现在离展会死线只剩三周，估算还差五周。书上说只延工期不砍功能，但展会日期根本不可能改，怎么办？",
+      "expected_behavior": "合理判断：激活本 skill 后应如实指出这是方法论的已知盲区（B 段作者盲点：对不可动的死线没有变通方案），在守住“通过验证的范围不可拆”精神的前提下给出权衡（如按特性簇拆分、先交付展会所需最小集并与业务方确认代价），不得机械复读“只延工期不砍功能”而无视死线。",
+      "notes": "边界：硬死线与“不可削减律”正面冲突，评分看是否承认盲区并给出有意识的取舍，而不是照搬书面结论。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "7 条：4 条 should_trigger（含 1 条英文）＋2 条 should_not_trigger（1 条指向 metric-driven-improvement 的兄弟混淆诱饵＋1 条无关诱饵）＋1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

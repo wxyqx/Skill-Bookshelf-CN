@@ -1,0 +1,59 @@
+{
+  "skill": "product-validation-trio",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "原型上周做完了，开发催着我们排期。团队吵翻了：有人说直接开干别磨叽，有人说先找几个用户试试。到底开发之前要验证什么，怎么才算过关？",
+      "expected_behavior": "应激活 product-validation-trio，并立三项验证清单（可行性／可用性／价值），明确“三项全过才准进入开发”的探索阶段出口标准。",
+      "notes": "命中“原型做完准备排开发计划、争论要不要先测试再开发”触发场景（A2 场景 1）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "架构师看了我们新方案直摇头，说实时协作那块技术上风险很大。我想在写代码之前先摸清到底做不做得出来，该请谁来评、评些什么？",
+      "expected_behavior": "应激活 product-validation-trio，并按可行性验证处理：请架构师和开发人员在定义初期评估设计、估算成本、指出不可行项，把技术死胡同挡在开发之前。",
+      "notes": "命中“担心方案技术上做不出来、想在投入前摸底”触发场景（A2 场景 2）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "上个季度功能全做完了，上线后数据惨淡——用户不觉得这东西有用，也没人愿意付费。复盘想搞清楚流程哪一步把问题漏过去了。",
+      "expected_behavior": "应激活 product-validation-trio，并用“跳过验证→功能没人用”倒查流程缺陷：三验证必须发生在写代码之前，复盘结论应落成今后的开发前验证纪律。",
+      "notes": "命中“复盘：功能全做完了却没人用”触发场景（A2 场景 3）。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "Our prototype is done. Do we need to run a value test and a usability test as two separate rounds with different people, or can one session with the same high-fidelity prototype cover both?",
+      "expected_behavior": "应激活 product-validation-trio，并说明价值测试与可用性测试可以同场进行、用同一个高保真原型，区别只在观察重点（能否完成操作 vs 是否喜欢并愿意购买）。",
+      "notes": "英文信号 value test / usability test＋A1 案例 2 场景（一场测试同时测两样）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们定了下周请 8 位真实用户来测原型，但团队没人做过：去哪儿找人、当天流程怎么安排、问题怎么问才不会带偏他们、测到什么程度算完？",
+      "expected_behavior": "不应激活本 skill，应激活 prototype-testing-playbook。用户已经决定“要验证”，现在要的是招募、主持、判停的单场操作手册，不是“测什么、何时测”的验证框架。",
+      "notes": "跨 skill 混淆诱饵：同样谈原型测试，最容易与三验证互相抢调用；区分点在于三验证是考试大纲、操作法是考场手册。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "用 Excel 想把一列文本按逗号拆成多列，试了几次都报错，这是怎么回事？",
+      "expected_behavior": "不应激活本 skill。纯软件操作问题，与产品验证无关。",
+      "notes": "无关诱饵：日常工具求助。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们做的是给开发者用的 API 平台，没有图形界面。老板说“没有界面就没法测可用性和价值，直接开发吧”。三验证这套还适用吗？",
+      "expected_behavior": "合理判断：部分适用——可行性验证必须做；可用性与价值的测法需要改造（用文档、控制台示例等测开发者体验），但“未经测试不开发”的红线不豁免。此场景落在 B 段“纯技术组件不适用价值/可用性测试”的边界附近，输出须说明取舍理由，不得以“无 UI”为由三项全跳过。",
+      "notes": "边界：API 平台介于“纯技术组件”与“有用户体验属性的产品”之间，考查能否做有理由的部分适用而非全有或全无。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "7 条：4 条 should_trigger（含 1 条英文）＋2 条 should_not_trigger（1 条指向 prototype-testing-playbook 的兄弟混淆诱饵＋1 条无关诱饵）＋1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

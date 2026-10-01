@@ -1,0 +1,59 @@
+{
+  "skill": "tech-headroom-20percent",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "开发负责人正式提出：代码库一团糟，必须停下来重写三个月，不然系统撑不住。这个申请我该批吗？",
+      "expected_behavior": "应激活本 skill，并先判断处境三档（余量健康/危机初现/已身陷重写）再开处方：未雨绸缪档给 20% 自主时间与 headroom 预留，已陷重写档按三军规组织递增式重写（估算上浮、分块交付让用户看到改进、谨慎选特性），而不是简单批或不批。",
+      "notes": "A2 触发场景 1（重写申请批不批）；语言信号『重写代码』命中，对应 V2 推演。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "版本排期永远排到 110%，重构和技术债的申请每次都被『先做功能』顶回去。这么下去会出什么事？",
+      "expected_behavior": "应激活本 skill，并指出满负荷堆功能正是 eBay 1999 式崩溃的根源（一切软件架构都有功能极限），处方是把 20% 技术余量写进资源计划并获管理层认可，余量花向哪里有清单可核对。",
+      "notes": "A2 触发场景 2（排期永远满负荷、重构被拒）；对应 A1 案例 1 的归因诊断。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "下个月大促，预估流量是平时十倍，现在高峰期系统就开始抖。要不要提前做点什么？",
+      "expected_behavior": "应激活本 skill，并做增长前的容量评估：为用户数量增长、事务增长、新增功能分别核对 headroom，坚持从设计第一天起考虑扩展性、不到万不得已不满负载运行。",
+      "notes": "A2 触发场景 3（增长前容量评估）；语言信号『怕扛不住』命中。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "Dev wants to pause all feature work and rewrite the codebase from scratch. Is there an eBay-style way to rewrite incrementally while still shipping user-visible improvements?",
+      "expected_behavior": "应激活本 skill，并按递增重写军规回答：把重写分成几大块递增交付，用户可见改进占 25%~50% 开发资源，重写估算刻意上浮，剩余资源谨慎选择用户可见特性。",
+      "notes": "英文正面样本；rewrite the codebase / refactor 信号命中，对应三军规之二。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这份重构方案的 PPT 字体统一成微软雅黑，标题加粗，其他内容别动。",
+      "expected_behavior": "不应激活本 skill，因为这是纯排版琐事；『重构』只是文档标题里的主题词，不构成技术余量决策。",
+      "notes": "诱饵：借用『重构』词汇的无关任务，考察不因表层词汇误触发。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们 Discovery 和 Execution 是同一批人在做，两头的活天天打架，排期和重心到底该怎么分？",
+      "expected_behavior": "不应激活本 skill，应激活 discovery-execution-two-modes（探索与执行两阶段的重心切换与排期分配）；本 skill 管的是执行阶段内部固定预留 20% 技术余量的资源制度，不管两阶段人手怎么分。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用；A2 区分段明确：那个管两阶段重心切换，本 skill 管执行期内部的固定开销。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "团队几个工程师想申请每周 20% 的时间做自己的创新项目，说谷歌就这么干。这跟我们说的技术余量是一回事吗？",
+      "expected_behavior": "合理判断是不应激活本 skill 的处方：那是第 29 章『20% 法则』——给员工（含产品经理、设计师）做自主创新研究的时间，与本 skill 给开发团队处理技术债的余量同为 20%，但用途与归属完全是两回事；只有当工程师想把这时间花在还架构债上时，才与本 skill 的余量制度相关。回复中说明这一区别即可。",
+      "notes": "边界：description 的排除项与『容易混淆的邻近方法论』第一条的正面考题——两个『20%』的区分。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "共 7 条：should_trigger × 4 + should_not_trigger × 2（1 条无关诱饵 + 1 条兄弟混淆 → discovery-execution-two-modes）+ edge_case × 1。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

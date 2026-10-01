@@ -1,0 +1,59 @@
+{
+  "skill": "product-principles-priority",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "产品会上两拨人为“做推荐流还是做搜索优化”吵了三个小时，谁也说服不了谁，最后有人提议让 CEO 来拍板。这样搞对吗？",
+      "expected_behavior": "应激活 product-principles-priority，并指出请高管定夺是病征不是解法：分歧根源是对目标和目标优先级的理解不同，应先就问题/人物角色/目标/目标优先级四点达成共识，把目标排序写在白板上再谈方案。",
+      "notes": "命中“会议僵持想请高管拍板”触发场景（A2 场景 1、A1 案例 2）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "新官上任带了支十人的团队，每人都有自己一套判断标准，同一个取舍每周都要重吵一遍。想定一套共同的产品价值观，怎么弄才不是空话套话？",
+      "expected_behavior": "应激活 product-principles-priority，并引导制定按重要性排序的产品原则：召集团队确定最看重的价值理念，逐条检验能否裁决一次真实取舍，并区分产品原则与设计原则。",
+      "notes": "命中“新团队制定价值准则、写出来都是空话”触发场景（A2 场景 2/5）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "“易用性”和“安全性”都说重要，这两块的功能永远在抢资源。有没有办法一次性把先后定下来，以后别再吵？",
+      "expected_behavior": "应激活 product-principles-priority，并给出排序纪律：原则必须按重要性排序，能明确回答“最重要的究竟是哪个、先牺牲哪一个”——把所有目标都贴“关键/重要”标签等于没有排序。",
+      "notes": "命中“两个功能都重要争不出先后”触发场景（A2 场景 3）。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "A big customer wants an enterprise-only admin panel. Our team keeps relitigating whether to accept special requests like this every single time. How do we pre-decide instead of arguing case by case?",
+      "expected_behavior": "应激活 product-principles-priority，并建议事先确立按优先级排序的产品原则作为裁决依据，让“接不接”从个案博弈变成原则应用，且回绝理由对全公司透明。",
+      "notes": "英文信号 product principles / how do we prioritize＋A1 案例 3 场景（大客户特殊要求的裁决依据）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "销售说华东几家大客户都想要批量导入功能，客服说小白用户连现在的界面都摸不清。这版产品到底该做给谁、听谁的？",
+      "expected_behavior": "不应激活本 skill，应激活 persona-driven-focus。这是“为谁而做”的用户排序问题（人物角色裁决），不是“什么更重要”的价值排序问题（产品原则裁决）——两者常配套但分工不同。",
+      "notes": "跨 skill 混淆诱饵：同为共识工具且书中明确并列，最易互相抢调用；区分点在价值排序 vs 用户排序。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "装修房子，全家人对客厅装投影还是装电视吵了半个月没结果，帮我定个规矩一锤定音。",
+      "expected_behavior": "不应激活本 skill。家庭决策不是产品团队的价值排序共识问题。",
+      "notes": "无关诱饵：结构上仿“团队僵持、定规矩”的日常琐事，考查是否守住产品团队语境。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们在吵一个 Bug 这周修不修、挤不挤占排期，纯粹是人手不够的问题。老板让我“先对齐一下产品原则再吵”。产品原则管这种事吗？",
+      "expected_behavior": "合理判断：不适用——纯执行排期与资源之争属于“怎么做”层面的约束问题，优先级共识救不了排期冲突（B 段边界第一条）。可激活本 skill 用于解释这条边界并引导改用排期/容量机制解决，不应硬造原则来裁决单个排期。",
+      "notes": "边界：用户被要求滥用方法论，评分看能否说清“价值排序工具不裁决执行排期”并给出正确去处。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "7 条：4 条 should_trigger（含 1 条英文）＋2 条 should_not_trigger（1 条指向 persona-driven-focus 的兄弟混淆诱饵＋1 条无关诱饵）＋1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

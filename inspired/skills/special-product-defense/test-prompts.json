@@ -1,0 +1,59 @@
+{
+  "skill": "special-product-defense",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "销售带回来一个大客户：答应签七位数的单，但要求我们先给他们单独加七个功能，不然不买。老板有点心动，我该怎么劝住？",
+      "expected_behavior": "应激活本 skill，并走三层诊断（产品需求不能用户说了算、挤占更重要的工作、产品公司与定制软件公司之分），给出拒绝结论、产品原则依据与替代路径。",
+      "notes": "A2 触发场景 1（销售带大单提定制）+ A1 案例 2（加七项功能否则不买）的经典复刻。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "有个广告主愿意签一年七位数，条件是首页按他们的品牌改版。这钱烫手吗？",
+      "expected_behavior": "应激活本 skill，并识别这是特例产品的广告版：先检查广告目标与本站服务是否一致，按『牺牲长远信誉换短期流量不划算』评估，并给出共赢式替代方案。",
+      "notes": "A2 触发场景 2（广告主要求改版面）+ A1 案例 1（七位数广告合同换改版）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "评审会上有人问：这客户是行业老大，为他开个特例通融一下行不行？大家都觉得有点不对，但没人说得出为什么。",
+      "expected_behavior": "应激活本 skill，并用『产品需求不能用户说了算』的三条理由与事先立好的产品原则对照给出结论，把『感觉不对』翻译成可陈述的拒绝依据。",
+      "notes": "A2 触发场景 5（评审『客户很大能不能通融』）。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "公司账上的钱只够烧三个月了，销售手里有个定制项目能救急，老板想先接下来、以后再产品化。这步能迈吗？",
+      "expected_behavior": "应激活本 skill，并指出『先接下来以后再产品化』正是被合同绑住的入口，向 CEO 呈现代价清单；同时按 E 第 3 步判停条件注明：若 CEO 已拍板，产品经理的职责转为协助决策、记录风险并设计损害最小的执行方式。",
+      "notes": "A2 触发场景 3（资金压力下 CEO 想接定制）；考察边界处理——防御框架与『决定权在 CEO』的判停并行。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这份客户需求文档翻译成英文，重点把『验收标准』那一节翻准确些。",
+      "expected_behavior": "不应激活本 skill，因为这是纯翻译事务，不涉及接不接定制、产品方向被合同带偏的判断。",
+      "notes": "诱饵：借用『客户需求』词汇的无关任务。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "最近好几个客户都提到想要批量导出报表，竞品也已经有这功能了。我们想立项做，帮我评估一下这个机会到底值不值得投入。",
+      "expected_behavior": "不应激活本 skill，应激活 opportunity-assessment-ten-questions（多个客户提出的共性需求走正常机会评估闸门）；本 skill 拦截的是单一大客户的定制化勒索，共性需求的立项要过十问。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用；恰好对应本 skill E 第 1 步判停条件——本质需求是大众需求时转回十问评估。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "大客户要开放 API，仔细想想其实好多客户都用得上。这是该做成产品里的通用能力，还是算给这家客户的特殊定制？",
+      "expected_behavior": "合理判断是不启用拒绝框架：先用本 skill 第一步『定性：客户需求还是产品需求』确认这是大众需求，然后按其判停条件转出——作为产品化的可配置能力设计（Salesforce 式做法）或进入正常需求池评估，而不是按特例防御处理。",
+      "notes": "边界：B 段『产品化的可配置能力设计』与 E 第 1 步判停条件的交汇点；考察定性后转出而非一律说『不』。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "共 7 条：should_trigger × 4 + should_not_trigger × 2（1 条无关诱饵 + 1 条兄弟混淆 → opportunity-assessment-ten-questions）+ edge_case × 1。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

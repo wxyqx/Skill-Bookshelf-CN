@@ -1,0 +1,59 @@
+{
+  "skill": "prototype-testing-playbook",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们想自己找用户测原型，公司没钱请外面的用研公司。具体怎么搞？去哪儿找人、约几个人、要不要给报酬？",
+      "expected_behavior": "应激活 prototype-testing-playbook，并按三段流水线（物色测试者→准备与主持→判停与更新）给出操作方案，含招募渠道清单、电话筛选、提前一天提醒，以及星巴克餐桌式的零预算做法。",
+      "notes": "命中“要测原型但没预算外包”触发场景（A2 场景 1、A1 案例 1）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "上次我主持用户测试，全程忍不住提示用户该怎么点，测完大家都说挺好，上线却没人用。这次想学学怎么提问才不把用户带偏。",
+      "expected_behavior": "应激活 prototype-testing-playbook，并给出“观察重于询问”的主持纪律：先声明被测的是原型不是测试者、保持缄默、用鹦鹉技巧代替引导、想说“好极了”时改口复述用户完成的操作。",
+      "notes": "命中“担心提问带偏测试者、测出假反馈”触发场景（A2 场景 2、A1 案例 2）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "测原型到底要找多少个用户才算数？每轮测完就改，改完再测，什么时候能停下来？",
+      "expected_behavior": "应激活 prototype-testing-playbook，并给出判停标准：连续六位理解并欣赏产品价值且能完成关键项目即收工；两三位反映同一问题就动手改；无法让任何人产生兴趣则立马收手放弃创意。",
+      "notes": "命中“不知道测几位才够、何时停”触发场景（A2 场景 3、A1 案例 3）。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "During our prototype tests, users keep suggesting “you should add feature X.” Should we log all these feature requests and build them?",
+      "expected_behavior": "应激活 prototype-testing-playbook，并按“观察重于询问”处理：口头功能建议不可直接当需求，重点记录用户能否完成任务、卡在哪里、是否欣赏产品价值，而不是收集意见清单。",
+      "notes": "英文信号 prototype testing＋A2 场景 4（测试者全程只想加功能）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们回收了 2000 份需求问卷，统计出来用户最想要的是“更多高级筛选”。老板说数据不会骗人，照问卷结果排需求就行了。这样对吗？",
+      "expected_behavior": "不应激活本 skill，应激活 user-research-limits。这是“调研数据能不能直接当需求”的证据边界问题（问卷与访谈定义不出产品），不是单场原型测试的操作问题。",
+      "notes": "跨 skill 混淆诱饵：同样涉及“从用户那里拿反馈”，调研边界法与原型测试操作法最易互相抢调用；区分点在已有问卷数据的解读 vs 原型测试怎么做。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我写段 SQL：订单表里统计最近 30 天每个用户的消费总额，按金额从高到低排。",
+      "expected_behavior": "不应激活本 skill。纯编码任务，与原型测试无关。",
+      "notes": "无关诱饵：写代码的日常请求。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司规定产品经理不能直接接触客户，用户反馈一律由客服转述。这种情况下还能自己做原型测试吗？",
+      "expected_behavior": "合理判断：可激活本 skill，但输出必须先处理前置障碍——接触不到真实用户时任何招募与主持都是空转，先解决授权问题（或借展销会、远程等替代渠道），再谈操作细节；若直接输出招募与主持流程而对“见不到用户”的约束视而不见，视为不合格。",
+      "notes": "边界：测试的前提（真实用户到场）被制度卡死，评分看是否先解决“人从哪来”再给操作，而不是流程照背。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "7 条：4 条 should_trigger（含 1 条英文）＋2 条 should_not_trigger（1 条指向 user-research-limits 的兄弟混淆诱饵＋1 条无关诱饵）＋1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

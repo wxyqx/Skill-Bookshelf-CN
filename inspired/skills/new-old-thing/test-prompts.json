@@ -1,0 +1,59 @@
+{
+  "skill": "new-old-thing",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板说协同办公这条赛道巨头都占完了，红海没戏，让我们换方向。真的没戏了吗？",
+      "expected_behavior": "应激活本 skill，并用『老需求+更好的新瓶』拆解：先对现有产品的缺陷洞若观火，再找让新方案成为可能的技术契合点，论证成熟市场仍有切入机会。",
+      "notes": "A2 触发场景 1（争论有巨头还做不做）；语言信号『红海』命中，对应谷歌案例。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "同事说我们这个想法『不就是 XX 吗，早就有人做过』，一盆冷水浇下来。我该怎么回应他？",
+      "expected_behavior": "应激活本 skill，并论证『早就有』不等于『没机会』：成功的产品多半是新瓶装老酒，胜负在瓶子做得更好、更方便、更便宜，而非有没有人做过。",
+      "notes": "A2 触发场景 2（创意被批早有人做过）；语言信号直接命中 description。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "现在大模型这么能打，能不能把『整理会议纪要』这个老场景用 AI 重做一遍？值得投入吗？",
+      "expected_behavior": "应激活本 skill，并盘点『让不可能变可能』的新技术与老需求的契合点：先列出该老场景现有方案的缺陷清单，再与新技术能力求交集，一句话说清老酒是什么、新瓶好在哪。",
+      "notes": "A2 触发场景 5（新技术能否重做老场景）；对应两件法宝的第二件。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "Everyone keeps telling me the CRM market is a saturated red ocean ruled by Salesforce. Is there really no way in for a new entrant?",
+      "expected_behavior": "应激活本 skill，并用后发切入逻辑拆解『饱和』这个错误前提：对现有产品的缺陷做可用性测试式的洞见、跟踪新技术找契合点，回答 why would anyone switch。",
+      "notes": "英文正面样本；saturated market / red ocean 信号命中，对应 A2 触发场景 1 的英文语境。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把《启示录》第 33 章的读书笔记整理成一页思维导图大纲。",
+      "expected_behavior": "不应激活本 skill，因为这是文档整理任务，不涉及成熟市场进入判断或产品切入策略。",
+      "notes": "诱饵：直接引用本章的元任务，看似高度相关，实为整理琐事。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们想做给民宿老板用的记账工具，方向挺新也没验证过。帮我按流程评估下这个机会值不值得立项。",
+      "expected_behavior": "不应激活本 skill，应激活 opportunity-assessment-ten-questions（全新方向的单个机会立项评估）；本 skill 处理的是『已有巨头的成熟市场凭什么进』，需求未经市场验证的全新品类没有老酒可装，应先过十问。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用；对应 B 段『全新品类的原始创新』排除项。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "竞品刚上了直播带货功能，老板让我们三天内照着做一个，说用户都在要。这算不算新瓶装老酒的机会？",
+      "expected_behavior": "合理判断是不能把本 skill 当照抄的背书：没有对现有产品缺陷的洞见、没有新技术契合点的『换皮』恰是本 skill 判停条件要拦下的照猫画虎。合理处理是激活后用其判停标准否定『三天照做』，或直接指出这不构成新瓶装老酒的机会、若真要跟进应走正常机会评估；无论哪种处理，都不得输出『可以照做』的结论。",
+      "notes": "边界：B 段『给模仿竞品当挡箭牌』与 E 第 2 步判停条件的交汇；考察拒绝背书而非机械触发。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "共 7 条：should_trigger × 4 + should_not_trigger × 2（1 条无关诱饵 + 1 条兄弟混淆 → opportunity-assessment-ten-questions）+ edge_case × 1。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

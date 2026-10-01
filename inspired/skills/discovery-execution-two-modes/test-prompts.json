@@ -1,0 +1,59 @@
+{
+  "skill": "discovery-execution-two-modes",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们 2.0 都开发一半了，CEO 去看了圈竞品，回来连着塞了三个新点子，产品文档改了又改，排期眼看保不住。有什么办法既挡住需求又不跟老板闹僵？",
+      "expected_behavior": "应激活 discovery-execution-two-modes，并给出执行期“新点子收纳池”＋流水线并行的做法：1.0 进入执行即把创造热情投入 2.0 定义，新需求一律纳入下一版本，不干扰当期范围。",
+      "notes": "命中“开发到一半高管插新需求”这一最典型触发场景（A2 场景 1）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "管理层要求设计团队四周内必须把需求分析做完出文档，开发那边已经等着开工。设计说探索性的东西根本没法打包票按期交，两边僵住了。",
+      "expected_behavior": "应激活 discovery-execution-two-modes，并按“探索是创造性工作、不可像建筑施工那样设定期限”帮助管理层理解，同时给出产品与设计领先开发一两个迭代的安排。",
+      "notes": "命中“给需求和设计排固定工期、开发等米下锅”触发场景（第 12 章失败模式）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们刚拿了天使轮，合伙人主张马上招五六个程序员闷头开干，说创业公司就要快。我总觉得哪里不对，钱会不会烧在一个没人要的东西上？",
+      "expected_behavior": "应激活 discovery-execution-two-modes，并按 A1 案例 2 的顺序建议：先以产品经理＋交互＋原型的最小配置迭代原型并请真实用户验证，方案确定后再招程序员，避免用真实产品做“昂贵的原型”。",
+      "notes": "命中“创业公司拿到融资就想招程序员开干”触发场景（A2 场景 3）。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "We run two-week sprints, but our designer is always one sprint behind the developers — designs land after the code is already written, so changes never make it in. How should design and development be sequenced in agile?",
+      "expected_behavior": "应激活 discovery-execution-two-modes，并给出“不能一边设计一边开发”的敏捷环境调整：产品与设计进度领先开发一两个迭代周期，同时让开发人员早期参与评估设计。",
+      "notes": "英文信号 design ahead of development＋A1 案例 3 场景（敏捷团队设计总在追赶开发）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "1.0 下周三全球发布，老板要我出个“当天不出事”的方案：灰度放量怎么排、监控告警怎么配、出了问题怎么回滚。",
+      "expected_behavior": "不应激活本 skill，应激活 smooth-deployment。这是发布节奏与平稳发布的执行问题，不是探索/执行两阶段的重心切换问题。",
+      "notes": "跨 skill 混淆诱饵：同处“发布”语境，容易与两阶段切换的“执行期”沾边，但灰度、告警、回滚属于 smooth-deployment 的领地。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我写个 Python 脚本，把某个文件夹里所有 Word 文档批量转成 PDF，文件名保持不变。",
+      "expected_behavior": "不应激活本 skill。纯编码任务，与产品探索/执行两阶段无关。",
+      "notes": "无关诱饵：写代码的日常请求。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的项目是把单体架构迁移到微服务，需求很明确，就是技术改造。但老板非要我们先来一轮“产品探索”、画高保真原型再动手。这套探索/执行切换适用于这种项目吗？",
+      "expected_behavior": "合理判断：两阶段框架在此没有着力点——目标明确的按图施工纯技术项目（架构升级/迁移）没有“定义什么产品”的不确定性，落在 B 段“不要使用”清单第一条。可激活本 skill 用于解释为何不适用并给老板一个台阶（如以技术方案评审替代产品探索），不应硬套两阶段流程。",
+      "notes": "边界：正好压在 B 段适用边界上，考查是否守住边界并向用户解释，而不是机械套框架。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "7 条：4 条 should_trigger（含 1 条英文）＋2 条 should_not_trigger（1 条指向 smooth-deployment 的兄弟混淆诱饵＋1 条无关诱饵）＋1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

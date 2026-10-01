@@ -1,0 +1,59 @@
+{
+  "skill": "opportunity-assessment-ten-questions",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板上周头脑风暴了个想法，让我们做个面向小商家的 AI 客服。团队吵了两天，谁也说不清这东西到底解决谁的什么问题。帮我系统地把把关，这个机会到底值不值得投人？",
+      "expected_behavior": "应激活 opportunity-assessment-ten-questions，并从十问的第一问（产品要解决什么问题）开始引导评估，全程只问问题、不碰解决方案，答不出第一问时给出放弃或重述机会的建议。",
+      "notes": "典型立项把关场景：想法来自老板、团队缺乏共同评估框架、第一问答不出——正是本 skill 的核心用法。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们打算立项做一个给中小餐饮店用的记账 SaaS，下周要提立项报告。听说正式的 MRD 写起来特别费劲，有没有更轻的办法先判断这事靠不靠谱？",
+      "expected_behavior": "应激活 opportunity-assessment-ten-questions，并说明十问可作为 MRD 的快速替代，产出“待解决的问题＋成功指标”作为立项结论，并声明解决方案另行探索。",
+      "notes": "命中“写 MRD 前的快速替代”触发信号（A2 场景 2）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "CEO 在全员会上宣布我们必须做渠道伙伴门户，说不管团队愿不愿意，Q3 都得上线。既然躲不掉，我该怎么做才能让这个项目至少有清晰的目标和成功指标，而不是一笔糊涂账？",
+      "expected_behavior": "应激活 opportunity-assessment-ten-questions，并启用“被动接下必须做的项目”的兜底用法：照常迅速跑完十问，即使改变不了决定，也要产出明确的产品目标与度量指标。",
+      "notes": "对应 A1 案例 1（CEO 硬塞的项目也要过十问）——兜底用法也是本 skill 的正式用法。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "There's one engineering team and two candidate bets: build a brand-new product, or fix our onboarding flow — only 9 out of 100 people who try to sign up actually make it through. How do we decide where the better opportunity is?",
+      "expected_behavior": "应激活 opportunity-assessment-ten-questions，并把“做全新产品”与“打磨现有产品”当作两个产品机会，用同一套标准比较收益与成本后给出资源分配建议。",
+      "notes": "英文信号 should we build＋A1 案例 2 场景（9% 注册成功率，好机会常在眼皮底下）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "手里有两个 offer，一个薪资涨 30% 但要外派两年，一个稳定但几乎不涨。帮我评估一下该选哪个，列个利弊表。",
+      "expected_behavior": "不应激活本 skill。这是个人职业选择，不是产品开发资源的投入决策；本 skill 只面向产品机会的立项评估。",
+      "notes": "诱饵：借用“评估”“该不该”等语言信号但脱离产品语境，考查是否把机会评估限定在产品域。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司最大的客户放话：只要按他们的内部流程单独定制一版审批系统，代码和界面都只给他们一家用，就马上续签三年框架协议；不答应就转投竞品。团队在讨论这是不是个难得的机会、要不要接。",
+      "expected_behavior": "不应激活本 skill，应激活 special-product-defense。以续签要挟的独家定制属于特例产品／定制化勒索场景，重点不在评估机会价值，而在防御产品被单一带偏。",
+      "notes": "跨 skill 混淆诱饵：同样以“机会要不要接”开场，极易被十问抢走；但“只给一家用＋大单要挟”的定制勒索特征使 special-product-defense 才是正确工具。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们一个功能三个月前就定稿了方案、评审也过了，老板现在让我“补一份机会评估”好在全员会上交代。这时候还适合用十问吗？",
+      "expected_behavior": "合理判断：不宜把十问当立项闸门正式使用——方案已定型后再评估属于事后论证（补票），是 B 段明确的禁区。可以激活本 skill 来解释这条边界，并指出若目的只是向全员交代目标与度量指标，可借用十问的产出形态（第①问＋第④问）做有限梳理且须声明局限。",
+      "notes": "边界：方案未定是十问的前提；用户真实诉求是“论证材料”还是“决策”决定用法。评分看是否识别出“方案已定型”这一关键前提，而不是机械跑十问或一拒了之。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "7 条：4 条 should_trigger（含 1 条英文）＋2 条 should_not_trigger（1 条无关诱饵＋1 条指向 special-product-defense 的兄弟混淆诱饵）＋1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

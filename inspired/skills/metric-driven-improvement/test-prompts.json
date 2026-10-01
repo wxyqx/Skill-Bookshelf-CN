@@ -1,0 +1,59 @@
+{
+  "skill": "metric-driven-improvement",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "季度规划开始了，需求池里堆了二十多条用户和销售提的功能请求，老板让一周内排出优先级，头大。",
+      "expected_behavior": "应激活本 skill，并先定与商业业绩挂钩的关键指标，再用指标映射过滤请求——每一项都要能回答『预计推动哪个指标』，答不上来的降权或放弃，而不是按嗓门大小排期。",
+      "notes": "A2 触发场景 1（季度规划一堆功能请求排优先级），对应 V2 的『二十条功能请求排优先级』推演。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们注册转化率一直卡在 8% 上不去，帮我分析下用户都流失在哪一步了。",
+      "expected_behavior": "应激活本 skill，并把指标拆成转化漏斗逐级定位流失最严重的环节，给出原因假设（如注册索要信息过多、用户不信任），用数据或用户测试佐证后再动手改。",
+      "notes": "A2 触发场景 4（关键转化率偏低定位问题）；对应 A1 案例 1 的投保漏斗 7%→15% 示范。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这两年功能加了好多，用户反而抱怨越来越难用。是不是『不停加功能』这条路本身就有问题？",
+      "expected_behavior": "应激活本 skill，并诊断『功能加工厂』症状：加功能没有方向、性能反而变糟，转向先定指标、再按指标挑改进的路径。",
+      "notes": "A2 触发场景 2（功能越加越多产品越难用）；对应第 23 章开篇对功能加工厂的断言。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "We shipped a dozen features this quarter but conversion didn't move at all. Should we keep adding features, or go back and polish what we already have — and how do we decide?",
+      "expected_behavior": "应激活本 skill，并用指标比较『做新功能』与『打磨旧功能』的收益（如 9% 注册成功率提到 18% 即收益翻倍的现成机会），给出 metrics-driven 的取舍方法。",
+      "notes": "英文正面样本；feature factory / metrics-driven 信号命中，对应 A2 触发场景 3 与 A1 案例 2。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们官网 GA 里注册转化事件一直是 0，帮我检查下统计代码是不是埋点没装对。",
+      "expected_behavior": "不应激活本 skill，因为这是埋点工程的调试问题，不是『该改什么』的指标改进决策；修好数据采集是前置条件，不是本 skill 的处方内容。",
+      "notes": "诱饵：借用『转化率』词汇的纯技术任务，考察不因表层指标词汇误触发。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "新产品的第一版工期只够做一半，候选功能有十五个，怎么砍出一个能拿出去见人的第一版？",
+      "expected_behavior": "不应激活本 skill，应激活 minimal-product-definition（基本产品定义：减无可减、只延工期不砍功能）；那是定义期的取舍，本 skill 面向已上线产品的改进期。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用；『怎么砍功能』的表象相似，实质是 contrasts-with 划分的定义期/改进期之别。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "大版本昨天刚上线，注册转化比上一版掉了三个点。有人喊着马上回滚，有人要发 hotfix，也有人说先观察一周再说。",
+      "expected_behavior": "合理判断是不应以本 skill 为主响应：发布后几天属于 rapid-response-window 的急救窗口，目标是『多快解决问题』而非『推动哪个指标』；本 skill 的漏斗定位在窗口退潮后接管，把问题转入常态化改进清单。回复中可以先指向窗口期流程，再预告指标分析阶段的衔接。",
+      "notes": "边界：B 段『发布后几天的应急处理』与 composes-with 衔接关系的考题；时间点（刚上线）是判断归属的关键。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "共 7 条：should_trigger × 4 + should_not_trigger × 2（1 条无关诱饵 + 1 条兄弟混淆 → minimal-product-definition）+ edge_case × 1。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

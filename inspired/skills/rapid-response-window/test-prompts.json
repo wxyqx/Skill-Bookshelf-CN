@@ -1,0 +1,59 @@
+{
+  "skill": "rapid-response-window",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "版本前天刚发布，老板说大家都辛苦了，赶紧投入到下一个项目去。我总觉得这时候撤人不妥，又拿不出理由。",
+      "expected_behavior": "应激活本 skill，并给出『急于撤军是大忌』的依据与窗口期制度：留出发布后几天至一周，全员在场收集反馈、按轻重缓急处理问题。",
+      "notes": "A2 触发场景 1（发布后团队想立刻解散）；对应 A1 案例 3『撤军是大忌』。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "上线第三天冒出十几条用户反馈，有说设置页打不开的，有说数据没同步的，还有些小抱怨。哪些要紧急修、哪些记到下版？",
+      "expected_behavior": "应激活本 skill，并按轻重缓急分级响应：影响正常使用的当场发补丁或发声明公示处理办法，其余记入下版；由产品团队每天短会统一裁决，而不是按嗓门大小处理。",
+      "notes": "A2 触发场景 2（上线后冒出抱怨要分级）；对应 A1 案例 2 的每天简短会议分级响应。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "下周大版本发布，帮我排一下发布周：谁留场、每天什么时候开短会、都盯哪些指标？",
+      "expected_behavior": "应激活本 skill，并把窗口期写进发布计划：留场人员名单（产品经理、交互设计师、主程序员、客服、市场）、每天例会节奏、指标清单与成功/失败的分界线。",
+      "notes": "A2 触发场景 3（制定发布计划安排值守与预案）；对应 E 第 1、2 步。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "Checkout threw a P0 bug on launch day. Who should be in the war room this week, and how do we triage the flood of post-launch feedback?",
+      "expected_behavior": "应激活本 skill，并组织发布周跨职能快速响应：war room 人员构成、每天短会分级（发补丁/公示处理/记入下版）、实时指标与客服销售反馈并看。",
+      "notes": "英文正面样本；launch week / war room / post-launch / P0 信号命中。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我订下周三下午两点的会议室，把产品组六个人都邀上。",
+      "expected_behavior": "不应激活本 skill，因为这是日常琐事，与发布后的响应流程无关。",
+      "notes": "诱饵：纯日常琐事；『订会议室』与『每天开短会』场景有微弱相似，考察不误触发。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "版本发布一个多月了，新用户留存一直不太好看，想系统分析下漏斗到底哪一环出问题，排进下个季度的改进计划里。",
+      "expected_behavior": "不应激活本 skill，应激活 metric-driven-improvement（窗口结束后的常态化指标改进，目标是『推动哪个指标』）；发布后几天至一周的急救窗口早已关闭。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用；仍是『发布后』语境，但时间已超出窗口，考察按窗口长度判断归属。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们就五个人，版本明天上线，根本腾不出人『全员留场一周』。那这套窗口期是不是干脆别搞了？",
+      "expected_behavior": "合理判断是激活本 skill 并按其判停条件降级执行，而不是整个放弃：窗口期长度可以压缩，但『完全无人值守的发布不应被批准』——至少保留最小窗口（哪怕只延长项目周期几天）、明确问题响应时限和『影响正常使用的问题』为最高级的分级底线。",
+      "notes": "边界：小团队资源约束与制度底线的权衡，考 E 第 1 步判停条件的运用；回答『要么全搞、要么不搞』都算不合理。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "共 7 条：should_trigger × 4 + should_not_trigger × 2（1 条无关诱饵 + 1 条兄弟混淆 → metric-driven-improvement）+ edge_case × 1。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

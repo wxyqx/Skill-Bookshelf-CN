@@ -1,0 +1,59 @@
+{
+  "skill": "smooth-deployment",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下个月 App 要全量上大改版，界面全挪了位置，运营怕老用户去应用商店刷一星。上线方案该怎么设计？",
+      "expected_behavior": "应激活本 skill，并按七条反感原因逐条自检（通知、适应时间与旧版、故障、兼容性、功能必要性、更新频率、习惯流程），按影响面选并行/区域性/增量部署，公示旧版最后期限并备好回滚预案。",
+      "notes": "A2 触发场景 1（大改版上线怕用户反弹）；语言信号『怕老用户闹』命中。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们两周发一个版本，用户天天说『又改了烦死了』，客服都快麻了。是不是发布节奏本身该改？",
+      "expected_behavior": "应激活本 skill，并评估更新必要性、减少不必要的更新，把大更新拆成小块增量发布，回应『接二连三的更新让人疲惫』这条反感原因。",
+      "notes": "A2 触发场景 2（敏捷团队频繁发布、用户疲惫）；对应第 26 章秘诀 8 的引用。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "旧版 API 还有一批老客户没迁完，产品想强制切过去。旧版本该保留多久、要不要公示最后期限？",
+      "expected_behavior": "应激活本 skill，并给旧版本保留缓冲期、公示最后期限的方案，必要时用并行版本过渡，并提醒用户量庞大时过渡期可能长达数月。",
+      "notes": "A2 触发场景 3（旧版本下线）；语言信号『旧版下线 / deprecation』命中。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "We are about to roll out a major redesign. We know some users will hate the new UI — should we run the old and new versions in parallel for a while, and how long should the transition last?",
+      "expected_behavior": "应激活本 skill，并给出并行部署方案：邀请愿意尝鲜的用户先试用新版，稳定后再设为默认，同时保留旧版本并公示支持的最后期限。",
+      "notes": "英文正面样本；parallel version / rollout / gentle deployment 信号命中。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "CI 流水线构建太慢了，帮我优化下 Dockerfile 的分层和缓存策略，把构建时间压到十分钟以内。",
+      "expected_behavior": "不应激活本 skill，因为这是纯工程层面的构建技术优化；本 skill 的边界明确排除『纯工程层面的发布技术选型』，它管的是用户适应成本与沟通纪律。",
+      "notes": "诱饵：借用『发布/部署』语域的纯工程任务，考察能否守住 B 段边界。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "新版上线第二天客服就被打爆了，用户找不到购物车在哪，投诉是平时五倍，问题一个接一个冒出来。要不先把人撤回各自项目上缓一缓？",
+      "expected_behavior": "不应激活本 skill，应激活 rapid-response-window（发布后几天内全员留场、每天短会按轻重缓急分级响应）；发布前的步幅与适应成本设计归本 skill，发布后的救火归那个 skill。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用；时间点（上线后）是区分『防患』与『救火』的关键，且『撤人』恰是那个 skill 的大忌。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "线上爆出一个安全漏洞，补丁必须今晚就发，来不及做灰度和提前公告了。这会不会违背平滑部署那一套？",
+      "expected_behavior": "合理判断是不套用过渡仪式直接上线：作者同样反对因噎废食，安全与可靠性优先于通知与并行版本等过渡安排；但发布之后的事后沟通（公告说明、安抚用户、盯口碑渠道）仍适用本 skill 的纪律。",
+      "notes": "边界：B 段『必须立即上线的安全修复』明确排除；考察安全例外与事后沟通义务的分界。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "共 7 条：should_trigger × 4 + should_not_trigger × 2（1 条无关诱饵 + 1 条兄弟混淆 → rapid-response-window）+ edge_case × 1。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

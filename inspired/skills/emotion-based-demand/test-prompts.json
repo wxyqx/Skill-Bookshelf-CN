@@ -1,0 +1,59 @@
+{
+  "skill": "emotion-based-demand",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们和竞品功能基本一样，人家卖得贵三成还一堆人抢着买，凭什么？帮我分析下用户到底为什么买单。",
+      "expected_behavior": "应激活本 skill，并按恐惧/贪婪/欲望（企业级）或孤独/爱/自豪（大众）拆解目标用户的情感需求，落到价值主张与溢价依据上，而不是停留在功能参数对比。",
+      "notes": "A2 触发场景 1（争论定价与价值主张）；语言信号『为什么买单』『功能都一样为什么他家卖得好』直接命中。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "做竞品分析的时候，列来列去就那几个同类 App，老板说格局太小。除了同类软件，我们到底在跟谁抢用户？",
+      "expected_behavior": "应激活本 skill，并追问『谁还能满足用户的这种情感』，把线下生活方式等非同类替代方式写进竞争对手清单，再据此校准差异化方向。",
+      "notes": "A2 触发场景 2（竞品分析只有同类产品）+ A1 案例 3（真正的竞争对手是线下生活方式）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "原型测试跑完了，五个用户都会操作，但我说不清他们为什么想用，每次测完心里都没底。",
+      "expected_behavior": "应激活本 skill，并给出在测试中追问『是什么驱动你使用产品』的做法，把测试者按情感类型拆开（eBay 三类买家式 subtype），补上『为什么想用』这一层。",
+      "notes": "A2 触发场景 3（只知道会不会用、不知道为什么想用）。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "Our app and the competitor's are nearly identical feature-for-feature, yet they command a clear premium and users love them. How do we figure out what users are really paying for?",
+      "expected_behavior": "应激活本 skill，并用情感需求框架（emotional needs）分析 premium 背后的购买动机，重写产品的 value proposition。",
+      "notes": "英文正面样本；description 中的英文信号 emotional needs / why users buy / premium pricing 全部命中。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这批用户访谈的录音转成文字，再按段落整理进 Word 文档，明天评审要用。",
+      "expected_behavior": "不应激活本 skill，因为这是纯文档整理琐事，不涉及购买动机、价值主张或产品定义层面的情感分析。",
+      "notes": "诱饵：借用『用户访谈』词汇的无关任务，考察不因表层词汇误触发。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们社区里最活跃的几个技术极客提了一份很长的需求清单，铁杆粉丝口碑也很好，可正式推向大众后一直没什么水花。帮我看看我们是不是研究错对象了、该研究谁？",
+      "expected_behavior": "不应激活本 skill，应激活 irrational-user-signals（判断该研究谁、警惕技术爱好者对需求输入的误导）；选出对的人之后，才轮到本 skill 的动机分类框架。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用；A2 区分段明确：irrational-user-signals 管研究对象筛选，本 skill 管研究出什么。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "市场部请我们产品组支持品牌升级，一起做情绪板、再给广告文案提点『用户情感洞察』，这算产品组的活吗？该用哪套方法？",
+      "expected_behavior": "合理判断是不应激活本 skill：情绪板、品牌文案、对外传播属于营销领域，而本 skill 的情感分析服务于产品定义层（先有情感需求结论，再谈表达）。回复中可以说明这条边界，并表示若讨论回到『产品该满足用户什么情感需求』时可再启用。",
+      "notes": "边界：B 段明确排除『对外传播文案、情绪板、品牌调性层面的情感工作』；但『情感洞察』字样与 skill 主题高度沾边，考察能否守住产品定义层的适用范围。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "共 7 条：should_trigger × 4 + should_not_trigger × 2（1 条无关诱饵 + 1 条兄弟混淆 → irrational-user-signals）+ edge_case × 1。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

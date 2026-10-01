@@ -1,0 +1,59 @@
+{
+  "skill": "user-research-limits",
+  "version": "0.1.0",
+  "source_book": "《启示录：打造用户喜爱的产品》 — Marty Cagan",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "调研报告说 92% 的用户都想要批量导出功能，这需求算是坐实了吧？可以直接开做吗？",
+      "expected_behavior": "应激活本 skill，并把调查结果当『获得解决方案的一条途径』而非方案本身：回到需求本质检查是否存在更实际的 Y 方案，而不是用户说要 X 就做 X。",
+      "notes": "A2 触发场景 1（拿调研数据论证要做某功能）；对应 A1 案例 1 的经典场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "市场部想把二十个用户请来开一场研讨会，指望大家聊出下一步产品方向。这招靠谱吗？",
+      "expected_behavior": "应激活本 skill，并给出用户研讨会开不出成功产品的理由（用户不知道什么可行、没见过产品不知道要什么、群体互动失真），把需求验证改道到原型测试。",
+      "notes": "A2 触发场景 2（组织用户研讨会/焦点小组）；对应 A1 案例 2。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "需求池里塞满了客服转来的用户原话和问卷开放题，谁也说不清哪些能直接当需求做。",
+      "expected_behavior": "应激活本 skill，并用调研能回答的六问清单给这些材料归类（谁在用/怎么用/障碍在哪/为何选用/喜欢什么/想怎么改进），说明『打造什么产品』不在调研的裁决范围内，用户要求须翻译回需求本质。",
+      "notes": "A2 触发场景 4（需求池塞满用户反馈不知哪些能当需求）。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "Marketing insists survey data should decide our roadmap. Can market research really tell us what product to build?",
+      "expected_behavior": "应激活本 skill，并用『六个成功产品无一仅靠调研定义』的论证划定边界：调研回答六问、不回答『打造什么产品』；调研结果是途径不是方案本身。",
+      "notes": "英文正面样本；survey / user research / focus group 信号命中，对应 A2 触发场景 3（市场部与产品部争论）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "下季度团建想去密室逃脱，帮我列几个市中心的备选场地和大致预算。",
+      "expected_behavior": "不应激活本 skill，因为这是日常琐事，与市场调研的作用边界无关。",
+      "notes": "诱饵：纯日常琐事，考察不误触发。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们已经决定下周做一轮可用性测试来验证新原型，用户也约好了五个。帮我准备测试脚本和主持注意事项。",
+      "expected_behavior": "不应激活本 skill，应激活 prototype-testing-playbook（已经决定要测了，需要的是操作法：物色、主持、判停）；本 skill 划调研的能力边界，不教测试怎么做。",
+      "notes": "跨 skill 混淆诱饵 (硬性要求至少 1 条): 防止同书 skill 互相抢调用；对应 A2 区分段『一个管边界、一个管操作』。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们想用 A/B 测试决定新首页用哪套方案。这算不算『用调研定义产品』？该不该也限制一下？",
+      "expected_behavior": "合理判断是边界模糊但可裁：A/B 测试验证的是已上线方案在『完善』层的表现差异，通常不触发本 skill 的『定义』警告——现代数据手段本就使完善与定义的边界比 2008 年更模糊（作者盲点所在）；但若问题升级为『该不该做这个新方向』，A/B 数据没有裁决力，应回到产品探索与机会评估。",
+      "notes": "边界：盲点段『现代 A/B 测试与行为数据科学』指出的边界移动；考察对『完善 vs 定义』分界的现代情境判断。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "共 7 条：should_trigger × 4 + should_not_trigger × 2（1 条无关诱饵 + 1 条兄弟混淆 → prototype-testing-playbook）+ edge_case × 1。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}
