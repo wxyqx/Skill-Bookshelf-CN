@@ -1,0 +1,43 @@
+{
+  "skill": "technical-insight-first",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们下个月要给投资人交商业计划书，财务预测和三年路线图到底要写多细才显得靠谱？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "新产品立项会上，市场部拿用户调研和竞品分析说需求很大，工程说做不出来。这种评审应该先讨论什么？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们的年度产品路线图已经排到 Q4，但半年里市场环境全变了，团队还在按里程碑赶工。这份计划还要不要守？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们在争论要不要把核心引擎开源出来换生态，还是继续封闭当护城河。这个决策该怎么框架化？",
+      "expected_sibling": "open-as-strategy",
+      "expected_behavior": "不应激活本 skill：这是开放/封闭的战略选择问题，不是立项根基与计划姿态问题",
+      "notes": "跨 skill 混淆诱饵: '战略决策'字样像本 skill，实则考'洞见过滤器 vs 开放战略'的分界"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我排一下下季度这三个已经上线的成熟功能的开发排期，按人天估算就行。",
+      "expected_behavior": "不应激活本 skill：成熟业务的运营排期（B 段反场景），'计划必错'前提不适用于执行层排期",
+      "notes": "诱饵: '排期/计划'字样直接撞'计划必错'，实则考战略计划与运营排期的分界"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们做企业财务软件，行业很稳定，客户就认功能全和服务好。我们有必要问'技术洞见是什么'吗？",
+      "expected_behavior": "边界处理：洞见之问的强制力在 0→1 立项与剧变行业；对稳定行业的存量产品，把它降级为自检而非一票否决——若答案是'靠功能全和服务好就能活'，接受该前提，但别指望这个产品实现突围",
+      "notes": "边界: 检验 skill 是否会在'计划必错'假设不成立的行业里机械强制"
+    }
+  ]
+}

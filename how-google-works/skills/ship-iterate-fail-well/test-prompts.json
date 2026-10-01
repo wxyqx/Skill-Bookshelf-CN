@@ -1,0 +1,53 @@
+{
+  "skill": "ship-iterate-fail-well",
+  "version": "0.1.0",
+  "source_book": "《重新定义公司：谷歌是如何运营的》 — 施密特、罗森伯格",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的 App 还有三个已知 bug，老板说'再修一个月、做个完美的再发'，产品说'先发出去收集真实反馈'。该怎么定发布策略？",
+      "expected_behavior": "应激活 ship-iterate-fail-well：先检性能是否卓越（功能有限可接受），然后低调上市用真实反馈迭代，不为完美推迟交付",
+      "notes": "正面场景：完美主义 vs 交付-迭代的上线路径之争"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的社区产品迭代了七轮，每轮都加了功能，但日活曲线基本是平的，团队说再给一次大版本的机会。什么时候该认输？",
+      "expected_behavior": "应激活 ship-iterate-fail-well：套用检验标准与'一连串奇迹'判据（ce48），止损后按败得漂亮流程处置（修改创意不否决创意、团队不问罪）",
+      "notes": "正面场景：止损时机与善后，本 skill 后半的直接命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们的第一个 SaaS 产品决定关停，三个开发现在情绪很低，其他团队都在传'做创新就会被优化'。怎么处理这个烂摊子？",
+      "expected_behavior": "应激活 ship-iterate-fail-well：败得漂亮的善后规则——解剖可移植技术、安置成员不问罪、公开结果修复'下一批创新者'的预期",
+      "notes": "正面场景：失败善后与观察者效应（c87 Wave 样板）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "下个月新品发布，市场部要一份包含媒体邀请、KOL 投放和预热倒计时的完整造势方案，预算已经批了，帮我细化执行排期。",
+      "expected_behavior": "不应激活本 skill：用户要的是营销执行的排期细化，不是发布策略的决策咨询；本 skill 的'低调上市'是决策原则，不是替用户推翻已定执行的话术",
+      "notes": "诱饵：'发布/上市'字面相似，但决策已定、纯执行请求"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "明年的研发预算怎么分？老产品维护要占大头，去年冒出来的两个新方向也想要人，还有几个同事想搞完全没谱的新东西。",
+      "expected_behavior": "不应激活本 skill，应激活 resource-70-20-10（核心/新兴/全新的组合配比 + 10% 克制机制）",
+      "expected_sibling": "resource-70-20-10",
+      "notes": "跨 skill 混淆诱饵：同样谈新项目与老项目的取舍，但问题在项目群间的配比，不在单个项目的发布与止损"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们在做一个辅助医生写病历的软件，团队想用'先上线再迭代'的方式快速进医院试错，合规同事坚决反对。",
+      "expected_behavior": "边界处理：先分对象——模型与交互层可灰度迭代（skill 适用），但涉及诊疗行为与数据合规的底线必须前置验证（B 段安全/合规反场景）；答案应为'分层迭代'而非笼统支持或否决",
+      "notes": "边界：迭代纪律与不可逆代价的冲突，考察是否一刀切"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

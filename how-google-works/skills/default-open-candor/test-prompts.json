@@ -1,0 +1,53 @@
+{
+  "skill": "default-open-candor",
+  "version": "0.1.0",
+  "source_book": "《重新定义公司：谷歌是如何运营的》 — 施密特、罗森伯格",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下季度大概率完不成目标，可能要收缩 20% 的人手。创始团队在吵要不要告诉全员，有人担心军心不稳。怎么看？",
+      "expected_behavior": "应激活 default-open-candor：举证责任倒置——'打击士气'不构成剔除信息的理由，唯一合法例外是法律法规；配多莉式匿名提问收集真实担忧，公开本身会提升应对方案的准备质量。",
+      "notes": "正面场景：'要不要公开坏消息'正是共享一切默认值的判定场景（verified V2 的 novel question 同型）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我发现老板听到的项目进展和我们实际干的对不上，中层汇报全在美化。有没有办法让高层直接看到一线的真实状态？",
+      "expected_behavior": "应激活 default-open-candor：诊断中层双向过滤（ce43），建 snippets 式原始渠道绕过转述，配 10 秒规则抽检负责人。",
+      "notes": "正面场景：'掌握细节但掌握不到真相'是 c64/ce43 的直接命中。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们开全员会没人提尖锐问题，问题清单一看就是提前安排好的软球。怎么让大家敢问真问题？",
+      "expected_behavior": "应激活 default-open-candor：多莉式匿名提问+投票排序+照单全答+红牌验收回答质量；领导者需先示范'提问者不会被开除'。",
+      "notes": "正面场景：ce44 只提简单问题与 c65 多莉机制直接对应。"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "我们想把自家核心算法开源出去换取开发者生态，又怕养大竞争者。这个开放策略该怎么权衡？",
+      "expected_sibling": "open-as-strategy",
+      "expected_behavior": "不应激活 default-open-candor：这是产品/平台层面的对外开放战略（算扩张与收入的账），不是组织内信息透明——应激活 open-as-strategy。",
+      "notes": "跨 skill 混淆诱饵：'开放'一词两 skill 共用，判别点在对外的战略账还是对内的文化账。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这个季度所有内部通讯整理成每周全员邮件列表，所有群组、所有话题都发一份，信息越多越透明嘛。",
+      "expected_behavior": "不应激活 default-open-candor（作为开放设计来执行）：无差别群发是 B 段反场景的信息轰炸（ce45），正确反应是纠偏而非放大——透明需要'理念、新意、精准对象'过滤。",
+      "notes": "诱饵：'共享一切'的字面误用，考察 skill 是否会把'轰炸'误当'开放'来帮忙实现。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "团队有个员工总在群里转发别的部门的负面截图，大家觉得他搅浑水，我该不该管？",
+      "expected_behavior": "边界处理：部分适用——默认开放针对组织自己披露的信息，不等于放任转发未核实截图（涉及同事隐私与信息真实性）；处理重点是把他的关切导入正式通道（多莉/公开复盘），而非惩罚报忧行为。只堵不疏会坐实 ce44 的杀信使效应。",
+      "notes": "边界：区分'讲真话的安全环境'与'传播未核实信息'，考察双向动作（开正门+管噪声）。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条跨 skill 诱饵）+ 1 条 edge_case。全部 should_not_trigger 容错为 0。"
+}

@@ -1,0 +1,51 @@
+{
+  "skill": "hiring-ops",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司现在 offer 全是部门经理一个人说了算，CEO 想插手就插手，怎么设计流程防止招人看关系？",
+      "expected_behavior": "激活本 skill：录用决策收归跨部门招聘委员会，经理只有否决权；决策以信息包与数据为据，不看谁说话算数",
+      "notes": "正面场景：决策权结构（ce22 的镜像）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们面试官写反馈全是'感觉不错''挺聪明的'，没有具体例子，决策会上只能靠吵。",
+      "expected_behavior": "激活本 skill：信息包制度——每条结论附具体事实，无事实支撑的意见不进决策；120 秒可读的标准化包",
+      "notes": "正面场景：信息包与事实支撑"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "一个候选人已经面了7轮还没结论，再拖下去人就要被别家抢走了，面试到底该面几轮？",
+      "expected_behavior": "激活本 skill：5 位面试官封顶（4 轮后边际提升不足 1%）、30 分钟一场、面试官必须亮明立场，禁止'再加一轮'式拖延",
+      "notes": "正面场景：硬参数与强制表态（ce28/ce29 镜像）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "面试官问了一些让人不舒服的隐私问题，我们要怎么规避法律风险？",
+      "expected_behavior": "不应激活本 skill：面试合规是法律问题，不是录用决策流程设计",
+      "notes": "诱饵：'面试'字面信号但属合规话题"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "岗位空了半年 HR 催得紧，现在手上有个'能用但不出彩'的候选人，要不要拍板发了这个 offer？",
+      "expected_sibling": "hiring-quality-bar",
+      "expected_behavior": "不应激活本 skill：流程没有争议，争议在标准松紧（要不要将就）——宁缺毋滥与宁漏聘不误聘的取舍，转 hiring-quality-bar",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：流程/标准分界测试"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们创业公司连 HR 都没有，总共 3 个人，你跟我提招聘委员会是不是开玩笑？",
+      "expected_behavior": "边界处理：激活但降规模——给出去利益相关的最小实现（2 位无利益相关同事+同一信息包+独立结论，经理仅否决权），并注明这是推演而非书中原文；不硬推 4-5 人完整编制",
+      "notes": "边界：委员会重装备与小团队约束（B 段作者盲点）"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条跨 skill 诱饵，expected_sibling=hiring-quality-bar）+ 1 条 edge_case。"
+}

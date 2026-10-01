@@ -1,0 +1,53 @@
+{
+  "skill": "innovation-chaos",
+  "version": "0.1.0",
+  "source_book": "《重新定义公司：谷歌是如何运营的》 — 施密特、罗森伯格",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "咨询公司给我们做了个方案：设立 AI 创新实验室，配一位首席创新官，每个季度按实验室产出的创意数考核。CEO 拿不准要不要做，你怎么看？",
+      "expected_behavior": "应激活 innovation-chaos：判定'创新不可指派'（ce46 雅虎创新委员会同构），指出审批制与 KPI 的自相矛盾、首席创新官只能 CEO 兼任",
+      "notes": "正面场景：创新官/实验室/创新 KPI 提案评估，是 c70/ce46 的原型镜像"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们公司所有新项目都是老板拍板立项的，一线同事提的点子基本石沉大海，现在已经没什么人提了。想改变这个局面从哪下手？",
+      "expected_behavior": "应激活 innovation-chaos：诊断'指派制创新'对构想物竞天择的扼杀，给空间而非任务、CEO 兼任创新环境负责人、以未指派项目出现率验收",
+      "notes": "正面场景：自上而下指派挤出自下而上创意"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有个工程师内网上发了个很疯的原型 demo，围观的人不少但没人敢跟进，他自己也快没热情了。这种孤军奋战的情况怎么破？",
+      "expected_behavior": "应激活 innovation-chaos：用第一追随者原则诊断（孤独的疯子→第一个追随者→闸门打开），检查创新权是否散布各部门、有无低摩擦的加入机制（演示日式）",
+      "notes": "正面场景：第一追随者机制缺失（f42/p180）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想评估一个具体的创业点子：给宠物医院做 SaaS 预约系统。帮我分析一下市场够不够大、技术门槛高不高、该不该辞职去做。",
+      "expected_behavior": "不应激活本 skill：单个创意的可行性评审是立项判断问题，本 skill 管的是创意产生的组织环境，不评点子本身（B 段反场景）",
+      "notes": "诱饵：'创新/点子'字面出现，但对象是单点子评估而非环境设计"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "我们决定给工程师每天留一段自由探索时间做自己的项目，现在要定细则：时间能不能攒？算不算绩效？要不要报备项目内容？",
+      "expected_behavior": "不应激活本 skill，应激活 twenty-percent-time（重点在自由不在时间：可攒可散、不计考核、不报备内容）",
+      "expected_sibling": "twenty-percent-time",
+      "notes": "跨 skill 混淆诱饵：'让创新发生'方向已一致，用户要的是自由时间制度细则——环境哲学（本 skill）与制度细则（twenty-percent-time）的分界"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "老板说'创新要混沌，别拿流程烦我'，现在新的推荐算法没经过任何评审就直接上了全量用户，出了偏差也没人负责。这是不是就是谷歌说的原始混沌？",
+      "expected_behavior": "边界处理：拒绝该引用——混沌是创意的生产方式，不是流程与质量责任的豁免（B 段'把不受管当创新'反场景）；全量上线前仍需立项过滤与回滚预案，可用 focus-user-think-10x 的过滤器与 ship-iterate-fail-well 的检验标准补位",
+      "notes": "边界：考察能否阻止'混沌'被挪用为无序的挡箭牌"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

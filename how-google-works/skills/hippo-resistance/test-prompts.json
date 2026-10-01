@@ -1,0 +1,39 @@
+{
+  "skill": "hippo-resistance",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的产品评审会上，CTO 一开口基本就定了，其他人的讨论都是走过场。怎么设计会议规则能让真话出来？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "下周要开一场有大老板参加的方案讨论会，团队里有个年轻同事掌握最全的数据，怎么让讨论基于事实而不是基于职级？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "复盘上季度一个失误决策：一线当时就发现数据不对，但会上没人提出。以后怎么避免这种'沉默的会议'？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "线上服务挂了，客服和工程在群里互相甩锅，现在需要有人拍板先回滚，怎么办？",
+      "expected_behavior": "紧急事故处置需要清晰指挥链，不适用（B 段反场景）"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "我们会议数据都给大家了，但每次讨论完还是没有结论，有人说'再议'，有人说'都听你的'，怎么让会议真正做出大家愿意支持的决定？",
+      "expected_sibling": "real-consensus"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "创始人对新产品方向有很强的直觉和审美判断，团队觉得应该'拿数据说话'，每次都吵不拢。",
+      "expected_behavior": "边界处理：愿景/审美拍板允许主观（B 段），但执行层议题仍应数据开场——区分决策类型而非一刀切"
+    }
+  ]
+}

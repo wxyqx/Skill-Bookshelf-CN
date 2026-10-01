@@ -1,0 +1,53 @@
+{
+  "skill": "real-consensus",
+  "version": "0.1.0",
+  "source_book": "《重新定义公司：谷歌是如何运营的》 — 施密特、罗森伯格",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "上季度的方向调整，会上所有人都点头同意了，结果执行起来各部门都在打折扣，私下牢骚一大堆。问题出在哪？",
+      "expected_behavior": "应激活 real-consensus：判定为摇头娃娃式虚假一致；追溯是哪一步漏了异议，给败方'两条明路'修复挺身支持。",
+      "notes": "正面场景：会上点头+会后牢骚，ce34 摇头娃娃的原型命中。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "下周我要主持一个重要决策会，我自己心里已经有倾向了。怎么开会才能让大家的真实意见都摆出来，而不是都顺着我说？",
+      "expected_behavior": "应激活 real-consensus：负责人藏起倾向最后表态（p130）、点名未发言者让异议在拍板前现形、按'对公司最有利'拍板。",
+      "notes": "正面场景：主持者已有倾向，正中'负责人先亮立场压制异议'的反模式。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有人建议这个决策用投票表决，少数服从多数，这样最公平。共识不就是让人人都同意吗？",
+      "expected_behavior": "应激活 real-consensus：纠偏定义——共识≠人人同意也不是多数表决，而是人人充分发言后愿意挺身支持；投票一致反而是摇头娃娃警报。",
+      "notes": "正面场景：对'共识'一词的语义误读，是本 skill 的定义级场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "服务器凌晨出事故，全线客户受影响。现在没时间开会讨论了，你必须立刻拍板止损。",
+      "expected_behavior": "不应激活 real-consensus：紧急处置没有共识流程的空间（B 段反场景），走指挥链止损，事后复盘再补流程。",
+      "notes": "诱饵：'拍板/决策'字面相关，但场景特征是'没时间'，共识机制全部失效。"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "会上只要总监一开口，大家就都同意他的说法，讨论形同虚设。怎么让大家敢反驳他？",
+      "expected_sibling": "hippo-resistance",
+      "expected_behavior": "不应激活 real-consensus：问题是职位对发言权重的污染（河马），不是共识流程缺失——应激活 hippo-resistance（数据开场+质疑义务）。",
+      "notes": "跨 skill 混淆诱饵：'开会没人说真话'两 skill 都覆盖，判别点在权力污染还是流程缺失。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们就 5 个人的小团队，日常的小决定也要走这套'充分发言+挺身支持'的共识流程吗？",
+      "expected_behavior": "边界处理：不应机械全用——琐碎可逆的小决定不走共识流程（B 段反场景），本流程预留给重大/难逆/跨团队决策；但'重大'与否由影响面判断，不看团队人数。",
+      "notes": "边界：考察按决策量级开关流程，而不是把共识当成万能会议礼仪。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条跨 skill 诱饵）+ 1 条 edge_case。全部 should_not_trigger 容错为 0。"
+}

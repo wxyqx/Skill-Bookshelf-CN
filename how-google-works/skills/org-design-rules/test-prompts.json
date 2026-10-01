@@ -1,0 +1,43 @@
+{
+  "skill": "org-design-rules",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们 200 人的公司，CEO 直接汇报有 12 个人，董事会以'管理幅度过宽'为由建议增设一层 COO。这个建议该不该采纳？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们要把三条产品线重组到一个事业部下，方案已经讨论两个月还没定，团队天天开会观望，怎么推进重组？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "评审时发现我们 App 的首页入口又乱又深：每个业务部门都坚持要自己的独立入口，用户根本找不到东西。这种问题到底出在哪、怎么破？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "组里有个技术大牛，绩效全组最高，但惯于把下属的功劳写进自己的汇报，还打压提反对意见的人。老板说能人都难搞，我该不该动他？",
+      "expected_sibling": "expel-villains-protect-stars",
+      "expected_behavior": "不应激活本 skill：这是个人品行判别与处置问题（私利 vs 集体利益），不是组织结构问题",
+      "notes": "跨 skill 混淆诱饵: '团队/大牛'等词像组织话题，实则考'结构 vs 品行'的分界"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这份组织架构图导出成 PPT，10 个部门的名字和汇报线我都列好了，照着排就行。",
+      "expected_behavior": "不应激活本 skill：纯文档排版执行任务，无需组织设计判断",
+      "notes": "诱饵: 表面出现'组织架构'字样，但没有任何设计/诊断需求"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们初创团队一共 8 个人，没有任何层级，现在需要考虑'7 的法则'这类组织规则吗？",
+      "expected_behavior": "边界处理：管理幅度对 8 人团队是伪问题（B 段反场景），明确说'不需要套用 7 的法则'；但可以提示两个比萨与影响力中心在组建项目/分工时仍有参考价值——不整段激活，只做边界回答",
+      "notes": "边界: 规则的最小适用规模；检验 skill 是否会机械套用硬参数"
+    }
+  ]
+}

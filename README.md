@@ -10,7 +10,7 @@
 
 ## 目录总览
 
-**20 本书 · 365 个 skills**（最后更新：2026-10-01）
+**21 本书 · 383 个 skills**（最后更新：2026-10-01）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -34,6 +34,7 @@
 | 《任天堂的体验设计——创造不知不觉打动人心的体验》*任天堂の体験設計* | 玉树真一郎 · 2021 | 体验设计 / 打动人心 / 游戏化 | 13 | [`nintendo-experience-design/`](./nintendo-experience-design/) |
 | 《上瘾》*Hooked* | 尼尔·埃亚尔、瑞安·胡佛 · 2014 | 产品设计 / 习惯养成 / 增长 | 21 | [`hooked/`](./hooked/) |
 | 《启示录：打造用户喜爱的产品》*INSPIRED* | Marty Cagan · 2008 | 产品管理 / 产品探索 / 用户体验 | 18 | [`inspired/`](./inspired/) |
+| 《重新定义公司：谷歌是如何运营的》*How Google Works* | 埃里克·施密特、乔纳森·罗森伯格 · 2015 | 企业管理 / 赋能 / 创意精英 | 18 | [`how-google-works/`](./how-google-works/) |
 
 ---
 
@@ -159,6 +160,12 @@
 - **一句话**：产品经理的本职是探索出**有价值的、可用的、可行的**产品——在写第一行代码之前，用高保真原型和真实用户验证这三点；因为"如果产品没有市场价值，无论开发团队多么优秀也无济于事"。
 - **Skills**：`opportunity-assessment-ten-questions` · `discovery-execution-two-modes` · `product-validation-trio` · `minimal-product-definition` · `hi-fi-prototype-as-spec` · `charter-user-program` · `prototype-testing-playbook` · `user-research-limits` · `persona-driven-focus` · `irrational-user-signals` · `product-principles-priority` · `special-product-defense` · `emotion-based-demand` · `new-old-thing` · `metric-driven-improvement` · `smooth-deployment` · `rapid-response-window` · `tech-headroom-20percent`
 
+### 21. 《重新定义公司：谷歌是如何运营的》 — *How Google Works* · [`how-google-works/`](./how-google-works/)
+
+- **作者**：埃里克·施密特（Eric Schmidt，谷歌前 CEO）、乔纳森·罗森伯格（谷歌前产品负责人），与艾伦·伊格尔合著 · 2015（中信出版社中文版，靳婷婷译；英文原版 2014）
+- **一句话**：互联网时代企业的成功之道，是聚集一群"创意精英"（smart creative）并营造让他们自由发挥的环境——**赋能而非管理**；信息、连接、计算的成本骤降让"速度定成败"，卓越产品是唯一护城河。
+- **Skills**：`hippo-resistance` · `org-design-rules` · `expel-villains-protect-stars` · `technical-insight-first` · `open-as-strategy` · `focus-user-think-10x` · `hiring-quality-bar` · `talent-portrait` · `hiring-ops` · `retention-playbook` · `real-consensus` · `decision-timing-discipline` · `default-open-candor` · `resource-70-20-10` · `twenty-percent-time` · `ship-iterate-fail-well` · `innovation-chaos` · `ask-hard-questions`
+
 ---
 
 ## 安装
@@ -166,7 +173,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 365 个 skills（用户级，所有项目可用）
+# 一次性安装全部 383 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -204,7 +211,8 @@ skill-bookshelf/
 ├── effective-executive/      # 《卓有成效的管理者》（25 skills）
 ├── nintendo-experience-design/ # 《任天堂的体验设计》（13 skills）
 ├── hooked/                   # 《上瘾》（21 skills）
-└── inspired/                 # 《启示录：打造用户喜爱的产品》（18 skills）
+├── inspired/                 # 《启示录：打造用户喜爱的产品》（18 skills）
+└── how-google-works/         # 《重新定义公司：谷歌是如何运营的》（18 skills）
 ```
 
 ---

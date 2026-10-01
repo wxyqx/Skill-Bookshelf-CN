@@ -1,0 +1,51 @@
+{
+  "skill": "talent-portrait",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们要招一个'AI 训练师'，这种岗位两年前根本不存在，JD 不知道怎么写，到底该要求几年经验？",
+      "expected_behavior": "激活本 skill：JD 第一条不是'N 年经验'；新岗位上专家偏见最贵；用错失机遇之问变体测学习力；光圈放到相邻行业找上升轨迹者",
+      "notes": "正面场景：新岗位画像（V2 novel_question 的用户化改写）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "面试时怎么判断一个人是不是真的爱学习、能成长，而不是背了一堆证书和话术？",
+      "expected_behavior": "激活本 skill：学习型动物探测——错失机遇之问（剖析具体错误，无法套话应付）；警惕把'激情'挂嘴边的自述",
+      "notes": "正面场景：学习力测量"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有个候选人简历完全不对口，学艺术的想转产品经理，但作品集和思路都非常惊艳，要不要给面试机会？",
+      "expected_behavior": "激活本 skill：加大光圈——以职业上升趋势为判据，纳入被常规标准排除的高潜力者；规则为判断让路并记录破例理由",
+      "notes": "正面场景：光圈测试（ce26 的镜像）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "背调的时候怎么核实候选人上一份工作的薪资和在职时长？",
+      "expected_behavior": "不应激活本 skill：背调核实是信息核验事务，不是画像与测量设计",
+      "notes": "诱饵：招聘语境但属事务性话题"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "这个候选人各方面都在水准线上，但我们都觉得'也就那样'，团队意见是招进来先用着，反正不合适再换。",
+      "expected_sibling": "hiring-quality-bar",
+      "expected_behavior": "不应激活本 skill：面试方法已走完，痛点是标准松紧与'先招再换'的取舍——宁漏聘不误聘的质量律问题，转 hiring-quality-bar",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：画像/律法分界测试"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "老板面试完说'这人跟我特别投缘，聊了三个小时，要了'，但面试官的评分表很一般。",
+      "expected_behavior": "边界处理：激活本 skill 用于纠偏——投缘≠谷歌范儿，机场测试是操作化的评分维度而非聊天感觉；结论须回到统一事实评分，同时承认面试前后观察也是合法信号",
+      "notes": "边界：'谷歌范儿 vs 投缘'的张力（B 段作者盲点）"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条跨 skill 诱饵，expected_sibling=hiring-quality-bar）+ 1 条 edge_case。"
+}

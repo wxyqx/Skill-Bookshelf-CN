@@ -1,0 +1,51 @@
+{
+  "skill": "hiring-quality-bar",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "核心岗位空了4个月，老板开始催了。最近这个候选人能力一般但能马上到岗，要不要先招进来？",
+      "expected_behavior": "激活本 skill：宁缺毋滥无例外；把空缺成本与误聘成本并列算账；若确需时间，换路径（合同工/扩大漏斗）不换标准",
+      "notes": "正面场景：降标准压力的经典场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "面试完感觉这个候选人还行，但说不上哪里特别好，团队意见五五开，offer 发不发？",
+      "expected_behavior": "激活本 skill：拿不准时不录——宁漏聘不误聘；写'若误聘最坏情形'，惋惜记录进人才库但不复议",
+      "notes": "正面场景：不对称法则的裁决场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们是10人初创，最近连着招错两个人，都在三个月内走了，到底是标准定太高了还是流程有问题？",
+      "expected_behavior": "激活本 skill：先用两个自检问题（最差10%换成新人会更好吗）校准；误聘的事后成本复盘；若指向流程再转 hiring-ops 补流程",
+      "notes": "正面场景：误聘复盘；与 hiring-ops 存在 composes 串联（见自测记录）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们发的 offer 被候选人拿别家 offer 压价，该怎么谈薪才不吃亏？",
+      "expected_behavior": "不应激活本 skill：薪酬谈判不在录用标准范畴",
+      "notes": "诱饵：招聘语境但属谈判话题"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "一个候选人已经面到第8轮了还是定不下来，大家谁都不想担责任，招聘流程该怎么改？",
+      "expected_sibling": "hiring-ops",
+      "expected_behavior": "不应激活本 skill：痛点是决策权结构与流程拖延（轮数、无人表态），不是标准松紧；转 hiring-ops",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：流程/标准分界测试"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司现金流只够6个月，关键岗位空缺4个月，投资人施压'先随便招一个顶着'。",
+      "expected_behavior": "边界处理：不硬扛也不降标准——换路径不换标准（合同工/外包买时间、全员举荐扩大漏斗），并明确'标准打折一次=复利衰减'的代价（推演自 V2，非书中原文）",
+      "notes": "边界：宁缺毋滥在生存压力下的执行形态"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条跨 skill 诱饵，expected_sibling=hiring-ops）+ 1 条 edge_case。"
+}

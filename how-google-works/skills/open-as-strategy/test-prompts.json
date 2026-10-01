@@ -1,0 +1,43 @@
+{
+  "skill": "open-as-strategy",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的推荐算法引擎出现了一个开源竞品，董事会吵翻了：有人说先发制人开源自己的引擎换生态，有人说这是把命根子交出去。这个决策怎么框架化？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "产品经理说我们该学苹果搞封闭生态才有护城河，另一个说我们不是苹果、封闭就是等死。到底什么条件下才配选封闭？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "增长团队为了留存，主张用户注销时设置层层障碍、不允许一键导出数据。这种锁定用户的做法战略上划算吗？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "团队抱怨管理层开周会只报好消息，项目延期的坏消息从来传不到上面。怎么让大家敢讲真话、把信息共享起来？",
+      "expected_sibling": "default-open-candor",
+      "expected_behavior": "不应激活本 skill：这是组织内部信息透明与讲真话的安全环境问题，不是产品/平台层面的开放战略",
+      "notes": "跨 skill 混淆诱饵: '开放/共享'字样直接撞本 skill 的'开放'，实则是同词不同层（信息流 vs 战略选择）的典型混淆"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "开源协议 GPL 和 MIT 有什么区别？我们公司的新仓库该挂哪个协议？",
+      "expected_behavior": "不应激活本 skill：纯开源协议知识查询，不涉及开放 vs 封闭的战略判断",
+      "notes": "诱饵: '开源'字样高频出现，但只是信息查询场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一个政府合作项目要求我们把源码交给对方托管，内部很纠结——这算'开放'吗？该不该用开放战略来评估它？",
+      "expected_behavior": "边界处理：先分类——这是合同/合规要求的被动交付，不是开放与封闭的战略选择；只有当'是否公开给生态'成为可选决策时，才进入本 skill 的判定流程",
+      "notes": "边界: 检验 skill 是否会把一切'代码交出去'的场景都当成战略开放问题"
+    }
+  ]
+}

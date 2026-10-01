@@ -1,0 +1,53 @@
+{
+  "skill": "ask-hard-questions",
+  "version": "0.1.0",
+  "source_book": "《重新定义公司：谷歌是如何运营的》 — 施密特、罗森伯格",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下个月战略会，议程已经排满了：Q3 业绩、明年预算、几个新项目汇报。我总觉得缺点什么——十年前我们错过移动的教训还没消化，现在又没人敢提'我们会不会被 AI 绕过'。怎么把这种问题放进议程？",
+      "expected_behavior": "应激活 ask-hard-questions：把难题写成'5 年后可能会怎样'的语法、以标题级议题摆上战略会（c69 式公开化）、配跟进机制防提出即结束",
+      "notes": "正面场景：战略会缺真问题+没人敢提，本 skill 的原型场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我是 SaaS 公司创始人，私下怀疑我们花五年打磨的中台界面层会被 AI Agent 直接绕过，但没有确凿证据，跟高管提过一次大家都说'再看看'。这事该怎么办？",
+      "expected_behavior": "应激活 ask-hard-questions：不要求确凿证据，问'可能会怎样'而非'一定会怎样'；把难题公开化并配反方角色+季度复查（防太阳公司式空转）",
+      "notes": "正面场景：V2 novel_question 镜像——威胁未确证但敏感"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们打算做一次十年老公司的'组织体检'，想要一份面向未来的自检问题清单，别只查 KPI，要能查出温水煮青蛙那种病。",
+      "expected_behavior": "应激活 ask-hard-questions：输出书中自检清单（竞争者会以什么方式危及核心业务/是否为避免厮杀而扼杀创新/企业还是平台之辨/员工自由度）",
+      "notes": "正面场景：自检清单请求（p212）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我预测一下 2027 年国内新能源车的销量规模，要做个 PPT 给投资人看，最好有数据来源。",
+      "expected_behavior": "不应激活本 skill：这是预测/测算请求，本 skill 的提问语法恰恰拒绝'一定会怎样'式的预测（E1 判停条件）",
+      "notes": "诱饵：'未来/预测'字面相似，但目的相反——投资材料要的是数字，不是不安"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "我们复盘会上大家都不说真话，明面上全是好消息，出问题都在私下水里聊。怎么才能让大家当众把坏消息和尖锐问题讲出来？",
+      "expected_behavior": "不应激活本 skill，应激活 default-open-candor（讲真话的安全环境：报忧者善待、匿名提问通道、共享一切的举证责任）",
+      "expected_sibling": "default-open-candor",
+      "notes": "跨 skill 混淆诱饵：同样涉及'真话/尖锐问题'，但缺的是信息环境基建（怎么说出来），不是难题的语法与跟进机制（问什么）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我最近很焦虑：5 年后 AI 会不会让我这个会计彻底失业？要不要现在就转行？",
+      "expected_behavior": "边界处理：提问语法（问可能而非一定）可借用来梳理个人决策，但本书语境是组织自检而非个人职业咨询——应注明适用层级差异，部分方法（公开化、跟进机制）需要改写，不应整套照搬",
+      "notes": "边界：组织方法论落到个人焦虑的场景，考察是否机械输出组织级步骤"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

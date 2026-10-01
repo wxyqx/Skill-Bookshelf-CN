@@ -1,0 +1,53 @@
+{
+  "skill": "decision-timing-discipline",
+  "version": "0.1.0",
+  "source_book": "《重新定义公司：谷歌是如何运营的》 — 施密特、罗森伯格",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "'自研还是采购'这个决策在我们公司拖了快四个月，两边的数据都很充分，每次开会都是'再调研一下'。怎么破局？",
+      "expected_behavior": "应激活 decision-timing-discipline：判定信息已两轮无增量→过 PIA 三问→设最后期限响铃；足够重要则每天同一议题开会，到期必须拍板。",
+      "notes": "正面场景：ce36 数据挖掘式拖延的原型（'再挖一轮数据'）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我一天开 12 个会，全是等我拍板的小事，真正重要的新业务反而没时间想。问题出在哪？",
+      "expected_behavior": "应激活 decision-timing-discipline：少做决策——把可授权事项连同期限交出去；自检 80/80，把时间还给核心业务。",
+      "notes": "正面场景：琐事决策淹没高管+核心业务被挤占，正中授权与 80/80 两条机制。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "法务每次都要求把所有风险写进合同附件，一个功能上线要等三周合规审查，业务节奏全被拖死了。怎么跟法务共处？",
+      "expected_behavior": "应激活 decision-timing-discipline 的马背原则分支：支持职能嵌入业务团队、提供周密指引而非 50 页免责文书、带不完全信息上路；同时按 B 段保留强合规事项的例外。",
+      "notes": "正面场景：ce39 律师式规避风险与 c59 马背原则的直接对应。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "生产事故正在发生，是先重启服务还是先保留现场排查？我现在就要决定，没时间了。",
+      "expected_behavior": "不应激活 decision-timing-discipline：紧急事故没有决策空间，B 段反场景直接覆盖——按指挥链立即行动，事后复盘。",
+      "notes": "诱饵：'要不要决定/多方案二选一'字面相关，但'没时间了'意味着一切时机框架失效。"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "我们开会讨论都很充分，少数派的反对意见也摆出来了，leader 也拍板了。但那几个反对的人会后消极怠工，说'反正你们定了'。怎么让大家真心支持这个决定？",
+      "expected_sibling": "real-consensus",
+      "expected_behavior": "不应激活 decision-timing-discipline：决策已经做出（不缺时限），缺的是败方的'挺身支持'与情感修复——应激活 real-consensus（'你们两边说得都对'+两条明路）。",
+      "notes": "跨 skill 混淆诱饵：'开会+拍板+不执行'字面接近响铃场景，判别点在决策已完成、问题出在共识后效。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "老板把一个决策的期限定在周五，但今天刚出了新数据，可能会改变结论。按不按期拍板？",
+      "expected_behavior": "边界处理：应激活本 skill 并按'响铃是手段不是仪式'处理（p134/ce37）——评估新信息是否有实质增量：有→调整期限并向团队说明理由；没有→按期拍板。两个方向都合理，但必须给出增量判断依据，而不是'期限就是期限'的机械执行。",
+      "notes": "边界：考察'别成为紧迫感的奴隶'与'按期完成'的张力拿捏，是本 skill 最核心的边界。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条跨 skill 诱饵）+ 1 条 edge_case。全部 should_not_trigger 容错为 0。"
+}

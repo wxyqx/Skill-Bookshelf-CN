@@ -1,0 +1,51 @@
+{
+  "skill": "focus-user-think-10x",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "竞品上线了 AI 聊天助手，老板让我们也做一个差不多的，团队一片附和。我觉得不对但说不出理由。",
+      "expected_behavior": "激活本 skill：把'竞品做了'从立项理由中剔除，改写为用户侧语言，检查我们是否有竞品没触及的用户需求（竞争当燃料不当路标）",
+      "notes": "正面场景：竞争注意力纪律的镜像"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们在定明年的 OKR，大家写的目标都很有把握能完成，老板嫌太保守。到底目标定多激进才合适？",
+      "expected_behavior": "激活本 skill：OKR 应近乎遥不可及，全绿=定低了，完成 70% 胜过松垮的 100%；打分只用于诚实自评",
+      "notes": "正面场景：目标量级与 OKR 纪律"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们 SaaS 的付费方是学校采购部门，但天天用产品的是老师和学生，两边需求经常打架，产品该听谁的？",
+      "expected_behavior": "激活本 skill：先辨用户与客户，冲突时站使用者（学习者），并给出'为用户做对的事、赢利水到渠成'的判断路径",
+      "notes": "正面场景：用户≠客户之辨（c74 摩托罗拉的镜像）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我对比一下 Notion 和语雀的功能和价格差异，我要给团队选一个知识库。",
+      "expected_behavior": "不应激活本 skill：这是纯竞品信息查询，需要的是信息汇总而非方向纪律（B 段反场景）",
+      "notes": "诱饵：'竞品'字面信号但无方向决策"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "团队想立项一个 AI 面试助手，方向上大家都觉得用户需要，但被投资人追问'凭什么你们能做成'时说不清楚。",
+      "expected_sibling": "technical-insight-first",
+      "expected_behavior": "不应激活本 skill：痛点是缺技术洞见（根基过滤器），不是方向量级；先过洞见之问再谈放大",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：depends-on 的前置 skill 抢调用测试"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司现金流只够撑一年，还要不要继续投入那个'放大10倍'的登月项目？",
+      "expected_behavior": "边界处理：赌注悖论的前提是'输得起'（谷歌有 AdWords 利润引擎兜底）；先检查是否有核心业务养活 10% 桶（转 resource-70-20-10），不押上生存，但不机械否决大目标",
+      "notes": "边界：赌注悖论的适用前提与 B 段作者盲点（利润引擎依赖）"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条跨 skill 诱饵，expected_sibling=technical-insight-first）+ 1 条 edge_case。"
+}

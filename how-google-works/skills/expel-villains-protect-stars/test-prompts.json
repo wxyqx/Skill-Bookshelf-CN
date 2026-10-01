@@ -1,0 +1,44 @@
+{
+  "skill": "expel-villains-protect-stars",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们有个算法工程师业绩全组第一，但惯于把下属的功劳写进自己的汇报，还打压提反对意见的人。老板觉得能人难搞很正常，我该不该动他？"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司准备立规矩整治刺头，但团队有个天才架构师从不按流程走、开会爱怼人，产出却是全组最高。怎么才能不清到他？"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "最近发现小组里有人开始模仿那个'能人'的做派——抢资源、甩锅，以前没人这么干。这是个危险信号吗？该怎么办？"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们有位明星员工能力很强但最近成长停滞了，对手正在挖他。要不要加薪挽留？怎么留？",
+      "expected_sibling": "retention-playbook",
+      "expected_behavior": "不应激活本 skill：这是留人与汰换的博弈问题（成长、薪酬、挽留窗口），不是品行判别问题",
+      "notes": "跨 skill 混淆诱饵: '明星员工'字样直接撞本 skill 的'保护明星'，实则考'明星保护 vs 明星挽留'的分界"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "面试一个技术候选人时，除了让他讲项目经历，怎么判断他的技术水平够不够硬？要当场出算法题吗？",
+      "expected_sibling": "talent-portrait",
+      "expected_behavior": "不应激活本 skill：这是能力测评方法问题，不涉及品行判别与处置",
+      "notes": "诱饵: '面试/判断人'字样像品行考察，实则考'品行入口拦截 vs 能力画像'的分界"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "有个同事业务能力不错，但开会总打断别人、说话很冲，几个同事投诉说跟他合作难受。这算不算恶棍？",
+      "expected_behavior": "边界处理：按'私利还是集体利益'判据追问——打断/说话冲本身不是恶行；若无损公肥私的事实，不贴恶棍标签，按协作方式反馈处理；只有出现利益指向事实才进入驱逐流程",
+      "notes": "边界: 检验 skill 是否会把'难相处'误判为'恶棍'（ce15 的双向误伤之一）"
+    }
+  ]
+}

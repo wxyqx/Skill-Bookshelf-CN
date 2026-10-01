@@ -1,0 +1,53 @@
+{
+  "skill": "retention-playbook",
+  "version": "0.1.0",
+  "source_book": "《重新定义公司：谷歌是如何运营的》 — 施密特、罗森伯格",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们团队最能打的一位资深工程师昨天提了离职，说别家给了双倍工资。我不想只靠加薪去堵，有没有更系统的挽留办法？",
+      "expected_behavior": "应激活 retention-playbook：先诊断流失动因，用发展对冲（造职位/新挑战）而非直接反报价；若确要反报价，1 小时内出手；真要走则走电梯演讲与 alumni 放行分支。",
+      "notes": "正面场景：明星被挖角+用户明确说'不想只靠加薪'，正中留汰律的发展供给主张。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司要推内部轮岗，结果各部门经理都在打太极，骨干一个不肯放，流出去的全是边缘人。这个制度怎么改？",
+      "expected_behavior": "应激活 retention-playbook：识别'巧克力囤积'失败模式，改规则为'被轮出的必须是佼佼者'，把轮换质量纳入管理者考核。",
+      "notes": "正面场景：ce31 描述的博弈均衡，正是换出巧克力留下葡萄干的原型场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "HR 要求每位高管提交继任者计划，我不知道该盯着谁：是等老资历的副总裁，还是关注那几个升得特别快的年轻人？",
+      "expected_behavior": "应激活 retention-playbook 的接班人分支：找 10 年后能接大任的'儿子辈'（升职最快的高潜），给足待遇与发展防停滞，而不是在资深名单里挑填坑者。",
+      "notes": "正面场景：接班人计划（f34/p145）属于本单元 merged_from，ce60 的反面直指此问。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "组里有个同事绩效一直垫底，也不配合团队，大家都盼着他走。怎么体面地让他离开？",
+      "expected_behavior": "不应激活 retention-playbook：留汰律只服务明星与高潜；对绩效不达标者的处置不在本 skill 的对象范围内（B 段反场景）。",
+      "notes": "诱饵：'人员去留'字面相关，但对象是平庸者而非明星——用错对象是本 skill 最容易犯的错。"
+    },
+    {
+      "id": "cross-decoy-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的技术总监业绩全组最高，但惯于把下属的功劳写进自己的汇报，还当众贬低支持他的同事。他是应该容忍的明星，还是该请走？",
+      "expected_sibling": "expel-villains-protect-stars",
+      "expected_behavior": "不应激活 retention-playbook：这是'恶棍 vs 明星'的判别问题（判据是私利还是集体利益，而非怎么留人），应激活 expel-villains-protect-stars。",
+      "notes": "跨 skill 混淆诱饵：'明星'字面出现在 prompt 里，但问题实质是品行判别与清除，归恶棍与明星 skill。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一位核心员工说想出去创业，我拿不准是该升职加薪把他留住，还是放他走。",
+      "expected_behavior": "边界处理：应激活 retention-playbook 并走电梯演讲分支——先听完整 30 秒构想再判：构想不成熟→劝其边工作边完善；有说服力→放行甚至投资。两个极端（盲目加薪/直接放行）都不是标准答案。",
+      "notes": "边界：'拦还是放'的答案取决于构想质量，考察是否按流程分支走而非二选一。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger（含 1 条跨 skill 诱饵）+ 1 条 edge_case。全部 should_not_trigger 容错为 0。"
+}
