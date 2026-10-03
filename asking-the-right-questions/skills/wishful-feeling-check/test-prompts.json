@@ -1,0 +1,48 @@
+{
+  "skill": "wishful-feeling-check",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我特别希望这次体检结果没事，医生建议再做一轮复查，我突然觉得可以不去了，帮我看看我是不是一厢情愿",
+      "expected_behavior": "激活 wishful-feeling-check：用自检句分离愿望与证据，跳过复查目前只有愿望支撑，结论降级为待证据，并列出先查什么再允许自己安心",
+      "notes": "正面场景：V2 novel_question 同型（健康决策中的愿望渗透）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "团队有人反对我的方案，我一听就火了，感觉他是在针对我这个人，帮我校准一下我现在的状态",
+      "expected_behavior": "激活 wishful-feeling-check 的感情先行分支：识别'观点之争体验为自我之争'的信号，先复述对方的理由再决定回应，感情归位到推理之后",
+      "notes": "正面场景：对既有立场的感情依恋（ce02 机制）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我重仓的那只股票一直在跌，但我看什么研报都觉得是利好信号，我是不是有点自欺欺人",
+      "expected_behavior": "激活 wishful-feeling-check：逐条检查'利好信号'里哪些可独立核验、哪些只是愿望的投影，对坏消息选择性失明被点名，结论降级为待证据",
+      "notes": "正面场景：投资决策中的一厢情愿"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我反对团队迁微服务，但发现自己好像只在收集支持自己的证据，帮我把我的反对理由完整对称审一遍",
+      "expected_behavior": "应激活同书兄弟 skill strong-sense-self-audit（把清单对准自己立场的程序性审查）而非 wishful-feeling-check；用户已完成情绪识别，要的是对称审查工序",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我分析一下这篇养生文用了什么情绪话术让读者相信的",
+      "expected_behavior": "审查对象是他人材料中的情绪话术，应路由 fallacy-three-questions（诉诸感情谬误）或 ambiguity-loaded-words（感情色彩词），不激活对自己愿望的自检",
+      "notes": "诱饵：方向反转——审别人 vs 审自己"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我就是觉得我们团队明年一定能成，这种信念是不是也需要被自检掉？",
+      "expected_behavior": "区分'作为愿景的信念'与'作为决策依据的信念'：愿景不需要证据门槛，不应启动自检；只有当该信念开始充当行动理由时才用自检句过一遍",
+      "notes": "边界：乐观信念 vs 判断依据——skill 的对象是证据职能不是感情本身"
+    }
+  ]
+}

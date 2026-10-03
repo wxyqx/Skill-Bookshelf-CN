@@ -1,0 +1,48 @@
+{
+  "skill": "value-assumption-mining",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "同事反对全员远程办公，理由是员工不在眼皮底下不好管理。我们俩的分歧点到底在哪？",
+      "expected_behavior": "激活 value-assumption-mining：判定为规定性论证，挖出'管理可控性 > 员工自主性'的隐藏取舍，用反串验证并把争论改写为'该情境下哪个价值更重'",
+      "notes": "正面场景：团队规定性分歧（verified.md V2 novel question）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这篇社论主张在街区装更多摄像头，理由是装了之后犯罪率下降了。他想维护的价值和愿意牺牲的价值分别是什么？",
+      "expected_behavior": "激活 value-assumption-mining：从偏爱的后果（治安）反推价值排序（集体安全 > 个人隐私），并用'换掉取舍理由是否撑得住'验证承重性",
+      "notes": "正面场景：社论/政策论证分析"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我要写一篇支持强制绩效考核的提案，帮我预判反对的人会从什么价值观角度攻击我",
+      "expected_behavior": "激活 value-assumption-mining 的反串线索：站到反方立场找'竞争 > 合作'式冲突对，写提案时把取舍摆上台面并给出宁要它的理由",
+      "notes": "正面场景：写作侧镜像应用（价值取向也需要理由）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "'提高最低工资必然导致失业'——这个推理从工资上涨跳到失业，中间缺了什么环节？",
+      "expected_behavior": "应激活兄弟 skill descriptive-assumption-mining（事实性逻辑缺口）；这不是价值取舍，是'世界如何运作'的未言明信念",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）——价值假设 vs 描述性假设"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我列一份个人价值观清单，我最近在做职业规划想搞清楚自己看重什么",
+      "expected_behavior": "不激活：这是个人价值梳理需求，不是论证审查；本 skill 明确不产出价值清单（书中指出人人共享同一批价值观，列清单无用）",
+      "notes": "诱饵：常识误区场景——'挖价值观'≠价值清单测评"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我妈就说了一句话：'孩子必须管得严'。帮我分析她是什么价值观假设",
+      "expected_behavior": "判停处理：纯观点没有理由，不存在理由到结论的取舍结构；应先说明无理由即无可挖的假设，建议先追问她凭什么（identify-reasons 方向），再回来挖",
+      "notes": "边界：无理由的断言无法启动假设挖掘，测试判停条件"
+    }
+  ]
+}

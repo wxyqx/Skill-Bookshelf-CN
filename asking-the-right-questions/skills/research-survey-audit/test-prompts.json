@@ -1,0 +1,48 @@
+{
+  "skill": "research-survey-audit",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司招聘文案写'90%员工满意度'，我在考虑要不要去，这个数字怎么看",
+      "expected_behavior": "激活 research-survey-audit：样本三查（谁被调查——离职者缺席=幸存者偏差；覆盖率；自愿参与=随机性存疑）+调查两偏见（措辞、语境），输出'概括范围远小于宣称范围'的结论",
+      "notes": "正面场景：verified s17 的 novel_question 原型场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "新闻说最新研究表明每天喝咖啡的人更长寿，可上个月还有研究说咖啡伤身，科学怎么自己打自己",
+      "expected_behavior": "激活 research-survey-audit：改写为'研究人员解释其数据为'，检查两份研究的样本与调查程序、资助方、有无重复验证，解释单一研究脱离研究群与结论被转述强化的机制；同时防用户走向'研究都不可信'的强求确定性",
+      "notes": "正面场景：研究结论互相矛盾的解释"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我要给用户做一份满意度问卷，怎么样设计才不会被别人挑毛病",
+      "expected_behavior": "激活 research-survey-audit 的写作侧：预告审查清单并反向应用——避免引导性措辞（措辞偏见）、控制题序与长度（语境偏见）、如实设计抽样与覆盖（样本三查）、报告时保留限定语",
+      "notes": "正面场景：写作/设计侧镜像应用"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家药厂广告说'服用者中94%有显著效果'，可我记得他家的数据其实是94%没有副作用，这是不是偷换",
+      "expected_behavior": "应激活 deceptive-data-check（数据与结论错位）而非 research-survey-audit；用户的怀疑点是'证明了A的数据包装成结论B'的表述错位，数字来源与样本质量不是重点，按分流规则归 s20",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）——数字表述与结论的错位分流给 s20"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "某三甲医院营养科主任说这个减肥法有效，他是权威所以应该没问题吧",
+      "expected_behavior": "应激活 expert-opinion-audit（专家意见四查）而非 research-survey-audit；证据形态是专家背书而非研究/调查报告，按分流规则归 s16",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）——专家身份分流给 s16"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这项研究样本也不随机、也没重复验证，所以结论肯定是错的，我该怎么反驳它",
+      "expected_behavior": "激活 research-survey-audit 后触发双向校准：瑕疵降低结论的分量但不证明其为假（强求确定性谬误的反向失败）；输出'待证/降级'而非'必错'，并提示若存在方向一致的多项研究更不可全盘抛弃",
+      "notes": "边界：过度纠正——审出瑕疵不等于结论作废"
+    }
+  ]
+}

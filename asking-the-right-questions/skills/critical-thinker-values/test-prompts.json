@@ -1,0 +1,48 @@
+{
+  "skill": "critical-thinker-values",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下周要决定要不要接这个 offer，我咨询的五个人全是劝我跳槽的，这正常吗",
+      "expected_behavior": "激活 critical-thinker-values：跑自主性检查（信息源同温层）与好奇心检查（是否听过'留下'阵营的最好理由），给出补齐对立信息源的具体动作",
+      "notes": "正面场景：重要决策前的同温层自查，verified s03 的 V2 原型"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我看到反对意见的第一反应就是'这人立场有问题'，我知道这样不好，怎么改",
+      "expected_behavior": "激活 critical-thinker-values：识别党同伐异+偏见盲点模式，把'开放'落成可核查动作（复述最强反对论证、按论证质量给分量）",
+      "notes": "正面场景：待人姿态的自查"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我想就'该不该给孩子报奥数'做个靠谱判断，怎么保证我两边最好的理由都听到了",
+      "expected_behavior": "激活 critical-thinker-values：四价值观逐项对照（信息源覆盖、反方最强理由、公允盲点、按论证质量采信），产出兼听清单",
+      "notes": "正面场景：争议决策的兼听保障"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我坚持用传统方法写代码，帮我审审我这个结论本身站不站得住",
+      "expected_behavior": "应激活同书兄弟 skill strong-sense-self-audit（强势批判自审）：用户要审的是具体结论与理由，不是信息源与价值观姿态",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我列一套读论文时边读边问的批判性问题",
+      "expected_behavior": "应激活同书兄弟 skill pan-for-gold-reading（淘金式阅读姿态）：要的是阅读时的提问清单，不是价值观自检",
+      "notes": "诱饵：同书兄弟 skill 混淆场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "给我讲讲人生价值观应该怎么树立",
+      "expected_behavior": "不激活：人生价值观咨询超出本 skill 定义域（它只审支撑批判性思考的四种态度）；说明区别后可提供一般性讨论",
+      "notes": "边界：人生价值排序 vs 批判性思考者的态度自检"
+    }
+  ]
+}

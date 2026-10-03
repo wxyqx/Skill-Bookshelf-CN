@@ -1,0 +1,48 @@
+{
+  "skill": "critical-question-master-list",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板突然宣布新的考勤制度，通知写得挺有说服力，帮我从头到尾系统拆解一下这个论证",
+      "expected_behavior": "激活 critical-question-master-list：按 11 问顺序走流程——结论（该制度好）→理由（迟到率高）→歧义词（'弹性'指什么）→假设→省略信息→备选结论，输出有依据的暂定立场",
+      "notes": "正面场景：verified.md V2 novel_question 同型（制度论证全流程拆解）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我打算投一笔钱给这个项目，招商材料我总觉得写得太顺了，帮我做个完整的论证体检，该问的问题都问一遍",
+      "expected_behavior": "激活 critical-question-master-list：先立项定档（高利害→全审），再按序走完结构问、质量问、收尾问，每步产出物落袋",
+      "notes": "正面场景：高利害决策材料的完整审查"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我写完了一篇观点文章，发布前想按批判性思维的标准从头自查一遍，看看经不经得起推敲",
+      "expected_behavior": "激活 critical-question-master-list 并提示镜像应用：同一张清单对准自己的文章走一遍（强势批判），自查后仍站得住的结论才发布",
+      "notes": "正面场景：写作侧的全清单自查"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这篇稿子想让我相信的结论到底是什么？我读了半天没抓住重点",
+      "expected_behavior": "应激活同书兄弟 skill locate-issue-conclusion（清单第 1 问的单点深耕）而非全清单总纲；用户只需结构定位",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）——总纲 vs 单点"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "热搜上俩明星骂战吵了三天了，帮我评评谁说得对",
+      "expected_behavior": "应先激活 scrutiny-worthiness-filter 判断利害：明星骂战对用户影响甚微，建议不启动 11 问全流程，而非直接展开审查",
+      "notes": "诱饵：前置分流 skill 承接（低利害材料）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "朋友圈看到一句断言：'读书无用。'帮我审审这句话",
+      "expected_behavior": "总纲走到问 1–2 即触发判停：该句没有任何理由支撑，属于纯观点——正确动作是追问'凭什么'而非硬走全清单；向用户说明判停原因",
+      "notes": "边界：纯观点输入——清单的判停条件"
+    }
+  ]
+}

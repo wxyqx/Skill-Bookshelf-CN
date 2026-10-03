@@ -10,7 +10,7 @@
 
 ## 目录总览
 
-**21 本书 · 383 个 skills**（最后更新：2026-10-01）
+**22 本书 · 405 个 skills**（最后更新：2026-10-03）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -35,6 +35,7 @@
 | 《上瘾》*Hooked* | 尼尔·埃亚尔、瑞安·胡佛 · 2014 | 产品设计 / 习惯养成 / 增长 | 21 | [`hooked/`](./hooked/) |
 | 《启示录：打造用户喜爱的产品》*INSPIRED* | Marty Cagan · 2008 | 产品管理 / 产品探索 / 用户体验 | 18 | [`inspired/`](./inspired/) |
 | 《重新定义公司：谷歌是如何运营的》*How Google Works* | 埃里克·施密特、乔纳森·罗森伯格 · 2015 | 企业管理 / 赋能 / 创意精英 | 18 | [`how-google-works/`](./how-google-works/) |
+| 《学会提问（原书第10版）》*Asking the Right Questions* | 尼尔·布朗、斯图尔特·基利 · 2012 | 批判性思维 / 论证审查 / 提问 | 22 | [`asking-the-right-questions/`](./asking-the-right-questions/) |
 
 ---
 
@@ -166,6 +167,12 @@
 - **一句话**：互联网时代企业的成功之道，是聚集一群"创意精英"（smart creative）并营造让他们自由发挥的环境——**赋能而非管理**；信息、连接、计算的成本骤降让"速度定成败"，卓越产品是唯一护城河。
 - **Skills**：`hippo-resistance` · `org-design-rules` · `expel-villains-protect-stars` · `technical-insight-first` · `open-as-strategy` · `focus-user-think-10x` · `hiring-quality-bar` · `talent-portrait` · `hiring-ops` · `retention-playbook` · `real-consensus` · `decision-timing-discipline` · `default-open-candor` · `resource-70-20-10` · `twenty-percent-time` · `ship-iterate-fail-well` · `innovation-chaos` · `ask-hard-questions`
 
+### 22. 《学会提问（原书第10版）》 — *Asking the Right Questions: A Guide to Critical Thinking* · [`asking-the-right-questions/`](./asking-the-right-questions/)
+
+- **作者**：[美] 尼尔·布朗（M. Neil Browne）、斯图尔特·基利（Stuart M. Keeley） · 2012（英文原版 10th ed.；中文版机械工业出版社 2013，吴礼敬 译）
+- **一句话**：批判性思维不是"多想一下"的态度，而是一张环环相扣的关键问题清单（论题→结论→理由→歧义词→假设→谬误→证据→替代原因→数据→省略信息→备选结论）——用它逐层拆解任何想说服你的论证，同时把同一张清单对准自己的结论（强势批判性思维），否则它只会沦为护短工具。
+- **Skills**：`scrutiny-worthiness-filter` · `pan-for-gold-reading` · `strong-sense-self-audit` · `critical-thinker-values` · `keep-dialogue-alive` · `wishful-feeling-check` · `critical-question-master-list` · `locate-issue-conclusion` · `identify-reasons` · `charity-before-judgment` · `ambiguity-loaded-words` · `value-assumption-mining` · `descriptive-assumption-mining` · `fallacy-three-questions` · `evidence-grade-triage` · `expert-opinion-audit` · `research-survey-audit` · `analogy-evaluation` · `rival-causes-audit` · `deceptive-data-check` · `omitted-info-probe` · `alternative-conclusions`
+
 ---
 
 ## 安装
@@ -173,7 +180,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 383 个 skills（用户级，所有项目可用）
+# 一次性安装全部 405 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -212,7 +219,8 @@ skill-bookshelf/
 ├── nintendo-experience-design/ # 《任天堂的体验设计》（13 skills）
 ├── hooked/                   # 《上瘾》（21 skills）
 ├── inspired/                 # 《启示录：打造用户喜爱的产品》（18 skills）
-└── how-google-works/         # 《重新定义公司：谷歌是如何运营的》（18 skills）
+├── how-google-works/         # 《重新定义公司：谷歌是如何运营的》（18 skills）
+└── asking-the-right-questions/ # 《学会提问（原书第10版）》（22 skills）
 ```
 
 ---

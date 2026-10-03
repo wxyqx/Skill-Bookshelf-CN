@@ -1,0 +1,48 @@
+{
+  "skill": "locate-issue-conclusion",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "帮我分析一下这篇公众号文章的论证：https://example.com/post，我总觉得哪里不对但说不清",
+      "expected_behavior": "激活 locate-issue-conclusion，先分类论题（描述性/规定性），再用六线索定位结论，输出'作者要我相信 X'的一句话",
+      "notes": "正面场景：观点文章拆解，最典型的调用"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "客户发来一封长邮件，我没看明白他核心是想让我答应什么，帮我理一理",
+      "expected_behavior": "激活 locate-issue-conclusion，抓结论（他要我接受的主张）并用'所以呢'逼出隐含结论",
+      "notes": "正面场景：邮件/沟通场景的结论定位"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我要写一篇反对强制打卡的短文，动笔前帮我理理思路",
+      "expected_behavior": "激活 locate-issue-conclusion 的写作侧：收窄论题（一篇只说清一个问题）+ 明说结论，而非先堆理由",
+      "notes": "正面场景：写作侧镜像应用"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我看看这篇文章给出的理由扎不扎实，好像好几个理由都站不住脚",
+      "expected_behavior": "应激活同书兄弟 skill identify-reasons（理由识别）而非 locate-issue-conclusion；结论定位是上游，用户已越过该步",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "查一下 Node.js 22 有什么新特性",
+      "expected_behavior": "纯信息查询，不激活任何论证分析 skill",
+      "notes": "诱饵：非论证场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这篇散文写得真好，你帮我看看表达了什么",
+      "expected_behavior": "散文/叙事文本没有论证结构，不应激活；应说明该 skill 针对说服性文本并询问用户是否有论证分析需求",
+      "notes": "边界：叙事/抒情文本 vs 论证文本"
+    }
+  ]
+}

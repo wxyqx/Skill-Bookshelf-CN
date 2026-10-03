@@ -1,0 +1,48 @@
+{
+  "skill": "rival-causes-audit",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新功能上线两周后留存率涨了 5%，老板说是功能的功劳，帮我判断一下这个说法靠不靠谱",
+      "expected_behavior": "激活 rival-causes-audit：切出因果断言（功能→留存），相关四解释逐格过（反向因果/同期其他优化/第三因素/互相影响），列出替代原因并按数量校准信心",
+      "notes": "正面场景：verified.md s19 的 V2 novel question 同源，产品归因最典型调用"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "新闻说研究发现喝咖啡的人得心脏病的更少，我是不是该每天来两杯",
+      "expected_behavior": "激活 rival-causes-audit：对'咖啡→护心'做四解释检查（健康人群本来就更爱喝咖啡=第三因素；心脏不好的人主动戒咖啡=反向因果），输出'相关不支撑因果'的校准结论",
+      "notes": "正面场景：健康类相关当因果，第三因素与反向因果双命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "自从戴了这条手串我连续三单都谈成了，你说是不是真有运气这回事",
+      "expected_behavior": "激活 rival-causes-audit 的事后归因检查：唯一依据是时间先后，缺'先后之外的其他过硬证据'，归因为巧合加归因偏差而非玄学",
+      "notes": "正面场景：事后归因（在这之后不等于因为这个）的日常形态"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "招聘写'平均月薪 2 万'，这个数字是不是有水分",
+      "expected_behavior": "应激活 deceptive-data-check（数字表述：平均值类型/全距/口径措辞）而非 rival-causes-audit；本 skill 只管因果解释，用户问的是数字怎么呈现",
+      "notes": "诱饵：s19/s20 分界——任务书钦定的兄弟混淆场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这份'90% 满意度'的调查问卷是怎么设计的，样本随机吗",
+      "expected_behavior": "应激活 research-survey-audit（数据采集质量：样本三查/调查偏见），不是替代原因问题",
+      "notes": "诱饵：上游兄弟 skill——采集质量先于因果审查"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "小王老迟到，他就是懒，没救了",
+      "expected_behavior": "边界场景：识别为人格归因（基本归因错误信号），轻量激活——补环境因素（通勤/排班/家庭处境）而不展开全套四解释；若用户只是在发泄情绪则先接情绪再问是否要分析",
+      "notes": "边界：日常抱怨式归因 vs 分析请求，激活深度需自适应"
+    }
+  ]
+}

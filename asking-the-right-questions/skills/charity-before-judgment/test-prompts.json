@@ -1,0 +1,48 @@
+{
+  "skill": "charity-before-judgment",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我读到一篇跟我立场完全相反的时评，火气一下就上来了，帮我在反驳之前先按对方最强的方式理一遍",
+      "expected_behavior": "激活 charity-before-judgment：复述对方结论、挑出他最强的一条理由、补全隐含前提；重构完成前不反驳，之后才交评价工序",
+      "notes": "正面场景：verified.md V2 novel_question 同型（立场相反材料的施惠重构）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我要给这份竞标方案写差评了，先帮我确认一下我没在打稻草人，把对方最强的理由摆出来",
+      "expected_behavior": "激活 charity-before-judgment：做最强形式重构与走样检查（有没有极端化、丢限定词），确认评价对象是重构后的最强形态",
+      "notes": "正面场景：评审前的施惠检查"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "复盘昨天那场争论，我怀疑自己当时只是抓了对方最好笑的一句话说赢了，帮我检查我是不是没理解他",
+      "expected_behavior": "激活 charity-before-judgment 的复盘模式：还原对方的最强形式并对照当时打倒的版本，指出稻草人差距与不施惠的代价",
+      "notes": "正面场景：争论复盘"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "家人信了养生谣言，我一开口就吵架，怎么谈才能不翻脸还能让他听进去",
+      "expected_behavior": "应激活同书兄弟 skill keep-dialogue-alive（八条谈话策略与语气管理）而非施惠重构；用户的问题在对话方式，不在理解工序",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）——脑内重构 vs 对外语气"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "收到一封邮件让我转账解冻账户，措辞特别客气有逻辑，帮我分析一下他的论证哪里最强",
+      "expected_behavior": "诈骗类恶意输入不做常规施惠（施惠前提'对方在讲理'不成立）；应按风险处理提示，不激活本 skill",
+      "notes": "诱饵：恶意输入排除项"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "对方就是个杠精，抬杠成性，还有必要 steelman 他吗？",
+      "expected_behavior": "区分'讲理的对手'与'对抗性输入'：对杠精不做全量施惠；但保留最小动作——一次核对确认没有误判对方立场，然后把重构的功夫花在帮围观者形成判断上",
+      "notes": "边界：施惠的前提条件与降级用法"
+    }
+  ]
+}

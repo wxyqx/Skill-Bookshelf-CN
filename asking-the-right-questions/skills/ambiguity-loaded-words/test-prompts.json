@@ -1,0 +1,48 @@
+{
+  "skill": "ambiguity-loaded-words",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这份合同写'乙方若重大违约须赔偿'，'重大'到底怎么算？帮我审一下这个条款",
+      "expected_behavior": "激活 ambiguity-loaded-words：对'重大'做换义替换（金额门槛义 vs 主观认定义）代入合同，判定为重要歧义，建议要求对方澄清前不签",
+      "notes": "正面场景：合同条款歧义，换义替换测验 + 责任归属"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "广告说这个催眠药'30分钟见效'，见效是什么意思？我是不是被文案忽悠了",
+      "expected_behavior": "激活 ambiguity-loaded-words：锁定'见效'，替换两种含义看购买理由是否翻转，指出广告故意安放最有吸引力的含义",
+      "notes": "正面场景：广告文案歧义（书中原靶子）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "同一项税收政策，管它叫'死亡税'支持的人就多，叫'遗产税'就没人搭理——这算什么操作？",
+      "expected_behavior": "激活 ambiguity-loaded-words 的感情色彩词检查：问'这个词想让我产生什么感情、蒙蔽了什么'，换中性同义词复述看论证变样",
+      "notes": "正面场景：感情色彩词（loaded terms）识别"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "他说'我各种情况下都开过这车，所以你买了也一定靠谱'，这句话从理由到结论默认了什么前提？",
+      "expected_behavior": "应激活兄弟 skill descriptive-assumption-mining（补桥找未言明信念）而非歧义排查；用户问的是逻辑缺口不是词义",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）——假设挖掘 vs 歧义排查"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这段英文合同条款翻译成中文，'material breach'是什么意思",
+      "expected_behavior": "纯翻译/查词义任务，不激活论证审查类 skill；直接给出词典义与常用译法",
+      "notes": "诱饵：非论证场景（词形相近的词典查询）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我要发一份产品需求文档，里面写了'尽快上线''合理的工作量'，怎么保证开发同学不会各自理解？",
+      "expected_behavior": "激活 ambiguity-loaded-words 的写作侧镜像：对自己文档的关键词做画面测试与定义自查（不是分析别人的论证），给出逐词下定义的建议",
+      "notes": "边界：自查场景仍属本 skill，但执行方向反转为写作者侧（知识诅咒防护）"
+    }
+  ]
+}

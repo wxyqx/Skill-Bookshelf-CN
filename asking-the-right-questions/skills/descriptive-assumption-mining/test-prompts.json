@@ -1,0 +1,48 @@
+{
+  "skill": "descriptive-assumption-mining",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "'提高最低工资必然导致失业'——这个说法成立吗？总感觉从工资涨跳到失业太快了",
+      "expected_behavior": "激活 descriptive-assumption-mining：用补桥问句挖出'企业无法消化成本、不会压缩利润、不能提价'等未言明信念，把断言从'必然'降级为'有条件'",
+      "notes": "正面场景：因果断言的逻辑缺口（verified.md V2 novel question）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "汽车广告说'我在各种情况下都开过这款车型，它一定不会让你半路抛锚'，这句话默认了什么？",
+      "expected_behavior": "激活 descriptive-assumption-mining：挖出连接假设（该型号质量年复一年始终如一）与定义性假设（他的'驾驶'与你的驾驶是同一种）",
+      "notes": "正面场景：广告论证补桥（书中原靶子）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "老板论证'别的公司搞末位淘汰后业绩涨了，我们也搞一定涨'，帮我找出他没说出来的信念",
+      "expected_behavior": "激活 descriptive-assumption-mining：补桥（两公司业务结构/团队状态/执行方式相同），逐条评估可信度，输出假设清单与打击方式",
+      "notes": "正面场景：方案论证的隐含运作模型"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "他反对强制社区服务，是不是更看重个人自由而不是集体责任？帮我确认一下",
+      "expected_behavior": "应激活兄弟 skill value-assumption-mining（规定性论证里的价值取舍）；用户问的是'宁要哪个价值'，不是事实性逻辑缺口",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）——描述性假设 vs 价值观假设"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "企业裁员之后股价真的会跌吗？帮我找找有没有相关数据",
+      "expected_behavior": "不激活：这是事实核查/证据检索需求，不是找论证的逻辑缺口；应转向证据类 skill 或直接检索",
+      "notes": "诱饵：事实核查场景——缺证据≠缺前提"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "描述性假设和价值观假设到底有什么区别？给我讲讲",
+      "expected_behavior": "概念解释请求而非分析任务：简要回答两者区别（'世界如何运作'的事实信念 vs '冲突时宁要哪个'的价值偏向），并询问是否有具体论证需要挖",
+      "notes": "边界：概念提问不应触发完整挖掘流程，先解释再引导到具体任务"
+    }
+  ]
+}

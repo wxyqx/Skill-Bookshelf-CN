@@ -1,0 +1,48 @@
+{
+  "skill": "deceptive-data-check",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "招聘文案写'平均月薪 2 万'，这家公司值得去吗",
+      "expected_behavior": "激活 deceptive-data-check：问平均数还是中位数（高管拉高平均数不改中位数）、全距分布、口径（含不含股权/试用期），输出'数字真实但宣称失真'判定",
+      "notes": "正面场景：verified.md s20 的 V2 novel question 同源"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这个降胆固醇药广告说能降低 33% 的心脏病风险，我有点心动，帮我看看",
+      "expected_behavior": "激活 deceptive-data-check 的风险表述转换：问 33% 是相对还是绝对风险，换算成每百人表述，输出'绝对风险降低 3%'的褪色版本再判断",
+      "notes": "正面场景：相对风险包装（医药广告偏爱相对风险）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司 PR 稿说用户量一年增长 75%，这数字算惊人吗",
+      "expected_behavior": "激活 deceptive-data-check 的互换验证与缺失比较：要绝对数（可能是 4 家到 7 家的量级）、和什么比、基数多少，再判断'惊人'是否成立",
+      "notes": "正面场景：百分比缺绝对数、缺比较基线"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "留存率涨了 5%，这到底是不是新功能带来的",
+      "expected_behavior": "应激活 rival-causes-audit（因果解释：四解释框架/替代原因）而非 deceptive-data-check；数字本身没被质疑，用户问的是归因",
+      "notes": "诱饵：s19/s20 分界——任务书钦定的兄弟混淆场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个'94% 有效'的研究是怎么做实验的，找的什么人",
+      "expected_behavior": "应激活 research-survey-audit（研究质量：样本三查/实验设计）而非数字表述审查；先查采集、后查表述是正常顺序",
+      "notes": "诱饵：上游兄弟 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "帮我查一下 2025 年全国人均可支配收入是多少",
+      "expected_behavior": "纯信息查询，不激活任何审查 skill；直接给出数字与来源，不主动展开六查工序",
+      "notes": "边界：查数字（信息查询）vs 拆数字（表述审查）"
+    }
+  ]
+}

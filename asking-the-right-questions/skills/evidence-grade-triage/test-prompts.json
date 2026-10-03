@@ -1,0 +1,48 @@
+{
+  "skill": "evidence-grade-triage",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "朋友说他姑妈喝某保健品把糖尿病治好了，还给我看了一堆买家好评，我要不要也买",
+      "expected_behavior": "激活 evidence-grade-triage：识别当事人证词（个人经历+买家见证），走证词四查（证人选择/个人利益/判断标准省略/期望值效应），降级为'展示可能性'，建议升级到系统化证据",
+      "notes": "正面场景：弱证据四类中的个人经历+当事人证词组合，本 skill 最典型调用"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "新闻里讲了一个大学生创业成功买下房子的故事，我爸妈就说我没出息才挣不到钱，一个案例能说明什么吗",
+      "expected_behavior": "激活 evidence-grade-triage：识别典型案例，执行三问（代表性/强反例/提及方式偏见），说明单案例只能展示可能性并指出幸存者偏差方向",
+      "notes": "正面场景：典型案例的生动性偏差"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我在写一份内部建议书，手里只有一个客户的成功例子，用这个当核心证据够不够",
+      "expected_behavior": "激活 evidence-grade-triage 的写作侧：告知典型案例的效力边界（至多展示可能性）、'争议越大需要的证据越多'的投入原则，并建议补充系统化证据",
+      "notes": "正面场景：写作侧镜像应用"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "某三甲医院主任医师推荐这款益生菌，说能调理肠道，专家的话总靠谱吧",
+      "expected_behavior": "应激活兄弟 skill expert-opinion-audit（专家意见四查）而非 evidence-grade-triage；证据提供者是以专门知识发言的专家，按分流规则不归本 skill",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）——专家背书分流给 s16"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这家公司引用了一份调查显示90%用户满意度，帮我看看这个调查",
+      "expected_behavior": "应激活兄弟 skill research-survey-audit（样本三查+调查两偏见）而非 evidence-grade-triage；出现'调查/样本'即分流给 s17",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）——研究报告与民调分流给 s17"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我就是感觉这个项目要黄，说不清为什么，但我从来没看错过",
+      "expected_behavior": "激活 evidence-grade-triage 后进入判停式审查：追问直觉背后的可陈述经历（'从来没看错过'本身是幸存者式的个人经历）；若说不出可检验依据，输出降级结论——直觉只能作为待验证的假设而非证据；同时提示不因证据弱就武断反转结论",
+      "notes": "边界：直觉类弱证据（私密性），且需防'全盘拒斥'的过度纠正"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "skill": "scrutiny-worthiness-filter",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "热搜上两个明星的粉丝吵了三天了，要不要花时间搞清楚谁对谁错",
+      "expected_behavior": "激活 scrutiny-worthiness-filter：利害初筛（对用户与社会影响甚微）→ 判定低利害 → 建议明确放下，不为它启动审查清单",
+      "notes": "正面场景：低利害论题的放下，verified s05 的 V2 原型"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我收藏夹里堆了 40 篇'必读'文章，周末只有两小时，帮我定个审读优先级",
+      "expected_behavior": "激活 scrutiny-worthiness-filter：逐条利害分级，产出全审/抽查/不审三档的注意力分配方案",
+      "notes": "正面场景：信息过载的档位分配"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "小区物业费要涨 20%，业主群里吵翻了，这个我该认真查吗",
+      "expected_behavior": "激活 scrutiny-worthiness-filter：识别为高利害（直接影响钱包与权益）→ 排程深审，并指出从 pan-for-gold-reading 等下游工序接入",
+      "notes": "正面场景：高利害论题的排程"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "好，这个基金广告我决定认真审一遍，从哪开始？",
+      "expected_behavior": "应激活同书兄弟 skill pan-for-gold-reading（或 critical-question-master-list）：用户已完成'值不值得'的判断，要的是深审的具体做法，过滤器使命已结束",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "朋友说我该多读书，可我实在对书提不起兴趣怎么办",
+      "expected_behavior": "不激活：这是阅读动机问题，不是审查注意力分配问题；与'关我什么事'无关",
+      "notes": "诱饵：非审查场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "明星离婚跟我没关系，但我就是想吃个瓜",
+      "expected_behavior": "过滤器结论不变（不值得深审），但需说明：放下审查不等于禁止围观——娱乐性消费不动用审查资源即可，二者不冲突",
+      "notes": "边界：吃瓜动机 vs 审查投入，'放下不等于禁止看'"
+    }
+  ]
+}

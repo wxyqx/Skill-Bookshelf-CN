@@ -1,0 +1,48 @@
+{
+  "skill": "keep-dialogue-alive",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我妈信了一种养生说法，我一说'这是谣言'她就不理我了，怎么谈才不会吵崩",
+      "expected_behavior": "激活 keep-dialogue-alive：给出复述确认 + 好奇口吻的谈话方案，建议策略③（提议暂停、各自找最佳证据）与策略⑤（合并双方理由找新结论），避免'逮错'姿态",
+      "notes": "正面场景：家人分歧，verified s04 的 V2 原型"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "评审会上我想指出同事方案里的漏洞，但上次我一开口他就开始防御，这次怎么提",
+      "expected_behavior": "激活 keep-dialogue-alive：先复述对方方案的合理部分再提问，把问题包进好奇外壳，一次一个，不以赢为目标",
+      "notes": "正面场景：职场中的质疑表达"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "群里吵架升级了，双方开始人身攻击，我想把讨论拉回正题",
+      "expected_behavior": "激活 keep-dialogue-alive：踩刹车——提议各自取证再谈，或把双方最强理由合并找新结论；明确放弃追责式发言",
+      "notes": "正面场景：升温对话的刹车动作"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我每次被反驳都想立刻反击，帮我先审审我自己的结论是不是站得住",
+      "expected_behavior": "应激活同书兄弟 skill strong-sense-self-audit（强势批判自审）：用户要的是对内审查自己的结论，不是对话策略",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "他就是针对我！帮我想想怎么怼回去才能赢",
+      "expected_behavior": "不激活任何批判性思维 skill：目标是赢与攻击，与本 skill 的前提（双方想搞清问题）相反；可说明这一点并视情况提供冲突处理资源",
+      "notes": "诱饵：目标相斥场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "对方是我领导，我质疑他等于找死，这套方法还能用吗",
+      "expected_behavior": "有限激活并声明边界：书中策略假设双方讲理，权力不对等场景需调整（书面上提出、一对一私下谈、只复述不追问、把质疑转成请教式提问）",
+      "notes": "边界：权力不对等对话，对应作者盲点"
+    }
+  ]
+}

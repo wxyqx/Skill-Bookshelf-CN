@@ -1,0 +1,48 @@
+{
+  "skill": "identify-reasons",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这个房产广告说'地铁上盖、名校旁，所以这套房值得买'，帮我把他给的理由一条条列出来",
+      "expected_behavior": "激活 identify-reasons：问'为什么这支持值得买'→登记区位价值理由；并检测广告典型逆向逻辑——被追问理由就当场换理由的，多半是结论先行",
+      "notes": "正面场景：verified.md V2 novel_question 同型（广告理由拆解）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老板说这个方案很好，讲了半天我也不知道他凭什么，帮我理一理他的论据",
+      "expected_behavior": "激活 identify-reasons：钉住结论，用提示词逐段定位理由并编号复述，产出条目化的理由清单供后续评价",
+      "notes": "正面场景：口头汇报中的理由提取"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我写完了立项提案，帮我检查一下是不是先定了结论再凑的理由",
+      "expected_behavior": "激活 identify-reasons 的自查分支：对照逆向逻辑信号（动笔前已有结论、理由随场合变形、没有写下什么证据会让自己改变结论）逐条核查",
+      "notes": "正面场景：写作侧镜像应用"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这篇稿子的核心主张到底是什么？我读了半天没抓住重点",
+      "expected_behavior": "应激活同书兄弟 skill locate-issue-conclusion（结论定位是上游步骤）而非 identify-reasons；结论未定位时无处找理由",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）——上游 vs 下游"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "查一下北京地铁 6 号线沿线有哪些名校",
+      "expected_behavior": "纯信息查询，不涉及论证拆解，不激活任何论证分析 skill",
+      "notes": "诱饵：非论证场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "他说'我支持禁枪，因为我就是支持'——这算一条理由吗？",
+      "expected_behavior": "判定为不算：'因为我就是支持'只是结论的复述，没有提供独立的支撑信息（循环表述信号）；正确动作是追问'凭什么支持'，而非替他把这句话圆成理由",
+      "notes": "边界：结论复述 vs 真理由——识别工序的资格线"
+    }
+  ]
+}

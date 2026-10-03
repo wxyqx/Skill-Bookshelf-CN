@@ -1,0 +1,48 @@
+{
+  "skill": "analogy-evaluation",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板开会说'公司是一条船，员工是船员，船长说了算'，用来论证全员服从管理，这个比喻有问题吗",
+      "expected_behavior": "激活 analogy-evaluation：识别框架类比，列相关的相同点与相关不同点（船员不能自由退出 vs 员工可以；船长承担沉船风险 vs CEO 未必），生成可替代类比（公司是球队）对冲框架效应，输出类比强弱判断",
+      "notes": "正面场景：verified s18 的 novel_question 原型场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "评论区都说这次事件'就是又一个当年的XX运动'，这个历史类比站得住吗",
+      "expected_behavior": "激活 analogy-evaluation：识别框架类比与情绪内涵，剥离比喻重述原论题，按两维评价检验相关相同点/不同点，说明该比较想把反应引向何处",
+      "notes": "正面场景：框架类比/历史类比评价"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我要向客户解释微服务迁移的收益，想打个比方，帮我找个靠谱的并检查会不会被挑刺",
+      "expected_behavior": "激活 analogy-evaluation 的生成侧三步法：识别主要特征、头脑风暴多个候选熟悉情况、检验能否提供洞见；并为选定类比自查致命不同点、标注局限",
+      "notes": "正面场景：生成侧镜像应用（自造类比）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "他说他们家乡很多人高考都考得特别好，所以他们那儿教育水平肯定全国领先，这说法有问题吗",
+      "expected_behavior": "应激活 evidence-grade-triage（个人经历/典型案例+以偏概全）而非 analogy-evaluation；这是样本概括问题，不是比较结构问题，按分流规则归 s15",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）——'很多人如何'是弱证据概括不是类比"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这篇散文把故乡比作母亲，写得真动人，你从修辞角度帮我赏析一下",
+      "expected_behavior": "不应激活任何论证审查 skill；散文修辞赏析没有'用类比支撑结论'的论证结构，analogy-evaluation 明确排除非论证性比喻",
+      "notes": "诱饵：非论证性比喻场景（本 skill 的 B 段排除项）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "他说' Internet 就像免费高速公路迟早要收费，所以网络安全迟早要付费'，我反驳说所有类比都是错的，我赢了吗",
+      "expected_behavior": "激活 analogy-evaluation 后纠正用户的'胜利'：'所有类比都是错的'指类比假设必然不完全，不等于任何类比自动作废；应回到两维评价找出相关不同点的具体内容，并提醒即使类比弱，结论仍可能被其他证据独立支撑",
+      "notes": "边界：防'所有类比都是错误的'被滥用为免检驳回（对齐书中'不自动驳斥'精神）"
+    }
+  ]
+}

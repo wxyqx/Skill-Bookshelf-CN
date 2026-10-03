@@ -1,0 +1,48 @@
+{
+  "skill": "omitted-info-probe",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "理财广告说'年化 8% 稳健理财'，买之前帮我审一审",
+      "expected_behavior": "激活 omitted-info-probe：九类清单聚焦缺失（费用/回撤/期限/适用人群/兜底方），负面效果五问（亏损时谁受损），重要省略按'能否改变买不买的立场'过滤，三选项收尾",
+      "notes": "正面场景：verified.md s21 的 V2 novel question 同源"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这份商业计划书把项目夸得天花乱坠，投之前帮我看看有没有漏掉的关键信息",
+      "expected_behavior": "激活 omitted-info-probe：负面效果五问优先（谁受损/长期效果），九类清单逐项过，输出'若补上会改变立场'的重要省略清单",
+      "notes": "正面场景：投资决策前的主动补全"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我要跟供应商签三年合同，对方给的资料我总觉得只讲了好的一面",
+      "expected_behavior": "激活 omitted-info-probe：把'总觉得有东西没说'落成具体清单（违约条款/退出成本/隐性费用/长期涨价权），并给出向对方索要的问题清单",
+      "notes": "正面场景：谈判/签约场景的省略排查"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这个药广告说有效率 94%，这个数字本身有没有问题",
+      "expected_behavior": "应激活 deceptive-data-check（数字表述：证明了A的数据冒充结论B/相对绝对互换），不是整类信息缺失；用户问的是摆出来的数字怎么说",
+      "notes": "诱饵：s20/s21 分界——兄弟混淆场景"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "所有人都问我该不该考研，帮我多想几个可能的答案",
+      "expected_behavior": "应激活 alternative-conclusions（生成更多合理结论），不是排查省略；用户要的是扩展输出不是补全输入",
+      "notes": "诱饵：s22——方向相反的两种补全"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我把能查的都查了，关键信息就是找不到，那我是不是就永远不能做决定了",
+      "expected_behavior": "激活反瘫痪收尾（E5）：明确'找不到'不等于'不能判断'，输出三选项程序——继续索要/持续搜寻/基于现有信息形成暂定判断并声明修正条件，禁止以瘫痪收场",
+      "notes": "边界：排查过头变成拒绝决策——书中警告的失败模式（decision paralysis）"
+    }
+  ]
+}

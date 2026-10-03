@@ -1,0 +1,48 @@
+{
+  "skill": "expert-opinion-audit",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "一个网红医生强烈推荐某款保健品，说他的很多病人吃了都有效，这个能信吗",
+      "expected_behavior": "激活 expert-opinion-audit 执行四查：专长是否对口该保健品的功效断言、信息是一手临床还是病人转述、是否从销售/带货中获利（歪曲风险）、其他医生是否同意；输出分量判断而非直接否定",
+      "notes": "正面场景：网红专家+利益线索，最典型调用（verified s16 的 novel_question 变体）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "新闻里写'据某某大学著名教授表示，这个行业三年内要洗牌'，我该把这个判断转述给客户吗",
+      "expected_behavior": "激活 expert-opinion-audit：先还原原始断言与转述链（教授的原始表述是否被强化），再查专长对口、渠道、歪曲风险、同行验证，给出转述前的分量结论",
+      "notes": "正面场景：媒体转述场景的引用套引用检查"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我要写行业分析报告，想引用两位专家的观点撑场面，帮我看看怎么引用才经得起推敲",
+      "expected_behavior": "激活 expert-opinion-audit 的写作侧：自查所引专家是否对口、是否一手来源、有无利益关联、是否呈现不同立场专家的分歧，避免引用套引用",
+      "notes": "正面场景：写作侧镜像应用"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我邻居王阿姨说她吃了这个药腰不疼了，她平时很懂养生的",
+      "expected_behavior": "应激活 evidence-grade-triage（当事人证词/个人经历）而非 expert-opinion-audit；王阿姨不是以专门知识发言的专家，按分流规则归 s15",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）——日常证词分流给 s15"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "专家引用的那份研究我找到了，样本才200人还没说怎么抽的，帮我分析下",
+      "expected_behavior": "应激活 research-survey-audit（样本三查）而非 expert-opinion-audit；用户已越过专家身份问题，进入研究质量审查，按分流规则归 s17",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）——研究质量分流给 s17"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这个专家以前收过企业钱，所以他现在说的话全是假的，对吧",
+      "expected_behavior": "激活 expert-opinion-audit 后触发防过枉检查：利益线索降低分量但不等于断言为假；应要求回到四查与不同专家的独立证据，拒绝把'收过钱'直接升级为'全假'的判决",
+      "notes": "边界：过度纠正——防'因利益可疑就全盘抛弃断言'与阴谋论式判决"
+    }
+  ]
+}

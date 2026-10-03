@@ -1,0 +1,48 @@
+{
+  "skill": "pan-for-gold-reading",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我最近在读一本讲经济周期的书，感觉每章都说得很有道理，但读完让我信什么我说不清，帮我想想该怎么读这种书",
+      "expected_behavior": "激活 pan-for-gold-reading：设计'先通读吸收、再带清单掂量'的两遍读法，给出边读边问的批注方案，要求产出信/不信/待证据的取舍",
+      "notes": "正面场景：整本书的批判性阅读规划"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "同事转我一篇行业分析长文，我不想照单全收，帮我列一套读的时候该问的问题",
+      "expected_behavior": "激活 pan-for-gold-reading：按关键问题清单生成钉在材料上的提问清单（结论/理由/假设/证据/省略），并提醒先复述再评价",
+      "notes": "正面场景：单篇材料的淘金式处理"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我发现自己看公众号谁写得好就信谁，观点老是跟着最近读的文章变，这毛病怎么改",
+      "expected_behavior": "激活 pan-for-gold-reading：识别为海绵式依赖（ce03 信号），诊断'只吸收不取舍'的结构缺陷，给出清单互动式阅读的替代习惯",
+      "notes": "正面场景：失败模式自述触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这篇文章的结论到底是什么？我看完没找到他要我信什么",
+      "expected_behavior": "应激活同书兄弟 skill locate-issue-conclusion（论题与结论定位）而非本 skill：用户要的是结构定位这一具体工序，不是阅读姿态",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个热搜明星骂战跟我没什么关系，你说我需要认真去查吗",
+      "expected_behavior": "应激活同书兄弟 skill scrutiny-worthiness-filter（审查价值过滤）：用户问的是'值不值得审'，尚未进入阅读阶段",
+      "notes": "诱饵：同书兄弟 skill 混淆场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "把这篇 500 字的产品说明帮我读快点总结下，十分钟后开会要用",
+      "expected_behavior": "不激活：这是纯信息提取/速读需求，无审查意图；直接给摘要，不启动批注式提问，也不说教",
+      "notes": "边界：信息提取 vs 批判性阅读"
+    }
+  ]
+}

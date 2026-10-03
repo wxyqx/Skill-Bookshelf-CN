@@ -1,0 +1,48 @@
+{
+  "skill": "strong-sense-self-audit",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "团队决定全部迁到微服务，我是唯一反对的人。帮我看看我的反对理由是不是也在护短",
+      "expected_behavior": "激活 strong-sense-self-audit：对用户的反对结论做对称审查（理由/假设/证据），并做最强反方测试（完整复述支持方的最强理由），按理由强弱给出更新建议",
+      "notes": "正面场景：少数派自审，verified s02 的 V2 原型"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "刚才有人反驳了我的方案，我发现自己满脑子想的都是怎么怼回去，根本没听他的理由，帮我自审一下",
+      "expected_behavior": "激活 strong-sense-self-audit：识别防御信号（想赢先于听理由），引导复述对方论据，再对自己的结论走一遍清单",
+      "notes": "正面场景：被反驳后的防御性反应"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我坚持了很多年'早起才有效率'，最近有点动摇，帮我把这个结论也审一遍",
+      "expected_behavior": "激活 strong-sense-self-audit：把这个长期立场放进同一张关键问题清单（理由、假设、证据、替代解释），结果可以是更笃信也可以是修改",
+      "notes": "正面场景：长期立场的强势审查"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我拆一下我老板这段话的结论和理由，看他到底想让我信什么",
+      "expected_behavior": "应激活同书兄弟 skill locate-issue-conclusion（论题与结论定位）：对象是别人的材料，不是对己自审",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我是不是信息茧房太严重了？我关注的博主全是一个阵营的",
+      "expected_behavior": "应激活同书兄弟 skill critical-thinker-values（价值观自检）：用户问的是信息源构成与兼听姿态，不是某个具体结论的审查",
+      "notes": "诱饵：同书兄弟 skill 混淆场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "行行行，我知道我错了，这样总可以了吧？",
+      "expected_behavior": "不启动审查清单：这是情绪化的认输/关门信号，先回应情绪、确认用户是否真的想复盘；只有用户明确要审时才进入程序",
+      "notes": "边界：情绪性认输 vs 真实自审请求"
+    }
+  ]
+}

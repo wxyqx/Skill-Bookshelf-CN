@@ -1,0 +1,48 @@
+{
+  "skill": "fallacy-three-questions",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "家长群里有人反对学校开性教育课，理由是'教了孩子就会去尝试'。这个理由有毛病吗？",
+      "expected_behavior": "激活 fallacy-three-questions：三问命中错误假设（教=鼓励）与滑坡花招（今天的课=明天的行为）；作废该理由，同时提示对方其余非谬误理由仍要公平考虑",
+      "notes": "正面场景：三问判别 + 防滥用制衡（verified.md V2 novel question）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "'投他一票就是投真理一票，投梦想一票'——这种竞选口号怎么拆？",
+      "expected_behavior": "激活 fallacy-three-questions：识别诉诸感情/光环效应（情绪连通结论按钮、零具体政策信息），输出失效原因",
+      "notes": "正面场景：政治话术拆解（书中原靶子）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "辩论对方说'你反对方案A，就是想让公司倒闭'，这算什么套路？",
+      "expected_behavior": "激活 fallacy-three-questions：识别稻草人/虚假两难（歪曲立场制造易攻击靶子），给出原文触发句与失效原因",
+      "notes": "正面场景：辩论中的歪曲与两难压榨"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "他说'我在各种情况下都开过这车，所以你买也一定靠谱'，从理由到结论缺了什么没说出来的东西？",
+      "expected_behavior": "应激活兄弟 skill descriptive-assumption-mining（补桥找未言明前提）；用户问的是逻辑缺口，不是理由花招",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）——假设缺口 vs 理由花招"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "网红医生推荐这个保健品，可信吗？该怎么查他？",
+      "expected_behavior": "不贴'诉诸权威'标签了事：应转向专家意见审查 skill（专长对口、一手渠道、获利动机、同行验证四查）——'诉诸权威'不自动作废",
+      "notes": "诱饵：防滥用制衡场景——权威需审查而非自动驳回"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我抓到他一个滑坡谬误！是不是他整个论证都完蛋了？",
+      "expected_behavior": "激活 fallacy-three-questions 并执行防滥用制衡：纠正'一谬全废'——只作废该条理由，引导用户对其余理由重新公平评估后再下结论",
+      "notes": "边界：测试 p22 制衡规则（找到谬误只作废该理由）是否被遵守"
+    }
+  ]
+}
