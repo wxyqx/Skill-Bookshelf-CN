@@ -5,6 +5,7 @@
 > 每一本书通过 cangjie-skill（仓颉蒸馏流水线）的 RIA-TV++ 流程，
 > 被蒸馏成一组**原子化、可被 AI Agent 在真实场景调用**的技能（skills）。
 > 本仓库把所有已蒸馏的书集中放在一起——每本书一个子目录，内含该书的 `skills/` 与 `docs/`。
+> 📋 完整书单与蒸馏进度对照见 [booklist.md](./booklist.md)。
 
 ---
 
