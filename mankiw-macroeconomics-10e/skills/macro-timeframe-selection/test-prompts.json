@@ -1,0 +1,62 @@
+{
+  "skill": "macro-timeframe-selection",
+  "skill_name": "时间范围选择元框架",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "央行又开始降息了。有人说这轮放水马上就会通胀，有人说短期内根本不用担心——到底该听谁的？短期和长期的答案一样吗？",
+      "expected_behavior": "调用本 skill：先分短期（刺激需求、温和通胀）与长期（持续扩张才推高通胀），双时间范围作答",
+      "notes": "正面：明显的长短期分歧场景，需要时间范围选择元框架"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "判断房价走势时，有人说要看未来两三个季度的信贷政策，有人说要看未来十年的人口结构——这两种说法矛盾吗？该怎么选分析框架？",
+      "expected_behavior": "调用本 skill：指出争论双方可能各站在一个时间范围（短期需求刺激 vs 长期挤出投资），给出双范围结论",
+      "notes": "正面：时间范围选择场景（信贷政策=短期需求面，人口=长期供给面），不与债务/通胀专项触发词重叠",
+      "reason": "正面的时间范围混淆场景"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "帮忙理清一下：印钱到底能不能让国家变富？",
+      "expected_behavior": "调用本 skill：短期总需求管理可以稳定产出，但长期货币中性——印钱不创造实际财富，只改名义变量",
+      "notes": "正面：宏观直觉问题，需要货币中性 + 短期非中性的分层回答"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "inflation-diagnosis",
+      "prompt": "现在通胀 8%，我在考虑要不要把存款换成长期定存锁利率。",
+      "expected_behavior": "不应调用本 skill：这是个人理财决策 + 通胀诊断问题，应调用 inflation-diagnosis（费雪效应判断实际利率），本 skill 只做时间范围定位",
+      "confusion_point": "都涉及通胀与利率，但本框架是元框架不做具体诊断，更不做理财建议"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "is-lm-demand-management",
+      "prompt": "用 IS-LM 模型分析一下量化宽松对产出的传导路径。",
+      "expected_behavior": "不应调用本 skill：用户已明确指定 IS-LM 工具且要具体传导机制，应调用 is-lm-demand-management；本 skill 是进入具体模型前的定位层，模型已定则无需再定位",
+      "confusion_point": "本 skill 的产出是\"选哪个模型\"，而用户已经选好了"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "房贷利率降了，我要不要提前还贷或者转 LPR？",
+      "expected_behavior": "不应调用本 skill：个人理财操作决策，宏观框架帮不上具体操作；应按财务规划处理",
+      "confusion_point": "字面有\"利率\"和宏观政策影子，但决策主体是个人、产出是操作建议"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "未来十年中国经济会怎样？",
+      "expected_behavior": "调用本 skill 做定位（十年属于长期→应转向增长分析工具），并说明为何长期框架适用；不直接给出未经框架的具体预测",
+      "notes": "边界：超长期问题本框架只定位、不越位作答"
+    }
+  ]
+}

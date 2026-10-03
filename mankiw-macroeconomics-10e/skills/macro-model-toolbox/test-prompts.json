@@ -1,0 +1,61 @@
+{
+  "skill": "macro-model-toolbox",
+  "skill_name": "模型工具箱思维（建模方法论）",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "我想建一个简单的经济模型，分析限购令会对城市房租有什么影响，该从哪儿下手？",
+      "expected_behavior": "调用本 skill：按五步循环——①内生=房租与成交量，外生=限购政策与收入（收入留给别的模型解释）②列假设清单并对照问题③比较静态推方向④提示回到数据检验",
+      "notes": "正面：从零建模请求，五步循环的标准入口"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "你给的这个分析把市场当成只有一个价格，也太脱离现实了吧？模型简化成这样还有意义吗？",
+      "expected_behavior": "调用本 skill：简化是模型的本质而非缺点，判断标准是研究目的——被忽略的细节对这个问题重要吗；并用比萨饼模型对照示范\"简化何时阐明、何时误导\"（奶酪价格问题可用，店铺数量问题失效）",
+      "notes": "正面：\"模型太简单/不现实\"的质疑，触发简化裁决与Ak01护栏"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "为什么经济学家有那么多模型，结论还互相打架？就不能搞一个万能大模型把所有经济问题都解释了吗？",
+      "expected_behavior": "调用本 skill：工具箱思维——不存在单一正确模型，每个模型解释经济的一个特定方面；结论相反的模型可并存且都\"对\"，裁决标准是假设与手头问题的匹配，引用结论须连同假设一起引用",
+      "notes": "正面：工具箱思维（Af05）+ 假设纪律（Ap02）的典型触发"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "macro-timeframe-selection",
+      "prompt": "分析明年的产出波动，我该用弹性价格的模型还是黏性价格的模型？",
+      "expected_behavior": "不应调用本 skill：这是按时间范围选模型类别的问题，应调用 macro-timeframe-selection（明年→短期→黏性价格族）；本 skill 在类别选定后才接管\"这个模型怎么用、假设是否匹配\"",
+      "confusion_point": "两者都涉及\"选模型\"，但本 skill 管建模方法与使用纪律，\"按长短期选哪类模型\"是时间范围框架的职责"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "macro-data-literacy",
+      "prompt": "新闻说 GDP 增长 6%，通胀 5%，那经济实际改善了多少？",
+      "expected_behavior": "不应调用本 skill：这是名义/实际换算与数据口径问题，应调用 macro-data-literacy；此处没有建模任务，五步循环无从谈起",
+      "confusion_point": "都涉及\"数据与理论的关系\"，但本 skill 管建模与检验的方法，纯指标换算属数据解读"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "帮我用 Python 写个回归，看看利率和收入哪个对消费的影响更大。",
+      "expected_behavior": "不应调用本 skill：这是计量技术操作问题（代码与估计方法），不是建模方法论；本 skill 不产出代码，也不做统计估计",
+      "confusion_point": "字面有\"模型/回归\"味道，但诉求是工具操作，而非变量分类、假设检查或比较静态"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "模型预测出来的数字和现实数据完全对不上，是不是经济学模型都是废物？",
+      "expected_behavior": "调用本 skill 的 E 段与第五步做诊断：先分辨是假设错配（该换模型）还是预测期待错位（模型产出是机制与方向而非点预测，预测力不比气象学家预测下月天气强）；既不因预测不准全盘否定模型，也不迷信单点数字",
+      "notes": "边界：理论-数据冲突诊断 + 预测局限（Ak04）；回答落在方法论定位，不替任何具体预测数字辩护"
+    }
+  ]
+}

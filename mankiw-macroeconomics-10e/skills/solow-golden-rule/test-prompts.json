@@ -1,0 +1,62 @@
+{
+  "skill": "solow-golden-rule",
+  "skill_name": "增长分析Ⅰ：索洛模型与黄金律检验",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "一个国家储蓄率越高就越富吗？中国的高储蓄算不算永远的竞争优势？",
+      "expected_behavior": "调用本 skill：高储蓄带来更高的稳态资本与产出水平并伴随转型期暂时高增长（水平效应），但到新稳态后增长回落、不给持续增长；再用黄金律判据（MPK−δ 与 n+g 比较）判断储蓄是不足还是过度",
+      "notes": "正面：储蓄率与富裕，需要水平效应+黄金律检验两个工具接续作答"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "日本和德国战后为什么增长那么快？这种奇迹是怎么发生的？",
+      "expected_behavior": "调用本 skill：战争摧毁资本存量→投资大于折旧→高于正常增速的收敛过程（1946-1972 日本 8.0%、德国 6.5%，随后回落到约 2%）；附带边界——增长只是回到本来水平，战时破坏不应被看成合意的",
+      "notes": "正面：书中案例 Cc13，收敛机制 + 防破窗误读"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "人口增长快的国家会更穷吗？生育率回升对人均收入有什么影响？",
+      "expected_behavior": "调用本 skill：n 上升使收支相抵投资 (δ+n)k 上移→稳态人均资本与人均产出下降（水平效应，不改变稳态人均增长率）；跨国比较可用有效投资率 s/(δ+n)",
+      "notes": "正面：Cf17/Cp15 人口增长效应，问的是人均口径的水平变化"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "growth-engine-analysis",
+      "prompt": "怎么才能让国家长期保持 5% 的增长？",
+      "expected_behavior": "不应调用本 skill：稳态人均增长率由技术进步率决定，资本积累只有水平效应（本 skill 的结论恰是排除项）；这是技术进步、内生增长与制度层面的问题，应调用 growth-engine-analysis",
+      "confusion_point": "都说\"长期增长\"，但本 skill 管资本积累与稳态水平（且其核心结论是资本积累给不了持续增长），增长率问题的答案在增长Ⅱ"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "loanable-funds-analysis",
+      "prompt": "储蓄率提高会让利率怎么变化？会不会挤出企业投资？",
+      "expected_behavior": "不应调用本 skill：问的是可贷资金市场的利率与投资配置机制，应调用 loanable-funds-analysis；本 skill 只管储蓄率的长期稳态后果（资本存量、人均产出水平）",
+      "confusion_point": "自变量同为储蓄率，因变量不同——利率与投资配置（可贷资金）vs 稳态水平（索洛）"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "sibling_skill": "is-lm-demand-management",
+      "prompt": "现在经济不景气，专家一会儿劝大家多储蓄、一会儿劝多消费，到底该听谁的？",
+      "expected_behavior": "不应调用本 skill：衰退期的\"多储蓄还是多消费\"是短期总需求问题（节俭悖论：人人多储蓄会压缩需求），适用 IS-LM/需求管理工具；本 skill 的黄金律答案只对长期归宿有效，短期答案可以相反",
+      "confusion_point": "字面与 A2 场景二几乎相同，但时间范围不同——检验是否先过时间范围分流再进工具"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "索洛模型说稳态增长为零，可现实里各国人均收入一直在涨，是不是模型错了？",
+      "expected_behavior": "调用本 skill 但承认模型边界：资本积累本就不负责解释持续增长，稳态人均增长为零是模型结论而非模型失败；持续增长由技术进步解释，应移交 growth-engine-analysis；本 skill 完成水平与追赶部分后显式交接",
+      "notes": "边界：测试\"模型边界 vs 模型失败\"的区分（E3/Ck14）与 sibling 交接是否干净"
+    }
+  ]
+}

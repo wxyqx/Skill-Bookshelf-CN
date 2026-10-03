@@ -1,0 +1,70 @@
+{
+  "skill": "open-economy-flows",
+  "skill_name": "开放经济长期分析（S-I=NX、汇率与购买力平价）",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "新闻说又要对进口商品加征高额关税了，这招能帮国家缩小贸易逆差吗？",
+      "expected_behavior": "调用本 skill：恒等式检查——关税既不改变储蓄也不改变投资，NX 均衡水平不变；实际汇率升值抵消限进直接效应，净效果是贸易量与贸易获益萎缩而非逆差缩小",
+      "notes": "正面：保护主义误区，本 skill 的招牌应用（Cp02/Ck01）"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "美国贸易赤字连年创新高，这到底是美国人不存钱闹的，还是别的什么原因？",
+      "expected_behavior": "调用本 skill：用 S-I=NX 把赤字还原为储蓄投资差额并分阶段归因（财政赤字压低 S 的双赤字 / 投资繁荣推高 I），同时提示余额本身不说明好坏——取决于背后是 S 降还是 I 升",
+      "notes": "正面：赤字根源诊断，对应美国双赤字案例的分阶段归因方法"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "按巨无霸指数算，不少货币都被低估了，这是不是意味着汇率迟早会大幅修正？",
+      "expected_behavior": "调用本 skill：PPP 只做长期基准与粗略指导——偏差可源于不可贸易品与可贸易品不完全替代，实际汇率波动一般很小或暂时，巨无霸偏差常达 30% 以上，不能据单一商品价差断言大幅重估",
+      "notes": "正面：PPP 校准及其边界，对应巨无霸指数案例与 E3"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "mundell-fleming-analysis",
+      "prompt": "央行刚宣布降息 50 个基点，人民币汇率明天会怎么走？要不要趁机换点美元？",
+      "expected_behavior": "不应调用本 skill：短期汇率走势由利率与资本流动主导（价格黏性世界），且含个人换汇操作，应调用 mundell-fleming-analysis 定位分析；本 skill 只处理长期实际面，不做短期走势预测",
+      "confusion_point": "都谈汇率，但\"明天怎么走\"是短期需求面+金融变量问题，S-I 与 PPP 回答不了"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "mundell-fleming-analysis",
+      "prompt": "香港搞联系汇率，美联储一加息它就得跟着加，固定汇率下是不是就没有独立货币政策的空间了？",
+      "expected_behavior": "不应调用本 skill：固定汇率制下的货币政策独立性问题是不可能三角，属蒙代尔-弗莱明框架，应调用 mundell-fleming-analysis；本 skill 的比较静态默认浮动汇率与价格弹性",
+      "confusion_point": "同样涉及汇率与政策，但关键变量是汇率制度与资本流动（短期），而非 S-I 与实际汇率（长期）"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "loanable-funds-analysis",
+      "prompt": "政府推动大规模基建投资，会不会推高利率、把民间投资挤出去？",
+      "expected_behavior": "不应调用本 skill：问题聚焦国内利率与挤出效应，是封闭经济可贷资金分析的核心议题，应调用 loanable-funds-analysis；只有当用户进一步追问该投资对贸易余额或汇率的影响时才轮到本 skill",
+      "confusion_point": "共享 S 与 I 变量，但本 skill 的产出方向是 NX 与汇率，不是利率与挤出"
+    },
+    {
+      "id": "T7",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "下个月去日本旅游，现在换日元划算吗？还是等落地再换？",
+      "expected_behavior": "不应调用本 skill：个人出行换汇的时机决策属个人财务操作，宏观长期框架帮不上；即便被问及汇率，这也是短期走势问题而非 S-I 或 PPP 议题",
+      "confusion_point": "字面出现\"汇率\"和\"日元\"，但决策主体是个人、产出是操作建议"
+    },
+    {
+      "id": "T8",
+      "type": "edge_case",
+      "prompt": "欧元区里希腊、意大利对德国长期逆差，德国是不是占了全欧洲的便宜？",
+      "expected_behavior": "调用本 skill 但显式声明模型边界：双边余额应换成总体余额视角（双边余额无关紧要）；同时指出 S-I=NX 模型以拥有独立货币的国家为单位，欧元区是货币联盟内部余额、无独立汇率可调整，只能做部分迁移，不宜直接下\"剥削\"结论",
+      "notes": "边界：货币联盟内部余额与本模型\"国家+独立货币\"假设不完全吻合，检验 E2 与适用边界条款"
+    }
+  ]
+}

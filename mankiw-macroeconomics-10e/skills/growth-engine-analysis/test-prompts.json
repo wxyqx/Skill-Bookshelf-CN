@@ -1,0 +1,61 @@
+{
+  "skill": "growth-engine-analysis",
+  "skill_name": "增长引擎分析（增长分析Ⅱ：技术、内生增长与制度）",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "为什么有的国家永远追不上发达国家？后发优势难道不起作用吗？",
+      "expected_behavior": "调用本 skill：先查趋同口径（无条件数据几乎无趋同，控制稳态决定因素后才有约 2%/年的有条件趋同），再诊断差距是要素积累还是效率（TFP）差异，最终归因到制度（斯密三条件）",
+      "notes": "正面：A2 场景一，有条件趋同 + 归因链条的完整走法"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "一个国家过去三十年 GDP 年均增长 8%，其中多少是靠堆资本、多少是靠技术进步？怎么算？",
+      "expected_behavior": "调用本 skill：增长核算 △Y/Y=α△K/K+(1−α)△L/L+△A/A，TFP 作余量倒算（索洛余量）；并区分水平效应与增长效应——堆资本只有过渡期效应，持续增长看 TFP/技术进步",
+      "notes": "正面：增长核算分解 + E2（堆资本≠持续增长）的配合使用"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "如果把更多大学毕业生和科研经费投入研发而不是工厂，能永久提高一国的增长率吗？",
+      "expected_behavior": "调用本 skill：两部门内生增长模型——研究部门劳动力配置 u 决定稳态增长率、储蓄率 s 只影响水平；提高 u 需权衡制造业产出损失；研究社会收益（常超 40%/年）高于私人收益支持补贴",
+      "notes": "正面：A2 场景二（工程师红利），内生增长与研发补贴逻辑"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "solow-golden-rule",
+      "prompt": "一个国家的储蓄率多高才合适？是不是储蓄越多增长越快？",
+      "expected_behavior": "不应调用本 skill：这是资本积累题，应调用 solow-golden-rule 做黄金律体检（比较 MPK−δ 与 n+g）；本框架只在储蓄之外找增长原因（技术、效率、制度）",
+      "confusion_point": "同在 Ch9、同谈增长与储蓄，但\"储蓄率该多少\"是水平效应/资本积累题；本框架回答的是\"稳态增长率由什么决定\"的技术与制度题"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "macro-timeframe-selection",
+      "prompt": "政府又推出万亿美元刺激计划了，这能让经济重回高增长轨道吗？",
+      "expected_behavior": "不应调用本 skill（至少不能直接调用）：先由 macro-timeframe-selection 定位——刺激计划是短期需求管理（IS-LM/AD-AS 族），\"重回高增长\"才是长期供给问题；除非方案涉及教育、研发、制度等供给面，否则不进本框架",
+      "confusion_point": "字面出现\"增长\"，实际问的是短期需求刺激能否改变长期增长——两回事"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "我们工厂的生产率比同行低三成，帮我诊断一下管理上出了什么问题。",
+      "expected_behavior": "不应调用本 skill：企业级管理诊断属微观管理咨询；本框架只在国别层面把管理实践/竞争程度当作生产率差异的微观通道（布鲁姆-范雷南研究），不输出企业内部改进方案",
+      "confusion_point": "\"生产率\"一词命中本框架关键词，但分析单位是企业而非经济体"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "今年的索洛余量是负的，是不是说明我们的技术在退步？",
+      "expected_behavior": "调用本 skill 但按 E4 降级解读：索洛余量是残差，短期吸收劳动储备与产出误测（技术未变时也会下降），只有长期均值才近似技术进步；同时核对口径（全要素生产率≠劳动生产率）",
+      "notes": "边界：同一指标长期可当技术度量、短期解读会误判，需区分时间尺度"
+    }
+  ]
+}

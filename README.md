@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**23 本书 · 425 个 skills**（最后更新：2026-10-03）
+**24 本书 · 445 个 skills**（最后更新：2026-10-04）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -38,6 +38,7 @@
 | 《重新定义公司：谷歌是如何运营的》*How Google Works* | 埃里克·施密特、乔纳森·罗森伯格 · 2015 | 企业管理 / 赋能 / 创意精英 | 18 | [`how-google-works/`](./how-google-works/) |
 | 《学会提问（原书第10版）》*Asking the Right Questions* | 尼尔·布朗、斯图尔特·基利 · 2012 | 批判性思维 / 论证审查 / 提问 | 22 | [`asking-the-right-questions/`](./asking-the-right-questions/) |
 | 《简约至上：交互式设计四策略》*Simple and Usable* | Giles Colborne · 2011 | 交互设计 / 简化 / 用户体验 | 20 | [`simple-and-usable/`](./simple-and-usable/) |
+| 《宏观经济学（第十版）》*Macroeconomics, 10th Ed.* | 曼昆 · 2019 | 宏观经济学 / 政策分析 / 经济数据 | 20 | [`mankiw-macroeconomics-10e/`](./mankiw-macroeconomics-10e/) |
 
 ---
 
@@ -181,6 +182,12 @@
 - **一句话**：简单不是减少功能数，而是用户的感觉——先用主流用户的视角明确"什么才是简单"，再通过删除、组织、隐藏、转移四个策略，把无法消除的复杂性（Tesler 法则：复杂性守恒，只能决定谁面对它）放到正确的位置上。
 - **Skills**：`pseudo-simplicity-detection` · `business-case-for-simplicity` · `simplicity-baseline` · `field-observation` · `mainstream-user-lens` · `control-and-emotion` · `extreme-usability-goals` · `user-story-craft` · `share-the-insight` · `four-strategies` · `remove-strategy` · `declutter` · `organize-strategy` · `visual-organization` · `hide-strategy` · `transfer-strategy` · `open-experience` · `complexity-placement` · `details-carry-simplicity` · `simplicity-boundaries`
 
+### 24. 《宏观经济学（第十版）》 — *Macroeconomics, 10th Edition* · [`mankiw-macroeconomics-10e/`](./mankiw-macroeconomics-10e/)
+
+- **作者**：N. Gregory Mankiw（N. 格里高利·曼昆，哈佛大学教授）· 2019（中文版中国人民大学出版社，经济学译丛）
+- **一句话**：宏观经济现象必须按时间范围选模型——长期用价格弹性的古典理论（产出由要素与技术决定，货币只决定价格），短期用价格黏性的波动理论（需求决定产出），政策评估要同时看清两个时间范围的效应；全书把这套"模型工具箱"拆成可调用的 20 个分析技能。
+- **Skills**：`macro-timeframe-selection` · `macro-model-toolbox` · `macro-data-literacy` · `factor-income-distribution` · `loanable-funds-analysis` · `money-system-analysis` · `inflation-diagnosis` · `open-economy-flows` · `unemployment-diagnosis` · `solow-golden-rule` · `growth-engine-analysis` · `ad-as-fluctuations` · `is-lm-demand-management` · `mundell-fleming-analysis` · `phillips-curve-analysis` · `dynamic-ad-as-taylor-rule` · `policy-rules-vs-discretion` · `government-debt-analysis` · `financial-crisis-diagnosis` · `consumption-investment-basics`
+
 ---
 
 ## 安装
@@ -188,7 +195,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 425 个 skills（用户级，所有项目可用）
+# 一次性安装全部 445 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -229,7 +236,8 @@ skill-bookshelf/
 ├── inspired/                 # 《启示录：打造用户喜爱的产品》（18 skills）
 ├── how-google-works/         # 《重新定义公司：谷歌是如何运营的》（18 skills）
 ├── asking-the-right-questions/ # 《学会提问（原书第10版）》（22 skills）
-└── simple-and-usable/        # 《简约至上：交互式设计四策略》（20 skills）
+├── simple-and-usable/        # 《简约至上：交互式设计四策略》（20 skills）
+└── mankiw-macroeconomics-10e/ # 《宏观经济学（第十版）》（20 skills）
 ```
 
 ---

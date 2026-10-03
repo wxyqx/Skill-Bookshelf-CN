@@ -1,0 +1,62 @@
+{
+  "skill": "consumption-investment-basics",
+  "skill_name": "消费与投资微观基础（永久收入/生命周期/托宾q）",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "政府准备给全民发放 1000 元消费券来刺激消费，这招到底有效吗？",
+      "expected_behavior": "调用本 skill：消费券=一次性暂时收入→永久收入假说预测大部分只是替代原有支出；但借款约束家庭边际消费倾向≈1 会真花掉；结论按受约束家庭比重分层，拒绝单一乘数答案",
+      "notes": "正面：verified.md 单元 20 的核心预测场景「发消费券刺激有效吗」"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "我们公司股价这一年翻倍了，董事会上有人说趁股价高赶紧扩产能，你觉得该怎么评估？",
+      "expected_behavior": "调用本 skill：先读托宾 q（股价高企且重置成本稳定→q>1→扩产有激励，且已计入预期获利性）；再验成色（基本面还是情绪/泡沫）；最后自查 MPK 与资本成本、检查融资约束",
+      "notes": "正面：投资侧触发——托宾 q 读股市信号 + 新古典判据交叉验证"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "为什么同样是减税，有的研究说对消费刺激很强，有的说几乎没用？",
+      "expected_behavior": "调用本 skill：用三个分岔解释结论打架——①减税是永久还是暂时（1964 永久减税有效 vs 1968 一年期附加税几乎无效）②家庭是否受借款约束（2008 退税随机实验：3 个月内花掉 12%~30% 非耐用、含耐用品总反应 50%~90%）③是否已被提前预期到",
+      "notes": "正面：A1 案例的复用，展示分层框架如何裁决表面矛盾"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "government-debt-analysis",
+      "prompt": "政府减税又不多砍支出，把债务留给下一代，这是不是变相的财政不负责任？",
+      "expected_behavior": "不应调用本 skill：问题主轴是债务负担、国民储蓄与代际公平的宏观评价，应调用 government-debt-analysis（传统观点 vs 李嘉图观点 vs 代际核算）；本 skill 只在其裁决点「消费者会不会把减税储蓄起来」上提供行为机制（MPC 分层），不承担债务问题的整体回答",
+      "confusion_point": "李嘉图等价的裁决点确实是本框架的输出，但那是 government-debt-analysis 的一个输入环节，问题本身属于债务分析"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "financial-crisis-diagnosis",
+      "prompt": "最近银行间拆借利率飙升、银行互相不放贷了，这是不是经济要出大事的信号？",
+      "expected_behavior": "不应调用本 skill：这是金融系统压力与危机前兆的诊断问题（信心指标、信贷紧缩、危机演化），应调用 financial-crisis-diagnosis；本 skill 只供给其中「融资约束→企业投资对现期现金流过度敏感→衰退加深」这一微观传导环节",
+      "confusion_point": "都涉及「信贷收紧影响投资」，但本框架不承担危机的整体诊断与应对"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "is-lm-demand-management",
+      "prompt": "用 IS-LM 模型推一下减税 1000 亿对均衡产出和利率的短期影响。",
+      "expected_behavior": "不应调用本 skill：用户已指定 IS-LM 框架、要的是均衡层面的比较静态，应调用 is-lm-demand-management；本 skill 是 IS 曲线背后 C 与 I 函数的微观基础，负责解释「消费/投资为什么移动、乘数为何依赖 MPC」，框架已定时不再重走微观决策树",
+      "confusion_point": "本 skill 解释移动的原因，IS-LM 解释移动后的均衡；用户要的是后者"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "别跟我讲机制，直接给个数：这次减税 1000 亿，消费到底会增加多少亿？",
+      "expected_behavior": "调用本 skill 但只给结构不给点估计：效果取决于①减税被感知为永久还是暂时②受借款约束家庭比重（该类家庭 MPC≈1，平滑家庭大半储蓄）③是否已被提前预期（宣布日 vs 生效日）——三者均为实证参数；在参数未知时拒绝给出单一数值，提供分层计算框架代替",
+      "notes": "边界：本框架输出的是效果分层结构，精确数值需要实证参数，不应越位编造点估计"
+    }
+  ]
+}

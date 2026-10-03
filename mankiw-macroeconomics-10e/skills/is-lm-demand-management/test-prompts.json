@@ -1,0 +1,62 @@
+{
+  "skill": "is-lm-demand-management",
+  "skill_name": "IS-LM 需求管理",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "央行降息了，股市还在跌、招聘也在冻结，货币政策是不是失效了？",
+      "expected_behavior": "调用本 skill：先诊断 IS 冲击（信心/财富压支出）与 LM 对冲的力度对比，查零下限与预期通缩对实际利率的影响，给出\"对冲不完全而非政策失效\"的分层结论",
+      "notes": "正面：货币政策失效质疑，典型的 IS/LM 冲击二分诊断入口"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "经济衰退了，政府该直接搞基建支出，还是给家庭减税？规模要多大才够？",
+      "expected_behavior": "调用本 skill：按第一轮漏损比较政府购买乘数与税收乘数（1 美元全额进入需求 vs 只有 MPC 部分），规模按缺口×修正乘数估算（IS-LM 利率挤出/央行配合/零下限修正），并提示配置与归因的困难",
+      "notes": "正面：刺激工具选择与规模设计，财政动 IS 的核心应用"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "利率都降到零了，央行还一个劲说\"我们还有政策空间\"，它到底还有什么工具？",
+      "expected_behavior": "调用本 skill：零下限工具箱三件套——前瞻指引拉低长期利率、量化宽松扩展购债品种、正通胀目标给衰退期留降息空间；同时检查预期通缩是否造成实际利率的隐形紧缩",
+      "notes": "正面：零下限政策空间盘点，第四步的标准触发"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "ad-as-fluctuations",
+      "prompt": "上季度 GDP 又是负增长，这次算衰退了吗？",
+      "expected_behavior": "不应调用本 skill：这是衰退的统计界定/分类题（连续两季度负增长并非可靠定义，需多指标综合判断），属于 ad-as-fluctuations 波动总框架的衰退界定与冲击分类职能；本 skill 管的是已确认衰退之后的机制诊断与政策组合",
+      "confusion_point": "都围绕\"衰退\"，但分类判断在前、机制诊断在后；用户问的是\"算不算\"而不是\"为什么、怎么办\""
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "loanable-funds-analysis",
+      "prompt": "政府连年赤字刺激经济，长期看会不会推高利率、把私人投资挤出去？",
+      "expected_behavior": "不应调用本 skill：问的是长期的挤出与资本存量问题，属于可贷资金框架（国民储蓄下降→利率上升→挤出投资）；本 skill 是短期价格黏性下的需求管理工具，同一财政政策在两个时间范围结论相反",
+      "confusion_point": "\"长期/利率上升/挤出投资\"关键词指向可贷资金；IS-LM 的挤出只在短期政策比较静态里出现"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "mundell-fleming-analysis",
+      "prompt": "一个小型开放经济体在资本自由流动下搞财政扩张，效果会怎么样？",
+      "expected_behavior": "不应调用本 skill：资本完全流动把国内利率钉在世界利率 r* 上，财政效果取决于汇率制度（浮动下被升值抵消、固定下有效），这是蒙代尔-弗莱明的领地；本 skill 假设封闭经济、利率内生",
+      "confusion_point": "同属 IS-LM 家族，但\"开放+资本流动+汇率制度\"三个关键词触发模型切换"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "瑞士把政策利率搞到了 -0.73%，不是说名义利率不能低于零吗？零下限理论错了吗？",
+      "expected_behavior": "调用本 skill 的零下限边界：下限并非精确的零——大额持有人宁可付小额费用（接受略负利率）换取现金托管，地板由储存现金的成本决定，略低于零但不会深负；结论：零下限工具箱的逻辑不变，只是地板略微下移，评估负利率空间用储存成本而非零",
+      "notes": "边界：常识修正型——\"零\"是教科书简化，须区分理论地板与现实地板"
+    }
+  ]
+}

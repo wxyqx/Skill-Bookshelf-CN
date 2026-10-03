@@ -1,0 +1,62 @@
+{
+  "skill": "government-debt-analysis",
+  "skill_name": "政府债务分析（传统 vs 李嘉图 / 衡量陷阱）",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "新闻标题说国家债务规模又创历史新高，我们是不是快破产了？",
+      "expected_behavior": "调用本 skill：禁用绝对数——先做规模三重透视（占 GDP 比例+历史轨迹+国际对比），再衡量校正四查（重点查隐性负债），再分解增量驱动与风险扫描，按轨迹+结构+信心给结论",
+      "notes": "正面：债务规模判断，典型需要相对化+衡量校正的问题"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "政府说减税能刺激经济，但有人说李嘉图等价证明减税没用，到底该信哪一派？",
+      "expected_behavior": "调用本 skill：不空站队——先并列推演传统观点与李嘉图观点，再用消费者行为三问（前瞻吗/有借款约束吗/代际利他吗）裁决，按人群结构为两派分配权重",
+      "notes": "正面：两派之争的裁决程序是本框架的核心方法论"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "有人提议把「每年预算必须平衡」写进宪法，这主张靠谱吗？",
+      "expected_behavior": "调用本 skill：赤字正当性三查（稳定化/税收平滑/代际再分配）——严格平衡预算规则会废掉自动稳定器、在衰退时被迫增税减支，属自我挫败；规则至少要给战争与萧条留例外",
+      "notes": "正面：平衡预算规则评估，对应 Ch17.5"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "loanable-funds-analysis",
+      "prompt": "用可贷资金模型推一下：政府大规模减税，实际利率会怎么动？会挤出多少投资？",
+      "expected_behavior": "不应调用本 skill：用户明确要基础利率机制的图上推演（储蓄曲线移动→利率→投资量的机制计算），应调用 loanable-funds-analysis；本框架是债务专项整合判断，只有当行为假设本身待裁决时才介入",
+      "confusion_point": "都涉及减税与利率，但要的是机制推演而非观点裁决与衡量校正"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "consumption-investment-basics",
+      "prompt": "政府给我们家退税了，这笔钱我该花掉还是存起来？",
+      "expected_behavior": "不应调用本 skill：这是个人层面的消费/储蓄决策（取决于本人的前瞻性、借款约束与收入预期），应调用 consumption-investment-basics；本框架回答的是减税对国民储蓄与经济总量的宏观效应，不给个人理财建议",
+      "confusion_point": "同一套行为假说（前瞻/借款约束/代际利他），但分析对象是个人决策而非宏观总量"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "financial-crisis-diagnosis",
+      "prompt": "某国主权债收益率飙升、银行遭挤兑、存款人排队取钱，政府该怎么救银行体系？",
+      "expected_behavior": "不应调用本 skill：问题核心是银行体系信心危机与传染处置，应调用 financial-crisis-diagnosis；本框架只在回溯「主权债务为何先失去市场信心」（轨迹/结构/拖欠预期）时作为上游补充",
+      "confusion_point": "都涉及主权债务背景，但一个是银行危机处置、一个是债务可持续性判断"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "一个恶性通胀的国家同时债台高筑，该先治通胀还是先减赤字？",
+      "expected_behavior": "调用本 skill 并联合 inflation-diagnosis：本框架给出财政主导诊断——恶性通胀的病根通常是财政（印钞填补赤字缺口），止住它靠财政改革堵住缺口，即「先减赤字」是治本；货币数量机制与铸币税细节转交 inflation-diagnosis",
+      "notes": "边界：跨框架交界题——财政根源归本框架，货币机制归对方；考察 skill 边界自觉与联合调用"
+    }
+  ]
+}

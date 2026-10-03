@@ -1,0 +1,68 @@
+{
+  "skill": "loanable-funds-analysis",
+  "skill_name": "可贷资金与财政政策长期分析",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "政府宣布大规模减税，有经济学家说长期利率会被推高、企业融资变难，这是什么逻辑？",
+      "expected_behavior": "调用本 skill：执行财政政策三步推演——减税使消费增加 MPC×ΔT、公共储蓄减少→国民储蓄左移→均衡实际利率上升→投资被挤出",
+      "notes": "正面：减税-利率-挤出，本框架最典型的触发问题"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "为什么德国、日本这些高储蓄国家的实际利率那么低？",
+      "expected_behavior": "调用本 skill：储蓄供给线右移→均衡利率下降、投资量上升；可迁移到全球资金市场，说明长期实际利率由资金稀缺程度（S=I）定价",
+      "notes": "正面：储蓄-利率关系，静态比较的应用"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "政府发债几万亿搞基建，这些钱到底从哪来？会不会挤掉企业的投资？",
+      "expected_behavior": "调用本 skill：封闭经济下发债→公共储蓄下降→S 左移→利率上升→等量挤出私人投资；并提示若为开放经济体，挤出的对象变为净出口（转 open-economy-flows）",
+      "notes": "正面：「资源从哪来」的资源约束问题，本框架核心用途"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "is-lm-demand-management",
+      "prompt": "经济现在陷入衰退、失业率飙升，政府该不该立刻搞减税和扩大支出来刺激？",
+      "expected_behavior": "不应调用本 skill：这是短期需求管理问题，价格黏性下产出可变、财政乘数与挤入效应主导；应调用 is-lm-demand-management。本框架的「减税挤出投资」只适用于长期，用来回答衰退期问题会答反",
+      "confusion_point": "同样讨论财政政策与利率，但问的是衰退期刺激效果——长期框架对短期问题会给出方向相反的答案"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "open-economy-flows",
+      "prompt": "美国贸易逆差这么大，是因为美国人储蓄太少吗？加关税能不能解决逆差？",
+      "expected_behavior": "不应调用本 skill：问题落在贸易余额的决定与政策评估上，属于开放经济；应调用 open-economy-flows（S−I=NX，关税不改变 S−I 则不改变 NX）",
+      "confusion_point": "共用同一恒等式 S=I，但一旦产出变量是 NX 与汇率（小国 r=r* 固定），就是开放经济框架的领地"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "我的房贷利率 6%，现在通胀 3%，要不要提前还一笔？",
+      "expected_behavior": "不应调用本 skill：个人财务操作决策，宏观可贷资金框架不回答个体还贷问题；至多提示实际利率约 3% 的换算，决策应按个人财务规划处理",
+      "confusion_point": "字面有「利率」「借款」，但决策主体是家庭、产出是操作建议"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "政府推出投资税收抵免鼓励企业买设备，全社会的投资量一定会增加吗？",
+      "expected_behavior": "调用本 skill 但输出反直觉结论：投资需求线右移→利率上升；储蓄垂直（不随利率变化）时均衡投资量不变，只有储蓄对利率敏感时投资量才增加——先问新增投资的实际资源从哪来",
+      "notes": "边界：「投资需求≠投资量」的反直觉结论，且量级依赖储蓄弹性假设（E2/E3）"
+    },
+    {
+      "id": "T8",
+      "type": "edge_case",
+      "prompt": "像美国这么大的经济体搞财政扩张，利率到底会不会涨？会不会同时变成贸易赤字？",
+      "expected_behavior": "调用本 skill 做封闭端推演后显式标注边界：美国是大型开放经济，介于封闭与小型开放两个极端之间——利率上升一部分、NX 下降一部分（Ch6 附录模型）；单一框架只给一端，须说明模型谱系选择",
+      "notes": "边界：大国情形两个极端结论各对一半，防止本框架越界给出唯一答案（E4）"
+    }
+  ]
+}

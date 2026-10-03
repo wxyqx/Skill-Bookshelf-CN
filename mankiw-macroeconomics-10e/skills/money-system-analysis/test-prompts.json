@@ -1,0 +1,61 @@
+{
+  "skill": "money-system-analysis",
+  "skill_name": "货币系统与货币供给解剖",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "央行 QE 印了上万亿基础货币，钱都去哪了？为什么物价没怎么涨？",
+      "expected_behavior": "调用本 skill：用 M=m×B 拆解——QE 只直接推高 B，银行囤积超额准备金使 rr 上升、乘数塌陷，M 未同比扩张；第四步检查乘数假设后给出「印了多少≠经济中多了多少」的结论，物价判断提示转 inflation-diagnosis",
+      "notes": "正面：QE 与乘数失灵，Ch4.3 案例研究的直问"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "比特币到底算不算货币？跟黄金、游戏币比呢？",
+      "expected_behavior": "调用本 skill：逐项过三职能清单（价值储藏/计价单位/交换媒介），指出比特币靠社会惯例获得价值但波动剧烈、极少用于标价与支付，三职能仅部分成立；同法比较黄金与游戏币，缺哪项说哪项",
+      "notes": "正面：「是不是货币」判断题，三职能清单的典型应用"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "新闻里说央行降准 0.5 个百分点，这操作到底在干什么？市面上的钱会变多吗？",
+      "expected_behavior": "调用本 skill：工具归类（降准=动乘数的工具，rr↓→m↑→M↑），并说明它与买债（动 B）的通道区别与力度差异",
+      "notes": "正面：央行工具解读，两条通道分类的直接应用"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "inflation-diagnosis",
+      "prompt": "物价连着半年涨 5%，是不是央行印钱印太多了？再这样下去会恶性通胀吗？",
+      "expected_behavior": "不应调用本 skill 作主框架：问的是通胀的成因诊断与前景（数量论、货币增长与通胀的关系、恶性通胀的财政根源），应调用 inflation-diagnosis；本 skill 只在需要解读货币供给数据时作辅助",
+      "confusion_point": "都出现「印钱」，但本 skill 管「货币怎么被创造」，通胀怎么诊断归 inflation-diagnosis"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "financial-crisis-diagnosis",
+      "prompt": "又有银行爆雷了，银行体系会不会连环倒闭？我的存款还安全吗？",
+      "expected_behavior": "不应调用本 skill 作主框架：问的是危机的全面诊断（银行资产负债表、信心与挤兑传染、最后贷款人应对、存款安全评估），应调用 financial-crisis-diagnosis；本 skill 只覆盖其中货币供给收缩的切面",
+      "confusion_point": "挤兑会反转货币创造（本 skill 的 E 段内容），但「危机怎么演化、存款安不安全」是危机诊断的领地"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "手里有五万闲钱，放货币基金还是买点比特币？哪个更保值？",
+      "expected_behavior": "不应调用本 skill：个人理财操作决策，宏观框架只回答「比特币是不是货币」的定义问题，不回答「该不该买」；按个人财务规划处理",
+      "confusion_point": "字面出现货币资产，但决策主体是个人、产出是配置建议"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "稳定币发行方每收进 1 美元就发 1 枚锚定美元的币，这套机制算部分准备金银行吗？会像商业银行那样创造货币吗？",
+      "expected_behavior": "调用本 skill 但显式标注为框架外推：用三职能检验其货币性（依赖锚定与接受共识，类似书中雅浦岛石币的共识账本）；用创造机制类比——100% 储备模式下无放贷环节、不存在 rr/cr 乘数，不发生部分准备金式货币创造；提醒书中未讨论此类资产，结论标注为框架推演而非教材原文",
+      "notes": "边界：新资产需把三职能与创造机制两个组件分开外推，且不得冒充教材结论"
+    }
+  ]
+}

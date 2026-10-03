@@ -1,0 +1,61 @@
+{
+  "skill": "ad-as-fluctuations",
+  "skill_name": "波动分析总框架（AD-AS、冲击分类、奥肯定律）",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "油价又暴涨了，新闻里说央行很头疼：到底该降息保增长，还是加息压通胀？",
+      "expected_behavior": "调用本 skill：先分类（油价=不利供给冲击，SRAS 上移，滞胀），指出两难（扩 AD 适应保产出但物价永久更高；不动则痛苦衰退），显式回答没有两全操作、只有取舍，并用奥肯定律同时报产出与失业双指标",
+      "notes": "正面：供给冲击两难的典型问法，对应 A2 场景一与欧佩克案例"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "GDP 都连续两个季度负增长了，这算不算正式进入衰退？失业会不会跟着飙升？",
+      "expected_behavior": "调用本 skill：指出两季度规则只是经验规则且并不总是成立（2001 年反例、NBER 无固定规则），用奥肯定律换算产出-失业（如失业每升 1 点对应 GDP 增长降 2 点），同时报 GDP 与失业双指标，建议多指标综合判断",
+      "notes": "正面：衰退判定 + 奥肯定律换算，对应 A2 场景二"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "为什么 70 年代油价一涨，通胀和失业居然一起飙升？以后还会发生这种事吗？",
+      "expected_behavior": "调用本 skill：用供给冲击诊断滞胀（欧佩克 1974 油价 +68% → 通胀与失业同向恶化；1986 年油价大跌的镜像验证），并补充结构性变化（单位 GDP 耗油量下降 55%、转向服务业）使现今脆弱性下降",
+      "notes": "正面：滞胀成因解释，对应 A1 书中案例"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "is-lm-demand-management",
+      "prompt": "帮我分析一下降息对房地产市场的传导链条，从利率下降到房贷需求再到销量。",
+      "expected_behavior": "不应调用本 skill：这是问利率政策的具体传导机制（r→I→Y 的 IS-LM 细节），应调用 is-lm-demand-management；本 skill 只做波动层面的冲击分类与方向判断，不做具体传导路径分析",
+      "confusion_point": "都涉及降息与总需求，但本 skill 是波动的总框架/导论，IS-LM 才是需求管理的具体工具；传导链条属下探层"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "phillips-curve-analysis",
+      "prompt": "央行说要用两年时间把通胀从 6% 压回 2%，这个过程中要付出多大的失业代价？",
+      "expected_behavior": "不应调用本 skill：反通胀的失业代价（牺牲率×产出缺口、预期与可信性降价）属 phillips-curve-analysis 的专题深化；本框架只做同向/反向的静态指纹判断，不计算动态权衡的代价",
+      "confusion_point": "都涉及通胀-失业关系，但本 skill 的输出是冲击分类与方向，量化权衡代价是菲利普斯曲线专题"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "眼看经济要衰退了，股市也跌了 20%，我现在该不该清仓买黄金避险？",
+      "expected_behavior": "不应调用本 skill：这是个人投资操作决策，宏观波动框架给不了买卖建议；即便讨论衰退前景也应先由数据与定位层处理，本 skill 只诊断波动成因与方向",
+      "confusion_point": "字面有「衰退」与「经济波动」，但决策主体是个人账户、产出是操作建议"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "这轮经济下滑很怪：需求明显塌了（信心崩、信贷收缩），同时供应链也断了（成本大涨）。两条曲线同时动，该怎么分析？",
+      "expected_behavior": "调用本 skill 但显式处理边界：分别给两条冲击定性各自的短期效应（需求负冲击压低产出与物价；不利供给冲击压低产出、推高物价），产出方向同向叠加更明确、物价方向相反需按相对力度判断；报双指标，说明混合冲击下政策取舍更尖锐，深挖传导交给 is-lm-demand-management",
+      "notes": "边界：AD 与 SRAS 同时移动超出单一冲击指纹的舒适区，检验框架按分量拆解的能力"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "skill": "inflation-diagnosis",
+  "skill_name": "通胀诊断（数量论→费雪→铸币税→恶性通胀）",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "现在通胀 8%，银行 5 年期定存利率才 4.5%，这钱存进去到底亏不亏？",
+      "expected_behavior": "调用本 skill：用费雪效应拆 i=r+π，算出预期实际利率为负（约-3.5%）；提示长期定存的未预期通胀风险敞口，判断补偿是否充分",
+      "notes": "正面：个人利率决策中的通胀诊断，费雪效应是核心工具"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "过去两年 M2 年均增长 12%，实际 GDP 年均增长 5%，照这个趋势物价会怎么走？",
+      "expected_behavior": "调用本 skill：先分长期/短期，再用 MV=PY 的百分比形式 %ΔP≈%ΔM−%ΔY，先确认 V 是否稳定，给出长期通胀压力约 7% 量级的判断，并声明这是长期均值规律而非逐季预测",
+      "notes": "正面：货币数据到通胀的诊断，数量论标准应用"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "有个国家月通胀冲到 60%，央行行长换了三个还是压不住，这种事最后都是怎么收场的？",
+      "expected_behavior": "调用本 skill：先判恶性通胀（月通胀>50%），按第五步查财政根源——赤字能否被税收或举债覆盖、印钞占融资比例；收场判据是财政改革或弃币/美元化，而非央行人事变动",
+      "notes": "正面：恶性通胀诊断，「结束是财政现象」是判别性结论"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "phillips-curve-analysis",
+      "prompt": "央行说要用两年把通胀从 8% 压回 2%，这期间会不会推高失业？经济要付出多大代价？",
+      "expected_behavior": "不应调用本 skill：这是反通胀的短期产出-就业代价问题（牺牲率、通胀-失业权衡），属短期权衡题，应调用 phillips-curve-analysis；本 skill 管长期成因与终结条件，不管短期代价",
+      "confusion_point": "同在通胀议题下，但「降通胀的代价」是短期权衡，「通胀的成因与收场」才是本 skill"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "money-system-analysis",
+      "prompt": "央行印出来的钱是怎么进入经济循环的？是先给银行还是先给政府？",
+      "expected_behavior": "不应调用本 skill：这是货币创造与投放的机制问题（基础货币、乘数、传导渠道），应调用 money-system-analysis；本 skill 只回答超发之后何时、以多大幅度变成通胀",
+      "confusion_point": "都围绕「发钱」，但机制题（怎么造出来）找 money-system-analysis，诊断题（会不会通胀）才找本 skill"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "我想让家庭资产抗通胀，帮我配一下：买黄金、比特币还是提前还房贷？",
+      "expected_behavior": "不应调用本 skill：这是具体资产配置与理财操作，宏观诊断框架只提供实际利率与再分配方向，不产出资产选择方案；应按财务规划处理",
+      "confusion_point": "字面有「抗通胀」，但用户要的是操作方案，超出本框架边界"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "央行只是宣布明年要扩大货币供给，实际还没多发一分钱，为什么物价今天就开始涨了？",
+      "expected_behavior": "调用本 skill 并走预期渠道分支：价格水平由现期与预期未来货币供给的加权平均决定——宣布→预期通胀上升→（费雪效应）名义利率上升→持币机会成本上升→货币需求下降→现期物价上涨；说明预期本身就是通胀的传导渠道",
+      "notes": "边界：不查当期超发数据也能诊断，但需明确这是预期定价机制而非当期货币扩张"
+    }
+  ]
+}

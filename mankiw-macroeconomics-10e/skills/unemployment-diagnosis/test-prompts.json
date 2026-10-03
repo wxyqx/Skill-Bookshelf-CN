@@ -1,0 +1,61 @@
+{
+  "skill": "unemployment-diagnosis",
+  "skill_name": "失业诊断：自然率/摩擦/结构/效率工资",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "欧洲好多国家失业率常年停在 8% 以上，经济也没崩溃，为什么总有人一直失业？",
+      "expected_behavior": "调用本 skill：失业率接近自然率的持续高失业属结构面——用 U/L=s/(s+f) 定位 s 与 f 两个杠杆，拆摩擦性（匹配慢）与结构性（慷慨津贴×技能偏向冲击的交互作用），并交代降低自然率的政策两难",
+      "notes": "正面：自然率/结构性失业的典型问题（Ch7.5 欧洲案例）"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "政府把失业救济金延长一倍，会不会让大家都躺着不找工作了？",
+      "expected_behavior": "调用本 skill：先定位激励渠道（f 降、s 升→自然率上升的无意后果），再引入保险收益与更优匹配，用微观证据定标（津贴用完时再就业概率翻倍、500 美元求职奖金随机实验缩短失业时长 7%），最后按劳动市场状态（繁荣/衰退）给条件化结论",
+      "notes": "正面：激励权衡题，综合 Cp09/Ck06/Cc06/Cc07/Ck09"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "为什么经济明明运行正常，还是有人失业？把失业率降到零不是更好吗？",
+      "expected_behavior": "调用本 skill：用自然率模型回答——匹配需要时间（摩擦性）+ 工资刚性三来源（结构性），只要 s>0 且 f 有限，稳态失业率必为正；零失业不是自由市场经济的合理目标，政策目标应设为降低自然率而非消灭失业",
+      "notes": "正面：自然率存在性与政策目标设定（Cp08）"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "phillips-curve-analysis",
+      "prompt": "央行说要花两年把通胀从 6% 压回 2%，这期间失业率会不会被推上去？要疼多久？",
+      "expected_behavior": "不应调用本 skill：这是反通胀代价与通胀-失业短期权衡题，应调用 phillips-curve-analysis（牺牲率、预期形成与政策可信性）；本 skill 只管失业的结构面（自然率由什么决定），不处理实际失业率围绕自然率的周期性偏离",
+      "confusion_point": "两 skill 都谈失业率与自然率，但本题问的是权衡与代价（短期偏离），不是自然率的长期结构决定"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "macro-data-literacy",
+      "prompt": "新闻说失业率降到 3.5%，这个数字到底是怎么统计的？为什么有人说它不算数？",
+      "expected_behavior": "不应调用本 skill：这是失业率统计口径问题（劳动力定义、丧失信心的工人、U1-U6 指标），应调用 macro-data-literacy；只有当追问转向「失业为什么发生、怎么降」时才进入本 skill",
+      "confusion_point": "丧失信心的工人在本 skill E 段出现，但读数与口径归数据素养 skill；诊断成因才归本 skill"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "我是开餐厅的，听说福特当年发高工资反而省了成本，要不要把服务员的工资直接翻倍？",
+      "expected_behavior": "不应调用本 skill：这是企业微观薪酬决策；宏观效率工资理论只提供机制解释（道德风险/更替/逆向选择/营养），是否翻倍需要经营与人力成本测算，本 skill 不给操作结论，最多讲清福特案例的背景条件",
+      "confusion_point": "「福特 5 美元」是本 skill 的 A1 案例，但适用边界明确排除企业层面的微观决策"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "2008 年衰退把美国失业率推到 10%，而且很多人很久都找不到工作——这波失业算周期性还是结构性的？",
+      "expected_behavior": "调用本 skill 但只做结构面分步：第一步声明衰退缺口判定属周期工具族（本 skill 只定位不裁决）；再按失业持续时间双口径拆解（多数失业段短 vs 多数失业周数属长期者），呈现救济延长之争（巴罗 vs 克鲁格曼）并如实说明书上结论是「没有定论」，不单独下最终判词",
+      "notes": "边界：周期与结构叠加的混合案例，需与 phillips-curve-analysis / ad-as-fluctuations 联合使用"
+    }
+  ]
+}

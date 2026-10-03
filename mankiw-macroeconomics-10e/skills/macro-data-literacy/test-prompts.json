@@ -1,0 +1,61 @@
+{
+  "skill": "macro-data-literacy",
+  "skill_name": "经济数据解读",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "新闻说今年 GDP 增长 6%，通胀率 5%，老百姓的生活这一年实际改善了多少？",
+      "expected_behavior": "调用本 skill：名义换实际（实际增速 ≈ 6% − 5% = 1%），再追问口径（现价/不变价、季节调整）并按 Y=C+I+G+NX 看增长由哪桶贡献",
+      "notes": "正面：典型的名义/实际混淆，需平减换算 + 口径体检"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "失业率从 5.2% 降到 4.8% 了，就业形势是不是明显好转？",
+      "expected_behavior": "调用本 skill：追问分母——查劳动力参与率与退出劳动力的丧失信心工人（下降可能来自就业增加，也可能来自人从统计上消失），并确认数据出自家庭调查还是机构调查",
+      "notes": "正面：失业率口径与三分类边界的应用"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "官方 CPI 才涨 2%，可我日常买菜的感受远不止 2%，统计数据是不是有问题？",
+      "expected_behavior": "调用本 skill：解释 CPI 是固定篮子的拉氏指数、度量平均篮子而非个人篮子，指出替代/新产品/质量三偏差的已知方向与量级区间，建议用 GDP 平减指数、PCE 交叉验证方向",
+      "notes": "正面：CPI 构造与偏差体检，个人感受与总量口径之辨"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "macro-timeframe-selection",
+      "prompt": "央行连续加息，房价什么时候才能止跌回暖？",
+      "expected_behavior": "不应调用本 skill：这不是读数体检而是政策效果判断问题，应先由 macro-timeframe-selection 定位时间范围（短期需求压制 vs 长期回归基本面），再选具体模型；本 skill 只在用户引用具体统计数字且口径存疑时才介入",
+      "confusion_point": "都始于\"看懂宏观数据\"，但用户要的是效果判断与时间路径，不是口径检查"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "inflation-diagnosis",
+      "prompt": "这轮通胀到底是什么原因造成的，是货币超发还是供给冲击？接下来会怎么演变？",
+      "expected_behavior": "不应调用本 skill：这是成因诊断与走势推演，应调用 inflation-diagnosis（数量论、货币中性等机制分析）；本 skill 只回答\"通胀数字怎么读、可信吗\"，不回答\"为什么高、会怎样\"",
+      "confusion_point": "同在通胀话题内，但本 skill 是数据体检层，机制与预测是诊断层"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "手上有 50 万闲钱，听说通胀要来了，我该买黄金还是存长期定存？",
+      "expected_behavior": "不应调用本 skill：个人资产配置决策属于理财规划，宏观口径框架帮不了具体操作；若需通胀机制可另行调用 inflation-diagnosis",
+      "confusion_point": "字面有\"通胀\"，但决策主体是个人、产出是操作建议"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "听说地下经济规模很大，官方 GDP 是不是严重低估了？一个国家的实际经济规模到底应该是多少？",
+      "expected_behavior": "调用本 skill 但明示边界：用框架讲清遗漏类型（家务、耐用品服务、地下经济）与国别差异区间（美国不足官方经济 10%、部分发展中国家超过一半），说明偏差稳定时逐年比较仍可用；但精确规模需要专门估算，超出书本数据时不编造数字、给区间结论",
+      "notes": "边界：框架能定位偏差方向与量级区间，不能替代对遗漏规模的外部估计"
+    }
+  ]
+}

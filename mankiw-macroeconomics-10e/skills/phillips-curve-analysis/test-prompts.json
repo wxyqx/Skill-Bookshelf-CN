@@ -1,0 +1,62 @@
+{
+  "skill": "phillips-curve-analysis",
+  "skill_name": "菲利普斯曲线与反通胀代价分析",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "央行承诺两年内把通胀从 6% 压到 2%，经济要为此付出多大代价？值不值？",
+      "expected_behavior": "调用本 skill：走牺牲率核算（降 4 点 ≈ 牺牲一年 GDP 的 20%，或 4 年每年 5%；奥肯换算周期性失业累计约 10 点·年），再按可信性打折，最后与低通胀长期收益对比",
+      "notes": "正面：典型的反通胀代价核算问题，对应第三步"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "这轮通胀到底是需求过热还是成本推动？工资也在跟着涨，会不会自我强化下去？",
+      "expected_behavior": "调用本 skill：三力量归因（预期通胀/周期性失业/供给冲击），指认主导项；工资-物价螺旋指向预期项，判断惯性是否延续",
+      "notes": "正面：通胀归因 + 惯性判断，对应第一、二步"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "美联储加息一年半了，通胀刚开始回落，失业率几乎没动，这正常吗？还要疼多久？",
+      "expected_behavior": "调用本 skill：先检查预期形成方式（Eπ=π₋₁ 则通胀有惯性），解释失业与通胀的时滞次序（失业滞后于加息、通胀滞后于失业），再按路径推演剩余代价",
+      "notes": "正面：紧缩时滞解读，对应第二、四步"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "inflation-diagnosis",
+      "prompt": "都说通胀是印钱印出来的，货币发了这么多，长期看通胀会不会失控？",
+      "expected_behavior": "不应调用本 skill：问的是通胀的长期货币成因（货币增速、数量论），应调用 inflation-diagnosis；本框架只处理短期通胀-失业权衡与反通胀退场代价，不回答「通胀为什么存在」",
+      "confusion_point": "都谈通胀成因，但数量论管长期趋势，菲利普斯曲线管短期动力学与退场——时间范围与问题性质不同"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "unemployment-diagnosis",
+      "prompt": "这个国家的青年失业率连续十年在 20% 以上，该怎么才能压下去？",
+      "expected_behavior": "不应调用本 skill：持续十年高于自然率的结构性失业应调用 unemployment-diagnosis（摩擦/结构/效率工资成因）；本框架只处理围绕自然率的周期波动（u−u*）及其通胀含义",
+      "confusion_point": "都涉及失业与自然率，但自然率本身的高低是结构问题，围绕自然率的偏离才是本框架的周期问题"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "dynamic-ad-as-taylor-rule",
+      "prompt": "央行宣布的政策规则是通胀每升 1 个点就只加息 0.5 个点，这样的规则设计有没有问题？",
+      "expected_behavior": "不应调用本 skill：评估利率规则是否违反泰勒原理、会不会引发通胀螺旋，应调用 dynamic-ad-as-taylor-rule；本框架负责通胀归因与反通胀代价核算，不做规则设计评估",
+      "confusion_point": "都涉及货币政策与通胀，一个是规则的动态稳定性判据，一个是权衡的静态核算"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "2009 年美国失业率飙到 10%，按历史经验这么高的失业早该出现通缩了，为什么通胀还稳在 2%？",
+      "expected_behavior": "调用本 skill 但必须走第四步先检验预期假设：适应性外推在此失灵（方向性预测错误），正确解释是央行可信性把预期锚定在 2%；而非机械套用适应性菲利普斯曲线预言通缩",
+      "notes": "边界：同一方程在两种预期假设下结论相反——预期形成机制是制度的函数，先定假设再预测"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "skill": "dynamic-ad-as-taylor-rule",
+  "skill_name": "动态 AD-AS 与泰勒规则",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "央行宣布加息了，通胀这么高，这回能压下来吗？",
+      "expected_behavior": "调用本 skill：先写出央行反应函数并核对泰勒原理——名义利率加幅是否超过通胀升幅（实际利率动没动），再判断系统是否稳定、通胀回落路径如何",
+      "notes": "正面：货币政策新闻解读，需要泰勒原理判据 + 实际利率换算"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "70 年代美国通胀到两位数，美联储明明也在加息，为什么通胀越治越糟？",
+      "expected_behavior": "调用本 skill：用大通胀的 θπ 实证作答——1960-1978 年 θπ=-0.14 违反泰勒原理（名义利率升、实际利率反降），1979 年后 θπ=0.72 满足判据才止血；政策失败定位到反应函数的一个系数",
+      "notes": "正面：历史案例诊断，A1 案例直接命中"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "油价暴涨，央行是应该坚决稳物价，还是先保住增长？有没有两全的办法？",
+      "expected_behavior": "调用本 skill：供给冲击下 DAS 上移、通胀与产出同时恶化，央行只能选代价落在哪个方差上——θπ 大则通胀稳产出荡、反之亦然，没有免费的稳定；可对照美联储双重使命 vs 欧洲央行价格稳定优先",
+      "notes": "正面：波动性权衡定位问题，考察'稳定哪个变量'的选择"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "policy-rules-vs-discretion",
+      "prompt": "央行到底应不应该被规则绑住手脚？给聪明的央行行长自由裁量权不是更好吗？",
+      "expected_behavior": "不应调用本 skill：这是'规则 vs 相机抉择'的元层面论证（时间不一致、卢卡斯批判、承诺价值），应调用 policy-rules-vs-discretion；本框架只做给定一条具体规则后的定量分析",
+      "confusion_point": "都谈'规则'，但本框架的规则是具体的利率反应函数（θπ、θY 参数），不做'要不要规则'的制度论证"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "is-lm-demand-management",
+      "prompt": "用 IS-LM 模型画图分析：央行降息 50 个基点，对产出的短期乘数效应有多大？",
+      "expected_behavior": "不应调用本 skill：用户已明确指定静态 IS-LM 工具且问的是一期乘数效应，应调用 is-lm-demand-management；本框架的价值在跨期动态与规则稳定性，静态乘数问题无需升级",
+      "confusion_point": "都涉及利率与产出，但静态 IS-LM 无预期通胀反馈环，问'乘数'与问'稳定性'是两个不同问题"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "inflation-diagnosis",
+      "prompt": "有些国家通胀能涨到百分之几百，政府为什么停不下来？根子在哪？",
+      "expected_behavior": "不应调用本 skill：恶性通胀的病根诊断（数量论、铸币税、财政主导）应调用 inflation-diagnosis；本框架处理的是央行反应函数下通胀的稳定性动态，不以货币根源为对象",
+      "confusion_point": "都谈通胀失控，但恶性通胀是财政/货币供给问题，不是利率反应规则问题"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "泰勒规则显示 2011 年美联储就该加息了，它没加，后来 2021-22 年通胀爆表——这是不是证明央行就该机械执行规则，别有任何灵活性？",
+      "expected_behavior": "调用本 skill 但止步于机制层：说明 2008-09 泰勒规则撞上零下限（规则建议负利率不可行）、2011 年存在三种解读（平均化补足低于规则的时期、自然利率下降需下调规则常数、或反应确实太慢）；规则有失效域、参数有不确定性。至于'该不该机械执行规则'的裁决是元层面问题，明确转交 policy-rules-vs-discretion，不越位下制度结论",
+      "notes": "边界：规则撞上零下限 + 结论外推到制度论证，考察本框架的适用域意识与 skill 间分工"
+    }
+  ]
+}
