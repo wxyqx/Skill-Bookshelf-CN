@@ -1,0 +1,48 @@
+{
+  "skill": "mainstream-user-lens",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "资深用户在论坛强烈要求加自定义快捷键，我们到底做不做？",
+      "expected_behavior": "激活 mainstream-user-lens：先分型（论坛=专家型过采样）→过三判据（比例/年限不升级/任务 vs 定制）→为主流用户重述需求→说不或给替代方案",
+      "notes": "正面场景：专家噪音决策"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "投资人说我们的产品对极客不够硬核，要求加专业模式，怎么判断该不该听？",
+      "expected_behavior": "激活 mainstream-user-lens：引用 iPod 遭专家嘲讽仍卖 2.4 亿台的论证——专家对简洁产品的市场判断会集体出错；先分型再回应",
+      "notes": "正面场景：投资人意见"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "评审时有人说'用我们产品五年的老用户都想要批量操作'，我总觉得这个推理有问题，帮我拆一下",
+      "expected_behavior": "激活 mainstream-user-lens：类型标签不随使用年限升级（用 Excel 五年仍只会对金额求和）——'用得久'推不出'是专家'，也推不出'代表主流'",
+      "notes": "正面场景：年限=专家谬误"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们做的是给开发者用的 CLI 工具，用户全都是专家，想系统梳理一下哪些命令行参数可以精简",
+      "expected_behavior": "不激活 mainstream-user-lens 的'忽略专家'立场（专业工具的专家就是主流用户，先分型即反转）；应激活 four-strategies / remove-strategy 做简化排查",
+      "notes": "诱饵：同书兄弟 skill 混淆+立场反转场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我统计一下论坛里要求自定义快捷键的帖子有多少条、分布在哪些板块",
+      "expected_behavior": "数据统计请求，不激活任何设计方法 skill",
+      "notes": "诱饵：词面命中（论坛/资深用户）但非立场判断"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "为主流用户设计，是不是就是把产品做'傻'一点，反正小白用户什么都不懂？",
+      "expected_behavior": "纠偏：主流用户≠小白——类型标签不随年限升级，主流用户掌握重要功能但不想学所有功能；'做傻'与'为主流设计'的区别在于任务完成效率，不是功能阉割",
+      "notes": "边界：主流用户≠初学者的常识误区"
+    }
+  ]
+}

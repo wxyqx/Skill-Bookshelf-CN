@@ -1,0 +1,48 @@
+{
+  "skill": "simplicity-baseline",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "团队为一个表单字段吵了两周，产品说必须有，设计说多余，怎么收场？",
+      "expected_behavior": "激活 simplicity-baseline：先写一句话基准（如'用户 30 秒完成下单'），逐字段对照基准裁决；附带提醒复杂感上升不是跑偏信号",
+      "notes": "正面场景：字段争论"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们要改版官网，老板只说'要简单一点'，但没人说得清什么算简单，应该从哪里开始？",
+      "expected_behavior": "激活 simplicity-baseline：按项目规模二选一（一句话描述或使用情景故事），压到可判定后挂进评审流程当自检句",
+      "notes": "正面场景：项目启动缺基准"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "帮我给支付流程定一个'简单'的验收标准，要能在评审时拿来判断方案好坏",
+      "expected_behavior": "激活 simplicity-baseline：产出成文基准（清除'好用/直观'等含糊词），每条都能对具体设计问题给出可判定答案",
+      "notes": "正面场景：验收标准"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们打算去客户门店里看看收银员实际怎么用 POS 机，帮我列一个观察清单",
+      "expected_behavior": "应激活同书兄弟 skill field-observation（真实环境观察：办公室/家里/户外三类环境干扰清单），写基准是观察之后的成文步骤",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我解释一下 CSS 里 baseline 对齐是什么意思",
+      "expected_behavior": "纯技术概念解释，不激活任何设计方法 skill",
+      "notes": "诱饵：词面命中（baseline）但与简化无关"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "基准已经写好挂墙上了，但改版过程中界面看起来越来越复杂，是不是说明我们跑偏了？",
+      "expected_behavior": "不急着翻案：复杂感上升是设计过程的正常曲线（乔布斯三阶段），跑偏与否拿基准逐项对照判断，不看中途手感；对照后确实冲突才回炉基准",
+      "notes": "边界：复杂感上升 vs 真跑偏"
+    }
+  ]
+}

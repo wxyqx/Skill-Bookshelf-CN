@@ -1,0 +1,48 @@
+{
+  "skill": "details-carry-simplicity",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "排期会上有人说'修这个下拉菜单只帮用户省 3 秒，不值得排'，我觉得有道理又说不出怎么反驳",
+      "expected_behavior": "激活 details-carry-simplicity：用规模乘法定价（3 秒×百万用户×使用频率=每天累计数年），说明高频路径上的微小缺口优先修",
+      "notes": "正面场景：小瑕疵被否决"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "下周上线，帮我决定最后这批小问题哪些必须修、哪些可以放过",
+      "expected_behavior": "激活 details-carry-simplicity：按用户故事定位必经路径，用'瑕疵×用户数×频率'排序，高频'最后一米'缺口当天修，低频无后果的记入待办",
+      "notes": "正面场景：上线前细节取舍"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们的地铁查询类应用功能都正常，但用户在真实场景里第一步就卡住，评审时却完全看不出问题",
+      "expected_behavior": "激活 details-carry-simplicity：以巴黎地铁漏'方向'案例对照——演示环境正常、真实环境（人多、着急、单手）放大缺失环节；按完整使用故事走一遍必经之路找缺口",
+      "notes": "正面场景：演示正常、真实崩塌"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们首页太琐碎，装饰线、补充链接、废话文案一大堆，帮我做一次系统性清扫",
+      "expected_behavior": "应激活同书兄弟 skill declutter（减速带批量清理工序），用户要的是一类小负担的批量清扫，不是给单个瑕疵定价排序",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我修一个 bug：结算按钮在 iPhone SE 上错位 2 像素，这是具体的前端问题",
+      "expected_behavior": "具体 bug 修复请求，直接进入工程修复即可，无需激活设计方法论 skill",
+      "notes": "诱饵：同为'细节'但是纯工程问题"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一个内部后台只有几十个用户，界面上也有个小瑕疵，也要按'百万用户'的逻辑优先修吗？",
+      "expected_behavior": "不套用：规模乘法以用户量×频率为前提，几十人后台按常规收益/成本排序即可；说明该 skill 的适用边界在面向大众的高频产品",
+      "notes": "边界：规模乘法的小用户量失效"
+    }
+  ]
+}

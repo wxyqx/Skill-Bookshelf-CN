@@ -1,0 +1,48 @@
+{
+  "skill": "four-strategies",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的后台管理系统越堆越乱，十几个菜单页都有重复功能，想系统性地简化一下，从哪入手？",
+      "expected_behavior": "激活 four-strategies：按删除→组织→隐藏→转移的顺序给出排查路径，并为每个元素给出主导策略建议",
+      "notes": "正面场景：产品级简化请求"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老板想让首页塞下新品、促销、会员、客服、社区五个入口，我觉得会很乱，有没有方法判断到底怎么安排？",
+      "expected_behavior": "激活 four-strategies：先按四策略逐条过（哪些可删/组/藏/转），强调先删后分组的优先序",
+      "notes": "正面场景：信息架构争论"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "接手一个五年老产品，功能一大堆，领导让我做减法，帮我理个简化思路",
+      "expected_behavior": "激活 four-strategies：给出四策略排查框架+多方案建议（不要只抓第一个方案）",
+      "notes": "正面场景：遗留产品瘦身"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们决定砍掉报表自定义功能，帮我细化删除的评估步骤和注意事项",
+      "expected_behavior": "应激活同书兄弟 skill remove-strategy（删除策略的具体执行），四策略总纲是选择层，用户已选定策略",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下 iOS 18 的控制中心有哪些新变化",
+      "expected_behavior": "纯信息查询，不激活任何设计方法 skill",
+      "notes": "诱饵：非设计场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "把产品界面全部改成黑白灰性冷淡风格，是不是就算简化了？",
+      "expected_behavior": "不直接照做：指出简单≠极简主义（simplicity-boundaries 的边界），简单是用户的感觉不是风格；若用户确有简化意图，回到四策略",
+      "notes": "边界：风格美化 vs 复杂性简化"
+    }
+  ]
+}

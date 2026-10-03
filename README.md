@@ -10,7 +10,7 @@
 
 ## 目录总览
 
-**22 本书 · 405 个 skills**（最后更新：2026-10-03）
+**23 本书 · 425 个 skills**（最后更新：2026-10-03）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -36,6 +36,7 @@
 | 《启示录：打造用户喜爱的产品》*INSPIRED* | Marty Cagan · 2008 | 产品管理 / 产品探索 / 用户体验 | 18 | [`inspired/`](./inspired/) |
 | 《重新定义公司：谷歌是如何运营的》*How Google Works* | 埃里克·施密特、乔纳森·罗森伯格 · 2015 | 企业管理 / 赋能 / 创意精英 | 18 | [`how-google-works/`](./how-google-works/) |
 | 《学会提问（原书第10版）》*Asking the Right Questions* | 尼尔·布朗、斯图尔特·基利 · 2012 | 批判性思维 / 论证审查 / 提问 | 22 | [`asking-the-right-questions/`](./asking-the-right-questions/) |
+| 《简约至上：交互式设计四策略》*Simple and Usable* | Giles Colborne · 2011 | 交互设计 / 简化 / 用户体验 | 20 | [`simple-and-usable/`](./simple-and-usable/) |
 
 ---
 
@@ -173,6 +174,12 @@
 - **一句话**：批判性思维不是"多想一下"的态度，而是一张环环相扣的关键问题清单（论题→结论→理由→歧义词→假设→谬误→证据→替代原因→数据→省略信息→备选结论）——用它逐层拆解任何想说服你的论证，同时把同一张清单对准自己的结论（强势批判性思维），否则它只会沦为护短工具。
 - **Skills**：`scrutiny-worthiness-filter` · `pan-for-gold-reading` · `strong-sense-self-audit` · `critical-thinker-values` · `keep-dialogue-alive` · `wishful-feeling-check` · `critical-question-master-list` · `locate-issue-conclusion` · `identify-reasons` · `charity-before-judgment` · `ambiguity-loaded-words` · `value-assumption-mining` · `descriptive-assumption-mining` · `fallacy-three-questions` · `evidence-grade-triage` · `expert-opinion-audit` · `research-survey-audit` · `analogy-evaluation` · `rival-causes-audit` · `deceptive-data-check` · `omitted-info-probe` · `alternative-conclusions`
 
+### 23. 《简约至上：交互式设计四策略》 — *Simple and Usable: Web, Mobile, and Interaction Design* · [`simple-and-usable/`](./simple-and-usable/)
+
+- **作者**：[英] Giles Colborne（cxpartners 公司总裁，曾任英国航空可用性顾问） · 2011（英文原版 New Riders；中文版人民邮电出版社 2011，李松峰、秦绪文 译）
+- **一句话**：简单不是减少功能数，而是用户的感觉——先用主流用户的视角明确"什么才是简单"，再通过删除、组织、隐藏、转移四个策略，把无法消除的复杂性（Tesler 法则：复杂性守恒，只能决定谁面对它）放到正确的位置上。
+- **Skills**：`pseudo-simplicity-detection` · `business-case-for-simplicity` · `simplicity-baseline` · `field-observation` · `mainstream-user-lens` · `control-and-emotion` · `extreme-usability-goals` · `user-story-craft` · `share-the-insight` · `four-strategies` · `remove-strategy` · `declutter` · `organize-strategy` · `visual-organization` · `hide-strategy` · `transfer-strategy` · `open-experience` · `complexity-placement` · `details-carry-simplicity` · `simplicity-boundaries`
+
 ---
 
 ## 安装
@@ -180,7 +187,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 405 个 skills（用户级，所有项目可用）
+# 一次性安装全部 425 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -220,7 +227,8 @@ skill-bookshelf/
 ├── hooked/                   # 《上瘾》（21 skills）
 ├── inspired/                 # 《启示录：打造用户喜爱的产品》（18 skills）
 ├── how-google-works/         # 《重新定义公司：谷歌是如何运营的》（18 skills）
-└── asking-the-right-questions/ # 《学会提问（原书第10版）》（22 skills）
+├── asking-the-right-questions/ # 《学会提问（原书第10版）》（22 skills）
+└── simple-and-usable/        # 《简约至上：交互式设计四策略》（20 skills）
 ```
 
 ---

@@ -1,0 +1,48 @@
+{
+  "skill": "pseudo-simplicity-detection",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板在会上说：用户反馈后台太难用，加个新手引导向导吧，一周就能上线。我该怎么回应他？",
+      "expected_behavior": "激活 pseudo-simplicity-detection：三特征命中（解决眼下问题+便宜+无争议）→打上貌似简单标签→指出向导剥夺控制权且越长体验越差→换问句'哪个功能该删'",
+      "notes": "正面场景：向导提案否决"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们 App 其实功能不算多，但用户就是上手不会用，产品经理提议写一份图文说明书放进帮助中心，这个方向对吗？",
+      "expected_behavior": "激活 pseudo-simplicity-detection：指出说明书假捷径（把失败责任推给用户、大多数用户不看说明），建议排查设计本身的障碍而非加教程",
+      "notes": "正面场景：说明书提案"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "评审时有人提议加个卡通助手引导用户完成初始设置，还说这是业界通行做法，帮我评估一下这个提案",
+      "expected_behavior": "激活 pseudo-simplicity-detection：三特征检查（'业界通行'恰是无争议特征的信号）→指认假装预知需求的破绽→给出替代追问",
+      "notes": "正面场景：卡通助手+'通行做法'辩护"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "设置页 40 个选项吓退新用户，我们决定用渐进展示把高级选项收起来，具体怎么收、提示放哪里比较好？",
+      "expected_behavior": "应激活同书兄弟 skill hide-strategy（隐藏策略的具体执行：什么该藏、怎么藏、提示放哪），不是排查假捷径",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我写一份路由器安装配置的中文说明书，要求图文并茂",
+      "expected_behavior": "纯文档写作任务，不激活任何设计方法 skill",
+      "notes": "诱饵：词面命中（说明书）但非设计决策场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "书上把向导全盘否定，可我们数据明明显示新手引导降低了流失率，到底还能不能用向导？",
+      "expected_behavior": "边界辨析而非照本宣科：先过三特征检查与判停条件（受训用户/合规要件可豁免）；再区分引导是在补偿设计缺陷还是设计已无缺陷的增值——前者仍建议先改设计，后者可以用",
+      "notes": "边界：经验数据与书中结论的冲突处理"
+    }
+  ]
+}

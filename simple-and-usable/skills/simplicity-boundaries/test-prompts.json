@@ -1,0 +1,48 @@
+{
+  "skill": "simplicity-boundaries",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们照着某性冷淡风把 app 全改完了，用户反馈说冷冰冰没个性，到底哪里错了？",
+      "expected_behavior": "激活 simplicity-boundaries：下边界——砍掉的是特征不是复杂性（夏克椅/潘顿椅对照），特征源自方法、产品与任务应保留；给出特征盘点工序",
+      "notes": "正面场景：verified s20 的 novel_question"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老板觉得留白是浪费空间，要求把首屏塞得再满一点，怎么回应？",
+      "expected_behavior": "激活 simplicity-boundaries：上边界——留白让用户用生活填充（手册 vs 网站案例），塞满一切'可能有用'只会让用户疲惫，但决定性细节不能省",
+      "notes": "正面场景：留白辩护"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这次改版把品牌插画和俏皮文案全砍了，理由是'做简化'，这个方向对吗？",
+      "expected_behavior": "激活 simplicity-boundaries：先分清删的是复杂性还是特征——个性与标志性元素不属于认知负担；用'复杂性变少了吗/特征与留白还在吗'双问收尾",
+      "notes": "正面场景：简化越界的纠偏"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "首页 77 个链接太乱，帮我定一个具体的删减计划和评估步骤。",
+      "expected_behavior": "应激活 remove-strategy（删除策略执行）——用户要的是删减工序，不是边界纠偏",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "界面文字太啰嗦，帮我把文案删一半再删一半。",
+      "expected_behavior": "应激活 declutter（减速带清理）——感知细节层的文字减负",
+      "notes": "诱饵：兄弟 skill 混淆场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "极简主义不就是最好的设计吗？越少越好总不会错吧？",
+      "expected_behavior": "不直接认同：简单 ≠ 极简主义——朴素设计仍有特征与个性（夏克椅 vs 潘顿椅）；极简也不等于空旷，关键细节不能省；简单以用户的感觉为准，不以元素数量为准",
+      "notes": "边界：极简主义迷思"
+    }
+  ]
+}

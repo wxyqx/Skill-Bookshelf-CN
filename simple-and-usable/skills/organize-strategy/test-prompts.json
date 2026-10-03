@@ -1,0 +1,48 @@
+{
+  "skill": "organize-strategy",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "电商商品分类改了三版，用户还是找不到东西，分类标准到底应该怎么定？",
+      "expected_behavior": "激活 organize-strategy：向用户收集他们的分法，用三重判定筛选（是非分明/多数一致/重叠最少），排除内部架构、字母表、格式排序",
+      "notes": "正面场景：verified.md s13 novel question 原型"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "新网站的导航按内容格式分（文章/视频/图片）好，还是按主题分好？团队吵不出结果。",
+      "expected_behavior": "激活 organize-strategy：指出按格式拆内容会打断用户任务（读文字时想看图），应以用户心智模型与行为顺序为准，用期望路径检验",
+      "notes": "正面场景：反直觉规则（别按格式分）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "老板说我们不用花力气做导航分类了，加个搜索框用户自己搜就行，怎么看？",
+      "expected_behavior": "激活 organize-strategy：引用购物测试结论（没人始终首选搜索，导航失效才用搜索），先有效组织再考虑搜索；搜索好用是内容被组织好的结果",
+      "notes": "正面场景：搜索与组织的关系（ce19）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "分组标准已经定好了，现在就是页面看着挤、没有重点，字段排列和颜色怎么收拾？",
+      "expected_behavior": "应激活同书兄弟 skill visual-organization（网格对齐/大小位置/感知分层），不重新讨论分组逻辑",
+      "notes": "诱饵：兄弟 skill 混淆场景（s13/s14 互埋：分组逻辑 vs 视觉呈现）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下全国行政区划编码的最新标准文档在哪下载。",
+      "expected_behavior": "纯信息查询，不激活任何设计方法 skill",
+      "notes": "诱饵：非设计场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "按字母顺序排列是不是最客观、最不会吵架的分类方式？",
+      "expected_behavior": "不认同：指出字母表的反直觉陷阱——用户不知道东西叫什么就完蛋（字典里 finish 排在 start 前），'客观省事'的标准实际要求用户先知道答案才能查找",
+      "notes": "边界：客观排序 ≠ 用户可查找"
+    }
+  ]
+}

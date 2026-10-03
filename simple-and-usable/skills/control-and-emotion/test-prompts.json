@@ -1,0 +1,48 @@
+{
+  "skill": "control-and-emotion",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们记账 app 做了两轮可用性测试，用户都说'说不上来，反正觉得麻烦'，访谈也问不出具体哪里难用，怎么继续挖？",
+      "expected_behavior": "激活 control-and-emotion：从掌控感出发定位感情需求层（怕账目失控），用'然后呢'连环追问下钻到功能方案（如默认周视图），而不是继续问'哪里难用'或直接加功能",
+      "notes": "正面场景：难用但说不清的需求下钻"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "产品会上有人提议给我们的待办应用加 20 多个设置项，说'这样用户掌控感更强'，我觉得不对但说不出理由",
+      "expected_behavior": "激活 control-and-emotion：指出掌控感不等于更多选项——主流用户要的是掌握结果，选择过多变成负担；用控制感两端（无按钮电梯 vs 设置页爆炸）校验该提议",
+      "notes": "正面场景：掌控感误用辩论"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们在讨论哪些操作可以做成自动完成，怎么判断哪些控制必须留给用户？",
+      "expected_behavior": "激活 control-and-emotion：以'掌控感增强还是削弱'为判据，列出保留给用户的控制与交给默认值/自动化的部分，并给出两端越界的反例",
+      "notes": "正面场景：自动化与控制分配"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "首页太乱了，帮我系统地排查一下哪些元素该删、哪些该分组、哪些该收起来",
+      "expected_behavior": "应激活同书兄弟 skill four-strategies（简化路径选择），用户要的是简化策略排查，不是感情需求下钻",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下 Things 3 这个应用现在还更新吗，最新版本是什么",
+      "expected_behavior": "纯信息查询，不激活任何设计方法 skill",
+      "notes": "诱饵：非设计场景（提到同书案例产品但不涉及方法论）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "访谈里用户明确说'我想要更多自定义选项'，那我照做加设置项就对了？",
+      "expected_behavior": "不直接照做：先用掌控感下钻确认这表层诉求底下的感情需求（可能怕失控），再判断加选项是否真的增强掌控感；给出聪明默认值/渐进展示等替代方案的可能",
+      "notes": "边界：表层诉求（要选项）vs 感情需求（要掌控）"
+    }
+  ]
+}

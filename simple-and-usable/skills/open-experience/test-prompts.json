@@ -1,0 +1,48 @@
+{
+  "skill": "open-experience",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "要不要做一个智能模板功能，让用户套着填就能生成旅行计划？",
+      "expected_behavior": "激活 open-experience：先检查是否'仅适合中级用户的便捷特性'（两头不讨好）；替代路线是开放工具——把模糊性留给用户，像剥皮策略的旅行文件夹（自建、随意命名）",
+      "notes": "正面场景：verified s17 的 novel_question"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们 app 里购物车、收藏、心愿单、稍后再看四个功能并存，用户老问'我上次存哪儿了'，怎么收拾？",
+      "expected_behavior": "激活 open-experience：合并相似功能为一个可命名的多用途工具（购物车文件夹方案），并告诉用户'可以起名字'，学习与维护成本从四套降为一套",
+      "notes": "正面场景：多合一工具"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "评审时有人建议为新手、普通、高级三类用户各做一套流程，全都照顾到，这样是不是更简单？",
+      "expected_behavior": "激活 open-experience：菜刀钢琴模型——好界面让新手和专家用同一把刀各设目标；分人群的固定流程是中级便捷思路，先检查能否用开放工具合并",
+      "notes": "正面场景：开放界面 vs 分人群定制"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "电话号码输入框老是因为格式报错，是不是应该让系统自动识别并帮忙格式化？",
+      "expected_behavior": "应激活 transfer-strategy（人机分工：结构化是机器的活）；本 skill 管工具开放性，不管输入格式问题",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "所有功能都做完了产品还是复杂，该怎么决定剩下的复杂性放到哪里？",
+      "expected_behavior": "应激活 complexity-placement（终局四问决策）",
+      "notes": "诱饵：兄弟 skill 混淆场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "开放式体验是不是就是把界面做成一张白纸，什么引导都不给，让用户随便折腾？",
+      "expected_behavior": "不直接照做：开放 ≠ 无引导——需要给命名空间和关注点上的提示（'可以给清单起名字'），完全无提示会跌入可发现性灾难；目标明确的任务仍该走固定流程",
+      "notes": "边界：开放与引导的平衡"
+    }
+  ]
+}

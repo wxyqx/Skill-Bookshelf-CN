@@ -1,0 +1,48 @@
+{
+  "skill": "visual-organization",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "表单 17 个字段挤在一起显得特别复杂，但其实都得要，怎么收拾？",
+      "expected_behavior": "激活 visual-organization：网格对齐（17 个字段 3 个错位即毁全局）、去掉分块底色改用空白、感知分层让每次只感知一层；强调不用删字段",
+      "notes": "正面场景：verified.md s14 novel question 原型"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们界面颜色越用越多，每处都想强调，结果反而没有重点了，怎么办？",
+      "expected_behavior": "激活 visual-organization：强调越多等于没有强调（撞珠色球反例），收敛到只强调一两个最重要的主题，用眯眼测试检查层间差别",
+      "notes": "正面场景：强调过载"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "想用红绿灯颜色表示食品的健康等级，这个颜色系统怎么设计才不会被用户误解？",
+      "expected_behavior": "激活 visual-organization：先过色标条件判定——色标是需要学习记忆的符号系统（红绿灯标签反例），确认用户天天重复使用、无需图例、对色盲有冗余编码，否则改用其他编码",
+      "notes": "正面场景：色标 vs 感知分层（ce20）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的商品分类标准一直定不下来，用户测试里总找不到东西，分组逻辑该怎么定？",
+      "expected_behavior": "应激活同书兄弟 skill organize-strategy（分类标准三重判定/期望路径），不做视觉层调整",
+      "notes": "诱饵：兄弟 skill 混淆场景（s14/s13 互埋：视觉呈现 vs 分组逻辑）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这张照片调成暖色调，发朋友圈更好看。",
+      "expected_behavior": "纯修图需求，不激活任何设计方法 skill",
+      "notes": "诱饵：非设计方法场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "把所有重要文字都调大、加粗、标红，重点不就突出了？",
+      "expected_behavior": "不照做：指出同时用大小、字重、颜色到处强调等于没有强调（层间差别被拉平），应维持 2-3 个感知层、层间差别最大化，让每次只感知一层",
+      "notes": "边界：强调堆叠 vs 感知分层"
+    }
+  ]
+}

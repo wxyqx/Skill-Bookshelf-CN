@@ -1,0 +1,48 @@
+{
+  "skill": "declutter",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "首页改版后用户反馈说不上来哪里不对，就是觉得'累'，怎么排查？",
+      "expected_behavior": "激活 declutter：逐元素问'这是减速带吗'，按视觉混乱/干扰链接/错误处理/冗余文字四类排查，并按单次负担×使用频次排序",
+      "notes": "正面场景：感知层'累'的归因（verified.md s12 novel question）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "表单里让用户选日期查账单，老有人选错被报错，错误提示改了好几版措辞还是被投诉，怎么改？",
+      "expected_behavior": "激活 declutter：不打磨错误消息措辞，而是消除错误来源——把自由输入改成只能选有效项的列表/聪明默认值，让错误消息根本不需要出现",
+      "notes": "正面场景：防错优先于错误消息（对账单控件案例）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "注册按钮旁边要不要放一个'查看详细说明'的链接？产品经理说能打消用户顾虑。",
+      "expected_behavior": "激活 declutter：指出行动按钮附近的诱惑链接会动摇决心（旅游网站测试中无人登记成功），关键动作点连一个多余选项都嫌多，补充说明移到任务完成之后",
+      "notes": "正面场景：关键节点选项收敛"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的积分兑换功能两年没人用了，当年开发花了不少钱，要不要整个砍掉？",
+      "expected_behavior": "应激活同书兄弟 skill remove-strategy（功能层删除决策：沉没成本无关原则），而非界面细节清理",
+      "notes": "诱饵：兄弟 skill 混淆场景（s12/s11 互埋：感知层 vs 功能层）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我看看这篇论文的参考文献格式对不对。",
+      "expected_behavior": "纯文档校对任务，不激活任何设计方法 skill",
+      "notes": "诱饵：非设计场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "把这些小细节都清理掉，产品会不会显得太简陋、没诚意？",
+      "expected_behavior": "区分负担与内容：清理的是认知税（装饰、干扰、冗余文字），不是特征与个性；简单不等于极简主义，产品特征应保留（simplicity-boundaries 边界）",
+      "notes": "边界：减速带清理 vs 删光个性"
+    }
+  ]
+}

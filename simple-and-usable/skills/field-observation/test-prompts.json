@@ -1,0 +1,48 @@
+{
+  "skill": "field-observation",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "餐饮商家总抱怨我们的 POS 软件难用，可用性测试却全部通过，问题到底出在哪？",
+      "expected_behavior": "激活 field-observation：指出测试室与真实环境的注意力差异→去店里看午高峰（单手持机、嘈杂、随时被打断）→设计改为大按钮、短任务块、可在打断间隙生存",
+      "notes": "正面场景：测试室全过但用户抱怨"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "新上线的活动页停留时间特别短、跳出很高，页面本身又挑不出毛病，怎么排查？",
+      "expected_behavior": "激活 field-observation：橄榄球促销站同款谜题——答案在页面之外（用户只在广告插播间隙上网）；去真实环境观察使用时段与打断源",
+      "notes": "正面场景：数据异常但页面无错"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "下个月要去客户仓库做需求调研，帮我准备一下到现场应该观察什么",
+      "expected_behavior": "激活 field-observation：给三类环境观察清单（打断源/注意力/姿态手眼/光线噪音），建议跟踪完整任务并记录变通行为",
+      "notes": "正面场景：现场调研准备"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "观察完了：收银员午高峰单手持机、随时被打断、任务常常做一半——帮我把这些写成项目判断'简单'的成文基准",
+      "expected_behavior": "应激活同书兄弟 skill simplicity-baseline（把观察材料压成一句话基准或使用情景故事），本 skill 到'翻译成设计要求'为止",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "推荐几款好用的用户访谈录音转文字工具",
+      "expected_behavior": "工具推荐请求，不激活任何设计方法 skill",
+      "notes": "诱饵：研究词面命中但非方法论问题"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "预算进不了现场，我能不能自己模拟用户环境做测试——调暗灯光、单手操作、开着电视？",
+      "expected_behavior": "可作降级方案但须标注假设：模拟能得出姿态与光线约束，模拟不出真实打断的不可预测性与真实客户的压力；同时找最接近的替代现场，并明确这是假设而非观察结论",
+      "notes": "边界：模拟环境 vs 真实现场"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "skill": "hide-strategy",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的设置页有 40 多个选项，新用户一进来就被吓跑了，怎么收拾？",
+      "expected_behavior": "激活 hide-strategy：先按三类判断什么该藏（细节/偏好/地区信息，核心功能不藏），再给渐进展示方案（默认只露核心+扩展区），提示入口放在用户关注点上，不做自动定制",
+      "notes": "正面场景：设置页渐进展示（verified s15 的 novel_question）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这批高级筛选条件不能删，但天天杵在搜索框旁边又太吵，怎么处理比较好？",
+      "expected_behavior": "激活 hide-strategy：评估渐进展示/适时出现的藏法（如 Illustrator 应邀探索模式），入口落在任务发生处，不用'高级'标签",
+      "notes": "正面场景：高级功能的藏法选择"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有同事提议让菜单根据用户的使用频率自动调整显示项，觉得这样每个界面都更简洁，怎么看？",
+      "expected_behavior": "激活 hide-strategy 并给出书中警告：自适应菜单/自动定制是隐藏策略的禁区（Office 2000 案例，'衣柜每晚被搬走'），改用聪明默认值（记住上次状态）",
+      "notes": "正面场景：自动定制提议的判别"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这个功能上线一年几乎没人用，我们打算整个砍掉，帮我评估下删除的步骤和风险。",
+      "expected_behavior": "应激活 remove-strategy（删除策略的执行）——用户已决定删除而非隐藏；'先藏着以后再删'是书中点名的拖延",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "导航栏十几个菜单项用户说找不到东西，帮我重新设计分类和命名。",
+      "expected_behavior": "应激活 organize-strategy（组织策略）——分类标准与分组问题，不是把项收起来",
+      "notes": "诱饵：兄弟 skill 混淆场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们想让用户能拖拽自定义首页每个模块的位置，这样千人千面是不是更简单？",
+      "expected_behavior": "不直接照做：区分表达个性（换桌面图）与重建界面（重排全部模块）——重型自定义要求用户先成为专家，正解是聪明默认值；若模块确属可选内容，考虑渐进展示",
+      "notes": "边界：自定义的合法范围"
+    }
+  ]
+}

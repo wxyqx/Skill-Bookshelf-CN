@@ -1,0 +1,48 @@
+{
+  "skill": "remove-strategy",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的旧报表模块是三年前花了三个月开发的，现在基本没人用，但删了怪可惜的，要不要留着？",
+      "expected_behavior": "激活 remove-strategy：举证责任反转（问'为什么留着它'而不是'为什么删它'），沉没成本不算理由，只评估现在能发挥几分作用与保留的额外成本",
+      "notes": "正面场景：沉没成本型保留理由"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "客户要求在下单流程里加一个'资金分罐'式的功能，我总觉得会把流程搞得很复杂，怎么评估要不要做？",
+      "expected_behavior": "激活 remove-strategy：对请求逆向工程出真实目的，检查是否在为流程而非目的设计（一个需求引出一串新状态即警钟），退一步问客户目的与替代方案",
+      "notes": "正面场景：需求逆向工程（存钱罐同构）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "评审会上每提砍一个功能，就有人说'可是假如用户想用呢'，减法计划总被打回，怎么办？",
+      "expected_behavior": "激活 remove-strategy：用'目标用户经常遇到吗'替代'假如用户想'，配合使用数据与原型测试替代口头假设，把举证责任交给保留方",
+      "notes": "正面场景：'假如用户想'组织免疫反应"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们功能范围已经定了，现在就是觉得首页又乱又累，链接和装饰太多，怎么收拾？",
+      "expected_behavior": "应激活同书兄弟 skill declutter（功能已定之后的感知层减速带清理），不做功能层删除决策",
+      "notes": "诱饵：兄弟 skill 混淆场景（s11/s12 互埋：功能层 vs 感知层）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这份周报压缩到 200 字以内。",
+      "expected_behavior": "纯文字压缩任务，不激活任何设计方法 skill",
+      "notes": "诱饵：非设计场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "要不要把产品界面砍到只剩一个按钮？越少不是越简单吗？",
+      "expected_behavior": "不直接照做：指出删除的边界——东京苹果店无按钮电梯证明删掉操控装置反而更复杂，掌控感是底线；删除的目标是减到不能再减而非越少越好，核心功能与控制反馈不可删",
+      "notes": "边界：过度删除 vs 掌控感边界（f22/p33）"
+    }
+  ]
+}

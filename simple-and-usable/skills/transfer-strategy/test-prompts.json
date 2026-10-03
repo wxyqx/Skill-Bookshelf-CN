@@ -1,0 +1,48 @@
+{
+  "skill": "transfer-strategy",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "注册表单要求手机号必须 11 位纯数字，用户老填错被拦住，这个表单怎么改？",
+      "expected_behavior": "激活 transfer-strategy：结构化是机器的活——让用户按自然格式输入、机器负责识别规范化；再过人机分工表检查其他字段",
+      "notes": "正面场景：verified s16 的 novel_question"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的记账应用想同时做好手机端和网页端，功能要不要两边一模一样？",
+      "expected_behavior": "激活 transfer-strategy：平台分工表（移动端采集/随身 vs 大屏展示/复杂操作），像 RunKeeper 手机记跑步、网站看报表，别简单复制功能",
+      "notes": "正面场景：平台分工"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "产品经理说'这个换算逻辑太复杂，干脆让用户自己拿计算器算完再填结果'，怎么判断该不该这样交给用户？",
+      "expected_behavior": "激活 transfer-strategy：用分工表判断——精确计算是机器的活，不该推给人；转移是各放所长而非推卸，并给出信任/掌控感检查",
+      "notes": "正面场景：转移方向的判别"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "要不要做一个智能推荐模板，帮用户一键生成周报？我感觉这功能可能两边不讨好。",
+      "expected_behavior": "应激活 open-experience（开放式体验）——'智能模板'是典型的中级便捷特性检查项；本 skill 管人机/平台分工，不管工具开放性",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "四个策略我们全试过了，剩下这些复杂性到底该放在哪，谁来面对？",
+      "expected_behavior": "应激活 complexity-placement（复杂性放置的终局四问）",
+      "notes": "诱饵：兄弟 skill 混淆场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "把所有操作都做成全自动一键完成，用户什么都不用管，这不就是最简单的产品吗？",
+      "expected_behavior": "不直接照做：自动化不是银弹——先问机器做错的代价与用户能否察觉；无按钮电梯与孤零零的遥控器证明转移有度；用分工表逐项决定自动化边界",
+      "notes": "边界：自动化无代价假设"
+    }
+  ]
+}

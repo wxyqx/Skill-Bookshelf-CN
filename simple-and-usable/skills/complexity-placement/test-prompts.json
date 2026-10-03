@@ -1,0 +1,48 @@
+{
+  "skill": "complexity-placement",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "删除、组织、隐藏、转移四个策略我们全试过了，这个审批流程还是复杂，是不是没救了？",
+      "expected_behavior": "激活 complexity-placement：换问句——不是'怎么更简单'而是'复杂性放到哪里'，用四问（自动化/专用通用/一次分段/有意识无意识）逐项分配",
+      "notes": "正面场景：verified s18 的 novel_question"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "上个版本把界面简化了，结果代码里全是补丁、客服工单翻倍，这算简化成功吗？",
+      "expected_behavior": "激活 complexity-placement：打地鼠效应——复杂性没有消失只是换了承担者；用四问与总账（用户认知/代码/服务器/客服）评估落点是否最优",
+      "notes": "正面场景：简化后的复杂性回弹"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "四策略我们都过了一遍，能删的删了、该藏的藏了，这个导出功能还是绕不开复杂性：自动化还是用户控制、一步还是分段？有没有终局判断框架？",
+      "expected_behavior": "激活 complexity-placement：这正是四问之一（自动化还是用户控制/一次完成还是分段），给出放置标准——总代价最小、用户最好无感",
+      "notes": "正面场景：终局语境下的自动化 vs 控制争论（修测：原题缺终局语境，常规自动化争论应走 transfer-strategy）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "设置页 40 个选项吓退新用户，怎么用渐进展示收起来？",
+      "expected_behavior": "应激活 hide-strategy（隐藏策略的执行）——还在策略执行层，未到终局分配",
+      "notes": "诱饵：兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个功能好像没什么人用，帮我分析一下该不该砍掉？",
+      "expected_behavior": "应激活 remove-strategy（删除策略）——可删的先删，删无可删才进终局分配",
+      "notes": "诱饵：兄弟 skill 混淆场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "复杂性守恒是不是意味着设计根本没法让产品变简单？那大家还努力什么？",
+      "expected_behavior": "纠正误读：守恒律是分配律不是放弃令——它恰恰让简化可持续（不再追求消灭，转而选最优位置）；四策略照常有效，只是收尾问句变了",
+      "notes": "边界：守恒律的误用"
+    }
+  ]
+}

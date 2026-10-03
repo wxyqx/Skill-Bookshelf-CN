@@ -1,0 +1,48 @@
+{
+  "skill": "extreme-usability-goals",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们这版性能目标定的'接口响应快 20%'，结果上线验收刚达标团队就松懈了，下一版目标该怎么设？",
+      "expected_behavior": "激活 extreme-usability-goals：把'快 20%'升格为'瞬间响应'，说明极端目标不用于验收、只在妥协时刻当方向舵的用法",
+      "notes": "正面场景：目标防漂移"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "每次设计评审都以'比上一版好一些'收尾就通过了，几个月下来产品越改越慢，问题出在哪？",
+      "expected_behavior": "激活 extreme-usability-goals：诊断比较级目标的妥协滑坡机制（'快 1 秒也算快'），给出极端目标替换表与评审过闸动作",
+      "notes": "正面场景：妥协滑坡诊断"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "帮我们把'新用户能轻松上手'这个目标变成一个更硬的体验标准，用来在评审时卡需求",
+      "expected_behavior": "激活 extreme-usability-goals：升格为'毫不费力/任何人都可以使用'级别的极端目标，并声明其'不用于验收、只用于方向'的使用规则",
+      "notes": "正面场景：目标升格"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们要给'什么是简单的体验'写一份团队判断基准文档，包含一句话描述和使用情景两个版本，帮我起草",
+      "expected_behavior": "应激活同书兄弟 skill simplicity-baseline（成文基准的撰写），用户要的是基准文档本身；极端目标可在其中作为素材，但主责在 baseline",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我用 SMART 原则拆解一下今年部门的 OKR",
+      "expected_behavior": "绩效管理场景，不涉及设计体验目标，不激活任何设计方法 skill",
+      "notes": "诱饵：非设计的目标设定场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "极端目标根本达不成，团队会不会觉得定这种目标是在画饼、反而更泄气？",
+      "expected_behavior": "说明本书的用法设计正是为此：极端目标不用于验收与考核，达不成不算失败，只在妥协时刻判断方向；若团队误把它当 KPI，先纠正用法再谈目标",
+      "notes": "边界：达不成目标的心理后果与用法澄清"
+    }
+  ]
+}

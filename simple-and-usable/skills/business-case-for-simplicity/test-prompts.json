@@ -1,0 +1,48 @@
+{
+  "skill": "business-case-for-simplicity",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我提议砍掉报表自定义功能，CEO 说有个大客户在用，直接把我拒了，接下来怎么办？",
+      "expected_behavior": "激活 business-case-for-simplicity：写公司方程式（续费×单价−支持成本），推演简化让支持成本降、续费升；评估该客户对总销量的真实影响；再按重要性×可行性分档排序",
+      "notes": "正面场景：'重要客户'否决后的算账路径"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "下季度想给产品做减法，需要给管理层一页纸论证，怎么把'简化'翻译成生意上的好处？",
+      "expected_behavior": "激活 business-case-for-simplicity：公司方程式翻译+右上角清单呈现，把设计判断变成商业命题",
+      "notes": "正面场景：向上论证"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "评审会上每个功能都有人说重要，优先级排不出来，有没有办法强制收敛？",
+      "expected_behavior": "激活 business-case-for-simplicity：强制分档（固定档次的重要性/可行性评分），防'什么都重要'",
+      "notes": "正面场景：优先级收敛"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "报表自定义功能确实几乎没人用，沉没成本也不该考虑，帮我梳理删除它的评估清单和注意事项",
+      "expected_behavior": "应激活同书兄弟 skill remove-strategy（删除策略的执行：举证责任反转、残缺功能判断），商业论证是组织通过层，用户已在功能判断上达成一致",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我算一下这个季度公司的毛利率和净利率",
+      "expected_behavior": "纯财务计算请求，不激活任何设计方法 skill",
+      "notes": "诱饵：词面命中（方程式/算账）但与简化无关"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "销售说'那是我最重要的客户'，但那个客户一年就买 3 套——我是不是可以直接无视他？",
+      "expected_behavior": "不教条：先按流程算账（个案对总销量影响小，通常支持简化），但提示作者盲点——简化伤害少数重度用户利益的分配问题真实存在；给出折中路径（数据核实、替代方案、迁移安排）而非直接无视",
+      "notes": "边界：组织政治+分配正义"
+    }
+  ]
+}

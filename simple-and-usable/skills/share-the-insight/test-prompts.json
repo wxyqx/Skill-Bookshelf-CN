@@ -1,0 +1,48 @@
+{
+  "skill": "share-the-insight",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "只要我不参加评审会，产品决定就跑偏，怎么让团队在我不在场时也能做出对的决定？",
+      "expected_behavior": "激活 share-the-insight：把认识压成可判断的判据（如'简单、稳定、快速'），公之于众并复述到厌烦，变成每次提案的过滤句",
+      "notes": "正面场景：不在场决策跑偏"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们把设计原则写在 wiki 上三个月了，没人看也没人用，开会照样各说各话，问题在哪？",
+      "expected_behavior": "激活 share-the-insight：诊断传播强度（讲到自己厌烦了吗）与判据可判断性（能据此说'是/否'吗），并给出过滤句与海报级传播的做法",
+      "notes": "正面场景：判据无人使用"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "团队新来了好几个人，'什么算好的体验'每次都要从头争论，有没有办法让标准自动传下去？",
+      "expected_behavior": "激活 share-the-insight：判据内化——新成员通过复述与过滤句参与决策（可引用 Telewest'简单、稳定、快速'海报案例），而不是靠老人口口相传",
+      "notes": "正面场景：新人融入与共识传递"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想砍掉报表自定义功能，怎么向 CEO 论证这个决定的价值？",
+      "expected_behavior": "应激活同书兄弟 skill business-case-for-simplicity（公司方程式+分档的单次商业论证），用户要的是一次性向上论证，不是日常判据内化",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这份产品白皮书浓缩成一页摘要发给客户",
+      "expected_behavior": "文档压缩请求，不涉及设计判据的团队内化，不激活任何设计方法 skill",
+      "notes": "诱饵：同为'传播/摘要'但非设计场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们团队就两个人，还需要搞海报和过滤句这套吗？",
+      "expected_behavior": "指出边界：一人/双人小团队传播对象极少，直接成文基准即可，不必做传播工程；判据内化是多人协作问题的解法",
+      "notes": "边界：小团队是否适用"
+    }
+  ]
+}

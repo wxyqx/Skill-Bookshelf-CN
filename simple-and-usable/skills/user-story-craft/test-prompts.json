@@ -1,0 +1,48 @@
+{
+  "skill": "user-story-craft",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的需求文档全是功能列表，评审会上大家念完就散，没人有感觉，怎么改得让人有画面感？",
+      "expected_behavior": "激活 user-story-craft：改写成环境→角色→情节的故事（如出差路上手机、常被打断的销售、30 秒记一笔），并用四标准自检",
+      "notes": "正面场景：功能列表改故事"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "帮我把'用户注重细节'这类描述改成可信的用户故事素材，评审时总有人说太抽象",
+      "expected_behavior": "激活 user-story-craft：用'展示而非讲述'改写（'反复按备注核对'好过'她注重细节'），并检查环境与角色层是否成立",
+      "notes": "正面场景：讲述改展示"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "写用户故事时情节总是编不下去，角色动机也立不住，有没有固定的排查顺序？",
+      "expected_behavior": "激活 user-story-craft：给出皮克斯式回退路径——情节出问题回角色、角色出问题回环境，逐层检查",
+      "notes": "正面场景：回退路径"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "下周要去客户的门店实地看他们怎么用我们的收银系统，帮我准备一个观察清单",
+      "expected_behavior": "应激活同书兄弟 skill field-observation（真实环境观察），用户要的是现场收集素材的方法；素材回来后才轮到写成故事",
+      "notes": "诱饵：同书兄弟 skill 混淆场景（硬性要求）"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我写一个科幻短篇小说的开头，主角是一个机器人管家",
+      "expected_behavior": "创意写作请求，与用户体验故事无关，不激活任何设计方法 skill",
+      "notes": "诱饵：同为'讲故事'但非设计场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们照规范写的用户故事很可信，但可用性测试里用户的行为和故事完全不一样，故事还有意义吗？",
+      "expected_behavior": "不辩护故事：指出故事必须有真人真事原型、可信但可能过时——行为与故事冲突时以观察为准，回炉重写（素材来自 field-observation）",
+      "notes": "边界：故事可信性与真实行为冲突"
+    }
+  ]
+}
