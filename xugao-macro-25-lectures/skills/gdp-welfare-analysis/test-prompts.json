@@ -1,0 +1,70 @@
+{
+  "skill": "gdp-welfare-analysis",
+  "skill_name": "GDP 与福利标尺：终极关切追问链",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "新闻里说 GDP 增速降到 5% 了，很多人很悲观。增速下降是不是说明老百姓的日子变差了？",
+      "expected_behavior": "调用本 skill：走追问链——先回到终极关切（居民福利），再检查 GDP 与福利的联系是否断裂（边际效用递减、闲暇偏好、结构转型），指出 GDP 下降不等于福利变坏，须先立福利标尺再判断",
+      "notes": "正面：GDP 与福利关系的典型误读，对应 E2/A2 场景一"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "看 GDP 数据时，消费、投资、净出口这三驾马车里到底哪个更重要？有人说消费占大头所以最重要。",
+      "expected_behavior": "调用本 skill：指出占比小不等于不重要（存货与净出口各仅 2% 却常主导波动），用拉动分解（如 2017 年消费拉动 4.1 个百分点、次贷危机净出口拖累 6 个百分点）示范正确读法",
+      "notes": "正面：三驾马车占比谬误，对应 E3/A2 场景二"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "有评论说中国消费占 GDP 比重远低于国际平均水平，所以中国消费严重不足。这个推理成立吗？",
+      "expected_behavior": "调用本 skill：应用第四步'先立标尺'——'低于国际平均'只是参照不是标尺，规范判断须由居民效用最大化推出恰当占比；同时做 sibling 区分：本框架立标尺读总量，机制诊断转 china-underconsumption",
+      "notes": "正面：结构判断的标尺纪律，对应 R4/I 第四步/Ap07"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-underconsumption",
+      "prompt": "帮我预测一下印度未来十年的经济前景，该关注哪些指标？",
+      "expected_behavior": "不应调用本 skill：非中国经济的增长预测，且本 skill 管\"如何用 GDP 读福利\"不做事国别预测；无适用技能时应 NONE 或转 china-growth-accounting 类工具",
+      "confusion_point": "GDP 字面信号 vs 中国福利标尺主题"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "price-quantity-diagnosis",
+      "prompt": "最近钢材价格跌了但成交量明显放大，这说明什么问题？",
+      "expected_behavior": "不应调用本 skill：这是单一市场价格波动的来源判别问题，应调用 price-quantity-diagnosis（价量反向=供给扩张）；GDP 追问链是总量与福利标尺工具，不处理单个市场的供需诊断",
+      "confusion_point": "同属'读数据'场景，但价量判别是微观市场工具，GDP 追问链是总量指标工具"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "印度股市今年涨了 20%，该不该跟进投资？",
+      "expected_behavior": "不应调用本 skill：投资操作建议，且与 GDP 福利分析无关",
+      "confusion_point": "GDP 增速字面信号 vs 投资建议"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "中国 GDP 统计数据被质疑造假，那宏观经济分析是不是没法做了？",
+      "expected_behavior": "调用本 skill 的 E4 边界：数据系统性误差不妨碍看走势（温度计类比），可疑数据用多来源交叉比对矫正（香港数据矫正虚假贸易案例）；抱怨数据质量而拒绝分析是功课不足——但也要承认误差带，不把交叉验证说成万能",
+      "notes": "边界：数据质量怀疑场景，框架给出处理纪律而非否认问题",
+      "expect_activation": true
+    },
+    {
+      "id": "T8",
+      "type": "edge_case",
+      "prompt": "如果机器人把所有商品都免费造出来了，按你这个 GDP 的逻辑会怎样？",
+      "expected_behavior": "调用本 skill 的 A1 伊甸园思想实验：资源不再稀缺→边际效用趋零→无人劳动→GDP 归零而福利极大，说明 GDP 衡量的是降低稀缺性的生产活动总价值而非效用本身；同时提醒思想实验只界定概念边界，不直接映射现实政策",
+      "notes": "边界：极端思想实验场景，检验对 GDP 定义边界的理解与误用警示",
+      "expect_activation": true
+    }
+  ]
+}

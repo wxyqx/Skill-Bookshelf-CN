@@ -1,0 +1,62 @@
+{
+  "skill": "china-growth-accounting",
+  "skill_name": "中国增长供给面：生产函数+增长核算",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "很多人说中国过去几十年的高增长就是靠砸投资，这种模式还能撑多久？",
+      "expected_behavior": "调用本 skill：立柯布-道格拉斯生产函数做增长核算，分解资本/劳动/索洛剩余贡献（资本贡献升至5.3个百分点、投资拉动特征明显），用边际报酬递减铁律推演资本拉动的衰减，结论过数量级与微观检验",
+      "notes": "正面：最典型的增长可持续性问题"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "有篇文章说中国后危机时代增速下滑是因为人口红利耗尽了，老龄化一来经济就没戏了，这个说法站得住吗？",
+      "expected_behavior": "调用本 skill：用五时段核算做数量级检验——劳动贡献仅降约0.1个百分点，与约2个百分点减速差一个数量级即否证；再做逻辑外推检验（若成立则几十年后增速为负的百分之十几）；指出正确归因在索洛剩余骤降",
+      "notes": "正面：流行叙事的数量级检验，专栏3-2的标准应用"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "最近看到数据说中国 TFP 增速大幅下降，是不是意味着中国的技术水平在退步？",
+      "expected_behavior": "调用本 skill：触发黑箱自觉——索洛剩余是'对我们未知的度量'，不能直接读成技术退步；用宏微观印证（企业并无技术退步或组织能力退化迹象）指出黑箱里装的可能是制度与资源配置因素，并提示继续拆分转 development-strategy-analysis",
+      "notes": "正面：索洛剩余解读纪律的核心应用"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "development-strategy-analysis",
+      "prompt": "中西部一些省份想直接上芯片、大飞机这类高端产业实现弯道超车，你觉得可行吗？产业升级路径该怎么选？",
+      "expected_behavior": "不应调用本 skill：这是发展战略与技术选择问题（赶超 vs 比较优势），应调用 development-strategy-analysis。区分约定：本 skill 是核算工具（增长从哪来），后者解读核算结果并分析战略（该选什么产业）",
+      "confusion_point": "两 skill 同属第3-4讲供给面分析且共享索洛剩余概念，但问题问的是战略评估而非增长分解"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "price-quantity-diagnosis",
+      "prompt": "中国改革开放后 GDP 增速和通胀长期正相关，而美国战后几十年是负相关，这个差异说明什么？",
+      "expected_behavior": "不应调用本 skill：这是用价量相关性判定经济主导面（供给 vs 需求）的诊断问题，应调用 price-quantity-diagnosis；本 skill 是在主导面确定后的供给面核算工具，不做价量判别",
+      "confusion_point": "同属第3讲且同为增长分析的入门环节，但判别主导面与核算供给面是两个环节"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "美联储要是继续加息，美国经济会不会衰退？对美股有什么影响？",
+      "expected_behavior": "不应调用本 skill：这是美国经济的需求面/政策问题，与增长供给面核算无关",
+      "confusion_point": "同为宏观增速话题，但既非中国也非增长归因"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "我要写课程论文，想自己对中国 1978 年以来的增长做一次增长核算，能给我讲讲具体步骤和要注意的坑吗？",
+      "expected_behavior": "调用本 skill：给四步流程（生产函数设定与假设核验、三分分解、索洛剩余黑箱定位、结论双重检验），并提示数据工程细节——不变价投资折算、初始资本-产出比假设不敏感、总就业改非农就业；同时提醒核算只是中间站，残差归因需继续拆黑箱",
+      "notes": "边界：动手做研究场景，给流程与陷阱清单，但提醒不要止步于黑箱（附录3.A的应用）",
+      "expect_activation": true
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "skill": "price-quantity-diagnosis",
+  "skill_name": "价量判别法：供需波动来源的诊断器",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "某行业今年产品价格和销量一起往上涨，有人说这是行业景气、有人说这是炒作，怎么判断？",
+      "expected_behavior": "调用本 skill：价量同向→需求主导，再据此判断可持续性与政策含义",
+      "notes": "正面：供给冲击型通胀与央行行为预判，书中标准应用"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "原材料涨价但下游产品卖不动、库存堆积，这是什么类型的问题？该从哪边下手解决？",
+      "expected_behavior": "调用本 skill：价升量缩→供给主导（成本推动），应对在供给面而非压需求",
+      "notes": "正面：调控政策可行性检验"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "我想判断中国经济长期增长到底是被供给卡住了还是需求不够，该看什么数据？",
+      "expected_behavior": "调用本 skill：用宏观版判别——真实 GDP 增速与通胀的滚动相关系数，正相关→需求面主导，负相关→供给面主导；中国改革开放后长期正相关，说明需求面是更合适的切入框架（第3讲示范）",
+      "notes": "正面：宏观定性，判别结果决定后续选哪套分析框架"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-inflation-housing",
+      "prompt": "中国房价为什么总是降不下来？地方政府垄断土地供应和土地财政在其中起了什么作用？",
+      "expected_behavior": "不应调用本 skill：这是中国房价的特有机制解释问题，应调用 china-inflation-housing（两部门模型、土地财政、831大限断点）；本框架只判别波动来自需求侧还是供给侧，不解释中国特有约束机制",
+      "confusion_point": "房价是本框架的书中案例之一，但问'为什么'机制而非判别波动来源，属专题 skill 职责"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "macro-theory-debate",
+      "prompt": "为什么大萧条之后凯恩斯主义兴起了，70年代滞胀之后主流又转回了市场信仰？",
+      "expected_behavior": "不应调用本 skill：这是宏观思想史与理论流派变迁的知识问题，应调用 macro-theory-debate（正题-反题-合题框架）；本框架至多作为检验思想史适用条件的实证工具，不负责解释理论史本身",
+      "confusion_point": "第23讲确实用价量相关性检验思想史，但问题问的是理论变迁的逻辑，属理论之争 skill"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "这只股票最近价涨量增，是不是主力资金进场了？能不能买入？",
+      "expected_behavior": "不应调用本 skill：这是个股操盘/技术分析问题，本框架判别的是市场供需波动来源，不提供买卖信号；明确拒绝给出投资建议",
+      "confusion_point": "'价量分析'一词在股市技术分析中另有含义，与本框架的供需判别同名不同义"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "我手里只有最近三个月的猪肉价格和屠宰量数据，中间还隔了个春节，能判断这波涨价是供给出了问题吗？",
+      "expected_behavior": "调用本 skill 但降级为谨慎模式：窗口太短+春节季节性扰动，相关性符号不可靠；建议先剔除季节因素或换更长窗口与更多期数据，暂不下主导面结论，只给'需要补充什么数据'的指引",
+      "notes": "边界：数据不足场景，框架声明自身失效条件而不是硬给答案",
+      "expect_activation": true
+    }
+  ]
+}

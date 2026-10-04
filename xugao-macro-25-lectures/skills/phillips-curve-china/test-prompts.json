@@ -1,0 +1,62 @@
+{
+  "skill": "phillips-curve-china",
+  "skill_name": "菲利普斯曲线与中国逆时针螺旋：通胀-增长关系的检验仪",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "中国现在想把通胀压下来，会不会像教科书说的那样把失业率推得很高？",
+      "expected_behavior": "调用本 skill：第一步做数据可得性检查（中国失业率失真→用奥肯法则转译为产出缺口问题），第二步用附加预期的菲利普斯曲线分析（代价取决于通胀预期是否锚定），第三步提醒中国是逆时针螺旋、不能照搬美国牺牲率数字",
+      "notes": "正面：典型'压通胀的代价'问题，四步指令完整走一遍"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "想判断中国经济现在是过热还是过冷，听说要看产出缺口，但中国失业率数据不好用，怎么办？",
+      "expected_behavior": "调用本 skill：失业率失真→奥肯法则桥梁→用产出缺口替代，附估算方法与主观性警示",
+      "notes": "正面：宽松外推谬误的识别与纠正"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "美国历史上通胀率和失业率画出的轨迹为什么是顺时针螺旋？中国也会走出一样的轨迹吗？",
+      "expected_behavior": "调用本 skill：用附加预期菲利普斯曲线推演 A→B→C→D 的顺时针机制；对比中国 1978-2017 用产出缺口替代失业率后画出的逆时针螺旋，说明传导机制有中国特征、理论迁移需保留警惕",
+      "notes": "正面：本 skill 的标志性知识点——螺旋方向对比"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "money-neutrality-analysis",
+      "prompt": "中国 M2 增速比 GDP 增速高 5 个百分点，未来通胀会涨到多少？",
+      "expected_behavior": "不应调用本 skill：这是货币面/交易方程式的通胀水平判断问题，应调用 money-neutrality-analysis（MV=Py、流通速度、真实货币存量）；本 skill 管的是总供给面——产出对超预期通胀的反应与政策约束",
+      "confusion_point": "两者都涉及通胀，但'货币到通胀的水平判断'是货币面（M2/GDP），'通胀与产出的关系'才是总供给面（菲利普斯曲线）"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "expectations-lucas-critique",
+      "prompt": "政府每次都用宽松政策救市，为什么同样招数的效果一次比一次差？这背后的卢卡斯批判是什么意思？",
+      "expected_behavior": "不应调用本 skill：问的是预期内生化让政策效果衰减的理论原理，应调用 expectations-lucas-critique（卢卡斯批判、斯塔克伯格式自相矛盾）；本 skill 讲的是该原理在中国数据上的应用工艺（产出缺口替代、螺旋方向检验）",
+      "confusion_point": "本 skill 的第四步用到'预期追上操作'，但'为什么'的原理层属卢卡斯批判 skill 的职责"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "美联储的泰勒规则是怎么根据通胀和产出缺口设定联邦基金利率的？",
+      "expected_behavior": "不应调用本 skill：问的是货币政策操作工具的具体规则，应转 monetary-policy-toolbox；本 skill 提供总供给面的分析框架，不展开利率规则的技术设定",
+      "confusion_point": "泰勒规则里出现产出缺口，但问题主体是政策工具设计而非菲利普斯曲线机制"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "我用两种不同 λ 参数的 HP 滤波估算中国产出缺口，一个说经济过热一个说过冷，还想据此用菲利普斯曲线判断政策方向，怎么办？",
+      "expected_behavior": "调用本 skill 但降级结论：先走第一步数据可得性检查，明确指出产出缺口估计含主观参数选择、不同方法可方向相反；建议生产函数法与滤波法交叉验证、报出估算方法；估计分歧未收敛前只做定性判断，不做'过热/过冷'的定量结论",
+      "notes": "边界：数据可用性存疑时的操作规程，E4 的直接应用",
+      "expect_activation": true
+    }
+  ]
+}

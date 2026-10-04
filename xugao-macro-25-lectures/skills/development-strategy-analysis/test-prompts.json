@@ -1,0 +1,62 @@
+{
+  "skill": "development-strategy-analysis",
+  "skill_name": "发展战略分析：产业选择的裁决仪与索洛剩余解码器",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "中西部一个省份想跳过中间产业直接引进最先进的芯片产线，实现跨越式发展，可行吗？",
+      "expected_behavior": "调用本 skill：用禀赋结构→合意资本密集度→比较优势/赶超框架裁决，赶超战略适得其反",
+      "notes": "正面：欠发达地区产业规划的典型赶超诱惑场景"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "有人说中国应该继续压低工资和要素价格来维持出口竞争力，这种战略可持续吗？",
+      "expected_behavior": "调用本 skill：禀赋动态变化后合意技术会升级，固守旧比较优势违背发展战略框架",
+      "notes": "正面：索洛剩余再解读的核心应用"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "网上老有人说中国出口几亿件衬衫才能换一架飞机，太吃亏了，应该自己造飞机。这种说法错在哪？",
+      "expected_behavior": "调用本 skill：用比较优势框架矫正直觉性贸易吃亏论——资本稀缺时出口裤子换飞机完全合理，强行造飞机则飞机和裤子都造不出；并指出'劳动密集=吃亏、资本密集=高端'的隐含判断正是赶超心态的来源",
+      "notes": "正面：贸易吃亏论的观念矫正（Bc13）"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-growth-accounting",
+      "prompt": "帮我做一下中国改革开放前后的增长核算：估计资本份额 α，把增速差分解成资本、劳动、TFP 的贡献。",
+      "expected_behavior": "不应调用本 skill：这是增长核算的计算任务本身（估计α、构造数据、分解贡献），应调用 china-growth-accounting；本框架在核算结果出来之后才介入——解读索洛剩余黑箱、评价发展战略",
+      "confusion_point": "改革前后对比是第4讲案例，但问题要的是核算产出而非战略解读；两 skill 是上下游分工（核算出结果 vs 解读结果）"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "second-best-transition",
+      "prompt": "改革过程中出现阵痛和种种扭曲，政策上该咬牙忍下去还是该停下来回调？",
+      "expected_behavior": "不应调用本 skill：阵痛信号处理与改革节奏属 second-best-transition（次优理论的操作化）；本框架裁决的是战略与禀赋是否匹配，不处理约束未消时的改革时机问题",
+      "confusion_point": "两者都谈'政策与现实的矛盾'，但本框架识别矛盾并推演制度链，转轨 skill 决定矛盾下怎么走"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "预测一下中国明年 GDP 增速和通胀会怎么样，现在该不该配置点周期股？",
+      "expected_behavior": "不应调用本 skill：短期宏观预测与个股配置建议不在本框架适用范围（发展战略与索洛剩余解读是结构与制度层面的分析工具）",
+      "confusion_point": "同为'中国宏观经济'话题，但预测与投资操作不涉及战略裁决或 TFP 解读"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "我在给园区写产业规划，要列出重点引进的产业名录。有人批评我这是在搞计划经济。该怎么回应？",
+      "expected_behavior": "调用本 skill 做定位指导：用多样化锥逻辑测禀赋位置、判断哪些产业在本园区有自生能力；同时提示基准线是市场自由选择——规划应顺应而非替代市场（警惕 E1 赶超诱惑与'政策呵护下娇嫩的花朵'），规划者的批评有一定道理需正面回应；不代做具体产业名录决策",
+      "notes": "边界：写作辅助+框架误用风险场景——工具既能指导规划也能警示规划的自我定位",
+      "expect_activation": true
+    }
+  ]
+}

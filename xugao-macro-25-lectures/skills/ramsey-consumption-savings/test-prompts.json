@@ -1,0 +1,72 @@
+{
+  "skill": "ramsey-consumption-savings",
+  "skill_name": "拉姆齐模型与跨期消费储蓄：欧拉方程裁决器",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "利率降了，老百姓该多存还是多花？都说降息能促消费，一定成立吗？",
+      "expected_behavior": "调用本 skill：用欧拉方程同时算两笔账——替代效应（回报降，今天消费的机会成本下降→多花）与收入效应（利息收入缩水→少花多存），净效应方向不定；经验上宏观数据中储蓄率与回报率正相关，替代效应通常占上风，故降息更可能压低储蓄，但对具体情形不能下单向结论",
+      "notes": "正面：替代/收入效应双重检查的标准场景"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "中国储蓄率常年 40% 以上，世界平均才 20% 左右，这么高的储蓄到底是好事还是坏事？",
+      "expected_behavior": "调用本 skill：先分事实与价值——40%+ 对 20% 是客观事实，'过剩'是价值判断，须先由居民跨期最优（欧拉方程平衡）给出'应该是多少'的标准；再做部门分解（中国居民与非金融企业储蓄各占 GDP 近 20%，双高异于世界）；最后分自愿与强加——居民自愿的高储蓄不应强制压，企业目标偏离导致的低消费才是福利损失",
+      "notes": "正面：事实/价值分离 + 部门分解 + 政策判据的完整链条"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "为什么主流宏观模型里企业都不做储蓄？这个假设拿到中国来用有没有问题？",
+      "expected_behavior": "调用本 skill：'企业不做储蓄'是刺穿企业帷幕的产物——只要企业为居民所有且最大化股票价值，企业储蓄也是居民财富，三版本拉姆齐模型同解，该假设无害；但其隐含前提是企业归居民所有，中国居民从企业获得的分红近于零、帷幕失效，硬套等于把未成立的假设当现实",
+      "notes": "正面：帷幕机制及其所有权前提，E3 的正面展开"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-underconsumption",
+      "prompt": "中国消费不足的根源到底是什么？促消费该直接发钱，还是改国企分红机制？",
+      "expected_behavior": "不应调用本 skill：这是中国消费不足的归因诊断与政策设计问题（收入分配、企业目标偏离、三级国资方案），应调用 china-underconsumption；本 skill 只提供跨期最优的通用基准模型——回答'最优标准是什么、偏离多大'，不回答'中国为什么偏离、该怎么改'",
+      "confusion_point": "两者共享拉姆齐模型与欧拉方程：本 skill 立标尺并做数量对账，china-underconsumption 用标尺做中国专题诊断；问'病根与药方'归后者"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "equilibrium-methodology",
+      "prompt": "我想搭一个两期模型来分析养老金改革，居民优化和市场出清应该先解哪个？能不能把市场出清条件直接代进居民的预算约束里？",
+      "expected_behavior": "不应调用本 skill：这是建模求解流程问题（微观优化先行、宏观出清在后、不得提前代入均衡条件、控制变量与状态变量之辨），应调用 equilibrium-methodology；本 skill 管跨期消费储蓄的经济判断，不教求解纪律",
+      "confusion_point": "拉姆齐模型是两 skill 的公共载体：'方程怎么解'归 equilibrium-methodology，'方程说明经济上该怎么消费储蓄'归本 skill"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "fiscal-keynes-vs-ricardo",
+      "prompt": "政府减税后居民会把钱存起来还是花掉？四万亿式刺激到底有没有用？",
+      "expected_behavior": "不应调用本 skill：李嘉图等价下减税进入居民跨期预算约束只是本框架的复用，'刺激有没有用'的裁决靠自然运行状态与产能闲置度，应调用 fiscal-keynes-vs-ricardo；本 skill 不做短期需求管理与刺激政策评价",
+      "confusion_point": "跨期储蓄行为是共同语言，但'减税/刺激是否有效'的裁决点（产能闲置度）归财政 skill；本 skill 只提供跨期最优的基准逻辑"
+    },
+    {
+      "id": "T7",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "global-imbalances-saving-glut",
+      "prompt": "中国经常账户顺差这么大，是不是全世界都被我们的储蓄过剩拖累了？",
+      "expected_behavior": "不应调用本 skill：CA=S−I 恒等式是本 skill 提供的入口（顺差=国内储蓄超过投资），但'储蓄过剩如何输出到全球、压低世界利率、催生失衡'的内外失衡链分析应调用 global-imbalances-saving-glut",
+      "confusion_point": "本 skill 做国内部门分解与恒等式还原，跨国的储蓄输出与全球利率效应归后者"
+    },
+    {
+      "id": "T8",
+      "type": "edge_case",
+      "prompt": "模型算出来中国储蓄率是负的 29.8%，欧拉方程又说真实利率该有 17%，现实中存款利率才 0.2%——所以中国居民储蓄很低还存钱不理性？",
+      "expected_behavior": "调用本 skill 并明确划界：其一，-29.8% 是两期'世界末日'设定的 artifacts，不能用于解释现实，可外推的只有与期数无关的欧拉方程；其二，17% 对 0.2% 的差距正是'中国消费之谜'，正确读法是'相对这么低的利率储蓄太多了'，矛盾定位在居民跨期优化条件不成立处（帷幕失效、预防性储蓄），而非居民不理性——欧拉方程只关乎居民优化、与企业无关，也不能把矛盾推给企业",
+      "notes": "边界：同时踩中'把两期数值当真'与'误读消费之谜'两个坑，需要 E2 的边界声明加数量对账的正确读法",
+      "expect_activation": true
+    }
+  ]
+}

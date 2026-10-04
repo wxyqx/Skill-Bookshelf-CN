@@ -1,0 +1,63 @@
+{
+  "skill": "expectations-lucas-critique",
+  "skill_name": "理性预期与卢卡斯批判：历史规律外推的安检门",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "有分析说'过去每次降息都能拉动地产和股市，所以这次降息也会一样'，这个推理有什么问题？",
+      "expected_behavior": "调用本 skill：用卢卡斯批判审查——降息与资产价格的历史关系内嵌于当时的市场预期，政策反复使用后民间会学习并提前定价，效果可能衰减；不能直接外推历史系数",
+      "notes": "正面：政策效果可持续性的典型问题，四步安检的完整应用"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "我想用 2005-2015 年数据估计的通胀-失业关系，来预测新政策框架下的失业率变化，这靠谱吗？",
+      "expected_behavior": "调用本 skill：历史数据关系不能用来评估政策变化（卢卡斯 1975），高度加总的宏观数据尤其如此；应改为建立包含行为人优化与预期形成的结构模型做反事实模拟",
+      "notes": "正面：计量政策评估的可靠性审查，卢卡斯批判的标准场景"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "为什么用宏观数据、微观数据、不同人群的数据，估计出来的消费函数参数都不一样？",
+      "expected_behavior": "调用本 skill：用持久收入假说解释——消费取决于预期的持久收入而非当期收入，当期收入与消费之间本就不存在稳定数量关系，故估计结果必然互不一致",
+      "notes": "正面：消费函数估计失败这一开题案例的解释"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "equilibrium-methodology",
+      "prompt": "我想自己搭一个宏观模型来分析减税政策，应该按什么步骤来？",
+      "expected_behavior": "不应调用本 skill：这是建模流程问题（模型设定、内生/外生划分、均衡定义与求解纪律），应调用 equilibrium-methodology；本 skill 管的是预期内生化与政策效果评估，不教怎么建模型",
+      "confusion_point": "两者同出第 5-6 讲方法论：卢卡斯批判回答'为什么必须微观基础'，均衡方法论回答'微观基础之上怎么建'——问'怎么做'归后者"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "phillips-curve-china",
+      "prompt": "中国的菲利普斯曲线是稳定的还是会消失的？数据上是什么形态？",
+      "expected_behavior": "不应调用本 skill：问的是中国通胀-失业数据的经验形态（产出缺口替代、螺旋方向），应调用 phillips-curve-china；本 skill 只讲曲线为什么会消失的原理",
+      "confusion_point": "菲利普斯曲线是两 skill 的共同关键词，但'原理机制'归本 skill，'中国数据应用'归后者"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-monetary-practice",
+      "prompt": "中国央行有哪些货币政策工具？降准和降息该怎么搭配使用？",
+      "expected_behavior": "不应调用本 skill：这是货币政策工具箱与操作实务问题，应调用 china-monetary-practice；本 skill 不涉及具体工具选择与操作节奏",
+      "confusion_point": "都涉及货币政策与预期，但问工具与操作归实践 skill，问'预期会不会消解政策效果'才归本 skill"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "既然连菲利普斯曲线都会消失，那生产函数、资源约束这些是不是也不可靠？经济学还剩下什么能信的？",
+      "expected_behavior": "调用本 skill 并明确划界：卢卡斯批判只攻击行为关系（随预期改变而失效），不攻击描述不以主观意志为转移的产出潜力的技术关系（生产函数）；可依赖的最深层'不变'是人的理性，但理性只是假设与信念而非真理——批判不能泛化为'一切统计规律都无效'",
+      "notes": "边界：对批判本身的过度泛化，需要用消费函数/生产函数之别收窄",
+      "expect_activation": true
+    }
+  ]
+}

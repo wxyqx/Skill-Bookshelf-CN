@@ -1,0 +1,63 @@
+{
+  "skill": "money-neutrality-analysis",
+  "skill_name": "货币经济与古典二分法：货币中性分析的基准与修正",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "中国 M2 增速每年都比 GDP 增速高好几个点，M2/GDP 都到 200% 了，有人说马上要大通胀了，这个说法靠谱吗？",
+      "expected_behavior": "调用本 skill：第一步分两层账（银行贷款创造 M2，货币是名义外衣）；第二步用交易方程式把命题翻译成'V 稳定吗、货币增量去 P 还是 y'，指出 M2/GDP 升高等价于流通速度变慢，'超发→通胀'缺了这一环；第三步提示总量与体感背离需查传导结构，拒绝给出机械换算的通胀数字",
+      "notes": "正面：货币超发论的标准检验，两个方程+两层账的完整流程"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "央行加息到 5%，是不是说明货币政策收得很紧、实体经济要被压制了？",
+      "expected_behavior": "调用本 skill：用费雪方程 R≈r+π 拆分名义利率——高名义利率可能只反映高通胀预期，真实利率才度量松紧；再提醒真实利率由资本回报率决定，判断松紧看真实利率的相对水平而非名义值",
+      "notes": "正面：名义利率解读，费雪方程的典型应用"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "常听人说'货币长期是中性的'，这句话到底是什么意思？有模型依据吗？现实中成立吗？",
+      "expected_behavior": "调用本 skill：讲清古典两分法的方程分块结构（真实块 vs 名义块）与中性/超中性两层结论，说明其成立条件是价格完全灵活；引用实证裁决——现实中货币短期影响实体，中性是分析起点而非事实，失效处指向名义刚性",
+      "notes": "正面：基准概念解释，三技法谱系可作补充"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "monetary-transmission-blockage",
+      "prompt": "2013 年钱荒时中国货币总量并不小，为什么实体企业反而借不到钱、短期利率飙到天上？降准释放的流动性为什么到不了实体经济？",
+      "expected_behavior": "不应调用本 skill 做主分析：本 skill 只在基准层面定性'总量与体感背离=灵活价格/均匀传导假设失效的信号'；追问'为什么流不到实体'的市场分割与堰塞湖机制，应调用 monetary-transmission-blockage",
+      "confusion_point": "钱荒是本 skill 的 A1 案例，但只作基准失效的定性证据；机制建模是传导阻塞专题的职责"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "monetary-policy-toolbox",
+      "prompt": "央行降准和降息分别是怎么起作用的？如果利率降到零，央行还有什么招？QE 具体怎么操作？",
+      "expected_behavior": "不应调用本 skill：问的是政策工具与操作路线图，应调用 monetary-policy-toolbox；本 skill 管货币与实体的原理关系（中性、两个方程），不管央行工具箱",
+      "confusion_point": "同在货币主题下，'原理基准'与'工具操作'的分工——问'怎么做'而非'为什么'时走工具箱"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "phillips-curve-china",
+      "prompt": "通胀预期升温的时候，通胀率和产出（或失业率）之间是什么关系？央行压通胀会不会把增长压下去？",
+      "expected_behavior": "不应调用本 skill：问的是通胀与产出的动态关系及政策权衡，应调用 phillips-curve-china（附加预期菲利普斯曲线、产出缺口替代、螺旋方向）；本 skill 只提供'货币短期非中性'的定性基准，不展开通胀-产出动态",
+      "confusion_point": "第13、14讲连续两讲共用货币中性概念，静态基准（本 skill）与动态曲线（菲利普斯 skill）需分流"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "有经济学家建议中国执行弗里德曼规则：持续收缩货币、制造温和通缩，让名义利率降到零，说这才是最优货币数量。这个建议可行吗？",
+      "expected_behavior": "调用本 skill：先按福利基准讲清弗里德曼规则的推导逻辑（持币边际收益=名义利率，印钞成本≈0），再触发 E3 边界——价格调整非对称、通缩难以自发走出、债务实际负担加重，故无一国执行；现实取温和正通胀+与通缩保持安全距离，结论是'理论最优≠政策可行'",
+      "notes": "边界：基准福利分析在本 skill 职责内，但必须完整走到'现实不可行'的修正，不能停在理论最优",
+      "expect_activation": true
+    }
+  ]
+}

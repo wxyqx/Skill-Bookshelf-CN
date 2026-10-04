@@ -1,0 +1,63 @@
+{
+  "skill": "bop-crisis-dollar-privilege",
+  "skill_name": "国际收支危机与美元过度特权",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "土耳其里拉又暴跌了，外储快见底，这个国家是不是要爆发金融危机了？该怎么判断？",
+      "expected_behavior": "调用本 skill：走三段式诊断（经常账户逆差持续性与外债存量→IIP 缓冲→抽贷触发条件），用 S-I=CA 检查投资与国内储蓄缺口，并区分这是国际收支危机还是国内债务危机",
+      "notes": "正面：典型的新兴市场外部脆弱性评估"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "都说欧债危机是主权债务危机，但为什么债务比德国还低的西班牙反而最惨？",
+      "expected_behavior": "调用本 skill：用 A1 案例重诊断——欧债实质是国际收支危机（边缘国长期经常账户逆差+外债累积+加入欧元区丧失货币主权），定性错了药方就错",
+      "notes": "正面：反直觉事实驱动的危机定性"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "美国贸易逆差搞了三十年，债务越滚越大，为什么一直没有爆发国际收支危机？美元霸权还能维持多久？",
+      "expected_behavior": "调用本 skill：检查储备货币豁免（过度特权——本币借外债永无逼偿之虞），用 Z 模型说明豁免的代价是持续逆差与国内失衡，失衡以别种形式（次贷式）爆发而非经典危机",
+      "notes": "正面：过度特权与 Z 模型福利分配的核心应用"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "global-imbalances-saving-glut",
+      "prompt": "中国的经常账户顺差为什么这么大？资本明明应该流向穷国，为什么反而从中国流向了美国？",
+      "expected_behavior": "不应调用本 skill：问的是失衡的来源（储蓄过剩、内部失衡决定外部失衡、资本逆流的根源），应调用 global-imbalances-saving-glut；本 skill 只处理'借了之后'的可持续性与危机问题",
+      "confusion_point": "同一组全球失衡现象，问'从哪来'归过剩储蓄框架，问'还不还得起、谁来调整'才归本 skill"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-debt-financial-chaos",
+      "prompt": "中国地方政府债务这么高，会不会像拉美国家那样爆发国际收支危机？",
+      "expected_behavior": "不应调用本 skill 直接下结论：中国债务是内债+本币+有刚性储蓄支撑（投资与净出口正相关），不满足外债三段式前提；应转 china-debt-financial-chaos 分析内债的猫鼠博弈生成机制",
+      "confusion_point": "内债与外债约束完全不同——本 skill 的三段式只适用于欠外币债的情形，警惕巴阿类比的跨框架误用"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "exchange-rate-open-money",
+      "prompt": "如果央行搞一次性大幅贬值，会不会引发贬值螺旋？汇率政策该怎么设计？",
+      "expected_behavior": "不应调用本 skill：这是汇率预期锚定与政策操作问题（可能三角、UIP、贬值螺旋推演），应调用 exchange-rate-open-money；本 skill 只把贬值视为国际收支危机的表象而非分析对象",
+      "confusion_point": "贬值既是危机症状也是政策工具——问政策机制归汇率 skill，问危机定性归本 skill"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "2008 年次贷危机是不是就是美国的国际收支危机？毕竟全球都在借钱给美国。",
+      "expected_behavior": "调用本 skill 但给出否定性纠正（E3 反例）：次贷危机不是国际收支危机——储备货币地位只保护美国政府，居民企业没有无限偿债能力，危机由国内房地产泡沫破裂引发；海外储蓄流入只是提供了加杠杆的资金条件",
+      "notes": "边界：框架误用型提问，要求明确区分危机类型而非顺势套用",
+      "expect_activation": true
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "skill": "china-underconsumption",
+  "skill_name": "中国消费不足诊断：收入分配根源",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "最近政策圈又在吵促消费：一派主张直接给居民发钱，一派说该从国企分红和国资体制上动刀。你觉得该怎么看这个分歧？",
+      "expected_behavior": "调用本 skill：先诊断后药方（第一步立标尺、第二步查部门割裂），再按第四步区分自愿储蓄与强加低消费；对'改国企分红'做信息检查（分红比率只有所有权竞争市场才知道），引出三级国资的机制重建思路",
+      "notes": "正面：典型的促消费政策辩论，A2 场景一"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "中国居民消费占 GDP 的比重这些年一路下滑，已经比世界平均低了 20 多个百分点，到底为什么？",
+      "expected_behavior": "调用本 skill：先区分'偏低'（事实）与'不足'（价值判断），再用企业利润占比与居民消费占比的负相关确认帷幕失效，然后做国企—企业目标偏离—居民自身三层归因，特别警告不能单一归因国企（国企占比下降与消费占比下滑并存）",
+      "notes": "正面：消费占比下降的机制归因，A2 场景二"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "中国的企业储蓄和居民储蓄都很高，其他国家这两者一般是跷跷板。这种反常背后是什么原因？该怎么从根子上改？",
+      "expected_behavior": "调用本 skill：帷幕失效是中国特有现象，归因到国企不分红与所有制，政策定位三级国资改革",
+      "notes": "正面：从反常数据形态反推制度状态"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "ramsey-consumption-savings",
+      "prompt": "利率降了，家庭应该多储蓄还是多消费？帮我用跨期最优的逻辑推一下。",
+      "expected_behavior": "不应调用本 skill：这是通用跨期消费储蓄问题（欧拉方程、替代效应vs收入效应），应调用 ramsey-consumption-savings；本 skill 只处理帷幕失效后的中国专题诊断，不负责通用模型的推导",
+      "confusion_point": "两者共享拉姆齐模型与欧拉方程，但拉姆齐是通用工具，本 skill 是其在中国约束下的专题应用"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "gdp-welfare-analysis",
+      "prompt": "GDP 增速不低，但居民消费占比在降——我们到底该不该关心这个指标？消费占比多少才算合适？",
+      "expected_behavior": "不应调用本 skill：这是'标尺之问'（该不该关心、标准是什么），属 gdp-welfare-analysis 的终极关切追问链；本 skill 的职责是标尺立好之后的机制诊断与政策定位，两者是上下游关系",
+      "confusion_point": "同一数据（消费占比）既涉及立标尺又涉及诊断机制，但'应该是多少'的问题归 gdp-welfare-analysis"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "美国家庭储蓄率长期偏低、靠借钱消费，这种模式可持续吗？",
+      "expected_behavior": "不应调用本 skill：这是美国（非中国）的消费储蓄问题，帷幕通常有效、无国企部门割裂语境，直接用标准模型分析；本 skill 明确限定中国经济诊断",
+      "confusion_point": "同为'某国消费/储蓄反常'，但三层归因与国资方案只在中国约束下成立"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "我在给领导写一份内参，建议强制国企把利润的 50% 上缴财政再转移给居民促消费。这个方案帮我评估一下？",
+      "expected_behavior": "调用本 skill 做方案评估：肯定其诊断方向（部门割裂、强加低消费应纠正），但用 E3 三重否定检查强制分红（补贴回流、恰当比率无人知晓、低报利润博弈），指出信息发现机制缺失，转向三级国资式'改变机制而不改变产权'的思路；不代写内参",
+      "notes": "边界：政策方案评估场景，skill 用于体检方案而非代笔",
+      "expect_activation": true
+    }
+  ]
+}

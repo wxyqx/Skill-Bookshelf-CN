@@ -1,0 +1,63 @@
+{
+  "skill": "global-imbalances-saving-glut",
+  "skill_name": "全球失衡与过剩储蓄：内外失衡链",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "中国这几年贸易顺差这么大，总说是汇率或者外国卡我们，到底顺差是从哪来的？",
+      "expected_behavior": "调用本 skill：第一步用 S-I=CA 把顺差还原为储蓄-投资缺口（顺差≡储蓄>投资），指出不改变储蓄-投资结构的汇率/关税方案无效，根源在内部结构",
+      "notes": "正面：顺差成因的经典问题，恒等式还原是本 skill 的第一动作"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "为什么发展中国家本来该缺资本，现实中资本却从中国这样的穷国流向美国这样的富国，还把全球利率压得这么低？",
+      "expected_behavior": "调用本 skill：过剩储蓄假说两层归因（伯南克表层机制+徐高所有制深层根源），找刚性储蓄者，并按 E2 指出资本逆流违背新古典直觉、其持续性存疑",
+      "notes": "正面：资本逆流+低利率，过剩储蓄假说的核心应用场景"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "美国私人部门开始去杠杆了，这对中国外需意味着什么？会不会很惨？",
+      "expected_behavior": "调用本 skill：第四步推演失衡收缩链条（美国逆差收缩→全球失衡收缩→顺差国外需骤减），并用增长核算翻译数量级（参照净出口拉动 +1.5 到 -4.0 个百分点的书中量级），提示储蓄内流后的引擎切换",
+      "notes": "正面：失衡收缩的传导推演，A2 场景一"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "bop-crisis-dollar-privilege",
+      "prompt": "美国逆差了三十多年，欠了这么多外债，为什么一直没爆发国际收支危机？美元的'过度特权'还能撑多久？",
+      "expected_behavior": "不应调用本 skill：本 skill 只管失衡的形成机制（储蓄从哪来、为何流动）；危机为何不爆发与美元特权属于 bop-crisis-dollar-privilege（过度特权与 Z 模型）",
+      "confusion_point": "同是全球失衡话题，但问的是爆发豁免与美元特权，属下游的危机端 skill；两讲分工为'形成机制 vs 危机爆发与豁免'"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-underconsumption",
+      "prompt": "中国储蓄率为什么这么高？怎么从根源上提高居民消费？",
+      "expected_behavior": "不应调用本 skill：这是国内消费不足/高储蓄的机制诊断与政策问题，应调用 china-underconsumption（收入分配与所有制根源、θ 比较静态）；本 skill 只把储蓄过剩当作给定的内部失衡去解释其对外投影",
+      "confusion_point": "消费不足与储蓄过剩是同一硬币的两面，但上游诊断归 china-underconsumption，本 skill 管外溢与全球镜像"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "exchange-rate-open-money",
+      "prompt": "人民币如果一次性大幅贬值，会不会引发贬值螺旋和资本外逃？该不该保汇率？",
+      "expected_behavior": "不应调用本 skill：汇率制度、贬值预期与资本流动的技术机制属于 exchange-rate-open-money（预期锚定、可能三角、UIP 检验）；本 skill 不处理汇率技术问题",
+      "confusion_point": "同为开放经济问题，但本 skill 的抓手是储蓄-投资恒等式而非汇率机制"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "我在准备一个关于'中美贸易谁吃亏'的辩论，帮我搭论证框架，另外海关口径的顺差和经常账户顺差为什么差那么多？",
+      "expected_behavior": "调用本 skill 做框架指导：用 S-I=CA+镜像结构搭双向论证，按 E1 拒绝任何单边受害叙事（顺差国害美国/美国剥削顺差国都不成立）；口径问题按第一步说明经常账户=货物+服务+收入+转移，并提醒两曲线同步但有统计误差；不代写辩论稿",
+      "notes": "边界：写作辅助+统计口径混合场景，框架定位与口径检查并用，内容产出不属于本 skill",
+      "expect_activation": true
+    }
+  ]
+}

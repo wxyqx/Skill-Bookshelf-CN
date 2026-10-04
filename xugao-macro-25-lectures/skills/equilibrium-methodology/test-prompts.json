@@ -1,0 +1,78 @@
+{
+  "skill": "equilibrium-methodology",
+  "skill_name": "均衡宏观经济学方法论：一般均衡建模的纪律",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "领导让我审一篇宏观政策分析报告，我总觉得哪里不对但说不上来。有没有比'看结论顺不顺眼'更硬的检查标准？",
+      "expected_behavior": "调用本 skill：给出结构体检清单——所有主体最优化+所有市场出清、微观基础、内生外生划分、求解流程有无预代入清或滥用计划者捷径、是否漏算一般均衡后果",
+      "notes": "正面：审查政策分析的结构质量，本 skill 的核心触发场景"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "我解宏观模型时把劳动市场出清条件 n_s=n_d 直接代进消费者的效用最大化问题一起求解了，师兄说这样不对，为什么？",
+      "expected_behavior": "调用本 skill：讲解两步法纪律——微观优化先行（主体只考虑自己、行为表示为价格的函数），出清条件属于第二步的宏观协调层；预代入清等于赋予主体其不具备的信息与权力",
+      "notes": "正面：典型的求解流程错误（预代入清），作者点名的纪律问题"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "一般均衡模型到底该怎么解？听说有个'两步法'，还有个中央计划者捷径，什么时候能用捷径？",
+      "expected_behavior": "调用本 skill：先讲三段论（设定—均衡定义—求解）与两步法（微观优化→出清联立），再讲捷径的适用条件——福利两定理成立（完全竞争、无信息不对称/外部性）时计划者问题与均衡等价，不成立时禁用",
+      "notes": "正面：求解工艺 + 捷径适用条件，覆盖 I 段第三步与 E4"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "expectations-lucas-critique",
+      "prompt": "政府打算推出新的产业补贴，怎么预测企业和居民会怎么反应、这个政策效果会有多大？",
+      "expected_behavior": "不应以本 skill 为主：这是政策效果评估与预期内生化问题（预估民间最优反应、反事实模拟），应调用 expectations-lucas-critique；本 skill 只在需要审查该评估所用模型的结构纪律时作为前置步骤",
+      "confusion_point": "同源于理性预期革命，但'模型怎么建才对'（结构纪律）与'政策改变后预期怎么变'（评估纪律）分工不同"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "ramsey-consumption-savings",
+      "prompt": "欧拉方程是怎么推出来的？居民在两期之间怎么分配消费和储蓄？",
+      "expected_behavior": "不应调用本 skill：这是跨期消费储蓄模型的具体推导，应调用 ramsey-consumption-savings；本 skill 只管建模求解的流程纪律，不做具体模型的展开",
+      "confusion_point": "两步法与均衡纪律会在拉姆齐模型上实例化，但问题本身问的是具体模型内容"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-macro-perspective",
+      "prompt": "分析中国经济到底该不该用西方教科书里的模型？是不是要先搞一套中国特色的理论？",
+      "expected_behavior": "不应调用本 skill：这是'该用哪套经济学'的元态度问题（方法普适+约束中国、水与石头），应调用 china-macro-perspective；本 skill 假定已决定用均衡范式，只管范式内的建模纪律",
+      "confusion_point": "方法论的两层——选择范式（元态度）与范式内纪律（本 skill）——常被混为一谈"
+    },
+    {
+      "id": "T7",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "帮我用 Python 跑个 OLS，估计中国消费函数的边际消费倾向，顺便调一下异方差稳健标准误。",
+      "expected_behavior": "不应调用本 skill：这是计量技术执行任务；本 skill 只在'该不该信任这个经验关系、要不要上微观基础'的层面介入，不代做估计",
+      "confusion_point": "校准 vs 计量估计是两种对接方式，但写代码跑回归本身是技术活"
+    },
+    {
+      "id": "T8",
+      "type": "edge_case",
+      "prompt": "既然卢卡斯批判说历史统计关系都靠不住，那生产函数 Y=AF(K,L) 不是也是从数据里来的吗，为什么还能用？",
+      "expected_behavior": "调用本 skill 做边界澄清：区分两类'函数'——描述人的行为的（消费函数，随预期改变而失效）与描述不以主观意志为转移的技术可能性的（生产函数描述产出潜力），后者可直接作为模型约束使用；提醒理性只是假设与信念，推论是近似不是真理",
+      "notes": "边界：卢卡斯批判的适用范围问题，答案在行为假设/技术约束的分类上，属本 skill 的微观基础与范式自觉部分"
+    },
+    {
+      "id": "T9",
+      "type": "edge_case",
+      "prompt": "模型里解中央计划者问题得到了最优配置，那我能不能直接建议政府按这个方案配置资源？",
+      "expected_behavior": "调用本 skill 并给出警示：计划者问题是求解捷径而非政策主张——其与均衡等价依赖福利两定理成立；存在信息不对称等结构时计划者最优≠市场均衡，直接建议配置会高估效率；同时帕累托最优不是伦理标准，分配公平需另立判断",
+      "notes": "边界：把求解手段当现实主张的误用，触发 E3/E4 两类反例",
+      "expect_activation": true
+    }
+  ]
+}

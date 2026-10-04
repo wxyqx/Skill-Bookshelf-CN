@@ -1,0 +1,62 @@
+{
+  "skill": "china-inflation-housing",
+  "skill_name": "中国结构性通胀与房价：土地财政分析框架",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "猪肉价格一涨CPI就破3，很多人喊央行赶紧加息，该不该？",
+      "expected_behavior": "调用本 skill：先做 CPI 结构分解与成因归因（猪价与生猪出栏量负相关→供给面冲击），套用'货币政策只应对就业驱动型涨价反应、放任供给冲击'的归因规则",
+      "notes": "正面：结构性通胀的政策反应判断，skill 核心场景"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "都说中国房价涨是货币超发闹的，那收紧货币不就能把房价压下来了？",
+      "expected_behavior": "调用本 skill：指出'房价=货币现象'错抓了重点——货币只决定短期需求起伏，长期趋势由地方政府垄断土地供给决定；用货币全国性 vs 房价城市分化的反证，并给出分层药方（信贷控短期、土地制度改长期）",
+      "notes": "正面：房价货币现象论的反驳，E1 + 第二步的应用"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "一种流行说法：是1994年分税制让地方财权小于事权、只能靠卖地，才把房价推高的。这个归因对吗？",
+      "expected_behavior": "调用本 skill：做反事实检验——就算财权事权平衡，垄断供应者面对高价土地照样高价卖地（'经济规律使然'）；判定'平衡财权事权控房价'药方无效，并补充分税制的三重合理性评价维度",
+      "notes": "正面：土地财政因果辨析，第四步 + E4 的应用"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "price-quantity-diagnosis",
+      "prompt": "看数据发现房屋销量增速和房价增速高度正相关，用价量关系这说明什么？",
+      "expected_behavior": "不应调用本 skill：这是价量同向判别需求/供给的通用问题，应调用 price-quantity-diagnosis（价量同向=需求主导）；本 skill 是判别之后的中国制度下钻（土地垄断、831断点），不做通用价量判别",
+      "confusion_point": "本 skill 的 R 段也引用了价量同向证据，但通用判别工具本身属于 price-quantity-diagnosis"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-debt-financial-chaos",
+      "prompt": "有人说应该打压房价来抑制债务增长、降低宏观杠杆率，这个方向对吗？",
+      "expected_behavior": "不应调用本 skill：这是房价与债务/杠杆率联动问题（分子分母联动：压房价压投资，名义GDP掉得更快，杠杆率反升），应调用 china-debt-financial-chaos；本 skill 只管房价的供需与制度归因",
+      "confusion_point": "两者都谈房价，但本题问的是杠杆率效应，属债务单元的 Ip24 反例"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "美国CPI创40年新高，美联储靠加息能压下来吗？",
+      "expected_behavior": "不应调用本 skill：非中国经济的通胀问题，结构性通胀两部门模型与土地财政框架不适用；用一般通胀/货币政策工具（如 money-neutrality-analysis、monetary-policy-toolbox）",
+      "confusion_point": "同为通胀与货币政策反应问题，但框架明确限定中国结构性现象"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "我要给市里写一份土地出让制度改革的内部建议，能不能用你这套分析撑住论证？",
+      "expected_behavior": "调用本 skill 提供论证骨架（垄断供给归因、831大限断点证据、财权事权反事实检验），但不代写政策建议；提醒断点对照是验证而非严格因果推断，供给端改革方案需补充当地供需数据",
+      "notes": "边界：写作辅助场景，框架提供论证结构不做政策决策",
+      "expect_activation": true
+    }
+  ]
+}

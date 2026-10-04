@@ -1,0 +1,62 @@
+{
+  "skill": "china-macro-perspective",
+  "skill_name": "中国视角方法论：水与石头 + 问题驱动",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "领导让我写一份分析中国宏观经济的研究框架，不知道从哪里下手——先问问题还是先选模型？",
+      "expected_behavior": "调用本 skill：用问题驱动四步法（列问题→列约束→普适工具+约束推演→数据验证）搭框架",
+      "notes": "正面：方法论总纲问题，本 skill 的核心触发场景"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "领导让我做一份明年宏观政策展望的分析框架，从哪里入手搭？",
+      "expected_behavior": "调用本 skill：问题驱动四步法（四类问题归位→列约束→工具+约束推演→数据验证）",
+      "notes": "正面：分析框架搭建请求，覆盖四步流程与四类问题归位"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "有篇西方论文的结论看着很有道理，想直接用到中国政策分析里，有什么要注意的？",
+      "expected_behavior": "调用本 skill：按'方法普适、结论特殊'给出移植流程——逐条检查理论隐含假设在中国是否成立（不成立处即石头），重新推演而非搬运结论，最后用中国数据验证",
+      "notes": "正面：西方理论移植场景，对应 Ap02/Ak04"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "six-levels-thinking",
+      "prompt": "某经济学家说'中国的问题都是市场化不彻底，该让市场尽快出清'，这个观点属于什么水平？",
+      "expected_behavior": "不应调用本 skill：这是给观点定位层次的认识论问题，应调用 six-levels-thinking（定位为第二层天真的市场派）；本框架管'怎么做分析'（方法论），不管'怎么定位观点'",
+      "confusion_point": "两者同源（都出自徐高的中国视角），但分工是六层思维定位观点、水与石头组织分析；问'观点属于什么水平'是定位问题"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "price-quantity-diagnosis",
+      "prompt": "生猪出栏量和猪肉价格负相关，这说明猪肉市场波动来自哪一侧？",
+      "expected_behavior": "不应调用本 skill：这是具体的价量相关性判别问题，应调用 price-quantity-diagnosis（价量反向=供给波动）；本框架是总方法论，不直接给出判别法则",
+      "confusion_point": "A1 案例正是猪价，但问题问的是价量判别法则本身这一具体工具，不是分析框架"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "美联储加息会怎么影响美国房地产市场的供需？",
+      "expected_behavior": "不应调用本 skill：非中国经济的宏观分析问题，不存在'西方结论移植中国'的约束检查需求，用标准供需工具直接分析即可",
+      "confusion_point": "同为宏观供需分析，但本框架明确限定中国经济语境（列中国的石头）"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "我写论文能直接把'水与石头'当理论依据引用吗？它算不算一个可检验的经济理论？",
+      "expected_behavior": "调用本 skill 做边界说明：它是组织分析的元方法论，不是可证伪的实证结论，引用应指向它组织出的具体分析；同时按元态度提醒不要把方法论本身也当教条（E1），建议具体论文落到 equilibrium-methodology 等可检验工具上",
+      "notes": "边界：对框架本身的定位追问，考察是否区分方法论与理论结论",
+      "expect_activation": true
+    }
+  ]
+}

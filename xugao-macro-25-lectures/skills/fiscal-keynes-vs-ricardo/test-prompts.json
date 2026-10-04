@@ -1,0 +1,64 @@
+{
+  "skill": "fiscal-keynes-vs-ricardo",
+  "skill_name": "财政政策：凯恩斯 vs 李嘉图（产能闲置度裁决仪）",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "现在经济下行压力大，有人说该搞一轮四万亿式的财政刺激，有人说历史证明刺激没用只会留下一地鸡毛。到底该信哪边？",
+      "expected_behavior": "调用本 skill：拒绝抽象站队，用产能闲置度裁决——查当前偏离充分就业的程度与产出缺口；闲置度高则乘数为真（四万亿正面案例），接近充分就业则李嘉图约束显现；同步检查财政盈余的顺/逆周期性质",
+      "notes": "正面：典型凯恩斯 vs 李嘉图之争的状态依赖裁决"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "政府发债把负担推给后代，这种说法对吗？国债算不算老百姓的财富？",
+      "expected_behavior": "调用本 skill：用李嘉图机制回答——理性居民内生化政府预算约束，债券不是净财富、减税被储蓄备缴未来税款；但不把等价当普适真理（乘数估计普遍非0），按三前提与产能闲置度给出约束式结论",
+      "notes": "正面：李嘉图等价的经典应用（巴罗之问）"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "一场大地震摧毁了大量房屋，有评论说重建投资能拉动GDP增长，是坏事变好事。这个论证有什么问题？",
+      "expected_behavior": "调用本 skill：用破窗理论前提检查——先问砸（震）之前经济是否需求不足、供给过剩；闲置资源多时乘数为真，满负荷时破坏只是财富净损失加资源配置干扰",
+      "notes": "正面：破窗理论思想实验的直接应用"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-debt-financial-chaos",
+      "prompt": "央行降准放水，加上财政部发专项债，这轮货币财政配合的组合拳传导会顺畅吗？",
+      "expected_behavior": "不应调用本 skill：问的是货币财政配合与传导，应调用 china-monetary-practice 或 monetary-transmission-blockage；本 skill 专管财政工具的乘数与李嘉图之争",
+      "confusion_point": "财政字面信号 vs 政策组合与传导主题"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-monetary-practice",
+      "prompt": "家庭的消费习惯是怎么形成的？为什么有人月光有人爱存钱，跟收入波动有什么关系？",
+      "expected_behavior": "不应调用本 skill：家庭跨期消费平滑问题应调用 ramsey-consumption-savings；本 skill 是政府财政工具分析",
+      "confusion_point": "退税/储蓄字面信号 vs 消费理论主题"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "ramsey-consumption-savings",
+      "prompt": "我们公司该不该发债扩建新厂房？帮我算算资本结构和还款计划。",
+      "expected_behavior": "不应调用本 skill：企业资本结构与融资决策属公司财务，不是政府财政政策",
+      "confusion_point": "发债字面信号 vs 政府财政主题",
+      "notes": "边界：拒绝伪精确"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "我在写一篇评估当前加码专项债刺激乘数会有多大的研究报告，框架给了，但乘数到底取多少？",
+      "expected_behavior": "调用本 skill 给出分析步骤（四本账盘点→乘数与李嘉图对照→产能闲置度裁决→税制与稳定器检查），但明确警告：c 不是稳定常数、IS-LM 乘数受卢卡斯批判不能当测算公式，只能给区间与状态条件；涉及发债规模的风险边界转 china-debt-financial-chaos",
+      "notes": "边界：实证测算需求——框架提供裁决逻辑，拒绝点估计承诺",
+      "expect_activation": true
+    }
+  ]
+}

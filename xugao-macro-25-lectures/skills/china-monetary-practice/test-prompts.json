@@ -1,0 +1,63 @@
+{
+  "skill": "china-monetary-practice",
+  "skill_name": "中国货币政策实践与利率市场化：读懂人民银行的约束审计仪",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "人民银行的操作为什么总跟教科书对不上？存贷款基准利率好几年才动一次，也不怎么盯市场利率。",
+      "expected_behavior": "调用本 skill：用政策分析两步法第一步解释（利率温和回应国企政策性负担、基准利率保护银行息差），归因于市场力量不足+政策性负担两大成因，而非'央行不懂现代理论'",
+      "notes": "正面：中国特色框架的典型触发问题（Hf18/Hf20/Hk03）"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "央行又宣布降准了，是不是要大放水了？我记得2006到2008年它还连续上调准备金率呢。",
+      "expected_behavior": "调用本 skill：把工具动作折算成对超储的净影响（含外汇占款等被动投放的对冲），指出2006-2008连续提准实为锁定操作、单一工具动作不足为凭，再判断本次降准的松紧含义与在双重困局中的定位",
+      "notes": "正面：解读降准/准备金率信号，看政策组合总效果（Hc02/Hp03）"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "2013年6月钱荒到底是怎么回事？央行为什么宁愿利率飙到那么高也不放水？",
+      "expected_behavior": "调用本 skill：用影子银行绕开信贷额度（数量管控被架空）+央行收紧基础货币控社融+QE3退出外冲击解释钱荒；两面评价（最后贷款人迟疑可议 vs 压影子银行情有可原），落点在数量型失灵与价格型受阻的双重困局",
+      "notes": "正面：书中核心案例（Hc15/Hf21）"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "monetary-policy-toolbox",
+      "prompt": "QE到底是怎么操作的？央行买长期国债和普通公开市场操作有什么区别？",
+      "expected_behavior": "不应调用本 skill：这是通用货币政策原理与非常规工具问题，应调用 monetary-policy-toolbox（伯南克路线图、QE与OMO之辨）；本 skill 只处理中国约束下的实践变形",
+      "confusion_point": "第19讲与第17-18讲共享货币政策语汇，但问的是通用原理而非中国实践——toolbox vs 中国实践是本 skill 最易混淆的边界"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "soft-budget-constraint",
+      "prompt": "城投公司回报率明明不高，为什么还能发那么多高息债券？",
+      "expected_behavior": "不应调用本 skill：问的是软约束机制本身（政府补贴→对利率不敏感→挤出融资），应调用 soft-budget-constraint；只有当问题延伸到'这如何让价格型调控失灵、利率市场化怎么走'时才转回本 skill",
+      "confusion_point": "政策性负担/城投挤出在本 skill 与 s-b-c 中都出现：约束机制用 s-b-c，约束对货币政策进程的影响用本 skill"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "second-best-transition",
+      "prompt": "改革过程中出现阵痛，怎么判断该继续忍下去还是该停下来？",
+      "expected_behavior": "不应调用本 skill：这是转轨节奏与阵痛处理的通用方法论问题，应调用 second-best-transition（阵痛信号处理规则、试错循环）；本 skill 只在货币政策语境下实例化这些原则",
+      "confusion_point": "利率市场化是次优转轨的实例，但脱离货币语境的泛化阵痛问题归转轨方法论 skill"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "如果让你评估'立刻取消存贷款基准利率、全面转向美联储式价格型调控'的改革方案，你会怎么分析？",
+      "expected_behavior": "调用本 skill 做约束审计而非给方案裁决：第一步先解释现行体系回应的约束（为何当下是对的），再核对方案前提（市场套利力量是否形成、政策性负担是否卸下）是否具备；改革节奏与试错逻辑提示转 second-best-transition",
+      "notes": "边界：方案评估场景，skill 提供两步法框架与前提核查，不替代具体方案设计；同时防止滑向'照抄西方'论证（Hk11）",
+      "expect_activation": true
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "skill": "china-debt-financial-chaos",
+  "skill_name": "中国债务问题与金融乱象：储蓄过剩裁决与猫鼠博弈",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "中国债务占 GDP 都 250% 以上了，新闻天天说很危险。中国到底会不会爆发债务危机？",
+      "expected_behavior": "调用本 skill：先做债务分解（谁在借、钱去了哪），再纳入债权方（刚性储蓄者）修正标准框架，核对内债/外债身份，给出'储蓄过剩格局不变则债务上升必要而可持续'的条件判断",
+      "notes": "正面：最典型的'中国债务会崩吗'总量判断"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "为什么监管越严影子银行越花样百出？钱荒、2015 股灾、债市加杠杆这些东西是不是同一个原因？",
+      "expected_behavior": "调用本 skill：用猫鼠博弈框架统一解释——储蓄过剩的势能持续存在，去杠杆堵一条路催生更隐蔽更高风险的路（票据→信托通道→股市杠杆→债市杠杆），并给出疏优于堵的治理建议",
+      "notes": "正面：金融乱象的统一生成机制解释"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "有人主张打压房价来压低全社会的债务规模和宏观杠杆率，这个思路靠谱吗？",
+      "expected_behavior": "调用本 skill：指出这是只盯分子的单边算账——分子分母联动，压房价压投资，名义 GDP 收缩得比债务更快，杠杆率不降反升；评估去杠杆政策先画分子分母联动图",
+      "notes": "正面：政策方向评估，压分子还是做大分母"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "soft-budget-constraint",
+      "prompt": "城投公司敢出那么高的利率发债，反正地方政府会兜底，这种预算软约束该怎么打破？为什么打破刚兑先违约的总是民企？",
+      "expected_behavior": "不应调用本 skill：这是软约束的微观激励机制与挤出效应问题，应调用 soft-budget-constraint（政府行为条件与'财政接权金融卸责'）；本 skill 管债务总量与金融乱象，不做激励结构分析",
+      "confusion_point": "城投是两个 skill 的共同案例：问'敢高息借债的激励与刚兑'走微观 skill，问'规模可持续与融资堵堵堵'才走本 skill"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "fiscal-keynes-vs-ricardo",
+      "prompt": "经济下行压力大，中国该不该再来一轮四万亿式的财政刺激？会不会积累一堆债务后遗症？",
+      "expected_behavior": "裁决'该不该刺激'部分应调用 fiscal-keynes-vs-ricardo（产能闲置度/自然运行状态裁决）；本 skill 只在追问'刺激留下的债务可不可持续'时接管——用债权方结构而非'有债务=有后遗症'回答",
+      "confusion_point": "债务话题常与刺激争论捆绑，但'该不该做'与'做了之后债务怎么办'是两个 skill 的分工"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "希腊当年债务危机是怎么爆发的？为什么欧元区救起来这么难？",
+      "expected_behavior": "不应调用本 skill 作为主框架：这是外部融资依赖型国际收支危机，应调用 bop-crisis-dollar-privilege；本 skill 只在'欧债教训能否套到中国'时做参照物之辨",
+      "confusion_point": "欧债是本 skill 的 E 段参照物反例，但分析欧债危机本身是国际收支危机 skill 的职责"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "用你这个框架算算，中国哪一年杠杆率会突破 300%、债务危机具体在哪个月爆发？",
+      "expected_behavior": "调用本 skill 但只做定性裁决不做数值预测：框架给的是条件判断（取决于储蓄过剩格局与收入分配改革的走向），明确拒绝给点位与时点；提醒把'会不会出事'改写为'什么条件下约束会失效'",
+      "notes": "边界：预测请求场景，框架做条件裁决不做点位预测",
+      "expect_activation": true
+    }
+  ]
+}

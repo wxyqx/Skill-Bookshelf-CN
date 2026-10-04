@@ -1,0 +1,62 @@
+{
+  "skill": "soft-budget-constraint",
+  "skill_name": "预算软约束分析：刚性兑付与挤出",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "城投公司平均回报率不到3%，发的债票息却超过6%，发债量还把产业公司压下去了。这不是很反常吗？",
+      "expected_behavior": "调用本 skill：用隐性担保→城投债变成无风险资产→无风险利率被抬升→利率不敏感者挤出敏感者的传导链解释倒挂，并提示先核算含外部性的广义回报再下'低效'判断",
+      "notes": "正面：书中核心案例（城投债与产业债倒挂）的机制解释"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "2014年说要打破刚性兑付，结果中国债市第一只实质性违约的怎么是民企的超日债，而不是有政府隐性担保的城投？",
+      "expected_behavior": "调用本 skill：用软约束保护结构解释违约分布——城投受稳增长逻辑保护，打破刚兑的代价落在无兜底的民企头上，违约集中民企反而强化对城投的追捧；指出评估打破刚兑要看违约风险落在谁头上",
+      "notes": "正面：打破刚兑执行走样的机制推演"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "贷款利率管制早就放开了，为什么民企融资还是又贵又难？是央行放水放得不够吗？",
+      "expected_behavior": "调用本 skill：归因到软约束主体利率不敏感导致融资需求失去弹性、利率难向'合适水平'回归，而非货币总量；并给出财政接权+金融卸责的政策定位",
+      "notes": "正面：融资贵归因与政策定位，剔除'央行放水'式错误归因"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-debt-financial-chaos",
+      "prompt": "中国宏观杠杆率又创新高了，这笔债务炸弹最后会不会爆？",
+      "expected_behavior": "不应调用本 skill：这是债务总量与危机前景的全景判断，应调用 china-debt-financial-chaos（债务膨胀的猫鼠博弈、债权方行为修正）；本 skill 只管融资市场上的微观配置扭曲",
+      "confusion_point": "都涉及城投与政府隐性担保，但一个问'总量会不会崩'，一个问'钱被谁挤占、利率为何失灵'"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "monetary-transmission-blockage",
+      "prompt": "央行降准降息之后股市涨了一波，实体经济却没什么起色，钱都去哪儿了？",
+      "expected_behavior": "不应调用本 skill：这是货币政策传导阻塞与流动性堰塞湖问题，应调用 monetary-transmission-blockage；本 skill 管的是到了金融市场的钱在软约束与硬约束主体之间怎么分错",
+      "confusion_point": "43号文压城投既涉及软约束清理又引发传导阻塞——机制症状（堰塞湖）归 blockage，配置扭曲（挤出民企）归本 skill"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "我们公司有个亏损部门连年亏损，总部一直输血不让它关，这个怎么处理？",
+      "expected_behavior": "不应调用本 skill：这是公司内部组织与治理问题，不是宏观融资市场的分析任务；本 skill 面向融资市场定价与配置扭曲、政策评估",
+      "confusion_point": "'有人兜底所以不收敛'的表象相似（软约束的泛化类比），但本 skill 的检验对象是金融市场中的融资主体与利率机制"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "有人主张让所有城投债一次性违约出清，市场纪律就建立起来了，这个方案对不对？",
+      "expected_behavior": "调用本 skill 但不机械套用：用三条件说明城投有外部性支撑、'只破不立'会走样（违约风险误伤民企、基建融资断档、传导阻塞），化解要财政接权+金融卸责同步；同时提示'约束未消除时强行最优化可能更糟'的次优问题转 second-best-transition 深化",
+      "notes": "边界：政策主张评估，软约束机制分析与改革次序问题交织",
+      "expect_activation": true
+    }
+  ]
+}

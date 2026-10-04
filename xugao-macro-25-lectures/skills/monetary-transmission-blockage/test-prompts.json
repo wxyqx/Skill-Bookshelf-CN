@@ -1,0 +1,63 @@
+{
+  "skill": "monetary-transmission-blockage",
+  "skill_name": "货币政策传导与流动性堰塞湖：宽松效果的诊断仪",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "最近央行连续降准降息，但企业还是喊融资难，股市和债市倒是不涨不跌、成交火热。这钱到底去哪了？",
+      "expected_behavior": "调用本 skill：画'央行→商业银行→实体'路径逐环找阻塞，用超储视角看央行着力点，用'社融萎缩 vs 金融成交放量'的反差做堰塞湖定性",
+      "notes": "正面：典型的'放水不见效'诊断，四步指令的主场景"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "央行放这么多水，市场利率反而一直往下走，不是说放水会推高通胀和利率吗？问题出在哪？",
+      "expected_behavior": "调用本 skill：用修正费雪方程式回答——传导顺畅时费雪效应主导利率升，传导阻塞时流动性效应主导利率降；先诊断传导是否顺畅再下方向结论",
+      "notes": "正面：利率方向想当然误区（Gk02）的正面应用"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "经济数据那么差，股市却在一路大涨，有人说这是'改革牛'，怎么判断这波行情是什么性质的？",
+      "expected_behavior": "调用本 skill：第四步资产上涨定性——检查实体融资指标与金融体系资金指标是否背离，背离则定性为流动性堰塞湖驱动；警示'经济好股市才涨'与叙事解释在流动性效应主导时失效",
+      "notes": "正面：牛市定性场景，对照书中2015年A股案例"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "money-neutrality-analysis",
+      "prompt": "美联储 QE 之后美股涨了十年，美国实体经济也没有通胀，这是为什么？",
+      "expected_behavior": "不应调用本 skill：美国现象应先考虑 monetary-policy-toolbox 的 QE 机制分析；堰塞湖是中国市场分割下的机制，不可直接外推",
+      "confusion_point": "流动性字面信号 vs 机制的中国特定性"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "soft-budget-constraint",
+      "prompt": "城投公司回报率不到3%却能以6%的成本融到大量资金，回报更高的民企反而融不到钱，这是为什么？",
+      "expected_behavior": "不应调用本 skill：问的是谁在抢资金、价格机制为何对它失灵，应调用 soft-budget-constraint（隐性担保、利率不敏感、挤出效应）；本 skill 分析的是水从央行出来后堵在哪，不分析融资主体的激励结构",
+      "confusion_point": "同在第15-16讲的货币金融板块且都涉及'资金淤积'，但堰塞湖是供给侧路径问题，城投挤出是需求侧主体问题"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "我想找资金流动摩擦即将消失、回报率会收敛的投资机会，直接告诉我买什么。",
+      "expected_behavior": "不应调用本 skill：这是投资操作建议，超出所有分析框架边界",
+      "confusion_point": "现象表面同构（宽松+资产涨+低通胀），但框架的中国约束前提不成立，机械套用会把机制同构误当机制相同",
+      "notes": "边界：不给操作建议"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "这轮股市上涨，实体融资数据很平淡但金融成交量暴增，帮我定性这轮行情的性质和风险。",
+      "expected_behavior": "调用本 skill：用实体融资 vs 金融成交反差定性为流动性堰塞湖，警示风险；不给买卖点位",
+      "notes": "边界：投资应用场景，只给方法论不给操作结论",
+      "expect_activation": true
+    }
+  ]
+}

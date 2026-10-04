@@ -1,0 +1,71 @@
+{
+  "skill": "second-best-transition",
+  "skill_name": "次优理论与转轨策略：改革评估的操作手册",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "有篇评论说'利率市场化改革引发阵痛，证明改革方向就是错的，应该退回去'。这种用阵痛否定改革方向的论证有什么问题？",
+      "expected_behavior": "调用本 skill：阵痛是暴露约束的信号而非方向错误的证据，用次优框架与\"进二退一\"常态分析",
+      "notes": "正面：'改革阵痛该忍还是该停'的组织版触发，核心第三步的完整应用"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "为什么俄罗斯东欧当年搞休克疗法一败涂地，中国渐进式改革反而成功了？两者不都是搞市场化吗？",
+      "expected_behavior": "调用本 skill：用次优理论解释同一理论的两种推论——休克疗法读出'条件须同时齐备'一步到位、落入'缺一味药的毒药'区域；渐进改革承认关键条件短期建不成、用阵痛暴露约束形成改革循环；并指出争论以稳增长与促改革之摇摆延续",
+      "notes": "正面：A1 主案例，转轨策略比较的标准应用"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "有篇评论说利率市场化把民企融资挤没了，证明市场化改革的方向就是错的。这个论证有什么问题？",
+      "expected_behavior": "调用本 skill：识别'从次优滑向更差就归罪方向'的归因错误——挤出效应暴露的是预算软约束这个关键前提（融资平台不在乎利率），43号文清理约束源头即'进二退一'的改革常态；阵痛是发现约束的信号而非方向错误的证据",
+      "notes": "正面：利率市场化→43号文案例的论断评估"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "six-levels-thinking",
+      "prompt": "我看到一篇挺火的中国经济评论，怎么判断这篇评论的水平高不高、作者处在什么认识层次？",
+      "expected_behavior": "不应调用本 skill：这是给观点/评论做定位的问题，应调用 six-levels-thinking（六层谱系定位+盲区检查）；本 skill 是转轨方法论，评估的是改革决策而非评论者层次",
+      "confusion_point": "两个 skill 同出第25讲、共享'次优'关键词，且本 skill 正是六层思维第三/四层的操作化——但问'观点在什么层次'属定位谱系职责"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "macro-theory-debate",
+      "prompt": "新古典综合派和后凯恩斯学派在'市场能否自动出清'这个问题上的核心分歧是什么？",
+      "expected_behavior": "不应调用本 skill：这是宏观理论流派之争的知识问题，应调用 macro-theory-debate（世界观考古）；本 skill 不做流派归档，只做次优理论在转轨决策上的操作化",
+      "confusion_point": "理论之争为次优理论提供底座，但问题本身问的是理论内容而非转轨策略"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-monetary-practice",
+      "prompt": "利率市场化改革推开后，为什么融资平台能给出比民企更高的利率？这里面的机制是怎么回事？",
+      "expected_behavior": "不应调用本 skill：问的是软预算约束下的资金竞争机制细节，应调用 china-monetary-practice（政策分析两步法+约束审计，配合 soft-budget-constraint）；本 skill 只用该案例演示阵痛信号处理，不展开机制",
+      "confusion_point": "共享同一案例素材，但问'机制如何运转'属机制诊断，非'阵痛该忍还是该停'的策略评估"
+    },
+    {
+      "id": "T7",
+      "type": "lure",
+      "subtype": "domain_mismatch",
+      "prompt": "德国当年消化东部的转型阵痛用了多久？东德企业私有化的具体流程是怎样的？",
+      "expected_behavior": "不应调用本 skill：这是历史事实与流程查询，不是改革策略评估；本 skill 提供的是'阵痛是约束信号'的分析框架，不提供历史数据与流程细节",
+      "confusion_point": "同为'转型阵痛'话题，但事实查询不触发方法论框架"
+    },
+    {
+      "id": "T8",
+      "type": "edge_case",
+      "prompt": "我想用次优理论为'继续搞稳增长'辩护，但有人批评我是'约束崇拜'，什么都不改的借口。怎么回应？",
+      "expected_behavior": "调用本 skill 但进入边界区：承认批评指向 E5（次优理论不告诉路在何方、有约束崇拜风险），正确的辩护必须按第二步+第四步补齐——论证当前手段是约束下最优的同时，指明移除约束的长期路径与阵痛暴露机制；若给不出路径，批评成立",
+      "notes": "边界：skill 自我批判条款（E5）的正面使用场景——框架既当辩护工具也当自我审计工具",
+      "expect_activation": true
+    }
+  ]
+}

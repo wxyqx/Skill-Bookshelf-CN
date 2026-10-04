@@ -1,0 +1,63 @@
+{
+  "skill": "monetary-policy-toolbox",
+  "skill_name": "货币政策工具箱：从常规操作到QE路线图",
+  "version": "1.0.0",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "positive",
+      "prompt": "美联储利率都降到零了，是不是货币政策就用完了？通缩真的没救吗？",
+      "expected_behavior": "调用本 skill：用伯南克四步路线图回答——零下限只封住常规宽松，其后还有买长债（QE）、买风险资产、财政赤字货币化三级台阶；把问题从'能不能'转为'愿不愿、代价几何'",
+      "notes": "正面：零下限与工具箱升级的典型问题"
+    },
+    {
+      "id": "T2",
+      "type": "positive",
+      "prompt": "美联储 QE 买了几年债券，资产负债表翻了好几倍，为什么通胀一直没起来？这不是说明印钱跟通胀没关系吗？",
+      "expected_behavior": "调用本 skill：用三环套利诊断——QE 压的是长端利率与风险溢价，货币是否转化为需求取决于金融—实体套利这一环；实体回报率为负时资金淤积金融体系（LTRO 回存式空转）；同时警惕把短期 QE 经验直接外推为长期货币中性结论（后者属 money-neutrality-analysis）",
+      "notes": "正面：QE 与通胀之谜，需用到断点诊断与跨 skill 边界意识"
+    },
+    {
+      "id": "T3",
+      "type": "positive",
+      "prompt": "QE 和央行平常的公开市场操作，不都是买国债吗？有什么本质区别？",
+      "expected_behavior": "调用本 skill：用 QE 与 OMO 之别回答——OMO 以价格（利率）为目标、量内生、买短债影响短端；QE 以数量为承诺、价内生、买长债与风险资产直接影响长端，且令央行资产负债表急剧扩张、久期拉长",
+      "notes": "正面：核心概念辨析"
+    },
+    {
+      "id": "T4",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "china-monetary-practice",
+      "prompt": "人民银行这次降准是什么意思？是转向宽松了吗？为什么中国央行老是用地准备金这种教科书里不讲的工具？",
+      "expected_behavior": "不应调用本 skill：这是中国央行自身实践的操作解读，应调用 china-monetary-practice（政策分析两步法：先解释约束下的合理性，再谈改进）；本 skill 面向原理与美联储/国际实践",
+      "confusion_point": "降准也属'货币政策工具'，但问题问的是人民银行的行为逻辑与中国特色工具，属中国实践 skill 的职责"
+    },
+    {
+      "id": "T5",
+      "type": "lure",
+      "subtype": "sibling_confusion",
+      "sibling_skill": "money-neutrality-analysis",
+      "prompt": "M2 增速比 GDP 增速常年高好几个点，长期看通胀会到什么水平？",
+      "expected_behavior": "不应调用本 skill：这是货币与通胀的长期关系问题，应调用 money-neutrality-analysis（交易方程式、古典二分、货币中性）；本 skill 处理央行操作与传导的短中期机制",
+      "confusion_point": "同属货币经济学，但一个管'货币长期是什么'，一个管'央行短期怎么做'——时间尺度与问题类型不同"
+    },
+    {
+      "id": "T6",
+      "type": "lure",
+      "subtype": "mechanism_detail",
+      "sibling_skill": "monetary-transmission-blockage",
+      "prompt": "中国降准降息之后股市涨了，但实体经济融资还是难，钱都堵在哪里了？",
+      "expected_behavior": "不应调用本 skill 为主：这是中国语境下金融—实体传导断裂的机制分析（流动性堰塞湖、市场分割），应调用 monetary-transmission-blockage；本 skill 的三环套利是通用诊断框架，中国版断点细节在后者",
+      "confusion_point": "三环套利与堰塞湖都谈传导阻塞，但中国'宽货币紧信用'的具体机制属第15讲模型职责"
+    },
+    {
+      "id": "T7",
+      "type": "edge_case",
+      "prompt": "日本央行搞了全世界第一个 QE，为什么几十年了经济还是不死不活？安倍上来后反倒好了一些，这说明什么？",
+      "expected_behavior": "调用本 skill：用路线图检验三点——早期 QE 规模小、买短债，未作用于被阻塞的长端环节，收效有限；安倍时期超宽松+财政配合，作用于断点，经济改善；同时注意这不是人口宿命论能解释的（人口叙事是反例误区），且 QE 效果评估须先诊断断点（银行体系受损时修复银行更根本）",
+      "notes": "边界：跨国案例综合分析，需路线图排序+力度诊断+反宿命论警示三件套",
+      "expect_activation": true
+    }
+  ]
+}
