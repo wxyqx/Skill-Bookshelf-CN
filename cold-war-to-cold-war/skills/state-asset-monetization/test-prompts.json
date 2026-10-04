@@ -1,0 +1,52 @@
+{
+  "skill": "state-asset-monetization",
+  "version": "0.1.0",
+  "source_book": "《从“老冷战”到“新冷战”》 温铁军 李卞",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "中国地方债和国债规模这么大，为什么说和美债性质不同？",
+      "expected_behavior": "应激活 state-asset-monetization，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "举国体制在金融危机中是怎么互救的？97年银行不良率三分之一为什么没崩？",
+      "expected_behavior": "应激活 state-asset-monetization，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "'绿水青山就是金山银山'的金融含义是什么？生态资产怎么货币化？",
+      "expected_behavior": "应激活 state-asset-monetization，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "城投债能买吗？",
+      "expected_behavior": "不应激活本 skill，因为 投资建议",
+      "notes": "诱饵：投资建议"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "财政赤字货币化的红线在哪里？",
+      "expected_behavior": "不应激活本 skill，应激活 sovereign-currency-discipline",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "基建投资回报率怎么算？",
+      "expected_behavior": "项目测算",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}

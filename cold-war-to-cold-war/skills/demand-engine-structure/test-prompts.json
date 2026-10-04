@@ -1,0 +1,52 @@
+{
+  "skill": "demand-engine-structure",
+  "version": "0.1.0",
+  "source_book": "《从“老冷战”到“新冷战”》 温铁军 李卞",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "出口依赖型经济被加征关税，增长引擎怎么调整？转内需需要什么条件？",
+      "expected_behavior": "应激活 demand-engine-structure，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么说'三驾马车'要有主从之分？中国不同时期是谁在'驾辕'？",
+      "expected_behavior": "应激活 demand-engine-structure，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "家电下乡为什么能成功？内需激活的前提是什么？",
+      "expected_behavior": "应激活 demand-engine-structure，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "消费券该不该发？",
+      "expected_behavior": "不应激活本 skill，因为 政策建议",
+      "notes": "诱饵：政策建议"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "政府债务对应的是资产还是消费？",
+      "expected_behavior": "不应激活本 skill，应激活 state-asset-monetization",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "内需的定义是什么？",
+      "expected_behavior": "概念查询",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}

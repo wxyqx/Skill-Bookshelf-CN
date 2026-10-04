@@ -1,0 +1,52 @@
+{
+  "skill": "crisis-harvesting-mechanism",
+  "version": "0.1.0",
+  "source_book": "《从“老冷战”到“新冷战”》 温铁军 李卞",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "某国要推激进私有化并放开资本账户，谁会从中收割？帮我推演一下",
+      "expected_behavior": "应激活 crisis-harvesting-mechanism，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "危机中资产贱卖被外资抄底，这个'割韭菜'机制是怎么完整运作的？",
+      "expected_behavior": "应激活 crisis-harvesting-mechanism，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "苏联的优质工业资产为什么以废钢价流失了？",
+      "expected_behavior": "应激活 crisis-harvesting-mechanism，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "股市抄底的好时机怎么判断？",
+      "expected_behavior": "不应激活本 skill，因为 投资策略",
+      "notes": "诱饵：投资策略"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "渐进货币化为什么比休克疗法安全？",
+      "expected_behavior": "不应激活本 skill，应激活 monetization-sovereignty",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "怎么在危机中抄底优质资产？",
+      "expected_behavior": "投资操作",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}
