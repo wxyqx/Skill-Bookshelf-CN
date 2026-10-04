@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**26 本书 · 488 个 skills**（最后更新：2026-10-04）
+**27 本书 · 503 个 skills**（最后更新：2026-10-04）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -41,6 +41,7 @@
 | 《宏观经济学（第十版）》*Macroeconomics, 10th Ed.* | 曼昆 · 2019 | 宏观经济学 / 政策分析 / 经济数据 | 20 | [`mankiw-macroeconomics-10e/`](./mankiw-macroeconomics-10e/) |
 | 《宏观经济学二十五讲：中国视角》 | 徐高 · 2019 | 中国宏观经济 / 货币政策 / 结构分析 | 24 | [`xugao-macro-25-lectures/`](./xugao-macro-25-lectures/) |
 | 《战略与路径：黄奇帆的十二堂经济课》 | 黄奇帆 · 2022 | 宏观战略 / 结构性分析 / 政策方法论 | 19 | [`strategy-and-path/`](./strategy-and-path/) |
+| 《分析与思考：黄奇帆的复旦经济课》 | 黄奇帆 · 2020 | 金融 / 货币制度 / 风险诊断 | 15 | [`analysis-and-thinking/`](./analysis-and-thinking/) |
 
 ---
 
@@ -202,6 +203,13 @@
 - **一句话**：在 2020-2035 窗口期，用"数据→边界条件→结构机制→量化推演→分级对策"的结构性思维拆解中国十二个重大战略议题——议题会过时，这套分析工具不会。
 - **Skills**：`five-step-structural-analysis` · `boundary-condition-analysis` · `war-game-scenario-analysis` · `first-build-then-demolish` · `origin-sale-vs-local-production` · `chain-power-analysis` · `scale-market-three-effects` · `data-rights-layering` · `snowball-alliance-strategy` · `institutional-gene-analysis` · `long-cycle-constants-filter` · `source-governance-thinking` · `innovation-three-stages` · `first-allocation-order` · `manufacturing-share-diagnosis` · `self-reliance-boundary` · `relative-cost-judgment` · `financial-opening-sequencing` · `city-land-structure`
 
+### 27. 《分析与思考：黄奇帆的复旦经济课》 · [`analysis-and-thinking/`](./analysis-and-thinking/)
+
+- **作者**：黄奇帆 · 2020（上海人民出版社；2018.11-2019.12 复旦大学经济学院授课讲稿，张军作序）
+- **一句话**：金融的本质是"为有钱人理财、为缺钱人融资，把握信用—杠杆—风险的度，为实体经济服务"——用"问题—结构—对策"范式拆解中国的杠杆、货币、资本市场、房地产与开放博弈。
+- **Skills**：`macro-leverage-four-indicators` · `leverage-toolkit-detection` · `digital-credit-five-principles` · `finance-essence-check` · `monetary-anchor-diagnosis` · `sovereign-currency-discipline` · `capital-market-health-diagnosis` · `housing-affordability-one-sixth` · `three-zeros-trade-rules` · `trade-deficit-value-chain-accounting` · `crisis-deferral-chain` · `macro-bubble-four-indicators` · `rmb-internationalization-five-pools` · `import-power-five-reasons` · `capital-recruitment-model`
+- **备注**：姊妹卷《战略与路径》（第 26 本）同作者，本卷 15 个 skills 已与其跨书去重并建立导航。
+
 ---
 
 ## 安装
@@ -209,7 +217,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 488 个 skills（用户级，所有项目可用）
+# 一次性安装全部 503 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -253,7 +261,8 @@ skill-bookshelf/
 ├── simple-and-usable/        # 《简约至上：交互式设计四策略》（20 skills）
 ├── mankiw-macroeconomics-10e/ # 《宏观经济学（第十版）》（20 skills）
 ├── xugao-macro-25-lectures/  # 《宏观经济学二十五讲：中国视角》（24 skills）
-└── strategy-and-path/        # 《战略与路径：黄奇帆的十二堂经济课》（19 skills）
+├── strategy-and-path/        # 《战略与路径：黄奇帆的十二堂经济课》（19 skills）
+└── analysis-and-thinking/    # 《分析与思考：黄奇帆的复旦经济课》（15 skills）
 ```
 
 ---

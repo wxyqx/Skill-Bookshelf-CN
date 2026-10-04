@@ -1,0 +1,52 @@
+{
+  "skill": "digital-credit-five-principles",
+  "version": "0.1.0",
+  "source_book": "《分析与思考：黄奇帆的复旦经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司要做'先享后付'业务，合规设计的要点有哪些？帮我列个框架",
+      "expected_behavior": "应激活 digital-credit-five-principles，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "评估一下这个小贷平台：资本金3亿、放贷余额80亿、资金来自ABS，风险大吗？",
+      "expected_behavior": "应激活 digital-credit-five-principles，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "联合贷款新规之下，助贷业务的杠杆和资金来源要怎么安排？",
+      "expected_behavior": "应激活 digital-credit-five-principles，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "怎么提高我的芝麻信用分？",
+      "expected_behavior": "不应激活本 skill，因为 个人征信操作",
+      "notes": "诱饵：个人征信操作"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我买的这个高息网贷是不是庞氏骗局？",
+      "expected_behavior": "不应激活本 skill，应激活 leverage-toolkit-detection",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "P2P 当年是怎么被禁止的？",
+      "expected_behavior": "历史事件询问",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}

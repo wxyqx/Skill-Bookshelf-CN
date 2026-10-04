@@ -1,0 +1,52 @@
+{
+  "skill": "import-power-five-reasons",
+  "version": "0.1.0",
+  "source_book": "《分析与思考：黄奇帆的复旦经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "中国顺差收窄了，这是好事还是坏事？",
+      "expected_behavior": "应激活 import-power-five-reasons，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么说进口大国才是经济强国？这个逻辑是怎么递进的？",
+      "expected_behavior": "应激活 import-power-five-reasons，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "进博会、扩大进口这些政策背后是什么战略考量？",
+      "expected_behavior": "应激活 import-power-five-reasons，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "出口退税怎么申请？",
+      "expected_behavior": "不应激活本 skill，因为 操作咨询",
+      "notes": "诱饵：操作咨询"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "加入CPTPP对我们有什么规则上的影响？",
+      "expected_behavior": "不应激活本 skill，应激活 three-zeros-trade-rules",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "中国去年进口了多少大豆？",
+      "expected_behavior": "数据查询",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}
