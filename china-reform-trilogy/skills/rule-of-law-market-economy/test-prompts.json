@@ -1,0 +1,52 @@
+{
+  "skill": "rule-of-law-market-economy",
+  "version": "0.1.0",
+  "source_book": "《中国改革三部曲》 吴敬琏",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "中国会不会滑向权贵资本主义？两种前途的判断依据是什么？",
+      "expected_behavior": "应激活 rule-of-law-market-economy，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "政府职能的'越位、错位、缺位'分别指什么？有限政府怎么建设？",
+      "expected_behavior": "应激活 rule-of-law-market-economy，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "'非禁即入'的法治原则对营商环境改革意味着什么？",
+      "expected_behavior": "应激活 rule-of-law-market-economy，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "法治和法制有什么区别？",
+      "expected_behavior": "不应激活本 skill，因为 概念辨析",
+      "notes": "诱饵：概念辨析"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "双轨制的租金规模有多大？",
+      "expected_behavior": "不应激活本 skill，应激活 incremental-reform-rent",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "依法治国的文件有哪些？",
+      "expected_behavior": "文件查询",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}

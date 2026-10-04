@@ -1,0 +1,52 @@
+{
+  "skill": "economic-system-typology",
+  "version": "0.1.0",
+  "source_book": "《中国改革三部曲》 吴敬琏",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "分析某个转轨国家的经济体制，它到底处于什么阶段、目标模式是什么？",
+      "expected_behavior": "应激活 economic-system-typology，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "'社会主义市场经济'在理论上怎么定义？有宏观管理的市场是什么意思？",
+      "expected_behavior": "应激活 economic-system-typology，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "匈牙利式改革和韩国式改革的体制差别在哪里？帮我用象限框架对比",
+      "expected_behavior": "应激活 economic-system-typology，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "计划经济的由来是什么？",
+      "expected_behavior": "不应激活本 skill，因为 历史知识查询",
+      "notes": "诱饵：历史知识查询"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "中国改革分哪几个战略阶段？",
+      "expected_behavior": "不应激活本 skill，应激活 reform-strategy-phases",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "市场经济有什么缺点？",
+      "expected_behavior": "泛泛概念查询",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}

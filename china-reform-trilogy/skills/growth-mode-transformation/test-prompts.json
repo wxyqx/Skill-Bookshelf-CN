@@ -1,0 +1,52 @@
+{
+  "skill": "growth-mode-transformation",
+  "version": "0.1.0",
+  "source_book": "《中国改革三部曲》 吴敬琏",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "投资拉动的增长还能持续吗？用 ICOR 和全要素生产率诊断一下",
+      "expected_behavior": "应激活 growth-mode-transformation，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么中国研发投入这么大，创新效率还是上不去？",
+      "expected_behavior": "应激活 growth-mode-transformation，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "'转变经济增长方式'提了这么多年为什么反复回潮？体制根源在哪？",
+      "expected_behavior": "应激活 growth-mode-transformation，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "今年 GDP 增速目标多少？",
+      "expected_behavior": "不应激活本 skill，因为 数据查询",
+      "notes": "诱饵：数据查询"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "制造业占比下降是不是空心化前兆？",
+      "expected_behavior": "不应激活本 skill，应激活 manufacturing-share-diagnosis",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "全要素生产率的公式是什么？",
+      "expected_behavior": "公式查询",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}

@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**30 本书 · 533 个 skills**（最后更新：2026-10-04）
+**31 本书 · 543 个 skills**（最后更新：2026-10-04）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -45,6 +45,7 @@
 | 《八次危机：中国的真实经验 (1949-2009)》 | 温铁军 · 2013 | 经济史 / 政治经济学 / 三农 | 10 | [`eight-crises/`](./eight-crises/) |
 | 《从“老冷战”到“新冷战”》 | 温铁军、李卞 · 2023 | 政治经济学 / 全球化史 / 货币与冷战 | 9 | [`cold-war-to-cold-war/`](./cold-war-to-cold-war/) |
 | 《当音乐停止之后》 | 艾伦·布林德 · 2014 | 金融危机 / 政策评估 / 政治经济学 | 11 | [`after-the-music-stopped/`](./after-the-music-stopped/) |
+| 《中国改革三部曲》 | 吴敬琏 · 2017 | 比较体制 / 改革史 / 增长模式 | 10 | [`china-reform-trilogy/`](./china-reform-trilogy/) |
 
 ---
 
@@ -234,6 +235,13 @@
 - **Skills**：`crisis-cause-inventory` · `leverage-amplification-layers` · `shadow-banking-anatomy` · `panic-contagion-mechanics` · `bailout-decision-framework` · `spread-based-unconventional-policy` · `fiscal-stimulus-design` · `financial-reform-principles` · `policy-failure-trinity` · `policy-paradox-communication` · `policy-exit-design`
 - **备注**：西方亲历者视角的危机解剖学，与《八次危机》《分析与思考》的中式结构分析互为对冲视角。
 
+### 31. 《中国改革三部曲》 · [`china-reform-trilogy/`](./china-reform-trilogy/)
+
+- **作者**：吴敬琏 · 合订本 2017（中信出版社；Ⅰ《论竞争性市场体制》1991、Ⅱ《当代中国经济改革》、Ⅲ《中国增长模式抉择》，写作跨越 20 年、论述跨越 60 年）
+- **一句话**：中国改革的成败系于资源配置方式从行政协调转向市场协调——增量改革成功了，但双轨制留下寻租与权贵资本主义的隐患；增长模式从粗放转向集约最终取决于政府自身的改革，中国面临"法治的市场经济"与"权贵资本主义"两种前途。
+- **Skills**：`economic-system-typology` · `decentralization-type-analysis` · `reform-strategy-phases` · `incremental-reform-rent` · `soe-reform-dilemma` · `growth-mode-transformation` · `export-oriented-strategy-risks` · `coordinated-reform-approach` · `rule-of-law-market-economy` · `financial-repression-analysis`
+- **备注**：中国改革叙事的理论/方案设计者视角，与黄奇帆两卷（实操工具）、温铁军两卷（代价视角）构成三角对照。
+
 ---
 
 ## 安装
@@ -241,7 +249,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 533 个 skills（用户级，所有项目可用）
+# 一次性安装全部 543 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -289,7 +297,8 @@ skill-bookshelf/
 ├── analysis-and-thinking/    # 《分析与思考：黄奇帆的复旦经济课》（15 skills）
 ├── eight-crises/             # 《八次危机：中国的真实经验》（10 skills）
 ├── cold-war-to-cold-war/     # 《从“老冷战”到“新冷战”》（9 skills）
-└── after-the-music-stopped/  # 《当音乐停止之后》（11 skills）
+├── after-the-music-stopped/  # 《当音乐停止之后》（11 skills）
+└── china-reform-trilogy/     # 《中国改革三部曲》（10 skills）
 ```
 
 ---
