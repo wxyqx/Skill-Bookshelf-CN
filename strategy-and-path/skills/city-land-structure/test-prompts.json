@@ -1,0 +1,52 @@
+{
+  "skill": "city-land-structure",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "合肥这十年人口流入很快，房子长期还值得持有吗？帮我看看基本面",
+      "expected_behavior": "应激活 city-land-structure，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "深圳房价为什么压不住？是缺地还是投机？",
+      "expected_behavior": "应激活 city-land-structure，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "两个城市二选一定居，从长期承载力看该选哪个？",
+      "expected_behavior": "应激活 city-land-structure，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "下个月哪个城市房价会涨？",
+      "expected_behavior": "不应激活本 skill，因为 短线预测，标尺是十年级变量",
+      "notes": "诱饵：短线预测，标尺是十年级变量"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "全国楼市是不是到拐点了？",
+      "expected_behavior": "不应激活本 skill，应激活 boundary-condition-analysis",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这个小区的学校好不好？",
+      "expected_behavior": "配套信息查询",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

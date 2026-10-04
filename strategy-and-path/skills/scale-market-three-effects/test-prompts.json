@@ -1,0 +1,52 @@
+{
+  "skill": "scale-market-three-effects",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "印度人口和中国差不多，为什么制造业吸引力差这么多？",
+      "expected_behavior": "应激活 scale-market-three-effects，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么说'进口大国一定是经济强国'？大市场的引力机制是什么？",
+      "expected_behavior": "应激活 scale-market-three-effects，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们平台要靠什么护城河留住商家？规模摊薄效应还剩多少？",
+      "expected_behavior": "应激活 scale-market-three-effects，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "中国人口开始负增长了，房价要崩吗？",
+      "expected_behavior": "不应激活本 skill，因为 宏观断言式问题，无机制分析诉求；若展开为城市分析则激活 city-land-structure",
+      "notes": "诱饵：宏观断言式问题，无机制分析诉求；若展开为城市分析则激活 city-land-structure"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们在产业链里到底有没有话语权？",
+      "expected_behavior": "不应激活本 skill，应激活 chain-power-analysis",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "短视频行业的天花板还有多高？",
+      "expected_behavior": "行业规模预测，非规模机制分析",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

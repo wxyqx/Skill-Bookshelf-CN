@@ -1,0 +1,52 @@
+{
+  "skill": "long-cycle-constants-filter",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "最近政策整顿很猛，我该不该继续做教育内容创业？帮我从长期趋势看看",
+      "expected_behavior": "应激活 long-cycle-constants-filter，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这次下跌是不是不一样了？帮我用长期结构性趋势分析一下要不要慌",
+      "expected_behavior": "应激活 long-cycle-constants-filter，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "媒体天天说过热/过冷，怎么判断哪些是噪声哪些是真转折？",
+      "expected_behavior": "应激活 long-cycle-constants-filter，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "明天该买还是该卖？",
+      "expected_behavior": "不应激活本 skill，因为 短线交易决策",
+      "notes": "诱饵：短线交易决策"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "煤炭行业是周期性回暖还是结构性拐点？",
+      "expected_behavior": "不应激活本 skill，应激活 boundary-condition-analysis",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "帮我制定下季度的OKR",
+      "expected_behavior": "目标管理，与长期趋势过滤无关",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

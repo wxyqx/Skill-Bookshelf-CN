@@ -1,0 +1,52 @@
+{
+  "skill": "source-governance-thinking",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "销售团队虚报pipeline屡罚不止，换人也换了几批，怎么彻底解决？",
+      "expected_behavior": "应激活 source-governance-thinking，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "拖欠中小企业账款是行业老大难，运动式清欠为什么总没用？",
+      "expected_behavior": "应激活 source-governance-thinking，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "孩子拖延症反复发作，奖罚都试过了，想找个治本的办法",
+      "expected_behavior": "应激活 source-governance-thinking，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "服务器昨晚宕机了2小时，帮我查原因",
+      "expected_behavior": "不应激活本 skill，因为 偶发事故，直接排障即可",
+      "notes": "诱饵：偶发事故，直接排障即可"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我系统分析一下养老产业的现状和机会",
+      "expected_behavior": "不应激活本 skill，应激活 five-step-structural-analysis",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "新来的员工总犯错，怎么带？",
+      "expected_behavior": "个体辅导，非制度性问题",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

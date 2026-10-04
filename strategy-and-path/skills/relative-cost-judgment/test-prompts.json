@@ -1,0 +1,52 @@
+{
+  "skill": "relative-cost-judgment",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "光伏补贴基本退完了，这个行业是靠自身盈利活着还是还在吃老本？",
+      "expected_behavior": "应激活 relative-cost-judgment，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "氢能补贴加码了，这说明技术成熟了吗？怎么判断？",
+      "expected_behavior": "应激活 relative-cost-judgment，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们依赖平台流量扶持的业务，怎么判断它什么时候能脱离扶持自主造血？",
+      "expected_behavior": "应激活 relative-cost-judgment，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "新能源车哪个品牌好？",
+      "expected_behavior": "不应激活本 skill，因为 消费选购",
+      "notes": "诱饵：消费选购"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "老系统迁移到新平台的节奏怎么排？",
+      "expected_behavior": "不应激活本 skill，应激活 first-build-then-demolish",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "电价最近为什么涨了？",
+      "expected_behavior": "价格归因",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

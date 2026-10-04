@@ -1,0 +1,52 @@
+{
+  "skill": "war-game-scenario-analysis",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "如果我们被列入实体清单、EDA断供，公司会怎样？帮我推演一下该怎么准备",
+      "expected_behavior": "应激活 war-game-scenario-analysis，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "竞品放话要打价格战把我们挤出去，帮我推演对方的招数和我们的反制",
+      "expected_behavior": "应激活 war-game-scenario-analysis，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "谈判前我想推演对方可能的施压手段，逐项评估他们敢不敢真用",
+      "expected_behavior": "应激活 war-game-scenario-analysis，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我分析一下行业竞争格局是否激烈",
+      "expected_behavior": "不应激活本 skill，因为 竞争格局描述，无对抗威胁清单与反制需求",
+      "notes": "诱饵：竞争格局描述，无对抗威胁清单与反制需求"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们该自研数据库还是继续采购？",
+      "expected_behavior": "不应激活本 skill，应激活 self-reliance-boundary",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司核心供应商最近交货不稳定，怎么办？",
+      "expected_behavior": "供应风险管理与替代寻源，非对抗性威胁推演",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

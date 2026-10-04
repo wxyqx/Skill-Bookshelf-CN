@@ -1,0 +1,52 @@
+{
+  "skill": "financial-opening-sequencing",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "有人说应该尽快开放资本账户，从金融安全角度怎么看这个次序问题？",
+      "expected_behavior": "应激活 financial-opening-sequencing，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "广场协议到底怎么摧毁日本经济的？对今天有什么启示？",
+      "expected_behavior": "应激活 financial-opening-sequencing，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "为什么说资本管制在博弈中是盾牌而不是负担？",
+      "expected_behavior": "应激活 financial-opening-sequencing，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我现在手里有美元，该不该换成人民币？",
+      "expected_behavior": "不应激活本 skill，因为 个人换汇操作建议",
+      "notes": "诱饵：个人换汇操作建议"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "香港的金融中心地位靠什么制度支撑？",
+      "expected_behavior": "不应激活本 skill，应激活 institutional-gene-analysis",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "离岸人民币汇率怎么查询？",
+      "expected_behavior": "数据查询",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

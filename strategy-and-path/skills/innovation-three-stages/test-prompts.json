@@ -1,0 +1,52 @@
+{
+  "skill": "innovation-three-stages",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们研究院论文不少但成果转化率极低，帮我诊断卡在哪一环",
+      "expected_behavior": "应激活 innovation-three-stages，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "高校职务成果赋权改革，产权怎么分才合理？拜杜法案那一套能搬吗？",
+      "expected_behavior": "应激活 innovation-three-stages，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司创新预算该往基础研究、转化还是产业化上投？",
+      "expected_behavior": "应激活 innovation-three-stages，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我写一篇关于人工智能发展趋势的科普文章",
+      "expected_behavior": "不应激活本 skill，因为 科普写作，无诊断对象",
+      "notes": "诱饵：科普写作，无诊断对象"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们采集的用户数据能不能拿去变现？",
+      "expected_behavior": "不应激活本 skill，应激活 data-rights-layering",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "怎么提高研发团队的开发效率？",
+      "expected_behavior": "工程效率问题",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

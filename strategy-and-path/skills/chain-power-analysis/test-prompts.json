@@ -1,0 +1,52 @@
+{
+  "skill": "chain-power-analysis",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "富士康营收那么大，为什么利润那么薄？苹果凭什么拿走八成利润？",
+      "expected_behavior": "应激活 chain-power-analysis，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们做代工的，怎么才能往产业链上游爬？帮我分析该走哪条路",
+      "expected_behavior": "应激活 chain-power-analysis，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "投资尽调时怎么判断一家'链主'公司是真链头还是普通代工？",
+      "expected_behavior": "应激活 chain-power-analysis，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家公司去年营收增长30%，估值怎么算？",
+      "expected_behavior": "不应激活本 skill，因为 财务估值问题",
+      "notes": "诱饵：财务估值问题"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的工厂应该留在中国还是迁去墨西哥？",
+      "expected_behavior": "不应激活本 skill，应激活 origin-sale-vs-local-production",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们供应商最近要涨价10%，怎么谈判？",
+      "expected_behavior": "采购谈判，非链位分析",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

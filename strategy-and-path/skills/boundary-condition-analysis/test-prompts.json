@@ -1,0 +1,52 @@
+{
+  "skill": "boundary-condition-analysis",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "教培行业双减之后是阶段性低谷还是永久性变化？还要不要投入？",
+      "expected_behavior": "应激活 boundary-condition-analysis，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "都说光伏产能过剩了，这是周期性去库存还是行业见顶？我想判断该不该等回暖",
+      "expected_behavior": "应激活 boundary-condition-analysis，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "二手房成交量跌了两年，这个城市的楼市是周期调整还是结构转折？",
+      "expected_behavior": "应激活 boundary-condition-analysis，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我预测下个月上证指数涨跌",
+      "expected_behavior": "不应激活本 skill，因为 短线预测，边界条件是十年级慢变量工具",
+      "notes": "诱饵：短线预测，边界条件是十年级慢变量工具"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "杭州的房子长期还值得持有吗？看哪些硬指标？",
+      "expected_behavior": "不应激活本 skill，应激活 city-land-structure",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们行业今年整体下滑了15%，帮我看看为什么",
+      "expected_behavior": "归因分析而非拐点判断；若展开为'是否见顶'则激活",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

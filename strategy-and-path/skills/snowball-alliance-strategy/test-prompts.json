@@ -1,0 +1,52 @@
+{
+  "skill": "snowball-alliance-strategy",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们开发者生态想做大了，今年先跟谁合作、后跟谁？帮我排个路线图",
+      "expected_behavior": "应激活 snowball-alliance-strategy，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司要推一个行业标准和协议，怎么逐个争取关键伙伴？",
+      "expected_behavior": "应激活 snowball-alliance-strategy，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "RCEP的滚雪球策略是什么思路？我们做BD能不能借鉴？",
+      "expected_behavior": "应激活 snowball-alliance-strategy，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "怎么在谈判中压价？",
+      "expected_behavior": "不应激活本 skill，因为 单点谈判技巧，非联盟扩张",
+      "notes": "诱饵：单点谈判技巧，非联盟扩张"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "被断供的环节该全部自研吗？",
+      "expected_behavior": "不应激活本 skill，应激活 self-reliance-boundary",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们要不要参加这个行业的展会？",
+      "expected_behavior": "常规BD动作",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

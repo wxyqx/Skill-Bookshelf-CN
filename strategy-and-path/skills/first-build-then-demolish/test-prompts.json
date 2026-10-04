@@ -1,0 +1,52 @@
+{
+  "skill": "first-build-then-demolish",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司要把自建机房全面迁移上云，帮我设计个稳妥的迁移节奏",
+      "expected_behavior": "应激活 first-build-then-demolish，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们要用新考核制度替换旧的，怕一步到位引发反弹，怎么落地？",
+      "expected_behavior": "应激活 first-build-then-demolish，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "旧产线什么时候能关停？帮我定一个退出旧系统的计划",
+      "expected_behavior": "应激活 first-build-then-demolish，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我做个A/B测试看看新页面好不好",
+      "expected_behavior": "不应激活本 skill，因为 可逆小步实验，无需转型节奏框架",
+      "notes": "诱饵：可逆小步实验，无需转型节奏框架"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "钠电池补贴退坡后这个行业还能活吗？",
+      "expected_behavior": "不应激活本 skill，应激活 relative-cost-judgment",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "新员工入职流程想优化一下，有什么建议？",
+      "expected_behavior": "流程优化是局部改进，非不可逆大转型",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

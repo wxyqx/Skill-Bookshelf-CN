@@ -1,0 +1,52 @@
+{
+  "skill": "data-rights-layering",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "智能汽车采集的行驶数据归谁？我们公司能不能把脱敏后的路况数据拿去卖？",
+      "expected_behavior": "应激活 data-rights-layering，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "用户投诉我们'大数据杀熟'，从数据权属角度帮我分析这个边界在哪",
+      "expected_behavior": "应激活 data-rights-layering，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司要做数据交易业务，数据产品该按什么权属框架设计？",
+      "expected_behavior": "应激活 data-rights-layering，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "数据加密用什么算法最安全？",
+      "expected_behavior": "不应激活本 skill，因为 纯安全技术问题",
+      "notes": "诱饵：纯安全技术问题"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们公司数据造假问题屡禁不止怎么办？",
+      "expected_behavior": "不应激活本 skill，应激活 source-governance-thinking",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "个人隐私保护的最好实践有哪些？",
+      "expected_behavior": "泛泛的最佳实践咨询",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

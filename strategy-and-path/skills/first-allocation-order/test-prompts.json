@@ -1,0 +1,52 @@
+{
+  "skill": "first-allocation-order",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "行业倡议'企业家多捐款缩小贫富差距'，这个方向对吗？",
+      "expected_behavior": "应激活 first-allocation-order，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司想做员工利润分享和持股，这属于哪一层分配改革？该怎么设计？",
+      "expected_behavior": "应激活 first-allocation-order，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "共同富裕到底靠什么？靠慈善捐赠有用吗？",
+      "expected_behavior": "应激活 first-allocation-order，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "个人所得税专项扣除怎么申报？",
+      "expected_behavior": "不应激活本 skill，因为 操作咨询，以现行法规为准",
+      "notes": "诱饵：操作咨询，以现行法规为准"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司报销舞弊屡禁不止，从制度上怎么治？",
+      "expected_behavior": "不应激活本 skill，应激活 source-governance-thinking",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "今年年终奖该怎么发？",
+      "expected_behavior": "具体薪酬操作",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

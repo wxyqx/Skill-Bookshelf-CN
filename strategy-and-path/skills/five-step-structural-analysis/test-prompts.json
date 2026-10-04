@@ -1,0 +1,52 @@
+{
+  "skill": "five-step-structural-analysis",
+  "version": "0.1.0",
+  "source_book": "《战略与路径——黄奇帆的十二堂经济课》 黄奇帆",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "帮我系统分析一下新能源汽车行业未来三年的格局，要写成报告",
+      "expected_behavior": "应激活 five-step-structural-analysis，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "国家刚发布了平台经济新政，帮我解读一下这个政策的深层含义和影响",
+      "expected_behavior": "应激活 five-step-structural-analysis，并按其 E 段步骤执行",
+      "notes": "正面场景：换一种措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们想评估要不要进入预制菜赛道，帮我做个像样的分析",
+      "expected_behavior": "应激活 five-step-structural-analysis，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "中国2022年GDP是多少？",
+      "expected_behavior": "不应激活本 skill，因为 纯事实查询，无分析对象",
+      "notes": "诱饵：纯事实查询，无分析对象"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "咖啡连锁行业疯狂关店，这是周期低谷还是永久性变化？",
+      "expected_behavior": "不应激活本 skill，应激活 boundary-condition-analysis",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的领地"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们公司明年预算该砍哪个部门？",
+      "expected_behavior": "资源分配决策，无行业/政策分析对象；若用户展开为业务分析则可激活",
+      "notes": "边界模糊场景：无论调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书兄弟 skill 混淆场景。"
+}

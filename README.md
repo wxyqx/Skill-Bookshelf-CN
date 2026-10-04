@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**25 本书 · 469 个 skills**（最后更新：2026-10-04）
+**26 本书 · 488 个 skills**（最后更新：2026-10-04）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -40,6 +40,7 @@
 | 《简约至上：交互式设计四策略》*Simple and Usable* | Giles Colborne · 2011 | 交互设计 / 简化 / 用户体验 | 20 | [`simple-and-usable/`](./simple-and-usable/) |
 | 《宏观经济学（第十版）》*Macroeconomics, 10th Ed.* | 曼昆 · 2019 | 宏观经济学 / 政策分析 / 经济数据 | 20 | [`mankiw-macroeconomics-10e/`](./mankiw-macroeconomics-10e/) |
 | 《宏观经济学二十五讲：中国视角》 | 徐高 · 2019 | 中国宏观经济 / 货币政策 / 结构分析 | 24 | [`xugao-macro-25-lectures/`](./xugao-macro-25-lectures/) |
+| 《战略与路径：黄奇帆的十二堂经济课》 | 黄奇帆 · 2022 | 宏观战略 / 结构性分析 / 政策方法论 | 19 | [`strategy-and-path/`](./strategy-and-path/) |
 
 ---
 
@@ -195,6 +196,12 @@
 - **一句话**：用标准宏观经济学的均衡分析工具回答中国的真实宏观问题——消费不足、内外失衡、货币政策传导、房价与债务——并在次优理论的自觉下指出：忽视中国特有约束（收入分配、预算软约束、政策目标函数）的最优化药方会系统性误判中国经济；收尾的"六层思维"把一切中国经济观点还原为认识层次。
 - **Skills**：`six-levels-thinking` · `china-macro-perspective` · `price-quantity-diagnosis` · `gdp-welfare-analysis` · `china-growth-accounting` · `development-strategy-analysis` · `equilibrium-methodology` · `expectations-lucas-critique` · `ramsey-consumption-savings` · `china-underconsumption` · `global-imbalances-saving-glut` · `bop-crisis-dollar-privilege` · `fiscal-keynes-vs-ricardo` · `money-neutrality-analysis` · `phillips-curve-china` · `monetary-transmission-blockage` · `soft-budget-constraint` · `monetary-policy-toolbox` · `china-monetary-practice` · `exchange-rate-open-money` · `china-inflation-housing` · `china-debt-financial-chaos` · `macro-theory-debate` · `second-best-transition`
 
+### 26. 《战略与路径：黄奇帆的十二堂经济课》 · [`strategy-and-path/`](./strategy-and-path/)
+
+- **作者**：黄奇帆（原重庆市市长、中国国际经济交流中心副理事长；2018-2021 复旦大学经济学院授课讲稿）· 2022（上海人民出版社）
+- **一句话**：在 2020-2035 窗口期，用"数据→边界条件→结构机制→量化推演→分级对策"的结构性思维拆解中国十二个重大战略议题——议题会过时，这套分析工具不会。
+- **Skills**：`five-step-structural-analysis` · `boundary-condition-analysis` · `war-game-scenario-analysis` · `first-build-then-demolish` · `origin-sale-vs-local-production` · `chain-power-analysis` · `scale-market-three-effects` · `data-rights-layering` · `snowball-alliance-strategy` · `institutional-gene-analysis` · `long-cycle-constants-filter` · `source-governance-thinking` · `innovation-three-stages` · `first-allocation-order` · `manufacturing-share-diagnosis` · `self-reliance-boundary` · `relative-cost-judgment` · `financial-opening-sequencing` · `city-land-structure`
+
 ---
 
 ## 安装
@@ -202,7 +209,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 469 个 skills（用户级，所有项目可用）
+# 一次性安装全部 488 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -245,7 +252,8 @@ skill-bookshelf/
 ├── asking-the-right-questions/ # 《学会提问（原书第10版）》（22 skills）
 ├── simple-and-usable/        # 《简约至上：交互式设计四策略》（20 skills）
 ├── mankiw-macroeconomics-10e/ # 《宏观经济学（第十版）》（20 skills）
-└── xugao-macro-25-lectures/  # 《宏观经济学二十五讲：中国视角》（24 skills）
+├── xugao-macro-25-lectures/  # 《宏观经济学二十五讲：中国视角》（24 skills）
+└── strategy-and-path/        # 《战略与路径：黄奇帆的十二堂经济课》（19 skills）
 ```
 
 ---
