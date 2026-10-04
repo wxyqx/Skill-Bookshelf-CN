@@ -1,0 +1,52 @@
+{
+  "skill": "market-building-institutions",
+  "version": "0.1.0",
+  "source_book": "《繁荣与衰退》 格林斯潘 & 伍德里奇",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "统一市场、专利法、有限责任公司——美国市场经济的制度底座是怎么搭起来的？",
+      "expected_behavior": "应激活 market-building-institutions，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "新兴市场国家想复制美国式繁荣，制度清单上有哪些必选项？",
+      "expected_behavior": "应激活 market-building-institutions，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "为什么说有限责任是'当代最伟大的发明'？它解决了什么问题？",
+      "expected_behavior": "应激活 market-building-institutions，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "专利申请流程是什么？",
+      "expected_behavior": "不应激活本 skill，因为 操作查询",
+      "notes": "诱饵：操作查询"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "法治的市场经济与权贵资本主义怎么区分？",
+      "expected_behavior": "不应激活本 skill，应激活 rule-of-law-market-economy",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "美国宪法修正案有哪些？",
+      "expected_behavior": "知识查询",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}

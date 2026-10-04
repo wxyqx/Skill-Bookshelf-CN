@@ -1,0 +1,52 @@
+{
+  "skill": "laissez-faire-collapse",
+  "version": "0.1.0",
+  "source_book": "《繁荣与衰退》 格林斯潘 & 伍德里奇",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "进步时代美国政府为什么突然开始大规模管制？",
+      "expected_behavior": "应激活 laissez-faire-collapse，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "长期通缩怎么会引发民粹和工运？传导机制是什么？",
+      "expected_behavior": "应激活 laissez-faire-collapse，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "自由放任资本主义的前提条件是什么？什么时候会失灵？",
+      "expected_behavior": "应激活 laissez-faire-collapse，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "自由主义经济学家有哪些代表人物？",
+      "expected_behavior": "不应激活本 skill，因为 知识查询",
+      "notes": "诱饵：知识查询"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "黄金年代的资本主义为什么在70年代崩溃？",
+      "expected_behavior": "不应激活本 skill，应激活 managerial-capitalism-cycle",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "反垄断案例有哪些经典判决？",
+      "expected_behavior": "案例列举",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}

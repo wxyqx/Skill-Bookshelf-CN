@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**31 本书 · 543 个 skills**（最后更新：2026-10-04）
+**32 本书 · 551 个 skills**（最后更新：2026-10-04）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -46,6 +46,7 @@
 | 《从“老冷战”到“新冷战”》 | 温铁军、李卞 · 2023 | 政治经济学 / 全球化史 / 货币与冷战 | 9 | [`cold-war-to-cold-war/`](./cold-war-to-cold-war/) |
 | 《当音乐停止之后》 | 艾伦·布林德 · 2014 | 金融危机 / 政策评估 / 政治经济学 | 11 | [`after-the-music-stopped/`](./after-the-music-stopped/) |
 | 《中国改革三部曲》 | 吴敬琏 · 2017 | 比较体制 / 改革史 / 增长模式 | 10 | [`china-reform-trilogy/`](./china-reform-trilogy/) |
+| 《繁荣与衰退》 | 格林斯潘 & 伍德里奇 · 2019 | 美国经济史 / 创造性破坏 / 政治经济学 | 8 | [`capitalism-in-america/`](./capitalism-in-america/) |
 
 ---
 
@@ -242,6 +243,13 @@
 - **Skills**：`economic-system-typology` · `decentralization-type-analysis` · `reform-strategy-phases` · `incremental-reform-rent` · `soe-reform-dilemma` · `growth-mode-transformation` · `export-oriented-strategy-risks` · `coordinated-reform-approach` · `rule-of-law-market-economy` · `financial-repression-analysis`
 - **备注**：中国改革叙事的理论/方案设计者视角，与黄奇帆两卷（实操工具）、温铁军两卷（代价视角）构成三角对照。
 
+### 32. 《繁荣与衰退》 · [`capitalism-in-america/`](./capitalism-in-america/)
+
+- **作者**：艾伦·格林斯潘 & 艾德里安·伍德里奇 · 中译本 2019（中信出版集团；英文原版 Capitalism in America 2018）
+- **一句话**：美国 400 年繁荣的秘密是宪法保护下的创造性破坏——统一市场、专利、有限责任、破产宽容让"更前沿的技术替换旧资产"持续发生；今日的停滞不是沼泽而是自制的铁笼：福利挤出储蓄、监管爆炸扼杀企业家精神，找对钥匙仍可重启增长。
+- **Skills**：`creative-destruction-framework` · `market-building-institutions` · `gpt-productivity-lag` · `monopoly-context-evaluation` · `laissez-faire-collapse` · `great-depression-attribution` · `managerial-capitalism-cycle` · `vitality-decline-diagnosis`
+- **备注**：与《当音乐停止之后》（第 30 本）构成联储内部人两种立场的对冲；与黄奇帆、吴敬琏、温铁军各卷合成四视角知识库。
+
 ---
 
 ## 安装
@@ -249,7 +257,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 543 个 skills（用户级，所有项目可用）
+# 一次性安装全部 551 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -298,7 +306,8 @@ skill-bookshelf/
 ├── eight-crises/             # 《八次危机：中国的真实经验》（10 skills）
 ├── cold-war-to-cold-war/     # 《从“老冷战”到“新冷战”》（9 skills）
 ├── after-the-music-stopped/  # 《当音乐停止之后》（11 skills）
-└── china-reform-trilogy/     # 《中国改革三部曲》（10 skills）
+├── china-reform-trilogy/     # 《中国改革三部曲》（10 skills）
+└── capitalism-in-america/    # 《繁荣与衰退》（8 skills）
 ```
 
 ---

@@ -1,0 +1,52 @@
+{
+  "skill": "gpt-productivity-lag",
+  "version": "0.1.0",
+  "source_book": "《繁荣与衰退》 格林斯潘 & 伍德里奇",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "AI 投资这么多，为什么生产率统计还看不到提升？",
+      "expected_behavior": "应激活 gpt-productivity-lag，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "电力从发明到提升工厂生产率用了 40 年，这类技术时滞有什么规律？",
+      "expected_behavior": "应激活 gpt-productivity-lag，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们数字化转型投了三年还没见效，是失败了吗还是正常时滞？",
+      "expected_behavior": "应激活 gpt-productivity-lag，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "AI 会不会取代所有工作？",
+      "expected_behavior": "不应激活本 skill，因为 泛泛预测",
+      "notes": "诱饵：泛泛预测"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "新技术对传统行业的破坏怎么评估？",
+      "expected_behavior": "不应激活本 skill，应激活 creative-destruction-framework",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "摩尔定律是什么？",
+      "expected_behavior": "概念查询",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}
