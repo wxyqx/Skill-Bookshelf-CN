@@ -1,0 +1,52 @@
+{
+  "skill": "strong-commitment-intervention",
+  "version": "0.1.0",
+  "source_book": "《时运变迁》 — 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司股价三个月跌了60%，期间管理层发过三次辟谣公告、做过两次小额回购，但每次出手后跌得更凶。接下来是继续小步回购，还是憋个大招？",
+      "expected_behavior": "应激活 strong-commitment-intervention，指出零散措施比不作为更糟（1978年零散干预反而加速下跌的对照），引导按'宏大、综合、一致'三要素盘点措施、先查内部权限结构（谁否决、谁拍板）、评估市场是否接近拐点以充当致命一击。",
+      "notes": "正面场景：典型的'零散干预失效+纠结分批还是一揽子'。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们和三家同行准备联合发声明稳定供应商信心，有人建议分头各自表态显得自然一些，有人坚持同一天一起宣布。怎么定？",
+      "expected_behavior": "应激活 strong-commitment-intervention，指出分散表态暴露承诺强度不足、同日打包互相印证同一信息才是强承诺，并提醒核对各参与方内部的否决点以免协调沦为最弱版本。",
+      "notes": "正面场景：多主体联合行动的打包与时机设计。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Project destabilized: we keep buying the dip to defend the peg but speculators treat our orders as cheap exit liquidity. Should we scale up or change strategy entirely?",
+      "expected_behavior": "应激活 strong-commitment-intervention（英文 trigger: defend the peg / cheap exit liquidity），给出反向工具判断：当干预只被对手当作低价筹码时，完全、突然地改变战略（如村山达男停止干预的釜底抽薪），而非渐进加码。",
+      "notes": "正面场景：干预被当作对手盘筹码，触发反向工具分支。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "央行反复说通胀是暂时的但市场不信，怎么才能让公众真正相信我们控通胀的决心？",
+      "expected_behavior": "不应激活本 skill，应激活 commitment-device-design——问题是通过改变操作框架/断退路建立制度性可信承诺，不是设计一次市场干预行动。",
+      "notes": "诱饵：涉及央行与市场信心，但属承诺装置设计（1979.10.6 改操作框架），非干预战役。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们定了一个汇率波动区间来稳定市场预期，担心精确公布上下限会被投机者拿来当靶子，要不要公布具体数字？",
+      "expected_behavior": "不应激活本 skill，应激活 soft-commitment-ambiguity——问题是软目标区式的刻意模糊（不公开、不书面确认、越界先协商），与本 skill 的公开强承诺方向相反。",
+      "notes": "同书兄弟 skill 混淆诱饵 (硬性要求)：卢浮宫软目标区场景，应触发 soft-commitment-ambiguity 而非本 skill。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "某国货币遭遇挤兑，政府既有外汇储备干预的能力，也被怀疑存在 deeper solvency 问题（外债远超储备）。该直接讨论干预方案吗？",
+      "expected_behavior": "合理判断：先激活 crisis-diagnosis-first 做流动性 vs 偿付能力定性，诊断结论决定干预是否只是拖延；若诊断为纯流动性挤兑且近拐点，再转入本 skill 设计一揽子干预。两者可串联，但顺序上诊断先行。",
+      "notes": "边界：干预与诊断交织，考验是否守住'诊断先行'的门。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 should_trigger + 2 should_not_trigger + 1 edge_case。should_not_trigger 中 1 条为同书兄弟 skill（soft-commitment-ambiguity）混淆诱饵，全部 should_not_trigger 必须通过。"
+}

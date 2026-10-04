@@ -1,0 +1,52 @@
+{
+  "skill": "confidence-fragility-check",
+  "version": "0.1.0",
+  "source_book": "《时运变迁》 — 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司烧钱速度依赖每 18 个月一轮融资才能活，创始人只盯着产品数据，我觉得最大的风险根本不在产品上，怎么跟他说清楚我们脆在哪？",
+      "expected_behavior": "应激活 confidence-fragility-check：做快慢变量定位——产品/团队是慢变量，投资人信心/新一轮融资是唯一可瞬间逆转的快变量，应把它当约束条件而非乐观假设管理。",
+      "notes": "正面场景：依赖外部资金流入体系的脆弱性定位。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "下周要做一笔很大的扩张决策，内部会上所有人都说没问题、一致看好，但我总觉得这种整齐划一的乐观不太对劲，有什么办法检验？",
+      "expected_behavior": "应激活 confidence-fragility-check：执行共识反面核对——在场者高度一致本身记录为警讯，专门收集与共识相反的证据，并对照外部市场行为信号。",
+      "notes": "正面场景：重大行动前的共识双检（广场与会者集体误判的同构场景）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们所有风险信息都来自渠道商和供应商的定期汇报，全部是好消息，我一次坏消息都收不到，这正常吗？要不要建什么独立渠道？",
+      "expected_behavior": "应激活 confidence-fragility-check：识别警告者困境——依赖利益相关方的乐观反馈做决策是系统性风险来源，给出独立于利益相关方的警讯渠道设计。",
+      "notes": "正面场景：警讯渠道被利益相关方把守。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "投资人在路演后说还想再看看，帮我写一份能让投资人重拾信心的补充材料。",
+      "expected_behavior": "不应激活本 skill，因为这是单次融资沟通材料的撰写请求（制造信心的公关动作），不是对体系脆弱性结构的诊断或决策信息失真的检验。",
+      "notes": "诱饵：含『信心』字样的公关写作场景。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "现在汇率严重高估、市场快要绷不住了，怎么设计一次让市场真正相信的联合干预把汇率打下来？",
+      "expected_behavior": "不应激活本 skill，应激活 strong-commitment-intervention：这是信心已动摇后用宏大、综合、一致的一揽子行动扭转预期的设计问题，不是事前脆弱性体检。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：两 skill 同管信心主题，入口分别是事前体检与事后行动。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "市场开始恐慌性抛售我们的资产了，现在该发声明安抚吗？",
+      "expected_behavior": "边界场景：若用户要的是『此刻怎么回应』，问题已从信心脆弱性管理滑入危机应对，可调用本 skill 判断信号性质（声明本身也是市场信号），但完整方案需结合强承诺干预的条件（宏大综合一致、与基本面一致）给出，应向用户说明两阶段分界。",
+      "notes": "边界：恐慌已开始但尚未成危机，处于事前/事后分界线上，可调用但需声明边界并联动兄弟 skill。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（strong-commitment-intervention）的跨 skill 混淆测试。"
+}

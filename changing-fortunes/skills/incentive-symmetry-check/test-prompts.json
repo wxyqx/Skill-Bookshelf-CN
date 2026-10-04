@@ -1,0 +1,45 @@
+{
+  "skill": "incentive-symmetry-check",
+  "version": "1.0",
+  "source_book": "《时运变迁》 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "minimum_pass_rate": 0.8,
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我们在设计一项存款保险制度，内部吵成一团：一派要全额担保防止挤兑，一派说一分钱都不该保、让储户自己盯银行。到底该怎么取舍？",
+      "expectation": "应激活激励对称三检：对称（只保储户不约束银行股东管理层则冒险激励保留）、道德风险守恒（一方清零即转嫁另一方，找限额+共同承担的平衡点）、风险归属透明化。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "我们五家供应商签行业自律公约，违约金只约束中小厂商，头部那两家以'行业责任特殊'为由豁免。这种公约还有必要签吗？",
+      "expectation": "应激活对称检验：只约束弱方的条款必成一纸空文（稀缺货币条款式教训），给出对称化修改或'宁可不签'的判断。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "If we guarantee lenders fully against borrower defaults, won't that eliminate moral hazard? How should a guarantee scheme be designed?",
+      "expectation": "英文信号 moral hazard / guarantee scheme 命中；应指出完全消除债务人侧道德风险只会转嫁给债权人，目标是平衡而非消灭。"
+    },
+    {
+      "id": "d01",
+      "type": "should_not_trigger",
+      "prompt": "美元作为全球储备货币既要输出流动性又要维持信心，这个死结最后会怎么收场？",
+      "expectation": "诱饵：同为制度话题且涉及约束不对称，但核心是储备货币结构性两难，应触发兄弟 skill triffin-dilemma-diagnosis 的三问诊断，而非规则设计三检。"
+    },
+    {
+      "id": "d02",
+      "type": "should_not_trigger",
+      "prompt": "对方公司欠款拖着不还，我们威胁停付对他们的应付款来施压压价，可行吗？",
+      "expectation": "诱饵：'欠款/施压'看似债权债务，但核心是威胁式谈判的自我失败，应触发兄弟 skill unilateral-default-trap。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "我们平台的商家违约保证金制度运行三年了，从没触发过大额赔付，是不是说明设计得很好？",
+      "expectation": "边界情形：用户误把'从未触发'当成功。应触发并引用书中警告（法定限额长期未触发反而应引起怀疑；规则精细到无人执行形同虚设），反向检验规则是否被架空。"
+    }
+  ]
+}

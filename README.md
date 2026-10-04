@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**32 本书 · 551 个 skills**（最后更新：2026-10-04）
+**33 本书 · 565 个 skills**（最后更新：2026-10-05）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -47,6 +47,7 @@
 | 《当音乐停止之后》 | 艾伦·布林德 · 2014 | 金融危机 / 政策评估 / 政治经济学 | 11 | [`after-the-music-stopped/`](./after-the-music-stopped/) |
 | 《中国改革三部曲》 | 吴敬琏 · 2017 | 比较体制 / 改革史 / 增长模式 | 10 | [`china-reform-trilogy/`](./china-reform-trilogy/) |
 | 《繁荣与衰退》 | 格林斯潘 & 伍德里奇 · 2019 | 美国经济史 / 创造性破坏 / 政治经济学 | 8 | [`capitalism-in-america/`](./capitalism-in-america/) |
+| 《时运变迁》*Changing Fortunes* | 保罗·沃尔克 & 行天丰雄 · 1992 | 国际货币体系 / 危机管理 / 承诺与协调 | 14 | [`changing-fortunes/`](./changing-fortunes/) |
 
 ---
 
@@ -250,6 +251,13 @@
 - **Skills**：`creative-destruction-framework` · `market-building-institutions` · `gpt-productivity-lag` · `monopoly-context-evaluation` · `laissez-faire-collapse` · `great-depression-attribution` · `managerial-capitalism-cycle` · `vitality-decline-diagnosis`
 - **备注**：与《当音乐停止之后》（第 30 本）构成联储内部人两种立场的对冲；与黄奇帆、吴敬琏、温铁军各卷合成四视角知识库。
 
+### 33. 《时运变迁》 · [`changing-fortunes/`](./changing-fortunes/)
+
+- **作者**：保罗·沃尔克 & 行天丰雄（Paul Volcker & Toyoo Gyohten）· 1992（Changing Fortunes: The World's Money and the Threat to American Leadership；美联储前主席 × 日本大藏省前财务官的双当事人回忆录）
+- **一句话**：战后国际货币体系的兴衰反复证明，稳定的货币秩序只能来自"纪律 + 承诺 + 大国协调"，三者缺一都不可持续——特里芬难题、广场协议、拉美债务危机是同一条主线的三种面孔。
+- **Skills**：`crisis-diagnosis-first` · `crisis-management-sequence` · `unilateral-default-trap` · `confidence-fragility-check` · `commitment-device-design` · `strong-commitment-intervention` · `soft-commitment-ambiguity` · `paradigm-failure-discipline` · `eliminate-exit-leverage` · `negotiation-structure-design` · `multilateral-coordination-assessment` · `triffin-dilemma-diagnosis` · `incentive-symmetry-check` · `devaluation-accounting`
+- **备注**：亲历者视角的货币外交方法论（1971 关黄金窗口、1979.10.6 换锚、广场/卢浮宫、拉美债务危机），与《当音乐停止之后》《从"老冷战"到"新冷战"》互补成"危机三视角"。
+
 ---
 
 ## 安装
@@ -257,7 +265,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 551 个 skills（用户级，所有项目可用）
+# 一次性安装全部 565 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -307,7 +315,8 @@ skill-bookshelf/
 ├── cold-war-to-cold-war/     # 《从“老冷战”到“新冷战”》（9 skills）
 ├── after-the-music-stopped/  # 《当音乐停止之后》（11 skills）
 ├── china-reform-trilogy/     # 《中国改革三部曲》（10 skills）
-└── capitalism-in-america/    # 《繁荣与衰退》（8 skills）
+├── capitalism-in-america/    # 《繁荣与衰退》（8 skills）
+└── changing-fortunes/        # 《时运变迁》（14 skills）
 ```
 
 ---

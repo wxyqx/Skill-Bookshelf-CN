@@ -1,0 +1,52 @@
+{
+  "skill": "crisis-diagnosis-first",
+  "version": "0.1.0",
+  "source_book": "《时运变迁》 — 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "一家连锁餐饮现金流断了来找我做过桥，账上还有三个月的工资要发。我该不该借？先看什么？",
+      "expected_behavior": "应激活 crisis-diagnosis-first：先做流动性 vs 偿付能力定性（单体门店经济模型是否成立），再算净转移（最低可接受运转下的最大净流出与转负时点），桥贷只做有明确偿还来源的过渡安排、绝不用新钱直接替旧股东退出。",
+      "notes": "正面场景：桥贷决策前的诊断门。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们集团这家子公司已经连续三轮'借新还旧'了，每一轮方案说能撑两年结果一年不到就又要续。问题到底出在哪？",
+      "expected_behavior": "应激活 crisis-diagnosis-first：每轮存续期短于预测=偿付能力被误诊为流动性的警讯（拉美'失败的十年'模式），要求停下融资安排、先诊断净转移可持续性与结构改革缺口。",
+      "notes": "正面场景：连续续贷的误诊警讯识别。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Our portfolio company keeps missing covenants. Is this a liquidity crunch we should bridge, or is it insolvent? How do we tell before wiring more money?",
+      "expected_behavior": "应激活 crisis-diagnosis-first（英文 trigger: liquidity crunch / bridge / insolvent）：给出诊断步骤——单位经济检验、偿付能力因素比重、净转移路径、资金纪律（新钱只做有偿还来源的桥梁）。",
+      "notes": "正面场景：英文提问的放款前诊断。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "集团决定救助这家子公司了，先保支付体系，再逐案重整，最后谈减债——这个顺序对吗？",
+      "expected_behavior": "不应激活本 skill，应激活 crisis-management-sequence——用户问的是诊断完成后的处置顺序，不是问题定性本身。",
+      "notes": "诱饵：危机词汇密集但问题已在序列阶段。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司现金流紧张，董事会有人提议宣布暂停偿还供应商和银行本息，用这个姿态逼他们同意打折和解。这个策略可行吗？",
+      "expected_behavior": "不应激活本 skill，应激活 unilateral-default-trap——问题是对抗性限付/威胁违约策略的自我失败（前门省的钱从后门流出），不是流动性/偿付能力诊断。",
+      "notes": "同书兄弟 skill 混淆诱饵 (硬性要求)：秘鲁/巴西式威胁违约场景，应触发 unilateral-default-trap 而非本 skill。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "银行被挤兑了，但监管数据显示它资本充足、资产质量没问题。需要先做流动性/偿付能力诊断吗？",
+      "expected_behavior": "合理判断：可调用本 skill，但结论应为'资本充足+挤兑=教科书式流动性危机'——诊断要快且结论倾向提供桥梁资金；同时提示作者盲点：'从不存在纯流动性问题'的经验偏向可能在这里导致误判拖延，挤兑场景下诊断应服务于速度而非全面尽调。",
+      "notes": "边界：纯流动性挤兑恰是作者经验规则的反例区。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 should_trigger + 2 should_not_trigger + 1 edge_case。should_not_trigger 中 1 条为同书兄弟 skill（unilateral-default-trap）混淆诱饵，全部 should_not_trigger 必须通过。"
+}

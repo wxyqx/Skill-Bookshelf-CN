@@ -1,0 +1,52 @@
+{
+  "skill": "paradigm-failure-discipline",
+  "version": "0.1.0",
+  "source_book": "《时运变迁》 — 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们为了挽回用户流失已经连续三次加大投放预算，获客成本翻了一倍但流失率一点没降，现在老板问是继续加钱还是干脆停掉，你说呢？",
+      "expected_behavior": "应激活 paradigm-failure-discipline：识别负反馈失效信号（投入增速快于产出、同一招全员在用），给出加码/放弃之外的第三选项——换操作范式（改变产品或分发结构而非继续调参数），而非直接回答加或停。",
+      "notes": "正面场景：旧框架内持续加码无效的典型表述。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司在做成本紧缩转型，每次月度数据一难看就有高管提议放松一点，CEO 已经动摇了两次。怎么判断到底该坚持还是真的该停？",
+      "expected_behavior": "应激活 paradigm-failure-discipline：使用预登记最大错误（更大错误是坚持不住）作为对照基准，并把退出条件锚定为硬条件（结构性指标已受控+体系告急）而非短期数据或内部压力本身。",
+      "notes": "正面场景：紧缩期被逐月数据动摇。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们压库存的办法试了七八种都不见效，我怀疑不是力度问题，是这套管理方式本身不适用了。怎么区分是火候没到还是方法失灵？",
+      "expected_behavior": "应激活 paradigm-failure-discipline：按负反馈失效判据（工具剂量涨得比问题快、同行同招、指标怎么压都压不住）做范式失效 vs 火候不足的定性判断。",
+      "notes": "正面场景：用户主动怀疑范式本身。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我对比一下 OKR、KPI 和 BSC 三种管理框架，选一个最适合我们初创团队的。",
+      "expected_behavior": "不应激活本 skill，因为这是尚未实施的工具/框架选型对比，不涉及旧方法实施后持续加码无效的证据，不构成范式失效判断。",
+      "notes": "诱饵：含『框架』字样的选型场景，与换范式无关。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们下周要宣布一个很有争议的成本目标，我怕管理层中途反悔，想设计一个让大家没法回头的机制，怎么弄？",
+      "expected_behavior": "不应激活本 skill，应激活 commitment-device-design：这是承诺可信度设计问题（断退路、信号打包），不是范式失效诊断或坚持纪律问题。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：1979.10.6 案例同时被承诺装置 skill 引用，须防抢调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "央行利率都涨到历史高位了通胀还是压不下来，这轮紧缩到底该继续加还是松手？",
+      "expected_behavior": "可调用本 skill 的方法论做判断（负反馈失效识别、预登记最大错误、退出硬条件），但应明确这是方法论演示而非给出具体利率建议；若用户要的是具体货币政策观点，应声明边界。",
+      "notes": "边界：原书情境本身（货币政策）既可能是方法论咨询也可能是观点咨询，触发与否取决于用户要的是纪律框架还是利率预测。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（commitment-device-design）的跨 skill 混淆测试。"
+}

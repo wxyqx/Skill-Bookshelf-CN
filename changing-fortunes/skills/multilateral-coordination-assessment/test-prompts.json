@@ -1,0 +1,52 @@
+{
+  "skill": "multilateral-coordination-assessment",
+  "version": "0.1.0",
+  "source_book": "《时运变迁》 — 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "六家车厂要组建电池标准联盟，参与方阵容很豪华，但我担心最后只发新闻稿不出实质成果。怎么判断这个联盟能不能成事？",
+      "expected_behavior": "应激活 multilateral-coordination-assessment：用四条件检查表（相互依赖/成果共同理解/过程制度化/正和承认）逐条打分，预测若仅相互依赖达标则停留于信息交换层，并给出小圈子+分层递进的改进设计。",
+      "notes": "正面场景：评估既有拟议机制的成熟度。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们在起草一份跨国数据治理的 MOU，对方坚持把各自的处理量指标精确写进联合声明，说是显得有诚意。这合理吗？",
+      "expected_behavior": "应激活 multilateral-coordination-assessment：援引波恩6.7%增长目标教训——精确数量目标写进公报=预订违约，目标应停留方向性层面，并要求内嵌定期复盘与快速调整机制抵消时滞。",
+      "notes": "正面场景：协调目标设定的纪律。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "The 30-member AI safety forum has produced nothing but communiqués for two years. Should we keep investing in it, or design a smaller track?",
+      "expected_behavior": "应激活 multilateral-coordination-assessment（英文 trigger: forum / communiqués / smaller track）：按'小规模、保密、非正式高层渠道产出大于大论坛'原则设计小圈子轨道，先信息交流→减少意外→危机互助分层递进，不越级承诺。",
+      "notes": "正面场景：论坛失效后的组织重设计。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "和物业方的续约谈判拖了半年，对方一直说没获得授权不能拍板，怎么推进这场谈判？",
+      "expected_behavior": "不应激活本 skill，应激活 negotiation-structure-design——这是单一谈判中用程序杠杆把回避变成显性决策的问题，不是多边协调机制的成熟度评估。",
+      "notes": "诱饵：'谈判'与'授权拖延'词汇相近，但属谈判结构设计。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "五国央行下周开会商量联合压低本国货币，公报和干预规模怎么设计才能让市场真正动起来？",
+      "expected_behavior": "不应激活本 skill，应激活 strong-commitment-intervention——问题是一次联合干预行动的打包、信号与时机设计，不是评估协调机制能否持续产出。",
+      "notes": "同书兄弟 skill 混淆诱饵 (硬性要求)：广场协议式联合干预设计，应触发 strong-commitment-intervention 而非本 skill。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们和最大竞争对手谈行业联合纾困基金，既要设计基金机制，又要在谈判桌上争主导权。先做哪个？",
+      "expected_behavior": "合理判断：两个 skill 串联——先用 multilateral-coordination-assessment 判断纾困机制的正和基础与分层设计，再用 negotiation-structure-design 处理主导权之争（关键方先行、分而治之）；机制评估先行为谈判提供底线与框架，边界在于不把谈判战术混入机制评估。",
+      "notes": "边界：机制设计与谈判战术交织的真实项目。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 should_trigger + 2 should_not_trigger + 1 edge_case。should_not_trigger 中 1 条为同书兄弟 skill（strong-commitment-intervention）混淆诱饵，全部 should_not_trigger 必须通过。"
+}

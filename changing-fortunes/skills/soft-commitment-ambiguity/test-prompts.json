@@ -1,0 +1,52 @@
+{
+  "skill": "soft-commitment-ambiguity",
+  "version": "0.1.0",
+  "source_book": "《时运变迁》 — 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们给团队划了一条处理客诉的赔付红线，法务说精确写进公开规则后，职业索赔人会逐单试探边界。这条线到底该怎么设？",
+      "expected_behavior": "应激活 soft-commitment-ambiguity：公开层保持模糊、内部层设精确分级锚，越界先启动协商而非机械触发全额赔付，实际响应幅度小于宣称底线宽度使试探无利可图。",
+      "notes": "正面场景：公开精确红线=给对手单向测试的靶子。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "明天要和对方联合发公告稳定军心，但业务上并没有新的实质进展。PR 稿里要不要写具体数字？另外这周还要不要再发一次声明？",
+      "expected_behavior": "应激活 soft-commitment-ambiguity：精确数字只放内部锚不进公开文本、措辞保留余地；没有实质内容不发公报——仪式化重复承诺会透支可信度。",
+      "notes": "正面场景：公报措辞工程与期望值管理。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We want to signal a floor price for our product but are afraid competitors will test it once and call our bluff. Should we announce an exact number or keep it vague?",
+      "expected_behavior": "应激活 soft-commitment-ambiguity（英文 trigger: floor price / call our bluff / keep it vague）：不公开精确数字、越界先协商而非机械保卫、小幅渐进调幅防单向打赌，并提示模糊的代价——失去真约束力。",
+      "notes": "正面场景：英文提问的价格底线模糊设计。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们要让投资人彻底相信这次转型不会半途而废，之前每次喊话都没人信了，怎么设计才能让大家真的信？",
+      "expected_behavior": "不应激活本 skill，应激活 commitment-device-design——目标是可信的硬承诺（改治理结构、断退路、同日互证措施），刻意模糊恰恰是信誉的敌人。",
+      "notes": "诱饵：涉及'承诺可信度'，但方向相反，属承诺装置设计。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "市场恐慌蔓延，我们和另外四家决定联手托底：要不要凑一个大额联合基金、贴现支持、声明一起同日放出，把预期直接打回去？",
+      "expected_behavior": "不应激活本 skill，应激活 strong-commitment-intervention——这是高调、宏大、综合、一致的强承诺出击，与刻意模糊方向相反。",
+      "notes": "同书兄弟 skill 混淆诱饵 (硬性要求)：1978年一揽子救市场景，应触发 strong-commitment-intervention 而非本 skill。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "董事会想对外公布年度业绩指引区间来稳住股价，CFO 说精确数字会被空头当靶子，CEO 说模糊区间会让市场更恐慌。怎么办？",
+      "expected_behavior": "合理判断：可调用本 skill，但需先做敏感型判定——上市公司披露受监管约束，模糊空间有限；结论可能是'合规框架内宽区间+同日互证措施（回购计划等）补强'，即模糊与强承诺的组合，应说明取舍依据而非机械套用。",
+      "notes": "边界：模糊策略与披露义务、强承诺信号冲突的真实取舍。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 should_trigger + 2 should_not_trigger + 1 edge_case。should_not_trigger 中 1 条为同书兄弟 skill（strong-commitment-intervention）混淆诱饵，全部 should_not_trigger 必须通过。"
+}

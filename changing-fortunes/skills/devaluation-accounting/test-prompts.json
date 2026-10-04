@@ -1,0 +1,52 @@
+{
+  "skill": "devaluation-accounting",
+  "version": "0.1.0",
+  "source_book": "《时运变迁》 — 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们全线降价30%之后两个季度，营收确实回升了一点，老板想马上对外宣布降价战略成功，你觉得现在能下这个结论吗？",
+      "expected_behavior": "应激活 devaluation-accounting：先过三重核算再下结论——时滞关（价格先于数量反应）、稳定期关（频繁调价会使需求反应不断重置）、权重关（部分品类被竞品跟随降价稀释，名义30%不等于有效30%）。",
+      "notes": "正面场景：据调价后短期数据宣布成功。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "货币贬值都大半年了，出口顺差不但没改善反而还在扩大，是不是贬值没起作用、该考虑再贬一轮？",
+      "expected_behavior": "应激活 devaluation-accounting：用J曲线时滞解释初期恶化、检查汇率是否有足够稳定期、按贸易伙伴加权重算有效贬值幅度，再判断是传导未完成还是基本面问题；三关不过时明确『再贬』不解决问题。",
+      "notes": "正面场景：原书广场后逆差依旧的同构场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们名义上把主力产品降价了两成，但主要竞争对手跟着降了，剩下几个高端线也没动，我怎么算这次调价实际让出来的价格空间？",
+      "expected_behavior": "应激活 devaluation-accounting：执行权重修正——按品类/渠道加权计算实际有效降幅，区分名义变动与有效变动。",
+      "notes": "正面场景：名义与有效变动的差额核算。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "双十一快到了，帮我核算一下去年那场满减促销的投入产出比，看看 ROI 值不值。",
+      "expected_behavior": "不应激活本 skill，因为一次性促销的短期 ROI 核算看即时转化与投入产出，不涉及价格结构调整的J曲线时滞、稳定期与加权有效变动问题。",
+      "notes": "诱饵：含『降价/核算』字样的短期营销核算场景。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "汇率高估快把出口拖垮了，怎样设计一次让市场相信的联合干预，把汇率实实在在打下来？",
+      "expected_behavior": "不应激活本 skill，应激活 strong-commitment-intervention：这是尚未实施的干预行动设计（宏大、综合、一致+时机），不是已实施调价的效果核算。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：两 skill 同管汇率价格调整，分界在事前行动设计与事后效果核算。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "降价后两个月数据还没起色，按J曲线说可能是正常时滞，但董事会等不了，要不要先小幅再降一次稳住情绪？",
+      "expected_behavior": "边界场景：可调用本 skill 的稳定期修正回答——此时再调价会使需求反应重置、J曲线加深，『为稳情绪而调』恰恰消灭了观察改善所需的稳定期；但最终决策涉及组织政治，应同时给出拒绝再调的代价说明，触发与否取决于用户是否接受『等稳定期』的纪律。",
+      "notes": "边界：时滞纪律与董事会压力冲突，本 skill 提供判断依据但不替代治理决策。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（strong-commitment-intervention）的跨 skill 混淆测试。"
+}

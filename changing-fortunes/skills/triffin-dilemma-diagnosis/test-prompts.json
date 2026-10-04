@@ -1,0 +1,45 @@
+{
+  "skill": "triffin-dilemma-diagnosis",
+  "version": "1.0",
+  "source_book": "《时运变迁》 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "minimum_pass_rate": 0.8,
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我们发的行业稳定币已经有三十多家公司拿它当结算和储备资产了。有人提醒我说这迟早出问题，我觉得只要抵押率管住就行。你怎么看这个结构的长期风险？",
+      "expectation": "应激活特里芬两难诊断：三问（流动性靠什么输出/信心靠什么支撑/是否兼容），指出参数修补不能根除、结构内置崩溃时间表，而非停留在抵押率讨论。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "一家平台公司在给整个电商生态提供免费的订单路由和结算基础设施，越是扩大服务市场份额越高，但大家越依赖它就越怀疑它会不会哪天掐脖子或者倒掉。这种'私器公用'的结构能持续吗？",
+      "expectation": "应激活：识别私器充当公共品，用三问模板分析输出义务与信用支撑的冲突，给出替代供给或担保转嫁的出路评估。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "Someone asked whether the dollar can keep serving as the global reserve currency indefinitely — isn't this the classic Triffin dilemma, where providing liquidity undermines confidence in the issuer?",
+      "expectation": "英文触发信号 Triffin dilemma / reserve currency 命中；应给出三问诊断结构与'只能延缓不能根除'的判断。"
+    },
+    {
+      "id": "d01",
+      "type": "should_not_trigger",
+      "prompt": "我们央行要重新锚定通胀预期，打算改变操作框架，从盯利率改成控货币量，让自己没有退路。这样设计承诺装置要注意什么？",
+      "expectation": "诱饵：同样是货币体系话题，但核心是'改变操作程序使承诺不可逆'，应触发兄弟 skill commitment-device-design，而非特里芬结构诊断。"
+    },
+    {
+      "id": "d02",
+      "type": "should_not_trigger",
+      "prompt": "一家连锁餐饮现金流断裂找我们做过桥贷款，我该先判断它是流动性问题还是偿付能力问题吗？",
+      "expectation": "诱饵：'诊断'字样但属单主体危机定性，应触发兄弟 skill crisis-diagnosis-first，不是特里芬三问。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "有人说央行数字货币可以彻底解决特里芬难题，你觉得这个替代供给方案靠谱吗？",
+      "expectation": "边界情形：直接点名特里芬但落点在替代供给方案评估。应触发本 skill 并走第 4 步（替代供给能否根除），结论应指向'替代资产的信用最终仍回到大国承诺'而非直接否定制止讨论。"
+    }
+  ]
+}

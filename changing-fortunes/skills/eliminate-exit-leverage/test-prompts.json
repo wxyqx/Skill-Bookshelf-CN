@@ -1,0 +1,45 @@
+{
+  "skill": "eliminate-exit-leverage",
+  "version": "1.0",
+  "source_book": "《时运变迁》 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "minimum_pass_rate": 0.8,
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "物业方拖着不肯签新租约修约，反正维持现状对他们零成本，我们谈了三轮都没用。有什么办法让他们不得不认真坐下来？",
+      "expectation": "应激活消灭退路框架：识别免费退路（维持现状零成本）→设计关闭动作（自动失效日、撤走己方免费便利）→先备好己方完整方案再触发→给台阶。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "银行团要给债务重组追加贷款，小银行都想搭大银行的便车自己一分钱不掏。这种集体行动僵局怎么破？",
+      "expectation": "应激活：关键主体机制式设计——以己方资源（批准/出资）为杠杆，要求先承诺才准入，关闭搭便车退路。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "The other side keeps stalling because they can always walk away and keep the status quo. Should we remove the option we have been granting them for free to force them to the table?",
+      "expectation": "英文信号 walk away / force them to the table 命中；应给出穷举退路→关闭关键一项→捆绑己方方案的执行序列。"
+    },
+    {
+      "id": "d01",
+      "type": "should_not_trigger",
+      "prompt": "多边标准联盟里最抵触的那家大厂在拖，我们打算先争取第二、第三大厂商组成同盟，再回头压它，这个顺序对吗？",
+      "expectation": "诱饵：同为谈判困境但核心是同盟串联顺序设计，应触发兄弟 skill negotiation-structure-design，而非关闭退路动作。"
+    },
+    {
+      "id": "d02",
+      "type": "should_not_trigger",
+      "prompt": "我们资金链紧，打算威胁集体拖欠供应商货款来压价，同时顺便要求延长账期，能成吗？",
+      "expectation": "诱饵：同为'施压'但主体依赖持续合作流入，属对抗性违约自我失败场景，应触发兄弟 skill unilateral-default-trap（或拒绝并警告反噬），而非本 skill 的关闭己方特权设计。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "我们想学 1971 年那一招：直接单方面停止给合作方的一项特权，先关了门再谈。但我们自己的新方案还没定稿，先动手行不行？",
+      "expectation": "边界情形：用户方向正确但违反操作纪律。应触发并执行判停：按'关闭退路须与己方方案、配套措施捆绑成型后再触发'的纪律，明确建议先完成步骤3再行动。"
+    }
+  ]
+}

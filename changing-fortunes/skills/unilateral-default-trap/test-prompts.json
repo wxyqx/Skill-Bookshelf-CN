@@ -1,0 +1,52 @@
+{
+  "skill": "unilateral-default-trap",
+  "version": "0.1.0",
+  "source_book": "《时运变迁》 — 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司现金流很紧张，采购总监建议我们威胁集体拖欠供应商货款两三个月，逼他们接受降价，不然就拖着不付，这招行得通吗？",
+      "expected_behavior": "应激活 unilateral-default-trap：先画依赖结构（公司仍依赖供应商持续供货），再推演第二阶反应（其余供应商收紧账期、要求预付、启动替代客户），得出前门省下的钱从后门流出，并替换为尊重对方权利的重谈方案。",
+      "notes": "正面场景：企业版威胁性拖欠的可行性评估。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "讨论债务问题的时候有人说，国家干脆单方面宣布利息只按出口收入的一定比例付，付不起的部分先赖着，这样谈判筹码才大，你怎么看？",
+      "expected_behavior": "应激活 unilateral-default-trap：引用秘鲁加西亚限付与巴西暂停付息两个独立反例——对外违约信号对内即是征收信号，资本外逃加速、前门省后门流，自愿重组优于单方面限付。",
+      "notes": "正面场景：主权债务限付策略评估（原书情境）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们平台想用威胁下架和拖付结算款来逼头部商户接受新的分成比例，法务说没法律风险，但我觉得会不会有别的反噬？",
+      "expected_behavior": "应激活 unilateral-default-trap：按依赖持续流入主体推演——商户迁移、其余商户重估合作风险、生态信任受损，拖款信号不可逆；建议改为以维护商户权利为前提的自愿协商设计。",
+      "notes": "正面场景：平台版威胁式施压的反噬评估。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "如果一家企业真的债务违约了，征信记录会留多少年？后续贷款和招投标具体会受哪些限制？",
+      "expected_behavior": "不应激活本 skill，因为这是违约之后的法律后果与征信影响咨询，不是对『是否采用威胁性违约策略』的可行性评估，不涉及依赖结构推演。",
+      "notes": "诱饵：含『违约』字样的纯信息查询场景。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "一个国家债务危机全面爆发了，止血、争取时间、结构改革、减债这几步的先后顺序该怎么排？每一步用什么工具？",
+      "expected_behavior": "不应激活本 skill，应激活 crisis-management-sequence：用户问的是危机处置的工具与顺序，不是重谈条款时自愿重组与单方面限付的策略选择。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：两 skill 同处第7章债务危机主题，分界在处置序列与策略边界。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "供应商先单方面毁约在先、坐地起价，我们现在也拖着不付他们的款，算对等报复，还会有你说的问题吗？",
+      "expected_behavior": "边界场景：本 skill 仍可调用但需先查依赖结构——若己方对该供应商及整个供应链仍有持续合作依赖，对等拖欠同样会向所有合作方释放违约信号，前门后门机制不变；若己方已决定退出该关系、无持续依赖，威胁策略的代价结构不同，本 skill 不适用。回答应先做依赖检查再下结论。",
+      "notes": "边界：『对等报复』框定为道德/法律框架，策略可行性仍取决于依赖结构，属原则的适用边界测试。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（crisis-management-sequence）的跨 skill 混淆测试。"
+}

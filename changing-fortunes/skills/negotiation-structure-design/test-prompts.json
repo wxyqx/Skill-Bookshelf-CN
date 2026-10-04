@@ -1,0 +1,45 @@
+{
+  "skill": "negotiation-structure-design",
+  "version": "1.0",
+  "source_book": "《时运变迁》 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "minimum_pass_rate": 0.8,
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "五家企业要组建行业标准联盟，最大的一家最抵触一直在拖，另外三家态度不一。我们该按什么顺序去谈、怎么推进？",
+      "expectation": "应激活谈判结构设计：先锁定最关键可争取者组成初始同盟→用已成局的联盟压最强硬者（先关键后强硬的顺序设计）。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "多边成本分摊谈判卡住了：各方在'按营收还是按用量算份额'上完全谈不拢，数字根本没法讨论。这种僵局怎么破？",
+      "expectation": "应激活议题重构工具：重新定义度量单位/加权口径（贸易加权有效汇率式重构），给各方台阶；同时按先例标准审查新口径。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "In our multi-party negotiations the opposing delegation keeps saying they 'have no mandate from capital' to agree on anything. How do we structure the agenda so stalling becomes a visible decision?",
+      "expectation": "英文信号 no mandate / structure the agenda 命中；应激活程序杠杆：议程设置与时限压力把回避变成显性决策。"
+    },
+    {
+      "id": "d01",
+      "type": "should_not_trigger",
+      "prompt": "对方拖着不签修约是因为不签对他们毫无成本，我们打算撤掉一直在免费替他们做的系统维护，逼他们回到谈判桌。",
+      "expectation": "诱饵：同为多方博弈的拖延困境，但核心是关闭对手退路的破局动作，应触发兄弟 skill eliminate-exit-leverage。"
+    },
+    {
+      "id": "d02",
+      "type": "should_not_trigger",
+      "prompt": "我们七家机构的协调机制快名存实亡了，帮我评估一下它到底有没有实质成效、缺了什么条件。",
+      "expectation": "诱饵：同为多边合作话题，但诉求是机制成熟度评估，应触发兄弟 skill multilateral-coordination-assessment（四条件检查表）。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "协议马上要签了，对方突然要求把'份额比例上调机制'写成精确公式并写进正文，说这样才显得有诚意。我们该接受吗？",
+      "expectation": "边界情形：签署时刻的先例意识考验。应触发并引用'精确数量目标=预订违约/每一协议都会成为先例'的警告，建议个案化或方向性表述+内嵌调整机制，而非拒绝谈判本身。"
+    }
+  ]
+}

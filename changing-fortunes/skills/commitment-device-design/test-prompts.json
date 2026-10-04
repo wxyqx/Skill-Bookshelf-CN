@@ -1,0 +1,45 @@
+{
+  "skill": "commitment-device-design",
+  "version": "1.0",
+  "source_book": "《时运变迁》 保罗·沃尔克 & 行天丰雄",
+  "darwin_compatible": true,
+  "minimum_pass_rate": 0.8,
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我们平台三年里改了四次开发者分成政策，现在发什么公告开发者都不信了。除了道歉和补偿，怎么才能真正重建信任？",
+      "expectation": "应激活承诺装置设计：不靠公告靠制度性不可逆（费率写入带自动补偿的长期合同、变更须经独立委员会+公示期）、信号一致打包、选粗糙可懂的锚并尽早兑现。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "创始人上周宣布今年死磕企业客户、绝不回头，但投资人发现他内部会议里还在犹豫要不要接大额消费订单。现在外部已经没人信他的表态了，怎么办？",
+      "expectation": "应激活：指出犹豫姿态/分裂信号本身就是反向信号（4:3 分裂投票教训），需同日打包互证措施+断自己退路的机制安排，而非更坚决的措辞。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "Our central bank keeps saying it is serious about inflation but markets don't believe it. Should we adopt a monetary target as a credible commitment device even if the number is somewhat arbitrary?",
+      "expectation": "英文信号 credible commitment device 命中；应给出'锚的价值来自无限承接的承诺而非参数精确'+改变操作框架断退路的方案。"
+    },
+    {
+      "id": "d01",
+      "type": "should_not_trigger",
+      "prompt": "我们准备和竞争对手谈合并分成比例，但对方随时可以转投另一家联盟，怎么设计行动让他们不得不认真谈？",
+      "expectation": "诱饵：'承诺/设计'字样但核心是关对手退路创造谈判杠杆，应触发兄弟 skill eliminate-exit-leverage。"
+    },
+    {
+      "id": "d02",
+      "type": "should_not_trigger",
+      "prompt": "我们要公布一条产品质量红线，但怕被同行拿去故意试探边界，精确公布好还是模糊处理好？",
+      "expectation": "诱饵：承诺设计话题，但诉求是躲开攻击靶子的刻意模糊，应触发兄弟 skill soft-commitment-ambiguity。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "我们已经按新框架执行了半年，最近业绩压力大，董事会有人提议先松一松、等好转再收紧，这只是临时调整不算违背承诺吧？",
+      "expectation": "边界情形：承诺已建立后的退出诱惑。应触发并引用'退出须等硬条件（名义目标受控+金融稳定告急）而非增长或政治压力'的纪律，把'临时调整'识别为史密森式口头松动的开始。"
+    }
+  ]
+}
