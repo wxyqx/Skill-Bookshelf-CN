@@ -1,0 +1,52 @@
+{
+  "skill": "foreign-capital-crisis-cycle",
+  "version": "0.1.0",
+  "source_book": "《八次危机：中国的真实经验 (1949-2009)》 温铁军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "1978年的'洋跃进'为什么失败？大规模引进设备的风险在哪里？",
+      "expected_behavior": "应激活 foreign-capital-crisis-cycle，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这轮外债扩张快到还债高峰了，按历史周期推演一下危机窗口在哪",
+      "expected_behavior": "应激活 foreign-capital-crisis-cycle，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这次萧条到底是内因造成的还是外部冲击？帮我做个归因检验",
+      "expected_behavior": "应激活 foreign-capital-crisis-cycle，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "外资企业怎么注册？",
+      "expected_behavior": "不应激活本 skill，因为 操作咨询",
+      "notes": "诱饵：操作咨询"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们国家对外资的依赖结构危险吗？",
+      "expected_behavior": "不应激活本 skill，应激活 foreign-capital-dependency-risk",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "日本广场协议后的危机和这次有什么可比性？",
+      "expected_behavior": "可比性判断：若聚焦外部冲击传导用姊妹卷 crisis-deferral-chain，若聚焦引资-债务节律用本 skill，须说明选择",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}

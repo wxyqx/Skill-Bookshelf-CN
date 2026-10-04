@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**27 本书 · 503 个 skills**（最后更新：2026-10-04）
+**28 本书 · 513 个 skills**（最后更新：2026-10-04）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -42,6 +42,7 @@
 | 《宏观经济学二十五讲：中国视角》 | 徐高 · 2019 | 中国宏观经济 / 货币政策 / 结构分析 | 24 | [`xugao-macro-25-lectures/`](./xugao-macro-25-lectures/) |
 | 《战略与路径：黄奇帆的十二堂经济课》 | 黄奇帆 · 2022 | 宏观战略 / 结构性分析 / 政策方法论 | 19 | [`strategy-and-path/`](./strategy-and-path/) |
 | 《分析与思考：黄奇帆的复旦经济课》 | 黄奇帆 · 2020 | 金融 / 货币制度 / 风险诊断 | 15 | [`analysis-and-thinking/`](./analysis-and-thinking/) |
+| 《八次危机：中国的真实经验 (1949-2009)》 | 温铁军 · 2013 | 经济史 / 政治经济学 / 三农 | 10 | [`eight-crises/`](./eight-crises/) |
 
 ---
 
@@ -210,6 +211,13 @@
 - **Skills**：`macro-leverage-four-indicators` · `leverage-toolkit-detection` · `digital-credit-five-principles` · `finance-essence-check` · `monetary-anchor-diagnosis` · `sovereign-currency-discipline` · `capital-market-health-diagnosis` · `housing-affordability-one-sixth` · `three-zeros-trade-rules` · `trade-deficit-value-chain-accounting` · `crisis-deferral-chain` · `macro-bubble-four-indicators` · `rmb-internationalization-five-pools` · `import-power-five-reasons` · `capital-recruitment-model`
 - **备注**：姊妹卷《战略与路径》（第 26 本）同作者，本卷 15 个 skills 已与其跨书去重并建立导航。
 
+### 28. 《八次危机：中国的真实经验 (1949-2009)》 · [`eight-crises/`](./eight-crises/)
+
+- **作者**：温铁军 · 2013（东方出版社；研究跨 1949-2009 六十年）
+- **一句话**：六十年八次城市经济危机，凡能向组织化的农村转嫁代价则"软着陆"、体制维持，凡不能转嫁则城市"硬着陆"、倒逼制度变革——"三农"既是中国工业化的成本承担者，也是危机的稳定器。
+- **Skills**：`cost-transfer-analysis` · `foreign-capital-dependency-risk` · `foreign-capital-crisis-cycle` · `government-behavior-phases` · `government-entry-exit-cycle` · `rural-buffer-mechanism` · `excess-capacity-diagnosis` · `re-dependency-analysis` · `middle-class-formation-analysis` · `agriculture-modernization-path`
+- **备注**：方法论与黄奇帆两卷不同源；cost-transfer-analysis（代价归属）与 crisis-deferral-chain（危机传导）为互补成对框架。
+
 ---
 
 ## 安装
@@ -217,7 +225,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 503 个 skills（用户级，所有项目可用）
+# 一次性安装全部 513 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -262,7 +270,8 @@ skill-bookshelf/
 ├── mankiw-macroeconomics-10e/ # 《宏观经济学（第十版）》（20 skills）
 ├── xugao-macro-25-lectures/  # 《宏观经济学二十五讲：中国视角》（24 skills）
 ├── strategy-and-path/        # 《战略与路径：黄奇帆的十二堂经济课》（19 skills）
-└── analysis-and-thinking/    # 《分析与思考：黄奇帆的复旦经济课》（15 skills）
+├── analysis-and-thinking/    # 《分析与思考：黄奇帆的复旦经济课》（15 skills）
+└── eight-crises/             # 《八次危机：中国的真实经验》（10 skills）
 ```
 
 ---
