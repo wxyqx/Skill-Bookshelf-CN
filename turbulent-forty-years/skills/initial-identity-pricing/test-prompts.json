@@ -1,0 +1,52 @@
+{
+  "skill": "initial-identity-pricing",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我准备注册一家供应链公司，有人建议挂靠一家国企的平台公司，每年给点管理费，能拿补贴还显得有背景。这样做十年后会有什么麻烦？",
+      "expected_behavior": "应激活 initial-identity-pricing：按'初始体制依附度=产权风险敞口'做远期定价，把挂靠省下的准入成本记为借款，用十年后退出/融资/上市情景倒推，并要求写入归还条款。",
+      "notes": "正面场景：诞生时点的身份选择+远期后果提问。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "创业公司注册资本想图省事，股权全放在我小舅子名下代持，自己不当工商登记的股东。听说很多老一代企业家都这么干，会有后患吗？",
+      "expected_behavior": "应激活 initial-identity-pricing：借名/代持是让渡名分换眼前便利的典型安排，应给出'名分可过渡、不可当承重墙'的判断与远期地雷清单（清算、纠纷、融资尽调）。",
+      "notes": "正面场景：代持这一典型初始依附安排。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "现在登记成个体户感觉身份有点低，但有人说当年王文京就是领了个体执照后来上市才没被产权问题拖住。注册身份到底该按什么标准选？",
+      "expected_behavior": "应激活 initial-identity-pricing：给出标尺——'十年后退出时是否打得清官司'，而非当下哪扇门好进；解释'屈辱的清晰身份远期更优'的反直觉定价逻辑。",
+      "notes": "正面场景：直接引用书内案例求决策标准。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们公司做了十五年，一直挂在镇里的集体名下，现在效益好了想明确股权，跟镇里谈应该怎么谈、什么时候提比较好？",
+      "expected_behavior": "不应激活本 skill：企业已存在且产权不清，属存量界定与赎回时机决策，应激活 property-rights-timing。",
+      "notes": "同书兄弟 skill 混淆诱饵：'治疗'场景冒充'预防'场景。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我看看工商核名和注册资本认缴该怎么填，纯手续问题，网上说的太乱了。",
+      "expected_behavior": "不应激活本 skill：纯行政流程咨询，不含远期定价决策成分。",
+      "notes": "流程类诱饵：看似涉及'注册'但不涉及身份选择的方法论判断。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是个刚跑通原型的小团队，想以村集体经济合作社的名义注册来绕开行业准入，三年内肯定要融 A 轮，这样行不行？",
+      "expected_behavior": "可调用：既涉及初始身份的远期定价（A 轮尽调/股改障碍），又涉及以依附换准入的挂靠结构；合理解释是激活本 skill 做退出情景倒推，并联动 red-hat-structure-decision 设计归还条款——应说明为何双 skill 组合。",
+      "notes": "边界：准入绕行+远期融资的双重属性，触发本 skill 但需兄弟 skill 配合。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试：property-rights-timing）。"
+}

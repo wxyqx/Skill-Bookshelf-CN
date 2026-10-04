@@ -1,0 +1,52 @@
+{
+  "skill": "latecomer-resource-borrowing",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年：中国企业1978—2018》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们三个人的小团队想进工业零部件行业，行业里全是上市大公司，我们没钱没人没设备，还有戏吗？",
+      "expected_behavior": "应激活 latecomer-resource-borrowing，跑四借清单（淘汰设备/外部技术/受训人员/巨头不屑做的缝隙）与激励差论证，判断切入条件是否成熟。",
+      "notes": "资源绝对劣势者进入成熟行业，是核心正面场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们做了五年汽车配件代工，客户稳定，老板想做自有品牌，从代工转品牌这条路该怎么排？",
+      "expected_behavior": "应激活本 skill，用配套→代工→品牌租用→自立门户四步路径排布升级时间表，并设置每步能力沉淀验收点，警示不能停留在租用阶段。",
+      "notes": "代工升级路径是四步法的直接应用。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "国外已经有很成熟的会员制仓储超市模式，国内还没人做，我们直接照搬会不会显得没有创新力？",
+      "expected_behavior": "应激活本 skill，给出'创新就是率先模仿'的判断：复制已验证模板以降低试错成本，并要求产出标杆环节拆解与本地化改造清单。",
+      "notes": "'直接模仿算不算创新'的纠结是嘉德案例的可迁移场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们这个跨境支付的新模式国内没批过，听说西部某个自贸区管得松，要不要把公司注册到那边先做？",
+      "expected_behavior": "不应激活本 skill，应激活 marginal-zone-entry：问题是灰区业务的落地区域选择（监管洼地），不是要素借用与起步路径。",
+      "notes": "跨 skill 混淆诱饵：同为'先干起来'的起步决策，但决策变量是地点而非要素。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们厂主要是帮一家大企业做配套，最近两年他们品牌使用费收得比我们自己产品的利润还高，研发也停了，这模式健康吗？",
+      "expected_behavior": "不应激活本 skill 作为主判断，应激活 rent-based-model-audit：这是靠租金（品牌使用费）超过主业利润的空心化体检（双喜案例），属于商业模式诊断。",
+      "notes": "跨 skill 混淆诱饵：联营/租用是四借路径的一环，但问题核心是租金依赖体检而非起步方法。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们从大厂挖了一整个被裁撤的团队和几台二手机器，切他们看不上的低端市场，但这块市场最近被地方整治低小散给盯上了，怎么办？",
+      "expected_behavior": "边界场景：起步打法（四借+缝隙）仍是本 skill 领地，但'被整治盯上'涉及灰区反弹与周期风险，合理判断是本 skill 给出要素借用调整建议的同时，提示转 policy-cycle-positioning 评估整肃风险，两个 skill 组合使用。",
+      "notes": "边界：借用策略与政策周期风险在'低小散被整治'场景交叠。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

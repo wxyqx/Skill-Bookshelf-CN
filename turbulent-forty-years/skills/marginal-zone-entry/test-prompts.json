@@ -1,0 +1,52 @@
+{
+  "skill": "marginal-zone-entry",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们这个跨境资金结算的创新业务处在监管灰区。落子选在哪里最不容易被打？是监管最严但资源最多的深圳，还是那个主官很敢干事、已经默许了好几家同类公司的内地城市？",
+      "expected_behavior": "应激活 marginal-zone-entry，画监管半径地图（主官担责记录、既往默许案例、监管关注度），按'政治安全>商业便利'输出候选地排序，并预设蜂群时钟。",
+      "notes": "典型正面场景：灰区业务的空间选址是本 skill 的核心问题。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老家县城的领导主动招手，说我们这个业务可以先干起来，出了事他担着。省城倒是规范但根本不批。我要不要把业务搬过去？怎么判断他这话靠不靠谱？",
+      "expected_behavior": "应激活 marginal-zone-entry，评估地方主官的改革声誉与担责记录、当地对同类业务的执法史，并提示'口头担保不是结构安全'，给出蜂群效应下的撤离预案。",
+      "notes": "正面场景：'地方主官敢担责'正是凹地评估的核心变量。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "同行都在往那个自贸区扎堆，短短半年进去上百家公司。这个'政策洼地'的红利还能吃多久？我们什么时候该撤出来或者转正规？",
+      "expected_behavior": "应激活 marginal-zone-entry，执行蜂群效应评估——同行指数级涌入即凹地填平信号，帮用户写死撤离/升级合规的触发条件与迁移预案。",
+      "notes": "正面场景：'洼地是消耗品不是资产'的撤离时点设计是本 skill 的独有产出。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们小公司资源完全比不过巨头，设备买不起新的、请不起专家。怎么借力打力，从他们看不上的小市场切入跟他们竞争？",
+      "expected_behavior": "不应激活本 skill，应激活 latecomer-resource-borrowing。",
+      "notes": "同书兄弟 skill 混淆诱饵：资源劣势下的'借'与缝隙切入是商业维度竞争策略，不涉及灰区选址的政治安全变量。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "总部选在杭州还是成都？主要考虑人才供给、办公室租金和物流半径，帮我们做个对比分析。",
+      "expected_behavior": "不应激活本 skill。这是常规商业选址，业务不在监管灰区，'政治安全优先'变量不适用。",
+      "notes": "反场景诱饵：同是'选址'，但缺灰区与监管维度。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "自贸区的政策文件写着'允许开展'，但实施细则还没出，我们要不要现在就去落子？去哪个片区？",
+      "expected_behavior": "边界判断：主问题'现在要不要动'是时机决策，应交给 policy-signal-capture（信号已确认、抢可囤积要素）；只有当用户进一步问'选哪个片区、哪里执行最松'时才进入本 skill 的监管半径评估。合理处理是两个 skill 连用，先时机后空间。",
+      "notes": "边界：文件已写'允许'但细则未出——时间与空间两个决策叠加，需按用户的真实问题分流。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-01 为同书兄弟 skill 混淆诱饵（跨 skill 混淆测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "property-rights-timing",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司是集体所有制改制来的，去年利润涨了一倍多，几个老总觉得现在名气和现金都到位了，想把管理层持股的事办了，你说现在是不是好时机？",
+      "expected_behavior": "应激活 property-rights-timing：先按'小易大难、亏易盈难'评级窗口宽度，指出业绩暴涨反而使窗口收窄，给出'分空饼窗口是否已关'的判定，并列出灰色MBO（高危）与另起炉灶两条剩余路径及传播纪律。",
+      "notes": "正面场景：存量企业+产权不清+时机提问，三要素齐备。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们跟国资平台的合资公司想明晰股权，方案刚拟好就被媒体知道了，对方发文章说我们贱卖国有资产，要不要开发布会正面回应？",
+      "expected_behavior": "应激活 property-rights-timing：套用'见光死'传播纪律——绝不高调自证，先做制度论证争取上层背书、执行期媒体静默，把冲突降级为技术问题。",
+      "notes": "正面场景：改制方案+公开质疑，考察传播禁忌的激活。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司挂在老东家国企名下十几年了，现在想独立去融资上市，这笔产权糊涂账怎么才能理清楚？",
+      "expected_behavior": "应激活 property-rights-timing：测绘产权现状（红帽子/挂靠遗留、国资成分），评估窗口宽度后给出界定路径（赎回窗口、外部边界清晰内部模糊的设计、必要时新设主体承接增量）。",
+      "notes": "正面场景：挂靠遗留产权的存量界定需求。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我打算下个月注册一家新公司，朋友建议挂靠他舅舅的国企平台能拿补贴，注册的时候选什么身份比较划算？",
+      "expected_behavior": "不应激活本 skill：企业尚未诞生，属初始身份的远期定价决策，应激活 initial-identity-pricing。",
+      "notes": "同书兄弟 skill 混淆诱饵：注册身份的'前瞻定价'场景，property-rights-timing 只管存量界定。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "最近行业整顿风声很紧，好几个私企老板把厂子捐给村里换集体身份，我要不要也这么操作？具体协议结构怎么设计？",
+      "expected_behavior": "不应激活本 skill：这是恐慌期'要不要戴红帽子'的交易结构决策，应激活 red-hat-structure-decision。",
+      "notes": "同书兄弟 skill 混淆诱饵：红帽子戴帽决策≠摘帽/界定决策。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的混合所有制改革已经谈到股东协议阶段了，就差签字，你帮我看看协议里员工持股平台这一块有没有坑？",
+      "expected_behavior": "可调用（弱触发）：方案已近落地的合同审查与'窗口已基本关闭后的结构设计'仍在本 skill 射程内，但重心在条款细节时也可与通用法务协助配合；合理解释是先按本 skill 检查'外部边界清晰内部模糊/传播纪律/升级接口'三条，再交细节审阅。",
+      "notes": "边界：接近落地执行的条款审查，与本 skill 的决策层方法论有重叠但重心偏合同细节。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试：initial-identity-pricing / red-hat-structure-decision）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "dormant-clause-interpretation",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新出台的监管办法里写我们这类业务'原则上不允许'。帮我想想：这是彻底禁止还是留了口子？这门生意还能不能做？",
+      "expected_behavior": "应激活 dormant-clause-interpretation，双向执行：查同文件例外条款与既往个案豁免记录（进攻面），同时扫描业务链条哪些环节将来触碰利益集团时会被激活（防守面），并设计可收缩模块。",
+      "notes": "典型正面场景：'原则上'的条款级攻防解读正是本 skill 的招牌问题。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们想在一个县里做乡村资金互助业务，没有任何先例。能不能帮我从历年中央一号文件里翻翻，找找可以援引的政策表述，给项目套个合法性的壳？",
+      "expected_behavior": "应激活 dormant-clause-interpretation 的进攻面（文件考古），产出可援引表述清单、推论链与效力评估，同时提示文本合法性不等于执行安全。",
+      "notes": "正面场景：为体制外业务建构合法性外壳，即方培林式文件考古。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "帮我逐条审一下这份征求意见稿：哪些'不得''严禁'的条款现在没人执行，但等我们做大了、动了别人的蛋糕，就可能被拿来对付我们？",
+      "expected_behavior": "应激活 dormant-clause-interpretation 的防守面（休眠条款扫描），产出激活情景表：每条休眠条款对应的利益触碰方与激活时点。",
+      "notes": "正面场景：用户明确点出'休眠-激活'机制的关键变量——利益冲突。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把今年政府工作报告里的宏观经济目标和重点项目梳理一遍，做个摘要。",
+      "expected_behavior": "不应激活本 skill。这是纯政策信息梳理，没有条款攻防决策，属一般信息查询。",
+      "notes": "反场景诱饵：同是'读文件'，但无'休眠-激活'判断需求。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们公司七成收入来自政府补贴和审批相关的代理服务费，风声说这类收入以后要出事，这种商业模式要不要紧？",
+      "expected_behavior": "不应激活本 skill，应激活 rent-based-model-audit。",
+      "notes": "同书兄弟 skill 混淆诱饵：问的是商业模式对制度租金的依赖体检，不是某份文件的条款解读。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "'原则上不允许'，但隔壁省已经有人干了两年没事，我们能不能照做？",
+      "expected_behavior": "边界判断：应激活本 skill 为主（个案豁免记录正是进攻面的证据类型），但必须提示地域变量——同一行为的执行强度是地域函数，邻省默许不构成本地安全证明；如用户进一步问'落在哪里更安全'，则叠加 marginal-zone-entry。",
+      "notes": "边界：条款解读与地域执行差异交叉，主判 f03，产出中预留向 f05 的升级提示。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill 混淆诱饵（跨 skill 混淆测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "business-government-distance",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年：中国企业1978—2018》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司刚被自媒体扒了几年前的改制历史问题，法务说事实都站得住，老板想开发布会公开对峙，你觉得该高调回应还是低调处理？",
+      "expected_behavior": "应激活 business-government-distance，按灰区三戒给出'低调+可核查文本+程序性让步'的回应设计，并引用顾雏军高调自证的反例劝阻公开对峙。",
+      "notes": "灰区当事人被质疑时的姿态设计，是本 skill 的核心正面场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "地方政府想跟我们合资搞一个产业园，还要给创始人一个政协职务，公司业务有一半靠审批，接不接？",
+      "expected_behavior": "应激活本 skill，调用'政商合办之事从未做好'的边界律与三档姿态光谱（业务半依赖审批→靠近政府但远离政治身份），分析政治身份的长期约束。",
+      "notes": "政商合办决策+身份授予，是正面触发信号。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "老板连续三年被评先进、上了两档电视节目，最近开始觉得自己跟市里领导说得上话，内部讨论要不要用这层关系压一压税务检查，怎么劝他？",
+      "expected_behavior": "应激活本 skill，识别'把象征身份当护身符/政治资本当无限额度透支'的失败模式（禹作敏案例），给出降低公开姿态、可核查留痕的劝阻论证。",
+      "notes": "姿态纪律纠正场景，语言信号'觉得说得上话'对应身份幻觉。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们公司一款食品被检出问题上了热搜，消费者在抵制，公关部问声明怎么写。",
+      "expected_behavior": "不应激活本 skill。这是纯产品质量公关危机，业务不涉政商与灰区，应按普通危机公关处理。",
+      "notes": "诱饵：'舆情+声明怎么写'表面像被质疑回应场景，但缺少政商/灰区要素。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司收入七成来自政府补贴，八项规定之后订单腰斩，老板说要转型做大数据，帮我评估一下这个转型靠谱吗？",
+      "expected_behavior": "不应激活本 skill，应激活 rent-based-model-audit：问题核心是制度租金依赖度的收入结构体检与'概念式转型'诊断，而非公开姿态设计。",
+      "notes": "跨 skill 混淆诱饵：同为政商主题，但体检对象是收入结构而非姿态。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们想在正在申报的行业资质上跟主管部门沟通，负责人问：谈判时我们整体对外应该摆什么姿态？",
+      "expected_behavior": "边界场景：若用户要的是'这次谈判怎么要条件'，应激活 institutional-leverage-negotiation；若要的是'企业长期对官方以什么面目示人'，才用本 skill。合理判断是先激活谈判 skill、由其附带姿态建议，而非本 skill。",
+      "notes": "边界：谈判工艺与姿态设计在具体许可沟通场景中交叠，需按问题颗粒度分流。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

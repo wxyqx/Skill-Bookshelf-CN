@@ -1,0 +1,52 @@
+{
+  "skill": "institutional-leverage-negotiation",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年：中国企业1978—2018》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们想申请一个无人驾驶路测加运营的复合牌照，监管部门说全国没有先例、不敢批，有什么办法推进？",
+      "expected_behavior": "应激活 institutional-leverage-negotiation，把谈判标的从'许可'换成'允许试点+风险自担'的豁免方案，并给出最窄要害许可清单与退出机制。",
+      "notes": "无先例牌照申请是核心正面场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "审批处室让我们先报个方案，我们真实想要的是两类资质加一个数据接口，是不是可以一开始多报几个当讨价还价的筹码？",
+      "expected_behavior": "应激活本 skill，调用以退为进的要价设计（开价与落定值分离）与'只抓最窄但最要命许可'原则，帮用户设计开价/落定值方案。",
+      "notes": "要价设计正是袁庚 2.14 平方公里案例的可迁移点。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们在某园区的小规模服务已经跑起来了但属于超范围经营，现在想借这个事实去谈正式授权，会不会反而被抓把柄？",
+      "expected_behavior": "应激活本 skill，用既成事实筹码的'规模可容忍、可合法化'双测试评估：可容忍可合法化则作筹码推进，否则劝退为合规整改后再谈。",
+      "notes": "先斩后奏的筹码化判断，对应深交所抢跑与沈太福反例的分界。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这个新金融业务在哪个省落地监管最宽松？我们打算挑个地方先干起来。",
+      "expected_behavior": "不应激活本 skill，应激活 marginal-zone-entry：问题是灰区业务的落地区域选址（边区效应与蜂群效应），而非与审批方的谈判设计。",
+      "notes": "跨 skill 混淆诱饵：同为体制内灰区行动，但决策维度是空间而非谈判。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "最近上面连续视察我们这个行业的试验区还讲了话，但细则一直没出，你说这风向能不能跟？",
+      "expected_behavior": "不应激活本 skill，应激活 policy-signal-capture：问题是识别行动式表态的风向级别与窗口期，属于信号解读而非谈判。",
+      "notes": "跨 skill 混淆诱饵：同为与体制互动的时机问题，但对象是信号而非条款。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "集团想让我们子公司引入国资战投换取行业准入，股权会摊薄，这算不算借力？值不值？",
+      "expected_behavior": "边界场景：涉及产权名分与控制权的长期交易账，应主要激活 red-hat-structure-decision（借身份的收益/代价与赎回窗口），本 skill 只在'准入谈判怎么谈'的子问题上附带使用。",
+      "notes": "边界：借力谈判与借身份交易在'引入国资'场景交叠，核心判断权在产权交易 skill。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

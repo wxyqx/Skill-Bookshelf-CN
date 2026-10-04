@@ -1,0 +1,52 @@
+{
+  "skill": "bubble-exit-discipline",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "某个热点资产半年涨了四倍，身边原来完全不懂投资的人都在加杠杆冲，媒体说这次跟以前都不一样。我想参与又怕站岗，该按什么纪律操作？",
+      "expected_behavior": "应激活 bubble-exit-discipline：先跑三征兆+庞氏清单定性，再给出'入场即写死撤离触发条件'的纪律设计，并强调逃顶盯行政动向（监管表态、资金渠道被掐）而非 K 线。",
+      "notes": "正面场景：群体狂热+入场/退出决策，核心触发条件齐备。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我一个亲戚投了个理财，年化14%，天天在央视打广告，底层资产是什么谁也说不清，销售说规模大跑不了。我怎么判断这是不是庞氏骗局？",
+      "expected_behavior": "应激活 bubble-exit-discipline：用庞氏清单逐项核查（高息+看不懂标的+广告轰炸+无从业经历+大而不倒迷信），给出'定性为庞氏则立即全撤不抄底'的结论。",
+      "notes": "正面场景：e租宝式庞氏识别，直接对应清单方法。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们公司主业利润不高，但囤的那批货价格一直在涨，账面浮盈比主业两年利润还多。老板想再加杠杆囤，有没有什么纪律能防止最后砸在手里？",
+      "expected_behavior": "应激活 bubble-exit-discipline：判定企业头寸已 riding 泡沫，设定可承受杠杆上限与书面撤离触发条件（行政信号优先），输出分批离场剧本与监测面板。",
+      "notes": "正面场景：企业头寸层面的泡沫纪律，与万通案例同构。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "国家这两年对某个行业连续出台收紧政策，我想搞清楚我们现在处在'放—乱—收'周期的哪一段，下一轮会不会又放松。",
+      "expected_behavior": "不应激活本 skill：诉求是宏观调控周期的整体定位，应激活 policy-cycle-positioning；两者虽共享'盯行政'技术，但本 skill 的输出是头寸退出而非周期坐标。",
+      "notes": "同书兄弟 skill 混淆诱饵：行政信号话题被用于周期定位而非逃顶。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们公司这两年门店开了两千家、业务线铺了七条，每条都在烧钱，董事会怀疑是不是摊子铺太大了。",
+      "expected_behavior": "不应激活本 skill：这是单个企业扩张决策的内部诊断，应激活 delusional-expansion-detection。",
+      "notes": "同书兄弟 skill 混淆诱饵：'过热/铺太大'语义指向企业层而非资产价格层。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我觉得我们现在持有的这只股票不是泡沫，就是好公司被错杀了，但丈母娘非说涨这么快肯定是击鼓传花，让我设个止损。你说听谁的？",
+      "expected_behavior": "可调用（弱触发）：用户与家人对'是否泡沫'存在分歧，恰需本 skill 的清单化定性（三征兆+庞氏清单）把争论从立场之争转为证据核对；合理解释是激活本 skill 做定性步骤，若定性为非泡沫则明确说明逃顶纪律不适用、仅保留常规止损讨论。",
+      "notes": "边界：定性存疑的情景——本 skill 的第一步（定性）本身就是裁决工具。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试：policy-cycle-positioning / delusional-expansion-detection）。"
+}

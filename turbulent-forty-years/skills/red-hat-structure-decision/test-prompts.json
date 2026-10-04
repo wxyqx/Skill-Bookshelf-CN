@@ -1,0 +1,52 @@
+{
+  "skill": "red-hat-structure-decision",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们民企想进一个准入管制的行业，国资平台愿意让我们把股权代持在他们名下换准入。这笔交易划算吗？以后能不能把产权赎回来？",
+      "expected_behavior": "应激活 red-hat-structure-decision，记完整交易账（收益三项 vs 代价三项，按清算情景定价），要求设计书面归还条款，并做承重结构审查。",
+      "notes": "典型正面场景：借国资身份换准入的红帽子决策，正是本 skill 的核心问题。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司当年为了活下来无偿捐给了集体，戴了这么多年'红帽子'，现在政策环境完全变了。什么时候、怎么把产权赎回到自己名下？",
+      "expected_behavior": "应激活 red-hat-structure-decision，执行赎回窗口判断（声誉顶峰期或最低谷期两个窗口），给出赎回的对价设计与程序安排。",
+      "notes": "典型正面场景：已戴帽企业的赎回时机是本 skill 的另一半核心。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "混改挂靠确实能让融资和拿项目容易很多，但我说不清十年后退出的时候会不会为一笔产权官司打到底。帮我算算这笔账：借这个身份到底值不值？",
+      "expected_behavior": "应激活 red-hat-structure-decision，按'清算情景而非获取情景'的定价规则做利弊账，并检查借来身份是否已被当作承重墙使用。",
+      "notes": "正面场景：用户已在做利弊权衡，需要方法论化——清算情景定价是本 skill 的独有判据。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们是集体控股的老企业，这两年效益暴涨，管理层想明晰股权。现在做产权改革还来得及吗？该走哪条路？",
+      "expected_behavior": "不应激活本 skill，应激活 property-rights-timing。",
+      "notes": "同书兄弟 skill 混淆诱饵：存量企业产权清晰化的路径与时机（分空饼/见光死），不是借身份交易的记账与赎回。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "新公司马上要注册了。是领一个'身份低贱'的个体执照干净，还是挂靠到国企名下拿补贴和背书？哪种选择十年后麻烦少？",
+      "expected_behavior": "不应激活本 skill，应激活 initial-identity-pricing。",
+      "notes": "同书兄弟 skill 混淆诱饵：出生时的注册身份远期定价，不是存续期私产与体制的挂靠交易。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "政府想报我们当'改革典型'，给我们企业主评劳模，条件是希望我们捐赠一笔资金支持村里的集体经济。接不接？",
+      "expected_behavior": "边界判断：荣誉与典型本身属 media-deification-cycle 的典型制造风险；但'捐赠换身份'已带有红帽子交易的雏形——若捐赠涉及产权名分变动或形成长期政商承诺，则应叠加 red-hat-structure-decision 记账。合理处理是先澄清交易结构：纯荣誉→拒绝或谨慎（媒体周期）；含产权/承诺对价→按本 skill 记账并写归还条款。",
+      "notes": "边界：荣誉加冕与身份交易在这类'政治礼遇+对价'场景中交叉，需按对价性质分流。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中两条为同书兄弟 skill 混淆诱饵（跨 skill 混淆测试）。"
+}

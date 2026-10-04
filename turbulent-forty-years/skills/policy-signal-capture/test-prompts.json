@@ -1,0 +1,52 @@
+{
+  "skill": "policy-signal-capture",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "最高层上个月去我们省视察了自贸港，说'大胆试大胆闯'，官方细则还要半年才出。董事会问我，现在要不要先把保税仓额度和大宗仓储用地拿下来？",
+      "expected_behavior": "应激活 policy-signal-capture，按步骤执行：给视察式表态定级（行动式表态），盘点可囤积要素（保税仓额度、仓储用地），设计先手方案并写死退出线，同时定义'细则公开发布'为窗口关闭信号。",
+      "notes": "典型正面场景：信号已出现、细则未出、涉及可囤积要素的抢跑决策。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "领导这次调研全程没提我们行业，但他默默把我们试点园区走了一圈，一句话没说。这种'不表态的表态'算什么级别的信号？我们要不要先动？",
+      "expected_behavior": "应激活 policy-signal-capture，执行信号分级（沉默视察属行动式表态，级别高于文件讲话），再进入要素盘点与先手方案设计。",
+      "notes": "正面场景变体：'不讲话的视察比讲话更重要'是本 skill 的核心判据。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "新一轮支持性文件下周发布，风声已经放出来了。我想抢先把冷链用地指标和运输牌照签下来，是不是等媒体都报道完再动就晚了？",
+      "expected_behavior": "应激活 policy-signal-capture，确认'先手优于论证'的行动逻辑，同时要求预设判断错误的退出线，并把媒体全面报道定义为退出信号而非加仓信号。",
+      "notes": "正面场景：用户已自行意识到窗口期与媒体扩散的关系，需结构化执行。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "监管层对平台经济一直没表态，政策方向完全看不出来。我该长期观察哪些指标来判断风向？比如试点区动作、头部企业家在干什么这些。",
+      "expected_behavior": "不应激活本 skill，应激活 policy-thermometer-reading。",
+      "notes": "同书兄弟 skill 混淆诱饵：官方尚无任何信号，需要的是日常观测温度计面板，而非单次窗口的先手兑现。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这轮宏观调控已经一年半了，我们重资产高杠杆，会不会被拿来'杀鸡儆猴'？现在处在周期的哪个阶段？",
+      "expected_behavior": "不应激活本 skill，应激活 policy-cycle-positioning。",
+      "notes": "同书兄弟 skill 混淆诱饵：问的是周期位置与祭旗者暴露度，不是开闸窗口的先手布局。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "领导视察了我们公司，还当场表扬我们是行业标杆，媒体都来报道了。这对我们是个大信号吧？要不要赶紧扩产？",
+      "expected_behavior": "边界判断：若用户问的是'被表扬'本身的风险与应对，应转给 media-deification-cycle（被树为典型的光环负债）；只有当用户明确要据此对外部政策窗口下头寸（如抢指标、囤要素）时才激活本 skill。合理做法是先澄清意图再分流。",
+      "notes": "边界：企业被官方表扬既可能是被选中当典型（风险），也可能伴随政策窗口（机会），两个 skill 交叉地带，需按用户真实决策分流。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-01/02 为同书兄弟 skill 混淆诱饵（跨 skill 混淆测试）。"
+}

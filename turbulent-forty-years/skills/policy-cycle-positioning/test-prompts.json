@@ -1,0 +1,52 @@
+{
+  "skill": "policy-cycle-positioning",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新能源这两年补贴一出，各路资本疯涌进来，产能一年翻一倍。按你们那套'刺激-加码-扩容-失控'的说法，现在到哪一段了？接下来会发生什么？",
+      "expected_behavior": "应激活 policy-cycle-positioning，用四段论定位当前处于'倍级扩容'段，推演失控后的按所有制等级出清，并要求用户自设周期转折预警信号。",
+      "notes": "典型正面场景：产业政策四段论推演是本 skill 的核心用法。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "紧缩信号很明显了，信贷在收。我们是一家重资产、高杠杆的民企，会不会成为下一个铁本那种被拿来开刀的典型？帮我评估一下。",
+      "expected_behavior": "应激活 policy-cycle-positioning，执行祭旗者暴露度评估（所有制身份、重资产度、信贷依赖、典型性/显眼度四维打分），并做'不知道会紧多久'的资金压力测试。",
+      "notes": "典型正面场景：祭旗者暴露度评估是本 skill 独有的判断。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "都说宏观调控'只开始不结束'，那紧缩什么时候结束谁也不知道。我该怎么自己设一套预警指标，判断这轮调控快到头了？",
+      "expected_behavior": "应激活 policy-cycle-positioning，基于历史'方向盘突转'前兆（重大工程完工潮、银行上市潮、股市楼市双回暖）帮用户搭建自设的周期结束预警清单。",
+      "notes": "正面场景：'退出时点官方不告知，须自设预警'正是本 skill 的标志性内容。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "高层刚表态支持民营经济，具体细则还没出。我们要不要现在就去把行业指标和牌照抢到手？",
+      "expected_behavior": "不应激活本 skill，应激活 policy-signal-capture。",
+      "notes": "同书兄弟 skill 混淆诱饵：单次开闸信号的先手兑现，不是周期位置定位。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我重仓的某个资产两年涨了十倍，身边人都在加杠杆往里冲，媒体说这次不一样。帮我定一套逃顶和撤退的纪律。",
+      "expected_behavior": "不应激活本 skill，应激活 bubble-exit-discipline。",
+      "notes": "同书兄弟 skill 混淆诱饵：单一泡沫资产的个体逃顶纪律，不是宏观周期定位与祭旗者评估。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这轮'调控'跟以前不一样，是长期结构性转型，不是周期波动。你们那套3-5年一轮的时钟是不是已经过时了？",
+      "expected_behavior": "边界判断：可调用本 skill，但按方法纪律执行——节律是归纳性参照而非规律，定位必须以当期证据（信贷、工程完工潮等自设信号）为准而非机械套用年份；同时如实向用户说明作者自己承认节律样本有限，允许得出'本轮不适用旧时钟'的结论。",
+      "notes": "边界：用户质疑框架本身。正确姿态是保留框架、以证据定位、允许推翻节律假设，而非生搬硬套。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中两条为同书兄弟 skill 混淆诱饵（跨 skill 混淆测试）。"
+}

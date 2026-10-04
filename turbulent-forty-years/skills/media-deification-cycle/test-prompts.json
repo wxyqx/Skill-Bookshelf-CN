@@ -1,0 +1,52 @@
+{
+  "skill": "media-deification-cycle",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们老板这个月被央媒连发三篇报道树成了行业标杆，还评上了省劳模，全公司都挺高兴的，你说这会不会有什么风险？",
+      "expected_behavior": "应激活 media-deification-cycle：按典型生产链定位周期位置，指出'被树典型是风险事件而非利好'，给出推荣誉、压表述、热度转组织能力的自保三件套与毁神情景预案。",
+      "notes": "正面场景：被官方媒体树典型+荣誉加身，核心触发条件齐备。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "最近有两家财经媒体开始登质疑我们创始人的文章了，说他名不副实，之前明明是正面宣传铺天盖地。这是不是要走下坡路的信号？该怎么应对？",
+      "expected_behavior": "应激活 media-deification-cycle：判断已进入'争议→调查'环节，执行绝不高调自证、绝不出钱买报道（秦池教训）、提前准备第二曲线与退路叙事。",
+      "notes": "正面场景：造神-毁神周期从捧转贬的转折点。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们创始人刚上了一个很火的商业节目，参观的、采访的天天排满，订单其实没怎么涨。老板越来越享受这种关注度了，我有点担心。",
+      "expected_behavior": "应激活 media-deification-cycle：用顶部落带核查（报道量与基本面脱钩、参观团增速超过订单增速、开始相信报道里的自己）评估光环负债差值并给出纠偏动作。",
+      "notes": "正面场景：热度与基本面脱钩的早期预警。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们公司这两年并购特别猛，媒体还夸我们'48小时闪电签约效率惊人'，董事会让我评估一下扩张节奏有没有问题。",
+      "expected_behavior": "不应激活本 skill：虽然出现媒体措辞，但用户的诉求是扩张决策体检，应激活 delusional-expansion-detection（速度三问+产融死线）。",
+      "notes": "同书兄弟 skill 混淆诱饵：'舆论反指'信号出现在扩张体检语境中。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我们策划一下新品发布的媒体传播方案，预算五百万，想要刷屏的效果。",
+      "expected_behavior": "不应激活本 skill：这是正常品牌营销策划，无'被树典型'的风险判断需求。",
+      "notes": "营销策划诱饵：同为媒体话题但属进攻性传播而非光环风险管理。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们老板拒绝了市里给的人大代表提名和一堆荣誉称号，竞争对手老板全接了还天天上电视。我们是不是吃亏了？",
+      "expected_behavior": "可调用（弱触发）：'主动推荣誉'正是本 skill 的自保动作，用户问的是否吃亏恰可用'名声是负债'来解释；但也涉及政商姿态选择，合理解释是激活本 skill 解释光环的负债属性，并联动 business-government-distance 评估选位影响。",
+      "notes": "边界：自保行为的效果评估，跨及政商距离 skill。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试：delusional-expansion-detection）。"
+}

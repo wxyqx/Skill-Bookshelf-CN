@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**34 本书 · 581 个 skills**（最后更新：2026-10-05）
+**35 本书 · 597 个 skills**（最后更新：2026-10-05）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -49,6 +49,7 @@
 | 《繁荣与衰退》 | 格林斯潘 & 伍德里奇 · 2019 | 美国经济史 / 创造性破坏 / 政治经济学 | 8 | [`capitalism-in-america/`](./capitalism-in-america/) |
 | 《时运变迁》*Changing Fortunes* | 保罗·沃尔克 & 行天丰雄 · 1992 | 国际货币体系 / 危机管理 / 承诺与协调 | 14 | [`changing-fortunes/`](./changing-fortunes/) |
 | 《21世纪货币政策》*21st Century Monetary Policy* | 本·伯南克 · 2022 | 货币政策 / 信誉与预期管理 / 危机应对 | 16 | [`21st-century-monetary-policy/`](./21st-century-monetary-policy/) |
+| 《激荡四十年》*Turbulent Forty Years* | 吴晓波 · 2018 | 中国企业史 / 政策周期 / 政商关系 / 产权改革 | 16 | [`turbulent-forty-years/`](./turbulent-forty-years/) |
 
 ---
 
@@ -266,6 +267,13 @@
 - **Skills**：`credibility-capital-management` · `stop-go-discipline` · `signal-engineering` · `announcement-as-policy` · `commitment-spectrum-design` · `guidance-credibility-design` · `bounded-discretion-design` · `political-feasibility-engineering` · `preemptive-strike-policy` · `risk-management-insurance` · `policy-firepower-accounting` · `policy-evaluation-discipline` · `panic-contagion-template` · `bailout-three-step-program` · `bagehot-stigma-design` · `monetary-fiscal-boundary`
 - **备注**：与《时运变迁》（第 33 本）构成两代联储主席的跨时代对话——沃尔克重建信誉的代价与伯南克管理信誉的工艺互为镜像；与《当音乐停止之后》（第 30 本）合成"危机应对三视角"。
 
+### 35. 《激荡四十年》 · [`turbulent-forty-years/`](./turbulent-forty-years/)
+
+- **作者**：吴晓波 · 2017-2018（《激荡四十年：中国企业 1978—2018》全三册，=《激荡三十年》+《激荡十年》；中信出版社）
+- **一句话**：四十年中国企业史是国营、民营、外资三大资本集团的博弈史，改革的每一步都从"违规"开始、在政策灰区中完成原始积累——制度创新可以逆转，技术破壁不可逆转；看懂制度窗口与政策周期的人赢得时代，把象征身份当护身符的人被时代清算。
+- **Skills**：`policy-thermometer-reading` · `policy-signal-capture` · `policy-cycle-positioning` · `dormant-clause-interpretation` · `marginal-zone-entry` · `latecomer-resource-borrowing` · `rent-based-model-audit` · `initial-identity-pricing` · `red-hat-structure-decision` · `property-rights-timing` · `half-step-rights-reform` · `business-government-distance` · `institutional-leverage-negotiation` · `media-deification-cycle` · `delusional-expansion-detection` · `bubble-exit-discipline`
+- **备注**：编年史蒸馏的代表作——政策信号、制度灰区、产权路径、政商距离四套方法论均以多年代、多人物的跨域案例支撑；与《战略与路径》《分析与思考》的宏观政策视角互补为"企业与制度"的双面。
+
 ---
 
 ## 安装
@@ -273,7 +281,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 581 个 skills（用户级，所有项目可用）
+# 一次性安装全部 597 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -325,7 +333,8 @@ skill-bookshelf/
 ├── china-reform-trilogy/     # 《中国改革三部曲》（10 skills）
 ├── capitalism-in-america/    # 《繁荣与衰退》（8 skills）
 ├── changing-fortunes/        # 《时运变迁》（14 skills）
-└── 21st-century-monetary-policy/ # 《21世纪货币政策》（16 skills）
+├── 21st-century-monetary-policy/ # 《21世纪货币政策》（16 skills）
+└── turbulent-forty-years/    # 《激荡四十年》（16 skills）
 ```
 
 ---

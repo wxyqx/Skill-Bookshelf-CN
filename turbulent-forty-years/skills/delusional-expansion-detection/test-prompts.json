@@ -1,0 +1,52 @@
+{
+  "skill": "delusional-expansion-detection",
+  "version": "0.1.0",
+  "source_book": "《激荡四十年》 — 吴晓波",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司今年签了十几起并购，好几次从接触意向到签约就用了两天，媒体夸我们是'闪电整合机器'。但内部好几家被购企业账我都没细看过，帮我判断一下是不是扩张失控了。",
+      "expected_behavior": "应激活 delusional-expansion-detection：跑速度三问（尽调/整合资源/管理输出）核对表，把'两天签约被歌颂'记为舆论反指，输出扩张体检结论与刹车方案。",
+      "notes": "正面场景：速度崇拜+尽调缺失+媒体赞美措辞，三识别器全部适用。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们打算投的一家公司，七大业务线都在烧钱，好像没有哪条线真正赚钱，老板说生态之间会'相互赋能'。这种说法有问题吗？",
+      "expected_behavior": "应激活 delusional-expansion-detection：核查烧钱业务清单是否长于造血业务清单且无明确输血者，用产融结合死线（维持成本与主业造血之比）和独立竞争力检验做诊断。",
+      "notes": "正面场景：无现金牛的多元化叙事，考察产融死线识别器。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司把明年销售翻三倍的目标印在了经销商大会的背景板上，还在公众号发了。总感觉这种做法像当年三株，会不会有隐患？",
+      "expected_behavior": "应激活 delusional-expansion-detection：指出'规划变成广告之日即目标变成负债之时'，核查管理带宽与组织膨胀的匹配度，建议把增长目标内部化。",
+      "notes": "正面场景：用户主动引用书内案例，考察方法论落点。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们创始人最近被好几家媒体连续报道，评了个'年度经济人物'，现在到处请他去演讲，公司形象管理上要注意什么？",
+      "expected_behavior": "不应激活本 skill：诉求是企业家光环与声誉风险管理，应激活 media-deification-cycle。",
+      "notes": "同书兄弟 skill 混淆诱饵：媒体热度话题，但无扩张决策诊断需求。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "最近某个热点资产半年涨了三倍，我重仓被套在里面了，什么时候该割肉离场？",
+      "expected_behavior": "不应激活本 skill：这是资产价格泡沫中的头寸退出问题，应激活 bubble-exit-discipline。",
+      "notes": "同书兄弟 skill 混淆诱饵：'过热/失控'语义指向市场层而非企业扩张层。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "竞争对手一年开了两千家店，估值翻着倍涨，我们董事会吵翻了：一半人说必须跟进提速，一半人说这是当年亚细亚的老路。帮我评评理。",
+      "expected_behavior": "可调用（弱触发）：既要用本 skill 对竞对跑狂想识别（速度三问+单店模型是否验证），又因'跟不跟'决策涉行业泡沫判断可与 bubble-exit-discipline 组合；合理解释是先做竞对诊断再回答跟进问题。",
+      "notes": "边界：诊断对象是竞对，决策对象是自己，识别与决策分离。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试：media-deification-cycle / bubble-exit-discipline）。"
+}
