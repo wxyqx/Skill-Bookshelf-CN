@@ -1,0 +1,52 @@
+{
+  "skill": "political-feasibility-engineering",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我是独立监管机构的负责人，准备叫停某巨头的产品，肯定会挨骂，怎么设计才能顶住压力把事办成？",
+      "expected_behavior": "应激活 political-feasibility-engineering，输出威胁测绘+任命经济学（由强硬名声者署名）+程序掩护（技术性说明使决定看似程序产物）+叙事先发的组合方案。",
+      "notes": "不受欢迎的正确决定+可预期的政治攻击，是本 skill 的原型场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的紧缩方案刚公布就被舆论骂'冷血'，还有人身的攻击，该回应还是沉默？",
+      "expected_behavior": "应激活 political-feasibility-engineering，给出防御组合纪律：只谈数据不回应人身、以程序正当性代替立场辩论，并配合直接向公众解释的替罪羊对冲。",
+      "notes": "已遭攻击后的止损与回应纪律，对应 QE2 反弹与鲍威尔应对特朗普的原生场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "下周要跟对手方的高管碰面，内容肯定会被泄露出去，我该怎么管理会面之后的叙事？",
+      "expected_behavior": "应激活 political-feasibility-engineering，部署叙事先发：会前定好己方版本框架，会后立即发布纪要抢占解读，而非等对方版本定型。",
+      "notes": "'必然被泄露的会面'是叙事先发战术的直接触发条件。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们机构这些年攒下的公信力，怎么在日常决策里保值增值，别让市场慢慢不信我们了？",
+      "expected_behavior": "不应激活本 skill，因为这是跨年度的信誉资产管理问题，应激活 credibility-capital-management（信誉的建立、折旧与存取核算）。",
+      "notes": "同书兄弟混淆诱饵: 共享'公信力/信誉'词汇，但问的是长期资产管理而非即期政治攻防。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "危机中市场恐慌挤兑，我们的资金还没到位，先发一个公开声明能不能把局面稳住？",
+      "expected_behavior": "不应激活本 skill，因为这是危机沟通的干预设计问题，应激活 announcement-as-policy（先最大化承诺可信度再考虑用量）。",
+      "notes": "同书兄弟混淆诱饵: '发声明稳住局面'与叙事先发字面相似，但对象是市场恐慌而非政治攻击。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "团队内部对方案有强烈反对意见，两个派系吵起来了，怎么处理？",
+      "expected_behavior": "合理判断: 默认不激活——内部技术分歧不是政治攻击面，本 skill 的攻防战术不适用，应走正常的决策与共识流程。但若内部分歧存在外泄风险（外泄后会被外部势力利用），可部分引入'口径一致性'的沟通纪律，那时才考虑本 skill。",
+      "notes": "边界: 测试'政治'一词的边界——内部分歧只有在外泄并政治化之后才进入本 skill 射程。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-01 为同书兄弟 skill（credibility-capital-management）混淆诱饵。"
+}

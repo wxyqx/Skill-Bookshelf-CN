@@ -1,0 +1,52 @@
+{
+  "skill": "signal-engineering",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "CEO决定裁员15%，员工目前完全没心理预期，觉得公司运转良好。是一次性全员大会宣布，还是分批慢慢传出去？",
+      "expected_behavior": "应激活 signal-engineering，先测预期缺口（员工预期'运转良好' vs 裁员15%，缺口大），给出戏剧性形式（全员大会+管理层一致背书+完整方案一次给出），并论证渐进泄露会让每次小道消息被误读且最难看的版本先定型。",
+      "notes": "正面场景：重大转向+预期缺口大，形式选择问题。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "1979年沃尔克为什么要搞一个周六的秘密会议来宣布新政策？正常开会宣布不行吗？",
+      "expected_behavior": "应激活 signal-engineering，解释戏剧性形式的信号功能：罕见时点+超常幅度+一致表决让'旧做法已死'不可误读，形式本身就是目的；并说明操作框架虽被放弃但信号完全成功。",
+      "notes": "正面场景：直接问书中标志性案例。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们要把软件定价从一次性买断改成订阅制，老客户毫不知情。宣布节奏怎么设计？",
+      "expected_behavior": "应激活 signal-engineering，先测缺口（对老客户是重大转向→戏剧性；对新客户是渐进→阶梯），并分别给出形式方案与不可误读检验（预演最不利解读）。",
+      "notes": "正面场景：跨域迁移，且需按受众分缺口判断。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "危机中商家在挤兑式提现，我们的资金还没完全到位，要不要先公开承诺'随时可提、无上限'稳住局面？",
+      "expected_behavior": "不应激活本 skill。这里没有'改变实质'需要设计形式——承诺本身就是全部干预（宣布即政策），应激活 announcement-as-policy。",
+      "notes": "同书兄弟 skill 混淆诱饵：宣布形式设计 vs 宣布即干预。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "外面在传我们要裁员，但其实我们根本没有裁员计划，只是组织架构微调了5%。要不要开发布会澄清？",
+      "expected_behavior": "不应激活本 skill。无实质转向、无真实预期缺口，属谣言澄清与事实沟通，不适用转向的形式工程；若真要澄清按常规事实披露即可。",
+      "notes": "诱饵：'宣布''信号'字面场景但无转向实质，信号工程是空转。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们只是把报销审批从三级改成两级，需要提前一个月吹风铺垫吗？",
+      "expected_behavior": "框架适用但结论应为反向：预期缺口极小，走最轻的信号阶梯甚至直接宣布即可，不需要戏剧性形式——检验 agent 能否按缺口大小输出'不必铺垫'而非默认隆重化。",
+      "notes": "边界：小缺口场景检验形式选择是否真的由缺口驱动。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

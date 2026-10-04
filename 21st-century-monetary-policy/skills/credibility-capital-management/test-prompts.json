@@ -1,0 +1,52 @@
+{
+  "skill": "credibility-capital-management",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我刚接手当CTO，前任答应客户年底前完成旧系统下线。我评估这事优先级不高，想悄悄不做掉。这样行吗？",
+      "expected_behavior": "应激活 credibility-capital-management，按资产核算处理：前任承诺是账户上的负债，默默违约=支取信誉资产；给出兑现/早期公开重新议价/等值违约三选一，并指出'新官不理旧账'的支取成本。",
+      "notes": "正面场景：前任承诺继承是本 skill 的标志性子问题。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "沃尔克当年把美国经济搞衰退了，失业率10.8%，书里为什么还说这是值得的、成功的？",
+      "expected_behavior": "应激活 credibility-capital-management，用'重建成本远高于维护成本'与'信誉的买价'解释：衰退是重建预期锚的代价，换来1982年后数十年锚定与大稳健红利。",
+      "notes": "正面场景：直接问书中信誉重建案例。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们团队对客户的排期承诺最近时紧时松，有时赶工兑现、有时悄悄延期也不说，客户已经开始默认我们会拖延了。怎么扭转？",
+      "expected_behavior": "应激活 credibility-capital-management，诊断预期已按最坏假设定价（信誉贬值），给出行动先于表态的重建方案与防摇摆维护机制，并警告时断时续比不做承诺更糟。",
+      "notes": "正面场景：跨域到团队承诺管理，摇摆模式被对方定价。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们产品出了事故上了热搜，现在要发一份道歉声明，怎么措辞挽回形象最快？",
+      "expected_behavior": "不应激活本 skill。这是单次危机沟通与公关应对，不涉及跨期预期锚的资产管理；可考虑 signal-engineering 或一般危机沟通方法。",
+      "notes": "诱饵：'信誉''形象'字面出现但属单次公关，非资产账户管理。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们要宣布裁员15%，员工目前完全没心理预期，一次性全员大会宣布还是分批慢慢传出去好？",
+      "expected_behavior": "不应激活本 skill，应激活 signal-engineering：先测预期缺口（大），选戏剧性形式（全员大会+管理层一致背书+完整方案一次给出）。",
+      "notes": "同书兄弟 skill 混淆诱饵：宣布形式设计 vs 信誉账户经营。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "朋友之间借钱我从来按时还，这次手头紧想拖一个月再还。要紧吗？",
+      "expected_behavior": "框架部分适用：个人信用账户中，长期履约记录下的一次小额支取折旧有限，且可通过提前打招呼（'公开重新议价'）把支取降到很小。合理输出是'提前沟通比默默拖延好'，不必上纲到资产重建。",
+      "notes": "边界：单次小额支取在盈余账户中的边际影响，检验 agent 不机械套用'绝不违约'。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

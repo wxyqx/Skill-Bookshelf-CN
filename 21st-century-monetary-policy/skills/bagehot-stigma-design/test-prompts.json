@@ -1,0 +1,52 @@
+{
+  "skill": "bagehot-stigma-design",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司设了匿名举报热线，还配了奖金，但几乎没人用。HR建议再提高奖金金额，我觉得不对劲，问题出在哪？",
+      "expected_behavior": "应激活 bagehot-stigma-design：拒绝'加大补贴'直觉，先画激励图——若提交记录可被HR反查（污名/报复信号），奖金无效；改披露机制（延迟聚合、外部托管、统计口径公告）后使用率自然回升。",
+      "notes": "正面场景：verified.md f11 的 V2 预测问题——修摩擦点而非加补贴。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们央行/平台给机构准备了流动性支持工具，条件很优惠，但真正困难的机构都不来申请，怕一申请就被市场看出来自己不行。怎么设计才能让它们愿意用？",
+      "expected_behavior": "应激活 bagehot-stigma-design：核对白芝浩底线后做污名归因，机制绕行——定期拍卖、竞价定价、延迟放款或公告式广泛开放，把'使用'与'示弱'在信息上脱钩。",
+      "notes": "正面场景：TAF 范式的直接复用。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "在设计一个应急资金池，必须让大家毫无顾虑地用才有效，白芝浩原则里'惩罚性利率、良好抵押品'这些怎么落地，污名问题怎么提前设计掉？",
+      "expected_behavior": "应激活 bagehot-stigma-design：按白芝浩五要素核查表打底，再在机制层预先拆信号（时点、定价、披露方式的设计选择）。",
+      "notes": "正面场景：工具的事前去污名设计。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "集团要不要救这家资不抵债的子公司？如果要救，股权和债务结构怎么安排？",
+      "expected_behavior": "不应激活本 skill，应激活 bailout-three-step-program（f10）：这是救助决策（分类、三问、损失吸收结构），不是工具使用摩擦的机制设计。",
+      "notes": "诱饵：'救不救'（f10）与'敢不敢用'（本 skill）的决策层/机制层混淆。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的纾困工具没人用，调研了一圈发现根本原因是目标企业压根不知道有这个工具，也不觉得自己需要。该怎么办？",
+      "expected_behavior": "不应激活本 skill：污名归因不成立——这是信息触达与需求识别问题（宣传、主动邀约、资格自动匹配），不存在'用了即示弱'的信号摩擦，步骤2的排除项适用。",
+      "notes": "诱饵：低使用率的非污名归因，检验 skill 是否守住'先归因再设计'的前提。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "市场恐慌最凶的时候，我们直接宣布对所有合规机构无条件开放资金支持，一分钟都不用等申请。这算是污名设计还是宣布效应？",
+      "expected_behavior": "边界场景：两者皆是——公告式广泛开放既是去污名机制（本 skill：不存在'谁用了'的个体信号），也是宣布即干预（announcement-as-policy：可信承诺先于实际用量）。期望行为是识别出组合属性并按用户后续目标（修工具 vs 止恐慌）分配主导 skill。",
+      "notes": "边界：2020年公告式工具正是两 skill 的交汇实例，测试是否理解组合而非互斥。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试：bailout-three-step-program）。"
+}

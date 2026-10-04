@@ -1,0 +1,52 @@
+{
+  "skill": "monetary-fiscal-boundary",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "现在通胀压不下来，央行想加息，政府却不想加税，两边都在等对方先动手，这个死结怎么解？",
+      "expected_behavior": "应激活 monetary-fiscal-boundary，识别懦夫博弈结构，输出分工规则+自动触发器（指标达标自动生效绕开逐案博弈）的解法，而非'再协调一下'的泛泛建议。",
+      "notes": "马丁-约翰逊博弈的直接现代复刻，两主体互等是本 skill 的核心触发结构。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的成本削减方案为了好通过，宣传成'一次性、临时性的牺牲'，这样设计有没有问题？",
+      "expected_behavior": "应激活 monetary-fiscal-boundary，援引1968年附加税教训指出：被广泛理解为临时的紧缩会被储蓄/行为平滑吸收、近乎无效——'临时'标签本身就是自废武功，并给出补自动延期条款等修正。",
+      "notes": "'临时性'标签是书中原生失败模式（ce05）的触发词。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "救这家机构的时候，央行贷款和财政注资的界限到底怎么划？谁该出钱、出什么钱？",
+      "expected_behavior": "应激活 monetary-fiscal-boundary，按借贷权/支出权划界：流动性缺口（可抵押可收回）归有借贷权的主体，预期损失（需冲销的资本金）归有支出权的主体，禁止用贷款顶资本金。",
+      "notes": "借贷权 vs 支出权是本 skill 的边界设计维度（雷曼/TARP 场景）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "要救一家大而不倒的核心供应商了，先怎么判断它是流动性困难还是资不抵债，然后损失吸收结构怎么设计？",
+      "expected_behavior": "不应激活本 skill，因为这是对单个救助对象的分类与结构设计，应激活 bailout-three-step-program（流动性/偿付性分类→三问→损失吸收结构）。",
+      "notes": "同书兄弟混淆诱饵: 共享'救助/流动性/资不抵债'词汇，但问的是单主体处置程序而非跨主体责任分配。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "去杠杆进行到一半经济数据变难看了，我们要不要暂停以缓解阵痛？",
+      "expected_behavior": "不应激活本 skill，因为这是单一主体的中途节奏纪律问题，应激活 stop-go-discipline（摇摆比不作为更糟的不对称判断）。",
+      "notes": "同书兄弟混淆诱饵: '紧缩/去杠杆'语境重叠，但无跨主体博弈结构。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "财政和央行说好了一起收紧，时间表也对齐了，这样还有边界问题吗？",
+      "expected_behavior": "合理判断: 协调良好时懦夫博弈风险大幅降低，但不自动归零——仍需检查两点：①联合方案是否被公众理解为'临时'（持续性信念决定力度，协调一致不解决标签问题）；②工具归属是否正确（该花的钱是否仍有人想用贷款顶）。两项检查通过则本 skill 仅作确认性使用。",
+      "notes": "边界: 测试 skill 是否会被机械地应用于一切'财政+货币'字面场景，而非只在博弈/边界结构真实存在时触发。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-01 为同书兄弟 skill（bailout-three-step-program）混淆诱饵。"
+}

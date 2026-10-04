@@ -1,0 +1,52 @@
+{
+  "skill": "commitment-spectrum-design",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "管理层要向董事会承诺什么时候恢复分红，市场现在已经按'永不恢复'定价了。用日期承诺还是绑定条件承诺？",
+      "expected_behavior": "应激活 commitment-spectrum-design，按选型判据：预期已严重脱锚→用时间式给确定性冲击；若正常波动期则用状态式（自由现金流连续两季超X之前暂不分红），且必须声明这是评估门槛而非到点自动触发，防止业绩恰好达标时被机械条款绑架。",
+      "notes": "正面场景：日期 vs 条件的经典选型+脱锚判断。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "美联储当年说失业率降到6.5%就考虑加息，为什么真降到6.5%的时候没加？门槛和触发到底差在哪？",
+      "expected_behavior": "应激活 commitment-spectrum-design，解释状态依赖承诺中门槛≠触发：6.5%只排除过早紧缩（单侧排除），不承诺到点必加；实际加息拖到失业率5%，并说明不声明这一区别的后果（市场把下限当按钮定价）。",
+      "notes": "正面场景：直接问书中核心概念。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们要给大客户写SLA承诺，担心业务波动时被自己定的数字反过来绑架，这种承诺条款怎么设计？",
+      "expected_behavior": "应激活 commitment-spectrum-design，按四步执行：诊断预期状态→设计时间式或状态式结构→声明门槛/触发性质→双向解读预演（先到与迟不到两种情形），并配免责条款或留白。",
+      "notes": "正面场景：跨域到商业条款的承诺结构设计。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "员工最近人心惶惶，我们要不要公开承诺'永不裁员'来安抚军心？",
+      "expected_behavior": "不应激活本 skill。问题出在要不要做这种刚性承诺（德尔菲式告知 vs 奥德赛式约束的选型、承诺只在预期脱锚时有增量价值、刚性后果），应激活 guidance-credibility-design。",
+      "notes": "同书兄弟 skill 混淆诱饵：承诺选型与可信度前提 vs 承诺结构设计。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们投委会每次开会都临时起意改策略，想立一套制度在'守纪律'和'给自由'之间找平衡，整体应该怎么设计？",
+      "expected_behavior": "不应激活本 skill。这是整个决策制度的规则-相机平衡（目标锚+参照系+解释纪律），应激活 bounded-discretion-design；本 skill 只在具体单次承诺怎么写时介入。",
+      "notes": "同书兄弟 skill 混淆诱饵：制度宪法 vs 单次承诺条款。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我向伴侣承诺'明年底之前戒掉熬夜'。这算时间依赖承诺吗？会不会被日历绑架？",
+      "expected_behavior": "结构上确是时间依赖承诺，但框架的前提在此不成立：不存在多轮预期的'市场定价'，且结果基本自控，预测误差与信誉损耗机制都弱化。合理输出是指出结构同构但日历绑架风险低，日期式反而适用——检验 agent 不机械套用'状态式更优'。",
+      "notes": "边界：框架前提（预期定价市场）缺失时选型结论反转。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

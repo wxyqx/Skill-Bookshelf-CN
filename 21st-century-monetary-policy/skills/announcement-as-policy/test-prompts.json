@@ -1,0 +1,52 @@
+{
+  "skill": "announcement-as-policy",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "平台遭遇商家挤兑式提现恐慌，财务只批了一小部分资金，先发'随时可提、无上限'的声明能不能稳住局面？",
+      "expected_behavior": "应激活 announcement-as-policy，确认其设计次序反转：先解决承诺的可信度（授权路径、条件明确、额度口径）再谈金额——可信承诺本身即干预，实际动用可远小于授权；同时核查兑现路径，防止空头表态。",
+      "notes": "挤兑恐慌+资金未到位，是'宣布即干预'的原型场景（对应2020年与平台挤兑的 V2 迁移）。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的紧急担保计划刚公布，实际赔付几乎为零，市场却已经恢复了，老板问这算成功还是白忙一场？",
+      "expected_behavior": "应激活 announcement-as-policy，用其成功标准回答：宣布即干预——'实际用量远小于授权、市场靠宣布恢复'恰是成功的标志，评估应看市场功能指标而非花钱多少。",
+      "notes": "'没花钱就稳住了算不算成功'是本 skill 特有的评估语义。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "设计危机兜底方案时，应该先测算要花多少钱，还是先把公开承诺的措辞和额度设计到位？",
+      "expected_behavior": "应激活 announcement-as-policy，明确给出设计次序：先承诺三要素（条件明确、额度可信、兑现路径清晰），后金额测算——与'先备钱再表态'的常规直觉相反。",
+      "notes": "设计次序问题是本 skill 的方法论内核。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们要宣布一项重大战略转向，怎么选宣布的形式——一次性戏剧性发布，还是先吹风再官宣？",
+      "expected_behavior": "不应激活本 skill，因为这是宣布形式的选择问题，应激活 signal-engineering（以预期缺口大小为变量在戏剧性与铺陈之间做工程化选择）。",
+      "notes": "同书兄弟混淆诱饵: '宣布'字面完全重叠，但问的是形式工程而非承诺的干预实质。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "市场预期现在还挺稳定，我们发的政策指引到底该写成预测性的还是承诺性的？",
+      "expected_behavior": "不应激活本 skill，因为这是常规环境下的指引类型学选择，应激活 guidance-credibility-design（德尔菲式 vs 奥德赛式的选型判据与可信度四支柱）。",
+      "notes": "同书兄弟混淆诱饵: 共享'承诺/指引'词汇，但预期未脱锚时紧急承诺无增量价值，属指引设计问题。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们想发一个'无限兜底'的公开承诺先稳住局面，但其实授权额度根本不够兑现，能不能先说了再说？",
+      "expected_behavior": "合理判断: 本 skill 明确禁止此用法——可信度是全部前提，无法兑现的承诺不是干预而是危机加速器（'可控'式安抚语在事后成为信誉负债）。应先回答：能否扩大授权、设止损结构或缩小承诺范围使其可兑现；三者皆不可行则不应发布，并明示本 skill 在此条件下的停用条款。",
+      "notes": "边界: 测试 skill 是否会被当作'话术工具'滥用——这是 B 段失败模式的直接测试。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-01 为同书兄弟 skill（signal-engineering）混淆诱饵。"
+}

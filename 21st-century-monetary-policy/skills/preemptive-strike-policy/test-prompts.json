@@ -1,0 +1,52 @@
+{
+  "skill": "preemptive-strike-policy",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们是ToB SaaS，客服平均响应时长悄悄涨了30%，用户满意度还没掉。补人加培训要6个月才见效，团队说等下季度数据再说。该不该现在扩编？",
+      "expected_behavior": "应激活 preemptive-strike-policy，先确认前提（6个月生效时滞+流失非线性上升），再核算等待的期望流失成本 vs 多雇几人的误伤成本，给出苗头期小步扩编+可加码的序列方案，而非接受'等季度数据'的默认选项。",
+      "notes": "正面场景：长时滞+恶化非线性+用户正在'等确认'，三要素齐备。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的技术债在累积但还没出过大事故，CTO说'等出了P0级故障再集中修'。这个思路对吗？重构生效周期起码半年。",
+      "expected_behavior": "应激活 preemptive-strike-policy，指出'等事故再修'是把行动标准设在确认期，时滞半年意味着事故后纠偏代价非线性放大，应先算等待期望成本再决定苗头期小步投入。",
+      "notes": "正面场景：跨域迁移到技术债，结构同构于'等通胀出现再动手'。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "伯南克书里说2021年美联储没早点加息是个教训，为什么通胀还没起来就该加息？这不矛盾吗？",
+      "expected_behavior": "应激活 preemptive-strike-policy，用时滞+非线性纠偏逻辑解释先发制人，并用2021年'暂时论'作为反面案例说明放弃先发制人的代价。",
+      "notes": "正面场景：直接问书中核心场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "竞争对手明年可能推出同类产品打价格战，概率不高但一旦发生我们现金流会很受伤。要不要现在就提前降价防御？",
+      "expected_behavior": "不应激活本 skill，因为这是基准情景没事、为低概率高破坏尾部风险定价买保险的问题，应激活 risk-management-insurance（定性为保险、支付适度保费、声明退出条件、风险落空后回收）。",
+      "notes": "诱饵：尾部风险定价场景，与苗头型恶化极易混淆。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的去杠杆推进到一半经济明显放缓了，管理层想暂停两个月缓解阵痛，之后再接着来，这样更稳妥吧？",
+      "expected_behavior": "不应激活本 skill。行动已经启动，问题不在出手时点而在启动后的坚持性：以'上一次的痛'为节奏摇摆比不行动更糟。应激活 stop-go-discipline。",
+      "notes": "同书兄弟 skill 混淆诱饵：启动时点 vs 启动后节奏，防抢占调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我读初中的孩子刚出现沉迷手机的苗头，要不要立刻没收手机？",
+      "expected_behavior": "框架部分适用但应克制使用：习惯固化的确有时滞，但纠偏时滞短、可逆性高（前提之一不成立），且误伤（亲子关系）成本高。合理输出是先做等待成本 vs 误伤成本的轻量核算，倾向沟通式干预而非套用'小步打击'规程。",
+      "notes": "边界：时滞存在但可逆性高，检验 agent 是否机械套用前提而非先查适用条件。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**33 本书 · 565 个 skills**（最后更新：2026-10-05）
+**34 本书 · 581 个 skills**（最后更新：2026-10-05）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -48,6 +48,7 @@
 | 《中国改革三部曲》 | 吴敬琏 · 2017 | 比较体制 / 改革史 / 增长模式 | 10 | [`china-reform-trilogy/`](./china-reform-trilogy/) |
 | 《繁荣与衰退》 | 格林斯潘 & 伍德里奇 · 2019 | 美国经济史 / 创造性破坏 / 政治经济学 | 8 | [`capitalism-in-america/`](./capitalism-in-america/) |
 | 《时运变迁》*Changing Fortunes* | 保罗·沃尔克 & 行天丰雄 · 1992 | 国际货币体系 / 危机管理 / 承诺与协调 | 14 | [`changing-fortunes/`](./changing-fortunes/) |
+| 《21世纪货币政策》*21st Century Monetary Policy* | 本·伯南克 · 2022 | 货币政策 / 信誉与预期管理 / 危机应对 | 16 | [`21st-century-monetary-policy/`](./21st-century-monetary-policy/) |
 
 ---
 
@@ -258,6 +259,13 @@
 - **Skills**：`crisis-diagnosis-first` · `crisis-management-sequence` · `unilateral-default-trap` · `confidence-fragility-check` · `commitment-device-design` · `strong-commitment-intervention` · `soft-commitment-ambiguity` · `paradigm-failure-discipline` · `eliminate-exit-leverage` · `negotiation-structure-design` · `multilateral-coordination-assessment` · `triffin-dilemma-diagnosis` · `incentive-symmetry-check` · `devaluation-accounting`
 - **备注**：亲历者视角的货币外交方法论（1971 关黄金窗口、1979.10.6 换锚、广场/卢浮宫、拉美债务危机），与《当音乐停止之后》《从"老冷战"到"新冷战"》互补成"危机三视角"。
 
+### 34. 《21世纪货币政策》 · [`21st-century-monetary-policy/`](./21st-century-monetary-policy/)
+
+- **作者**：本·伯南克（Ben Bernanke，美联储前主席、2022 诺贝尔经济学奖得主）· 2022（21st Century Monetary Policy；中信出版集团中译本）
+- **一句话**：美联储 60 年的政策演进由三大结构性力量驱动（通胀行为改变、中性利率长期下行、系统性金融不稳定上升），而每一代央行人的成败都系于同一件事——用可信的行动管理预期；工具会过时，这一点不会。
+- **Skills**：`credibility-capital-management` · `stop-go-discipline` · `signal-engineering` · `announcement-as-policy` · `commitment-spectrum-design` · `guidance-credibility-design` · `bounded-discretion-design` · `political-feasibility-engineering` · `preemptive-strike-policy` · `risk-management-insurance` · `policy-firepower-accounting` · `policy-evaluation-discipline` · `panic-contagion-template` · `bailout-three-step-program` · `bagehot-stigma-design` · `monetary-fiscal-boundary`
+- **备注**：与《时运变迁》（第 33 本）构成两代联储主席的跨时代对话——沃尔克重建信誉的代价与伯南克管理信誉的工艺互为镜像；与《当音乐停止之后》（第 30 本）合成"危机应对三视角"。
+
 ---
 
 ## 安装
@@ -265,7 +273,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 565 个 skills（用户级，所有项目可用）
+# 一次性安装全部 581 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -316,7 +324,8 @@ skill-bookshelf/
 ├── after-the-music-stopped/  # 《当音乐停止之后》（11 skills）
 ├── china-reform-trilogy/     # 《中国改革三部曲》（10 skills）
 ├── capitalism-in-america/    # 《繁荣与衰退》（8 skills）
-└── changing-fortunes/        # 《时运变迁》（14 skills）
+├── changing-fortunes/        # 《时运变迁》（14 skills）
+└── 21st-century-monetary-policy/ # 《21世纪货币政策》（16 skills）
 ```
 
 ---

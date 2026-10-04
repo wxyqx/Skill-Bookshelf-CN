@@ -1,0 +1,52 @@
+{
+  "skill": "policy-firepower-accounting",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司业绩很好，CFO想把现金和授信用到极限去抢市场。我担心下次行业下行时没弹药了。该怎么量化我们到底还剩多少政策空间？",
+      "expected_behavior": "应激活 policy-firepower-accounting：做弹药盘点——定义基准单位、盘点传统空间（现金/授信）、把非常规手段折算入库、对照典型下行需求、输出好年景储备规则。",
+      "notes": "正面场景：好年景要不要留余地的火力核算。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "利率已经降了75个基点，如果再来一场衰退我们还能降多少？QE和前瞻指引加起来大概相当于几次降息？",
+      "expected_behavior": "应激活 policy-firepower-accounting：用'10年期收益率降1个百分点≈降息3个百分点'的折算逻辑估算非常规火力，总火力≈R*+约3个百分点，并附带不确定性区间警告。",
+      "notes": "正面场景：直接问等效降息折算，书中核心经验法则。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "团队说常规获客手段全用完了，还有一些非常规打法，怎么评估这些打法能补多少常规渠道的量、够不够过冬？",
+      "expected_behavior": "应激活 policy-firepower-accounting：把非常规打法按历史证据折算成常规渠道当量，标记无证据系数为下界，再对照过冬需求算缺口。",
+      "notes": "正面场景：跨域迁移——非常规工具的等效入库。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "竞争对手可能在明年发起价格战，虽然概率不高，我们要不要提前降价防范？降多少合适？",
+      "expected_behavior": "不应激活本 skill，应激活 risk-management-insurance（f02）：这是为尾部风险付保费（保险性降价的幅度设计）与事后保费回收，不是存量弹药盘点。",
+      "notes": "诱饵：'花弹药'（f02）与'盘弹药'（本 skill）的场景混淆。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们去年做的重组看起来没效果，业绩没什么起色。是不是重组没用？该怎么评估它到底有没有用？",
+      "expected_behavior": "不应激活本 skill，应激活 policy-evaluation-discipline（f13）：这是事后效果评估（意外成分校正、反事实基准），不是事前空间核算。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f13 评估'用了有没有效'，本 skill 核算'还剩多少'。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "通胀目标一直达不到，有人说这会侵蚀我们未来的降息空间，这是真的吗？和我们该不该更激进达标是一回事吗？",
+      "expected_behavior": "合理行为是调用本 skill 处理'目标达成本身是储备弹药'的核算问题（低通胀拉低R*、侵蚀传统空间），并说明'是否更激进达标'还牵涉 stop-go-discipline 与先发制人的节奏判断——核算能回答影响，节奏问题应分流。",
+      "notes": "边界：弹药侵蚀判断属于本 skill，但行动节奏需相邻 skill 接力。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试：risk-management-insurance / policy-evaluation-discipline）。"
+}

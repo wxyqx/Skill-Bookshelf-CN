@@ -1,0 +1,52 @@
+{
+  "skill": "policy-evaluation-discipline",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们去年给消费者发了补贴，数据显示消费完全没起色，这政策是不是没用，该撤了？",
+      "expected_behavior": "应激活 policy-evaluation-discipline，先做意外成分校正（补贴是否已被公众预期、消费是否在宣布时已反应）再建反事实基准（与不发补贴的假想消费比，而非绝对水平），最后才回答撤不撤。",
+      "notes": "典型'表面无效'场景：没反应可能因为已计入预期，正是本 skill 的第一纪律。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "领导让我证明这波救市是政策起了作用，而不是市场自己反弹，我该怎么搭评估框架？",
+      "expected_behavior": "应激活 policy-evaluation-discipline，输出反事实基准+保守估计的评估设计，并把'意外成分校正'作为归因拆分的第一步。",
+      "notes": "因果归因诉求是本 skill 的核心触发词。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有人批评说这个项目的效果只是暂时的，等热度过了就打回原形，怎么回应？",
+      "expected_behavior": "应激活 policy-evaluation-discipline，用套利检验反问（若真暂时，为何没人押注反转？）+保守下界估计来构造回应，而非情绪辩护。",
+      "notes": "'效果只是暂时的'是书中 QE 评估的原生质疑句式。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们下个月要宣布一轮大的人员优化，怎么设计宣布的时点和形式才不会引起恐慌？",
+      "expected_behavior": "不应激活本 skill，因为这是事前的宣布形式设计问题，应激活 signal-engineering（基于预期缺口选择戏剧性或铺陈形式）。",
+      "notes": "同书兄弟混淆诱饵: '宣布/设计'字面与政策语境重叠，但问的是形式工程而非效果评估。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "如果明年再遇到衰退，我们把利率降到零之后还剩多少刺激空间？帮我盘点一下弹药。",
+      "expected_behavior": "不应激活本 skill，因为这是事前的政策空间核算，应激活 policy-firepower-accounting（可降息幅度+非常规工具等效折算）。",
+      "notes": "同书兄弟混淆诱饵: 共享 QE/降息词汇，但方向相反（事前算空间 vs 事后验效果）。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "A/B 测试显示新功能上线后留存没变化，但我们事先发过预告，用户可能早就预期到了。",
+      "expected_behavior": "合理判断: 应激活本 skill 的意外成分校正纪律——比较'实际推出'与'预期推出'的差而非绝对留存；但注意 A/B 测试本身已是对照实验，反事实基准一步可跳过。也可能是仅应用单条纪律的轻量咨询。",
+      "notes": "边界: 微观产品实验而非宏观政策，但'被预期导致无反应'的机制同构，测试的是 skill 的可迁移触发而非机械的'政策'字面匹配。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-01 为同书兄弟 skill（signal-engineering）混淆诱饵。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "stop-go-discipline",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "去杠杆推行半年，经济数据变难看了，团队都劝先暂停缓一缓，要不要停？",
+      "expected_behavior": "应激活 stop-go-discipline，给出不对称判断：以'上次的痛'为节奏的暂停构成时断时续，比坚持到底或干脆不做更糟；并把拖延成本计入风险表再回答。",
+      "notes": "中途阵痛+劝停压力，是决心原则的原型场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我复盘发现我们这两年的节奏是：上一轮压缩预算太痛了就放松，指标刚恶化一点又再收紧，是不是有问题？",
+      "expected_behavior": "应激活 stop-go-discipline，执行触发器性质检查：若每次反转的依据都是'痛苦已发生'而非'目标已达成'，则已构成时断时续模式，纠正方向是改触发器而非微调节奏。",
+      "notes": "'走走停停'的自我觉察是本 skill 的第二触发路径（模式识别）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这个正确的决定必然带来短期阵痛，内外都在施压让我们再等等，怎么顶住压力坚持到底？",
+      "expected_behavior": "应激活 stop-go-discipline，输出拖延即最大风险的评估框架+把坚持写进公开承诺+遇施压以行动划界（沃尔克式）的完整纪律。",
+      "notes": "'再等等被当作零成本选项'正是本 skill 要纠正的风险表错漏。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "通胀苗头刚出现，数据还不明确，要不要现在就提前动手紧缩？",
+      "expected_behavior": "不应激活本 skill，因为这是行动启动时点的选择问题，应激活 preemptive-strike-policy（长时滞下不等确凿证据提前行动+等待成本核算）。",
+      "notes": "同书兄弟混淆诱饵: 同属紧缩叙事，但问的是'要不要开始'而非'中途要不要坚持'。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们机构的信誉这几年被消耗得厉害，有没有一套系统性的方法重建和保值？",
+      "expected_behavior": "不应激活本 skill，因为这是跨周期的信誉资产管理问题，应激活 credibility-capital-management（信誉作为会贬值的资本资产的存取核算与维护）。",
+      "notes": "同书兄弟混淆诱饵: 信誉与摇摆因果相关，但用户要的是资产管理体系而非单次摇摆决策判断。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "新数据表明我们当初的前提假设错了——成本上升是结构性的，不是周期性的，现在继续'坚持'原方案还是转向？",
+      "expected_behavior": "合理判断: 不机械激活。决心原则不保护错误前提——因前提被证伪而转向不是时断时续（摇摆的机制是'因痛苦而放弃'，此处是'因数据而修正'）。应先做前提复核，确认是信息更新后再决定转向；仅当转向的真实动机是回避阵痛而非数据时，本 skill 才适用。",
+      "notes": "边界: 测试 skill 能否区分'固执化的坚持'与'修正性的转向'——这是 B 段反场景的直接测试。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-01 为同书兄弟 skill（preemptive-strike-policy）混淆诱饵。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "bounded-discretion-design",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们量化基金的人为决策层到底要不要受机械风控线约束？完全放开怕失控，全机械又怕错过规则外的机会。有没有中间路线？",
+      "expected_behavior": "应激活 bounded-discretion-design，给出第三条路：设跨期数值目标（如最大回撤）作锚，把某条简单规则（波动率目标）当对外可比参照系而非枷锁，每次突破常规参数须公开说明偏离理由——用可解释性为每单位自由度付费。",
+      "notes": "正面场景：规则 vs 相机抉择的制度设计，书的主场问题。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "美联储2012年为什么突然正式搞2%通胀目标和点阵图？这算立规矩还是走形式？",
+      "expected_behavior": "应激活 bounded-discretion-design，用2012年1月制度化案例解释：正式目标+SEP+点阵图+季度发布会构成'有限制的自由裁量权'的制度载体，点阵图地位是个体预测聚合而非集体承诺。",
+      "notes": "正面场景：直接问书中核心案例。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们产品团队每个sprint都凭感觉调优先级，老板想立死规矩又怕把团队锁死，怎么设计决策制度？",
+      "expected_behavior": "应激活 bounded-discretion-design，迁移三件套：公开的跨期目标（如北极星指标）+一条简单规则作参照系（如RICE打分基准）+偏离逐次解释的纪律，而非全机械或全人治的二选一。",
+      "notes": "正面场景：跨域到团队制度设计。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们要向董事会承诺什么时候恢复分红。用日期承诺（明年年底前）还是绑定条件承诺（自由现金流连续两季超过X）？",
+      "expected_behavior": "不应激活本 skill。这是单次承诺的结构参数设计（时间依赖 vs 状态依赖、门槛≠触发），应激活 commitment-spectrum-design。",
+      "notes": "同书兄弟 skill 混淆诱饵：制度宪法 vs 单次承诺条款。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "上一季度我们做了几轮QE式的大规模投放，但看起来没什么效果，怎么科学评估这波操作到底有没有用？",
+      "expected_behavior": "不应激活本 skill。这是对既成政策的事后效果评估（意外成分校正、反事实基准），应激活 policy-evaluation-discipline。",
+      "notes": "同书兄弟 skill 混淆诱饵：事前立宪 vs 事后评估。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是个10人的创业公司，要不要上OKR加月度经营报告会这套正式制度？",
+      "expected_behavior": "框架的神可用、形可弃：'目标公开+偏离解释'的原则适用，但点阵图式的完整披露仪式对小团队成本过高。合理输出是取其神（跨期目标+偏离说明的轻量版）舍其形——检验 agent 能否按组织规模调整制度化程度而非照搬全套。",
+      "notes": "边界：制度化成本与组织规模匹配，不应默认全套照搬。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

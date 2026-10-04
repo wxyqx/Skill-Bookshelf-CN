@@ -1,0 +1,52 @@
+{
+  "skill": "risk-management-insurance",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司从来没有发生过客户数据泄露，但安全团队说一旦泄露就是灭顶之灾，建议按超出当前评估所需的力度做安全加固。这钱该不该花？",
+      "expected_behavior": "应激活 risk-management-insurance，按三节拍设计：加固幅度=基准所需+尾部溢价并定性归档为'保险而非转向'，预写退出条件（如12个月内威胁面未变不再续投该档），风险落空后做归因区分并回收投入转作他用。",
+      "notes": "正面场景：无泄露记录+低概率高破坏+力度超过基准，标准保险定价问题。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "1998年俄罗斯违约的时候，美国本土经济明明还好好的，格林斯潘为什么还连续降息？后来为什么又加回去了？",
+      "expected_behavior": "应激活 risk-management-insurance，用保险性降息解释：幅度超出基准预测的合理范围，差额是保费；风险消退后1999年起回收（累计逆转加息175基点）恢复弹药。",
+      "notes": "正面场景：直接问书中核心案例。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "去年我们为供应链断裂风险做了超额备货，现在风波过去了，仓库里那批多出来的库存一直有人主张'留着以防万一'，要不要处理掉？",
+      "expected_behavior": "应激活 risk-management-insurance，先做归因区分（风险没来是因为备货还是本来不会断），再按买入时应有的退出条件设计保费回收（降价/转用途/释放仓位），防止预防性支出永久化。",
+      "notes": "正面场景：事后回收节拍，用户卡在'要不要撤'。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的核心运营指标已经连续三个月缓慢下滑了，等它确认恶化再来处理肯定来不及，现在是不是该出手了？",
+      "expected_behavior": "不应激活本 skill。这不是低概率尾部风险——基准情景正在恶化、苗头已现，是长时滞下的启动时点问题，应激活 preemptive-strike-policy。",
+      "notes": "同书兄弟 skill 混淆诱饵：苗头型恶化 vs 尾部型风险，两 skill 的头号混淆对。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "平台出现商家挤兑式提现恐慌，财务资金还没完全到账，要不要先公开承诺'随时可提、无上限'来稳住局面？",
+      "expected_behavior": "不应激活本 skill。这是危机中用可信公开承诺本身止住恐慌——先解决承诺的可信度与简单性、实际用量远小于授权——应激活 announcement-as-policy。",
+      "notes": "同书兄弟 skill 混淆诱饵：真金白银的防御投入 vs 宣布即干预。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "医生建议我预防性切除阑尾，说虽然现在没事，但将来发炎会很麻烦。这算买保险还是过度医疗？",
+      "expected_behavior": "框架可用但结论不应预设：尾部概率低、后果中等，而保费（手术本身的麻醉与感染风险）不可忽略。合理输出是真正核算保费与尾部损失，并设退出条件（定期复查触发），可能得出'不买'——检验 agent 是否把'保险框架'等同于'永远防御'。",
+      "notes": "边界：保费与尾部损失同量级时，方法论应支持'不买保险'的结论。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过 (诱饵容错为 0), 且其中至少 1 条是同书兄弟 skill 的场景 (跨 skill 混淆测试)。"
+}

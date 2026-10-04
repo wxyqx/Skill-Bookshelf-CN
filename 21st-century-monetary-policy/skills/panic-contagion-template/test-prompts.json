@@ -1,0 +1,52 @@
+{
+  "skill": "panic-contagion-template",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "某稳定币脱锚了3%，储备充足的说法也有，这算大事吗？要不要紧张？",
+      "expected_behavior": "应激活 panic-contagion-template：不看3%的损失绝对值，按恐慌链条定位——它的短期资金提供者是谁、储备资产能否快速变现而不自我实现折价，并建议盯赎回费与储备估值折扣等边际指标。",
+      "notes": "正面场景：verified.md f09 的 V2 预测问题——小损失击中融资结构即红色警报。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们行业头部几家开始抛售资产回笼资金了，我担心引发连锁反应传染到我们供应商体系。现在处于什么阶段？",
+      "expected_behavior": "应激活 panic-contagion-template：用挤兑-贱卖-螺旋六环模板定位当前环节（疑似进入强制贱卖环），评估向供应链的传染机制，输出下一环预测。",
+      "notes": "正面场景：危机阶段定位与传染判断。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "想给我们的风控体系加一套预警指标，能在资金真正断流之前几周就报警的那种，该盯什么？",
+      "expected_behavior": "应激活 panic-contagion-template：建立融资条款边际指标仪表盘（估值折扣、保证金、展期期限、赎回费），并用'功能等同银行但不受监管'的伪装者扫描补盲。",
+      "notes": "正面场景：早于二元状态的预警仪表盘设计。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们生态里一家关键服务商资金链断了，请求我们注资救援。该不该救？如果要救，开什么条件？",
+      "expected_behavior": "不应激活本 skill，应激活 bailout-three-step-program（f10）：这是逐案救助决策（流动性/偿付性分类→三问→损失吸收结构），不是系统性的恐慌阶段诊断。",
+      "notes": "诱饵：'危机中救谁'与'危机处于哪环'的场景混淆。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的纾困基金明明批了额度，但有困难的加盟商都不来申请，怕被人知道经营出问题。怎么让他们愿意用？",
+      "expected_behavior": "不应激活本 skill，应激活 bagehot-stigma-design（f11）：这是工具污名（用了即示弱信号）的机制设计问题，不是恐慌演化诊断。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为危机场景，f11 管工具摩擦，本 skill 管恐慌定位。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "恐慌眼看要失控，我们钱还没到位，是不是先别表态，等资金到位了再宣布？",
+      "expected_behavior": "边界场景：诊断层面与本 skill 相关（定位恐慌环节确认紧迫性），但正确处方属于 announcement-as-policy（p09）——可信的无限量承诺本身即止住挤兑，宣布先于资金到位。期望行为是本 skill 完成定位后明确移交 p09 处理宣布策略。",
+      "notes": "边界：'等钱到位再表态'恰是 p09 要纠正的直觉，判别点是用户要的是判断还是处方。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试：bailout-three-step-program / bagehot-stigma-design）。"
+}

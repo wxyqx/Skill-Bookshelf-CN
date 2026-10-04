@@ -1,0 +1,52 @@
+{
+  "skill": "bailout-three-step-program",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们集团一家核心供应商现金流断了，欠我们货款还求我们注资。订单还在，就是账期被下游拖垮了。该不该救？怎么救？",
+      "expected_behavior": "应激活 bailout-three-step-program：先分类（订单在、账期错配属流动性困难，过桥贷款可行），再过三问（断供是否击中产线、能否要求其股东出局管理层换人、内部授权是否预先存在），最后定损失吸收结构。",
+      "notes": "正面场景：verified.md f10 的 V2 预测问题——三步程序给出明确分支而非'救/不救'直觉。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "监管部门当年救了AIG却放任雷曼倒闭，被批评双重标准。怎么判断一家机构该救还是不该救？",
+      "expected_behavior": "应激活 bailout-three-step-program：说明两案是同一分类程序的两次执行——AIG有可抵押真实价值（流动性工具够得着），雷曼已资不抵债且无收购方、财政部无注资权，并展开三问与结构设计。",
+      "notes": "正面场景：'凭什么救A不救B'的经典质问。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "如果决定救助这家公司，救助资金结构该怎么设计才能既解决问题又控制道德风险？",
+      "expected_behavior": "应激活 bailout-three-step-program：执行第三步——设计损失吸收安排（股本金垫底吸收预期损失、贷款方守住足额收回底线、私人出资比例、股东与管理层处置）并写明退出追责条款。",
+      "notes": "正面场景：救助结构设计，程序第三步。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "市场恐慌蔓延得很厉害，我想知道我们现在处于恐慌的哪个阶段、接下来会怎么演化？",
+      "expected_behavior": "不应激活本 skill，应激活 panic-contagion-template（f09）：这是系统级恐慌诊断（挤兑-贱卖-螺旋六环定位），不是单一主体的救助决策。",
+      "notes": "诱饵：同为危机场景，诊断（f09）与救助决策（本 skill）分界。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们给困难企业准备了纾困贷款工具，利率优惠条件很好，但企业都不来申请，怕被外界知道自己在用纾困工具。怎么办？",
+      "expected_behavior": "不应激活本 skill，应激活 bagehot-stigma-design（f11）：决策已定（救），卡在工具污名导致无人使用——这是机制设计问题（拍卖、延迟披露、去信号化），不是救助分类与结构问题。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f11 管工具摩擦，本 skill 管救不救与救的结构。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "资不抵债基本确认了，但我们还是想放笔贷款让它撑到下季度，赌业务能翻身，这样可行吗？",
+      "expected_behavior": "应调用本 skill 并在第一步判停：对已资不抵债的主体，放贷只能展期不能防止失败（白芝浩底线），程序的正确出口是找补资本的一方（母公司/财政/收购方）或设计收购其有价值部分的方案；期望行为是明确纠正'放贷赌翻身'的结构性误区。",
+      "notes": "边界：用户恰恰踩中第一步分类的判停条件，是检验 skill 是否守住程序纪律的好场景。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试：panic-contagion-template / bagehot-stigma-design）。"
+}

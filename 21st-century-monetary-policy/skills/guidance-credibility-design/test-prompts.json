@@ -1,0 +1,52 @@
+{
+  "skill": "guidance-credibility-design",
+  "version": "0.1.0",
+  "source_book": "《21世纪货币政策》 — 本·伯南克",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司刚经历一轮裁员风波，团队人心惶惶，有高管建议公开承诺'永不裁员'来稳住军心，但我担心以后收不回来。该不该做这个承诺？",
+      "expected_behavior": "应激活 guidance-credibility-design：先判约束状态（员工预期是否已脱锚到需要奥德赛式承诺），再对照可信度四支柱评估'永不裁员'的刚性与反噬风险，通常结论是改用德尔菲式（公布经营预测与用人计划）。",
+      "notes": "正面场景：强承诺安抚前的类型选型，对应 verified.md f07 的 V2 预测问题。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们央行/平台发布了一份详细的未来政策路径，但市场预期根本没动，资产价格毫无反应。为什么说了等于没说？",
+      "expected_behavior": "应激活 guidance-credibility-design：检查可信度四支柱哪根缺失（措辞不可核验、机构声誉受损、缺共识框架、独立性存疑），并建议用对受众的直接调查验证预期锚是否移动，而非只看资产价格。",
+      "notes": "正面场景：'说了不信'的可信度前提诊断。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "在设计向市场沟通'未来两年维持低费率'的计划，想参考 forward guidance 的德尔菲式和奥德赛式区分，我们该用哪一种？",
+      "expected_behavior": "应激活 guidance-credibility-design：用中英术语（Delphic/Odyssean）做类型选型，判断是否处于需要约束承诺的脱锚状态，并给出免责条款与留白设计。",
+      "notes": "正面场景：直接使用书中术语提问。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们要宣布裁员15%，一次性全员大会宣布还是分批小道消息传出去比较好？",
+      "expected_behavior": "不应激活本 skill，应激活 signal-engineering（f04）：这是单次重大宣布的形式工程（预期缺口大→戏剧性形式），不是跨期承诺的可信度设计。",
+      "notes": "诱饵：宣布形式 vs 承诺可信度，同书沟通类 skill 混淆。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们向客户承诺'项目延期就赔付'的条款，应该写成固定日期还是绑定某个验收指标？",
+      "expected_behavior": "不应激活本 skill，应激活 commitment-spectrum-design（f06）：这是承诺形式设计（时间依赖 vs 状态依赖、门槛≠触发），选型已定（要承诺），问的是怎么写。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：f06 管承诺的措辞形式，本 skill 管承诺的选型与可信度前提。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们机构信誉很好，但这次要公布一个可能被解读为'立场反转'的调整，怎么既说清楚又不显得言行不一？",
+      "expected_behavior": "可合理调用本 skill（涉及言行一致这一可信度支柱与德尔菲式措辞设计），也可部分结合 signal-engineering 处理宣布形式；期望行为是先做判型（步骤1），若属预期校准而非约束承诺，则按德尔菲式处理并重点做内部口径一致性检查。",
+      "notes": "边界：可信度维护与宣布形式工程在'信誉良好的机构做渐进调整'场景交叉，判型步骤是分流依据。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且其中至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试：signal-engineering / commitment-spectrum-design）。"
+}
