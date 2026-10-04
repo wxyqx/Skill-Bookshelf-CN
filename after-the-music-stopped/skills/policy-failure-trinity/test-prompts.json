@@ -1,0 +1,52 @@
+{
+  "skill": "policy-failure-trinity",
+  "version": "0.1.0",
+  "source_book": "《当音乐停止之后》 艾伦·布林德",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "止赎救助明明该做，为什么搞成了史上最烂尾的政策？",
+      "expected_behavior": "应激活 policy-failure-trinity，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "有些政策共识明确却执行不下去，背后的结构性障碍有哪些？",
+      "expected_behavior": "应激活 policy-failure-trinity，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "1930年代HOLC能成功，2008年为什么不能复制？",
+      "expected_behavior": "应激活 policy-failure-trinity，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "止赎的法律程序是什么？",
+      "expected_behavior": "不应激活本 skill，因为 法律程序查询",
+      "notes": "诱饵：法律程序查询"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "救助成功了为什么反而挨骂？",
+      "expected_behavior": "不应激活本 skill，应激活 policy-paradox-communication",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "HAMP计划具体条款是什么？",
+      "expected_behavior": "条款查询",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}

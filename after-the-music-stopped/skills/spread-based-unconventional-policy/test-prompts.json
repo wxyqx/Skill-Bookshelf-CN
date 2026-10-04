@@ -1,0 +1,52 @@
+{
+  "skill": "spread-based-unconventional-policy",
+  "version": "0.1.0",
+  "source_book": "《当音乐停止之后》 艾伦·布林德",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "零利率之后央行还有什么工具？QE和扭转操作是怎么分类的？",
+      "expected_behavior": "应激活 spread-based-unconventional-policy，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么QE放了几万亿流动性，实体还是缺钱？利差被忽略了吗？",
+      "expected_behavior": "应激活 spread-based-unconventional-policy，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "央行大放水会不会通胀？这个争论怎么用市场数据裁决？",
+      "expected_behavior": "应激活 spread-based-unconventional-policy，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "美联储何时加息？",
+      "expected_behavior": "不应激活本 skill，因为 时点预测",
+      "notes": "诱饵：时点预测"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "刺激政策什么时候退出、怎么退出？",
+      "expected_behavior": "不应激活本 skill，应激活 policy-exit-design",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "信用利差的定义是什么？",
+      "expected_behavior": "概念查询",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}

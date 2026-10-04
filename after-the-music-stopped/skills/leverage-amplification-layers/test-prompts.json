@@ -1,0 +1,52 @@
+{
+  "skill": "leverage-amplification-layers",
+  "version": "0.1.0",
+  "source_book": "《当音乐停止之后》 艾伦·布林德",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家金融机构声称杠杆只有10倍，怎么核查它的真实杠杆敞口？",
+      "expected_behavior": "应激活 leverage-amplification-layers，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么有的机构杠杆不高也崩盘了？表外和回购里面藏了什么？",
+      "expected_behavior": "应激活 leverage-amplification-layers，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "给我讲讲家庭、银行表外、投行、衍生品四个层面的杠杆是怎么叠加放大的",
+      "expected_behavior": "应激活 leverage-amplification-layers，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "个人房贷杠杆多少合适？",
+      "expected_behavior": "不应激活本 skill，因为 个人理财咨询",
+      "notes": "诱饵：个人理财咨询"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "CDO和CDS这些证券化产品是怎么运作的？",
+      "expected_behavior": "不应激活本 skill，应激活 shadow-banking-anatomy",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "企业该不该用杠杆收购？",
+      "expected_behavior": "并购咨询",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}

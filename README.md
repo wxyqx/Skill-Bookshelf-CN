@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**29 本书 · 522 个 skills**（最后更新：2026-10-04）
+**30 本书 · 533 个 skills**（最后更新：2026-10-04）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -44,6 +44,7 @@
 | 《分析与思考：黄奇帆的复旦经济课》 | 黄奇帆 · 2020 | 金融 / 货币制度 / 风险诊断 | 15 | [`analysis-and-thinking/`](./analysis-and-thinking/) |
 | 《八次危机：中国的真实经验 (1949-2009)》 | 温铁军 · 2013 | 经济史 / 政治经济学 / 三农 | 10 | [`eight-crises/`](./eight-crises/) |
 | 《从“老冷战”到“新冷战”》 | 温铁军、李卞 · 2023 | 政治经济学 / 全球化史 / 货币与冷战 | 9 | [`cold-war-to-cold-war/`](./cold-war-to-cold-war/) |
+| 《当音乐停止之后》 | 艾伦·布林德 · 2014 | 金融危机 / 政策评估 / 政治经济学 | 11 | [`after-the-music-stopped/`](./after-the-music-stopped/) |
 
 ---
 
@@ -226,6 +227,13 @@
 - **Skills**：`globalization-stage-analysis` · `financial-exclusion-mechanism` · `industrial-transfer-fate` · `monetization-sovereignty` · `crisis-harvesting-mechanism` · `currency-bloc-competition` · `demand-engine-structure` · `state-asset-monetization` · `ideology-softpower-analysis`
 - **备注**：与《八次危机》（第 28 本）同作者互补——内向代价归属与本卷对外竞争结构成对。
 
+### 30. 《当音乐停止之后》 · [`after-the-music-stopped/`](./after-the-music-stopped/)
+
+- **作者**：艾伦·布林德（Alan Blinder，普林斯顿大学教授、美联储前副主席）· 中译本 2014（中国人民大学出版社；英文原版 2013）
+- **一句话**：2007-2009 危机源于七个祸源的叠加共振（本可避免），政府的应对在技术上基本成功却输掉了政治——“政策的成功与政治的失败”是危机留给后人的双重遗产。
+- **Skills**：`crisis-cause-inventory` · `leverage-amplification-layers` · `shadow-banking-anatomy` · `panic-contagion-mechanics` · `bailout-decision-framework` · `spread-based-unconventional-policy` · `fiscal-stimulus-design` · `financial-reform-principles` · `policy-failure-trinity` · `policy-paradox-communication` · `policy-exit-design`
+- **备注**：西方亲历者视角的危机解剖学，与《八次危机》《分析与思考》的中式结构分析互为对冲视角。
+
 ---
 
 ## 安装
@@ -233,7 +241,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 522 个 skills（用户级，所有项目可用）
+# 一次性安装全部 533 个 skills（用户级，所有项目可用）
 for d in */skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -280,7 +288,8 @@ skill-bookshelf/
 ├── strategy-and-path/        # 《战略与路径：黄奇帆的十二堂经济课》（19 skills）
 ├── analysis-and-thinking/    # 《分析与思考：黄奇帆的复旦经济课》（15 skills）
 ├── eight-crises/             # 《八次危机：中国的真实经验》（10 skills）
-└── cold-war-to-cold-war/     # 《从“老冷战”到“新冷战”》（9 skills）
+├── cold-war-to-cold-war/     # 《从“老冷战”到“新冷战”》（9 skills）
+└── after-the-music-stopped/  # 《当音乐停止之后》（11 skills）
 ```
 
 ---

@@ -1,0 +1,52 @@
+{
+  "skill": "fiscal-stimulus-design",
+  "version": "0.1.0",
+  "source_book": "《当音乐停止之后》 艾伦·布林德",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "设计一揽子逆周期财政刺激，怎么避免重蹈2009年'有效却挨骂'的覆辙？",
+      "expected_behavior": "应激活 fiscal-stimulus-design，并按其 E 段步骤执行",
+      "notes": "正面场景：典型语言信号命中 description"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "3T原则（及时、定向、临时）具体怎么落实到刺激方案里？",
+      "expected_behavior": "应激活 fiscal-stimulus-design，并按其 E 段步骤执行",
+      "notes": "正面场景：换措辞仍命中"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "定向税收抵免和普适退税，哪种创造就业的成本效率更高？",
+      "expected_behavior": "应激活 fiscal-stimulus-design，并按其 E 段步骤执行",
+      "notes": "正面场景：第三类典型场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "财政刺激规模该多大？",
+      "expected_behavior": "不应激活本 skill，因为 规模之争，非设计框架",
+      "notes": "诱饵：规模之争，非设计框架"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "刺激成功了为什么还会被民意反噬？",
+      "expected_behavior": "不应激活本 skill，应激活 policy-paradox-communication",
+      "notes": "跨 skill 混淆诱饵（含同书与跨书姊妹 skill）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "凯恩斯主义的理论渊源是什么？",
+      "expected_behavior": "学术史查询",
+      "notes": "边界模糊场景：调用与否都须说清理由"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger 必须全部通过（诱饵容错为 0），其中 1 条为同书/跨书兄弟 skill 混淆场景。"
+}
