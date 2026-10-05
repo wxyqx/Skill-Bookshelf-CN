@@ -1,0 +1,52 @@
+{
+  "skill": "rpv-capability-audit",
+  "version": "0.1.0",
+  "source_book": "创新者的解答 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们是传统车企，想孵化软件定义汽车的订阅服务，这种业务到底该放在现有事业部里，还是单独成立一个组织？",
+      "expected_behavior": "应激活 rpv-capability-audit，从资源/流程/价值观三层审计主流组织匹配度，判定双双不符后建议设自治组织，赋予独立流程与独立成本结构。",
+      "notes": "典型的新业务组织落脚决策。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们打算收购一家公司，问题是收进来之后该把它并入母公司消化，还是让它独立经营？",
+      "expected_behavior": "应激活 rpv-capability-audit，用'买的是资源还是流程/价值观'判定：为资源则并入消化，为流程/价值观则保持独立并注入资源。",
+      "notes": "并购整合决策，命中思科案例的应用面。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们新业务客单价很低、要快速迭代，但公司要求它达到和主业一样的毛利率和规模门槛，还被要求和现有业务共享资源做协同。这是不是注定做不成？",
+      "expected_behavior": "应激活 rpv-capability-audit，诊断主流价值观（毛利率/规模阈值）对新业务的过滤，建议独立成本结构与流程自由。",
+      "notes": "价值观同化/能力错配的典型症状，命中 ce11。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我起草一份新子公司的章程，写明股权结构和董事会席位的法律安排。",
+      "expected_behavior": "不应激活本 skill，因为这是法律文件起草，不涉及 RPV 能力匹配与组织形态选择。",
+      "notes": "诱饵：纯法律/文书任务。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "新成立的即时零售子公司是破坏性业务，主流体系的决策规则会把资源导向保卫现有门店客户。我作为 CEO 是不是必须亲自挂帅、打破既有流程？",
+      "expected_behavior": "不应激活本 skill，应激活 executive-engagement-rules，因为用户问的是高管本人该不该亲自跨界管理，而非组织该用什么结构承载业务。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书兄弟 skill executive-engagement-rules 更贴切。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们新业务和主业共享一部分研发资源，但商业化和成本结构完全独立。这算并入主流还是自治组织？",
+      "expected_behavior": "应激活本 skill 并说明这是边界情形：需按 RPV 区分——共享研发资源可能落在流程层，但独立成本结构与商业流程才是自治的关键；建议按'资源可共享、流程与价值观须独立'分层处理，而非简单归为两类之一。",
+      "notes": "边界：资源可持续共享但流程/价值观独立，属混合情形。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

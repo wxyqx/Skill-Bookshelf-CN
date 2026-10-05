@@ -1,0 +1,52 @@
+{
+  "skill": "executive-engagement-rules",
+  "version": "0.1.0",
+  "source_book": "《创新者的解答》 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们刚成立了一个即时零售子公司，规模不大但模式和主业很不一样。CEO到底该不该亲自挂帅，还是交给事业部负责人就行？",
+      "expected_behavior": "应激活 executive-engagement-rules，按情境判断（流程与价值观能否处理）：若属破坏性业务则必须CEO亲自跨界管理、打破既有流程与规则；不能按业务规模大小决定。",
+      "notes": "正面场景：高管是否亲自介入的判断。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我总觉得自己拿到的汇报都是被下面过滤过的，很多真实问题我看不到。哪些决策我必须亲自越过流程去管？",
+      "expected_behavior": "应激活 executive-engagement-rules，指出信息纵向不对称与'中层知道哪些信息不该上报'的预警，判定破坏性决策须最高层亲自参与，并给出获取未过滤信息的办法。",
+      "notes": "正面场景：信息不对称下的介入边界判断。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "When should top management get personally involved versus delegate? People keep telling me 'big decisions need big people' — is that right?",
+      "expected_behavior": "应激活 executive-engagement-rules，否定'大人物做大决定/规模论'，给出按情境（主流流程与价值观能否保证决策质量）判断的规则。",
+      "notes": "英文正面场景，含 executive engagement / delegate 触发点。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这个新业务的项目排期、里程碑和负责人分工列一个甘特图。",
+      "expected_behavior": "不应激活 executive-engagement-rules，因为这是项目计划与执行安排，不涉及'决策该由高管还是授权'的情境判断。",
+      "notes": "诱饵：纯项目管理任务，与高管参与度无关。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个破坏性业务该放主流部门、重量级团队还是设成独立自治组织？关键是要不要独立的成本结构。",
+      "expected_behavior": "不应激活 executive-engagement-rules，应激活 rpv-capability-audit（按流程×价值观匹配度设计组织结构与自治安排）。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill rpv-capability-audit 的组织结构设计场景（问'放哪里'而非'谁来做'）。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这是个围绕现有客户体验做改良的项目，不改变我们的赚钱方式。CEO是不是也该亲自管，显得重视？",
+      "expected_behavior": "应激活 executive-engagement-rules，判定为延续性创新、主流流程与价值观可保证决策质量，结论是授权给现有团队即可；过度介入反而会诱发中层报喜不报忧，CEO亲自管并非越重视越好。",
+      "notes": "边界：延续性情境容易因'重要性'误判为需要高管介入，需按情境规则纠偏。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（rpv-capability-audit）的跨 skill 混淆诱饵。"
+}

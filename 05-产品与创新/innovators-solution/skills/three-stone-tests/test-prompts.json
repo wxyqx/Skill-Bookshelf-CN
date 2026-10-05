@@ -1,0 +1,52 @@
+{
+  "skill": "three-stone-tests",
+  "version": "0.1.0",
+  "source_book": "《创新者的解答》 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们想做一个99元/月的自助法律合同审查工具，主要面向以前根本请不起律师的小微企业。你帮我判断一下，这个方向值不值得投，会不会被大律所按在地上打？",
+      "expected_behavior": "应激活 three-stone-tests，依次过新市场两问（小微企业过去因缺资金/技术放弃外包审查→是）、低端两问（低价+自动化低毛利高周转赢利模式→是，并补算ROCII）、对称动机关（对按小时收费的大律所是低端破坏，但需确认对自助模板类中小所是否只是延续性冲击）。",
+      "notes": "正面场景：给一个具体构想做破坏性机会判定。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "有两个方案：一个是给现有大客户做性能更强的新版本，另一个是给从没买过这类设备的小作坊做便宜简版。我怎么判断哪个才算真正的破坏性创新机会？",
+      "expected_behavior": "应激活 three-stone-tests，用第一关（新市场/零消费）与第二关（低端）对两个方案分类，并提示延续性方案几乎必然被在位者反击、破坏性方案才有新入者胜算。",
+      "notes": "正面场景：破坏性 vs 延续性的分类诉求。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Is this a disruptive opportunity? We plan to sell a cheap, simple solar kit to rural families who currently have no electricity at all. How do we screen whether it can become a real disruption?",
+      "expected_behavior": "应激活 three-stone-tests，识别新市场关（有客户以'没有产品'为参照、缺资金技术无简单便宜方案），并继续走低端关与对称动机关。",
+      "notes": "英文正面场景，检验英文 trigger 触发。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这个已经跑通的SaaS产品做个未来三年的财务模型和估值，顺便算一下这轮融资该稀释多少股份。",
+      "expected_behavior": "不应激活 three-stone-tests，因为这是融资估值与财务建模，不涉及'构想是否具备破坏性'的判定。",
+      "notes": "诱饵：纯财务/估值任务，看似与创业决策相关但方法论不适用。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们准备把这块新业务做成独立子公司，你觉得该给它配什么团队、单独立什么KPI和成本结构？",
+      "expected_behavior": "不应激活 three-stone-tests，应激活 rpv-capability-audit（按资源/流程/价值观判断组织该放哪里、要不要自治）。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的组织能力审计场景，与'构想是否破坏性'无关。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的产品对某个细分市场来说确实更便宜，但性能也比现有产品差，客户是被过度服务的低端客户。这算破坏性机会吗？",
+      "expected_behavior": "可激活 three-stone-tests 并聚焦低端关：需确认两问皆为是（低端客户愿以低价买刚好够用的产品 + 能设计低毛利仍赢利的业务模式），并补算ROCII；若无法设计独立赢利模式则不过是低价跟随，不成立。",
+      "notes": "边界：低端破坏与'单纯低价'易混，需要靠第二关两问与ROCII区分。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（rpv-capability-audit）的跨 skill 混淆诱饵。"
+}

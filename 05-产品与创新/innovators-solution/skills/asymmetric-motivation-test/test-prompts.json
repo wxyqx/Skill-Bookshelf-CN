@@ -1,0 +1,52 @@
+{
+  "skill": "asymmetric-motivation-test",
+  "version": "0.1.0",
+  "source_book": "《创新者的解答》 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们想进入小型离网储能这个细分市场，但宁德时代、特斯拉、阳光电源都是巨头。你帮我判断一下：它们会跟我们打价格战，还是根本懒得管我们这块？",
+      "expected_behavior": "应激活 asymmetric-motivation-test，逐一列出这些在位者，把离网小型储能放进它们各自的成本结构与主力高毛利产品判断是破坏还是延续，并预测其理性反应（若不值得服务则主动撤退）。",
+      "notes": "正面场景：核心诉求是在位者会反击还是撤退。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "董事会问我'凭什么你能活下来'。我的目标客户是大厂看不上的小客户，价格只有它们的三分之一。这算不算对我们有利的竞争结构？",
+      "expected_behavior": "应激活 asymmetric-motivation-test，用不对称动机论证：低端/小客户在大厂成本结构下形同鸡肋，其资源会被导向高端，因此它会理性退让而非反击；同时警示需确认没有哪家重要在位者把这块当作延续性战场。",
+      "notes": "正面场景：需要基于对手动机而非自身能力来论证胜算。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Will the incumbents retaliate or retreat if we attack from the low end? There are four big players in this market and I want to assess each one's likely response.",
+      "expected_behavior": "应激活 asymmetric-motivation-test，对四家在位者逐一判断破坏/延续并预测反应，给出'值得出手或退回重塑'的结论。",
+      "notes": "英文正面场景，含 incumbent / retaliate / retreat 触发词。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把我们产品和主要竞品的参数做一张逐项对比表，看看下一代产品还差哪些功能需要补齐。",
+      "expected_behavior": "不应激活 asymmetric-motivation-test，因为这是单一竞品的功能对标与属性补齐，不是对多个在位者动机结构的检验。",
+      "notes": "诱饵：功能对标看似'竞争分析'，实则属属性军备竞赛，非本方法论。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们有一个新构想，想先过一遍完整的三关检验：它是不是新市场破坏、是不是低端破坏、最后是否对所有在位者都成立。",
+      "expected_behavior": "不应只激活 asymmetric-motivation-test，应激活 three-stone-tests（三关整流程）；本 skill 只负责第三关的深度展开。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill three-stone-tests 的完整三关场景。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的产品对那些巨头来说是破坏，但还有一家中等规模的对手，它其实可以用现有产品线顺手把我们这块接下来。这种情况你怎么看？",
+      "expected_behavior": "应激活 asymmetric-motivation-test 并强调否决规则：只要对任一重要在位者只是延续性（它能顺手接住并反击），先入者就占上风，应退回计划阶段重塑构想，而不是在此战场正面对抗。",
+      "notes": "边界：多数在位者被破坏、但存在一家延续性对手——正是'任一为延续即退回'的判停条件。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（three-stone-tests）的跨 skill 混淆诱饵。"
+}

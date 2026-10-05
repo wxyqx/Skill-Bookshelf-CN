@@ -1,0 +1,52 @@
+{
+  "skill": "interdependence-modularity-match",
+  "version": "0.1.0",
+  "source_book": "创新者的解答 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们整车厂在纠结电池包和电控是自己做还是采购供应商的模块化方案，续航和快充还没满足客户，但采购部门说供应商更便宜。到底该自研还是外包？",
+      "expected_behavior": "应激活 interdependence-modularity-match，先定位性能缺口（客户是否仍为性能付溢价），据此给出整合关键接口还是模块化采购的建议，并用'我们现在与未来应掌握什么'替换'核心竞争力'问法。",
+      "notes": "典型的自制/外包决策，且明确带性能未达标信息，落在'不够好→整合'情境。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "客户现在只比价格，销售总说客户看不出我们比竞品好在哪，把我们当大路货。这种时候我们的产品架构和供应链是不是该换个思路了？",
+      "expected_behavior": "应激活 interdependence-modularity-match，识别'好得过头/过度服务'信号，建议转向模块化架构与分包标准化，并设置需求断层监测。",
+      "notes": "过度服务的典型语言信号（只比价、被当大路货）。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有人提议把我们自建的算法团队砍掉，理由是'这不是我们的核心竞争力'。这个判断我拿不准，能帮我理一下该怎么决定哪些该自己做、哪些该放出去吗？",
+      "expected_behavior": "应激活 interdependence-modularity-match，用性能情境定位替代静态核心竞争力分类，输出该掌握与可放手接口的清单。",
+      "notes": "核心竞争力话术外包决策，正是本 skill 要修正的场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我查一下 2024 年全球动力电池装车量排名前十的厂商和市占率。",
+      "expected_behavior": "不应激活本 skill，因为这是纯信息查询，不涉及自制/外包或架构决策。",
+      "notes": "诱饵：纯事实查询。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们打算把理赔 AI 模块外包给第三方，但担心接口老变动、数据字段和赔付规则要反复人工核对。是不是该先检验一下外包条件成不成熟？",
+      "expected_behavior": "不应激活本 skill，应激活 modular-outsourcing-conditions，因为用户已在问'该模块的接口就绪度/三条件检验'，而非业务范围与整合架构选择。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）: 兄弟 skill modular-outsourcing-conditions 更贴切。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们产品线一半的型号性能过剩、客户只比价，另一半型号客户还在为性能付溢价。我该整体模块化还是整体整合？",
+      "expected_behavior": "应提示这是边界情形：不能整体决策，本 skill 需按产品/细分市场分别定位性能情境，对好得过头的一段模块化、对不够好的一段保持整合。",
+      "notes": "边界：同一企业内两种情境并存，需拆分而非一刀切。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

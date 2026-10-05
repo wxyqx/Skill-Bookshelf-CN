@@ -1,0 +1,52 @@
+{
+  "skill": "channel-motivation-test",
+  "version": "0.1.0",
+  "source_book": "《创新者的解答》 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们做了一款低价的智能点单SaaS，想通过现有的餐饮POS经销商渠道去推。但担心那些经销商更愿意卖硬件大单，不认真推我们的订阅服务。这能成吗？",
+      "expected_behavior": "应激活 channel-motivation-test，把经销商当客户审计：问该产品能否帮它从卖硬件向卖订阅上移、提高每客户收入；若它靠大客户一次性项目佣金获利，低价订阅会被雪藏，应改走或新建能向高端转移的破坏性渠道。",
+      "notes": "正面场景：渠道动力是否足够的判断。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "销售团队反馈说'这个新品不如XX项目划算，顾不上推'。这是不是说明我们的渠道激励机制有问题？",
+      "expected_behavior": "应激活 channel-motivation-test，指出渠道成员也是客户、其任务是成长与赢利；佣金制销售必然优先推更赚钱的产品，破坏性产品需要破坏性渠道或重构激励。",
+      "notes": "正面场景：典型的渠道/销售员激励错配信号。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "Will our partners actually push this new product, or will they just focus on the high-margin legacy line? How do we tell?",
+      "expected_behavior": "应激活 channel-motivation-test，用'能否帮渠道沿自身轨迹向高端转移、赚更多钱'的问句逐一审计，并给出渠道策略结论。",
+      "notes": "英文正面场景，含 partners push / channel motivation 触发点。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们还没搞清楚终端客户到底在什么场景下会买、竞争对手是谁，先帮我们做市场细分吧。",
+      "expected_behavior": "不应激活 channel-motivation-test，应激活 hire-product-theory（按客户要完成的任务做市场细分、重定义竞争集合）。",
+      "notes": "诱饵：终端客户需求问题，属任务理论而非渠道动力。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们想在光伏产业链上判断下一个利润聚集点在哪一环，是组件、逆变器还是储能整合？",
+      "expected_behavior": "不应激活 channel-motivation-test，应激活 commoditization-positioning（用货品化进程定位利润与品牌沿价值链迁移的方向）。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill commoditization-positioning 的价值链利润定位场景。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的产品对终端客户是破坏性的，但主流渠道不愿意推。有人说干脆改用大客户直销团队。这算解决了吗？",
+      "expected_behavior": "应激活 channel-motivation-test：不能简单认为换成直销团队就解决了——若内部销售团队是佣金制、且该产品对他们仍不赚钱，同样会被冷落（书明确指出'即使他们是你的雇员也一样'）；必须确认新渠道作为客户能从你的产品中获得向上迁移的动能。",
+      "notes": "边界：内部销售团队也是渠道，换渠道不等于解决动力问题。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（commoditization-positioning）的跨 skill 混淆诱饵。"
+}

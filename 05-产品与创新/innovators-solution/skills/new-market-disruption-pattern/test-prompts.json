@@ -1,0 +1,52 @@
+{
+  "skill": "new-market-disruption-pattern",
+  "version": "0.1.0",
+  "source_book": "《创新者的解答》 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我想做一款插墙即用的家用储能电池，面向有停电焦虑又装不起整套光伏储能的人。帮我按新市场破坏的模式设计一份能立项的业务计划。",
+      "expected_behavior": "应激活 new-market-disruption-pattern，逐条核对四要素（有任务无方案/以'没有备用电源'为基准/插墙即用免培训/走电商家居新渠道），并建议用符合典型模式而非ROI做评审预算。",
+      "notes": "正面场景：把已判定的新市场破坏构想塑造成业务计划。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们内部评审新业务都要看市场规模和三年ROI，结果破坏性项目全被毙了。有没有办法给这类创意单独开一条评审通道？",
+      "expected_behavior": "应激活 new-market-disruption-pattern，说明应以四要素典型模式而非数字规则为预算标准，为破坏性创意开辟平行流程，并警惕其被常规筛选扭曲成延续性计划。",
+      "notes": "正面场景：模式评审式预算与平行流程需求。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "We have a new-market disruption idea and need to shape it into a reviewable business plan. Should the budget review use our normal ROI rules, or something else?",
+      "expected_behavior": "应激活 new-market-disruption-pattern，用四要素塑造计划并说明以典型模式为预算标准、ROI不适用于萌芽期破坏性市场。",
+      "notes": "英文正面场景，含 new-market disruption / budget review。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这个破坏性项目该不该单独成立子公司？要不要给它独立的成本结构和流程？",
+      "expected_behavior": "不应激活 new-market-disruption-pattern，应激活 rpv-capability-audit（按资源/流程/价值观匹配度决定组织放置与自治组织设计）。",
+      "notes": "诱饵：组织设计问题，看似在讨论破坏性项目但方法论是 RPV 审计。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们有个构想，想先判断它到底是不是破坏性机会、能过几关，然后再决定要不要做计划。",
+      "expected_behavior": "不应激活 new-market-disruption-pattern，应激活 three-stone-tests（三块试金石判定构想是否具备破坏性潜力）。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill three-stone-tests 的判定场景（尚未到计划塑造阶段）。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的新市场破坏产品很好，但找不到愿意卖它的渠道——现有经销商都嫌单价低不赚钱。这属于模式的哪个环节出问题？",
+      "expected_behavior": "应激活 new-market-disruption-pattern 并定位到要素四（新价值网络/破坏性渠道），但进一步指出这需要移交 channel-motivation-test 做渠道动力审计；若渠道无法为新客户提供购买路径，则要素四不成立、需重塑。",
+      "notes": "边界：同时触及本 skill 要素四与 channel-motivation-test，需说清主次与移交关系。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（three-stone-tests）的跨 skill 混淆诱饵。"
+}

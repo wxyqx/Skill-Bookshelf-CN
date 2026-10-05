@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**36 本书 · 614 个 skills**（最后更新：2026-10-05）
+**37 本书 · 629 个 skills**（最后更新：2026-10-05）
 
 ### 分类导航
 
@@ -63,7 +63,7 @@
 | 《权力的48条法则》*The 48 Laws of Power* | 罗伯特·格林 · 1998 | 权力 / 策略 / 人际 | 15 | [`power-48-laws/`](./04-创业与经营/power-48-laws/) |
 | 《小米创业思考》 | 雷军 / 徐洁云 · 2022 | 创业方法论 / 效率模型 / 爆品模式 / 互联网七字诀 | 17 | [`xiaomi-startup-thinking/`](./04-创业与经营/xiaomi-startup-thinking/) |
 
-#### 05-产品与创新（5 本）
+#### 05-产品与创新（6 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -72,6 +72,7 @@
 | 《任天堂的体验设计——创造不知不觉打动人心的体验》*任天堂の体験設計* | 玉树真一郎 · 2021 | 体验设计 / 打动人心 / 游戏化 | 13 | [`nintendo-experience-design/`](./05-产品与创新/nintendo-experience-design/) |
 | 《启示录：打造用户喜爱的产品》*INSPIRED* | Marty Cagan · 2008 | 产品管理 / 产品探索 / 用户体验 | 18 | [`inspired/`](./05-产品与创新/inspired/) |
 | 《简约至上：交互式设计四策略》*Simple and Usable* | Giles Colborne · 2011 | 交互设计 / 简化 / 用户体验 | 20 | [`simple-and-usable/`](./05-产品与创新/simple-and-usable/) |
+| 《创新者的解答》*The Innovator's Solution* | 克里斯坦森 & 雷纳 · 2003 | 创新理论 / 破坏性创新 / 组织能力 / 增长战略 | 15 | [`innovators-solution/`](./05-产品与创新/innovators-solution/) |
 
 #### 06-沟通与领导力（3 本）
 
@@ -311,6 +312,13 @@
 - **Skills**：`efficiency-accounting` · `impossible-triangle-model` · `new-retail-efficiency` · `cost-performance-philosophy` · `hit-product-judgment` · `hit-product-system` · `one-core-business` · `optimal-solution-excellence` · `speed-four-abilities` · `sunk-cost-restart` · `word-of-mouth-design` · `word-of-mouth-verification` · `endgame-reasoning` · `new-business-three-pits` · `downturn-remediation` · `values-into-governance` · `minority-stake-empowerment`
 - **备注**：方法论密度最高的创始人自述——效率公式、爆品四特征、终局思维三层推论等均为公式化/条款化表达；与《精益创业 2.0》同属"创业与经营"分类，从大公司视角与之互补。
 
+### 37. 《创新者的解答》 · [`innovators-solution/`](./05-产品与创新/innovators-solution/)
+
+- **作者**：克莱顿·克里斯坦森 & 迈克尔·雷纳（Clayton M. Christensen & Michael E. Raynor）· 2003（The Innovator's Solution，哈佛商学院出版社；中信中译本，《创新者的窘境》续作）
+- **一句话**：创新的成功不靠天赋与运气，而靠理解塑造创新的力量并用"基于情境的因果理论"做决策——选对战场（不对称动机）、选对客户（任务理论/零消费者）、配对组织（RPV）与资金（好钱坏钱）、用对流程（应急 vs 谋划）：起始条件正确比战略精确更重要。
+- **Skills**：`three-stone-tests` · `asymmetric-motivation-test` · `nonconsumer-screening` · `new-market-disruption-pattern` · `hire-product-theory` · `channel-motivation-test` · `interdependence-modularity-match` · `modular-outsourcing-conditions` · `commoditization-positioning` · `rpv-capability-audit` · `resource-allocation-audit` · `emergent-deliberate-strategy` · `good-money-bad-money` · `growth-engine-cadence` · `executive-engagement-rules`
+- **备注**：破坏性创新理论的工具箱化——从"为什么在位者失败"转向"如何创造新增长"；与《精益创业 2.0》构成"创新理论 vs 创新执行"的互补，与《小米创业思考》形成创始人经验的理论镜像。
+
 ---
 
 ## 安装
@@ -318,7 +326,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 614 个 skills（用户级，所有项目可用）
+# 一次性安装全部 629 个 skills（用户级，所有项目可用）
 for d in */*/skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -372,7 +380,8 @@ skill-bookshelf/
 │   ├── hooked/   # 《上瘾：让用户养成使用习惯的四大产品逻辑》
 │   ├── nintendo-experience-design/   # 《任天堂的体验设计——创造不知不觉打动人心的体验》
 │   ├── inspired/   # 《启示录：打造用户喜爱的产品》
-│   └── simple-and-usable/   # 《简约至上：交互式设计四策略》
+│   ├── simple-and-usable/   # 《简约至上：交互式设计四策略》
+│   └── innovators-solution/   # 《创新者的解答》
 └── 06-沟通与领导力/
 │   ├── how-to-win-friends/   # 《人性的弱点》
 │   ├── influence-cialdini/   # 《影响力：你为什么说"是"》

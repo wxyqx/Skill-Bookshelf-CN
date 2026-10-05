@@ -1,0 +1,52 @@
+{
+  "skill": "nonconsumer-screening",
+  "version": "0.1.0",
+  "source_book": "《创新者的解答》 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们想做面向非洲农村的'先买后付太阳能套件'。这些人以前根本用不上电，你觉得这是不是个真机会？",
+      "expected_behavior": "应激活 nonconsumer-screening，用任务问题甄别（他们有照明/给手机充电的任务而煤油、走远路充电无法胜任→有任务无方案），并确定参照基准是'没有电'而非电网，故低价、简单、可靠即取悦。",
+      "notes": "正面场景：判断未消费人群是否真机会。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这个人群有十几亿人，他们现在买不起我们的产品，所以我觉得这是巨大的蓝海。你帮我评估一下这个逻辑站不站得住。",
+      "expected_behavior": "应激活 nonconsumer-screening，指出仅凭'人口基数大+买不起'不足以成立，必须先用任务问题甄别他们是否'有任务而无满意方案'，否则可能是无任务型零消费的伪机会。",
+      "notes": "正面场景：典型的用人口规模替代任务缺口的误判论证。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "How do I tell whether these nonconsumers actually have a job to be done, or whether they just have no need at all? And what should we benchmark our product against?",
+      "expected_behavior": "应激活 nonconsumer-screening，执行任务问题甄别区分真零消费与无任务，并回答参照基准（'没有产品'vs主流产品）决定性能门槛。",
+      "notes": "英文正面场景，含 nonconsumers 与 benchmark 触发点。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的产品要卖给已经在用竞品的中小客户，靠更低的价格和服务把他们抢过来，这算低端破坏吗？",
+      "expected_behavior": "不应激活 nonconsumer-screening，因为对象是已在消费的现有客户，属于低端市场破坏，应激活 three-stone-tests 并聚焦第二关（低端两问+ROCII）。",
+      "notes": "诱饵：低端破坏易与零消费混淆，但对象是已消费者，方法论不同。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我设计一个完整的'插墙即用家用储能电池'新市场破坏业务计划，并给出用它做预算评审的标准。",
+      "expected_behavior": "不应激活 nonconsumer-screening，应激活 new-market-disruption-pattern（用四要素塑造计划并以典型模式而非ROI做评审预算）。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill new-market-disruption-pattern 的计划塑造与评审场景。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "有个低价上网终端项目，目标人群没买过电脑。有人说他们是零消费者所以是机会，但也有人说他们其实没这个需求。到底怎么判？",
+      "expected_behavior": "应激活 nonconsumer-screening：关键看任务问题——若他们没有'要完成某项工作'而现有方案无法胜任，则属无任务型零消费，判为伪机会（书中低价上网终端即因无任务而失败）；不能因为'未购买'就当成机会。",
+      "notes": "边界：未消费不等于零消费，需靠任务甄别定真伪。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（new-market-disruption-pattern）的跨 skill 混淆诱饵。"
+}

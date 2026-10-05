@@ -1,0 +1,52 @@
+{
+  "skill": "commoditization-positioning",
+  "version": "0.1.0",
+  "source_book": "创新者的解答 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们做光伏组件的，现在全行业只能拼价格、毛利快没了。利润到底流到产业链哪一段去了，我们下一步该往哪个环节走？",
+      "expected_behavior": "应激活 commoditization-positioning，用六步货品化进程定位本环节，识别下游仍'不够好'的子系统（储能/逆变器软件/运维接口等）作为下一个利润聚集点并给出重新定位建议。",
+      "notes": "典型的价值链利润迁移预测场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的产品已经好得过头了，客户只比价格。有人还说继续砸钱做品牌就能扛住，这靠谱吗？品牌溢价到底还能不能守住？",
+      "expected_behavior": "应激活 commoditization-positioning，指出品牌溢价只存在于'不够好'的环节，建议品牌投入随利润迁移到仍未被满足的子系统或渠道。",
+      "notes": "品牌抗货品化判断，命中 ce10 的失败模式边界。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有供应商主动来劝我们把一块业务外包出去，说'这又不是你的核心竞争力'。我总觉得哪里不对，帮我看看这是不是个陷阱。",
+      "expected_behavior": "应激活 commoditization-positioning（并呼应不对称动机），用'这项工作也不是他的核心竞争力，他为什么要？'的反问识别供应商逐级吞食的不对称动机。",
+      "notes": "供应商劝外包的不对称动机预警，本 skill 的配套动作。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我算一下我们这条产线今年的单位成本和毛利率，看看哪里还能降本。",
+      "expected_behavior": "不应激活本 skill，因为这是成本核算/降本问题，不涉及竞争基础与价值链利润迁移。",
+      "notes": "诱饵：纯财务测算，无价值链定位诉求。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们现在电池包性能还没满足客户，客户愿意为续航和快充付溢价。这块到底是自研自制还是采购模块化方案更合适？",
+      "expected_behavior": "不应激活本 skill，应激活 interdependence-modularity-match，因为用户问的是本企业自制/外包与整合范围的决策，而非利润在产业链上的迁移定位。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书兄弟 skill interdependence-modularity-match 更贴切。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们整机组装这块已经被货品化了，但公司还有个自研的子系统和很强的品牌，我想知道该不该把组装彻底外包、专心做子系统。",
+      "expected_behavior": "应激活本 skill：这是货品化定位与价值链重新配置的典型边界——用六步进程确认组装已货品化，判断子系统是否仍'不够好'，若能守住则重新定位到子系统，但需扫描供应商不对称动机与渠道影响。",
+      "notes": "边界：同时涉及货品化环节与仍未过度服务的子环节，需在价值链上做取舍。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

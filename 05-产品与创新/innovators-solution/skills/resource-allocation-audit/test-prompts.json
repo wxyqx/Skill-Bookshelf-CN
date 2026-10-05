@@ -1,0 +1,52 @@
+{
+  "skill": "resource-allocation-audit",
+  "version": "0.1.0",
+  "source_book": "《创新者的解答》 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们老板天天说要搞创新，专门成立了创新部门，但钱和人其实都还在老业务那边。你帮我看看到底公司实际在做的是什么战略。",
+      "expected_behavior": "应激活 resource-allocation-audit，用'看行动不看言论'对比资金/产能/人才的宣称投入与真实流向，盘点中层四标准、毛利率门槛、规模阈值等过滤器，给出实际战略描述。",
+      "notes": "正面场景：辨认组织的实际战略。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们有个很好的面向零消费人群的创意，但在公司里报了两级之后就变成了'给现有大客户加个新功能'。怎么预判它会被改造成什么样、怎么才能不被磨平？",
+      "expected_behavior": "应激活 resource-allocation-audit，把创意放进中层四标准预判被包装的方向，并用初始成本结构杠杆（低固定成本让零消费小订单够格）设计让它不被磨平的通道。",
+      "notes": "正面场景：磨平机制诊断与预防。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "How do I find out what strategy my company is REALLY executing, as opposed to the one on the slide deck? People say 'watch what they fund, not what they say'.",
+      "expected_behavior": "应激活 resource-allocation-audit，审计资源分配真实流向与过滤器清单，说明实际战略是资源分配流程的输出。",
+      "notes": "英文正面场景，含 real strategy / resource allocation 触发点。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我写一版公司未来三年的战略愿景和使命宣言，要能鼓舞人心。",
+      "expected_behavior": "不应激活 resource-allocation-audit，因为本方法论恰恰不信任宣言，任务是文案撰写而非诊断实际战略。",
+      "notes": "诱饵：战略文案看似'战略'，但方向相反（写宣言 vs 揭穿宣言）。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这笔投资要求我们三年做到10亿收入，我在想接受它会不会逼我们放弃早期的小市场。这钱到底算好钱还是坏钱？",
+      "expected_behavior": "不应激活 resource-allocation-audit，应激活 good-money-bad-money（按投资者期望结构诊断资金好坏与死亡螺旋）。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill good-money-bad-money 的资金诊断场景。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们公司对创新业务的毛利率门槛很高。这是不是资源分配过滤器的问题？还是说这只是合理的财务纪律？",
+      "expected_behavior": "应激活 resource-allocation-audit，说明毛利率门槛确属过滤器的一种（由成本结构决定、会随市场升级上移），但它对延续性业务是合理的；判断关键在于它是否把理想（零消费/低端）客户的小订单挡在门外——若是，则需用低固定成本结构使小单够格，而非取消纪律。",
+      "notes": "边界：过滤器有时是合理纪律、有时是磨平机制，需按情境区分。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（good-money-bad-money）的跨 skill 混淆诱饵。"
+}

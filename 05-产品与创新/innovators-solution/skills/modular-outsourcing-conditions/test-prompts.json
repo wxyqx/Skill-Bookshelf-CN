@@ -1,0 +1,52 @@
+{
+  "skill": "modular-outsourcing-conditions",
+  "version": "0.1.0",
+  "source_book": "创新者的解答 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们保险公司想把理赔 AI 模块外包给第三方，但数据字段、赔付规则、合规和计费接口老是要人来协调，还经常变。这活到底能不能包出去？",
+      "expected_behavior": "应激活 modular-outsourcing-conditions，逐条检验专业性/可衡量性/可预测性三条件，若接口不成熟则建议先内部整合到稳定再分包。",
+      "notes": "典型的外包就绪度检验，且直接给出接口不确定互依的证据。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "行业里都在搞开放架构和生态联盟，我们是不是也该赶紧跟进、把接口标准化外包出去？现在跟会不会太早？",
+      "expected_behavior": "应激活 modular-outsourcing-conditions，用三条件判断功能可靠性是否达标，提示过早标准化/联盟可能是浪费。",
+      "notes": "行业标准/联盟时机判断，落在本 skill 的核心推论。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们把一个系统模块分包给供应商后，交付总对不上规格、接口一改两边就得重新对齐，项目拖了半年。问题出在哪？",
+      "expected_behavior": "应激活 modular-outsourcing-conditions，用三条件定位是哪一条（规格专业性/衡量标准/接口可预测性）不达标，给出回退整合的动作。",
+      "notes": "事后诊断分包失败，仍是本 skill 的应用场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这份外包合同的付款条款和违约赔偿条款整理成要点。",
+      "expected_behavior": "不应激活本 skill，因为这是合同文本的信息提取，不涉及接口成熟度判断。",
+      "notes": "诱饵：纯文档处理，不含决策。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的组件现在明显过度服务，客户只比价格，我在想整机业务到底该垂直整合到哪个环节、哪些该放手外包。",
+      "expected_behavior": "不应激活本 skill，应激活 interdependence-modularity-match，因为用户问的是业务范围/整合范围的整体定位，而非某模块的接口就绪度检验。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书兄弟 skill interdependence-modularity-match 更贴切。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们想把客服系统的一部分外包，其中工单流转接口很成熟，但知识库更新和权限继承这块还很不稳定。该整体外包还是分开处理？",
+      "expected_behavior": "应提示边界情形：本 skill 需按接口逐个检验、可拆分决策——成熟接口可外包，不稳定接口先内部整合，不应一刀切。",
+      "notes": "边界：同一模块内部接口成熟度不一致，需分接口判定。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

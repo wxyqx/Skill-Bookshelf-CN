@@ -1,0 +1,52 @@
+{
+  "skill": "growth-engine-cadence",
+  "version": "0.1.0",
+  "source_book": "创新者的解答 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们核心业务现在还在高速增长，日子很好过。有人说该趁现在就按固定节奏做几个新业务，也有人觉得等主业放缓了再说。到底该不该现在动手？",
+      "expected_behavior": "应激活 growth-engine-cadence，说明等成长放缓后价值观门槛会抬升、停滞重启成功率仅约 4%，建议趁核心健康时按既定节奏启动新成长业务。",
+      "notes": "典型的节奏化政策时机决策。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们想设计一套持续孵化新业务的机制，但不知道怎么定频率——是按每年启动几个新项目，还是只看资金预算？",
+      "expected_behavior": "应激活 growth-engine-cadence，建议按'每年启动多少个新业务'的数量节奏而非仅资金预算，并配小单元与长期跑道设计。",
+      "notes": "节奏政策的机制设计，命中'按数量而非仅资金'的独特性。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们手上有一笔钱，在考虑是收购一家成熟的行业平台来快速抬收入，还是买几家早期的破坏性小公司。哪种更能拉动长期成长？",
+      "expected_behavior": "应激活 growth-engine-cadence，区分'平台高度'与'平台坡度'，建议侧重收购早期破坏性企业以拉升成长斜率，并用前几章理论筛选候选。",
+      "notes": "收购策略二分（成长斜率 vs 平台高度）。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我列一下过去十年全球医疗设备行业的主要并购交易清单和金额。",
+      "expected_behavior": "不应激活本 skill，因为这是信息检索，不涉及节奏政策或收购策略取舍。",
+      "notes": "诱饵：纯事实查询。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们新业务接到一笔要求三年内快速做大的投资，我担心这笔钱的期望结构会逼我们放弃破坏性立足点。这是好钱还是坏钱？",
+      "expected_behavior": "不应激活本 skill，应激活 good-money-bad-money，因为用户问的是单笔资金隐含的投资者期望结构诊断，而非趁核心健康时按节奏持续启动新成长业务的政策设计。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书兄弟 skill good-money-bad-money 更贴切。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们核心业务增速已经从 30% 降到 10% 了，但还算健康、没亏损。现在补上节奏化孵化还来得及吗？",
+      "expected_behavior": "应激活本 skill 并说明这是边界情形：增速已明显放缓，价值观门槛可能已开始抬升，窗口在收窄；仍应尽快启动节奏化政策，但要意识到比'趁高速增长时'更难，且需先处理已被抬高的毛利率/规模门槛。",
+      "notes": "边界：核心业务从高增长转向放缓，节奏政策窗口正在收窄。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

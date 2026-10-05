@@ -1,0 +1,52 @@
+{
+  "skill": "emergent-deliberate-strategy",
+  "version": "0.1.0",
+  "source_book": "创新者的解答 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们想试水 AI 客服 Agent，但不确定该用哪个场景、怎么定价、怎么集成。到底该按一份详细计划一次性砸钱铺开，还是先小步试错？",
+      "expected_behavior": "应激活 emergent-deliberate-strategy，用三问检验谋划型可行性，判定多数不满足后建议应急型流程（小规模多场景试错、禁止大额承诺），并设置切换触发器。",
+      "notes": "典型的流程模式情境匹配决策。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的新业务跑了大半年，其实已经有一个模式明显赚钱了，但团队还在同时投五六个方向。是不是该收手聚焦了？",
+      "expected_behavior": "应激活 emergent-deliberate-strategy，判定取胜策略已浮现，建议切换到谋划型、砍掉分散注意力的项目并无情执行。",
+      "notes": "命中 ce14'该执行时仍继续摸索'的反面，切换测试场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们公司有一套成熟的年度战略规划流程，但现在要做一个前景很不确定的破坏性新业务，还能不能照搬这套流程管它？",
+      "expected_behavior": "应激活 emergent-deliberate-strategy，提示防范'健忘症'，把流程重置为应急模式，不用谋划型流程压制试错。",
+      "notes": "成功企业把谋划型流程制度化后套用新业务的健忘症场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我推荐几款适合中小企业的 AI 客服工具，列一下价格和功能对比。",
+      "expected_behavior": "不应激活本 skill，因为这是产品选型/信息查询，不涉及战略流程模式选择。",
+      "notes": "诱饵：纯信息查询。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们新业务接受了一笔要求三年做到 10 亿收入的投资。我担心这个资金背后的期望会逼我们放弃零消费市场去抢主流客户。",
+      "expected_behavior": "不应激活本 skill，应激活 good-money-bad-money，因为用户问的是资金隐含的投资者期望结构（对成长/利润的耐心），而非战略流程该用应急还是谋划。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书兄弟 skill good-money-bad-money 更贴切。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们在一个已经成熟的主业上做延续性改良，细节都很清楚、团队也理解，但也想顺手试一个不那么确定的新方向。流程该怎么定？",
+      "expected_behavior": "应激活本 skill 并说明这是边界情形：同一企业内不同业务应分别匹配流程——成熟的延续性业务用谋划型执行，不确定的新方向单列应急型探索，不能一刀切。",
+      "notes": "边界：谋划型与应急型在同一企业内部并存，需按业务拆分。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}

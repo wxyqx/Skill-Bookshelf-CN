@@ -1,0 +1,52 @@
+{
+  "skill": "hire-product-theory",
+  "version": "0.1.0",
+  "source_book": "《创新者的解答》 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们要给一款家用智能健身镜做市场细分。以前都是按年龄、收入、健身水平来分，感觉没什么用。换个思路该怎么分？",
+      "expected_behavior": "应激活 hire-product-theory，放弃属性细分，改为观察谁在什么情境下'雇'它（如没时间去健身房又怕尴尬的上班族），追问替代品集合（跑步机、手机App、私教课、干脆不练），提取单一任务并据此定功能优先级。",
+      "notes": "正面场景：市场细分诉求，且明确想摆脱属性细分。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "产品功能越加越多，竞品有的我们都加了，但客户还是不满意，销售也说不出我们到底帮客户解决了什么。问题出在哪？",
+      "expected_behavior": "应激活 hire-product-theory，指出这是脱离了客户任务的属性军备竞赛（ce03），引导回到'客户雇这个产品完成什么任务、替代品集合是谁'上来重新取舍功能。",
+      "notes": "正面场景：功能竞赛与竞争集合失焦。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "How do I figure out the real jobs to be done for our product? I want to replace demographic segmentation and also redefine who our true competitors are.",
+      "expected_behavior": "应激活 hire-product-theory，给出观察购买情境四要素（时间/场景/同行者/同购品）+ 追问替代品集合（含'什么都不做'）的方法。",
+      "notes": "英文正面场景，含 jobs to be done 触发词与竞争集合重定义诉求。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "客户投诉这个功能有bug，麻烦帮我排查一下代码逻辑并出修复方案。",
+      "expected_behavior": "不应激活 hire-product-theory，因为这是已明确的功能缺陷修复，不是市场细分或任务发现。",
+      "notes": "诱饵：纯技术修复任务，看似与产品相关但方法论无关。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们已经确定这类客户以前完全没买过、也请不起专业方案。现在想确认他们到底是真'有任务没方案'还是压根没这个需求。",
+      "expected_behavior": "不应激活 hire-product-theory，应激活 nonconsumer-screening（专用于甄别零消费人群是有任务无方案还是无任务）。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill nonconsumer-screening 的零消费甄别场景。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的产品想让那些从来不整理照片的人养成整理电子相册的新习惯，帮他们'精读'家里老照片。这个任务理论怎么看？",
+      "expected_behavior": "可激活 hire-product-theory，但触发其否决测试：价值主张是让客户去做他本来不做、优先级不高的事，属'让客户改变任务'，判定为低胜算并建议回到客户已在雇的现有方案上找立足点。",
+      "notes": "边界：表面是任务语言，实为改变任务，需要靠否决测试识别。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill（nonconsumer-screening）的跨 skill 混淆诱饵。"
+}

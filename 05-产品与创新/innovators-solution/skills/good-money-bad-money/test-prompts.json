@@ -1,0 +1,52 @@
+{
+  "skill": "good-money-bad-money",
+  "version": "0.1.0",
+  "source_book": "创新者的解答 — 克里斯坦森 & 雷纳",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们初创接到一笔投资，条件是三年内做到 10 亿收入。我担心这个要求会逼我们放弃最初那批零消费客户、转去抢大客户。这笔钱到底该不该拿？",
+      "expected_behavior": "应激活 good-money-bad-money，用两个耐心维度判定这是'急成长+耐利润'的坏钱，预警其会逼企业承诺高增长、背离破坏性立足点，并给出谈判'耐成长+急利润'期望结构的建议。",
+      "notes": "典型的资金期望结构诊断，且直接带高增长勒索情境。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的新业务已经亏了三年，团队说破坏性业务先赔几年很正常，董事会也承诺会耐心支持。这种长期补贴到底对不对？",
+      "expected_behavior": "应激活 good-money-bad-money，指出长期亏损意味着团队不急于验证付费意愿、成本结构被抬高，早期'对利润没耐心'才是良药，并跑五步死亡螺旋自检。",
+      "notes": "命中 ce16 长期补贴失败模式。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们核心业务还很赚钱，但感觉被资本市场绑架了——每年都要公布一个越来越高的增长目标，结果价值观门槛越抬越高，小业务根本过不了审。这是不是所谓的死亡螺旋？",
+      "expected_behavior": "应激活 good-money-bad-money，用死亡螺旋五步自检定位企业所处步骤（成长缺口→价值观门槛抬升），并给出期望结构重构与失速预警建议。",
+      "notes": "死亡螺旋机制识别场景。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我算一下这笔投资的 IRR 和回收期，以及不同折现率下的 NPV 对比。",
+      "expected_behavior": "不应激活本 skill，因为这是纯财务测算，不涉及投资者期望结构与破坏性业务的匹配。",
+      "notes": "诱饵：纯财务计算任务。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们核心业务还很强劲，我在想要不要现在就建立一套政策，按每年固定启动几个新成长业务的节奏来做，而不是等失速了再动手。",
+      "expected_behavior": "不应激活本 skill，应激活 growth-engine-cadence，因为用户问的是主动的投资节奏政策（趁核心健康时按既定节奏启动新业务），而非诊断某笔资金/投资环境的期望结构。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同书兄弟 skill growth-engine-cadence 更贴切。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是一家非上市家族企业，没有华尔街的成长贴现压力，但董事会内部还是希望新业务尽快做出成绩。这算好钱还是坏钱？",
+      "expected_behavior": "应激活本 skill 并说明这是边界情形：出资人身份（非上市）不是判据，关键看期望结构——若要求'尽快做出成绩'指向对利润的急躁（好），但若同时要求快速做大、不给立足点时间，则仍可能构成坏钱；需按两个维度分别评估。",
+      "notes": "边界：非上市但仍有内部增长期望，检验'身份不是判据'的核心论点。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），且至少 1 条是同书兄弟 skill 的场景（跨 skill 混淆测试）。"
+}
