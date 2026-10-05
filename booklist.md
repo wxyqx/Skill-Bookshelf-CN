@@ -9,20 +9,20 @@
 
 | 分类 | 书名 | 有书 | 蒸馏 |
 |---|---|---|---|
-| 教材类 | 经济学原理-微观分册-曼昆 | ✓ | ✅ [已蒸馏 6 skills](./mankiw-microeconomics/) |
-| 教材类 | 宏观经济学-曼昆 | ✓ | ✅ [已蒸馏 20 skills](./mankiw-macroeconomics-10e/) |
-| 教材类 | 中国宏观经济分析-徐高 | ✓ | ✅ [已蒸馏 24 skills](./xugao-macro-25-lectures/) |
-| 中国智库级专家 | 战略与路径-黄奇帆 | ✓ | ✅ [已蒸馏 19 skills](./strategy-and-path/) |
-| 中国智库级专家 | 分析与思考-黄奇帆 | ✓ | ✅ [已蒸馏 15 skills](./analysis-and-thinking/) |
-| 中国智库级专家 | 十次危机-温铁军 | ✓ | ✅ [已蒸馏 10 skills](./eight-crises/)（书架收录《八次危机：中国的真实经验 1949-2009》） |  |
-| 中国智库级专家 | 从冷战到冷战-温铁军 | ✓ | ✅ [已蒸馏 9 skills](./cold-war-to-cold-war/)（书架收录《从“老冷战”到“新冷战”》讲稿汇编） |  |
-| 中国智库级专家 | 当代中国经济改革程-吴敬链 | ✓ | ✅ [已蒸馏 10 skills](./china-reform-trilogy/)（书架收录吴敬琏《中国改革三部曲》，含《当代中国经济改革》） |  |
-| 美国智库级专家 | 繁荣与衰退-美国经济发展史-格林斯潘 | ✓ | ✅ [已蒸馏 8 skills](./capitalism-in-america/) |
-| 美国智库级专家 | 时代变迁-世界货币、美元地位和人民币的未来-沃尔克 |  | ✅ [已蒸馏 14 skills](./changing-fortunes/)（书架收录《时运变迁》，Changing Fortunes） |
-| 美国智库级专家 | 21世纪货币政策-伯南克 | ✓ | ✅ [已蒸馏 16 skills](./21st-century-monetary-policy/) |
-| 美国智库级专家 | 当音乐停止之后-布林德 | ✓ | ✅ [已蒸馏 11 skills](./after-the-music-stopped/) |
+| 教材类 | 经济学原理-微观分册-曼昆 | ✓ | ✅ [已蒸馏 6 skills](./01-经济与大势/mankiw-microeconomics/) |
+| 教材类 | 宏观经济学-曼昆 | ✓ | ✅ [已蒸馏 20 skills](./01-经济与大势/mankiw-macroeconomics-10e/) |
+| 教材类 | 中国宏观经济分析-徐高 | ✓ | ✅ [已蒸馏 24 skills](./01-经济与大势/xugao-macro-25-lectures/) |
+| 中国智库级专家 | 战略与路径-黄奇帆 | ✓ | ✅ [已蒸馏 19 skills](./01-经济与大势/strategy-and-path/) |
+| 中国智库级专家 | 分析与思考-黄奇帆 | ✓ | ✅ [已蒸馏 15 skills](./01-经济与大势/analysis-and-thinking/) |
+| 中国智库级专家 | 十次危机-温铁军 | ✓ | ✅ [已蒸馏 10 skills](./01-经济与大势/eight-crises/)（书架收录《八次危机：中国的真实经验 1949-2009》） |  |
+| 中国智库级专家 | 从冷战到冷战-温铁军 | ✓ | ✅ [已蒸馏 9 skills](./01-经济与大势/cold-war-to-cold-war/)（书架收录《从“老冷战”到“新冷战”》讲稿汇编） |  |
+| 中国智库级专家 | 当代中国经济改革程-吴敬链 | ✓ | ✅ [已蒸馏 10 skills](./01-经济与大势/china-reform-trilogy/)（书架收录吴敬琏《中国改革三部曲》，含《当代中国经济改革》） |  |
+| 美国智库级专家 | 繁荣与衰退-美国经济发展史-格林斯潘 | ✓ | ✅ [已蒸馏 8 skills](./01-经济与大势/capitalism-in-america/) |
+| 美国智库级专家 | 时代变迁-世界货币、美元地位和人民币的未来-沃尔克 |  | ✅ [已蒸馏 14 skills](./01-经济与大势/changing-fortunes/)（书架收录《时运变迁》，Changing Fortunes） |
+| 美国智库级专家 | 21世纪货币政策-伯南克 | ✓ | ✅ [已蒸馏 16 skills](./01-经济与大势/21st-century-monetary-policy/) |
+| 美国智库级专家 | 当音乐停止之后-布林德 | ✓ | ✅ [已蒸馏 11 skills](./01-经济与大势/after-the-music-stopped/) |
 | 美国智库级专家 | 亚洲大趋势-中国和新兴经济体未来-乔什维特 |  |  |
-| 美国智库级专家 | 激荡三十年-吴晓波 | ✓ | ✅ [已蒸馏 16 skills](./turbulent-forty-years/)（书架收录《激荡四十年》，含《激荡三十年》+《激荡十年》） |
+| 美国智库级专家 | 激荡三十年-吴晓波 | ✓ | ✅ [已蒸馏 16 skills](./01-经济与大势/turbulent-forty-years/)（书架收录《激荡四十年》，含《激荡三十年》+《激荡十年》） |
 
 ## Part II - 创业思维
 
@@ -39,7 +39,7 @@
 | 失败教训类 | 十一只小鸟告诉我的事-杜斯通 |  |  |
 | 失败教训类 | 创业者的解答-克莱顿克里斯坦森 |  |  |
 | 失败教训类 | 精益创业实战-阿什莫瑞亚 |  |  |
-| 失败教训类 | 重新定义公司-谷歌是如何运营的-埃里克施密特 | ✓ | ✅ [已蒸馏 18 skills](./how-google-works/) |
+| 失败教训类 | 重新定义公司-谷歌是如何运营的-埃里克施密特 | ✓ | ✅ [已蒸馏 18 skills](./05-产品与创新/how-google-works/) |
 | 失败教训类 | 格鲁夫给经理人的第一课-安迪格鲁夫 |  |  |
 | 失败教训类 | 天下无-中小企业赢的秘诀-大前研一 |  |  |
 | 失败教训类 | 创业维艰-如何完成比难更难的事-本霍洛维茨 | ✓ |  |
@@ -58,12 +58,12 @@
 | 一线导师视角做产品 | 俞军产品方法论-俞军 |  |  |
 | 实物产品 | 鞋狗-菲尔奈特 | ✓ |  |
 | 实物产品 | designing brand identity-alina wheeler |  |  |
-| 实际落地方法论 | 上瘾-让用户养成使用习惯四大产品逻辑-尼尔艾亚尔 |  | ✅ [已蒸馏 21 skills](./hooked/) |
-| 实际落地方法论 | 任天堂的体验设计-玉树真一郎 |  | ✅ [已蒸馏 13 skills](./nintendo-experience-design/) |
-| 实际落地方法论 | 启示录-打造用户喜爱的产品-马蒂卡根 |  | ✅ [已蒸馏 18 skills](./inspired/) |
+| 实际落地方法论 | 上瘾-让用户养成使用习惯四大产品逻辑-尼尔艾亚尔 |  | ✅ [已蒸馏 21 skills](./05-产品与创新/hooked/) |
+| 实际落地方法论 | 任天堂的体验设计-玉树真一郎 |  | ✅ [已蒸馏 13 skills](./05-产品与创新/nintendo-experience-design/) |
+| 实际落地方法论 | 启示录-打造用户喜爱的产品-马蒂卡根 |  | ✅ [已蒸馏 18 skills](./05-产品与创新/inspired/) |
 | 实际落地方法论 | 用户体验要素-以用户为中心的产品设计-jesse james garrett |  |  |
 | 实际落地方法论 | 用户体验度量-收集、分析与呈现-tom tullis/bill albert |  |  |
-| 实际落地方法论 | 简约至上-交互式设计四策略-giles colborne |  | ✅ [已蒸馏 20 skills](./simple-and-usable/) |
+| 实际落地方法论 | 简约至上-交互式设计四策略-giles colborne |  | ✅ [已蒸馏 20 skills](./05-产品与创新/simple-and-usable/) |
 
 ## Part IV - 营销和定位
 
@@ -75,7 +75,7 @@
 | 营销实战策略 | 跟华杉学品牌营销 |  |  |
 | 营销实战策略 | 参与感-黎万强 |  |  |
 | 营销心理学 | 如何让他买-改变消费者行为的十大策略-亚当费里尔 |  |  |
-| 营销传播学 | 影响力-罗伯特西奥迪尼 |  | ✅ [已蒸馏 9 skills](./influence-cialdini/) |
+| 营销传播学 | 影响力-罗伯特西奥迪尼 |  | ✅ [已蒸馏 9 skills](./06-沟通与领导力/influence-cialdini/) |
 | 营销传播学 | the culting of brands-douglas atkin |  |  |
 | 营销传播学 | 疯传-乔纳伯杰 |  |  |
 | 营销传播学 | 引爆点-马尔科姆格拉德威尔 |  |  |
@@ -135,9 +135,9 @@
 
 | 分类 | 书名 | 有书 | 蒸馏 |
 |---|---|---|---|
-| 人生智慧 | 穷查理宝典-查理芒格 |  | ✅ [已蒸馏 12 skills](./poor-charlies-almanack/) |
-| 人生智慧 | 高效能人士的七个习惯-史蒂芬柯维 |  | ✅ [已蒸馏 29 skills](./seven-habits/) |
-| 效率提升 | 学会提问-尼尔布朗 |  | ✅ [已蒸馏 22 skills](./asking-the-right-questions/) |
+| 人生智慧 | 穷查理宝典-查理芒格 |  | ✅ [已蒸馏 12 skills](./02-认知与决策/poor-charlies-almanack/) |
+| 人生智慧 | 高效能人士的七个习惯-史蒂芬柯维 |  | ✅ [已蒸馏 29 skills](./03-个人成长/seven-habits/) |
+| 效率提升 | 学会提问-尼尔布朗 |  | ✅ [已蒸馏 22 skills](./02-认知与决策/asking-the-right-questions/) |
 | 效率提升 | okr-源于英特尔和谷歌的目标管理利器-保罗尼文 |  |  |
 | 效率提升 | 这就是okr-让谷歌和亚马逊实现爆炸性增长的工作法-约翰杜尔 |  |  |
 | okr管理 | 金字塔原理-芭芭拉明托 |  |  |
@@ -151,5 +151,5 @@
 ## 统计
 
 - 书单总数：**101** 本
-- 已蒸馏：**10** 本（对应书架目录：[`mankiw-microeconomics`](./mankiw-microeconomics/)、[`how-google-works`](./how-google-works/)、[`hooked`](./hooked/)、[`nintendo-experience-design`](./nintendo-experience-design/)、[`inspired`](./inspired/)、[`simple-and-usable`](./simple-and-usable/)、[`influence-cialdini`](./influence-cialdini/)、[`poor-charlies-almanack`](./poor-charlies-almanack/)、[`seven-habits`](./seven-habits/)、[`asking-the-right-questions`](./asking-the-right-questions/)）
+- 已蒸馏：**10** 本（对应书架目录：[`mankiw-microeconomics`](./01-经济与大势/mankiw-microeconomics/)、[`how-google-works`](./05-产品与创新/how-google-works/)、[`hooked`](./05-产品与创新/hooked/)、[`nintendo-experience-design`](./05-产品与创新/nintendo-experience-design/)、[`inspired`](./05-产品与创新/inspired/)、[`simple-and-usable`](./05-产品与创新/simple-and-usable/)、[`influence-cialdini`](./06-沟通与领导力/influence-cialdini/)、[`poor-charlies-almanack`](./02-认知与决策/poor-charlies-almanack/)、[`seven-habits`](./03-个人成长/seven-habits/)、[`asking-the-right-questions`](./02-认知与决策/asking-the-right-questions/)）
 - 书架中尚不在本清单的已蒸馏书：*心流*、*Ready, Fire, Aim*、《人性的弱点》、《洛克菲勒留给儿子的38封信》、《刻意练习》、《富爸爸穷爸爸系列》、《思考，快与慢》、《权力的48条法则》、《稀缺》、《当下的力量》、《精益创业 2.0》、《领导梯队建设系列》、《卓有成效的管理者》
