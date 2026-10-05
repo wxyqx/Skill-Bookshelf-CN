@@ -1,0 +1,52 @@
+{
+  "skill": "revenue-quality-three-questions",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "年报附注里显示这家医药公司一个主打产品占了收入的八成,地区上华北华东卖得好、华南东北很弱,这个收入结构健康吗?",
+      "expected_behavior": "应激活本 skill,用三问框架拆解:卖什么(品种占比约80%→主导产品单一化,对照战略判断是专业化深耕还是风险敞口)、卖给谁(区域强弱分布→竞争地位与扩张空间),并输出品种与区域两个维度的可持续性结论",
+      "notes": "北陆药业式正面场景:品种构成+地区构成数据齐备"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我在做尽调,目标公司差不多七成收入来自向控股股东控制企业的购销,合同价格倒和市场价差不多,这些收入以后还能持续吗?",
+      "expected_behavior": "应激活本 skill,走'靠什么'维度:即便交易价格公允,也要检验交易实现时间的市场化因素,并指出持续性依赖关联方存续——市场化能力不足,给出收入来源三分类与可持续性判断",
+      "notes": "关联交易判据:价格公允≠可持续"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这家地方国企的订单基本靠当地政府的行政扶持拿来的,报表收入年年涨,这种收入的含金量和以后的前景你怎么看?",
+      "expected_behavior": "应激活本 skill,走'靠什么'的行政手段维度:做'政策改变'压力测试,指出靠行政手段维持的业绩在政策改变后前途未卜,只有靠市场获得持续发展的企业才有核心竞争力;同时区分这是营业收入内的行政依赖,与政府补助(非营业收入)不同",
+      "notes": "行政手段收入可持续性场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家公司应收账款前五名欠款方占了将近一半,账龄也在变长,客户信用质量该怎么评估?",
+      "expected_behavior": "不应激活本 skill,应激活 receivables-and-funneling——用户问的是债权科目质量与客户欠款风险,属于从应收账款反推客户质量,不是从收入本身看构成与来源",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 receivables-and-funneling(债权侧看客户),本 skill 是收入侧看构成"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司净利润涨了三成,但我想知道利润的含金量、持续性和战略吻合性整体怎么样,帮我做个全面评估。",
+      "expected_behavior": "不应激活本 skill,应激活 profit-quality-3d——用户要的是利润整体的三维质量评估;本 skill 只管收入的构成质量,只是其上游输入之一",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 profit-quality-3d(利润整体三维质量)"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我手头只有利润表上'营业收入'一个总数,没有附注,想知道这家公司收入质量怎么样。",
+      "expected_behavior": "可激活本 skill,但第一步即触发判停:五维中'卖给谁(地区/客户)''靠什么(关联/行政)'四个维度无附注无法落地,应明确标注'披露不足,判断置信度受限',向用户索要年报附注或分部数据,不得虚构明细;可先就品种构成能否从其他公开信息推断做有限分析",
+      "notes": "边界:框架高度依赖附注披露,披露不足时的判停行为是本 skill 的关键测试点"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0):should-not-trigger-01 指向兄弟 skill receivables-and-funneling,should-not-trigger-02 指向兄弟 skill profit-quality-3d。"
+}

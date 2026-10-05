@@ -11,11 +11,11 @@
 
 ## 目录总览
 
-**37 本书 · 629 个 skills**（最后更新：2026-10-05）
+**38 本书 · 647 个 skills**（最后更新：2026-10-05）
 
 ### 分类导航
 
-#### 01-经济与大势（13 本）
+#### 01-经济与大势（14 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -32,6 +32,7 @@
 | 《21世纪货币政策》*21st Century Monetary Policy* | 本·伯南克 · 2022 | 货币政策 / 信誉与预期管理 / 危机应对 | 16 | [`21st-century-monetary-policy/`](./01-经济与大势/21st-century-monetary-policy/) |
 | 《当音乐停止之后》 | 艾伦·布林德 · 2014 | 金融危机 / 政策评估 / 政治经济学 | 11 | [`after-the-music-stopped/`](./01-经济与大势/after-the-music-stopped/) |
 | 《激荡四十年》*Turbulent Forty Years* | 吴晓波 · 2018 | 中国企业史 / 政策周期 / 政商关系 / 产权改革 | 16 | [`turbulent-forty-years/`](./01-经济与大势/turbulent-forty-years/) |
+| 《财务报表分析(简明版·立体化数字教材版)》*Financial Statement Analysis* | 张新民、钱爱民 · 2020 | 财务报表分析 / 资产质量 / 利润质量 / 战略透视 / 造假识别 | 18 | [`financial-statement-analysis/`](./01-经济与大势/financial-statement-analysis/) |
 
 #### 02-认知与决策（5 本）
 
@@ -316,7 +317,13 @@
 
 - **作者**：克莱顿·克里斯坦森 & 迈克尔·雷纳（Clayton M. Christensen & Michael E. Raynor）· 2003（The Innovator's Solution，哈佛商学院出版社；中信中译本，《创新者的窘境》续作）
 - **一句话**：创新的成功不靠天赋与运气，而靠理解塑造创新的力量并用"基于情境的因果理论"做决策——选对战场（不对称动机）、选对客户（任务理论/零消费者）、配对组织（RPV）与资金（好钱坏钱）、用对流程（应急 vs 谋划）：起始条件正确比战略精确更重要。
-- **Skills**：`three-stone-tests` · `asymmetric-motivation-test` · `nonconsumer-screening` · `new-market-disruption-pattern` · `hire-product-theory` · `channel-motivation-test` · `interdependence-modularity-match` · `modular-outsourcing-conditions` · `commoditization-positioning` · `rpv-capability-audit` · `resource-allocation-audit` · `emergent-deliberate-strategy` · `good-money-bad-money` · `growth-engine-cadence` · `executive-engagement-rules`
+- **Skills**：`three-stone-tests` · `asymmetric-motivation-test` · `nonconsumer-screening` · `new-market-disruption-pattern` · `hire-product-theory` · `channel-motivation-test` · `interdependence-modularity-match` · `modular-outsourcing-conditions` · `commoditization-positioning` · `rpv-capability-audit` · `resource-allocation-audit` · `emergent-deliberate-strategy`
+
+### 38. 《财务报表分析(简明版·立体化数字教材版)》 · [`financial-statement-analysis/`](./01-经济与大势/financial-statement-analysis/)
+
+- **作者**：张新民、钱爱民 · 2020（中国人民大学出版社，教育部经济管理类核心课程教材）
+- **一句话**：看报表不能只看规模和比率，要把每个项目还原成质量和战略问题——资产有没有实际效用、利润是不是真金白银、资本结构在支持还是拖累企业——从公开报表反推管理质量与企业质地。
+- **Skills**：`strategic-analysis-path` · `project-quality-entry` · `cash-quality-funding-risk` · `receivables-and-funneling` · `inventory-and-margin` · `long-term-asset-quality` · `asset-allocation-strategy` · `capital-structure-four-forces` · `profit-quality-3d` · `revenue-quality-three-questions` · `non-operating-income-quality` · `cash-flow-three-activities` · `consolidation-pitfalls` · `differential-analysis` · `ratio-revision-rules` · `earnings-manipulation-tactics` · `profit-deterioration-sweep` · `off-statement-strategy-blindspots` · `good-money-bad-money` · `growth-engine-cadence` · `executive-engagement-rules`
 - **备注**：破坏性创新理论的工具箱化——从"为什么在位者失败"转向"如何创造新增长"；与《精益创业 2.0》构成"创新理论 vs 创新执行"的互补，与《小米创业思考》形成创始人经验的理论镜像。
 
 ---
@@ -326,7 +333,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 629 个 skills（用户级，所有项目可用）
+# 一次性安装全部 647 个 skills（用户级，所有项目可用）
 for d in */*/skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -356,7 +363,8 @@ skill-bookshelf/
 │   ├── changing-fortunes/   # 《时运变迁》
 │   ├── 21st-century-monetary-policy/   # 《21世纪货币政策》
 │   ├── after-the-music-stopped/   # 《当音乐停止之后》
-│   └── turbulent-forty-years/   # 《激荡四十年》
+│   ├── turbulent-forty-years/   # 《激荡四十年》
+│   └── financial-statement-analysis/   # 《财务报表分析(简明版·立体化数字教材版)》
 ├── 02-认知与决策/
 │   ├── thinking-fast-and-slow/   # 《思考，快与慢》
 │   ├── poor-charlies-almanack/   # 《穷查理宝典》

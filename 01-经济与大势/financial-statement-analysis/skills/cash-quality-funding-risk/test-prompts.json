@@ -1,0 +1,52 @@
+{
+  "skill": "cash-quality-funding-risk",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家公司净利润3个亿,经营活动现金流量净额却只有5000万,别人说它'有利润没钱',这种利润可信吗?怎么查?",
+      "expected_behavior": "应激活本 skill,先算核心利润获现率(强调分子分母都用核心口径,不能用净利润),对照经验底线>1,再走五类归因诊断树(收款异常/付款异常区分战略性囤货/不当资金运作/关联往来/编制错误),并建议用现金购销比率对表营业成本率",
+      "notes": "最典型正面场景:'有利润没钱'+含金量诊断,对应 v-B21/v-A08"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这家公司账上趴着45亿货币资金,占总资产快一半,同时短期借款30亿,网上都说存贷双高就是造假,是这样吗?",
+      "expected_behavior": "应激活本 skill,先给存贷双高的三种非造假解释(票据保证金/分权管控下资金分散/融资环境),查附注受限资金与自由度,再用三维质量(运用/构成/生成)判断过大现金的含义;若叠加短期借款远超经营所需+长期资产扩张+资金受限,按短贷长投推演资金链断裂链条",
+      "notes": "存贷双高+货币资金真实性场景,对应 v-A07/v-B10"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "帮我看下这家公司的核心利润获现率合不合格,为什么比1低?是收不回钱还是别的毛病?",
+      "expected_behavior": "应激活本 skill,按诊断树执行:计算获现率→对照底线>1与1.2~1.5倍充足线→五类归因逐支排查→区分战略性付款与真恶化→输出三段式结论(货币资金质量判定+含金量判定+资金链风险)",
+      "notes": "用户直接点名'核心利润获现率',本 skill 的核心武器"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我整体评价这家公司经营、投资、筹资三类活动现金流量的质量,经营现金流够不够充足、稳不稳定,投资和筹资合不合适?",
+      "expected_behavior": "不应激活本 skill,应激活 cash-flow-three-activities——用户要的是三类活动现金流量的整体质量框架(三性/战略吻合/融资恰当性),不是货币资金科目+获现率这一个检验程序",
+      "notes": "同书兄弟 skill 混淆诱饵:整体现金流量框架 vs 含金量单点诊断,应触发 cash-flow-three-activities"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "核心利润和净利润到底有什么区别?利润质量的三个维度(含金量、持续性、战略吻合性)分别怎么看?",
+      "expected_behavior": "不应激活本 skill,应激活 profit-quality-3d——用户问的是利润的口径定义与三维评价体系本身,而非做现金验证这一个诊断环节;本 skill 只在获现率诊断中消费'核心利润'口径,不负责定义它",
+      "notes": "同书兄弟 skill 混淆诱饵:利润口径与三维定义 vs 含金量现金检验,应触发 profit-quality-3d"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这家公司获现率只有0.6,但我查了下当期原材料存货和预付款大增,管理层说是为锁定低价战略性囤料——这缺口到底算不算恶化?顺带说下他们短债长用搞新厂房危险不危险?",
+      "expected_behavior": "可激活本 skill:五类归因中的'付款不正常增加'支线正是要求区分战略性囤货(提升未来含金量)与真恶化,判据在付款的性质而非金额,结论应给'备战而非恶化'但标注依赖管理层解释可信度;后半句短债长用触发存贷双高/短贷长投推演支线——本 skill 内部两个子程序协作完成",
+      "notes": "边界:归因树内含相反结论分支+跨出含金量检验进入资金链推演,本 skill 均覆盖,但需显式说明'囤料说'无法仅凭报表证实"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),其中 should-not-trigger-01/02 均为同书兄弟 skill 混淆测试(分别应触发 cash-flow-three-activities 与 profit-quality-3d)。"
+}

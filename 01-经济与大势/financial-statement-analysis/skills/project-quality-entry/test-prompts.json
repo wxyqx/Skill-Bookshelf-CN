@@ -1,0 +1,52 @@
+{
+  "skill": "project-quality-entry",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我刚拿到一份上市公司年报,科目太多看得头晕,有没有办法先圈出最值得细看的重点科目和异常变动的地方?",
+      "expected_behavior": "应激活本 skill:先看审计意见类型定基调,再按重要性原则+例外原则编'重大与异动项目一览表',每项注明入选理由,输出收敛后的细看清单",
+      "notes": "最典型的正面场景:'不知道该细看哪些科目'的总纲入口请求"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "评价一项资产好不好,除了看它值多少钱还有什么标准?书上说的盈利性、周转性、保值性具体怎么用在固定资产上?",
+      "expected_behavior": "应激活本 skill:用三性标尺展开——盈利性看贡献的收益、周转性看利用效率与闲置、保值性看减值可能性,并强调质量是情境化的、要结合企业经营环境判断预期效用",
+      "notes": "直接命中三性框架关键词"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这家公司审计报告是带强调事项段的无保留意见,强调的是持续经营有重大不确定性,那我分析它的年报时要不要先打个折扣?附注里应该重点查什么?",
+      "expected_behavior": "应激活本 skill:按五类型严重度排序判读——带强调事项段的无保留意见=整体公允但需关注所述事项,归入'带疑点分析'档;再给出附注重点核查方向(持续经营评估、减值计提、政策与估计变更等)",
+      "notes": "审计意见+附注入口的组合场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "你帮我把这家公司的年报从头到尾整体分析一下吧,背景、战略、前景都给我讲讲,我投资前想做个全面评估。",
+      "expected_behavior": "不应激活本 skill,应激活 strategic-analysis-path(综合分析路径)——用户要的是四步全程路线图的整体结论,不是'会计分析与项目圈定'这一环节;本 skill 只在其第二步被内部调用",
+      "notes": "同书兄弟 skill 混淆诱饵:全程路线图 vs 项目圈定环节,应触发 strategic-analysis-path"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这家公司账上货币资金好几个亿,但同时短期借款也有好几个亿,存贷双高,这个货币资金的质量和背后的资金链风险怎么分析?",
+      "expected_behavior": "不应激活本 skill,应激活 cash-quality-funding-risk(货币资金与获现率)——用户已锁定单一科目(货币资金)要深挖,不需要再走'圈定重大与异动项目'的总纲程序",
+      "notes": "同书兄弟 skill 混淆诱饵:总纲圈定 vs 单项科目深挖,应触发 cash-quality-funding-risk"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我在用同花顺筛异动股,发现一家公司其他应收款突然增长了三倍,我想知道这种异动一般意味着什么,该怎么顺着查下去?",
+      "expected_behavior": "可激活本 skill:这正是'例外原则圈定异动项目'的实例,应完成圈定+三性评价+指引用户到附注(其他应收款明细、欠款方构成、关联方往来)还原背后活动;若查明细后确认疑似占款,应移交 receivables-and-funneling 深挖——本 skill 负责入口,单项 skill 负责深挖,两段衔接而非互斥",
+      "notes": "边界:单一异动线索既像单项科目问题,又需要总纲的圈定与还原程序;本 skill 作为入口激活,查实后向单项 skill 交棒"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),其中 should-not-trigger-01、should-not-trigger-02 均为同书兄弟 skill 混淆测试,分别指向 strategic-analysis-path 与 cash-quality-funding-risk。"
+}

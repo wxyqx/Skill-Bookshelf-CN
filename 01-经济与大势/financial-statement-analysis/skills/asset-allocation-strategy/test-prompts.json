@@ -1,0 +1,59 @@
+{
+  "skill": "asset-allocation-strategy",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "看了这家公司的母公司报表,长期股权投资加上其他应收款占总资产六成以上,货币资金也不少,这到底是一家做经营的公司还是做投资的公司?算多元化吗?",
+      "expected_behavior": "应激活本 skill:按利润贡献方式重分类资产(现金归经营性、被占用款项归投资性),判定投资主导型,再结合子公司收入结构判断多元化是相关还是无关,并提示判断入口在母公司报表",
+      "notes": "最典型的正面场景:从资产结构判断战略类型"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "母公司报表里经营性资产和投资性资产的比例是70:30,但核心利润和投资收益的比例是20:80,这种结构说明什么问题?",
+      "expected_behavior": "应激活本 skill,做双比例对照:结构严重错配(三成资产贡献八成利润),提示可能是权益法泡沫或投资收益确认激进,下一步查投资收益含金量(分红回流/现金回款),长期看战略实施效果不佳",
+      "notes": "书中原题场景(v-A23),双比例对照的标准应用"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "年报里说聚焦主业走专业化路线,但资产负债表上一小半资产都是对外投资,怎么验证它的战略到底实施得怎么样?",
+      "expected_behavior": "应激活本 skill:重分类资产定类型→与年报战略承诺对照(分全体股东与控股股东两层)→双比例对照检验利润结构与资产结构吻合性",
+      "notes": "战略承诺 vs 实际结构的验证请求"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "一家投资控股型母公司自己连年亏损,但旗下子公司个个盈利、分红也正常,母公司报表这么难看可信吗?真实效益该怎么看?",
+      "expected_behavior": "应激活本 skill,走替代脉络:控制性投资(母公司长投/其他应收款/预付与合并对应项目之差)→子公司核心利润(合并减母公司)→子公司经营现金净流量,并说明成本法下母公司利润与子公司效益脱钩不代表恶化",
+      "notes": "控股型平台的替代分析脉络(v-A22/f30)"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家公司资产负债率不高但金融性负债占了负债一大半,还有不少应付账款占着上游的资金,它的资本结构到底健不健康?",
+      "expected_behavior": "不应激活本 skill,应激活 capital-structure-four-forces(四大动力与资本结构质量)——问题全部落在资产负债表右边(资本来源与偿付压力),不涉及左边资产配置与战略类型",
+      "notes": "同书兄弟 skill 混淆诱饵:右半边(资本引入)vs 左半边(资源配置),应触发 capital-structure-four-forces"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "账上那笔长期股权投资计提了两亿减值准备,但被投资单位明明还在正常盈利,这笔投资的减值计提合不合理?会不会是财务洗澡?",
+      "expected_behavior": "不应激活本 skill,应激活 long-term-asset-quality(长期资产项目质量)——用户问的是单个项目的保值性与减值操纵嫌疑,不需要整体资产结构的战略分类与吻合性检验",
+      "notes": "同书兄弟 skill 混淆诱饵:单项效用体检 vs 整体结构透视,应触发 long-term-asset-quality"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这是一家轻资产平台型公司,账上趴着大额货币资金和理财,固定资产没多少,核心资产是用户网络和算法,用经营性/投资性重分类好像归不了类,这种公司战略怎么判断?",
+      "expected_behavior": "可激活本 skill,但应在第一步就触发判停:重分类框架对轻资产平台型企业失灵(核心资源表外或费用化、货币资金一律归经营性会扭曲结构),明确告知三分类与双比例对照在此适用性受限,降级为定性讨论并引入表外信息,而非机械输出类型标签",
+      "notes": "边界场景:作者自认新商业模式对传统方法构成挑战,正确行为是激活后主动声明边界并判停,不是拒绝回答也不是硬套框架"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "4 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0):should-not-trigger-01 应触发 capital-structure-four-forces,should-not-trigger-02 应触发 long-term-asset-quality,均为同书兄弟 skill 混淆测试。"
+}

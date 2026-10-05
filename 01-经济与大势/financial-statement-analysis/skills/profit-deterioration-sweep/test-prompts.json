@@ -1,0 +1,52 @@
+{
+  "skill": "profit-deterioration-sweep",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家公司去年巨亏、集中计提了巨额减值,今年年报一出就宣布扭亏为盈。这个扭亏是真的吗?明年会不会业绩变脸?",
+      "expected_behavior": "应激活本 skill:跑洗大澡两阶段剧本(上年=储备年,本年=释放年候选),执行扭亏成色检验——核心利润是否转正、核心利润获现率是否>1、扭亏来源是减值转回/处置/浮盈/补贴中的哪一种;给出'经营修复/弹性释放'定性与明年变脸推演",
+      "notes": "最典型场景:巨亏→扭亏时序,直接对应 v-B08 两阶段剧本"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我刚扫了这家公司的年报,疑点很多:换了会计师事务所、应收账款翻倍、存货周转明显放缓、研发和广告费砍了一半、账上明明有利润却连续三年没分红。这些信号凑在一起,是不是说明利润质量在恶化?恶化到什么程度?",
+      "expected_behavior": "应激活本 skill:按四组清单逐项核对(审计与会计行为异常组+经营科目异动组+行为反常组),清点交叉命中组数执行分级——3 组命中按恶化处理;同时为每条命中列无害替代解释,防止机械扫雷误伤",
+      "notes": "信号组合+程度分级的标准场景,对应 v-B15 十二信号四组组织与分级器"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司公告10送8,同时披露了定增预案;另外它今年扭亏主要靠公允价值变动收益,非经常性损益占比看起来不高。这种'利好'背后有没有问题?",
+      "expected_behavior": "应激活本 skill:①高送转+再融资耦合=迎合式信号,送转摊薄 EPS 与每股经营现金流;②指出'非经占比低'的筛选漏洞——公允价值变动收益实务中通常不算非经常性损益,它是无现金的未实现浮盈,检验须回到核心利润与获现率",
+      "notes": "覆盖 v-B11 迎合式分红与高送转、v-B16 浮盈绕过非经筛选两个要点"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "低转成本是怎么虚增毛利率的?给我讲讲这类财务造假的具体手法和背后的机理,蓝田和银广夏是怎么做的?",
+      "expected_behavior": "不应激活本 skill,应激活 earnings-manipulation-tactics(造假手法机理)——用户问的是'怎么造的'这一手法机理与历史案例,不是拿可观察信号做恶化分级;本 skill 只在已有疑点信号、要判级扫雷时启动",
+      "notes": "同书兄弟 skill 混淆诱饵:恶化扫雷(外在表现) vs 造假手法机理,应触发 earnings-manipulation-tactics"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我专门深挖一下这家公司政府补助收入这一项:构成是什么、哪些是一次性的、含金量如何、明年还能持续吗?",
+      "expected_behavior": "不应激活本 skill,应激活 non-operating-income-quality(非经营收入单项深挖)——用户要的是对政府补助这一个非经营项目的构成、持续性与含金量的专项分析,不需要 12 信号组合判级;补贴依赖只是本 skill 四组清单中的一条信号,单项深挖应交给专门 skill",
+      "notes": "同书兄弟 skill 混淆诱饵:组合信号判级 vs 单个非经营项目深挖,应触发 non-operating-income-quality"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这家新能源车企确实有'扩张过快+过度举债'两组信号,但整个行业都在烧钱换产能,它还处在成长期,研发投入也一直很高——按扫雷清单判它恶化,会不会误伤了好公司?",
+      "expected_behavior": "可激活本 skill,但输出须体现作者对'清单机械扫雷误伤成长企业'的警告:2 组命中=预警级而非恶化级;逐条列无害替代解释(行业性扩张阶段、成长期不分红常见),用核心利润趋势与获现率做校准检验,结论止于'观察+跟踪清单(下一报告期看什么)',不下'恶化'定论",
+      "notes": "边界:命中组数与成长阶段冲突——本 skill 的分级器必须结合发展阶段校准,这正是 B 段警告的失败模式"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),两条均为同书兄弟 skill 混淆诱饵:should-not-trigger-01 应触发 earnings-manipulation-tactics,should-not-trigger-02 应触发 non-operating-income-quality。"
+}

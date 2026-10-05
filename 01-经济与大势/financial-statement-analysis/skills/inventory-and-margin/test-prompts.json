@@ -1,0 +1,52 @@
+{
+  "skill": "inventory-and-margin",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家公司今年附注里产成品存货比去年多了将近一倍,原材料占比反而下降,毛利率却跟去年基本持平,这种组合正常吗?该怎么判断存货质量?",
+      "expected_behavior": "应激活本 skill,按构成-盈利性-周转性-保值性四维分析:产成品骤增+毛利率持平指向滞销减产或低转成本,用产销率与同行毛利率对照二选一,并检查营业成本与期末存货相对规模、跌价准备计提,给出质量判断与后续核查动作",
+      "notes": "最典型正面场景:存货构成与毛利率联动异常,正是 v-A14 的核心问答形态"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们做的是充分竞争的制造业,毛利率连续两年比行业平均水平高出十多个百分点,产品结构没变,老板说是竞争力强,我从财务上怎么验证这个说法?",
+      "expected_behavior": "应激活本 skill,跑毛利率高五种原因归因清单:垄断、竞争力、行业周期可由行业数据排除,剩'产大于销摊薄固定成本'与'会计处理故意调高'二选一,查存货余额与产量数据定位,并提示查审计报告",
+      "notes": "毛利率过高+同行对照场景,检验'高毛利未必是竞争力'的反直觉归因"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "分析一家公司时发现它存货周转率明显变慢,跌价准备计提比例还比同行低一半,冷背呆滞商品一大堆挂在账上,这种存货的保值性该怎么评价?",
+      "expected_behavior": "应激活本 skill,四维框架中构成与保值性维度重点展开:计提比例对照行业均值判'计提不足',潜亏挂账即保值性报警,同时提示巨额计提滞后可能为来年扭亏埋伏笔,并结合毛利率走势交叉验证",
+      "notes": "存货周转+跌价准备+潜亏挂账场景,检验保值性维度与操纵配对"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "毛利率和存货周转率的计算公式分别是什么?分子分母用含税收入还是不含税收入?",
+      "expected_behavior": "不应激活本 skill,这是单一指标的计算与口径问答,直接回答公式与口径即可,无需启动四维质量分析",
+      "notes": "同话题但纯公式问答,不属于质量分析"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我全面评价一下这家公司的利润质量,含金量、持续性、和战略匹不匹配这三个维度都看看。",
+      "expected_behavior": "不应激活本 skill,应激活 profit-quality-3d(利润质量三维分析)——用户要的是利润整体三维评价而非存货/毛利率科目级分析;毛利率走势只是其中持续性维度的输入之一",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 profit-quality-3d,而非本 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我怀疑这家公司的毛利率是靠少结转营业成本做出来的,蓝田和银广夏是不是就是这么干的?帮我把所有可能的造假手法都排查一遍。",
+      "expected_behavior": "边界:用户的问题起点('低转成本'识别)属于本 skill 的常规质量分析切入点,可先用'营业成本+期末存货=可供出售成本,此消彼长应大体不变'的判据与同行毛利率对照验证嫌疑;但用户已明确要求'所有造假手法都排查',系统排查应移交 earnings-manipulation-tactics 十法排查——本 skill 作为切入点定位,不越界输出完整排查",
+      "notes": "边界:常规质量分析内含的造假识别切入点 vs 十法系统排查,两 skill 接力而非互斥;expected_behavior 同时给出接力路径,判分按'识别到应转 earnings-manipulation-tactics'计"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),其中 should-not-trigger-02 为同书兄弟 skill 混淆诱饵,应触发 profit-quality-3d。"
+}

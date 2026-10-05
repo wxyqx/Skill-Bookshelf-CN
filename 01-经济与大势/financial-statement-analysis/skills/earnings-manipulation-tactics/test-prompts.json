@@ -1,0 +1,52 @@
+{
+  "skill": "earnings-manipulation-tactics",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我怀疑这家公司的收入是虚构的:应收账款连续两年增速远超营收,今年突然大额核销坏账又出现集中销售退回,但净利润反而'恢复正常增长'了。帮我逐项查一下它可能用了哪些造假手法。",
+      "expected_behavior": "应激活本 skill,套用虚构收入挂账的消化路径模型:退回+核销正是上年虚构交易的出清动作,'恢复正常'可能只是旧账出清伪像;核查退回/核销对象与上年激增应收的重合度,并用核心利润获现率交叉验证;再按十法核查表把资产端(预付/在建工程)等迁移手法一并对查",
+      "notes": "最典型正面场景:明确怀疑造假+要求逐项排查手法"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "证监会刚通报了某农业股造假案,虚增在建工程和预付账款。我持仓的另一家农业公司也是预付款翻倍、在建工程年年挂账不转固、利息资本化越滚越大,会不会是同一套手法?给我一份按手法组织的排查清单。",
+      "expected_behavior": "应激活本 skill,用万福生科路径(手法3)加在建工程延迟转固三重好处(手法4)作对照:预付对象工商核查与期后结转、投产公告与转固时点差、利息资本化起止匹配;并按'怀疑对象分类→核查表→交叉验证'三步输出系统排查",
+      "notes": "案例触发:看到造假通报后对同类特征公司自查"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这家公司毛利率比同行高出十几个百分点,存货周转越来越慢,存货还大量用于抵押贷款;另外权益变动表三年里两次'前期差错更正'都调增以前年度利润,时点都赶在对赌考核前。这些信号怎么系统地查?",
+      "expected_behavior": "应激活本 skill,命中低转成本三连画像(手法2)与差错更正三要素(手法8):存货异常增量×同行毛利率粗估虚增规模、计提与抵押披露核查、频度+方向单一+业绩压力时点耦合判定;并做同业对照与获现率交叉验证后才能下'涉嫌'结论",
+      "notes": "多手法组合信号+要求系统核查,须单信号不下结论"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家公司应收账款翻倍、存货周转也明显放缓、审计师还换了,帮我扫一下雷,看看利润质量恶化到什么程度了。",
+      "expected_behavior": "不应激活本 skill,应激活 profit-deterioration-sweep(利润质量恶化12信号扫雷)——用户要的是'外在表现清单'的分级扫雷(命中几组、恶化程度),不是手法规理与核查动作;若扫雷后用户追问'具体可能是怎么造的假',才轮到本 skill",
+      "notes": "同书兄弟 skill 混淆诱饵:恶化扫雷(profit-deterioration-sweep) vs 手法机理排查(本 skill)"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我分析一下这家公司应收账款的质量:账龄结构、债务人构成和坏账计提政策怎么看?",
+      "expected_behavior": "不应激活本 skill,应激活 receivables-and-funneling(应收款项质量与资金占用)——用户在无预设怀疑的语境下做单一科目的常规质量分析,不是跨手法的系统造假排查;该 skill 内含的账龄洗短切入点足够回答",
+      "notes": "同书兄弟 skill 混淆诱饵:常规科目质量分析(receivables-and-funneling) vs 预设怀疑的系统排查(本 skill)"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这家成长期公司应收账款和存货都翻倍,毛利率还在上升,有人说这是造假前兆,也有人说扩张期企业就是这样。到底该按造假排查还是正常对待?",
+      "expected_behavior": "可激活本 skill,但必须先处理作者警告的失败模式:清单式扫雷易误伤成长期企业——应收/存货增加也可能是正常商业决策(囤原材料、战略性扩张)。正确路径是走'怀疑对象分类→核查表→交叉验证':用获现率、退回/核销对象重合度、同业毛利率对照等独立线验证,单一信号只列待查项不下'涉嫌'结论;若交叉验证全部未命中,明确输出'未发现手法特征,按正常扩张对待'",
+      "notes": "边界:怀疑已被他人提出但证据单薄,考验'单信号不下结论'的判停纪律与对成长期企业的防误伤"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),其中 should-not-trigger-01 指向 profit-deterioration-sweep、should-not-trigger-02 指向 receivables-and-funneling,均为同书兄弟 skill 混淆测试。"
+}

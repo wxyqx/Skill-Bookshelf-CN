@@ -1,0 +1,52 @@
+{
+  "skill": "non-operating-income-quality",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家公司净利润2.3亿,其中投资收益1.4亿、政府补助6000万,靠非经营项目的利润靠谱吗?是真金白银吗,明年还有没有?",
+      "expected_behavior": "应激活本 skill:投资收益按持有/处置/类别转换三分法拆解并用现金回款公式算含金量;政府补助走四要点+核对应收款中补贴款账龄;最后输出剔除一次性项目后的调整口径利润与可持续性判断",
+      "notes": "最典型正面场景:非经营项目占利润大头+含金量+可持续性三问齐发"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "年报里公允价值变动收益8000万把净利润撑起来了,扣非净利润里居然还含着这块。这种浮盈算真实盈利吗?市价跌了会怎样?",
+      "expected_behavior": "应激活本 skill:识别公允价值变动收益为未实现浮盈、零现金、可能随市价消失,并点破其'通常不列入非经常性损益'的监管盲区——扣非口径不能覆盖,须单独剔除检验",
+      "notes": "监管盲区场景:扣非净利润照样含浮盈,正是本 skill 与简单看扣非的差异点"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司确认了30亿新能源补贴计入其他收益,但附注显示这些补贴款挂账快四年了一直没收到现金,政府补助的质量该怎么分析?",
+      "expected_behavior": "应激活本 skill:政府补助四要点(政策关联度/政策研究能力/主业竞争力/阶段性)逐条评估+'补贴挂账'含金量例外核对(其他应收款中补贴款规模与账龄),援引'完全靠政府持续补贴生存的企业不会有持续的竞争力'给出整体判断",
+      "notes": "补贴挂账场景,对应长安汽车28.73亿其他收益、27.28亿未收回的标本"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我从含金量、持续性、战略吻合性三个维度系统地评估这家公司的利润质量,别只盯着投资收益和补贴。",
+      "expected_behavior": "不应激活本 skill,应激活 profit-quality-3d(利润质量三维框架)——用户要的是整体三维评价框架与核心利润口径定义,且明确说'别只盯着非经营项目';本 skill 只是其下钻工具",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 profit-quality-3d;本 skill 是它第三维/第一维的深挖,反向请求不归本 skill 主导"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这家公司营业收入里关联交易占比很高,我想按'卖什么、卖给谁、靠什么'把收入质量过一遍。",
+      "expected_behavior": "不应激活本 skill,应激活 revenue-quality-three-questions(营业收入质量三问)——分析对象是营业收入本身,不属于投资收益/补助/浮盈/处置收益等非经营项目",
+      "notes": "收入端 vs 非经营项目端的边界测试"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司净利润2亿,扣非净利润5000万,但公告说公允价值变动收益1.5亿按证监会口径不算非经常性损益——扣非后看着还是主业在赚钱?我该信哪个口径?",
+      "expected_behavior": "应激活本 skill:这正是扣非口径的监管盲区问题——须按浮盈判读把1.5亿公允价值变动收益单独剔除(未实现、零现金、可能消失),给出'真实主业利润约5000万'的修正结论,并说明扣非指标与实质性分项检验的互补关系;必要时与 profit-quality-3d 的含金量维度协作",
+      "notes": "边界:用户拿的是现成扣非指标,但问题本质是监管口径失真,恰是本 skill 的核心贡献点"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),其中 should-not-trigger-01 为同书兄弟 skill 混淆测试(应触发 profit-quality-3d),should-not-trigger-02 边界测试(应触发 revenue-quality-three-questions)。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "capital-structure-four-forces",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家公司资产负债率75%,但负债里几乎全是应付账款和预收款,ROA大概8%、借款利率5%——这么高的杠杆是不是很危险?",
+      "expected_behavior": "应激活本 skill,按五关注逐条分析:经营性负债主导→真实偿付压力低于账面;ROA>借款利率→杠杆在为股东创造价值;再查期限协调(有无短融长投)与利益相关者和谐(对上游占款的可持续性),最后用资产金融性负债率给出真杠杆结论",
+      "notes": "最典型正面场景:高负债率是否危险的判读,需用强制性分层+成本匹配+双向评价"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司下一步扩产需要一大笔钱,财务总监建议发债,大股东担心增发稀释控制权,从报表分析角度该怎么权衡?另外老板想推高送转,这合理吗?",
+      "expected_behavior": "应激活本 skill,用过度举债(灭顶之灾)vs过度权益融资(控制权旁落、招致野蛮人)的对偶框架权衡融资方式,并用股利政策判读说明高送转摊薄每股收益、不等于回报股东",
+      "notes": "融资决策+控制权+股利政策,命中五关注的控制权治理维度与权益质量二分"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这家公司净资产三年翻了一倍多,但我查了全是定向增发来的,留存收益没怎么动,这种'输血式'增长到底说明什么?算不算利好?",
+      "expected_behavior": "应激活本 skill,用输血性/盈利性二分回答:规模扩张不等于盈利能力增强,须查入资用途与ROE摊薄,并结合资本四分类看股东驱动型的治理含义(控股股东是否同时高质押等)",
+      "notes": "权益质量场景,命中 f22 的输血/盈利二分术语"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我从资产负债表左边分析这家公司的资源配置战略,经营性资产和投资性资产该怎么划分、占比说明什么?",
+      "expected_behavior": "不应激活本 skill,应激活 asset-allocation-strategy(资源配置战略/报表左半边)——用户明确问资产端战略分类,不是资本来源与动力结构",
+      "notes": "同书兄弟 skill 混淆诱饵:同一张资产负债表,左边(资产→战略)归 asset-allocation-strategy,右边(资本→动力)才归本 skill"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "流动比率2:1是美国经验值,对我国龙头企业常常失真;另外利息保障倍数分母该用什么口径?这类比率修正的一般规则有哪些?",
+      "expected_behavior": "不应激活本 skill,应激活 ratio-revision-rules(比率口径修正技术)——用户问的是指标口径与经验标准失真的修正方法,不是对资本来源结构做质量判断",
+      "notes": "同书兄弟 skill 混淆诱饵:比率修正技术 vs 结构质量判断"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这家公司资产负债率只有8%、零有息负债,账上现金一大堆,是不是财务特别稳健、管理特别优秀?有人还说它该大额分红回馈股东。",
+      "expected_behavior": "可激活本 skill:先按股东/利润驱动型归类,再用双向评价纪律纠正'稳健=优秀'的直觉——过低杠杆意味着经营理念保守、杠杆效应未发挥、融资潜力闲置;大额分红建议需先判读是利润积累驱动还是迎合式分红,并检查有无更值得投资的增长机会",
+      "notes": "边界:表面是表扬性判断,实际需要本 skill 的双向评价纪律收口;若用户追问现金流量表获现验证则与 cash-quality-funding-risk 协作"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0):should-not-trigger-01 应触发兄弟 skill asset-allocation-strategy(报表左半边),should-not-trigger-02 应触发兄弟 skill ratio-revision-rules(比率口径修正)。"
+}

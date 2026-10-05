@@ -1,0 +1,52 @@
+{
+  "skill": "cash-flow-three-activities",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这是某公司近三年现金流量表的主要数据:经营活动净额连续为正但每年'收到其他与经营活动有关的现金'占了流入的三成多,投资活动购建固定资产花了很多钱同时也在处置旧设备,筹资基本没动静。帮我解读一下这家公司的现金流量质量怎么样?",
+      "expected_behavior": "应激活本 skill,按三类活动专属维度输出:经营看三性(充足/合理/稳定,重点质询流入结构偏离'以销售收现为主')、投资看战略吻合性(购建vs处置比较定性)、筹资看恰当性,最后附注三件套收口,不做净额符号判断",
+      "notes": "最典型正面场景:整张现金流量表解读请求,且埋了流入结构异常与投资大进大出两个检查点"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这家公司经营活动现金流量净额是负的,已经连续两年了,是不是说明造血功能不行、公司快不行了?",
+      "expected_behavior": "应激活本 skill,先过负净额免责条件(初创期/转型期/危机期可接受,需验证发展阶段与投资方向吻合性),免责失效才定性为造血功能不强的危险信号;同时归因检查(行业结算特点/发展阶段/收付异常/关联交易),禁止直接符号化下结论",
+      "notes": "符号化判断的反向诱饵:用户已带'为负=差'的预设,skill 必须先拆预设"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "新闻说某公司经营现金流由负转正实现实质性改善,但我看到同期它压缩了对供应商的付款,还大幅占用了上游资金,这个改善是真的吗?",
+      "expected_behavior": "应激活本 skill,先归因再下结论:若'改善'来自付款异常变化(压缩采购付款、占用上游)则透支未来、非真改善;若来自回款正常化才是真改善——净额转正不等于质量改善,必须进入变化过程",
+      "notes": "归因清单+禁止符号化的正面应用场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司账上货币资金看着很多,但核心利润获现率只有0.6,而且听说其中好几个亿是受限的保证金。帮我诊断一下这家公司的获现能力和资金风险?",
+      "expected_behavior": "不应激活本 skill,应激活 cash-quality-funding-risk(货币资金科目与获现率诊断)——问题焦点是货币资金真假充裕与获现率,不是三类活动的整体质量框架",
+      "notes": "同书兄弟 skill 混淆诱饵:现金话题但落点是货币资金科目与获现率,应触发 cash-quality-funding-risk"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我怀疑这家公司经营现金流是做出来的,收入确认和关联交易的手法帮我排查一下有哪些?",
+      "expected_behavior": "不应激活本 skill,应激活 earnings-manipulation-tactics(造假手法排查)——用户已预设怀疑并指名要手法清单,不是中性质量评估;本 skill 只在稳定性剧变处提供线索入口",
+      "notes": "跨 skill 混淆诱饵:中性质量评估 vs 预设怀疑的手法排查"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一家转型期的传统零售企业,经营活动现金净额-3亿,同时投资活动大额流出在建新业态,已经两年了。这个该惩罚它吗,还是可以接受?",
+      "expected_behavior": "可激活本 skill(问题本质是负净额免责条件+投资战略吻合性的联合判断):转型期负净额可接受,但须验证新业态投资与战略吻合、以后期间核心利润表现;若持续超预期年限且靠短期借款输血,免责失效转警报——禁止符号化,也不给无条件免责",
+      "notes": "边界场景:既是免责条件判断又是投资吻合性检验,两个维度必须协作而非单选"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),其中 should-not-trigger-01 为同书兄弟 skill 混淆测试,应触发 cash-quality-funding-risk。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "long-term-asset-quality",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们母公司按权益法确认了8个亿的投资收益,但被投企业当年只分红1个亿,这中间的差额算什么?长期股权投资账面越滚越大有没有问题?",
+      "expected_behavior": "应激活本 skill,用权益法泡沫原理解读:约7亿是缺现金支撑的泡沫并同步做大长投账面,评价效益应看分红政策与实际现金回流,泡沫部分构成未来减值隐患",
+      "notes": "最典型的正面场景:长投权益法泡沫判读"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这家公司的募投项目两年前就投产了,可是资产负债表上还挂着12亿在建工程一直没转成固定资产,这样合规吗?对利润有什么影响?",
+      "expected_behavior": "应激活本 skill,用'不决算三重好处'拆解:利息继续资本化、推迟折旧、当期费用混入工程成本,三条通道都在虚增当期利润;工期过长的解释须以附注明细与投产证据验证",
+      "notes": "正面场景:在建工程长期不决算警报"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "某公司连亏两年后第三年对并购商誉一次性全额计提减值、当年巨亏,第四年就小幅盈利了,管理层说是行业政策变化导致的,这种减值怎么看?",
+      "expected_behavior": "应激活本 skill,用减值双刃剑+不得转回原理判读:洗大澡画像(一次性出清+做低基数),计提100%还是60%本身就是利润安排;第四年'扭亏'成色须查核心利润与含金量而非净利润翻转",
+      "notes": "正面场景:商誉减值与洗大澡判读"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我怀疑这家公司从收入、存货到银行流水全链条都在造假,帮我系统排查一下它可能用了哪些财务造假手法。",
+      "expected_behavior": "不应激活本 skill,应激活 earnings-manipulation-tactics(系统造假排查)——用户要的是跨科目全链条造假手法排查,不是单个长期资产科目的质量判读",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 earnings-manipulation-tactics;科目内操纵手法配对不等于全链条造假审计"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这家公司的资产分成经营性资产和投资性资产,看看它属于经营主导型还是投资主导型的战略,资产结构和它年报里说的发展战略吻不吻合。",
+      "expected_behavior": "不应激活本 skill,应激活 asset-allocation-strategy(资产配置与战略分类)——用户问的是整体资产结构的重分类与战略类型,不是单个长期资产项目的效用与减值",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 asset-allocation-strategy;本 skill 只管单项长期资产质量"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这家药企研发人员一大堆、专利也很多,可账面无形资产只有2000万,固定资产周转率3.0还比同行的2.0高,它的长期资产到底算好还是差?",
+      "expected_behavior": "可激活本 skill:无形资产部分按'账内皆外购'纠正误判——自创无形资产游离表外,账面小是披露结构的产物而非质量差,应转看开发支出与费用化研发投入;周转率部分须先用原值口径重算再下结论(可调用 ratio-revision-rules 作为子工具)——两 skill 协作而非互斥",
+      "notes": "边界:同一条提问混入两个科目,且周转率口径本身是 ratio-revision-rules 的领地;本 skill 作为长期资产质量主框架激活,口径修正作为子工具"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),其中 should-not-trigger-01 指向 earnings-manipulation-tactics、should-not-trigger-02 指向 asset-allocation-strategy,均为同书兄弟 skill 混淆测试。"
+}

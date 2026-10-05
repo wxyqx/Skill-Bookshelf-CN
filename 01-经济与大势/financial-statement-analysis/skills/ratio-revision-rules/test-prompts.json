@@ -1,0 +1,59 @@
+{
+  "skill": "ratio-revision-rules",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家白电龙头流动比率只有1.1,教科书说2:1才安全,按这个标准它风险很高,可它十年没贷款还年年大额分红,大量占用供应商账期——这个流动比率到底该怎么解读?",
+      "expected_behavior": "应激活本 skill,套用 OPM 悖论修正:2:1 是美国经验值,商业债务远大于商业债权的低流动比率是议价能力的主动安排;偿债判断改回到现金流与盈利能力检验;同时附带提示渠道模式被击穿时占款优势反转的情景性风险",
+      "notes": "最典型正面场景:教科书标准值与实际矛盾的 OPM 悖论(格力型)"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我在对比两家同行的应收账款周转率,A公司应收票据占了商业债权的六成,报表口径算出来回款特别快,B公司今年计提了一大笔坏账准备后周转率反而变高了,这两个数字能直接比吗?",
+      "expected_behavior": "应激活本 skill,给出周转率口径修正纪律:A公司须改用商业债权周转率(赊销净额/平均应收账款+平均应收票据),B公司须改用减值前原值计算;必要时做增值税调整(销售额乘以(1+税率)),修正后重算再对比",
+      "notes": "周转率三修正的复合触发:票据并入+原值计价"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "借款人利息保障倍数有10倍,我们能放心批这笔一年期流动资金贷款吗?我看它账上货币资金其实挺紧张的。",
+      "expected_behavior": "应激活本 skill,重定义指标用途:利息保障倍数只从股东角度评价借债政策是否有利,偿还利息短期内取决于现金支付能力,与利润保障倍数无关;一年期偿付判断应转向现金支付能力、债务结构与受限资金核查,不能凭该倍数放贷",
+      "notes": "利息保障倍数失灵(ce20 四机理之一)的授信场景"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "这家公司总资产300亿,其中100亿是闲置现金和理财产品,总资产报酬率只有2.5%,总资产周转率也在下滑——能直接下'经营能力差'的结论吗?",
+      "expected_behavior": "应激活本 skill,套用总资产口径稀释修正:营业收入只由经营性资产创造,闲置现金与投资性资产拉低一切总资产口径指标;改算经营性资产报酬率(核心利润/平均经营性资产)与投资性资产报酬率,识别相对盈利区域,结论可能从'盈利差'反转为'资金使用差'",
+      "notes": "总资产口径被投资性资产稀释+相对盈利区域(v-A57)"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我用四大动力框架整体评估一下这家公司资本结构的质量怎么样,负债主要是经营性负债还是金融性负债,期限结构协不协调,有没有财务弹性?",
+      "expected_behavior": "不应激活本 skill,应激活 capital-structure-four-forces(资本结构质量五关注与四大动力)——用户要的是对资本结构好坏的整体质量判断,不是某个比率的口径修正;格力式 OPM 修正只是那边的辅助工具",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 capital-structure-four-forces"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这家集团的合并报表和母公司报表差异巨大,其他应收款越合并越小,少数股东权益占比很高——分析比率的时候我该用哪套报表,差异本身说明什么?",
+      "expected_behavior": "不应激活本 skill,应激活 consolidation-pitfalls(合并口径失真与差量分析)——问题出在合并与母公司两套口径的选择与解读,属于合并口径范畴;本 skill 只管单公司报表内部的分子分母错位",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 consolidation-pitfalls"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "银行让我评估能不能给一家白酒企业放贷,它预收款占了流动负债的一半,账面流动比率只有1.3,我既想修正这个比率,又想做一份完整的偿债能力评估报告。",
+      "expected_behavior": "可激活本 skill 作为先导工具:用'实际偿付=预收/(1+毛利率)'修正流动比率,说明账面数字结构性低估真实偿付能力、预收是议价能力与业绩晴雨表;但用户最终交付物是整体偿债评估,修正完成后应转由 strategic-analysis-path 与 capital-structure-four-forces 接手完整框架——两阶段协作而非互斥,主交付物归属整体分析 skill",
+      "notes": "边界:单点比率修正是入口,整体信贷评估是终点;本 skill 作子工具,修正结论供整体框架引用"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "4 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须拒判(诱饵容错为 0):should-not-trigger-01 为同书兄弟 capital-structure-four-forces 混淆诱饵,should-not-trigger-02 为 consolidation-pitfalls 混淆诱饵,两条均已写明应触发的兄弟 skill。"
+}

@@ -1,0 +1,59 @@
+{
+  "skill": "receivables-and-funneling",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家上市公司其他应收款突然涨到总资产的近三成,附注里前几名欠款方听起来都和实控人沾亲带故,是不是大股东在占用资金?该从报表里怎么查?",
+      "expected_behavior": "应激活本 skill,按'既为其他不应过大'报警→附注查金额大、时间长、来自关联方的款项→输出占用嫌疑/集权输送/正常三档分诊,并提示关键证据可能在报表外",
+      "notes": "最典型的正面场景:其他应收款+大股东占用怀疑"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这家公司应收账款今年增速远超营业收入,可账龄表里1年以内的占比反而比去年更高了,坏账计提比例还下调了,这组合正常吗?",
+      "expected_behavior": "应激活本 skill,走应收账款三步检验:相对规模异动先找经营性解释→账龄可能被人为'洗短'→计提政策突变对照行业均值,并用后果模型前瞻预判来年退货或核销致业绩跳水",
+      "notes": "规模激增+账龄洗短+计提突变的三重信号组合"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们打算投资的一家公司预付账款一年翻了三倍,附注里前五名收款方都写着'非关联供应商',金额还都很大,这种预付款能放心吗?",
+      "expected_behavior": "应激活本 skill,按预付款项排查顺序:排除行业付款惯例→排除自身信用弱势→查收款方与实控人的实质关联(名义非关联不等于实质非关联),判定是否为输送通道",
+      "notes": "关联方预付输送场景(pr22 的预测性检验题)"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我怀疑这家公司整个报表都在造假——收入、成本、存货、在建工程感觉全都不对劲,帮我系统地把常见的造假手法挨个排查一遍。",
+      "expected_behavior": "不应激活本 skill,应激活 earnings-manipulation-tactics(系统造假十法排查)——用户怀疑范围是全报表而非债权科目族",
+      "notes": "同书兄弟 skill 混淆诱饵:科目族定点深挖 vs 全报表系统性排查;应触发 earnings-manipulation-tactics"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我拿到一家公司的年报,想整体评估一下这家公司值不值得投资、财务状况好不好,应该按什么框架来做?",
+      "expected_behavior": "不应激活本 skill,应激活 strategic-analysis-path(四步综合分析路径)——用户要的是全程中性评估,未指向任何债权科目",
+      "notes": "同书兄弟 skill 混淆诱饵:单项深挖 vs 全程路径;应触发 strategic-analysis-path"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "这家公司收入七成来自前五大客户,客户集中度这么高,它的营业收入质量怎么样?",
+      "expected_behavior": "不应激活本 skill,应激活 revenue-quality-three-questions——焦点在收入端的'卖给谁'维度;本 skill 仅在用户追问'钱收不收得回来'的债权端时介入",
+      "notes": "跨 skill 混淆诱饵:客户集中度的共同维度,按提问焦点归属收入端 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "母公司报表其他应收款80亿,合并报表只有8亿,几家子公司盈利都不错——这70亿差额是大股东占用吗?",
+      "expected_behavior": "可激活本 skill,但必须命中集权例外防误杀:'越合并越小'的差额属母公司对子公司的集权资金输送(控制性投资的可能藏身处),质量取决于子公司盈利能力,不得按占用报警;需与 differential-analysis 的差额工具协作完成分诊",
+      "notes": "边界:同一科目两种性质——本 skill 最易误杀的场景,检验集权例外判据是否被正确执行"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),其中 should-not-trigger-01/02 为同书兄弟 skill 混淆测试(分别应触发 earnings-manipulation-tactics 与 strategic-analysis-path),should-not-trigger-03 为收入端兄弟混淆测试(应触发 revenue-quality-three-questions)。edge-01 专测集权资金管理'越合并越小'例外,防止把正常资金输送误判为大股东占用。"
+}

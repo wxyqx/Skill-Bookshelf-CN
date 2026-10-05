@@ -1,0 +1,52 @@
+{
+  "skill": "profit-quality-3d",
+  "version": "0.1.0",
+  "source_book": "《财务报表分析(简明版·立体化数字教材版)》 — 张新民、钱爱民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家公司净利润同比大增50%,我看财报发现里面投资收益和政府补助占了七成,这算真利润吗?帮我评价一下它的盈利能力质量。",
+      "expected_behavior": "应激活本 skill:先分层重建核心利润、标出非经营项目占比,再按含金量/持续性/战略吻合性三维评价,结论指向'数量增长不改变盈利质量'的方向性判断",
+      "notes": "最典型的正面场景:利润大增+非经营项目占大头,正是三维框架的标准问法"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "经常听人说核心利润,到底怎么算?销售净利率不是更能代表盈利能力吗?另外两家公司比较经营盈利能力时,一个营业利润率高一个低,能直接比吗?",
+      "expected_behavior": "应激活本 skill:给出核心利润公式(毛利−税金及附加−销售/管理/研发/利息费用),解释利润表分层毛利→核心利润→营业利润→净利润,并执行'与营业收入无关的项目不得与收入比'的口径纪律——营业利润含投资收益等,跨公司比较须统一到核心利润口径",
+      "notes": "口径知识型请求:核心利润算法+口径纪律,本 skill 的地基内容"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "某ST公司连亏两年,今年靠卖了两处房产把净利润做正、摘帽了,新闻都说扭亏为盈是重大利好,你怎么看?它明年还会亏吗?",
+      "expected_behavior": "应激活本 skill:用'数量+质量双重翻转'检验——净利润转正=数量翻转成立,但核心利润仍为负、处置收益一次性无持续性,判定为保壳式扭亏,后续年度预判方向反转为警报",
+      "notes": "扭亏成色判定场景:与大众'扭亏=利好'相反的作者判读"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家公司投资收益里有1398万的类别转换收益,还有965万的政府补助,这几笔收益的含金量具体怎么样?逐项给我拆一下。",
+      "expected_behavior": "不应激活本 skill,应激活 non-operating-income-quality(非经营项目单项含金量深挖)——用户要的是具体项目逐项拆解,不是利润整体的口径重建与三维总评",
+      "notes": "同书兄弟 skill 混淆诱饵:整体三维框架 vs 单项目深挖;应触发 non-operating-income-quality"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我算了一下这家公司核心利润3亿,经营活动现金流量净额只有1.5亿,缺口这么大,帮我逐类排查一下是什么原因?",
+      "expected_behavior": "不应激活本 skill,应激活 cash-quality-funding-risk(核心利润获现率与缺口五类归因)——含金量维度的深诊断有专门 skill,本 skill 只做初判",
+      "notes": "同书兄弟 skill 混淆诱饵:三维总评 vs 获现率专项诊断;应触发 cash-quality-funding-risk"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "扣非净利润和核心利润到底有什么区别?我一直用杜邦分析看ROE,是不是就不需要再做什么利润质量分析了?",
+      "expected_behavior": "可激活本 skill(用户在比较邻近方法论,边界(B)段正是为此设计):说明扣非净利润是证监会监管口径、核心利润还剔除利息收入等经常性非经营项目,两者并列报告;杜邦分析只拆ROE数量成因,分子仍是净利润,可作杜邦的前置口径修正而非替代——输出为方法论辨析而非完整三维评价",
+      "notes": "边界:方法论比较请求,部分激活(用B段与I段口径内容回答),不强制走完整E段流程"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),其中 should-not-trigger-01 应触发 non-operating-income-quality、should-not-trigger-02 应触发 cash-quality-funding-risk,均为同书兄弟 skill 混淆测试。"
+}
