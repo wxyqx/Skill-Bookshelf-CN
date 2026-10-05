@@ -1,0 +1,52 @@
+{
+  "skill": "efficiency-accounting",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我是做 DTC 咖啡的，单品毛利 60% 但一年资金只周转 3 次，朋友说毛利低点但周转快反而更赚钱，到底该怎么算这笔账？",
+      "expected_behavior": "应激活 efficiency-accounting，用 ROI=（毛利率–费用率）×年周转次数对两种模式并排计算，并指出提周转、压费用率的杠杆优先于提毛利",
+      "notes": "正面场景：用户直接比较毛利与周转的矛盾，是公式的核心应用"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "经销商跟我说卖我们这款充电宝不赚钱，说单品毛利才 8 个点，怎么说服他继续合作？",
+      "expected_behavior": "应激活 efficiency-accounting，用总账逻辑反驳单品毛利率话术：拆费用率与周转次数，算渠道年投资回报率并与传统渠道结构对比",
+      "notes": "正面场景：渠道谈判中'单品不赚钱'话术是书中原场景（小米之家案例）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有投资人质疑我们 999 元的耳机肯定没多少钱做研发，我该怎么用数据回应并自查一下定价结构？",
+      "expected_behavior": "应激活 efficiency-accounting，用定价五分项拆解（研发分摊=研发总额÷销量）回应质疑，并逐项检查渠道与推广分摊是否畸高",
+      "notes": "正面场景：'便宜=没研发'质疑对应五分项+分摊成本判据"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把这个季度的财务报表整理一下，把各项费用按会计科目分类填进模板。",
+      "expected_behavior": "不应激活本 skill，因为这是财务记账/报表整理任务，不涉及经营决策判断",
+      "notes": "诱饵：'费用'一词看似相关，实为会计操作任务"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们想同时做感动人心的旗舰和厚道价格的百元机，这两个目标看起来矛盾，该怎么设计商业模式？",
+      "expected_behavior": "不应激活本 skill，应激活 impossible-triangle-model——这是互斥目标的复合模式设计题，而非算账题",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：不可能三角与效率公式同出第十章，本题要的是结构设计不是 ROI 计算"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "宠物零食行业零售价大概是出厂成本的 12 倍，我们要不要进去做个性价比品牌？",
+      "expected_behavior": "可激活本 skill 的定倍率体检子工具（12 倍远超基准→流通损耗大→机会区），但需提示这只是入口诊断，还应追溢价来源并评估自身体系能否支撑——先给定倍率判断再建议补充体系检查",
+      "notes": "边界：行业进入决策同时涉及性价比立场（cost-performance-philosophy）与体系检查（hit-product-system），定倍率是本 skill 的入口工具，激活合理但结论需标注前提"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill 混淆诱饵（跨 skill 测试）。"
+}

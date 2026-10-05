@@ -1,0 +1,52 @@
+{
+  "skill": "endgame-reasoning",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们董事会要决定是否进入人形机器人行业，投入会是十年期的大额押注，这种重大决策该怎么系统性地论证？",
+      "expected_behavior": "应激活 endgame-reasoning，按三层推论依次作答：对业务终局的影响→行业终局形态→用户期待检验；三层都指向必须做才进入资源承诺，任一层推不出则缓。",
+      "notes": "典型正面场景：大额不可逆进入决策，正是本 skill 的原型问题。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们做终端设备的，要不要自研通用大模型？利弊列了一堆还是决定不了。",
+      "expected_behavior": "应激活 endgame-reasoning，放弃碎片化利弊清单，改做三层推论：模型是新计算底座（业务终局）→行业终局是否给第三方通用模型留生态位→用户是否期待我们做第五个通用模型，据此得出做/不做/做专用的结论。",
+      "notes": "命中'利弊列完仍拍不了板'的信号，验证框架对非造车决策的迁移性。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "行业都说要变天了，帮我判断一下五年后这个行业会剩下谁，我们现在最该占住什么位置？",
+      "expected_behavior": "应激活 endgame-reasoning，做行业终局推论（集中度、胜出要素、窗口期），并以'为什么是现在'（why now）反推当下必须占住的位置。",
+      "notes": "行业终局判断场景，第二层推论的主场；验证终局语言信号的触发。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们决定造车了，大公司做新业务最容易在心态和打法上犯什么错误？",
+      "expected_behavior": "不应激活本 skill，应激活 new-business-three-pits（认知错位/惯性思维/偶像包袱自检与对策）。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为造车语境，但进入决策已做出，诉求是'决定之后怎么避免坑'，归三大坑 skill。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们战略文档写着'硬件+服务+生态三驾马车'，这个结构健康吗？会不会失焦？",
+      "expected_behavior": "不应激活本 skill，应激活 one-core-business（一元核心律：加号是失焦信号，改写为乘数结构并重排 KPI）。",
+      "notes": "诱饵：涉及重大战略表述，但问题是现有结构的聚焦诊断，不是新业务进入论证。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "智能手表这个品类值得我们做吗？",
+      "expected_behavior": "边界判断：若提问者是公司级决策者、手表对主业构成大额/战略性投入，则激活本 skill 走三层推论；若只是产品线上的常规品类扩展（可逆、小额），则不必走三层，告知用常规品类评估（如爆品三条件检查表）即可。关键看决策量级而非品类大小。",
+      "notes": "边界：同一问题在不同主体身上量级完全不同，考察 skill 是否会先确认量级再套用流程。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（new-business-three-pits）混淆诱饵，诱饵容错为 0。"
+}

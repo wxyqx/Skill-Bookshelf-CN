@@ -1,0 +1,52 @@
+{
+  "skill": "word-of-mouth-verification",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新品上市官微评论区全是一水的好评，老板想发公开信庆祝，我总觉得有风险，该怎么判断这些好评的可信度？",
+      "expected_behavior": "应激活 word-of-mouth-verification，先做交叉验证：甄别好评是否来自固定核心群/水军/算法茧房，用 NPS 与一线走访印证沉默的大多数，再决定是否庆祝。",
+      "notes": "典型正面场景：好评真伪核验，命中多路交叉验证原则。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们折叠屏新品沿用了老产品先发布再 OTA 的做法，结果高端用户骂声一片，为什么以前管用的惯例现在翻车了？",
+      "expected_behavior": "应激活 word-of-mouth-verification，用阈值律诊断：新客群/价位段的预期阈值已跳升，旧惯例构成刻舟求剑式失误；并重新标定该客群的口碑基准线。",
+      "notes": "直接对应书中 MIX FOLD 反面教训，是本 skill 的原型场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们产品最近差评特别多，团队很沮丧，要不要请公关公司去压一压负面？",
+      "expected_behavior": "应激活 word-of-mouth-verification，按'直面真实口碑'原则给出相反建议：可怕的不是骂得凶而是没人骂，态度真诚+改善迅速本身就是口碑动作。",
+      "notes": "差评应对场景，命中第三原则的反直觉建议。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "下一代产品想做一个让用户哇一声的开箱体验，帮我们规划几个超预期的惊喜点吧。",
+      "expected_behavior": "不应激活本 skill，应激活 word-of-mouth-design（标定预期基准、选择超预期点、全触点排查）。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为口碑主题，但诉求是'设计制造'而非'核验观测'。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司这两年增长失速、团队膨胀、部门各干各的，要不要讲个转型新故事？",
+      "expected_behavior": "不应激活本 skill，应激活 downturn-remediation（失速四征兆诊断+先补课不讲新故事）。",
+      "notes": "诱饵：口碑/用户阵地荒废只是四征兆之一，用户主诉是整体失速应对，归低谷补课 skill。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的 NPS 分数在涨，但复购率在跌，该信哪个指标？",
+      "expected_behavior": "合理判断是激活本 skill：这正是'多路交叉验证'的适用场景——单一指标失真时须多源印证，并区分意见点与印象面、检查口径与样本来源；但若用户只是要统计口径的统计学修正（如复购归因模型），则不激活并转数据分析处理。",
+      "notes": "边界：指标冲突既可能是口碑信号失真问题（本 skill），也可能是纯数据归因问题，需按主诉判断。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（word-of-mouth-design）混淆诱饵，诱饵容错为 0。"
+}

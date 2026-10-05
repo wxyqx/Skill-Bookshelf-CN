@@ -1,0 +1,52 @@
+{
+  "skill": "sunk-cost-restart",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的 AI 助手项目已经投了 800 多万，内测用户普遍反馈核心场景根本没法用。团队说再迭代三个版本就能救回来，但我觉得可能一开始定义就错了。继续修还是砍掉？",
+      "expected_behavior": "应激活 sunk-cost-restart，先做错误类型判定：核心场景体验不成立属产品定义底线问题→沉没成本当学费、冻结修补、重组重做并设终结性目标；并明确若只是执行缺陷则走迭代。",
+      "notes": "正面场景：'已投入+内测不佳+修补vs重来'的典型判定需求。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老板在会上说这个项目都烧了两千万了，现在放弃没法向董事会交代，怎么也得再撑半年。我总觉得哪里不对。",
+      "expected_behavior": "应激活 sunk-cost-restart，指出这是沉没成本绑架决策：判定点应设在产品定义底线而非'已投入金额/能否交代'，并给出把沉没成本改记为学费、向董事会呈现止损逻辑的方法。",
+      "notes": "正面场景：典型的'没法交代'心态，方法论的核心反模式。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们的自研芯片团队直接瞄准了最高难度的手机 SoC，烧了几年现在进退两难，团队士气也垮了，硬扛还是收缩？",
+      "expected_behavior": "应激活 sunk-cost-restart，援引澎湃芯片教训：路径/方向选择错误比决心缺失更致命；建议判定当前路径不可行后改道——从易成败的细分芯片做起、以战养战，而非放弃方向或硬扛。",
+      "notes": "正面场景：方向性错误的技术路径变体，方法论明确覆盖路径选择。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们 App 方向没问题，就是启动速度慢、崩溃率高，团队想用两个迭代周期把性能优化做扎实。",
+      "expected_behavior": "不应激活本 skill。这是方向正确下的执行缺陷，按方法论的判停条件应转迭代改善流程（改善快），推倒重来反而是错误建议。",
+      "notes": "诱饵：'项目有问题'字面出现，但错误类型属执行层。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们公司整体连续四个季度下滑，各个产品线都疲软，管理层在讨论要不要先补供应链和质量的课，还是直接讲个转型新故事。",
+      "expected_behavior": "不应激活本 skill，应激活 downturn-remediation（低谷补课：四征兆诊断、交付/创新/质量三抓手、反对新故事）。这是公司级系统能力问题，不是单一项目的方向性错误。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的场景，防止单品重做类 skill 抢走公司级危机调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "项目只投了 20 万、做了六周，MVP 反馈很差。有人说不值得纠结直接关掉，也有人说这正是低成本试错该有的样子，快速放弃就好。",
+      "expected_behavior": "边界判断：低成本试错期的快速放弃是常态，谈不上'沉没成本当学费'的重决策，本 skill 的重做仪式不适用；正确动作是按试错记录止损即可，但若反馈触及的是可复用的立项假设错误，可借用其'教训清单归档'一步。倾向不完整激活。",
+      "notes": "边界：试错期放弃 vs 重做决策，金额与周期决定了这是轻量止损而非方法论场景。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger-02 为同书兄弟 skill（downturn-remediation）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

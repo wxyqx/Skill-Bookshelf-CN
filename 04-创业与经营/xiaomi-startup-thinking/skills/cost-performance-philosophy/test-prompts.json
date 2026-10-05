@@ -1,0 +1,52 @@
+{
+  "skill": "cost-performance-philosophy",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "投资人在会上问我们：你们这个品牌主打性价比，是不是就是便宜、低价，技术上没什么含金量？我该怎么回应？",
+      "expected_behavior": "应激活 cost-performance-philosophy，用'性价比=比较优势而非绝对低价、是产品战略与体系能力的结果'来重构回应，并提醒用体系账（分摊/费用率/周转）支撑论述，而非情绪化否认。",
+      "notes": "正面场景：命中本书最高频误读'性价比=低价=没技术'的澄清。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们新品牌想直接定价五折抢市场，把竞品的价格打下来。这个低价策略能长期打吗？",
+      "expected_behavior": "应激活 cost-performance-philosophy，先算体系账：有无单款海量摊薄、渠道费用率多少、周转几次；体系不支撑则判定为低效内卷，结论是先补单款聚焦与渠道效率再谈价格。",
+      "notes": "正面场景：降价决策前的体系检查，对应'没有体系的低价=低效内卷'判据。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们子品牌想把主力产品提价 30% 冲高端，方案里主要写的是品牌调性升级和新的视觉包装，批不批？",
+      "expected_behavior": "应激活 cost-performance-philosophy，执行提价检验：给不出对应体验增量即手段错误应驳回；且单品类提价无效，高端化须集团品牌+用户+产品三要素同步推进。",
+      "notes": "正面场景：'高价是结果不是手段'的直接应用，方案里只有调性没有体验增量。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们做高端翡翠收藏品生意的，客户买的就是不透明和稀缺感，帮我们设计一套溢价定价体系。",
+      "expected_behavior": "不应激活本 skill。该业务以信息不透明溢价为立身前提，本书性价比立场对其不适用（B 段明确反场景），强行套用会输出与业务前提相反的建议。",
+      "notes": "诱饵：字面出现'溢价定价'，但行业前提与性价比哲学相斥。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "渠道商抱怨卖我们的货不赚钱，我用毛利率和周转次数给他算一笔总账，公式应该怎么搭？",
+      "expected_behavior": "不应激活本 skill，应激活 efficiency-accounting（ROI=（毛利率–费用率）×年周转次数）。这是具体算账工具需求，不是性价比战略判定。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的场景，防止哲学类 skill 抢走算账类调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们现在是纯低价走量，复购率和推荐率都低于行业均值，老板说继续降价就能翻身。你帮我评估一下？",
+      "expected_behavior": "边界但应激活本 skill：低复购低推荐+继续降价正是 ce10'绝对低价内卷'失败模式的典型信号，应先用性价比哲学判定'降价翻身'不成立，再给出体系补课方向；若用户随后要具体算 ROI 数字，则再衔接算账类工具。",
+      "notes": "边界：表面是价格策略问题，实质是失败模式诊断，本 skill 与算账 skill 的接壤点。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger-02 为同书兄弟 skill（efficiency-accounting）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "minority-stake-empowerment",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们平台想孵化一个外部团队做智能家居配件。法务说必须占 51% 以上才能保证产品不跑偏，但我担心控股会杀死他们的创业劲头。股权结构怎么设计？",
+      "expected_behavior": "应激活 minority-stake-empowerment，给出投资不控股方案：少数股权+治理条款替代控股，投资与赋能双轨分离，以赋能依赖（定义/供应链/渠道输出）而非股比保证质量底线。",
+      "notes": "正面场景：'控股才能保控制力'的常识争论，正是本书原则的反面。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们投资的一家硬件公司最近想推自己的品牌，还打算给我们的竞争对手代工，管理层有人说这是白眼狼行为，要不要在下一轮融资时约束他们？",
+      "expected_behavior": "应激活 minority-stake-empowerment，援引'创业者不独立发展才是生态最大的失败'：开放和鼓励自有品牌、主动帮其拿第三方订单（含友商），把独立性写入条款并以此作为生态成功的标准。",
+      "notes": "正面场景：被投企业独立发展与站队顾虑，对应'去小米化'议题。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们投了七八家生态企业，什么都想让他们做，现在 SKU 爆炸、每家都很累，我们的渠道位和定义资源也被摊薄了。",
+      "expected_behavior": "应激活 minority-stake-empowerment，识别为生态链 1.0 后期失败模式（SKU 过冗、资源分散、无边界即无专注），建议从清晰维度设立进入/退出边界并砍 SKU。",
+      "notes": "正面场景：ce17 失败模式的触发信号，赋能模式必须配套边界纪律。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我买了某上市公司 3% 的股票，纯财务投资，帮我看看他们最新财报值不值得继续持有。",
+      "expected_behavior": "不应激活本 skill。纯财务投资不输出能力、不参与经营，无赋能清单可列，属于 B 段明确反场景。",
+      "notes": "诱饵：'投资+少数股权'字面出现，但无孵化与赋能意图。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的线下加盟体系乱成一团，货权全在加盟商手里，销量数据拿不到还互相压价，怎么重新设计渠道管控？",
+      "expected_behavior": "不应激活本 skill，应激活 new-retail-efficiency（新零售渠道效率与货权归属设计）。这是渠道体系问题，不是对被投企业的股权赋能问题。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的场景，防止生态治理类 skill 抢走渠道设计调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们内部有个事业部做了个不错的智能硬件，老板想把它分拆出去，我们占小股，让它像外部创业公司一样跑，这个思路对吗？",
+      "expected_behavior": "边界但可激活本 skill：对象是内部团队分拆而非外部投资，但治理结构诉求（少数股权+独立发展+赋能）与本 skill 同构；应指出差异——分拆场景还需处理内部资源切割与利益冲突（原属内部的核心能力外输给自己持股的公司），可在本 skill 框架上裁剪使用。",
+      "notes": "边界：内部孵化分拆与外部生态投资共享治理结构，但利益关系更复杂。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger-02 为同书兄弟 skill（new-retail-efficiency）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

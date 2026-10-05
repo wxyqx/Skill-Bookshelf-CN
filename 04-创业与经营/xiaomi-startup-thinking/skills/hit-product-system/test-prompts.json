@@ -1,0 +1,52 @@
+{
+  "skill": "hit-product-system",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们智能手表下周开立项会，团队吵着要加实验性血压监测功能，还要先定个 1999 的价格，节奏该怎么排？",
+      "expected_behavior": "应激活 hit-product-system，按四要素串行链纠正顺序（先钉死核心需求→再取舍功能→才谈定价→最后算效率），并用 80/80 法则给出血压功能砍留分析",
+      "notes": "正面场景：错序立项+功能取舍，正是四要素流程与 80/80 的组合应用"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们产品每一项参数都不差，就是卖不起来也没有口碑，问题出在哪？",
+      "expected_behavior": "应激活 hit-product-system，诊断'全面但无杰出'：缺少'至少一方面杰出'的超预期点，建议用 80/80 砍尾部的成本集中到一项做透",
+      "notes": "正面场景：'全面平庸'是四要素第 2 步的直接判据"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "新品定价纠结死了：定高一点保毛利，还是照成本定低价冲量？",
+      "expected_behavior": "应激活 hit-product-system，用'惊喜定价与绝对价格无关、是有理由的价格'框架：先看产品定义出的杰出点与分摊结构，再给同档比较优势的定价理由",
+      "notes": "正面场景：定价纠结对应第 3 要素'惊喜定价'，且顺序约束要求先完成定义"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们这款产品卖爆了，出货 500 万台，帮忙写一份对外新闻稿。",
+      "expected_behavior": "不应激活本 skill，因为这是文案任务；'卖爆了'若需判定是否真爆品也不是本 skill 的打造流程范畴",
+      "notes": "诱饵：'爆'字直接命中关键词，实为写作任务"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们去年那款扫地机卖了 80 万台，生命周期才 10 个月就没人买了，这算爆品吗？现在再进洗地机市场窗口还开不开？",
+      "expected_behavior": "不应激活本 skill，应激活 hit-product-judgment——问的是判定（四特征体检）与窗口（三条件），不是打造流程",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：反向混淆，用'爆品'成绩复盘+市场进入包裹判定诉求"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "立项会定好了功能和 199 元的惊喜定价，但财务算了一下说这个价格只有出货 300 万台才摊得平，我们预估只能卖 50 万，怎么办？",
+      "expected_behavior": "应激活本 skill 并触发第 4 步判停条件（分摊量级差一个数量级）：回到第 2 步重做功能取舍（砍尾部降 BOM）或回到第 3 步调价，同时可转介 efficiency-accounting 精算——合理行为是走'效率兑现→回退'循环而非直接改价格",
+      "notes": "边界：涉及数字精算，但问题的解在定义与取舍的回退链上，属本 skill 流程内的判停分支"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill 混淆诱饵（跨 skill 测试，反向：判定题伪装成产品话题）。"
+}

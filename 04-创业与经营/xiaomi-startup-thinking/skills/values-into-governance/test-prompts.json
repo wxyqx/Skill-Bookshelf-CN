@@ -1,0 +1,52 @@
+{
+  "skill": "values-into-governance",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司有一条底线：不接任何氪金诱导型的游戏业务。我现在担心的是，等我退休或公司换了 CEO，这条底线就没人守了。怎么把它固化下来？",
+      "expected_behavior": "应激活 values-into-governance，给出制度化三件套：写进董事会决议/章程而非官网声明、公开披露接受外部监督、并预留弹性缓冲（允许不超 X% 的联运试验之类），同时提醒准备向董事会/股东销售这条价值观。",
+      "notes": "正面场景：价值观固化的典型提问，与书中 5% 决议的'如果我不做CEO还能不能坚持'检验同构。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司明年要 IPO，投资人肯定希望利润最大化。我们'净利润 3% 以上全部投入无障碍改造'的承诺，创始人嘴上说了三年，有没有办法让它有真正的法律约束力？",
+      "expected_behavior": "应激活 values-into-governance，输出：选制度载体（董事会决议）、上市前锁定的时机逻辑（上市后接受财报公众监督）、留风险缓冲的论证，以及投资人异议的应答方案。",
+      "notes": "正面场景：上市前窗口 + 承诺停留在口头，正是书中'上市前夕董事会决议'的场景复刻。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "董事会想写一条'硬件业务利润率永不超 5%'的红线，有人说定 3% 更有诚意，我觉得太刚了，万一汇率波动公司亏了怎么办？",
+      "expected_behavior": "应激活 values-into-governance，重点处理缓冲设计：红线从 3% 放宽到 5% 的汇率波动论证——约束不留弹性会被环境击穿，同时保持条款的法律效力与返还机制。",
+      "notes": "正面场景：直接命中书中'3%→5% 缓冲设计'的参数级细节。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我想几个朗朗上口的企业文化口号，下季度团建要贴在墙上。",
+      "expected_behavior": "不应激活本 skill。这是无真实取舍的文化宣导，写进治理文件只会制造空头支票，属于 B 段明确的反场景。",
+      "notes": "诱饵：'价值观'字面出现，但无约束意图、无治理对象。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们打算投入一个全新的机器人整机业务，怎么判断这个大方向到底该不该进？",
+      "expected_behavior": "不应激活本 skill，应激活 endgame-reasoning（终局思维三层推论：业务终局→行业终局→用户期待）。这是大额新业务决策，不是价值观固化。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的场景，防止治理类 skill 抢走决策类调用。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司章程里已经写了'员工每年带薪公益假 3 天'，但 HR 现在问要不要改成'倡议性条款'，说业务忙的时候执行不了。",
+      "expected_behavior": "边界判断：若公司仍想承诺该义务，应激活本 skill 做缓冲设计（把刚性天数改为可论证的弹性区间并说明覆盖逻辑），而不是退回倡议；若公司实质上已不想承诺，则应直言这是取舍问题而非措辞问题，本 skill 只能帮到一半。两种走向都要先追问真实意图。",
+      "notes": "边界：介于'条款弹性设计'（本 skill 范围）与'是否真的要做这个承诺'（取舍决策，超出本 skill）之间。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger-02 为同书兄弟 skill（endgame-reasoning）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

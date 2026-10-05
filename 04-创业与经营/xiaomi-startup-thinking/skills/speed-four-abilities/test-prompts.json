@@ -1,0 +1,52 @@
+{
+  "skill": "speed-four-abilities",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的产品从收到用户抱怨到修复上线平均要六周，太慢了，帮我诊断组织的响应和改善速度瓶颈在哪。",
+      "expected_behavior": "应激活 speed-four-abilities，对洞察/响应/决策/改善四能力逐项对标找瓶颈，并给出机制化提速方案（固定迭代周期、反馈指标化、授权前置）。",
+      "notes": "典型正面场景：战术层提速诉求，直接命中四能力拆解。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "AI 这波浪潮我们该抢跑发布占位，还是等底层技术想清楚了再动手？节奏上怎么定？",
+      "expected_behavior": "应激活 speed-four-abilities，用快慢律判层：技术路线与合规等战略层宁慢想明白，功能迭代与用户响应等战术层用机制保证快——局部慢换全局快。",
+      "notes": "节奏之争场景，命中'战略积累快不得、战术演进慢不得'的判层规则。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司规模翻了几倍后，一个方案要过五层审批才能拍板，以前两天的事现在要一个月，怎么分析哪里卡住了？",
+      "expected_behavior": "应激活 speed-four-abilities，定位决策快瓶颈（审批链条），区分哪些决策可授权下沉（战术层）、哪些必须保留慎重拍板（战略层），输出分层的决策提速机制。",
+      "notes": "组织决策变慢场景，四能力中的'决策快'对标诊断。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "红米一代投了 4000 多万研发费，内测发现体验不达标，是继续打磨还是推倒重来？",
+      "expected_behavior": "不应激活本 skill，应激活 sunk-cost-restart（方向性错误判定+沉没成本当学费+推倒重来设终结性目标）。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为'快'章节案例，但主诉是方向错误的止损判定，不是节奏设计。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "董事会让我们研究要不要进军智能电动车，这么重大的决定该怎么论证？",
+      "expected_behavior": "不应激活本 skill，应激活 endgame-reasoning（业务终局→行业终局→用户期待三层推论）。",
+      "notes": "诱饵：造车案例在书中兼跨'战略层慢'与终局决策，但用户要的是决策论证内容而非推进节奏，归 endgame-reasoning。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "老板说小步快跑快速试错，CTO 说底层架构必须一次想透不能返工，谁说得对？",
+      "expected_behavior": "合理判断是激活本 skill：按快慢律分层裁决——用户可见功能与业务流程可小步快跑（战术层），底层架构与组织能力属战略层积累快不得；结论不是谁对谁错而是划清各自适用层。若用户要的是纯技术架构选型论证，则不激活。",
+      "notes": "边界：表面是技术路线之争，实质是快慢律判层问题；激活后产出的是分层结论而非站队。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。两条 should_not_trigger 均为同书兄弟 skill（sunk-cost-restart / endgame-reasoning）混淆诱饵，诱饵容错为 0。"
+}

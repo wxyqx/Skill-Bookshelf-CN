@@ -1,0 +1,52 @@
+{
+  "skill": "optimal-solution-excellence",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "老板要求把我们的智能音箱唤醒做到极致，团队方案是把响应速度再快 200 毫秒、再加两个麦克风，这方向对吗？",
+      "expected_behavior": "应激活 optimal-solution-excellence，指出最优解不在性能参数而在更简化/更集成实现（如免唤醒+多轮上下文继承），先查该领域是否已有公认最优解",
+      "notes": "正面场景：'堆参数≠极致'是 f14 的核心反直觉判据"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "市场部提议发布会请柬做成手工榫卯木盒，单件成本 40 块，说这体现我们的极致诚意，要不要批？",
+      "expected_behavior": "应激活 optimal-solution-excellence，走防自嗨三问闸门（用户真需要吗/核心竞争力吗/长期壁垒吗），三问全不过则砍掉并把成本挪到用户可感知处；注意判断是否适用电路板式品质溢出豁免",
+      "notes": "正面场景：仪式性成本审批是防自嗨三问的直接应用（f15）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "工程师想在外壳内部看不见的结构件上也用阳极氧化抛光，成本翻倍，说乔布斯连电路板都要求漂亮，这是极致还是浪费？",
+      "expected_behavior": "应激活 optimal-solution-excellence，用品质溢出豁免细则裁决：若能论证该高标准保证整体品质水准、对用户有间接价值则算极致，否则按自嗨砍掉",
+      "notes": "正面场景：隐蔽投入的豁免/否决边界，正是三问的判别要点"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想把手环做成市面上最便宜的，79 块以下有没有可能？帮我想想怎么把成本压下来。",
+      "expected_behavior": "不应激活本 skill，应转由 hit-product-system（产品定义与定价流程）处理——纯低价压缩是定价与取舍问题，且书中警告无创新支撑的低价是低效内卷，不是'极致'议题",
+      "notes": "诱饵：'极致的便宜'与'做到极致'词汇相似，方法论上分属产品线流程与性价比立场"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们扫地机产品立项，功能清单二十多项，哪些该留哪些该砍、定价定多少合适？",
+      "expected_behavior": "不应激活本 skill，应激活 hit-product-system——整条产品的功能取舍（80/80 法则）与定价流程，不是单项投入的极致判据",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：'把产品做到极致'常被误读为本 skill；清单级取舍归四要素流程，单项投入归防自嗨三问"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "MIX 全面屏当年不考虑量产做出来，据说项目是亏钱的，这种'不计成本的极致'和书里反对的自嗨怎么区分？",
+      "expected_behavior": "边界场景：应激活本 skill 做框架内辨析——用三问检验：全面屏探索对用户价值真、能立技术标杆成核心竞争力，与'用户无感知的铣 logo'不同；同时提示作者盲点（该判定的成立依赖事后口碑验证，属幸存者叙事）",
+      "notes": "边界：'不计成本'字面相似，但概念机探索 vs 仪式性堆料的区分恰是三问的设计目的；需附事后判定局限"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill 混淆诱饵（跨 skill 测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "new-business-three-pits",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们是大厂团队，要内部孵化机器人业务，负责人说我们有钱有人有品牌稳赢，我总觉得哪里不对劲。",
+      "expected_behavior": "应激活 new-business-three-pits，做三大坑自检：认知错位（成绩属平台不属团队、流量优势在硬件供应链不存在）、惯性思维（勿按大预算+甲方姿态）、偶像包袱（第一款别想全面颠覆）。",
+      "notes": "典型正面场景：'有钱有人有品牌稳赢'正是认知错位的标志性话术。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们做了二十年传统制造，现在要进军软件和互联网服务，怎么避免用自己的老经验把新业务做砸？",
+      "expected_behavior": "应激活 new-business-three-pits，逐条过筛惯性思维（旧流程、旧姿态、旧考核哪些失效），并建议预设知识与声望清零期、保持对新行业头部玩家的学习姿态。",
+      "notes": "跨行进入场景，验证框架不限于互联网公司做硬件的方向。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "新业务第一款产品还没立项，公司就定了'必须全面颠覆行业'的目标，这个要求合理吗？",
+      "expected_behavior": "应激活 new-business-three-pits，判定为偶像包袱与速胜论：先做好产品再谈颠覆，首发目标应降级为务实的单点目标，并给团队降叙事压力。",
+      "notes": "命中'偶像包袱'的自检项，验证对速胜论叙事的识别。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们在犹豫要不要进入电动汽车行业，帮我从业务和行业终局的角度论证一下该不该做。",
+      "expected_behavior": "不应激活本 skill，应激活 endgame-reasoning（业务终局→行业终局→用户期待三层推论）。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为造车/新业务语境，但进入决策尚未做出，归终局论证 skill。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "澎湃芯片烧了 10 亿还没做成 S2，是继续投入还是及时止损？",
+      "expected_behavior": "不应激活本 skill，应激活 sunk-cost-restart（判定错误类型：路径错误→改道以战养战；沉没成本当学费）。",
+      "notes": "诱饵：澎湃案例在书中是三大坑（认知错位）的素材，但用户主诉是止损决策，归沉没成本 skill。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是五个人的创业公司，第一次做硬件产品，需要担心认知错位和偶像包袱这些大公司病吗？",
+      "expected_behavior": "合理判断是不激活或仅轻触：三大坑针对'带着成功包袱的成熟组织'，五人初创无平台成绩可错认、无偶像包袱可放不下；其真实风险是资源与经验不足。应向用户说明适用边界，仅在有'技术自嗨/速胜叙事'苗头时借用单条自检。",
+      "notes": "边界：考察 skill 对主体（成熟组织 vs 初创）的适用条件判断，而非对主题词的机械匹配。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（endgame-reasoning）混淆诱饵，诱饵容错为 0。"
+}

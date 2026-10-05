@@ -1,0 +1,52 @@
+{
+  "skill": "word-of-mouth-design",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们新品下个月发布，想在用户里做出自发传播，帮我设计几个能超出用户预期的口碑点。",
+      "expected_behavior": "应激活 word-of-mouth-design，先标定目标客群的预期基准（绝对向最高标准、相对向同档位），再选择 1-2 处可被用户复述的超预期点，并做全触点排查。",
+      "notes": "典型正面场景：事前口碑设计诉求，命中'超预期'核心机制。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的产品评测都说不错，销量也还行，但用户就是不推荐给朋友，复购也在降，问题可能出在哪？",
+      "expected_behavior": "应激活 word-of-mouth-design，用'口碑=全触点总和'做排查：产品本体之外检查定价、包装、客服、发票、售后等触点是否有掉到预期以下的短板。",
+      "notes": "好产品不一定有口碑的反直觉断言正是本 skill 的核心适用场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我要开一家精品咖啡馆，怎么设计各个环节让顾客主动帮我们宣传？",
+      "expected_behavior": "应激活 word-of-mouth-design，输出触点清单（产品/服务/沟通）逐一对照预期基准打分，并建议先小范围种子顾客验证口碑再放大宣传。",
+      "notes": "跨行业迁移场景，验证框架不依赖手机/硬件语境。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "官微评论区一片好评，但我怀疑很多是水军和铁粉刷的，怎么验证这些口碑是不是真的？",
+      "expected_behavior": "不应激活本 skill，应激活 word-of-mouth-verification（口碑验证三原则：多路交叉验证、意见点vs印象面、直面真实口碑）。",
+      "notes": "跨 skill 混淆诱饵（硬性要求）：同为口碑主题，但诉求是'核验'而非'设计'。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们这款产品一年卖 2000 万台、性价比很高、参数也领先，算不算爆品？",
+      "expected_behavior": "不应激活本 skill，应激活 hit-product-judgment（四特征体检：若 SKU 多、生命周期短则不是爆品）。",
+      "notes": "诱饵：出现'口碑'相关的产品语境，但实际是爆品判定问题；'出货量大≠爆品'是 hit-product 的判据。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "预算有限，我们是先做营销投放，还是先打磨用户服务和体验？",
+      "expected_behavior": "合理判断是激活本 skill：'口碑领先于销量和利润、营销后置于口碑建立'直接回答先后顺序——先小范围验证口碑证据再投放；若用户要的是通用预算分配模型而非口碑语境，则不激活并说明理由。",
+      "notes": "边界：表面是预算分配问题，实质是'口碑先行'原则的应用，激活与否取决于提问者是否在产品/口碑语境下。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should-not-trigger-01 为同书兄弟 skill（word-of-mouth-verification）混淆诱饵，诱饵容错为 0。"
+}

@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**35 本书 · 597 个 skills**（最后更新：2026-10-05）
+**36 本书 · 614 个 skills**（最后更新：2026-10-05）
 
 ### 分类导航
 
@@ -52,7 +52,7 @@
 | 《高效能人士的七个习惯（30周年纪念版）》*The 7 Habits of Highly Effective People* | 史蒂芬·柯维 · 1989 | 个人管理 / 领导力 / 思维方式 | 29 | [`seven-habits/`](./03-个人成长/seven-habits/) |
 | 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./03-个人成长/effective-executive/) |
 
-#### 04-创业与经营（5 本）
+#### 04-创业与经营（6 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -61,6 +61,7 @@
 | 《富爸爸穷爸爸系列》*Rich Dad Poor Dad* | 罗伯特·T·清崎 · 2021 | 财商 / 投资 / 创业 | 18 | [`rich-dad-poor-dad-series/`](./04-创业与经营/rich-dad-poor-dad-series/) |
 | 《洛克菲勒留给儿子的38封信》 | 约翰·D·洛克菲勒 · 19 世纪末–20 世纪初 | 商业哲学 / 领导 / 行动 | 15 | [`rockefeller-38-letters/`](./04-创业与经营/rockefeller-38-letters/) |
 | 《权力的48条法则》*The 48 Laws of Power* | 罗伯特·格林 · 1998 | 权力 / 策略 / 人际 | 15 | [`power-48-laws/`](./04-创业与经营/power-48-laws/) |
+| 《小米创业思考》 | 雷军 / 徐洁云 · 2022 | 创业方法论 / 效率模型 / 爆品模式 / 互联网七字诀 | 17 | [`xiaomi-startup-thinking/`](./04-创业与经营/xiaomi-startup-thinking/) |
 
 #### 05-产品与创新（5 本）
 
@@ -303,6 +304,13 @@
 - **Skills**：`policy-thermometer-reading` · `policy-signal-capture` · `policy-cycle-positioning` · `dormant-clause-interpretation` · `marginal-zone-entry` · `latecomer-resource-borrowing` · `rent-based-model-audit` · `initial-identity-pricing` · `red-hat-structure-decision` · `property-rights-timing` · `half-step-rights-reform` · `business-government-distance` · `institutional-leverage-negotiation` · `media-deification-cycle` · `delusional-expansion-detection` · `bubble-exit-discipline`
 - **备注**：编年史蒸馏的代表作——政策信号、制度灰区、产权路径、政商距离四套方法论均以多年代、多人物的跨域案例支撑；与《战略与路径》《分析与思考》的宏观政策视角互补为"企业与制度"的双面。
 
+### 36. 《小米创业思考》 · [`xiaomi-startup-thinking/`](./04-创业与经营/xiaomi-startup-thinking/)
+
+- **作者**：雷军 / 徐洁云（执笔）· 2022（中信出版集团；创始人方法论自述，含 IPO 公开信与四篇年度演讲附录）
+- **一句话**：小米 12 年只做了一件事——用互联网方法改造制造业、推动效率革命：把"感动人心、价格厚道"从口号变成可计算的模型（ROI=利润率×周转）、可执行的纪律（七字诀）和可制度化的承诺（硬件净利率红线），方法论的价值超过公司本身。
+- **Skills**：`efficiency-accounting` · `impossible-triangle-model` · `new-retail-efficiency` · `cost-performance-philosophy` · `hit-product-judgment` · `hit-product-system` · `one-core-business` · `optimal-solution-excellence` · `speed-four-abilities` · `sunk-cost-restart` · `word-of-mouth-design` · `word-of-mouth-verification` · `endgame-reasoning` · `new-business-three-pits` · `downturn-remediation` · `values-into-governance` · `minority-stake-empowerment`
+- **备注**：方法论密度最高的创始人自述——效率公式、爆品四特征、终局思维三层推论等均为公式化/条款化表达；与《精益创业 2.0》同属"创业与经营"分类，从大公司视角与之互补。
+
 ---
 
 ## 安装
@@ -310,7 +318,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 597 个 skills（用户级，所有项目可用）
+# 一次性安装全部 614 个 skills（用户级，所有项目可用）
 for d in */*/skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -357,7 +365,8 @@ skill-bookshelf/
 │   ├── ready-fire-aim/   # 《*Ready, Fire, Aim*》
 │   ├── rich-dad-poor-dad-series/   # 《富爸爸穷爸爸系列》
 │   ├── rockefeller-38-letters/   # 《洛克菲勒留给儿子的38封信》
-│   └── power-48-laws/   # 《权力的48条法则》
+│   ├── power-48-laws/   # 《权力的48条法则》
+│   └── xiaomi-startup-thinking/   # 《小米创业思考》
 ├── 05-产品与创新/
 │   ├── how-google-works/   # 《重新定义公司：谷歌是如何运营的》
 │   ├── hooked/   # 《上瘾：让用户养成使用习惯的四大产品逻辑》

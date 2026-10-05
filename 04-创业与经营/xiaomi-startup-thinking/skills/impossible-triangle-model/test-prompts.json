@@ -1,0 +1,52 @@
+{
+  "skill": "impossible-triangle-model",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "所有投资人都在质疑我们：既要产品体验做到顶级，又要卖得比同行便宜，公司还怎么赚钱？这不就是不可能三角吗？",
+      "expected_behavior": "应激活 impossible-triangle-model，把取舍题改写为复合结构设计题：逐边指派供给模块（哪个业务负责获客、哪个负责盈利），检查交叉补贴闭环",
+      "notes": "正面场景：不可能三角的原型问题（f05）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们想学 Costco 的会员制模式，该从哪里入手？要准备哪些东西？",
+      "expected_behavior": "应激活 impossible-triangle-model，先列模式全部模块（精选 SKU/自有品牌/会员费模型/低毛利选址），逐个审计'我们是否具备地狱级难度的能力'，缺的给足资源或借伙伴，并提醒复合难度相乘不相加",
+      "notes": "正面场景：学复合模式前的模块清单审计（p20 地狱立方）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "董事会想同时做高端旗舰树品牌和百元机走量，说这两个方向互相打架，有没有办法两个都要？",
+      "expected_behavior": "应激活 impossible-triangle-model，设计双品牌分拆+服务收入交叉补贴的结构方案，逐边指派供给模块并做闭环检查",
+      "notes": "正面场景：高低线互斥是 V2 验证问题的变体"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "项目工期太紧了，质量、成本、进度三个只能保两个，怎么取舍？",
+      "expected_behavior": "不应激活本 skill，因为这是单项目管理的经典约束三角，不是商业模式层面的互斥目标设计；套用复合模式会造成过度设计",
+      "notes": "诱饵：'不可能三角'一词被项目管理借用，层级完全不同"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们单品毛利 25%，年周转 12 次，费用率 22%，这个生意到底健不健康？",
+      "expected_behavior": "不应激活本 skill，应激活 efficiency-accounting——用户已有具体数字，要的是 ROI 总账计算，不是互斥目标的模式设计",
+      "notes": "跨 skill 混淆诱饵（同书兄弟 skill）：同一公式语境（第十章），设计题与计算题分工不同"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "小米硬件贴成本卖、靠互联网服务赚钱，可它互联网服务收入占比才一成，这个交叉补贴闭环真的成立吗？",
+      "expected_behavior": "边界场景：应激活本 skill 并做闭环检查（用户量×付费意愿是否撑得住盈利边），同时诚实呈现数据出自小米自述、'铁人三项可复制性'为作者自认存疑（地狱立方警告），结论应给条件性判断而非背书",
+      "notes": "边界：用户用真实质疑考闭环成立性，本 skill 应执行步骤 3 的闭环检验而非重复模式描述"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0），其中 should-not-trigger-02 为同书兄弟 skill 混淆诱饵（跨 skill 测试）。"
+}

@@ -1,0 +1,52 @@
+{
+  "skill": "downturn-remediation",
+  "version": "0.1.0",
+  "source_book": "《小米创业思考》 — 雷军",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司连续三个季度出货量下滑，CEO 在提议向外界讲'全面转型 AI 公司'的新故事来稳住股价。你觉得这条路对吗？",
+      "expected_behavior": "应激活 downturn-remediation，先做失速四征兆诊断（失焦/KPI 偏离/用户阵地荒废/产品不再酷）并归因于能力，明确'低谷不讲新故事、先补课'的动作序列：交付/创新/质量三抓手+一把手下场。",
+      "notes": "正面场景：危机中'讲新故事'的典型诱惑，直接对应第二章核心主张。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "最近几个月质量事故频发，但每次一提暂停发货赶工期，质量部门就顶不住压力。有没有办法让质量在组织里真正硬起来？",
+      "expected_behavior": "应激活 downturn-remediation，给出质量一票否决制的制度设计：成立质量委员会、主席由最高负责人出任、否决权凌驾于进度与成本之上。",
+      "notes": "正面场景：质量一票否决制的组织设计需求，p14 的配套机制。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "供应链那边传来消息，两家核心供应商开始要求现款现结，还缩减了给我们的产能优先级，出货节奏眼看要断。",
+      "expected_behavior": "应激活 downturn-remediation，识别为'死亡螺旋'预警信号（供应链按未来势能撤走支持），判定止跌与稳住信心是高于短期盈利的战略任务，并启动交付抓手（专项供应链团队、核心器件重投）。",
+      "notes": "正面场景：ce02 死亡螺旋的 warning_signs 触发，止跌优先。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们现金流断了，下个月工资都发不出来，帮我想想怎么跟银行和投资人谈展期。",
+      "expected_behavior": "不应激活本 skill。这是纯现金流/融资危机，属资本结构问题，本 skill 处理的是能力与组织补课，B 段明确反场景。",
+      "notes": "诱饵：'危机'字面出现，但危机类型不匹配。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们那款投入 8000 万的新机内测口碑很差，是核心体验本身不成立，团队还在想继续打磨修补，你说该继续改还是推倒重来？",
+      "expected_behavior": "不应激活本 skill，应激活 sunk-cost-restart（方向性错误推倒重来：沉没成本当学费、设重做判定点、重做目标是终结性产品）。这是单品定义底线判定，不是公司级补课。",
+      "notes": "跨 skill 混淆诱饵：同书兄弟 skill 的场景，防止低谷类 skill 抢走单品重做判定。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们只是一家 30 人的小公司，单一产品卖得不好，团队士气低迷，有点像你说的'失速'，也说不清是产品问题还是组织问题。",
+      "expected_behavior": "边界判断：应先追问诊断证据再决定路由——若证据指向单款产品定义不成立，走 sunk-cost-restart；若同时出现失焦、KPI 偏离、用户阵地荒废等多系统征兆，才激活本 skill 并按公司级补课流程裁剪（小公司一把手天然下场，重点是三抓手排序与质量否决的轻量版）。",
+      "notes": "边界：小规模组织的危机既可能是单品问题也可能是系统能力问题，需要先诊断归属。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。should_not_trigger-02 为同书兄弟 skill（sunk-cost-restart）混淆诱饵。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}
