@@ -1,0 +1,59 @@
+{
+  "skill": "challenger-follower-positioning",
+  "version": "0.1.0",
+  "source_book": "《定位：有史以来对美国营销影响最大的观念》 — 里斯 & 特劳特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们是行业老二，正面拼不过领导品牌，广告预算也只有人家零头。有没有什么维度或者别的打法，能让我们也占住一块位置？",
+      "expected_behavior": "应激活 challenger-follower-positioning：先排除正面进攻，再按空位维度清单或关联定位法（承认老二）给出选位方案",
+      "notes": "典型正面场景：跟随者选位"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "领导品牌刚带火了一个品类，我们想赶紧跟一款，产品改得比他更好再上市，这样能赢吗？",
+      "expected_behavior": "应激活 challenger-follower-positioning：指出跟风者不能只做'更好'，判停改进产品拖延、广告不足、沿用公司名三种致命做法",
+      "notes": "跟风决策触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们有个新品类，跟顾客解释半天也说不清是什么；另外高端价位被进口品牌占了，我们做高价还是低价空位更稳？",
+      "expected_behavior": "应激活 challenger-follower-positioning：用'不是什么'的挂靠法借助旧概念导入新品类，并按高价/低价空位规则（新品类宜低价、老产品维修差宜高价）给出判断",
+      "notes": "非可乐挂靠 + 价格空位触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们憋了一条攻击广告，想公开说'XX家的咖啡机用半年就漏'，这条攻击广告怎么写才既狠又不踩法律线？",
+      "expected_behavior": "不应激活本 skill，应激活 reposition-the-competitor（攻击传播的设计与合规评估）",
+      "notes": "同书兄弟诱饵：选位置 vs 攻击传播"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们已经是品类第一，最近一堆小品牌模仿我们打价格战，要不要跟进拦截、广告该怎么打？",
+      "expected_behavior": "不应激活本 skill，应激活 leader-defense-playbook（领导者防御与拦截）",
+      "notes": "同书兄弟诱饵：跟随者找位 vs 领导者防御"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们的产品技术上全球首创，但比对手晚上市两年，现在换条赛道还来得及抢下'心智第一'吗？",
+      "expected_behavior": "不应激活本 skill，应激活 first-in-mind-beats-better（进入时机与心智次序判断）",
+      "notes": "同书兄弟诱饵：在位跟随找位 vs 换赛道抢第一"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们工厂有闲置产能，财务测算后觉得推一个低价子品牌把产品线的价格缺口填上稳赚不赔，这不就是书里说的找空位吗？",
+      "expected_behavior": "可合理调用本 skill，但必须先用'工厂空位 vs 心智空位'检验：价格带缺口和闲置产能是工厂逻辑，答案取决于顾客心智里该低价位置是否真空着、由谁占据；允许结论为'这不是空位，否掉'",
+      "notes": "边界：工厂空位误判的经典话术，考验 skill 是否守住核心判据而非顺着用户走"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 2 条同书兄弟混淆诱饵：reposition-the-competitor、leader-defense-playbook，另加 first-in-mind-beats-better）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

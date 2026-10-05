@@ -1,0 +1,59 @@
+{
+  "skill": "country-place-positioning",
+  "version": "0.1.0",
+  "source_book": "《定位：有史以来对美国营销影响最大的观念》 — 里斯 & 特劳特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们这座城市游客都是路过就去邻市了，本地没人留下来过夜。文旅局要做旅游品牌，帮我们给城市定个位。",
+      "expected_behavior": "应激活 country-place-positioning：诊断目的地在游客心智中的位置，用外来者视角盘点资产，找邻居认知+权威背书做锚定",
+      "notes": "典型正面场景：城市/目的地定位"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的度假酒店开在一个没什么名气的小县城，砸钱宣传房间和服务根本没用，是不是得先让游客想来这个地方？",
+      "expected_behavior": "应激活 country-place-positioning：识别出'依附目的地'结构，先给上游目的地定位，酒店作为受益者承接客流",
+      "notes": "对象选择触发：先给地方定位再谈自身卖点"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "市里花大钱拍的风光宣传片画面很美，播放量也不低，可游客数没涨。领导让我看看问题出在哪。",
+      "expected_behavior": "应激活 country-place-positioning：指出纯视觉素材无区分度，要'把图像文字化'，附着一个可语言表达的定位概念",
+      "notes": "宣传片评估触发：图像文字化"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们集团要出一版新的企业形象广告，主题想围绕'以人为本、值得信赖'，帮我评估这个方向。",
+      "expected_behavior": "不应激活本 skill，应激活 company-institution-positioning（对象是企业形象而非目的地）",
+      "notes": "同书兄弟诱饵：公司形象广告"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我是个工作八年的设计师想转管理岗，帮我做一下个人定位和求职策略。",
+      "expected_behavior": "不应激活本 skill，应激活 personal-career-positioning（个人与职业定位）",
+      "notes": "同书兄弟诱饵：个人求职定位"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们刚接到一个整体定位项目，想从头到尾系统走一遍：该问哪几个问题、按什么顺序推进？",
+      "expected_behavior": "不应激活本 skill，应激活 positioning-six-question-process（定位六步曲流程）",
+      "notes": "同书兄弟诱饵：完整项目流程"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是市属文旅集团，既想给本市做旅游目的地定位，又要给集团本身做企业形象。这两个项目怎么排序、会不会互相干扰？",
+      "expected_behavior": "合理答案可同时涉及本 skill 与 company-institution-positioning，但必须先回答对象次序：按比利时航空逻辑先给目的地建立位置、集团作为受益者承接，避免在错误对象上先做精细定位；并给出两者概念相互独立的防混措施",
+      "notes": "边界：目的地定位与企业定位的双对象场景"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 3 条同书兄弟混淆诱饵：company-institution-positioning、personal-career-positioning、positioning-six-question-process）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

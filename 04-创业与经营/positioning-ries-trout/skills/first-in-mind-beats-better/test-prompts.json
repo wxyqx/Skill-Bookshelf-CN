@@ -1,0 +1,59 @@
+{
+  "skill": "first-in-mind-beats-better",
+  "version": "0.1.0",
+  "source_book": "《定位：有史以来对美国营销影响最大的观念》 — 里斯 & 特劳特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的新品类产品还要三个月才能上市，有家对手消息灵通已经在准备了。现在这局面还值得全力抢跑吗？投入该怎么安排？",
+      "expected_behavior": "应激活 first-in-mind-beats-better，用'局势不明窗口期需超额投入、领先建立后只需维持'的时机原则给出投入档位与抢跑判断",
+      "notes": "正面场景：进入时机与窗口期投入"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这个品类第一早被老品牌占死了，我们再努力也只是个跟风的。是不是该换个细分领域去当第一？怎么重新划分领域？",
+      "expected_behavior": "应激活 first-in-mind-beats-better，走'做不了第一就换领域做第一'路径，沿新品类/新维度找能'拥有'的第一，并警告跟风只做更好的灾难",
+      "notes": "正面场景：换领域做第一"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "对手比我们早半年上市，但我们发现他们在用自己的老品牌名做延伸，品类认知一直很模糊。我们还有机会在顾客心里占住第一吗？",
+      "expected_behavior": "应激活 first-in-mind-beats-better，判断'对手延伸=专业定位空位让出'，区分心智第一与市场第一，并提示行动窗口很短",
+      "notes": "正面场景：心智第一 vs 市场第一"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们已经是品类销量第一了，最近冒出好几个模仿我们的新品牌，要不要跟进他们的玩法、广告该怎么打？",
+      "expected_behavior": "不应激活本 skill，应激活 leader-defense-playbook（领导者拦截与防御）",
+      "notes": "同书兄弟诱饵：守第一 vs 抢第一"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们是行业老三，高端市场被领导品牌牢牢占着，有没有哪个维度——比如价格、人群、渠道——可以切进去找个空位？",
+      "expected_behavior": "不应激活本 skill，应激活 challenger-follower-positioning（在既有阶梯上按维度找空位）",
+      "notes": "同书兄弟诱饵：在位找空位 vs 换赛道做第一"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "公司要推一款新饮品，名字初步想叫'轻悦'，帮我评估这个名字能不能把卖点钉进顾客脑子里？",
+      "expected_behavior": "不应激活本 skill，应激活 naming-that-hooks（命名字面决策）",
+      "notes": "诱饵：命名问题（本 skill 只管心智次序对名字的容错度）"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们销量是市场第一，但调研发现顾客提到这个品类第一个想到的还是对手。这算不算第一？接下来该抢心智还是该防守？",
+      "expected_behavior": "合理答案应先激活本 skill（心智第一 vs 市场第一的诊断：市场第一不等于心智第一，需评估差距与抢心智路径）；若结论是心智地位已难撼动、转入守市场地位，则联动 leader-defense-playbook。关键是先做心智次序诊断再选攻防",
+      "notes": "边界：市场第一但心智第二的攻防转换场景"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 2 条同书兄弟混淆诱饵：leader-defense-playbook、challenger-follower-positioning）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

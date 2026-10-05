@@ -1,0 +1,59 @@
+{
+  "skill": "reposition-the-competitor",
+  "version": "0.1.0",
+  "source_book": "《定位：有史以来对美国营销影响最大的观念》 — 里斯 & 特劳特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们新品类在每个渠道都碰上老牌子，预算还少，能不能靠打对手上位？帮我设计攻击思路。",
+      "expected_behavior": "应激活 reposition-the-competitor，按四步法找对手结构性弱点并转化为己方概念",
+      "notes": "典型正面场景：借重新定位上位"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "法务部拦了我们一条广告：'我们比 XX 家味道更纯正'。这条文案到底行不行，要改怎么改？",
+      "expected_behavior": "应激活 reposition-the-competitor，指出这是自夸式对比广告的心理漏洞，改成揭示对手弱点的两面性表达",
+      "notes": "对比广告评估触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "对手抢先把'环保'这个词占了，我们产品明明更环保，宣传上怎么破局？",
+      "expected_behavior": "应激活 reposition-the-competitor，用'给名字换说法'的框架战打法反转对手概念",
+      "notes": "议题战/框架战触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们是行业老三，高端市场被领导品牌占了，有没有别的维度切进去做第一？",
+      "expected_behavior": "不应激活本 skill，应激活 challenger-follower-positioning（找空位与跟随者选位）",
+      "notes": "跨 skill 混淆诱饵：选位置 vs 攻击传播"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们品类第一，最近有新品牌模仿我们打价格战，要不要跟进、广告该怎么打？",
+      "expected_behavior": "不应激活本 skill，应激活 leader-defense-playbook（领导者防御与拦截）",
+      "notes": "跨 skill 混淆诱饵：防御视角"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "公司要出一条新品，名字想叫'优选生活'，帮我评估这个名字行不行？",
+      "expected_behavior": "不应激活本 skill，应激活 naming-that-hooks（命名决策）",
+      "notes": "诱饵：命名问题"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们刚把对手'添加剂多'的弱点打成了传播主打，现在对手降价反扑，这时候该继续攻击还是转防守？",
+      "expected_behavior": "合理答案可以是调用本 skill（评估攻击的可持续性与对手反扑风险），也可联动 leader-defense-playbook；关键是要给出'结构性弱点是否依然成立'的判断依据",
+      "notes": "边界：攻防转换的动态场景"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 2 条同书兄弟混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

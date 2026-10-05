@@ -1,0 +1,59 @@
+{
+  "skill": "positioning-game-rules",
+  "version": "0.1.0",
+  "source_book": "《定位：有史以来对美国营销影响最大的观念》 — 里斯 & 特劳特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们营销团队最近迷上了'只要够努力就没拿不下的市场'，老板还想把去年一款产品的成功打法复制到所有新品上。帮我对照定位理论做一次团队素质自查。",
+      "expected_behavior": "应激活 positioning-game-rules，按心态错觉排查（我能行精神、天才名声）与六要清单逐项自检并给出纠偏建议",
+      "notes": "典型正面场景：实践者素质自检"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "行业里都在喊 All in 新赛道，可我们核心业务还赚钱。总感觉不变就会被淘汰，我是不是应该跟着转型？",
+      "expected_behavior": "应激活 positioning-game-rules，用'万物恒变错觉'与波浪/潜流框架判断该守本位还是追新，而非直接给转型方案",
+      "notes": "追新与转型判断触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们的品牌战略其实很简单直接，可每次内部评审都被嫌'太简单没水平'，加上刚换了新负责人，方案眼看要黄。怎么把它在组织里推销下去？",
+      "expected_behavior": "应激活 positioning-game-rules，按'崇尚复杂、不屑简单'与人事更迭的组织采纳失败模式，给出向内推销的步骤（简化到显而易见、用心智事实论证、交接预案）",
+      "notes": "组织采纳/向内推销触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "对手抢先把'环保'这个词占了，我们产品明明更环保，宣传上怎么破局把概念夺回来？",
+      "expected_behavior": "不应激活本 skill，应激活 reposition-the-competitor（给对手已占概念换说法的框架战）",
+      "notes": "同书兄弟诱饵：概念争夺战归 reposition-the-competitor"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我要给公司启动一个完整的定位项目，六步流程具体怎么走、每一步先看什么？",
+      "expected_behavior": "不应激活本 skill，应激活 positioning-six-question-process（成功六步曲的项目流程）",
+      "notes": "同书兄弟诱饵：项目流程归 positioning-six-question-process"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们产品参数明明比对手好，销量却一直上不去，是不是该用事实和数据教育顾客，改变他们的错误认知？",
+      "expected_behavior": "不应激活本 skill，应激活 outside-in-perception-first（认知方法论：不该用事实挑战认知）",
+      "notes": "同书兄弟诱饵：认知判断归 outside-in-perception-first，本 skill 只管实践者心态"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "定位项目卡在第五问'你能坚持到底吗'：一半人说要坚持既定战略，另一半说该趁风口转型。我该先解决团队心态，还是先走完项目流程？",
+      "expected_behavior": "合理答案可以是先调用本 skill（用'万变不离其宗'与波浪/潜流判定心态分歧，重建客观与耐心），再回 positioning-six-question-process 完成六问；关键是明确区分'素质问题'与'流程问题'的处理顺序，而不是直接替用户选边",
+      "notes": "边界：素质自检与项目流程的交界场景"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 3 条同书兄弟混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,59 @@
+{
+  "skill": "leader-defense-playbook",
+  "version": "0.1.0",
+  "source_book": "《定位：有史以来对美国营销影响最大的观念》 — 里斯 & 特劳特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们是品类销量第一的品牌，最近有创业公司推出一种全新概念的竞品，打法跟我们完全不一样。要不要跟进推出同类产品，还是先观望看看它能不能成？",
+      "expected_behavior": "应激活 leader-defense-playbook，按拦截三选一（迅速跟进/直接压制/有依据放任）做限时决策，强调在对手扎根心智之前出手",
+      "notes": "典型正面场景：领导者拦截决策"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "市场部拟的新广告语是'XX品类全国销量第一，连续十年领先'，老板还想加一句'遥遥领先'。我们本来就是行业老大，这条广告到底该怎么打？",
+      "expected_behavior": "应激活 leader-defense-playbook，指出不喊'我们是第一'、改宣传品类价值与正宗货叙事，且领导地位诉求不可中断",
+      "notes": "领导者广告评审触发：正宗货/品类价值"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们主业是行业第一但增长见顶，想切进一个相邻的新品类，是挂现有主品牌做延伸，还是像宝洁那样推一个独立新品牌？",
+      "expected_behavior": "应激活 leader-defense-playbook，用'新定位需要新名字'的多品牌拦截逻辑与'宽泛名覆盖'二选一给命名架构决策",
+      "notes": "命名架构决策触发：多品牌拦截"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们是行业老二，老大占了六成心智份额正面打不过，有没有跟在它后面的上位打法？空位该怎么找？",
+      "expected_behavior": "不应激活本 skill，应激活 challenger-follower-positioning（跟随者选位与空位搜索）",
+      "notes": "同书兄弟诱饵：老二上位 vs 领导者防御"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们有个新品牌马上上市，这个品类还没有公认的头号玩家，怎么抢在所有对手前面第一个进入顾客心智？",
+      "expected_behavior": "不应激活本 skill，应激活 first-in-mind-beats-better（抢第一，而非守第一）",
+      "notes": "同书兄弟诱饵：抢第一 vs 守第一"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们打算把主品牌延伸到一条新产品线上，帮我系统评估一下品牌延伸的利弊和判断标准。",
+      "expected_behavior": "不应激活本 skill（默认按延伸评估处理），应激活 brand-extension-rules（延伸利弊判据与购物单/酒保检验）",
+      "notes": "同书兄弟诱饵：延伸判据 vs 防御性命名架构"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们曾是这个品类的开创者、市场份额也最大，但调研显示顾客想到这个品类时第一个说出的已经是竞品名字。现在我们算领导者还是挑战者？该按哪套打法走？",
+      "expected_behavior": "合理答案应先判心智次序：心智第一已被抢走则领导者防御前提失效，应转 first-in-mind-beats-better / challenger-follower-positioning 重新抢位，同时说明'心智第一不必市场第一'的判据；也接受先调 mental-ladder-diagnosis 再定攻防的答案",
+      "notes": "边界：市场份额第一≠心智第一，攻防身份判定的模糊地带"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（3 条均为同书兄弟混淆诱饵：challenger-follower-positioning、first-in-mind-beats-better、brand-extension-rules）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

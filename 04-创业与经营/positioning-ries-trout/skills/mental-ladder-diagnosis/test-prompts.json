@@ -1,0 +1,59 @@
+{
+  "skill": "mental-ladder-diagnosis",
+  "version": "0.1.0",
+  "source_book": "《定位：有史以来对美国营销影响最大的观念》 — 里斯 & 特劳特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们要启动新一轮品牌规划，老板要求先弄清顾客心里把我们排在品类第几层、主要对手排在哪，这个摸底该怎么做？",
+      "expected_behavior": "应激活 mental-ladder-diagnosis，给出心智阶梯摸底方法（第一提及、排位、绑定词）与由外而内的调研路径",
+      "notes": "典型正面场景：定位项目启动前摸底"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "帮我们设计一份定位调研问卷：把我们和三家主要竞品放在一起，按几个属性让客户打分，最后画成一张地图。",
+      "expected_behavior": "应激活 mental-ladder-diagnosis，按语义分化心智地图法设计：约六个属性（一半行业基本依据、一半情境定制）、1-10 评分、竞争对手并排纳入，强调相对位次而非绝对好评",
+      "notes": "语义分化调研设计触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们想抢占'高端服务'这个位置，但领导品牌太强，从我们现在这个位置跳过去现实吗？该从哪个顾客已有的印象切入？",
+      "expected_behavior": "应激活 mental-ladder-diagnosis，先做'无法由此及彼'的可达性判断（相对位置、时机、竞争格局），再从心智已主动给予的评价确定切入点",
+      "notes": "可达性判断+切入决策触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司决定认真做一次完整的定位工程，从现状分析到最终落地全流程该怎么推进？分几步？",
+      "expected_behavior": "不应激活本 skill，应激活 positioning-six-question-process（完整六问流程），本 skill 只是其中第①问的单点工具",
+      "notes": "同书兄弟诱饵：单点摸底 vs 完整六问流程"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我提炼一个词作为品牌核心概念，让顾客一提到这个概念就想起我们。",
+      "expected_behavior": "不应激活本 skill，应激活 own-one-word-in-mind（一词占领心智）",
+      "notes": "同书兄弟诱饵：诊断摸底 vs 一词占领"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "对手抢先把'天然'这个词占了，我们想设计一套攻击性传播把他从那个位置上拉下来。",
+      "expected_behavior": "不应激活本 skill，应激活 reposition-the-competitor（攻击传播设计）；本 skill 只在其前的调研摸底阶段使用",
+      "notes": "同书兄弟诱饵：诊断 vs 攻击设计"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "调研显示顾客给我们'质量好'打了 8 分，但按同一份问卷我们相对主要对手还是第三，接下来该信这个高分还是这个位次？",
+      "expected_behavior": "合理答案应调用本 skill 并给出'绝对评分无意义、相对位次才决定战略'的判断（p49），结合六属性地图的横向对比给出结论，而非直接转入一词占领或六问流程",
+      "notes": "边界：绝对分 vs 相对位次的解读分歧，正是本 skill 的核心判据"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 3 条同书兄弟混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

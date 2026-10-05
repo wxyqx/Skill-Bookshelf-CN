@@ -1,0 +1,59 @@
+{
+  "skill": "positioning-six-question-process",
+  "version": "0.1.0",
+  "source_book": "《定位：有史以来对美国营销影响最大的观念》 — 里斯 & 特劳特",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们新公司想给品牌做一次从头到尾的定位梳理，有没有一套完整流程？第一步该干什么，顺序能不能乱？",
+      "expected_behavior": "应激活 positioning-six-question-process，按成功六步曲逐问推进：先从潜在顾客心智摸现状，再定目标、列对手、算预算、立坚持契约、检验创意",
+      "notes": "典型正面场景：启动定位项目要完整流程"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "预算只够打透两个城市，销售总监却坚持要全国铺开，这个投放节奏该怎么定才科学？",
+      "expected_behavior": "应激活 positioning-six-question-process，用'大钱做全国、小钱滚地域'的预算现实与四种分步推广法（地域/人群/年龄/渠道）排节奏",
+      "notes": "预算与滚动节奏触发（第④问）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "定位做了一年销量没起色，董事会有人喊换战略，也有人说我们请的顾问只会让我们'再坚持'，到底听谁的？外部顾问在定位项目里到底能起什么作用？",
+      "expected_behavior": "应激活 positioning-six-question-process，用'基本战略几乎不变、可变的是战术'的坚持判据处理换战略之争，并按'局外人供客观不供奇迹'说明顾问的真实价值",
+      "notes": "坚持 vs 换战略 + 局外人角色触发（第⑤问）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "先不用谈什么长远规划，我只想摸摸底：提起我们品牌，顾客心智里把我们排在第几层？上面压着谁？",
+      "expected_behavior": "不应激活本 skill，应激活 mental-ladder-diagnosis（心智阶梯单点摸底）",
+      "notes": "同书兄弟诱饵：完整流程 vs 单点摸底"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我个人的职业发展想用定位思路，我是该做面面俱到的通才，还是聚焦成某个领域的专家？",
+      "expected_behavior": "不应激活本 skill，应激活 personal-career-positioning（个人与职业定位）",
+      "notes": "同书兄弟诱饵：项目流程 vs 个人定位素材"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "听说玩好定位这个游戏得理解文字、保持他人导向，具体指哪些素质和心态？",
+      "expected_behavior": "不应激活本 skill，应激活 positioning-game-rules（定位游戏规则：素质与六要）",
+      "notes": "同书兄弟诱饵：流程 vs 实践者素质"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "广告公司交来的年度创意片拍得很有才气，但和我们定好的'安全'定位关系不大。是毙掉重来，还是在流程上给创意留点空间？",
+      "expected_behavior": "合理答案可以调用本 skill（第⑥问'你符合自己的定位吗'的创意准入检验），也可联动 own-one-word-in-mind（一词占领）；关键是给出'创意是否服务定位'的检验依据而非纯审美判断",
+      "notes": "边界：创意评估与流程第⑥问的交叉场景"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（3 条均为同书兄弟混淆诱饵：mental-ladder-diagnosis、personal-career-positioning、positioning-game-rules）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

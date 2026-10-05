@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**39 本书 · 664 个 skills**（最后更新：2026-10-05）
+**40 本书 · 679 个 skills**（最后更新：2026-10-05）
 
 ### 分类导航
 
@@ -54,7 +54,7 @@
 | 《高效能人士的七个习惯（30周年纪念版）》*The 7 Habits of Highly Effective People* | 史蒂芬·柯维 · 1989 | 个人管理 / 领导力 / 思维方式 | 29 | [`seven-habits/`](./03-个人成长/seven-habits/) |
 | 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./03-个人成长/effective-executive/) |
 
-#### 04-创业与经营（6 本）
+#### 04-创业与经营（7 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -64,6 +64,7 @@
 | 《洛克菲勒留给儿子的38封信》 | 约翰·D·洛克菲勒 · 19 世纪末–20 世纪初 | 商业哲学 / 领导 / 行动 | 15 | [`rockefeller-38-letters/`](./04-创业与经营/rockefeller-38-letters/) |
 | 《权力的48条法则》*The 48 Laws of Power* | 罗伯特·格林 · 1998 | 权力 / 策略 / 人际 | 15 | [`power-48-laws/`](./04-创业与经营/power-48-laws/) |
 | 《小米创业思考》 | 雷军 / 徐洁云 · 2022 | 创业方法论 / 效率模型 / 爆品模式 / 互联网七字诀 | 17 | [`xiaomi-startup-thinking/`](./04-创业与经营/xiaomi-startup-thinking/) |
+| 《定位：有史以来对美国营销影响最大的观念》*Positioning* | 艾·里斯、杰克·特劳特 · 1981/2011 | 营销战略 / 心智认知 / 品牌命名 / 攻防策略 | 15 | [`positioning-ries-trout/`](./04-创业与经营/positioning-ries-trout/) |
 
 #### 05-产品与创新（6 本）
 
@@ -338,12 +339,21 @@
 
 ---
 
+### 40. 《定位：有史以来对美国营销影响最大的观念》 · [`positioning-ries-trout/`](./04-创业与经营/positioning-ries-trout/)
+
+- **作者**：艾·里斯、杰克·特劳特 · 1981（机械工业出版社“定位经典丛书”，本版基于 20 周年纪念版）
+- **一句话**：营销之争发生在潜在顾客的心智而非工厂——定位就是让品牌在心智中占据一个词、一个梯级：领导者守第一（正宗货/拦截），跟随者找空位（关联/非可乐），打不赢就重新定位对手，全程靠名字这只"钩子"把品牌挂在心智阶梯上，并以成功六步曲与游戏规则保证落地。
+- **Skills**：`outside-in-perception-first` · `own-one-word-in-mind` · `first-in-mind-beats-better` · `mental-ladder-diagnosis` · `challenger-follower-positioning` · `reposition-the-competitor` · `leader-defense-playbook` · `naming-that-hooks` · `brand-extension-rules` · `company-institution-positioning` · `country-place-positioning` · `personal-career-positioning` · `positioning-six-question-process` · `mind-runs-by-ear-media-rules` · `positioning-game-rules`
+- **备注**：定位理论开山之作，"心智阶梯/空位/重新定位/跷跷板"等判据已成营销通用语言；与《影响力》《上瘾》分属营销心理与产品习惯，本卷专注战略层的心智占位与攻防选择。
+
+---
+
 ## 安装
 
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 664 个 skills（用户级，所有项目可用）
+# 一次性安装全部 679 个 skills（用户级，所有项目可用）
 for d in */*/skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -393,7 +403,8 @@ skill-bookshelf/
 │   ├── rich-dad-poor-dad-series/   # 《富爸爸穷爸爸系列》
 │   ├── rockefeller-38-letters/   # 《洛克菲勒留给儿子的38封信》
 │   ├── power-48-laws/   # 《权力的48条法则》
-│   └── xiaomi-startup-thinking/   # 《小米创业思考》
+│   ├── xiaomi-startup-thinking/   # 《小米创业思考》
+│   └── positioning-ries-trout/   # 《定位：有史以来对美国营销影响最大的观念》
 ├── 05-产品与创新/
 │   ├── how-google-works/   # 《重新定义公司：谷歌是如何运营的》
 │   ├── hooked/   # 《上瘾：让用户养成使用习惯的四大产品逻辑》
