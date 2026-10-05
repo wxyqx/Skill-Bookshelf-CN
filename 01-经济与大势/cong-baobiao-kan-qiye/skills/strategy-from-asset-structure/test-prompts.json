@@ -1,0 +1,59 @@
+{
+  "skill": "strategy-from-asset-structure",
+  "version": "0.1.0",
+  "source_book": "《从报表看企业：数字背后的秘密（第5版）》 — 张新民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我拿到格力电器母公司报表和合并报表，帮我判断这家公司是经营主导型还是投资主导型战略？",
+      "expected_behavior": "应激活 strategy-from-asset-structure，按母公司口径二分资产、剔除大额货币资金后定型",
+      "notes": "典型正面场景：资产结构判型"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这家公司账上资产不多，品牌也很值钱，怎么看它的真实实力和战略是多元化还是专业化？",
+      "expected_behavior": "应激活 strategy-from-asset-structure，用表外资源四分类+资产二分给出战略画像",
+      "notes": "表外资源与战略类型双触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司做了七八年生意还不错，现在想扩张，是继续滚产品利润好还是去上市融资好？",
+      "expected_behavior": "应激活 strategy-from-asset-structure，用产品市场'走'与证券市场'飞'双轮框架给融资战略建议",
+      "notes": "双市场定位触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家公司资产负债率 75% 了，帮我看看它的偿债压力和借款结构有没有风险？",
+      "expected_behavior": "不应激活本 skill，应激活 financial-risk-debt-quality（负债来源与偿债风险问题）",
+      "notes": "跨 skill 混淆诱饵：负债结构→风险 skill，不是资产结构判型"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司净利润一个多亿，但经营活动现金流量是负的，这个利润是不是有水分？",
+      "expected_behavior": "不应激活本 skill，应激活 core-profit-cash-conversion（利润现金含量检验）",
+      "notes": "跨 skill 混淆诱饵：利润质量→效益 skill"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "帮我算一下这家公司最近三年的净资产收益率和流动比率，跟同行比比。",
+      "expected_behavior": "不应激活本 skill，应激活 ratio-analysis-pitfalls（比率计算与口径查错）",
+      "notes": "诱饵：要比率结论，不要战略判型"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "母公司报表里长期股权投资占总资产六成，剩下还有不少固定资产，这算什么类型？该用哪条分析线？",
+      "expected_behavior": "可激活本 skill（判型是核心诉求）；预期结论为经营与投资并重型，并给出两条主线结合的分析建议",
+      "notes": "边界：并重型本就是两条线并举，激活合理"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 2 条同书兄弟混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

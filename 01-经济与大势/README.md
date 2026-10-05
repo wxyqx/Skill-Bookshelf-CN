@@ -1,6 +1,6 @@
 # 01-经济与大势
 
-> 宏观经济、中国经济改革史、货币与国际经济——理解大势与制度 · 14 本
+> 宏观经济、中国经济改革史、货币与国际经济——理解大势与制度 · 15 本
 
 | 书名 | 目录 |
 |---|---|
@@ -18,3 +18,4 @@
 | 《当音乐停止之后》 | [`after-the-music-stopped/`](./after-the-music-stopped/) |
 | 《激荡四十年》 | [`turbulent-forty-years/`](./turbulent-forty-years/) |
 | 《财务报表分析(简明版·立体化数字教材版)》 | [`financial-statement-analysis/`](./financial-statement-analysis/) |
+| 《从报表看企业：数字背后的秘密（第5版）》 | [`cong-baobiao-kan-qiye/`](./cong-baobiao-kan-qiye/) |

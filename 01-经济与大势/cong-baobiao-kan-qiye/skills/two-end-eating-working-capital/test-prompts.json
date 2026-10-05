@@ -1,0 +1,59 @@
+{
+  "skill": "two-end-eating-working-capital",
+  "version": "0.1.0",
+  "source_book": "《从报表看企业：数字背后的秘密（第5版）》 — 张新民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家公司存货 40 亿，应付账款却有 60 多亿，合同负债比应收账款还多，这种流动比率小于 1 的情况到底危不危险？",
+      "expected_behavior": "应激活 two-end-eating-working-capital，按两头吃框架判读为上游占供应商、下游收预收的竞争优势，并强调须验证持续性",
+      "notes": "典型正面场景：流动比率小于 1 + 两头吃科目对应关系"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "帮我看看这家公司的应收账款回款情况怎么样，债务人都是些什么背景，账上挂的应收是不是越滚越多了？",
+      "expected_behavior": "应激活 two-end-eating-working-capital，用债权质量三关注（规模结构、债务人构成、内部经手人）并提醒用附注原值、看期末期初差额而非套周转率公式",
+      "notes": "债权质量三关注触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这家公司毛利率连降两年，存货周转变慢，降价促销好像也走不动量了，是不是产品卖不动了？",
+      "expected_behavior": "应激活 two-end-eating-working-capital，用毛利率×存货周转率联动判据定性，并区分阶段性走弱还是根本性产品淘汰",
+      "notes": "卖不动联动判据触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "合并报表其他应收款好几个亿，是不是被大股东挪去用了？这笔钱还能收回来吗？",
+      "expected_behavior": "不应激活本 skill，应激活 governance-stance-analysis（大股东/关联方占用资金的治理定性）",
+      "notes": "同书兄弟诱饵：占款主体是股东而非上下游，属治理问题"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "应收账款周转率到底怎么算才对？分母用平均余额还是期末数，要不要剔除坏账准备？",
+      "expected_behavior": "不应激活本 skill，应激活 ratio-analysis-pitfalls（比率公式与口径纠错）",
+      "notes": "同书兄弟诱饵：问公式口径，不是问竞争力判断"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "它短期借款 30 亿马上到期，账上货币资金只有 8 亿，偿债压力是不是太大了？",
+      "expected_behavior": "不应激活本 skill，应激活 financial-risk-debt-quality（金融性负债与偿债风险）",
+      "notes": "跨 skill 诱饵：借款到期是金融负债风险，不是上下游占款关系"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这家公司应付款常年很高，但它这个行业本来就普遍压供应商货款，这算它的竞争力还是行业惯例？",
+      "expected_behavior": "可激活本 skill；预期回答：行业惯例说明占款不构成相对优势，需与同业特定对象对比、再看现金流转化与持续性来定性，避免把行业被动拖欠误读为自身竞争力",
+      "notes": "边界：占款的行业基线问题，仍属上下游关系分析范畴"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 2 条同书兄弟混淆诱饵：governance-stance-analysis、ratio-analysis-pitfalls）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

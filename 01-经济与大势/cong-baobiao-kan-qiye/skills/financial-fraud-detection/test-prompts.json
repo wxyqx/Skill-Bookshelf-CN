@@ -1,0 +1,59 @@
+{
+  "skill": "financial-fraud-detection",
+  "version": "0.1.0",
+  "source_book": "《从报表看企业：数字背后的秘密（第5版）》 — 张新民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我准备投一家公司，年报审计意见是带强调事项段的无保留意见，提到流动负债高于流动资产，这个风险大不大？关键审计事项该怎么读？",
+      "expected_behavior": "应激活 financial-fraud-detection，用五种审计意见烈度标尺定位风险，先看流动负债结构再定性强调事项，并把关键审计事项当风险地图解读",
+      "notes": "典型正面场景：审计意见阅读"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这家公司收入连续三年增长30%以上，但应收账款涨得比收入还快，经营现金流一直是负的，是不是虚增收入？账上存货周转也怪怪的。",
+      "expected_behavior": "应激活 financial-fraud-detection，跑红旗清单：收入与应收/现金流背离+存货数字积压识别路径（利润-现金缺口、周转异常放缓→核实物与账面一致性）",
+      "notes": "收入应收背离+数字积压双红旗触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们要收购一家企业做尽调，怎么排查它报表有没有假账？听说它们被收购企业上年商誉减值为零今年突然计提五十多亿，还有报表效益一般但员工福利特别好。",
+      "expected_behavior": "应激活 financial-fraud-detection，用减值择机三手法（追问'太巧合'、回附注看原值、对比减值年度分布）+小金库三迹象（报表与待遇反差、投入产出异常、信息流中断）做可信度排查",
+      "notes": "尽调排查+减值择机+小金库三重触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家公司其他应收款突然暴增了好几个亿，是不是被大股东占用资金了？它的股权结构里控股股东一股独大，治理上会不会有问题？",
+      "expected_behavior": "不应激活本 skill，应激活 governance-stance-analysis（治理端侵占与大股东占款分析）",
+      "notes": "同书兄弟诱饵：大股东占款的治理根源→governance-stance-analysis，不是报表粉饰手法识别"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这家公司商誉占净资产比例很高，并购形成的，风险怎么样？现在这个价格值不值得买入？",
+      "expected_behavior": "不应激活本 skill，应激活 valuation-ma-equity-pricing（商誉与并购估值定价）",
+      "notes": "同书兄弟诱饵：商誉估值定价→valuation-ma-equity-pricing，不是造假信号排查"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "帮我看看这家公司固定资产是不是有闲置、存货是不是压得太多，各项资产的水分有多大？",
+      "expected_behavior": "不应激活本 skill，应激活 asset-quality-triage（单项资产质量体检与水分评价）",
+      "notes": "诱饵：资产水分正常范围体检→asset-quality-triage，不是造假信号识别"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "年报是标准无保留意见，但关键审计事项里提到了存货减值和收入确认，这算不算造假信号？",
+      "expected_behavior": "可激活本 skill：预期回答——标准无保留意见+关键审计事项正是风险地图读法的适用场景，关键审计事项是注册会计师标示的风险区域而非造假结论；需按红旗清单核查减值时点是否与利润周期巧合、收入与应收/现金流是否背离，再区分质量水分与疑似造假",
+      "notes": "边界：'被提示风险'与'造假信号'的区分，正是本 skill 需要拿捏的灰度"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 2 条同书兄弟混淆诱饵：治理端占款→governance-stance-analysis、商誉估值→valuation-ma-equity-pricing，另加资产水分→asset-quality-triage）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,59 @@
+{
+  "skill": "core-profit-cash-conversion",
+  "version": "0.1.0",
+  "source_book": "《从报表看企业：数字背后的秘密（第5版）》 — 张新民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家公司净利润两个多亿，经营活动现金流量净额却只有八千万，这个利润是不是纸面利润？帮我查查问题出在哪。",
+      "expected_behavior": "应激活 core-profit-cash-conversion，计算核心利润获现率对照 1.2~1.5 倍区间，并沿应收/存货附注原值追查缺口",
+      "notes": "典型正面场景：利润与现金背离，怀疑纸面利润"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "别人总说核心利润获现率要 1.2 到 1.5 倍才健康，这个数到底怎么算？核心利润和营业利润有什么区别？",
+      "expected_behavior": "应激活 core-profit-cash-conversion，给出核心利润公式（减利息费用、区别于营业利润）与获现率的用法及区间校准条件",
+      "notes": "直接命中本书独创判据的概念询问"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司每年经营净现金大概 10 个亿，折旧摊销 3 亿，利息 1.5 亿，打算分红 2 亿，剩下的钱够不够支撑扩张？",
+      "expected_behavior": "应激活 core-profit-cash-conversion，用经营净现金四大用途清单（折旧摊销→利息→分红→扩张余额）算出自由扩张能力",
+      "notes": "经营净现金充分性检验场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家公司的营业利润里投资收益和政府补贴占了大头，这种利润结构正常吗？能持续吗？",
+      "expected_behavior": "不应激活本 skill，应激活 income-statement-structure-analysis（三支柱两减值，利润结构可持续性问题）",
+      "notes": "同书兄弟诱饵：利润结构可持续性→效益结构 skill，不是现金含量检验"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这家公司年年大举借钱买设备和搞并购，投资花得比赚的多好几倍，会不会把自己撑死？",
+      "expected_behavior": "不应激活本 skill，应激活 overexpansion-risk-signals（投资支出补偿机制与过度融资五信号）",
+      "notes": "同书兄弟诱饵：投资支出补偿与扩张风险→风险 skill"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "公司资产负债率 78%，短期借款比货币资金多很多，帮我评估一下偿债压力和再融资风险。",
+      "expected_behavior": "不应激活本 skill，应激活 financial-risk-debt-quality（负债结构与金融负债率问题）",
+      "notes": "跨 skill 混淆诱饵：提到现金与借款，但核心是偿债风险"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一家房地产公司核心利润 30 亿，经营净现金只有 12 亿，获现率 0.4 倍远低于 1.2 倍，是不是说明利润全是假的？",
+      "expected_behavior": "可激活本 skill；预期处理：先按经营周期口径校准（房地产存货周转低于 2 次，1.2~1.5 倍不直接适用），再做分层兜底判断（长期资产支出覆盖、货币资金存量、融资空间），同时提示仍需追查存货与应收原值",
+      "notes": "边界：长周期行业的经验值失配，检验 skill 是否机械报警"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 2 条同书兄弟混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

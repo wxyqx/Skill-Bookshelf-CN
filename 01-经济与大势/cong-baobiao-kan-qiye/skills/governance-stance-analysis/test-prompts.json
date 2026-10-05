@@ -1,0 +1,59 @@
+{
+  "skill": "governance-stance-analysis",
+  "version": "0.1.0",
+  "source_book": "《从报表看企业：数字背后的秘密（第5版）》 — 张新民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家上市公司合并报表其他应收款8个多亿，占总资产快6%了，远超正常水平，而且借款这几年也一路增加，是不是大股东把钱挪走了？我该怎么从报表确认？",
+      "expected_behavior": "应激活 governance-stance-analysis，按占款指纹链检查其他应收款1%界限、借款与占款同增、母大合小差额流向，并用三条立场标准定性",
+      "notes": "典型正面场景：占款指纹链+立场检验"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司要向控股股东旗下兄弟公司采购一大笔原材料，这笔关联交易能信吗？另外听说老板本人特别讲信用，人脉也好，是不是就不用太担心了？",
+      "expected_behavior": "应激活 governance-stance-analysis，用关联交易平衡看待（区分业务实质与操纵动机）+不信人品信治理（看治理结构与激励约束）回答",
+      "notes": "关联交易评价+人品背书双触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这家ST公司刚宣布债务重组，账面上当年扭亏为盈了，但经营活动现金还是负的，同时大股东最近刚换了实际控制人，我要不要警惕这是个保壳的局？",
+      "expected_behavior": "应激活 governance-stance-analysis，用保壳式重组三效应检验（看资产负债表而非当年利润表）+股权与控制权变化敏感性给出风险判断",
+      "notes": "保壳重组+实控人变更双触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "母公司报表的总资产比合并报表还大，这是怎么回事？是不是账做错了？",
+      "expected_behavior": "不应激活本 skill，应激活 parent-vs-consolidated-statements（母大合小是控制性投资被还原的技术现象，属报表口径解释）",
+      "notes": "同书兄弟诱饵：母大合小技术口径问题→parent-vs-consolidated-statements"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司营业收入增长40%，但应收账款涨得比收入还快，经营现金流入不敷出，是不是在虚增收入？",
+      "expected_behavior": "不应激活本 skill，应激活 financial-fraud-detection（收入端造假信号：收入与债权、现金流背离）",
+      "notes": "同书兄弟诱饵：收入造假识别→financial-fraud-detection"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "这家公司资产负债率85%，其中短期借款和长期借款占了七成，帮我评估一下偿债压力和再融资风险。",
+      "expected_behavior": "不应激活本 skill，应激活 financial-risk-debt-quality（负债结构与金融负债率、偿债风险）",
+      "notes": "同书兄弟诱饵：负债端风险→financial-risk-debt-quality"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "母公司其他应收款50亿，合并报表却只有5亿，同时这家公司上个月刚换了控股股东——这算正常的集团内部资金调拨还是被占用？",
+      "expected_behavior": "可激活本 skill（用户的核心疑问是'调拨还是占用'，属治理定性问题）；预期先说明母大合小差额的技术含义（向子公司拨付，中性），再结合控股股东变更时点检验合并数剩余规模与流向，最后给出占用/正常拨付的定性判断",
+      "notes": "边界：技术差额与治理定性叠加，两 skill 衔接使用，本 skill 负责最终定性"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 3 条同书兄弟诱饵：parent-vs-consolidated-statements、financial-fraud-detection、financial-risk-debt-quality）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

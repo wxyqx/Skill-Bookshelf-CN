@@ -1,0 +1,59 @@
+{
+  "skill": "cost-determinants-impairment-attribution",
+  "version": "0.1.0",
+  "source_book": "《从报表看企业：数字背后的秘密（第5版）》 — 张新民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家公司今年管理费用和研发费用涨得很快，帮我分析成本费用为什么这么高，该不该砍预算？",
+      "expected_behavior": "应激活 cost-determinants-impairment-attribution，沿治理—决策—管理—核算四层归因，用费用效用观评价而非片面建议节约",
+      "notes": "典型正面场景：成本费用四层归因+效用观"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司年报计提了一大笔商誉减值和信用减值，这些减值损失到底说明是董事会决策出了问题还是经营管理出了问题？",
+      "expected_behavior": "应激活 cost-determinants-impairment-attribution，按资产类别归因：商誉减值指向并购决策，信用减值指向赊销管理",
+      "notes": "减值归因框架：决策质量 vs 管理质量"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这家公司去年利润很好，今年突然集中计提巨额减值把利润洗没了，是不是在择机调节利润、给明年业绩轻装前进腾地方？",
+      "expected_behavior": "应激活 cost-determinants-impairment-attribution，用渐进式减值标准核对年度分布与资产质量变化的匹配性，识别集中计提手法",
+      "notes": "减值集中计提的利润调节识别"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "应收账款收不回来计提了坏账准备，是不是资产有问题？帮我查查报表里还有没有别的资产水分和不良资产。",
+      "expected_behavior": "不应激活本 skill，应激活 asset-quality-triage（逐项体检资产质量、定位不良资产区域）",
+      "notes": "同书兄弟诱饵：查资产水分→asset-quality-triage，不是减值归因与成本决定机制"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "毛利率一直在下降，帮我拆一下利润结构，看看公司利润现在到底靠什么撑着、可不可持续？",
+      "expected_behavior": "不应激活本 skill，应激活 income-statement-structure-analysis（利润结构拆解与可持续性判断）",
+      "notes": "同书兄弟诱饵：利润结构问题→income-statement-structure-analysis"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "公司打算上马一条新产线，帮我审一下可研报告里的净现值和内部收益率算得靠不靠谱。",
+      "expected_behavior": "不应激活本 skill，应激活 prospect-forecast-growth-options（长期投资决策论证报告审视）",
+      "notes": "诱饵：投资论证审视属前景 skill；虽然决策质量是成本四层之一，但审可研本身不归本 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们厂低价产品部门抱怨分摊的费用太高导致绩效吃亏，成本分摊到底怎么定才准确？",
+      "expected_behavior": "可激活本 skill（核算层+'成本是一个范围'是核心诉求）；预期结论：分摊没有唯一正确标准，按行业惯例与管理目标选择，硬约束是不让低价产品分摊成本高于售价、避免部门绩效苦乐不均",
+      "notes": "边界场景：偏内部管理会计，但正落在核算层与'成本是一个范围'的教益上，激活合理"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 2 条同书兄弟混淆诱饵：asset-quality-triage、income-statement-structure-analysis）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

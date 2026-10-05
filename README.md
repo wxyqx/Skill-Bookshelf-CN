@@ -11,11 +11,11 @@
 
 ## 目录总览
 
-**38 本书 · 647 个 skills**（最后更新：2026-10-05）
+**39 本书 · 664 个 skills**（最后更新：2026-10-05）
 
 ### 分类导航
 
-#### 01-经济与大势（14 本）
+#### 01-经济与大势（15 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -33,6 +33,7 @@
 | 《当音乐停止之后》 | 艾伦·布林德 · 2014 | 金融危机 / 政策评估 / 政治经济学 | 11 | [`after-the-music-stopped/`](./01-经济与大势/after-the-music-stopped/) |
 | 《激荡四十年》*Turbulent Forty Years* | 吴晓波 · 2018 | 中国企业史 / 政策周期 / 政商关系 / 产权改革 | 16 | [`turbulent-forty-years/`](./01-经济与大势/turbulent-forty-years/) |
 | 《财务报表分析(简明版·立体化数字教材版)》*Financial Statement Analysis* | 张新民、钱爱民 · 2020 | 财务报表分析 / 资产质量 / 利润质量 / 战略透视 / 造假识别 | 18 | [`financial-statement-analysis/`](./01-经济与大势/financial-statement-analysis/) |
+| 《从报表看企业：数字背后的秘密（第5版）》 | 张新民 · 2024 | 财务报表分析 / 战略判型 / 利润质量 / 风险识别 / 前景预测 | 17 | [`cong-baobiao-kan-qiye/`](./01-经济与大势/cong-baobiao-kan-qiye/) |
 
 #### 02-认知与决策（5 本）
 
@@ -328,12 +329,21 @@
 
 ---
 
+### 39. 《从报表看企业：数字背后的秘密（第5版）》 · [`cong-baobiao-kan-qiye/`](./01-经济与大势/cong-baobiao-kan-qiye/)
+
+- **作者**：张新民 · 2024（中国人民大学出版社，第 1 版 2012 年源自 EMBA 课堂实录）
+- **一句话**：把报表从会计数字还原成企业故事——以母公司报表为基础，资产结构写满战略、核心利润必须被 1.2~1.5 倍经营净现金支撑、风险的根源常在治理而非财会，最后落到"还有哪些牌可打"的前景判断。
+- **Skills**：`eight-lens-statement-analysis` · `strategy-from-asset-structure` · `capital-source-four-drives` · `governance-stance-analysis` · `parent-vs-consolidated-statements` · `two-end-eating-working-capital` · `asset-quality-triage` · `income-statement-structure-analysis` · `core-profit-cash-conversion` · `valuation-ma-equity-pricing` · `cost-determinants-impairment-attribution` · `financial-risk-debt-quality` · `overexpansion-risk-signals` · `prospect-forecast-growth-options` · `financial-fraud-detection` · `business-to-statements-deduction` · `ratio-analysis-pitfalls`
+- **备注**：与第 38 本《财务报表分析(简明版)》同作者体系——教材版偏学科工具箱，本卷偏大众读物的"八看"判据集（获现率 1.2~1.5 倍、两头吃、越合并越小、占款指纹链、撑死五信号），两书技能互为补充，判型与利润质量的操作口径以本卷为准。
+
+---
+
 ## 安装
 
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 647 个 skills（用户级，所有项目可用）
+# 一次性安装全部 664 个 skills（用户级，所有项目可用）
 for d in */*/skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -364,7 +374,8 @@ skill-bookshelf/
 │   ├── 21st-century-monetary-policy/   # 《21世纪货币政策》
 │   ├── after-the-music-stopped/   # 《当音乐停止之后》
 │   ├── turbulent-forty-years/   # 《激荡四十年》
-│   └── financial-statement-analysis/   # 《财务报表分析(简明版·立体化数字教材版)》
+│   ├── financial-statement-analysis/   # 《财务报表分析(简明版·立体化数字教材版)》
+│   └── cong-baobiao-kan-qiye/   # 《从报表看企业：数字背后的秘密（第5版）》
 ├── 02-认知与决策/
 │   ├── thinking-fast-and-slow/   # 《思考，快与慢》
 │   ├── poor-charlies-almanack/   # 《穷查理宝典》

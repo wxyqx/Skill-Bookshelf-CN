@@ -1,0 +1,59 @@
+{
+  "skill": "overexpansion-risk-signals",
+  "version": "0.1.0",
+  "source_book": "《从报表看企业：数字背后的秘密（第5版）》 — 张新民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家公司账上趴着几十亿现金，却还在不停发债借款，财务费用一年好几个亿，是不是融资融多了？存贷双高要不要紧？",
+      "expected_behavior": "应激活 overexpansion-risk-signals，按五信号核对并做存贷双高三步定性（面子借款/套利/集团筹资 vs 危险信号）",
+      "notes": "典型正面场景：存贷双高+过度融资"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司固定资产和在建工程三年翻了两番，营业收入才增长五成，这种产能扩张正常吗？怎么从报表判断它是不是投资超前了？",
+      "expected_behavior": "应激活 overexpansion-risk-signals，用固定资产原值增速对比收入增速的定量判据+补偿机制检验",
+      "notes": "正面场景：固定资产投资超前"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "帮我看看这家公司：连续三年大额并购、商誉很高，筹资借来的钱基本都拿去买资产买产能了，这种扩张模式能不能持续？",
+      "expected_behavior": "应激活 overexpansion-risk-signals，核对五信号（高商誉+筹资流入支持投资流出）并给三档可持续性结论",
+      "notes": "正面场景：并购式扩张+补偿机制断裂"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家公司资产负债率 80% 了，帮我分析一下它的借款结构和偿债能力到底行不行？",
+      "expected_behavior": "不应激活本 skill，应激活 financial-risk-debt-quality（存量负债结构与偿债能力问题）",
+      "notes": "同书兄弟诱饵：存量偿债→financial-risk-debt-quality，不是扩张冲动的流量判断"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司净利润两个亿，但经营活动现金流量净额只有三千万，这个利润有没有现金支撑？",
+      "expected_behavior": "不应激活本 skill，应激活 core-profit-cash-conversion（利润现金含量/获现率检验）",
+      "notes": "同书兄弟诱饵：经营造血检验→core-profit-cash-conversion，不是投资补偿机制问题"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "帮我逐项检查这家公司资产的水分：存货跌价准备计提得够不够，应收账款坏账准备合不合理？",
+      "expected_behavior": "不应激活本 skill，应激活 asset-quality-triage（单项资产质量体检）",
+      "notes": "诱饵：资产个体质量→asset-quality-triage，不是扩张信号识别"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一家重资产成长期企业投资活动现金流连续五年为负、缺口全靠融资补，这是不是过度投资？要不要回避？",
+      "expected_behavior": "可激活本 skill；预期不做机械定罪，而是核对五信号命中数、检验补偿机制闭环与收入增速是否跟上，区分进攻性扩张与撑死模式",
+      "notes": "边界：投资净现金为负本身不是罪，考验'警觉清单而非定罪清单'的边界把握"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 2 条同书兄弟混淆诱饵：financial-risk-debt-quality、core-profit-cash-conversion）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,59 @@
+{
+  "skill": "business-to-statements-deduction",
+  "version": "0.1.0",
+  "source_book": "《从报表看企业：数字背后的秘密（第5版）》 — 张新民",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我是财报小白，总听人说资产负债表是底子、利润表是面子、现金流量表是日子，这三张表到底是什么关系？能从头给我讲讲吗？",
+      "expected_behavior": "应激活 business-to-statements-deduction，用底子/面子/日子定位三表并讲清以资产负债表为纲的一体关系",
+      "notes": "典型正面场景：三表通俗定位入门"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "假设一家新公司，股东投了钱、又找银行借了款、买了设备、赊销了一批货——你能拿这个例子把每笔业务怎么落到三张报表上推演一遍吗？",
+      "expected_behavior": "应激活 business-to-statements-deduction，从空白表起逐笔过三表，每笔问三个问题（动没动资产/负债权益/利润现金）",
+      "notes": "核心触发：业务—报表联动推演教学"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们公司账上明明显示盈利了不少，怎么账上的钱还是紧巴巴的？能不能给我讲讲这背后的原理，为什么有利润不等于有现金？",
+      "expected_behavior": "应激活 business-to-statements-deduction，用权责发生制 vs 收付实现制讲背离机理，指出利润藏在应收款项或存货里",
+      "notes": "机理教学触发：要解释而非诊断"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家公司利润和现金流差得很远，帮我诊断一下利润质量到底有没有问题，是不是虚增收入？",
+      "expected_behavior": "不应激活本 skill，应激活 core-profit-cash-conversion（用户要诊断结论，不是学机理）",
+      "notes": "同书兄弟诱饵：利润现金诊断→效益检验 skill，而非推演教学"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "给我一套这家公司的完整财务分析报告，从战略、竞争力到风险和前景都覆盖到。",
+      "expected_behavior": "不应激活本 skill，应激活 eight-lens-statement-analysis（系统分析输出，不是基础教学）",
+      "notes": "同书兄弟诱饵：完整八看分析→总纲 skill"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "这家母公司报表里长期股权投资比合并报表还大，帮我测算一下它的控制性投资撬动了多少子公司资源？",
+      "expected_behavior": "不应激活本 skill，应激活 parent-vs-consolidated-statements（母子报表差额测算，不是概念教学）",
+      "notes": "同书兄弟诱饵：扩张效应测算→母子报表对照 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "给新来的非财务同事做培训，讲讲业务是怎么变成报表数字的，最好用一个虚构小公司从开张走一遍——顺便说说如果它一直赊销，后面会不会出问题。",
+      "expected_behavior": "可激活本 skill（推演教学是主诉求，赊销风险恰好落在背离机理段）；收尾时应衔接 core-profit-cash-conversion 作进阶",
+           "notes": "边界：教学+轻度诊断混合，教学主导故激活本 skill 合理"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（含 3 条同书兄弟混淆诱饵：core-profit-cash-conversion、eight-lens-statement-analysis、parent-vs-consolidated-statements）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}
