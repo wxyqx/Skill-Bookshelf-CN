@@ -1,0 +1,55 @@
+{
+  "skill": "reward-design",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我戒糖第10天了，特别想奖励自己一块蛋糕，这样会不会毁掉习惯？",
+      "expected_behavior": "激活本 skill：过身份一致性校验——蛋糕与'照顾身体的人'冲突属拆台式奖励；改用一致奖励（新运动袜/按摩）或用颠倒记账给'第10天没吃糖'记一笔等额款，并说明奖励只维持形成期兴奋点。",
+      "notes": "v14 的 V2 原型问题。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "健身三周了完全看不到身材变化，感觉撑不下去，怎么给自己弄点即时反馈？",
+      "expected_behavior": "激活本 skill：用增强法为'完成了训练'设计即时小额奖励（完成后1小时内兑现），并解释奖励启动、身份维持的交接机制，等内在回报接管后逐步撤除。",
+      "notes": "长期习惯无即时回报是第四定律核心场景（x11 机制）。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我想省钱，但'忍住不买'这件事本身一点爽感都没有，怎么让克制变得可感知？",
+      "expected_behavior": "激活本 skill：用颠倒记账法——每抵制一次购买就把等额钱转入目标账户，让'没做什么'可见、可奖励。",
+      "notes": "抑制型行为无自然奖励对象是本 skill 独有场景。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我想边踩健身单车边看奈飞，这样设计行吗？",
+      "expected_behavior": "不激活本 skill。应走 temptation-bundling：同时性绑定（做需要的事时才能做想要的事），而非事后奖励。",
+      "notes": "兄弟混淆诱饵：预期归属 temptation-bundling（S07）。区分：同时绑定 vs 事后追加。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "我想跟朋友约定：翘一次健身就转他200块，怎么设计？",
+      "expected_behavior": "不激活本 skill。应走 tracking-and-accountability：习惯契约与问责伙伴（惩罚端），按后果四性设计罚则。",
+      "notes": "兄弟混淆诱饵：预期归属 tracking-and-accountability（S13）。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "周六晚上总忍不住刷购物 App 下单，怎么管住手？",
+      "expected_behavior": "不激活本 skill。应走 commitment-devices：前置决策与结构锁定（删除入口/自动转薪），问题在失控约束而非奖励设计。",
+      "notes": "兄弟混淆诱饵：预期归属 commitment-devices（S11）。"
+    },
+    {
+      "id": "t07",
+      "type": "edge_case",
+      "prompt": "我想让女儿每读完一本书就给10块钱，这样对吗？",
+      "expected_behavior": "激活本 skill 但触发身份投票警告：按本数给奖励会把行动的投票对象变成'拿奖励的人'而非'读者'；建议改为设计让'我们家是读书的人'成立的低成本证据（固定共读时刻、大人当着孩子读书）。",
+      "notes": "边界案例：给他人设计奖励需过 v01 投票模型检验；教育决策建议结合专业意见。"
+    }
+  ]
+}

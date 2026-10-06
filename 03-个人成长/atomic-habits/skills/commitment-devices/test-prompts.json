@@ -1,0 +1,55 @@
+{
+  "skill": "commitment-devices",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我总在周五晚上冲动网购，月初的存钱计划月月失败，怎么提前管住自己？",
+      "expected_behavior": "激活本 skill：把决策前置到清醒时刻——周五晚安排不可取消的活动+删除购物 App 入口（增阻）；存钱改为发薪日自动转薪（一次性决策，在钱'可见'之前锁定），让正确行为成为默认选项。",
+      "notes": "v13 的 V2 原型问题：'在成为诱惑受害者之前先让好意愿发挥作用'。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "我是自由职业者，一工作就想刷社交网络，有没有办法一次性解决，别每天跟意志力搏斗？",
+      "expected_behavior": "激活本 skill：设计结构性锁定（网站拦截器/定时断网/密码托管——如与亲友互设密码，周五发还周一重置），并设逃生阀与一周验收。",
+      "notes": "c12 作者密码托管场景；'一次性解决'是语言信号。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "每年该做的体检和基金调仓我总是拖，这类一年就一两次的事，习惯养成法有用吗？",
+      "expected_behavior": "激活本 skill：按低频行为判据——频率低到无法成习惯的行为直接交自动化/一次性决策（年度自动预约提醒、自动调仓日历），不硬养习惯。",
+      "notes": "'低频行为交自动化'是本 skill 的独有判据，别让用户去'养成'一年一次的习惯。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我怎么奖励自己坚持晨跑一个月？",
+      "expected_behavior": "不激活本 skill。应走 reward-design：增强法+身份一致性校验，为坚持行为设计即时奖励。",
+      "notes": "兄弟混淆诱饵：预期归属 reward-design（S12）。承诺机制是约束端不是奖励端。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "手机放枕边老忍不住刷，怎么办？",
+      "expected_behavior": "不激活本 skill。应优先走 quit-bad-habit：移除提示源（手机移出卧室、充电器放客厅）成本更低；若提示移不干净或需要兜底，再考虑本 skill 的锁定装置。",
+      "notes": "兄弟混淆诱饵：预期归属 quit-bad-habit（S06）。区分点：S06 移欲望触发，S11 保留欲望锁行动。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "想练琴但每天就是迈不出第一步，怎么办？",
+      "expected_behavior": "不激活本 skill。应走 two-minute-start：把第一步压缩到两分钟内；承诺机制管的是约束坏行为/锁定低频好行为，不管启动最小化。",
+      "notes": "兄弟混淆诱饵：预期归属 two-minute-start（S10）。"
+    },
+    {
+      "id": "t07",
+      "type": "edge_case",
+      "prompt": "我想把半年奖金直接锁进两年取不出的账户，会不会太狠了？",
+      "expected_behavior": "激活本 skill 但执行强度校验：承诺机制强度必须与误判成本匹配——设逃生阀（明确紧急解锁路径与代价），并提示涉及重大财务决策应结合专业意见。",
+      "notes": "边界案例：锁定强度 vs 灵活性成本。"
+    }
+  ]
+}

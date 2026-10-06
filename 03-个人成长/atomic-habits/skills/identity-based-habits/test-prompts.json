@@ -1,0 +1,48 @@
+{
+  "skill": "identity-based-habits",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我又开始戒烟了，这是第三次，每次撑不过两周就破戒，是不是我意志力有问题？",
+      "expected_behavior": "识别'我正在戒烟'式旧身份冲突（x04），执行身份两问（想成为哪类人/这类人会做什么），给出身份句改写与投票设计，并用多数票豁免写破戒协议。",
+      "notes": "典型语言信号：反复破戒+自责意志力；行为描述停在结果层。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "我目标列了一大堆：减20斤、存10万、读完50本书，但一个都没坚持下来，帮我看看哪里出了问题。",
+      "expected_behavior": "先指出结果层目标与身份层的断裂，把三个结果目标各改写为'我是那种……的人'身份句，再产出每日可投票的小行为清单。",
+      "notes": "结果导向型表述是本 skill 的核心触发形态。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我想成为一个自律的人，该从哪里开始？",
+      "expected_behavior": "用两步进程：先定义'自律的人'在用户生活中的具体样貌（2-3个日常行为），再设计今日投票与多数票豁免规则。",
+      "notes": "'成为……的人'是身份方向型触发。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我的健身计划每次都卡在周三，总是忘记去健身房，怎么办？",
+      "expected_behavior": "不启动身份框架，按提示/计划缺失处理。",
+      "notes": "同书兄弟混淆诱饵：'忘记做'是提示与计划问题，预期归属 start-new-habit（执行意图/习惯叠加），必要时先经 habit-loop-four-laws 诊断。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "我去年全职带娃，现在孩子上学了，感觉自己什么都不是，怎么办？",
+      "expected_behavior": "不按'建立新身份'处理，而是做角色型→特质型改写。",
+      "notes": "同书兄弟混淆诱饵：角色退场型身份问题，预期归属 identity-flexibility（本 skill 处理'从零建立'，不处理'已有身份松绑'）。"
+    },
+    {
+      "id": "t06",
+      "type": "edge_case",
+      "prompt": "破戒一次是不是就全完了？",
+      "expected_behavior": "用投票模型回答：一次缺席只是少一票，多数票即赢；随后给出'次日最小票'安排，并提示若已开始追踪可接入'绝不错过两次'恢复协议。",
+      "notes": "边界样本：本 skill 给投票豁免的理论依据，追踪与恢复协议的落地归 tracking-and-accountability。"
+    }
+  ]
+}

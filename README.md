@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**42 本书 · 718 个 skills**（最后更新：2026-10-06）
+**43 本书 · 734 个 skills**（最后更新：2026-10-06）
 
 ### 分类导航
 
@@ -46,7 +46,7 @@
 | 《刻意练习》*PEAK* | 艾利克森、普尔 · 2016 | 学习 / 技能精进 | 8 | [`peak-deliberate-practice/`](./02-认知与决策/peak-deliberate-practice/) |
 | 《聪明的投资者》*The Intelligent Investor* | 本杰明·格雷厄姆 · 1949/1965（第4版） | 价值投资 / 安全边际 / 投资纪律 / 市场波动 | 20 | [`intelligent-investor/`](./02-认知与决策/intelligent-investor/) |
 
-#### 03-个人成长（4 本）
+#### 03-个人成长（5 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -54,6 +54,7 @@
 | 《当下的力量（白金版）》*The Power of Now* | 埃克哈特·托利 · 1997 | 临在 / 当下 / 心灵成长 | 19 | [`power-of-now/`](./03-个人成长/power-of-now/) |
 | 《高效能人士的七个习惯（30周年纪念版）》*The 7 Habits of Highly Effective People* | 史蒂芬·柯维 · 1989 | 个人管理 / 领导力 / 思维方式 | 29 | [`seven-habits/`](./03-个人成长/seven-habits/) |
 | 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./03-个人成长/effective-executive/) |
+| 《掌控习惯》*Atomic Habits* | 詹姆斯·克利尔 · 2018/2019 | 习惯设计 / 身份转变 / 行为四定律 | 16 | [`atomic-habits/`](./03-个人成长/atomic-habits/) |
 
 #### 04-创业与经营（8 本）
 
@@ -362,6 +363,13 @@
 - **Skills**：`invest-vs-speculation-filter` · `rule-reliability-trend-skepticism` · `market-mr-volatility-discipline` · `mechanical-allocation-dca` · `investor-identity-matching` · `overheated-market-defense` · `defensive-stock-selection` · `bond-safety-terms` · `aggressive-negative-list` · `excess-return-path-selection` · `neglected-large-cap-strategy` · `bargain-issues-net-nets` · `special-situations-arbitrage` · `earnings-power-valuation` · `growth-stock-appraisal` · `protection-over-forecast` · `stock-diagnosis-techniques` · `margin-of-safety-core` · `shareholder-governance` · `investment-advice-discipline`
 - **备注**：本包基于 1964 年数据版本（无指数基金时代、无 Zweig 点评），各 skill 的 B 段已内嵌时效警示——估值锚与绝对门槛只学"替换参数"的示范，使用前按当期重查；与《穷查理宝典》同属理性决策谱系，本卷专注投资操作层。
 
+### 43. 《掌控习惯》 · [`atomic-habits/`](./03-个人成长/atomic-habits/)
+
+- **作者**：詹姆斯·克利尔 · 2018/2019（北京联合出版公司，迩东晨 译）
+- **一句话**：问题不在你，在你的体系——目标是你要的东西，体系是通向它的过程：习惯是自我提升的复利，围绕"提示→渴望→反应→奖励"四步，用四定律（让它显而易见/有吸引力/简便易行/令人愉悦）逐环设计行为，并以身份转变（每个行动都是给理想自我投票）替代目标依赖。
+- **Skills**：`identity-based-habits` · `identity-flexibility` · `habit-loop-four-laws` · `start-new-habit` · `environment-design` · `quit-bad-habit` · `temptation-bundling` · `join-the-culture` · `craving-reframing` · `two-minute-start` · `commitment-devices` · `reward-design` · `tracking-and-accountability` · `domain-selection` · `goldilocks-difficulty` · `mastery-reflection`
+- **备注**：2019 年出版，行为科学证据持续更新，重要健康/心理场景请结合专业意见（各 skill B 段已注明判停与转介）；与《习惯的力量》分属体系设计与习惯发现科普，术语边界见 GLOSSARY。
+
 ---
 
 ## 安装
@@ -369,7 +377,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 718 个 skills（用户级，所有项目可用）
+# 一次性安装全部 734 个 skills（用户级，所有项目可用）
 for d in */*/skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -413,7 +421,8 @@ skill-bookshelf/
 │   ├── flow/   # 《心流：最优体验心理学》
 │   ├── power-of-now/   # 《当下的力量（白金版）》
 │   ├── seven-habits/   # 《高效能人士的七个习惯（30周年纪念版）》
-│   └── effective-executive/   # 《卓有成效的管理者（中英文双语珍藏版）》
+│   ├── effective-executive/   # 《卓有成效的管理者（中英文双语珍藏版）》
+│   └── atomic-habits/   # 《掌控习惯》
 ├── 04-创业与经营/
 │   ├── lean-startup-2/   # 《精益创业 2.0》
 │   ├── ready-fire-aim/   # 《*Ready, Fire, Aim*》

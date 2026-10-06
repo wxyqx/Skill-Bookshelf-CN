@@ -1,0 +1,48 @@
+{
+  "skill": "domain-selection",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "35岁想转行，选数据分析还是产品经理？我不知道哪个更适合自己。",
+      "expected_behavior": "激活本 skill：用基因适配四问（乐趣差分/忘记时间/相对回报/真实感）对两个方向逐一取证，再校验痛苦耐受差分，最后定探索/收网节奏与入行版本。",
+      "notes": "v17 的 V2 原型问题。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "我学编程两年了，每天都很痛苦，是不是我根本不适合这行？",
+      "expected_behavior": "激活本 skill：区分'正常苦役'与'痛苦耐受差分'——四问取证看是否存在'我能比多数人更容易承受的部分'；若无任何相对优势信号，进入探索期或考虑自创交叉领域。",
+      "notes": "方向适配怀疑是 S14 场景；乐趣的标志是痛苦耐受差分而非'喜欢'。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我对写作、设计、编程都还算上手，但哪个都不拔尖，怎么选？",
+      "expected_behavior": "激活本 skill：走'前25%叠加'路径——叠加两三项相对优势技能自创交叉领域（竞争者最少），而非在单一维度硬挤。",
+      "notes": "自创领域是本 skill 的兜底分支（作者自创生物力学专业）。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我的健身计划6周后就厌倦放弃了，怎么办？",
+      "expected_behavior": "不激活本 skill。应走 goldilocks-difficulty：这是难度校准问题（加约4%保留内核），不是方向选择问题。",
+      "notes": "兄弟混淆诱饵：预期归属 goldilocks-difficulty（S15）。区分：厌倦=难度问题，持续吃力+无回报=领域问题。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "背单词 App 打卡三个月，还是一见英语就烦，问题出在哪？",
+      "expected_behavior": "不激活本 skill。应走 habit-loop-four-laws：做习惯回路卡点诊断（此例卡在奖励环），方向本身无误、目标明确。",
+      "notes": "兄弟混淆诱饵：预期归属 habit-loop-four-laws（S03）。"
+    },
+    {
+      "id": "t06",
+      "type": "edge_case",
+      "prompt": "我对什么都没什么特别大的热情，四问我全答不出来，怎么选方向？",
+      "expected_behavior": "激活本 skill 但执行判停：四问需要具体事例取证，全为空说明探索样本不足——建议先设低代价探索期（小实验清单）收集证据，而非凭空收网；若伴随长期情绪低落，提示寻求专业评估。",
+      "notes": "边界案例：探索期判据与心理状态分流。"
+    }
+  ]
+}

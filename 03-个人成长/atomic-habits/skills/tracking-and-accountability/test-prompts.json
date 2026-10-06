@@ -1,0 +1,62 @@
+{
+  "skill": "tracking-and-accountability",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "加班到11点，今天的打卡断了，明早要不要双倍补回来？",
+      "expected_behavior": "激活本 skill：执行'绝不错过两次'——今晚做两分钟最小版保住身份投票，明早按正常量执行，不做双倍补偿（补偿抬高次日门槛，反而增大连断概率）。",
+      "notes": "v15 的 V2 原型问题；'错过一次是意外，错过两次才是新习惯的开始'。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "我用三个 App 同时追踪饮食、运动、睡眠，每天记录要20分钟，越来越烦，怎么办？",
+      "expected_behavior": "激活本 skill：按减负三原则瘦身——能自动化就自动化、只追踪最重要的一个、行为结束立即记录。",
+      "notes": "追踪负担过重是 S13 场景。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我天天盯着体重秤，数字不动就心灰意冷想放弃，怎么办？",
+      "expected_behavior": "激活本 skill：触发古德哈特警告（x13）——数字只是反馈；改用无秤胜利法换可测信号（睡眠、体能、围度），必要时降频称重。",
+      "notes": "为数字而活是 S13 的防走偏模块。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我想开始冥想，但连第一天都没开始过。",
+      "expected_behavior": "不激活本 skill。应走 two-minute-start / start-new-habit：先做启动设计（两分钟版+执行意图），S13 只管已开始的习惯。",
+      "notes": "兄弟混淆诱饵：预期归属 two-minute-start（S10）或 start-new-habit（S04）；S13 触发于'已经开始但断链'。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "我的健身计划总在六周后因为无聊被放弃。",
+      "expected_behavior": "不激活本 skill。应走 goldilocks-difficulty：做约4%难度加码对抗倦怠，追踪解决不了无聊。",
+      "notes": "兄弟混淆诱饵：预期归属 goldilocks-difficulty（S15）。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "我做饭十年了水平一直不涨，是不是该报个高级班？",
+      "expected_behavior": "不激活本 skill。应走 mastery-reflection：先做钝化诊断与掌握循环重启，频次追踪（做没做）解决不了质量停滞。",
+      "notes": "兄弟混淆诱饵：预期归属 mastery-reflection（S16）。区分：频次可见 vs 质量反思。"
+    },
+    {
+      "id": "t07",
+      "type": "should_trigger",
+      "prompt": "我想请妻子监督我减肥，但怕变成互相指责，怎么设计比较好？",
+      "expected_behavior": "激活本 skill：用习惯契约三要件把人情监督改造成条款监督——书面罚则指向共同基金转账而非口头批评，妻子只做签字见证人；罚则按后果四性（局部/有形/具体/直接）对齐，强度压过行为吸引力。",
+      "notes": "v16 的 V2 原型问题（c15 哈里斯契约）。"
+    },
+    {
+      "id": "t08",
+      "type": "edge_case",
+      "prompt": "连续打卡200天了，我昨晚破功了，感觉整个人都废了。",
+      "expected_behavior": "双边界（已修正）：\"破戒一次自责崩盘\"同时命中本 skill 绝不错过两次与 identity-based-habits 投票豁免。PASS 条件 = 两者其一。2026-10-06 盲测后修正并记录。",
+      "notes": "边界案例：情绪强烈时先降自责再谈工具。 | 2026-10-06 修正预期（理由见 TEST_RESULTS.md）"
+    }
+  ]
+}

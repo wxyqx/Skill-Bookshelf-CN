@@ -1,0 +1,55 @@
+{
+  "skill": "two-minute-start",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我想开始跑步，但每次计划都是每天5公里，坚持三天就放弃了，怎么破？",
+      "expected_behavior": "激活本 skill：把'每天5公里'回溯成两分钟版（如'穿上跑鞋出门'），指出先标准化再优化，并建议状态好的日子也在两分钟处强制停，防止大日子抬高明天的启动门槛。",
+      "notes": "计划太大+启动失败是本 skill 的核心场景（v12 的 V2 原型问题：先保频率）。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "想练琴但总启动不了，第一步该做什么？",
+      "expected_behavior": "激活本 skill：给出两分钟版门户习惯（'打开琴盖弹一段音阶'），定义决定性时刻，并约定观察窗（如7天）只验证'每天出现'。",
+      "notes": "'第一步/启动不了'是语言信号。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我一直在研究最好的写作课程、列大纲，快三个月了一篇文章都没写过。",
+      "expected_behavior": "激活本 skill：识别为酝酿伪装成行动（x10），把酝酿换成两分钟版真实动作（'打开文档写两分钟'），并强制先标准化再优化。",
+      "notes": "准备型拖延对应 c09 数量组/质量组逻辑与 t17 酝酿vs行动术语。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我健身半年了，最近越来越无聊，是不是该换训练计划？",
+      "expected_behavior": "不激活本 skill。应走 goldilocks-difficulty：做约4%难度加码、保留成功内核，而不是换方法；启动最小化不适用于已稳定的习惯。",
+      "notes": "兄弟混淆诱饵：预期归属 goldilocks-difficulty（S15）；S10/S15/S16 时间轴正交。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "加班到11点今天打卡断了，明早要不要双倍补？",
+      "expected_behavior": "不激活本 skill。应走 tracking-and-accountability：执行'绝不错过两次'恢复协议（当晚最小版，次日正常量，不双倍）。",
+      "notes": "兄弟混淆诱饵：预期归属 tracking-and-accountability（S13）。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "帮我设计一个习惯叠加：早上下咖啡后做十个俯卧撑。",
+      "expected_behavior": "不激活本 skill。应走 start-new-habit：校验锚点提示是否具体、可立即执行、频率一致。",
+      "notes": "兄弟混淆诱饵：预期归属 start-new-habit（S04），两分钟规则不负责提示设计。"
+    },
+    {
+      "id": "t07",
+      "type": "edge_case",
+      "prompt": "我已经按两分钟版读了30天书了，每天都读，现在该加量吗？",
+      "expected_behavior": "本 skill 判停并转介：启动已标准化，加量属于难度校准，转 goldilocks-difficulty 处理；同时确认'先标准化再优化'的次序已完成。",
+      "notes": "边界案例：时间轴交接（S10→S15）。"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "skill": "mastery-reflection",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我做饭十年了，为什么还是那个水平？该报高级班吗？",
+      "expected_behavior": "激活本 skill：先诊断钝化而非加课——十年重复处于自动驾驶、对反馈失敏（'只是在强化'）；用掌握循环重启（锁定火候等成功小元素重复至内化再跳板），配决策式记录替代无结构重复。",
+      "notes": "v19 的 V2 原型问题。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "快到年底了，想系统复盘一下今年的工作，有没有方法？",
+      "expected_behavior": "激活本 skill：年终三问（做得好/做得不好/学到什么）+年度诚信报告模板，并校准反馈频率（避免天天忧心的放大镜模式）。",
+      "notes": "年终复盘是第20章反思体系的 instrument 之一。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我带团队做项目，重要决定拍板时全凭直觉，事后也不知道对错，怎么改进？",
+      "expected_behavior": "激活本 skill：建决策日志——记录当时的假设、依据与预期，事后回填结果，把直觉变成可比较的反馈回路。",
+      "notes": "决策日志是第20章高管实践。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我健身半年了，最近越来越无聊，想加难度但不知道加多少。",
+      "expected_behavior": "不激活本 skill。应走 goldilocks-difficulty：无聊是动力问题，用约4%加码解决；钝化诊断针对的是水平停滞而非动力下滑。",
+      "notes": "兄弟混淆诱饵：预期归属 goldilocks-difficulty（S15）。区分：无聊加码 vs 停滞反思。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "我的学习打卡连续断了五天了，怎么捡回来？",
+      "expected_behavior": "不激活本 skill。应走 tracking-and-accountability：断链恢复走'绝不错过两次'协议；S16 处理的是质量停滞不是频次中断。",
+      "notes": "兄弟混淆诱饵：预期归属 tracking-and-accountability（S13）。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "我想开始学吉他，怎么安排每天练习？",
+      "expected_behavior": "不激活本 skill。应走 start-new-habit / two-minute-start：启动期谈不上'自动化钝化'，先做执行意图与两分钟版设计。",
+      "notes": "兄弟混淆诱饵：预期归属 start-new-habit（S04）或 two-minute-start（S10）。"
+    },
+    {
+      "id": "t07",
+      "type": "edge_case",
+      "prompt": "每次复盘我都把自己骂一顿，越复盘越丧，还要继续吗？",
+      "expected_behavior": "激活本 skill 但先修正姿态：自我攻击式复盘违背'只观察不评判'原则；建议改为事实-影响-下一步三栏记录，若伴随持续情绪低落应寻求专业支持，反思工具不能替代心理干预。",
+      "notes": "边界案例：复盘异化为自责时的降级处理。"
+    }
+  ]
+}

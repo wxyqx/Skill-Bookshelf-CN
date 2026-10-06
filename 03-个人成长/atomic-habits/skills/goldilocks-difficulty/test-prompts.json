@@ -1,0 +1,55 @@
+{
+  "skill": "goldilocks-difficulty",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "健身计划总在6周后厌倦放弃，是换训练法还是硬扛？",
+      "expected_behavior": "激活本 skill：都不对——做难度校准，给现有计划加约4%的新挑战（加一组/加2.5kg），保留熟悉的成功内核；把无聊视为'已到更高水平'的信号而非换法理由（换法清零的是复利，加码保住的是轨迹）。",
+      "notes": "v18 的 V2 原型问题。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "写了一年公众号，越来越没感觉，每天做同样的事觉得好无聊。",
+      "expected_behavior": "激活本 skill：诊断难度失配后小步加码（如每月只新增一个选题类型），写'保底内核'清单，并落'爱上厌倦'协议与可变奖励。",
+      "notes": "稳定运行后的动力下滑是 S15 核心场景。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我心情好就练两小时，心情差就彻底躺平，怎么才能不受情绪摆布？",
+      "expected_behavior": "激活本 skill：'专业人员按计划行事，业余随心情而为'——建立固定执行线，把执行与情绪解耦；配合难度校准让计划始终'刚好可及'。",
+      "notes": "专业/业余分水岭判据是 S15 独有点。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我想开始跑步，但第一步都迈不出去。",
+      "expected_behavior": "不激活本 skill。应走 two-minute-start：启动最小化。难度校准只适用于已稳定运行的习惯。",
+      "notes": "兄弟混淆诱饵：预期归属 two-minute-start（S10）；S10/S15/S16 时间轴正交。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "我做饭十年了，动作全自动但水平一直原地踏步。",
+      "expected_behavior": "不激活本 skill。应走 mastery-reflection：这是自动化钝化（对反馈失敏、'只是在强化'），需要掌握循环与反思体系，不是加码。",
+      "notes": "兄弟混淆诱饵：预期归属 mastery-reflection（S16）。区分：无聊加码（S15）vs 停滞反思（S16）。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "我最近连续三天没去健身房了，之前坚持了两个月。",
+      "expected_behavior": "不激活本 skill。应走 tracking-and-accountability：先执行'绝不错过两次'恢复协议，回轨后再谈难度。",
+      "notes": "兄弟混淆诱饵：预期归属 tracking-and-accountability（S13）。"
+    },
+    {
+      "id": "t07",
+      "type": "edge_case",
+      "prompt": "按计划加码三周后，膝盖开始疼，还要继续'爱上厌倦'吗？",
+      "expected_behavior": "激活本 skill 但触发判停：疼痛是身体信号不是软弱，立即停止加码并评估（必要时就医）；本 skill 的'按计划行事'不适用于以身代偿的场景。",
+      "notes": "边界案例：倦怠信号与损伤信号必须区分；健康决策结合专业意见。"
+    }
+  ]
+}

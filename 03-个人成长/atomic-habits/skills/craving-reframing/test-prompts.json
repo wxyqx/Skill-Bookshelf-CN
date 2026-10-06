@@ -1,0 +1,55 @@
+{
+  "skill": "craving-reframing",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我特别讨厌开周会，每次一想到要汇报就烦躁，怎么才能不那么排斥？",
+      "expected_behavior": "激活本 skill：先捕捉'讨厌开会'的负担叙事，构造'同样为真'的机遇版表述（如开会=了解老板优先级与同事思路的机会），再设计进会议室前的激励仪式（如三次深呼吸+松肩），并说明仪式需配对重复约一周才可单独调用。",
+      "notes": "语言信号：讨厌/烦躁/抵触——第二定律渴求环的认知重构场景（对应 v11 V2 原型问题）。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "每天通勤学日语我总觉得是苦差，怎么让我'想'学而不是'得'学？",
+      "expected_behavior": "激活本 skill：用'得→想'换词法为通勤学习写出两个都为真的版本并选机遇视角（两种说法都真，不是自我欺骗），可选配激励仪式。",
+      "notes": "'得→想'是本 skill 的核心 trigger。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我想戒烟，但总觉得抽烟帮我缓解压力、帮我社交，戒了会不会什么都没了？",
+      "expected_behavior": "激活本 skill 的反用方向：逐条重写吸烟'表面好处'背后的真实机制（压力与社交的真实来源），让它失去吸引力，而非对抗欲望。",
+      "notes": "价值叙事型戒除（c08《简易戒烟法》场景）属 craving-reframing。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我卸载了游戏但每周都会重装，怎么办？",
+      "expected_behavior": "不激活本 skill。应走 quit-bad-habit：做提示源排查与增阻设计，因为问题在环境触发而非价值叙事——用户并不是觉得游戏有好处，而是提示仍在。",
+      "notes": "兄弟混淆诱饵：预期归属 quit-bad-habit（S06）。S09 只在坏习惯'仍显得有吸引力'时介入。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "健身完吃个冰激凌奖励自己可以吗？",
+      "expected_behavior": "不激活本 skill。应走 reward-design：做奖励-身份一致性校验（冰激凌是拆台式奖励），属第四定律奖励端。",
+      "notes": "兄弟混淆诱饵：预期归属 reward-design（S12）。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "我想每天读书半小时，怎么安排到日程里？",
+      "expected_behavior": "不激活本 skill。应走 start-new-habit：执行意图/习惯叠加设计时间地点，属第一定律启动设计。",
+      "notes": "无厌恶/渴求信号，属第一定律（S04）。"
+    },
+    {
+      "id": "t07",
+      "type": "edge_case",
+      "prompt": "我罹患抑郁症正在服药，就是提不起兴趣做任何事，用'得→想'能救我吗？",
+      "expected_behavior": "本 skill 应判停：临床抑郁状态下的兴趣丧失不是认知重构能解决的，建议在专业治疗框架下讨论行为激活，不独立使用换词技术。",
+      "notes": "边界案例：临床状态须降级并转介专业意见。"
+    }
+  ]
+}
