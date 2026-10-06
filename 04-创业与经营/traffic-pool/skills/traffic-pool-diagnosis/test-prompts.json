@@ -1,0 +1,69 @@
+{
+  "skill": "traffic-pool-diagnosis",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司每个月花 200 万投信息流，ROI 还行，CEO 问要不要直接加码到 500 万，帮我分析一下该不该继续买量？",
+      "expected_behavior": "激活本 skill：先跑流量三问（CAC 十二个月走势、LTV/CAC、投放明细可见性）与三桶盘点；若自有桶近零且 CAC 持续上涨，建议先切部分预算建自有承接载体再谈扩量，而不是直接回答加或不加。",
+      "notes": "典型投放加码决策场景，V2 预测力验证用例的变体。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "流量越来越贵，获客成本一年涨了 3 倍，我们的增长是不是该换个打法？",
+      "expected_behavior": "激活本 skill：用少/贵/陷阱三问定位困境，产出三桶盘点与建池顺序路线图。",
+      "notes": "困境诊断的标准措辞，含中英文关键 trigger。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们 App 投放买来的用户 70% 下载后就不打开了，老板还说继续加大投放预算拉新就行，你怎么看？",
+      "expected_behavior": "激活本 skill：指出买量无承接即蒸发的失败模式（下载无留存），把问题从拉新量转向存储与运营层，再给建池建议。",
+      "notes": "对应 x06 反例场景，需给出与老板直觉相反的判断。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "Help me decide whether we should build our own traffic pool (private domain) or keep buying ads — this is an enterprise-level traffic strategy question.",
+      "expected_behavior": "激活本 skill（英文提问同样触发）：按三问+三桶+建池顺序的框架回答。",
+      "notes": "英文 trigger 词：traffic pool / paid vs owned / enterprise traffic strategy。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们下个月要上一支品牌大片，怎么让它既传播又带销量？",
+      "expected_behavior": "不激活本 skill；应激活 pinxiao-heyi-marketing（品效合一）。",
+      "notes": "混淆诱饵：单笔营销动作的品效检验归 CL02 pinxiao-heyi-marketing，不是企业级流量战略。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "想设计一个老带新的裂变活动，奖励应该怎么发才有效？",
+      "expected_behavior": "不激活本 skill；应激活 social-fission-principle（裂变原理与奖励/成本结构）或 fission-playbook-design（具体玩法设计）。",
+      "notes": "混淆诱饵：裂变是建池后的具体手段，奖励结构设计归 CL09/CL10。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "微信公众号菜单栏怎么配置转化路径更合理？",
+      "expected_behavior": "不激活本 skill；应激活 wechat-service-superapp（微信载体运营）。",
+      "notes": "混淆诱饵：微信生态内的具体载体运营归 CL12。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "流量池思维和私域流量是一回事吗？给我讲讲区别。",
+      "expected_behavior": "边界判定（已修正）：description 明确排除纯概念科普。盲测判 none 正确。PASS 条件 = 不激活完整诊断流程；若激活须先探询建池决策意图。原预期\"答概念+探询\"与排除条款矛盾，为凑预期而设计过狠，按方法论修测试并记录。",
+      "notes": "检验 skill 不把纯科普误扩为完整咨询。 | 2026-10-06 盲测后修正预期（原预期与 description 排除条款矛盾，理由见 TEST_RESULTS.md）"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "我们是个十人小公司，预算只有大厂百分之一，还有必要谈流量池吗？",
+      "expected_behavior": "触发但须带作者盲点警示：建池逻辑适用，但书内案例全是资本密集打法；小预算下应从最低成本的自有承接（企微/社群/会员）起步，不照搬神州式补贴。",
+      "notes": "检验 B 段盲点（大预算甲方视角）是否被带入回答。"
+    }
+  ]
+}

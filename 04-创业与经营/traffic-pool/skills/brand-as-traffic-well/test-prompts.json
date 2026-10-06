@@ -1,0 +1,62 @@
+{
+  "skill": "brand-as-traffic-well",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新品牌第一年把 70% 预算投效果投放冲 GMV 对不对？",
+      "expected_behavior": "激活本 skill：用井模型指出纯效果买量流量随预算归零、CAC 随竞争上涨，建议划出建井预算并用井深指标（品牌搜索量、关注/粉丝数、复购、自发推荐）考核这部分。",
+      "notes": "V2 预测力验证用例的原始问法。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "品牌部被认为是成本中心，CEO 觉得做品牌就是烧钱，我该怎么为品牌预算辩护？",
+      "expected_behavior": "激活本 skill：给出品牌即流量的辩护结构（两口井现状盘点 + 建井/买量预算切分 + 井深指标考核方案）。",
+      "notes": "品牌预算战略辩护是本 skill 的 trigger_boundary 核心场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "同样 1000 万，全部拿去买流量，还是拿去做品牌？",
+      "expected_behavior": "激活本 skill：按资产结构分析（一次性消耗 vs 边际成本递减的井），并按业务阶段给出切分建议而非非黑即白。",
+      "notes": "书中第2章的经典之问。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "How do I justify brand building budget to a CFO who only looks at ROAS?",
+      "expected_behavior": "激活本 skill（英文提问同样触发）：井模型辩护 + 井深指标替代单季 ROAS 的考核建议。",
+      "notes": "英文 trigger：brand budget / justify brand building / brand equity as traffic。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的品牌定位应该对标竞品走对立路线，还是走功能卖点路线？",
+      "expected_behavior": "不激活本 skill；应激活 brand-positioning-trilogy（定位三法）。",
+      "notes": "混淆诱饵：定位路线选型归 CL04 brand-positioning-trilogy；本 skill 管品牌预算辩护，不管定位内容。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "要不要趁这次品牌升级换个新 LOGO？现在这个用了 5 年了。",
+      "expected_behavior": "不激活本 skill；应激活 brand-symbol-building（品牌符号化）。",
+      "notes": "混淆诱饵：换 LOGO 是符号层决策（打造/强化/保护符号），归 CL05 brand-symbol-building。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "这次双 11 的品牌 campaign 怎么设计才能顺便带来销量？",
+      "expected_behavior": "不激活本 skill；应激活 pinxiao-heyi-marketing（品效合一）。",
+      "notes": "混淆诱饵：单笔 campaign 的品效检验归 CL02 pinxiao-heyi-marketing；井模型回答的是预算结构问题。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "我们是 to B 工业品公司，没有 C 端粉丝，品牌井理论还适用吗？",
+      "expected_behavior": "触发并讨论模型边界：两口井指标需改造（关注井=行业搜索/白皮书下载/媒体提及，粉丝井=客户复购与转介绍），不能照搬 C 端口径；同时提示作者案例全部来自 C 端补贴型业务。",
+      "notes": "检验 skill 能否对模型做跨语境改造并暴露作者盲点（案例域局限）。"
+    }
+  ]
+}

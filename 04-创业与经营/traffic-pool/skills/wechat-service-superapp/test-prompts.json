@@ -1,0 +1,69 @@
+{
+  "skill": "wechat-service-superapp",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的微信公众号每天发企业新闻和领导考察动态，阅读量常年两三百，粉丝不增反降，问题出在哪？",
+      "expected_behavior": "激活本 skill：用'自嗨型官微'反例诊断（服务号不是公关号而是还原 App 功能的超级 App），给出业务功能/客服反馈/营销告知三功能改造与创意+技术+福利运营闭环。",
+      "notes": "自嗨诊断与超级 App 重定位是 CL12 的核心 trigger。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "餐饮连锁想做会员和优惠券体系，是开发 App 还是把微信服务号做成业务载体？",
+      "expected_behavior": "激活本 skill：用'频发、多选、短决策'行业适配判据判断——餐饮高频短决策适合服务号超级 App，列出业务功能/券系统/技术承接的功能清单。",
+      "notes": "载体选型判据是 CL12 的标志性内容。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "服务号和订阅号到底该做哪个？听说订阅号打开率已经跌得很低了。",
+      "expected_behavior": "激活本 skill：资源有限只做服务号（月推 4 条不折叠直达），订阅号只用来发紧急信息；并检查行业是否适配服务号运营。",
+      "notes": "服务号 vs 订阅号取舍是 CL12 的 A2 场景。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "我们的公众号团队招人，第一个坑位是先招内容编辑还是技术开发？",
+      "expected_behavior": "激活本 skill：招聘优先级由载体定位推导——若行业呈频发多选短决策，服务号是超级 App，短板通常在技术承接（菜单/接口/券系统/数据），先招技术与运营，内容可外包。",
+      "notes": "verified.md V2 预测力问题，测试判据的实际应用。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "热点话题出来了，我们今天必须发一张借势海报，帮我想想创意文案怎么写才有网感？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：日常社媒内容生产与借势预期归属同书兄弟 skill social-content-light-fast（CL13），CL12 只管微信载体与业务承接。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们想在微信里做一个砍价送奖品的活动，页面话术怎么写才不会被判定诱导分享封号？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：裂变活动机制与合规红线预期归属 fission-playbook-design（CL10）。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "怎么写一篇 10 万+ 的公众号爆款文章？标题和开头有什么技巧？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：文章写作技巧属内容生产，预期归属 social-content-light-fast（CL13 网感三查），CL12 不管单篇内容技巧。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "我们是卖大型机床的 B2B 企业，客户一年才采购一次，服务号要不要也做成超级 App？",
+      "expected_behavior": "激活本 skill 但走判停分支：'频发、多选、短决策'三问皆否——不做服务号日常运营，资源转投其他渠道；明确告知这是判据的正确使用而非失败。",
+      "notes": "测试判停条件是否被执行，而非硬套方法论。"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "模板消息接口最近被平台限制得很厉害，我们按消费周期给用户发的提醒类触达还有别的替代办法吗？",
+      "expected_behavior": "激活本 skill 并触发时效警示：模板消息 2020 年已被订阅消息取代、触达规则持续收紧；'提醒=唤醒+转化钩子'的布点逻辑保留，具体触达工具按当期微信能力（订阅消息/企微/小程序通知等）重查。",
+      "notes": "测试时效警示内嵌是否生效。"
+    }
+  ]
+}

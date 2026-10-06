@@ -1,0 +1,69 @@
+{
+  "skill": "fission-cold-start-lowfreq",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们是新品牌，App 刚上线没有任何用户，老板想直接搞一场裂变活动带来第一批 10 万用户，这个规划靠谱吗？怎么改？",
+      "expected_behavior": "激活本 skill：指出裂变的冷启动悖论——第一批种子用户不可能靠裂变本身解决，只能靠投放/试用/地推获得；给出两手抓预算结构（投放扩存量+裂变降均价），并明确判停：存量≈0 时裂变 KPI 暂缓。",
+      "notes": "冷启动顺序判断是 CL11 的核心 trigger。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们是做高端重疾险的，客户几年才成交一次，做了老带新基本没人参与，低频产品到底能不能做裂变？",
+      "expected_behavior": "激活本 skill：低频产品两条改造路径——把业务转成中高频福利载体（场景化赠险、绑ID提醒抽奖等）或强福利转介绍（按成交阶梯付佣），并保留'存量基数决定裂变量'的前置判断。",
+      "notes": "低频高频化是 CL11 的第二个核心场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "房产中介想推老带新，转介绍佣金比例定多少合适？我们手上大概有 3000 组老客户。",
+      "expected_behavior": "激活本 skill：先回答顺序再回答额度——先确认存量基数是否支撑裂变（3000 组是否活跃可触达），佣金设计参考'把广告费后付给推荐人'的公式边界，而非拍脑袋给一口价。",
+      "notes": "额度问题要先过可行性判断，属于 CL11 而非 CL10。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "预算只有 20 万，是全投信息流拉新，还是拿一半出来做老带新奖励？",
+      "expected_behavior": "激活本 skill：给出'两手抓'预算结构——投放拉新扩存量与老客裂变降均价同时立项，奖励后置到关键行为之后，并核算投放+裂变的总获客成本。",
+      "notes": "预算结构分配是 CL11 的 A2 场景 4。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们的邀请裂变活动在纠结选砍价还是拼团玩法，帮我把种子用户、诱饵、分享机制这三要素检查一遍。",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：这是具体玩法选型与三要素上线检查，预期归属同书兄弟 skill fission-playbook-design（CL10）。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "老用户带新用户的奖励应该先发还是后发？广告成本=老用户拉新奖励+新用户注册奖励这个公式怎么应用到我们产品？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：裂变双原则与后付奖励成本结构属原理层，预期归属同书兄弟 skill social-fission-principle（CL09）。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "裂变活动拉来的新用户注册后 7 天就流失了，怎么提高他们的使用频次和留存？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：裂变之后的留存提频预期归属 wechat-service-superapp（CL12），CL11 只管拉新启动端。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "我们是季度订阅的 B2B SaaS，客户一年续费一次，老板要求三个月内靠裂变把获客成本降一半，可行吗？",
+      "expected_behavior": "激活本 skill 但触发 B 段约束：低频+冷启动双重判断；提醒把投放获客成本计入总账（冷启动外部化盲点）、羊毛党与关系链透支风险，以及'裂变降一半成本'这类承诺在存量不足时不可验收。",
+      "notes": "B2B 低频场景测试边界意识，expected_behavior 需含风险提示。"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "公司 App 有 500 万注册用户但月活只有 3%，现在做邀请有礼还有用吗？",
+      "expected_behavior": "激活本 skill：区分'注册存量'与'可用活跃存量'——存量基数决定裂变量的前提是可触达的活跃老用户；月活 3% 意味着有效存量远小于账面，应先盘可触达渠道再定裂变预期。",
+      "notes": "测试'存量'定义的精确性，避免把僵尸注册当裂变底盘。"
+    }
+  ]
+}

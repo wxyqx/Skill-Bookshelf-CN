@@ -1,0 +1,69 @@
+{
+  "skill": "social-fission-principle",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "董事会问我们要不要上老带新，CFO 担心补贴被人薅羊毛，这件事该怎么论证该不该做？",
+      "expected_behavior": "激活本 skill。用原理层框架回答：关系链资产盘点（存量基数、离开成本）→成本公式套算（双边奖励≤当前 CAC）→双原则设计（分享驱动+后付兑现）→输出'做/不做/先补存量'三选一结论，并正视羊毛党风险（防刷归玩法层）。",
+      "notes": "'该不该做'是 CL09 与 CL10 互斥边界的核心判定词。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们现在获客成本 300 元一个，有人说做裂变便宜，为什么裂变会便宜？便宜在哪？",
+      "expected_behavior": "激活本 skill。用成本公式解释：广告成本=老用户拉新奖励+新用户注册奖励，把事前预付给媒体的广告费拆成双边奖励后付给用户——从 100% 预付不确定变成按效果事后支付，且自带社交信任背书。",
+      "notes": "'为什么便宜'考的是原理认知，对应 t13/t14 术语层。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "推荐奖励是用户一分享就给，还是等新人注册了再给？预算紧张的情况下怎么设计？",
+      "expected_behavior": "激活本 skill。明确回答后付奖励：新用户完成注册/关键行为后才兑现；并输出双边奖励结构表（给推荐人什么、给被推荐人什么、兑现时点），与买量方案并列对比 CAC。",
+      "notes": "对应 verified.md V2 预测力问题'现金流紧张时奖励先发还是后发'。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "同样 100 万预算，是投信息流买量，还是变成用户补贴做裂变拉新？",
+      "expected_behavior": "激活本 skill。按原理层给出预算结构判断：先盘点存量与关系链触点，再按成本公式与 CAC 对比测算两条路的单位获客成本，输出'两手抓'或倾斜建议，不直接替用户拍板金额。",
+      "notes": "预算分配之争是 A2 场景 4，考'成本结构怎么定'而非玩法。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们想做砍价活动，砍价、拼团和分销海报哪个更适合我们这个生鲜 App？各有什么坑？",
+      "expected_behavior": "不激活本 skill。这是具体玩法的谱系选型与坑位提示（13 式选型+三要素+合规）。",
+      "notes": "必设的兄弟混淆诱饵：同属裂变话题。预期归属 fission-playbook-design——CL09 管'该不该做/成本结构'，CL10 管'选哪种玩法怎么落地'。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们是卖房子的，一年就用一两次，做老带新可行吗？第一批种子用户从哪来？",
+      "expected_behavior": "不激活本 skill。低频产品适配与冷启动顺序问题。",
+      "notes": "混淆诱饵：'老带新'字面强触发。预期归属 fission-cold-start-lowfreq（低频高频化三路径+冷启动悖论）。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "微信服务号的菜单应该怎么规划，是做成内容号还是功能号？",
+      "expected_behavior": "不激活本 skill。微信载体定位与运营问题（服务号=超级 App、频发多选短决策判据）。",
+      "notes": "混淆诱饵：裂变常挂在服务号上。预期归属 wechat-service-superapp。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "我们 B2B SaaS 没有 C 端补贴文化，这套裂变原理对我们适用吗？该不该投入做？",
+      "expected_behavior": "激活本 skill 做原理层判断：关系链是否存在（客户社群/行业口碑）、后付奖励逻辑如何映射到权益型奖励（延长订阅、行业报告）；同时指出双边现金奖励形态需改造，具体玩法与三要素设计转 fission-playbook-design。",
+      "notes": "验证原理层的可迁移性与 skill 间链接，不越界替 CL10 做玩法设计。"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "竞品的裂变活动被微信封号了，我们还要不要做裂变？",
+      "expected_behavior": "激活本 skill。原理层回答'该做'（裂变是标配立场），同时区分'该不该做'与'怎么做才合规'：封号是玩法层合规问题，提示红线检查与当期规则重查归 fission-playbook-design。",
+      "notes": "验证 skill 间互斥与衔接，以及时效警示（平台规则是移动靶）。"
+    }
+  ]
+}

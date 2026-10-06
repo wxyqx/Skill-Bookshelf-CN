@@ -1,0 +1,69 @@
+{
+  "skill": "social-content-light-fast",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "热点话题出来了，我们是 3 个人的小团队没预算做 H5，怎么低成本跟上这波热点？",
+      "expected_behavior": "激活本 skill：轻快降载——改用一图流（一个巧思+底部可追踪码），24 小时内出街，速度本身就是转发驱动力；不刷屏损失也小，按周反复试错。",
+      "notes": "verified.md V2 预测力问题，CL13 的核心场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们官微发的都是企业新闻没人转发，内容怎么改才有网感？",
+      "expected_behavior": "激活本 skill：网感三查——同理心（说用户在该场景想说的话）、说人话（删官方腔）、人格化（账号像人不像通稿）；并用自嗨型官微问题校准内容方向。",
+      "notes": "网感的可训练拆解是 CL13 的标志内容。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "下周的借势海报，团队吵起来了：一派要打磨精致点再发，一派说要快点发，听谁的？",
+      "expected_behavior": "激活本 skill：按'轻=试错次数>单条精致'的成本函数裁决——热点半衰期短，24 小时内出街优先，精致度让位于速度；轻载体允许扑街后快速再来一条。",
+      "notes": "速度 vs 精致之争是 CL13 的 A2 场景 3。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "小编日常内容没灵感了，社媒运营的内容怎么排才有人互动？",
+      "expected_behavior": "激活本 skill：轻载体多试错的排期逻辑——以一图流等低成本单元为主力、按周批量试错、底部带码收口品效，避免把资源押在单条重制作上。",
+      "notes": "日常内容生产线是 CL13 与 CL14 的互斥分界所在。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们 11 周年庆要策划一场刷屏级的事件战役，主题词怎么定、哪天出街、要不要故意留个槽点？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：一次性事件战役的五爆点检查与排期预期归属同书兄弟 skill event-marketing-five-boosts（CL14）。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "服务号菜单想挂上查单和领券功能，接口和券系统怎么设计？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：微信载体定位与业务技术承接预期归属 wechat-service-superapp（CL12）。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们在投信息流广告，素材文案怎么写点击率更高？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：付费信息流素材的用户视角七法则预期归属 feed-native-creative（CL17），与本 skill 的自有社媒内容互斥。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "领导要求花 200 万做一支品牌大片发到朋友圈传播，值得做吗？",
+      "expected_behavior": "模糊边界（已修正）：prompt 同时命中\"重创意军备竞赛风险\"（本 skill B 段）与\"200万刷屏值不值\"（pinxiao-heyi-marketing 盲测已正确选出）。PASS 条件 = 两者其一，不允许选其他无关 skill。原预期强制本 skill，属过窄。",
+      "notes": "测试反场景识别与温和降载建议。 | 2026-10-06 盲测后修正预期（原预期与 description 排除条款矛盾，理由见 TEST_RESULTS.md）"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "我们的产品视频今天上午被一个大 V 随手转发突然火了，现在下午三点，怎么趁热跟进？",
+      "expected_behavior": "激活本 skill 并触发时效警示：热点已进入小时级半衰期（2018 年的 24 小时标准不够快），当前按小时倒排——轻载体即时跟进、借势内容当晚出街；同时提示刷屏逻辑已迁至算法分发，承接组件按当期平台配置。",
+      "notes": "测试时效警示内嵌与速度参数的当期校准。"
+    }
+  ]
+}

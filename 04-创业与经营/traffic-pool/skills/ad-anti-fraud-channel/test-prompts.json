@@ -1,0 +1,69 @@
+{
+  "skill": "ad-anti-fraud-channel",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "代理商上个月的报表点击率创新高，但我们订单一点没涨，续约还是换一家？",
+      "expected_behavior": "激活本 skill：不看报表看结构——把 KPI 压到成单层，用三端六环从最终成单反推各环节转化率，突然过高的点击/留资环节即作弊嫌疑；同时审渠道可见性，产出续约/换代理的审计结论。",
+      "notes": "verified.md V2 预测力问题，CL15 的核心 trigger。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老板要求投放团队按曝光量和点击量做 KPI 考核，这样定有什么问题吗？",
+      "expected_behavior": "激活本 skill：指出源头 KPI 即作弊温床（x25）——展现/点击/留资恰是作弊最容易的环节，制度性逼代理商造假；应把 KPI 压到潜客/订单/成单层，纯品牌预算单列降权。",
+      "notes": "KPI 源头设计是 CL15 的标志性内容。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有家第三方 DSP 公司报价很便宜，还说能千人千面精准定向，我们要不要试试？",
+      "expected_behavior": "激活本 skill：按渠道风险排序判断——投放明细不可见、报告无法拉通核验的第三方 DSP 类渠道按黑洞处理，先降权或剔除；'精准'应读作'高相关性'，不被包装话术带偏。",
+      "notes": "渠道风险排序与精准祛魅是 CL15 的认知层。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "我们一年投好几千万数字广告，但始终说不清钱浪费在哪，有什么办法算出来吗？",
+      "expected_behavior": "激活本 skill：三端六环打通（媒体/网站/订单三端，展现→点击→留资→潜客→订单→成交六环），以成单成本为基准做倒金字塔追溯，产出浪费比例估计与渠道黑白名单。",
+      "notes": "倒金字塔追溯与三端打通是 CL15 的执行层。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们在投信息流广告，素材文案和配图怎么写点击率会更高？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：信息流素材的用户视角七法则与原生感配图预期归属同书兄弟 skill feed-native-creative（CL17），CL15 只管钱与数据可信度。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "落地页留资率太低了，表单是不是收的字段太多？页面结构怎么改？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：落地页承接设计预期归属 landing-page-conversion（CL16）。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "两版海报哪个效果更好，团队吵不出结果，怎么用投放数据来裁决？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：素材版本的单变量实验裁决预期归属 ad-creative-iteration（CL08），CL15 假设数据可信后的问题归 CL08。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "我们品牌部只投分众电梯屏和朋友圈排期广告，从来不考核成单，这套防作弊程序还适用吗？",
+      "expected_behavior": "激活本 skill 但走判停分支：纯品牌曝光类预算无法压到成单层——单列、降权、改用中间口径（搜索指数增量、到店线索）考核；不强行套成单层审计，但渠道可见性原则仍适用。",
+      "notes": "测试步骤 2 的判停条件是否被执行。"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "苹果 ATT 之后跨屏追踪数据基本买不到了，我们的三端打通监测体系还怎么建？",
+      "expected_behavior": "激活本 skill 并触发时效警示：跨屏追踪与 ID 体系已受 ATT/个保法重创，2018 年的参数层作废；保留判断逻辑（成单层 KPI+渠道可见性排序+订单回传最小可行版），打通方案按当期合规与工具重查。",
+      "notes": "测试时效警示内嵌与逻辑层/参数层的分离。"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "skill": "feed-native-creative",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们要在抖音和朋友圈投效果广告，怎么写文案才能不像广告、让用户愿意点？",
+      "expected_behavior": "按用户视角流程作答：先梳理卖点再做用户需求分析再匹配成文；配场景式原生感图片向信息流内容风格靠拢（'不像广告的广告'）；一条文案只打一个卖点。",
+      "notes": "直击原生感与用户视角两大核心。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们家装公司的信息流素材点击率很低，主管说要再多写几个卖点，把设计、施工、保修全写上，这样对吗？",
+      "expected_behavior": "反驳罗列卖点的直觉：罗列三个卖点等于零个卖点；应从用户场景的痛点事实切入、先给吸引人的事实不讲原因；可用客户视角/用户视角两版实测验证（书中家装案例点击率差273.98%）。",
+      "notes": "命中 x33 反直觉点：'好不容易投一次、多写点卖点才值'是投放者最常见的错误直觉。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "帮我写几条贷款产品信息流标题，要求大白话、不要太广告腔。",
+      "expected_behavior": "产出按七法则的候选标题：平等交流不端品牌腔、用地域/年龄/日期等用户相关信息、事实吸引不讲原因、一条只打一个卖点；并建议配福利式或场景式图片。",
+      "notes": "创作型请求，命中七法则与原生感。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "信息流广告的配图，用产品白底图好还是生活场景图好？有什么讲究？",
+      "expected_behavior": "按三式选型作答：场景式（原生感、感性诉求）、福利式（折扣红包、冲动刺激）、告知式（LOGO+好评销量截图、理性助攻），按本轮诉求选择并做原生感处理。",
+      "notes": "命中配图三式程序。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "用户点了我们的广告进来，落地页留资率太低，表单怎么设计才能留住人？",
+      "expected_behavior": "不应按信息流素材七法则作答。",
+      "notes": "同书混淆诱饵：应归属 landing-page-conversion（CL16）——点击后的承接页设计，不是点击前的素材文案。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们在电梯里投了一块分众广告牌，海报上放二维码还是放微信号好？",
+      "expected_behavior": "不应按信息流原生创意作答。",
+      "notes": "互斥对诱饵：应归属 traditional-ad-conversion（CL07）——品牌向传统/户外硬广的转化设计（用户当时当刻不能行动），与本 skill（效果类信息流，用户可即时点击）互斥。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们公司公众号想蹭热点做几张借势海报，怎么写才有网感？",
+      "expected_behavior": "不应按付费信息流素材作答。",
+      "notes": "同书混淆诱饵：应归属 social-content-light-fast（CL13）——自有社媒日常内容与借势，不是付费投放素材。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "两版信息流素材A/B测试跑完了，用户视角版点击率1.8%、客户视角版1.1%，下一步怎么迭代？",
+      "expected_behavior": "移交判定（已修正）：prompt 问\"下一步怎么迭代\"，主 trigger 是 ad-creative-iteration（盲测已正确选出）；本 skill 的用户视角结论沉淀仅是素材层。PASS 条件 = 选 ad-creative-iteration。原预期强制本 skill，属预期越界。",
+      "notes": "与 CL08 的交界：素材生产归本 skill，实验程序归 CL08，回答应点明分工。 | 2026-10-06 盲测后修正预期（原预期与 description 排除条款矛盾，理由见 TEST_RESULTS.md）"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "现在都投短视频信息流了，图文素材的这套方法还有用吗？",
+      "expected_behavior": "应触发并做时效校准：图文三式已演化为竖屏视频素材（2018年快照，参数层须按当期重查）；但用户视角、单一卖点、原生感、事实吸引不讲原因的判断逻辑跨形态有效，可迁移到视频脚本开头3秒。",
+      "notes": "时效类边界问题：考核 skill 能否自证逻辑层/参数层的区分。"
+    }
+  ]
+}

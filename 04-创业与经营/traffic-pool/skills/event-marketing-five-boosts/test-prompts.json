@@ -1,0 +1,69 @@
+{
+  "skill": "event-marketing-five-boosts",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "新品 3 周后上市，想策划一场能刷屏的事件营销，应该从哪里入手？",
+      "expected_behavior": "激活本 skill：先做借势 vs 造势路线决策，再跑五爆点检查链（热点/爆点/卖点/槽点/节点），给出排期与预案框架。",
+      "notes": "完整事件战役策划是 CL14 的核心 trigger。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "竞品昨天爆了个大新闻，全网都在讨论，我们要不要跟进借势？",
+      "expected_behavior": "激活本 skill：跑五爆点检查链——重点判热点（公众情绪是否可借、是否踩线）与卖点（事件与我们核心卖点是否相关，无关不跟，防流量外溢）；预算少选借势不造势。",
+      "notes": "verified.md V2 预测力问题，测试检查链的可否决性。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "事件方案评审发现问题：主题词有 12 个字，出街日期定在周六，这两点要不要改？",
+      "expected_behavior": "激活本 skill：按爆点原则压缩到 5 字以内主题词+统一视觉符号；按节点原则改到周二至周四出街（竞争型话题选周四），周末易遇冷。",
+      "notes": "爆点与节点两条细则的直接应用。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "老板担心到时候热闹一场，用户光记得事件不记得是我们品牌干的，怎么防？",
+      "expected_behavior": "激活本 skill：卖点全程锚定防流量外溢——事件叙事、视觉符号、话题词都绑死核心卖点，必要时牺牲创意趣味；验收用声量+品牌关联双口径。",
+      "notes": "流量外溢（x23）是 CL14 的标志性警告。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们公众号每周要发三条日常推文，怎么写得有人愿意转发？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：无事件属性的日常内容运营预期归属同书兄弟 skill social-content-light-fast（CL13），两 skill 以'有无明确事件/节点'互斥。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "90 分钟的卖货直播，脚本环节和红包雨节奏怎么设计？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：直播项目的完整执行（IMBT 四环节）预期归属 livestream-imbt（CL18），CL14 只把直播当媒介选项。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们在分众的电梯广告投了一个月没反响，广告素材里电话和二维码怎么摆才带转化？",
+      "expected_behavior": "不应激活本 skill。",
+      "notes": "混淆诱饵：传统广告素材的转化组件设计预期归属 traditional-ad-conversion（CL07），CL07 侧才管'广告配事件防墙纸'。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "公司最近遇到一点负面舆情，想策划一场正面活动把注意力转移过去，事件营销能这么用吗？",
+      "expected_behavior": "激活本 skill 但立即触发边界：埋槽点（主动制造可控吐槽）与危机公关（被动应对负面）方向相反；争议环境下的主动造势风险极高（Beat U 双刃剑教训），建议不套用本流程，先走舆情处置。",
+      "notes": "测试与危机公关的边界区分。"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "预算只有 5000 块，但也想搞一场造势活动刷屏，可行吗？",
+      "expected_behavior": "激活本 skill 并按借势优于造势裁决：小预算造势大概率沦为自嗨（x24）；5000 元应走借势+小活动大传播（线下投入极小、传播放线上，参照丧茶 4 天快闪店逻辑），或转日常轻内容。",
+      "notes": "测试造势/借势路线决策对小预算的强制约束。"
+    }
+  ]
+}

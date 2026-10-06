@@ -1,0 +1,62 @@
+{
+  "skill": "pinxiao-heyi-marketing",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "预算只够做一支高质感品牌片，或者一场能留资的整合活动，只能选一个，怎么选？",
+      "expected_behavior": "激活本 skill：用品效双问检验，把二选一转换成'改造后及格'——品牌片必须加装效果口径（搜索指数增量/落地页留资）并承诺转化周期后再上。",
+      "notes": "V2 预测力验证用例的原始问法，标准触发场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "市场部提了个方案，KPI 全是曝光量和阅读量，没有任何转化动作，我要不要毙掉？",
+      "expected_behavior": "激活本 skill：判定为纯品牌投入，给出加装转化口径的具体修改要求（当下可完成的行动组件 + 转化周期承诺）。",
+      "notes": "方案评审场景，'只有曝光 KPI'是强语言信号。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们花 50 万找头部大 V 发了篇 10 万+ 的软文，老板问值不值，怎么评估？",
+      "expected_behavior": "激活本 skill：按成单账而非阅读账复盘，检查从内容到购买的路径步数，给出成单口径的评估结论。",
+      "notes": "对应 x04 反例场景（10万+成单常不过百）。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "Our brand campaign got lots of views but no conversion — how do we set a brand-performance (品效合一) target that both marketing and sales accept?",
+      "expected_behavior": "激活本 skill（英文提问同样触发）：先做品效双问诊断，再给出口径谈判框架。",
+      "notes": "英文 trigger：brand vs performance / conversion commitment。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司整体流量打法要不要从买量转向自建流量池？先建哪个池比较好？",
+      "expected_behavior": "不激活本 skill；应激活 traffic-pool-diagnosis（流量池诊断）。",
+      "notes": "混淆诱饵：企业级流量战略归 CL01 traffic-pool-diagnosis，本 skill 只管单笔动作。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "广告点击率不错但落地页留资率很低，页面该怎么改？",
+      "expected_behavior": "不激活本 skill；应激活 landing-page-conversion（落地页设计与转化）。",
+      "notes": "混淆诱饵：页面承接层设计归 CL16 landing-page-conversion；本 skill 只负责定转化口径本身。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "品牌部明年预算被砍一半，怎么向 CEO 证明品牌投入的长期流量价值？",
+      "expected_behavior": "不激活本 skill；应激活 brand-as-traffic-well（品牌即流量之井）。",
+      "notes": "混淆诱饵：品牌预算的长期战略辩护归 CL03 brand-as-traffic-well；品效合一管短期单笔动作，井模型管长期资产辩护。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "品效合一会不会是个伪概念？品牌资产、品类教育这种长期价值怎么算？",
+      "expected_behavior": "触发并进入思辨模式：如实呈现书内内在张力（作者自认难以度量、Love U 无订单仍被列为好案例），给出'对长期品牌动作单独设口径而不是硬套当下转化'的处理建议。",
+      "notes": "检验 skill 能否暴露作者盲点而不是无脑辩护书内主张。"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "skill": "fission-playbook-design",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们生鲜 App 想做裂变，砍价、拼团、分销海报选哪个？各有什么坑？",
+      "expected_behavior": "激活本 skill。按谱系选型执行：先定主目标与可用载体，再从 13 式中按'目标×载体×成本'筛出 1-2 种候选并逐一说明坑位（如众筹裂变的粉丝成本优势、分销的层级红线），无创意资源时提示拉新奖励是见效最快的标配。",
+      "notes": "玩法选型问句是 CL10 的核心触发信号。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "裂变活动方案初稿有了，上线前帮我们过一遍：种子用户、诱饵、分享机制、微信合规，还缺什么？",
+      "expected_behavior": "激活本 skill。执行三要素检查（种子质量>数量、诱饵确定性排序福利>创意>玩法、分享趣味的谈资/形象双心理）+ 合规红线清单（分销层级、页面话术、防刷）+ 技术承接确认，任一项空白即退回修改。",
+      "notes": "'上线前检查'对应 E 段的检查表属性。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "上次分销活动页面被微信警告了，说诱导分享，裂变活动的合规红线到底有哪些？",
+      "expected_behavior": "激活本 skill。输出合规红线清单：分销≤二级（超了涉嫌传销，对照小黑裙被封）、页面不出现'分享有福利'类描述、现金红包防刷、储值类评估预付资金风险；并附时效警示——按当期平台规范重查，2018 年口径仅作历史参考。",
+      "notes": "对应反例 x20 小黑裙事件与 B 段合规闸门。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "我们是瓶装饮料，想学味全在包装上做点裂变玩法，线下裂变有哪几种做法？",
+      "expected_behavior": "激活本 skill。调出线下三法（包装裂变、O2O 红包/一物一码、产品社交化），以味全拼字瓶为类比给出设计要点（社交谈资+个人形象双心理），并检查三要素是否齐备。",
+      "notes": "验证谱系中'线下三法'分支的可触发性。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "老板问裂变到底比买量便宜在哪，我们要不要把一半投放预算转成用户奖励？",
+      "expected_behavior": "不激活本 skill。这是原理与成本结构问题（关系链判断、后付奖励成本公式、预算结构）。",
+      "notes": "必设的兄弟混淆诱饵：同属裂变话题。预期归属 social-fission-principle——'该不该做/为什么便宜/预算怎么分'归 CL09，'选哪种玩法怎么落地'才归本 skill。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们产品使用频率很低，一年就用一两次，老带新根本推不动怎么办？",
+      "expected_behavior": "不激活本 skill。低频产品适配（福利频次转换、强福利转介绍）与冷启动顺序问题。",
+      "notes": "混淆诱饵：'老带新推不动'看似活动设计问题。预期归属 fission-cold-start-lowfreq。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "服务号粉丝 10 万，怎么把它运营成超级 App？推送频率和菜单怎么规划？",
+      "expected_behavior": "不激活本 skill。微信载体的定位与日常运营问题（创意+技术+福利、模板/提醒布点）。",
+      "notes": "混淆诱饵：裂变常需服务号承接。预期归属 wechat-service-superapp；本 skill 只管活动机制本身。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "2018 年那套砍价 H5 现在还能做吗？微信现在封不封？",
+      "expected_behavior": "激活本 skill 且必须触发时效警示：明确书中玩法参数是 2018 年快照、砍价 H5 等玩法此后相继被微信规则封杀或边缘化，不能直接照搬；输出选型逻辑保留、参数层须按当期平台规范重查的结论，并给出替代玩法候选。",
+      "notes": "验证 B 段'时效总闸'在具体玩法问题上的显式输出。"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "我们想给裂变活动加三级分销，拉人头层级越多是不是越猛？",
+      "expected_behavior": "激活本 skill 并触发合规判停：明确拒绝超二级分销（涉嫌传销、微信封杀先例小黑裙），建议改为单层或≤二级结构并完成页面话术与防刷检查；不做合规妥协。",
+      "notes": "验证 E 段步骤 2/4 的合规判停条件与 B 段红线。"
+    }
+  ]
+}

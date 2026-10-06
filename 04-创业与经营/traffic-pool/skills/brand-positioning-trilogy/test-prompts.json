@@ -1,0 +1,62 @@
+{
+  "skill": "brand-positioning-trilogy",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "一个平价护肤新品牌面对百雀羚、珀莱雅这些成熟巨头，定位怎么选？",
+      "expected_behavior": "激活本 skill：判定红海后发→对立型路线（找头部品牌最大共识性弱点，'没有/更'句式立对立），再用一句话测试、禁情怀、产品作证三项检查收口。",
+      "notes": "V2 预测力验证用例的原始问法。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的口号'让美触手可及'是不是太空了？怎么检验一个定位好不好？",
+      "expected_behavior": "激活本 skill：用一句话测试与创牌禁情怀判据检验，并检查产品能否为定位作证，给出修改方向。",
+      "notes": "口号评审场景，'检验定位'是直接 trigger。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们想做'重新定义办公'的概念，听起来很性感，但会不会是伪需求？",
+      "expected_behavior": "激活本 skill：进入升维路线判定，先验证需求频次与习惯；若属伪需求则判停，提示营销救不了伪需求。",
+      "notes": "升维+伪需求判据的组合场景，对应 x09。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "Which positioning route should a late entrant pick in a crowded market — differentiating against the leader or creating a new category?",
+      "expected_behavior": "激活本 skill（英文提问同样触发）：按竞争态势三选一框架给出路线建议。",
+      "notes": "英文 trigger：positioning / differentiation / new category。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "定位定了之后，口号和视觉符号怎么落地才能让人记住？",
+      "expected_behavior": "不激活本 skill；应激活 brand-symbol-building（品牌符号化）。",
+      "notes": "混淆诱饵：定位之后的符号落地（怎么被记住）归 CL05 brand-symbol-building；本 skill 止于定位句与路线选型。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "定位有了，该选哪个消费场景切入市场、补贴往哪儿补？",
+      "expected_behavior": "不激活本 skill；应激活 scene-trigger-niche（场景扳机与利基切割）。",
+      "notes": "混淆诱饵：定位之后'在哪里被触发'归 CL06 scene-trigger-niche。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "做定位之前，先帮我论证一下品牌预算到底值不值。",
+      "expected_behavior": "不激活本 skill；应激活 brand-as-traffic-well（品牌即流量之井）。",
+      "notes": "混淆诱饵：品牌预算的战略辩护归 CL03 brand-as-traffic-well；定位三法假定已决定做品牌。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "我们是品类领导者，想从功能诉求转向情感沟通，作者说创牌禁情怀，我们也不能做吗？",
+      "expected_behavior": "边界判定（已修正）：description 明示\"不适用：领导者情感沟通型定位\"，盲测判 none 正确。原预期\"触发+边界回答\"与自身排除条款矛盾，修测试并记录：领导者情怀属 skill 外场景，B 段已留红牛前车之鉴作背景。",
+      "notes": "检验 skill 对'领导者例外'边界的处理，防止把判据误用为普适禁令。 | 2026-10-06 盲测后修正预期（原预期与 description 排除条款矛盾，理由见 TEST_RESULTS.md）"
+    }
+  ]
+}

@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**40 本书 · 679 个 skills**（最后更新：2026-10-05）
+**41 本书 · 698 个 skills**（最后更新：2026-10-06）
 
 ### 分类导航
 
@@ -54,7 +54,7 @@
 | 《高效能人士的七个习惯（30周年纪念版）》*The 7 Habits of Highly Effective People* | 史蒂芬·柯维 · 1989 | 个人管理 / 领导力 / 思维方式 | 29 | [`seven-habits/`](./03-个人成长/seven-habits/) |
 | 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./03-个人成长/effective-executive/) |
 
-#### 04-创业与经营（7 本）
+#### 04-创业与经营（8 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -65,6 +65,7 @@
 | 《权力的48条法则》*The 48 Laws of Power* | 罗伯特·格林 · 1998 | 权力 / 策略 / 人际 | 15 | [`power-48-laws/`](./04-创业与经营/power-48-laws/) |
 | 《小米创业思考》 | 雷军 / 徐洁云 · 2022 | 创业方法论 / 效率模型 / 爆品模式 / 互联网七字诀 | 17 | [`xiaomi-startup-thinking/`](./04-创业与经营/xiaomi-startup-thinking/) |
 | 《定位：有史以来对美国营销影响最大的观念》*Positioning* | 艾·里斯、杰克·特劳特 · 1981/2011 | 营销战略 / 心智认知 / 品牌命名 / 攻防策略 | 15 | [`positioning-ries-trout/`](./04-创业与经营/positioning-ries-trout/) |
+| 《流量池》*Traffic Pool* | 杨飞 · 2018 | 流量池思维 / 裂变增长 / 品效合一 / 品牌与场景 / 数字广告 | 19 | [`traffic-pool/`](./04-创业与经营/traffic-pool/) |
 
 #### 05-产品与创新（6 本）
 
@@ -346,6 +347,13 @@
 - **Skills**：`outside-in-perception-first` · `own-one-word-in-mind` · `first-in-mind-beats-better` · `mental-ladder-diagnosis` · `challenger-follower-positioning` · `reposition-the-competitor` · `leader-defense-playbook` · `naming-that-hooks` · `brand-extension-rules` · `company-institution-positioning` · `country-place-positioning` · `personal-career-positioning` · `positioning-six-question-process` · `mind-runs-by-ear-media-rules` · `positioning-game-rules`
 - **备注**：定位理论开山之作，"心智阶梯/空位/重新定位/跷跷板"等判据已成营销通用语言；与《影响力》《上瘾》分属营销心理与产品习惯，本卷专注战略层的心智占位与攻防选择。
 
+### 41. 《流量池》 · [`traffic-pool/`](./04-创业与经营/traffic-pool/)
+
+- **作者**：杨飞 · 2018（中信出版集团；神州优车/瑞幸咖啡营销操盘人，时任瑞幸 CMO）
+- **一句话**：流量红利消失后，把"买流量用掉"换成"把流量存进池子里养"——品牌是最稳定的流量池，裂变是最低成本的获客，投放要全程数据监测防作弊，落地页是转化的第一生产力；19 个 skill 覆盖从预算诊断（该不该买量）、品牌定位与符号、裂变原理与玩法选型、社媒与事件营销，到防作弊排查、落地页六要素、信息流原生创意、直播 IMBT 与 BD 互推的全链路。
+- **Skills**：`traffic-pool-diagnosis` · `pinxiao-heyi-marketing` · `brand-as-traffic-well` · `brand-positioning-trilogy` · `brand-symbol-building` · `scene-trigger-niche` · `traditional-ad-conversion` · `ad-creative-iteration` · `social-fission-principle` · `fission-playbook-design` · `fission-cold-start-lowfreq` · `wechat-service-superapp` · `social-content-light-fast` · `event-marketing-five-boosts` · `ad-anti-fraud-channel` · `landing-page-conversion` · `feed-native-creative` · `livestream-imbt` · `bd-traffic-exchange`
+- **备注**：作者亲历操盘型营销书（神州专车 Beat 谣体、瑞幸裂变均为一手复盘）；2018 年快照，微信裂变规则/模板消息/DMP/直播参数已变，各 skill 的 B 段已内嵌时效警示，只取判断逻辑层。
+
 ---
 
 ## 安装
@@ -353,7 +361,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 679 个 skills（用户级，所有项目可用）
+# 一次性安装全部 698 个 skills（用户级，所有项目可用）
 for d in */*/skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -404,7 +412,8 @@ skill-bookshelf/
 │   ├── rockefeller-38-letters/   # 《洛克菲勒留给儿子的38封信》
 │   ├── power-48-laws/   # 《权力的48条法则》
 │   ├── xiaomi-startup-thinking/   # 《小米创业思考》
-│   └── positioning-ries-trout/   # 《定位：有史以来对美国营销影响最大的观念》
+│   ├── positioning-ries-trout/   # 《定位：有史以来对美国营销影响最大的观念》
+│   └── traffic-pool/   # 《流量池》
 ├── 05-产品与创新/
 │   ├── how-google-works/   # 《重新定义公司：谷歌是如何运营的》
 │   ├── hooked/   # 《上瘾：让用户养成使用习惯的四大产品逻辑》

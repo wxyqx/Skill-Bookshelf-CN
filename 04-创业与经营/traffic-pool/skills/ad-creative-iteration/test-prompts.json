@@ -1,0 +1,69 @@
+{
+  "skill": "ad-creative-iteration",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "创意总监和老板为两张海报吵起来了，一个说要有美感有格调，一个说信息要直接要有促销，听谁的？",
+      "expected_behavior": "激活本 skill。回答'都不听，听单一核心指标'：先定本轮唯一成功指标与基线，把争议点做成单变量两版对比，一个投放周期定胜负；胜出版沉淀为模板规则。",
+      "notes": "对应 verified.md V2 原题'老板和创意总监吵这张海报好不好，听谁的'。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们信息流广告跑了两周效果平平，想系统性地迭代素材，怎么设计测试才科学？",
+      "expected_behavior": "激活本 skill。按四步执行：定唯一成功指标→把猜想转成单变量假设→同媒体可比条件下分版投放一个完整周期→裁决并沉淀模板/回滚，并提示排查同期其他活动干扰。",
+      "notes": "建立迭代机制是 A2 场景 5 的典型问法。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "代理公司说新版创意更好看要坚持用，但我看点击率没什么变化，怎么判断该不该换？",
+      "expected_behavior": "激活本 skill。裁决依据是数据而非审美：核对'更好看'对应的是哪个可测指标的哪个单变量改动，差异是否超出噪音范围；无效改动回滚，并提示差异<10%时停止微调该元素。",
+      "notes": "验证品味之争→实验设计问题的转换逻辑。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "怎么把我们团队的广告投放从每次赌一把，变成可持续优化的实验机制？",
+      "expected_behavior": "激活本 skill。输出机制化方案：指标前置制度、单变量纪律、版本阶梯与模板沉淀规则、判停条件（差异在噪音内即换更大假设变量）。",
+      "notes": "'广告是实验而非赌注'是本 skill 对广告生产方式的重构主张。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "电梯广告里电话号码和二维码应该放在什么位置才醒目？",
+      "expected_behavior": "不激活本 skill。这是单条广告的静态设计规则问题（信息位、组件位置）。",
+      "notes": "混淆诱饵：'电话上移+140%'是本 skill A1 案例中的实验结果，但'位置怎么放'的设计规则归 traditional-ad-conversion，预期归属即该 skill；本 skill 只管'怎么用实验验证位置改动'。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的落地页留资率低，表单应该怎么简化？要不要只留手机号？",
+      "expected_behavior": "不激活本 skill。落地页组件规范与留资极简原则（索取越多越怀疑、六要素审查）归 landing-page-conversion。",
+      "notes": "混淆诱饵：车闪贷落地页 8 轮迭代是本 skill 的 A1 案例，但页面怎么改的规范问题预期归属 landing-page-conversion（CL16）；本 skill 只管迭代程序。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "信息流文案一条里应该写几个卖点？要不要把三个卖点都写上？",
+      "expected_behavior": "不激活本 skill。'一条一个卖点'等文案生产法则归 feed-native-creative；本 skill 管写出来之后怎么测。",
+      "notes": "混淆诱饵：卖点数量既是 CL17 的生产规则也可以是本 skill 的实验变量，但'应该写几个'问的是规则，预期归属 feed-native-creative。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "我们日预算只有 500 元，跑单变量 A/B 会不会数据不够？怎么办？",
+      "expected_behavior": "激活本 skill，但必须触发样本量判停：指出小样本下数据噪音淹没结论，给出替代路径（合并多个周期、换更大颗粒度的假设变量、或先积累基线），不要假装能跑出显著差异。",
+      "notes": "验证 B 段'样本量太小不做实验'的反场景与判停处理。"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "裂变活动的分享率能不能也用这套单变量测试来优化？",
+      "expected_behavior": "激活本 skill。回答能——书中明示同一实验逻辑复用于裂变机制（'用技术反复测试提高分享率'），输出单变量设计示例（只改奖励额度或只改分享文案），并提示具体玩法机制归 fission-playbook-design。",
+      "notes": "验证跨域适用（非广告域），这是 verified.md V1 语境三的证据点。"
+    }
+  ]
+}

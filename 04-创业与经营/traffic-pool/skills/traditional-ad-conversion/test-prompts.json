@@ -1,0 +1,69 @@
+{
+  "skill": "traditional-ad-conversion",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下个月我们要在写字楼电梯投四周分众广告，预算有限，画面和落地方式怎么设计才能带来实际注册，而不是白扔钱？",
+      "expected_behavior": "激活本 skill。按五步执行：媒体动/静判据确认→一瞥钟情素材改造→加装当期形态的互动 4 件套（轻交互优先）→产品带品牌检查→防墙纸预案，并给出可追踪的组件方案。",
+      "notes": "verified.md V2 预测力问题（分众投放怎么设计带转化）的典型问法。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老板说我们去年投的地铁广告像墙纸，一点水花都没有，今年这波怎么改进？",
+      "expected_behavior": "激活本 skill。识别'墙纸效应'信号，输出二选一预案（创意出位激发拍照讨论 / 广告公关化配套事件），同时检查媒体动/静关系与信息位，并按风险开关给出降级建议。",
+      "notes": "'墙纸'是作者自创术语，强信号词。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "电梯里放 App 下载二维码是不是不合理？信号又差用户也来不及扫，那该放什么？",
+      "expected_behavior": "激活本 skill。回答：电梯场景信号差、几十兆下载在一瞥场景流失极大，应放轻交互（小程序码/企微/搜索词）；互动组件必须放醒目位置——用户忙，你放哪种他就优先用哪种。",
+      "notes": "对应 verified.md V2 原题（扫码下载 App 还是放企微/小程序码）。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "我们在电台和户外大牌各有一笔投放，怎么让这些传统媒体广告也能追踪到转化？",
+      "expected_behavior": "激活本 skill。按 4 件套逻辑给出各媒体的当期交互出口（搜索关键词/二维码/轻交互入口），可追踪组件不可得时给出'预埋搜索承接'或'明确为纯品牌口径'的判停建议。",
+      "notes": "验证 E 段步骤 3 的判停条件。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "分众广告投了三个月，呼入量从 100 涨到 140 再到 300，每版只改了一个地方，下一版该测什么变量？",
+      "expected_behavior": "不激活本 skill。这是版本迭代实验程序问题（指标前置、单变量假设、版本阶梯）。",
+      "notes": "混淆诱饵：同为车闪贷案例域（电话上移+140%正是本 skill A1 里的改动），但'下一版测什么'的实验程序归 ad-creative-iteration。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们想借最近的热点做一场刷屏事件营销，出街节奏和话题怎么策划？",
+      "expected_behavior": "不激活本 skill。完整事件战役策划（轻快爆、五爆点、借势造势选型）不在本 skill 范围；本 skill 只在'广告公关化'这一配套动作上与事件营销衔接。",
+      "notes": "混淆诱饵：'广告公关化'与本 skill 有交集。预期归属 event-marketing-five-boosts。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "信息流广告的标题怎么写点击率高？要不要堆几个卖点进去？",
+      "expected_behavior": "不激活本 skill。数字信息流素材的文案法则（用户视角、一条一个卖点、事实吸引不讲原因）归 feed-native-creative。",
+      "notes": "混淆诱饵：同属广告素材话题，但媒体类型（线下 vs 信息流）是互斥边界。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "我们要在电影院映前投广告，观众坐着不动但马上要进场，这种媒体适合放什么互动组件？",
+      "expected_behavior": "激活本 skill，且能泛化到未列举媒体：先用动/静判据定位（人静媒动，可留一瞥信息），再按'停留短、灯光暗、即将失去手机注意力'的场景特性选轻交互出口，不机械套用电梯方案。",
+      "notes": "验证方法论对书中未列举媒体的迁移能力。"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "预算只够一次纯品牌声量投放（新品上市公告），效果转化不强求，还要不要加 4 件套？",
+      "expected_behavior": "激活后应触发 B 段反场景判断：指出此类战略性纯品牌投放是少数特例、应按纯品牌口径立项；但仍建议低成本保留搜索词类组件以防流量白白流失。",
+      "notes": "验证 B 段'不要使用'条款的边界处理，而不是机械执行五步。"
+    }
+  ]
+}

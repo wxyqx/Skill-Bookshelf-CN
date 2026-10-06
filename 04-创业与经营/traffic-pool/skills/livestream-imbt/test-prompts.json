@@ -1,0 +1,69 @@
+{
+  "skill": "livestream-imbt",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "公司下个月要做第一场带货直播，卖小家电。平台怎么选、脚本怎么排、福利怎么设？",
+      "expected_behavior": "按 IMBT 四环作答：I 综艺规格分环节脚本（5-6环节、爆点密集）；M 按目标选型（要销量选电商型平台，预算充裕配综合平台造声量）；B 福利池与触发规则（红包雨节奏/满赠/秒杀）与物料前置定稿；T 拍摄、连麦、场控、弹幕管理；并提示开播前预热、播后私域沉淀。",
+      "notes": "完整策划请求，直接命中四环程序。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们直播观看人数挺高的，但基本没人下单，问题可能出在哪？",
+      "expected_behavior": "用内容三指向诊断：年轻化引入/趣味性留住/爆点密集促转化哪一环断了；检查是否有综艺规格脚本还是纯叫卖、福利规则是否前置；对照 papi酱首秀（2000万在线零转化）与杜蕾斯AIR（内容空洞）反例，指出流量规模不等于转化。",
+      "notes": "诊断型请求，命中'有流量无转化'的反例对照逻辑。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "预算有限，第一场直播是先砸钱请头部主播，还是先把脚本和福利体系做好？",
+      "expected_behavior": "按 IMBT 功能排序回答：B（福利）是流量黏性第一前提且规则物料必须前置，I（综艺脚本）决定留存与转化节奏——先脚本+福利、后主播；主播是 M 与 I 的执行载体，最后才轮到溢价。",
+      "notes": "对应 verified.md V2 问题，考核优先级判断而非默认'先抢主播'。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "帮我们规划一场直播卖车活动，直播前后需要配合哪些传播动作？",
+      "expected_behavior": "按事件化项目制操作：直播前微博/社媒话题预热（对照'王祖蓝0109生日快乐'话题预热居话题榜第一），直播中多平台同步（电商主+综合辅），直播后微信服务号沉淀（转 wechat-service-superapp），复盘用下订→付款的转化口径。",
+      "notes": "命中直播作为完整事件营销的项目制操作。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们想找一个互补品牌互相在对方App里推资源位导流，该怎么谈？",
+      "expected_behavior": "不应按直播策划作答。",
+      "notes": "互斥对诱饵：应归属 bd-traffic-exchange（CL19）——品牌间流量互洗与商务谈判；CL18 只管直播形式的项目操作，不碰 BD 互推。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "竞品昨天爆了个负面热点，我们想借势做一次刷屏事件营销，怎么设计？",
+      "expected_behavior": "不应按直播四环作答。",
+      "notes": "同书混淆诱饵：应归属 event-marketing-five-boosts（CL14）——通用事件营销五爆点程序；CL18 只在'直播这一形式'被选中后才接手。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "想请个明星当代言人，怎么设计造型才能让人记住品牌？",
+      "expected_behavior": "不应按直播内容作答。",
+      "notes": "同书混淆诱饵：应归属 brand-symbol-building（CL05）人物代言与视觉锤。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "老板要求发布会现场开个直播窗口，拍一下领导讲话和流程就行，怎么弄？",
+      "expected_behavior": "边界判定（已修正）：description 明确排除\"无转化目标的流程直播\"，盲测判 none 正确；劝阻/改造话术可在无 skill 激活下给出。原预期\"触发后劝阻\"与排除条款矛盾，修测试并记录。",
+      "notes": "边界型触发：用户没说要带货，skill 的价值在于指出失败模式并给出改造或放弃建议。 | 2026-10-06 盲测后修正预期（原预期与 description 排除条款矛盾，理由见 TEST_RESULTS.md）"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "我们品牌要开日常店铺自播，每天播6小时，这套方法适用吗？",
+      "expected_behavior": "触发并做适用性校准：书内 IMBT 是'战役式'单场项目制（2018年快照，彼时店播业态尚未成型）；日常店播可迁移其综艺脚本、福利节奏、转化闭环的判断逻辑，但项目制规格与平台参数须按当期店播SOP重查，不能照搬单场战役打法规格。",
+      "notes": "时效+场景边界：考核逻辑层与参数层的区分意识。"
+    }
+  ]
+}

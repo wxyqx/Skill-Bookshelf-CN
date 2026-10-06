@@ -1,0 +1,69 @@
+{
+  "skill": "scene-trigger-niche",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们是二线城市的连锁健身房，对面新开了家全国连锁品牌，补贴比我们狠，正面打不过。预算有限，该从哪个场景切入？",
+      "expected_behavior": "激活本 skill。按利基切割流程执行：先挖自有会员/订单数据的反常点（时段、人群、项目），再用'中高频、刚需、契合定位、避开巨头主战场'四条件过滤出 1-2 个场景，最后输出定向限时限量的补贴设计，明确结论'不跟主战场、错位竞争'。",
+      "notes": "典型以弱胜强+补贴投向双信号，对应书中神州接送机案例逻辑。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老板让我分析我们 App 的订单数据，说感觉晚上十点后有一波奇怪的用车需求，这个反常现象能怎么用起来做增长？",
+      "expected_behavior": "激活本 skill。识别'数据反常点挖掘'是方法论第一步：建议验证反常点的真实需求→锁定人群→设计场景化产品与定向补贴（如限时券），对标书中'放心睡'第三高峰案例。",
+      "notes": "数据反常点是本 skill 独有信号，其他兄弟 skill 不覆盖。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们拿到一笔天使轮的钱想投补贴，有人建议学大厂全场打折拉新，有人建议定向发券，这笔钱怎么决策花法？",
+      "expected_behavior": "激活本 skill。给出'补贴补在刀刃上'框架：先选场景再定补贴形态，方案含定向人群、限定时段、限量限额、客单价区间四要素，并与全场无差别补贴做成本对比。",
+      "notes": "补贴投向是 verified.md 中 CL06 trigger_boundary 的核心问题。"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "We are a regional coffee chain. Starbucks dominates the morning commute. What niche scenarios should we target to compete without a price war?",
+      "expected_behavior": "英文提问同样激活本 skill。输出场景扳机四条件过滤与利基切割建议，回答重心是'在哪打'而非'要不要降价'。",
+      "notes": "验证英文 trigger（niche scenario / scene / compete without price war）的触发可靠性。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我们想一句品牌口号，要能一句话说清楚我们和竞品的差异，朗朗上口能被记住。",
+      "expected_behavior": "不激活本 skill。这是品牌符号的听觉通道问题（说人话口号+电梯测试）。",
+      "notes": "混淆诱饵：同为'一句话说清差异'语境。预期归属 brand-symbol-building（若用户在纠结定位路线本身，则归 brand-positioning-trilogy）。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们打算在写字楼电梯投分众广告，二维码放右上角还是右下角？要不要直接放 App 下载码？",
+      "expected_behavior": "不激活本 skill。传统媒体广告的组件设计与交互形态适配问题。",
+      "notes": "混淆诱饵：同为神州系场景话题（电梯+用车）。预期归属 traditional-ad-conversion。"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们投放的落地页点击率不错但留资率低，是不是表单字段太多了要删几个？",
+      "expected_behavior": "不激活本 skill。落地页承接设计问题（留资极简、六要素审查）。",
+      "notes": "混淆诱饵：同为转化优化语境。预期归属 landing-page-conversion。"
+    },
+    {
+      "id": "edge-case-01",
+      "type": "edge_case",
+      "prompt": "我们定位还没想清楚，但手里有点补贴预算，想先找个场景打一波试试水。",
+      "expected_behavior": "部分激活但必须触发判停：输出应明确'场景必须为定位作证'，建议先跑定位三法（brand-positioning-trilogy）再回来选场景，而不是直接给场景清单。",
+      "notes": "验证 E 段步骤 2 的判停条件与 B 段反场景'无定位不选场景'。"
+    },
+    {
+      "id": "edge-case-02",
+      "type": "edge_case",
+      "prompt": "竞品在早晚高峰疯狂补贴，我们要不要也跟进早晚高峰？",
+      "expected_behavior": "激活本 skill，但答案重心是把'跟不跟'转换为'在哪打'：先反问自有数据反常点与错位场景，指出巨头主战场正面消耗不可取，而非直接回答跟或不跟。",
+      "notes": "对应 verified.md V2 预测力问题'对手补贴凶猛、正面打不过，跟不跟'。"
+    }
+  ]
+}
