@@ -1,0 +1,59 @@
+{
+  "skill": "corp-culture-people-system",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们创业三年了，最近想认真把企业文化建起来，可我连使命、愿景、核心价值观到底该怎么区分都说不清楚，总不能就贴几条标语吧？",
+      "expected_behavior": "应激活 corp-culture-people-system，用 M/V/CV 三件套给出操作性定义（为什么成立/要去哪里/哪些事对哪些事不对），强调能拿真实决策检验对错",
+      "notes": "典型正面场景：文化定义"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "来了个候选人，业务能力非常强，但我总觉得他不太认同我们公司的理念，这种人要不要用？另一个关键岗位空了半年了，我在想要不要继续等对的人。",
+      "expected_behavior": "应激活 corp-culture-people-system，用「合适性优先于合格性：理念不认同的能干人是害群之马，合格性可培训补」判定，并支持关键岗位宁等勿将就",
+      "notes": "选人两难触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司离了我基本就转不动，什么事都得我拍板，最近开会更夸张，我说什么大家都在点头，一个提反对意见的都没有。我很想把权放下去，又怕一放就乱，怎么办？",
+      "expected_behavior": "应激活 corp-culture-people-system，用「反对派机制防一言堂 + 放权渐进建立在了解与信任上、放手去干干不好关门」给出一套放权步骤",
+      "notes": "一言堂+放权焦虑触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们在纠结要不要打价格战把对手挤出去，还是老老实实做差异化，薄利多销到底能不能走远？",
+      "expected_behavior": "不应激活本 skill，应激活 profit-above-profit-consumer-focus（价格战与消费者导向的取舍）",
+      "notes": "同书兄弟混淆诱饵：选人放权 vs 价格战经营理念"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司现金流没问题，就是增长慢，我在想要不要定个 30 年的大目标让大家有点奔头，还是像段永平说的开慢车安全抵达就行？",
+      "expected_behavior": "不应激活本 skill，应激活 bbk-business-philosophy（速度观/宁做赚钱的小公司/不定大目标等经营理念取舍）",
+      "notes": "同书兄弟混淆诱饵：组织机制 vs 经营理念；激活 bbk-business-philosophy 或 profit-above-profit-consumer-focus 属正确，唯独不应激活本 skill"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们准备给核心团队做一轮股权和期权激励，代理商那边也想统一一下提货价，帮我把方案设计一下。",
+      "expected_behavior": "不应激活本 skill，应激活 bbk-product-channel-playbook（全员股份/期权激励与渠道统一价的落地打法）",
+      "notes": "边界诱饵：激励工具与渠道打法归产品渠道实战 skill，本 skill 只管放权与选人的组织结构"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "业务长到两三个不太相关的方向了，有人说该拆开各自独立核算，有人说拆了就没有集团协同了，你怎么看？拆的时候老板该退到什么位置？",
+      "expected_behavior": "本 skill 的 A2 正面覆盖「一分为三分拆放权」（人随事走/股权独立/互无从属、老板退做造钟人与影子董事长），激活本 skill 属正确行为；须提醒分拆前提是对各负责人的长期了解与信任，否则易失控",
+      "notes": "边界：分拆决策的归属，本 skill 应答；若同时激活 bbk-business-philosophy（宁做赚钱的小公司）亦可接受，关键是给出分拆结构+放权位置的处置"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为激励/渠道边界诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

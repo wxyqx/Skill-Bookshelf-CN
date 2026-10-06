@@ -1,6 +1,6 @@
 # 04-创业与经营
 
-> 创业方法论、商业哲学与财商 · 11 本
+> 创业方法论、商业哲学与财商 · 12 本
 
 | 书名 | 目录 |
 |---|---|
@@ -14,3 +14,4 @@
 | 《增长黑客》 | [`growth-hacker/`](./growth-hacker/) |
 | 《创业投资法律手册：那些你在创业时应该知道的公司法知识》 | [`startup-legal-handbook/`](./startup-legal-handbook/) |
 | 《穿越寒冬：创业者的融资策略与独角兽思维》 | [`chuanyue-handong/`](./chuanyue-handong/) |
+| 《段永平投资问答录（全两册）》 | [`duan-yongping-touzi-wenda-lu/`](./duan-yongping-touzi-wenda-lu/) |

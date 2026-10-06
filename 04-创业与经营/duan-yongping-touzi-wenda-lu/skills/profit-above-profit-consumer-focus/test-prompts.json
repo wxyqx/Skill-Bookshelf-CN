@@ -1,0 +1,59 @@
+{
+  "skill": "profit-above-profit-consumer-focus",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司最近在纠结：一款产品的物料可以换便宜的低端方案，成本能降三成，短期利润立刻好看。但用了这个方案用户体验肯定变差。到底该保利润还是保用户体验？",
+      "expected_behavior": "应激活 profit-above-profit-consumer-focus，用「消费者导向分层 + 利润之上的追求」框架判断：为短期利润牺牲用户价值=利润导向走不远，建议回到满足消费者真实需求的路线",
+      "notes": "典型正面场景：利润 vs 用户取舍"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "行业里最大的对手刚全线降价 20%，我们销售压力很大，团队都在喊跟着降，说薄利多销先抢份额再说。我该不该跟这场价格战？",
+      "expected_behavior": "应激活 profit-above-profit-consumer-focus，用「价格战是低水平竞争、把利润打没就没有研发、可口可乐百事不比降价比差异化」说明不主动打价格战，给出走提升价值之路的替代方案",
+      "notes": "价格战触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这两年我们主业做得还行，我有点飘了，看什么火都想做：邻居做餐饮赚钱我开店，朋友做 APP 融资我也想组个团队。有人说要专注，可我觉得自己能力挺全面的，多线出击有什么问题吗？",
+      "expected_behavior": "应激活 profit-above-profit-consumer-focus，用「能做好一样为啥还要做很多做不好的、人的精力有限、聚焦的公司最后会变得很厉害」劝阻盲目多元化，建议先回答「为什么我能把它做好」",
+      "notes": "反盲目多元化触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想给新产品线起个品牌、建自己的渠道，用代理制铺下去，再给骨干分点股份绑住他们。步步高当年这套具体是怎么落地的？",
+      "expected_behavior": "不应激活本 skill，应激活 bbk-product-channel-playbook（品牌/渠道/股份的落地打法）",
+      "notes": "同书兄弟混淆诱饵：价值观取舍 vs 落地打法"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们盯上了一个新市场，好几个对手已经进去一年了，产品雏形都看得清清楚楚。现在再进会不会太晚？还是等他们把坑踩完我们再上更好？",
+      "expected_behavior": "不应激活本 skill，应激活 dare-to-be-later（敢为天下后/进入时机）",
+      "notes": "同书兄弟混淆诱饵：品类取舍 vs 进入时机"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "朋友拉我投一家公司，说这生意现金流好得很。我想先弄明白它有没有定价权、护城河到底深不深，该从哪几条查起？",
+      "expected_behavior": "不应激活本 skill，应激活 business-model-moat-checklist（投资侧的商业模式三查）",
+      "notes": "边界诱饵：护城河/定价权是投资侧拆解话题，非经营侧价值观取舍；激活 business-model-moat-checklist 属正确行为"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们公司现在是赚钱的，但我想学人家搞用户至上的文化，先烧钱补贴把用户量冲起来，体验口碑做上去再赚钱。这样做对吗？",
+      "expected_behavior": "本 skill 的 B 段明确覆盖此边界：段氏消费者导向以正毛利支撑研发为前提，烧钱补贴是价格战变体而非利润之上的追求——激活本 skill 并给出「不靠补贴买用户、差异化价值才能长期」的判断属正确行为；激活 bbk-business-philosophy 或 benben-do-right-things 作价值观层面讨论亦可接受，关键是不得把烧钱补贴误判为消费者导向的正确实践",
+      "notes": "边界：烧钱补贴≠消费者导向，检验 skill 是否守住「不打价格战」的边界并区分相邻方法论"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为投资侧边界诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

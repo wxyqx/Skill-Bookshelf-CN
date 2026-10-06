@@ -1,0 +1,59 @@
+{
+  "skill": "bbk-product-channel-playbook",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们的厂子接贴牌订单利润稳定，但我总觉得在给别人做嫁衣。要不要咬咬牙砍掉代理组装业务，做自己的品牌？段永平当年是怎么想的？",
+      "expected_behavior": "应激活 bbk-product-channel-playbook，用「必须有自己的产品、品牌和技术，代理组装的生意不能做」给出品牌门槛判据",
+      "notes": "典型正面场景：代工转品牌"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们公司是做硬件的，最近返修率有点高，客户投诉不断。质量这块到底该怎么管？听说步步高当年返修率做到了千分之三，是怎么做到的？",
+      "expected_behavior": "应激活 bbk-product-channel-playbook，给出返修率 0.3% 数字化指标 + 质量负责制（责任到人）的管理打法",
+      "notes": "品质负责制触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司准备做股权激励，财务顾问建议搞期权池。但我们是非上市公司，员工好像对期权也没什么感觉。有没有更实在的激励办法？",
+      "expected_behavior": "应激活 bbk-product-channel-playbook，用「如果不是上市企业，期权没有用」+ 借钱买股、分红股息偿还的全员股份制给出替代方案",
+      "notes": "激励机制设计触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "有投资人劝我别打价格战，说要做利润之上的追求、走提升价值的路。可同行都在降价，我不降份额就掉，到底该怎么取舍？",
+      "expected_behavior": "不应激活本 skill，应激活 profit-above-profit-consumer-focus（价格战与消费者导向的价值观取舍）",
+      "notes": "同书兄弟混淆诱饵：价格战的价值观取舍 vs 本 skill 的渠道落地打法"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我想放权给下面几个负责人，让各事业部独立核算、自己干，但担心放得太快会失控。该怎么一步步来？",
+      "expected_behavior": "不应激活本 skill，应激活 corp-culture-people-system（放权方法论与组织机制）",
+      "notes": "同书兄弟混淆诱饵：组织用人机制 vs 本 skill 的产品渠道激励打法"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们预算有限，是花大力气砸广告抢曝光，还是把同样的钱投到产品改进上？听说当年央视标王很多都垮了。",
+      "expected_behavior": "不应激活本 skill，应激活 bbk-business-philosophy（产品为本、广告是工具的经营理念取舍）",
+      "notes": "同书兄弟混淆诱饵：营销与产品的理念层 vs 本 skill 的机制层"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们产品在电商和线下经销商两个渠道价格乱成一锅粥，线上低价冲击线下，经销商天天来闹，窜货也管不住。要不要干脆砍掉一批经销商？",
+      "expected_behavior": "本 skill 的 A2 正面覆盖渠道乱价问题（销售链一体、统一提货价、现款现货），激活本 skill 属正确行为；回答应先给出全链利益视角而非直接支持砍渠道，若同时引入 price-体系与代理政策设计则更佳。若回答重心落在「不打价格战的价值观」而只谈利润之上的追求，则属部分激活，可接受但非最佳",
+      "notes": "边界：渠道乱价既涉及渠道机制（本 skill）也涉及价格战理念（profit-above-profit-consumer-focus），应以机制方案为主"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为同书理念类混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,59 @@
+{
+  "skill": "ignore-market-noise",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "最近群里天天有人喊大盘还要再跌两千点，吓得我都不敢买了。要不要先空仓，等真正的底部出来再进？段永平是怎么看这种市场预测的？",
+      "expected_behavior": "应激活 ignore-market-noise，用「不预测不择时、抄底是投机的概念」说明底部猜不出来，把注意力拉回公司价值和机会成本",
+      "notes": "典型正面场景：预测市场与择时执念"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我每天打开软件盯盘看K线，均线一有动静就想操作，明知道这样搞短线长期赚不到钱，就是管不住手，怎么办？",
+      "expected_behavior": "应激活 ignore-market-noise，用「不看图不看线不看盘、常看容易短视」给出关掉行情源、禁止用图形做决策的隔离做法",
+      "notes": "盯盘看线的成瘾场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "好几个朋友要把钱交给我帮他们炒股，我有点心动，甚至想着以后干脆注册个投资公司专门帮人管钱，你觉得行吗？",
+      "expected_behavior": "应激活 ignore-market-noise，用「拒绝办投资公司、不替人担责、约法三章（不干涉买卖/别老问/自负盈亏/盈利15%~20%捐款）」和格林布拉特反例说明他人资金的责任压力",
+      "notes": "代客理财与办投资公司场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想跟着巴菲特买苹果，也想知道自己算不算看懂了这家公司，买之前该做哪些功课？",
+      "expected_behavior": "不应激活本 skill，应激活 circle-of-competence-homework（懂不懂自检与做功课清单；其中「判断不外包」要点与本 skill 有交叠，但主导问题是如何做功课）",
+      "notes": "同书兄弟混淆诱饵：隔离噪音 vs 能力圈功课"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我拿的一只好公司最近跌了 30%，财务上没什么变化，但我天天心慌拿不住，夜里都睡不着，怎么才能拿得住？",
+      "expected_behavior": "不应激活本 skill，应激活 hold-long-term-mindset（已持仓后拿不住的心态问题：称重机信仰、六要素自查、大跌舒服买入）",
+      "notes": "同书兄弟混淆诱饵：买入前的噪音隔离 vs 持有中的心态"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "这只股票我已经赚了 40%，现在到底该不该落袋为安？我有点怕坐过山车又怕卖飞。",
+      "expected_behavior": "不应激活本 skill，应激活 buy-sell-discipline（卖出判据：买入理由是否消失、『我已经赚钱了』不是卖出理由、成本隔离）",
+      "notes": "边界诱饵：已持仓后的卖出判据问题，而非市场噪音问题"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "整个华尔街都在传 GE 要破产，新闻铺天盖地，股价也跌破 10 美元了。我研究过这家公司，觉得没那么糟，这时逆着市场买进去算不算贪婪和冒险？",
+      "expected_behavior": "本 skill 与估值/心态类均有合理交叠：若已看懂公司，本 skill 应激活并回答「别人的恐慌不是买入理由，自己看懂的价值才是」（噪音反向使用、GE 案例），同时可衔接 rough-valuation-look-10-years 检查贵贱；关键是答复不得建议「跟着华尔街共识走」或「猜底」",
+      "notes": "边界：噪音与估值交叠场景，本 skill 应答但需衔接估值 skill 验证便宜与否"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为卖出判据边界诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

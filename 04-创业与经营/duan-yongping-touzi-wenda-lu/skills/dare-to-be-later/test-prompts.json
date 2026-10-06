@@ -1,0 +1,59 @@
+{
+  "skill": "dare-to-be-later",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "AI 硬件这个赛道现在特别热，好多团队都进场了。我们几个合伙人天天吵：再不入场风口就过了，可我总觉得还没看清用户到底要什么。到底要不要抢先入局？",
+      "expected_behavior": "应激活 dare-to-be-later，用「敢为天下后：看清对手和市场再进入、有实力再进入」框架处理抢风口焦虑，先做看清清单与实力自检",
+      "notes": "典型正面场景：新赛道进入时机"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "对手抢先发布了新品，老板要求我们立刻立项跟进抢窗口期。我觉得我们产品和渠道都还没准备好，就算跟了也是陪跑。后发有机会赢吗？",
+      "expected_behavior": "应激活 dare-to-be-later，用「后发制人、集中优势兵力快速切入、做就要做好」回应：看清+实力达标后带着差异化进入，不陪跑",
+      "notes": "对手先发后的跟进决策触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们入场比同行晚了快两年，团队普遍很焦虑，觉得起跑就输了。段永平说的敢为天下后和练十年基本功，到底凭什么后发的人能后居上？",
+      "expected_behavior": "应激活 dare-to-be-later，用「十年基本功是底气、后发看轻同质化竞争」拆解晚入场者的赢法，引小天才/小霸王/OPPO 案例",
+      "notes": "起跑晚焦虑触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "市场被几个大厂瓜分完了，我们不想硬拼价格战，打算走提升价值的路线，把用户体验做到极致再卖贵一点，这样行得通吗？",
+      "expected_behavior": "不应激活本 skill，应激活 profit-above-profit-consumer-focus（不打价格战、消费者导向、利润之上的追求）",
+      "notes": "同书兄弟混淆诱饵：进入时机 vs 价值路线；价格战关键词是诱饵"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司业务进入正轨后我越来越累，什么决策都要过我。想学着放权，把三块业务分给三个负责人独立去干，该怎么设计机制、怎么选人？",
+      "expected_behavior": "不应激活本 skill，应激活 corp-culture-people-system（一分为三放权、合适性选人、造钟人机制）",
+      "notes": "同书兄弟混淆诱饵：业务时机 vs 组织放权"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "手里那只看好的股票最近回调了不少，我有点纠结：现在加仓算不算抄底？还是等市场情绪稳定、时机更明朗再买？",
+      "expected_behavior": "不应激活本 skill，应激活投资端 skill：ignore-market-noise（不预测不择时）或 stop-doing-list-risk-control（抄底是投机），唯独不应激活本 skill（它是经营端进入时机）",
+      "notes": "边界诱饵：「时机」出现在投资语境，须区分经营端与投资端"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "竞品上周抢先发布了新品，老板开会说立刻跟进抢风口，一天都别等。我既担心我们功课没做足跟进去就是坑，又知道段永平说过快就是慢、欲速则不达，可创业公司等不起啊。该快还是该等？",
+      "expected_behavior": "本 skill 的 A2 正面覆盖（对手先发+跟进时机+快就是慢），激活 dare-to-be-later 属正确行为；若同时激活 stop-doing-list-risk-control 或 bbk-business-philosophy 亦可接受，关键是给出「看清+实力自检后再进入、进入即集中兵力」的可操作处置，而非空泛的快慢劝告",
+      "notes": "边界：跟进时机与快就是慢的交叠区，本 skill 应答，与经营哲学存在合理重叠"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为经营/投资边界诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

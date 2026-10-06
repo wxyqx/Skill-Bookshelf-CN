@@ -1,0 +1,59 @@
+{
+  "skill": "circle-of-competence-homework",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "朋友推荐我买一只美股，说涨得很好。可我连这家公司靠什么赚钱都说不清楚，我该不该跟？",
+      "expected_behavior": "应激活 circle-of-competence-homework，用「不懂不做 + 自己定价」判定为圈外，建议先画圈或放弃",
+      "notes": "典型正面场景：能力圈自检"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我准备重仓一家消费公司，买之前到底要做哪些功课才算是真正看懂了？段永平买网易之前是怎么做的？",
+      "expected_behavior": "应激活 circle-of-competence-homework，给出证据级功课清单（现金核对/管理者信用/业务亲验）并引网易案例",
+      "notes": "做功课清单触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "巴菲特买了苹果我也想跟着买，直接抄大师的作业不行吗？",
+      "expected_behavior": "应激活 circle-of-competence-homework，用「作业只抄方法不抄结论、关联度越大买他机会越低」解释为什么判断不能外包",
+      "notes": "外包判断触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我已经看懂这家公司了，就是拿不准现在这个价格贵不贵，帮我毛估估一下值不值。",
+      "expected_behavior": "不应激活本 skill，应激活 rough-valuation-look-10-years（毛估估估值）",
+      "notes": "同书兄弟混淆诱饵：懂不懂 vs 贵不贵"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我分析一下这家公司的商业模式：它的护城河在哪，有没有定价权？",
+      "expected_behavior": "不应激活本 skill，应激活 business-model-moat-checklist（商业模式三查）",
+      "notes": "同书兄弟混淆诱饵：资格判断 vs 生意拆解"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "最近大盘天天跌，群里消息满天飞，我拿的股票没变化却心慌得睡不着，怎么办？",
+      "expected_behavior": "不应激活本 skill，应激活 hold-long-term-mindset（拿住的心法）或 ignore-market-noise（隔离市场噪音）",
+      "notes": "同书兄弟混淆诱饵：懂不懂 vs 心态与噪音；若激活两者其一即可，唯独不应激活本 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我对这家公司有些直觉上的不放心，但说不上来为什么，要不要再研究研究还是直接放弃？",
+      "expected_behavior": "本 skill 的 A2 正面覆盖「直觉作辅助判断」（直觉可快速说不、需补足道理），激活本 skill 属正确行为；若激活 business-model-moat-checklist 亦可接受，关键是给出「直觉否决需记录理由、正面买入需补功课」的处置而非泛泛安慰",
+      "notes": "边界：直觉信号的处置归属，本 skill 应答但与商业模式拆解存在合理重叠"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为同书心态类混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

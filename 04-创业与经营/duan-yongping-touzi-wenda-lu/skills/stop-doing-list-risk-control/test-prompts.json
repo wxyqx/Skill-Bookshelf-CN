@@ -1,0 +1,59 @@
+{
+  "skill": "stop-doing-list-risk-control",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我看好空这只票，打算融券做空它，再上两倍杠杆放大收益，反正我很有把握，这样操作有什么问题吗？",
+      "expected_behavior": "应激活 stop-doing-list-risk-control，用「做空有无限风险一次错误足以致命+不借贷不杠杆」直接否决该操作，引做空百度 e04 或午餐三个不 c10",
+      "notes": "典型正面场景：做空+杠杆双命中不为清单"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "最近手头紧，但这波行情真的难得，我想把准备半年后付首付的钱先挪来炒股，赚了就还上，段永平会怎么看？",
+      "expected_behavior": "应激活 stop-doing-list-risk-control，用「用闲钱才可能有平常心、不然真会睡不着觉」判定非闲钱入市违反底线，建议资金分级",
+      "notes": "动用非闲钱/救命钱触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我明知道这笔投资的买入逻辑已经不成立了，是当初判断错了，但现在亏了 30%，实在不甘心割肉，想等回本再走，怎么办？",
+      "expected_behavior": "应激活 stop-doing-list-risk-control，用「知道做错了马上改，不管多大的代价到最后往往是最小的代价」处理认错与止损，区分逻辑错与价格波动",
+      "notes": "知错不肯改触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我拿这只股票两年了，现在有 40% 浮盈，最近涨得有点凶，该不该落袋为安？",
+      "expected_behavior": "不应激活本 skill，应激活 buy-sell-discipline（买入理由消失才卖、「我已经赚钱了」不是卖出理由）",
+      "notes": "同书兄弟混淆诱饵：禁手清单 vs 卖出时点判断"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "有人劝我别把仓位压在两只票上，说太集中风险大；可我又觉得分散了收益太低，到底该集中还是分散？",
+      "expected_behavior": "不应激活本 skill，应激活 concentrated-few-bets（绝对集中/一生 20 次/25/5 法则）；注意「集中是不是风险大」的仓位取舍不同于做空杠杆等禁手",
+      "notes": "同书兄弟混淆诱饵：风险底线 vs 仓位集中度取舍"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我表哥把 50 万给我让我帮他炒股，说赚了分我一成，帮亲友理财要注意什么？",
+      "expected_behavior": "不应激活本 skill，应激活 ignore-market-noise（不替人担责管钱/约法三章）；本 skill 的底线针对自己的钱与操作，不针对代客理财的组织压力",
+      "notes": "边界诱饵：代客理财归 ignore-market-noise 而非本 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我重仓的那家公司基本面没变，就是股价腰斩了，朋友都说我该止损，我也睡不着觉——这算不算段永平说的「错了要马上改」？",
+      "expected_behavior": "激活本 skill 属正确行为但须给出边界澄清：段氏的「马上改」针对买入逻辑被证伪，不针对价格回撤——基本面没坏的下跌恰是「大跌舒服地买入」（p09），真正的危险是用了非闲钱或杠杆导致拿不住；若同时激活 hold-long-term-mindset 处理心态亦可接受，关键是不应把「跌了」误判为「错了」",
+      "notes": "边界：价格止损≠逻辑认错，须与 buy-sell-discipline / hold-long-term-mindset 协作而非机械套用本 skill"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为同书边界诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

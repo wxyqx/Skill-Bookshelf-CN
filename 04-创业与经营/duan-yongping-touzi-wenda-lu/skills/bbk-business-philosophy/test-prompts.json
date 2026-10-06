@@ -1,0 +1,59 @@
+{
+  "skill": "bbk-business-philosophy",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们厂这两年订单起来了，我在想要不要全力冲一波：垫资扩产能、压货给渠道把规模做上去。但老婆说开车的目的是安全抵达不是快速抵达，我心里也没底，该怎么取舍？",
+      "expected_behavior": "应激活 bbk-business-philosophy，用「速度观（安全抵达不是快速抵达）+ 宁做赚钱的小公司」给出取舍框架：激进动作逐条过现金流/品质/信用底线，盈利质量优先于规模",
+      "notes": "典型正面场景：速度观与规模观"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "客户要求我们厂配合做入职搜身检查，不答应这单几百万就飞了。员工都觉得被侮辱，我这单到底接不接？当年步步高是不是也遇到过类似的事？",
+      "expected_behavior": "应激活 bbk-business-philosophy，用「员工尊严高于业务利润」引 c24 电子宠物宁亏 1,800 万案例：搜身类屈辱红线不可交易，宁可丢单停产",
+      "notes": "员工尊严触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "竞争对手最近老在客户面前抹黑我们，销售团队气不过想发声明回击。另外董事会还催我定一个 30 年做到行业第一的目标好对外讲故事，这两件事怎么看？",
+      "expected_behavior": "应激活 bbk-business-philosophy，用「攻击对手恰恰是没有自信的表现」劝止回击 + 「不定 30 年大目标」解释口号式目标无法指导当下动作",
+      "notes": "不攻击同行 + 不定大目标双重触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们想做学习机品牌，现在纠结是自己建厂做品质管控，还是找代工贴牌快速出货？代理商制度该怎么设计才稳？",
+      "expected_behavior": "不应激活本 skill，应激活 bbk-product-channel-playbook（产品/品牌/渠道落地打法）",
+      "notes": "同书兄弟混淆诱饵：理念取舍 vs 具体打法"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司想搞全员期权激励，另外准备退居二线，怎么放权、怎么选接班人才靠谱？",
+      "expected_behavior": "不应激活本 skill，应激活 corp-culture-people-system（股权激励、放权与选人机制）",
+      "notes": "同书兄弟混淆诱饵：价值观决断 vs 组织用人机制"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们做消费品，毛利越来越薄，团队吵着要降价冲量打价格战，还说要顺便扩三个新品类摊薄风险，怎么劝都劝不住。",
+      "expected_behavior": "不应激活本 skill，应激活 profit-above-profit-consumer-focus（不打价格战、反盲目多元化）",
+      "notes": "同书兄弟混淆诱饵：价格战与多元化归消费者导向 skill；若顺带提及经营理念可辅助参考，但主答不应是本 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "今年旺季我们代理商压了一批货，现在卖不动亏了不少，闹着要退货。全盘接回来我们下半年就白干了，让他们自己扛又怕寒了心，这个亏到底该怎么分？",
+      "expected_behavior": "本 skill 的 A2 正面覆盖「利益链共盈、不做零和博弈」，引 c30 OPPO 库存分摊案例给出共担机制，激活本 skill 属正确行为；若激活 bbk-product-channel-playbook（渠道机制设计）亦可接受，关键是给出利益链共担的处置而非纯商务谈判技巧",
+      "notes": "边界：利益链亏损分摊的归属，本 skill 应答但与渠道打法存在合理重叠"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为同书消费者导向类混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

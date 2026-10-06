@@ -1,0 +1,50 @@
+{
+  "skill": "life-philosophy-wealth-view",
+  "source_book": "《段永平投资问答录（全两册）》 孙力科 编",
+  "minimum_pass_rate": 0.8,
+  "generated": "2026-10-07",
+  "test_cases": [
+    {
+      "id": "T1",
+      "type": "should_trigger",
+      "prompt": "我今年 38 岁，公司去年做到了行业前十，可我一点喜悦都没有，反而天天空虚。你说人这么拼到底是为了什么？",
+      "expectation": "激活。人生意义/成功后的空虚，对应'乐趣在于过程'与'快乐是最大财富'。"
+    },
+    {
+      "id": "T2",
+      "type": "should_trigger",
+      "prompt": "最近老加班，老婆说我眼里只有工作。我嘴上说家人最重要，可好像做不到，这种状态怎么办？",
+      "expectation": "激活。工作与家人的优先级与自欺检验，对应'陪伴家人比工作更重要'。"
+    },
+    {
+      "id": "T3",
+      "type": "should_trigger",
+      "prompt": "家里条件不错，我在想要不要把大部分财产留给孩子，留多少合适？会不会害了他？",
+      "expectation": "激活。财富传承与教育子女，对应'不剥夺孩子的获取过程'与'花钱比赚钱难'。"
+    },
+    {
+      "id": "N1",
+      "type": "should_not_trigger",
+      "prompt": "段永平说胸无大志、有所不为，我现在手上两个业务，一个赚钱但不太正当，该不该砍掉？",
+      "expectation": "不激活。这是'该不该做这件事'的价值观决策与经营取舍，归 benben-do-right-things（同书兄弟混淆诱饵）。"
+    },
+    {
+      "id": "N2",
+      "type": "should_not_trigger",
+      "prompt": "听说段永平主张用闲钱投资才有平常心，我手上有笔三年后要用的首付，现在想拿去抄底股票行不行？",
+      "expectation": "不激活。这是投资端闲钱与抄底问题，归 stop-doing-list-risk-control / ignore-market-noise（同书兄弟混淆诱饵）。"
+    },
+    {
+      "id": "N3",
+      "type": "should_not_trigger",
+      "prompt": "我想系统学习段永平学习别人的方法，帮我拆一下他强调'去其糟粕取其精华'时具体怎么操作选股？",
+      "expectation": "不激活。边界诱饵：p42 的'去其糟粕取其精华'是段氏反对的学法，且提问落点是选股操作（投资 skill），不是人生学习观。"
+    },
+    {
+      "id": "E1",
+      "type": "edge_case",
+      "prompt": "我赚的钱早就够花了，现在纠结要不要学段永平提前退休回家陪家人，顺便拿积蓄做价值投资——你从人生角度还是投资角度帮我分析都行。",
+      "expectation": "双向边界题：'提前退休陪家人、快乐优先'部分应激活本 skill；'拿积蓄做价值投资'部分应转上册投资 skill。判卷时可接受单一激活+正确转介，或双 skill 并用。"
+    }
+  ]
+}

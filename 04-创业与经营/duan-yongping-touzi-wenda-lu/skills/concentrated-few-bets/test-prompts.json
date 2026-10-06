@@ -1,0 +1,59 @@
+{
+  "skill": "concentrated-few-bets",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "账户里躺着七八只股票，都是这两年陆续听消息买的。朋友劝我鸡蛋别放一个篮子，可我觉得哪只都没特别看懂，是不是应该砍到一两只重仓？",
+      "expected_behavior": "应激活 concentrated-few-bets，用「理财 vs 投资两种游戏 + 弱关联假分散 + 一般同时三家左右」引导先懂再集中、砍到弱关联的核心持仓",
+      "notes": "典型正面场景：分散还是集中"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "空仓快四个月了，每天看盘手痒，总怕错过行情，要不要先随便买点仓位占着？",
+      "expected_behavior": "应激活 concentrated-few-bets，用「守株待兔 + 一年一个主意 + fast is slow」说明空仓等待是策略本体，不做凑数出手",
+      "notes": "空仓等待焦虑触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "听说巴菲特有个 25/5 法则，还有说人一辈子只该出手 20 次，这个到底怎么用到选股上？我现在候选名单攒了十几只。",
+      "expected_behavior": "应激活 concentrated-few-bets，讲清 25/5（剩下 20 个是要躲避的瘟疫）和一生 20 次的出手预算，落到压缩核心名单与出手纪律",
+      "notes": "25/5 与出手次数概念触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我重仓的那只股票最近跌了 30%，逻辑没变但我天天难受，怎么才能拿得住？",
+      "expected_behavior": "不应激活本 skill，应激活 hold-long-term-mindset（拿住好公司的六要素自查、称重机信仰）",
+      "notes": "同书兄弟混淆诱饵：出手节奏 vs 买入后拿住"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我想开点融资加杠杆提高收益率，反正看准的机会出手少，一把梭收益更高吧？",
+      "expected_behavior": "不应激活本 skill，应激活 stop-doing-list-risk-control（不做空不杠杆不负债、不冒冒不起的风险）",
+      "notes": "同书兄弟混淆诱饵：出手次数 vs 风险底线手段；集中不豁免杠杆禁区"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "手里这只涨了不少，我已经赚钱了，是不是该先卖一半落袋为安，留着资金等下一个机会？",
+      "expected_behavior": "不应激活本 skill，应激活 buy-sell-discipline（「我已经赚钱了」不是卖出理由、成本隔离）",
+      "notes": "边界混淆诱饵：等下一个机会的字面相似，但问题是卖出判据"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我看好两家同行业的龙头，想各买一半分摊风险，这算分散还是集中？",
+      "expected_behavior": "本 skill 的 A1/E 正面覆盖（c19 三家网络公司假分散教训：同行业多家持仓是假分散），激活本 skill 属正确行为；关键是指出弱关联判据并回挂「一般同时持三家左右」，而非机械答『算集中』或『算分散』",
+      "notes": "边界：弱关联集中与假分散的判定归属，本 skill 应答"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：hold-long-term-mindset、stop-doing-list-risk-control；第 3 条为边界诱饵：buy-sell-discipline）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

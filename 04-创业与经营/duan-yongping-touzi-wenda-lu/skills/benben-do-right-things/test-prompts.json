@@ -1,0 +1,59 @@
+{
+  "skill": "benben-do-right-things",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "有个供应商报价算错了，多收了我们近百万，按合同完全可以不吭声。财务说这是白捡的利润，我总觉得这事不太对，怎么办？",
+      "expected_behavior": "应激活 benben-do-right-things，用「本分=不占别人便宜、吃眼前亏换信誉」给出退还差额的处置，并引施瓦辛格 40 万美元案例",
+      "notes": "典型正面场景：本分——合法但占便宜的事不做"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们这条产品线这两年明显做错了，但已经投了几千万进去，团队都想再撑一年看看。段永平说做对的事情和把事情做对是两回事，到底怎么判断该不该马上停？",
+      "expected_behavior": "应激活 benben-do-right-things，用双层框架区分方向错误与执行错误，强调「发现错了马上改，不管多大的代价到最后往往是最小的代价」",
+      "notes": "双层框架+知错马上改触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "同行这两年靠激进打法冲得很快，我们一直稳步来反而显得落后。为什么段永平总说不要求妙手、比谁犯错少就行？",
+      "expected_behavior": "应激活 benben-do-right-things，用李昌镐半目胜（51% 胜率步步求稳）解释「大企业比谁犯的错少」，并引步步高 10 周年犯错少所以活着",
+      "notes": "半目胜/少犯错触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "最近想搞点增量收益，打算融资加杠杆放大仓位，再开点做空的对冲，帮我评估下这套操作的风险底线该怎么设。",
+      "expected_behavior": "不应激活本 skill，应激活 stop-doing-list-risk-control（不为清单与风险底线：不做空、不杠杆、不冒冒不起的风险）",
+      "notes": "同书兄弟混淆诱饵：价值观之道 vs 具体风险底线之术"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司明年要不要抢在对手前面进入儿童智能硬件市场？还是等市场看清了再集中资源切入？帮我分析下进入时机。",
+      "expected_behavior": "不应激活本 skill，应激活 dare-to-be-later（敢为天下后、后发制人、进入时机）",
+      "notes": "同书兄弟混淆诱饵：方向对错/价值观 vs 业务进入时机"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "公司想建一套使命愿景核心价值观体系，还要设计放权和接班机制，免得事事都依赖我这个人，从哪入手？",
+      "expected_behavior": "不应激活本 skill，应激活 corp-culture-people-system（企业文化 M/V/CV、放权与接班机制）",
+      "notes": "边界诱饵：价值观落成组织机制归 corp-culture-people-system，本 skill 只管决策层的道"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我创业总想走捷径找妙招，算是性格问题吗？段永平说胸无大志、脚踏实地，可我不甘心慢慢变富，这两者矛盾吗？",
+      "expected_behavior": "本 skill 的 A2 正面覆盖「胸无大志≠没有追求」（胸无'大'志指不好大喜功的脚踏实地）与「半目胜 vs 妙手」，激活本 skill 属正确行为；若 life-philosophy-wealth-view 亦可部分接受，关键是给出「胸无大志的真义+Stop Doing 修正捷径倾向」的实质回应而非道德劝诫",
+      "notes": "边界：人生志向与经营价值观交叉地带，本 skill 应答且应给出框架性解释"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：stop-doing-list-risk-control 与 dare-to-be-later，第 3 条为边界诱饵：corp-culture-people-system）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**46 本书 · 787 个 skills**（最后更新：2026-10-07）
+**47 本书 · 803 个 skills**（最后更新：2026-10-07）
 
 ### 分类导航
 
@@ -56,7 +56,7 @@
 | 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./03-个人成长/effective-executive/) |
 | 《掌控习惯》*Atomic Habits* | 詹姆斯·克利尔 · 2018/2019 | 习惯设计 / 身份转变 / 行为四定律 | 16 | [`atomic-habits/`](./03-个人成长/atomic-habits/) |
 
-#### 04-创业与经营（11 本）
+#### 04-创业与经营（12 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -71,6 +71,7 @@
 | 《增长黑客》*Growth Hacker* | 范冰 · 2015 | AARRR 漏斗 / PMF 验证 / 冷启动 / 病毒传播 / 增长指标 | 21 | [`growth-hacker/`](./04-创业与经营/growth-hacker/) |
 | 《创业投资法律手册：那些你在创业时应该知道的公司法知识》 | 杨春宝、王成兵 · 2014 | 设立形式 / 出资合规 / 股权设计 / 公司治理 / 股东救济 / 股权激励 / 退出清算 | 16 | [`startup-legal-handbook/`](./04-创业与经营/startup-legal-handbook/) |
 | 《穿越寒冬：创业者的融资策略与独角兽思维》 | 史蒂文·霍夫曼 · 2020 | 创业决策 / 需求验证 / 融资策略 / 增长营销 / 团队领导 / 创始人心态 | 16 | [`chuanyue-handong/`](./04-创业与经营/chuanyue-handong/) |
+| 《段永平投资问答录（全两册）》 | 孙力科 编 · 段永平问答实录 | 价值投资 / 能力圈 / 本分经营 / 商业模式 / 人生哲学 | 16 | [`duan-yongping-touzi-wenda-lu/`](./04-创业与经营/duan-yongping-touzi-wenda-lu/) |
 
 #### 05-产品与创新（6 本）
 
@@ -394,6 +395,13 @@
 - **Skills**：`founder-fit-self-assessment` · `validate-before-you-build` · `choose-your-funding-path` · `vc-dynamics-demystified` · `pitch-materials-that-land` · `run-the-fundraising-process` · `vet-investors-and-advisors` · `win-the-pitch-room` · `enter-china-market` · `market-and-grow-on-a-shoestring` · `design-business-model-and-moat` · `think-like-a-unicorn-hunter` · `build-your-team-right` · `sell-like-a-founder` · `lead-culture-and-board` · `founder-resilience-and-learning`
 - **备注**：案例与渠道集中于 2012-2019 美国风投语境，作者为孵化器操盘手立场（幸存者偏差明显），迁移判断逻辑而非具体渠道与数字（各 skill B 段已内嵌警示）；与《创业投资法律手册》《增长黑客》互补，覆盖创业全周期。
 
+### 47. 《段永平投资问答录（全两册）》 · [`duan-yongping-touzi-wenda-lu/`](./04-创业与经营/duan-yongping-touzi-wenda-lu/)
+
+- **编者**：孙力科 编（内容主体为段永平——步步高/OPPO/vivo 背后创始人、雪球 ID"大道无形我有型"——的访谈与雪球问答实录）
+- **一句话**：买股票就是买公司，本分是把事情做对的地基——先用能力圈闸门问"我懂不懂"，再用毛估估问"贵不贵"，用不为清单守住"不做空不杠杆用闲钱"的底线，经营端以本分、敢为天下后与利润之上的追求立业：16 个 skill 覆盖投资第一性、估值与买卖纪律、心性与风控、步步高产品渠道打法、企业文化与组织用人，直到人生哲学与财富观。
+- **Skills**：`buy-stock-is-buy-company` · `circle-of-competence-homework` · `rough-valuation-look-10-years` · `business-model-moat-checklist` · `hold-long-term-mindset` · `buy-sell-discipline` · `concentrated-few-bets` · `stop-doing-list-risk-control` · `ignore-market-noise` · `benben-do-right-things` · `dare-to-be-later` · `profit-above-profit-consumer-focus` · `bbk-product-channel-playbook` · `bbk-business-philosophy` · `corp-culture-people-system` · `life-philosophy-wealth-view`
+- **备注**：问答实录汇编而非段永平本人著作，各 skill 引文均标【段】（原话）/【编】（编者叙述），引用时注意区分；观点多成于 2010-2020 年代问答语境，具体个股与数字仅作案例背景；与《聪明的投资者》互为中美两套价值投资语汇。
+
 ---
 
 ## 安装
@@ -458,7 +466,8 @@ skill-bookshelf/
 │   ├── traffic-pool/   # 《流量池》
 │   ├── growth-hacker/   # 《增长黑客》
 │   ├── startup-legal-handbook/   # 《创业投资法律手册：那些你在创业时应该知道的公司法知识》
-│   └── chuanyue-handong/   # 《穿越寒冬：创业者的融资策略与独角兽思维》
+│   ├── chuanyue-handong/   # 《穿越寒冬：创业者的融资策略与独角兽思维》
+│   └── duan-yongping-touzi-wenda-lu/   # 《段永平投资问答录（全两册）》
 ├── 05-产品与创新/
 │   ├── how-google-works/   # 《重新定义公司：谷歌是如何运营的》
 │   ├── hooked/   # 《上瘾：让用户养成使用习惯的四大产品逻辑》

@@ -1,0 +1,59 @@
+{
+  "skill": "hold-long-term-mindset",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "两年前买的茅台一直没动，最近跌了快 30%，我天天盯盘越看越慌，好几次想割肉算了。公司我研究得挺透，逻辑没变，可我就是拿不住，怎么办？",
+      "expected_behavior": "应激活 hold-long-term-mindset，用六要素自查 + 称重机信仰 + 拉长评估周期来处理拿不住的问题，并区分「逻辑没变→是心态问题」",
+      "notes": "典型正面场景：选对了公司却拿不住"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "市场最近暴跌，我重仓的那只好公司跟着大跌，身边人都劝我先跑。段永平为什么说大跌反而高兴、还会舒服地把钱放进去？我该不该趁跌加仓？",
+      "expected_behavior": "应激活 hold-long-term-mindset，用「大跌时舒服地买入 + 前提是能力圈内、买入逻辑未变 + 先毛估估确认便宜」给出大跌预案思路",
+      "notes": "大跌买入触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我给自己定了今年要赚 30% 的目标，结果一季度亏了，现在动作全变形了，老想赌一把捞回来。到底该不该给投资设收益率目标？",
+      "expected_behavior": "应激活 hold-long-term-mindset，用「不设回报期望：回报和预期无关，过程对了结果自然好 + 底线只是跑过存款通胀」拆解目标绑架，并提示赌一把捞回是危险动作",
+      "notes": "回报期望触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我拿的一只股票涨了 40%，成本早回收了，现在纠结要不要落袋为安把利润锁定，帮我判断一下该不该卖。",
+      "expected_behavior": "不应激活本 skill，应激活 buy-sell-discipline（卖出判据：买入理由是否消失、成本隔离、「我已经赚钱了」不是卖出理由）",
+      "notes": "同书兄弟混淆诱饵：拿住的心态 vs 卖出的判据"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我还没买呢，就是想问：买之前想好持有十年二十年，这个思路对不对？整家公司买下来你愿不愿意这种检验法怎么用？",
+      "expected_behavior": "不应激活本 skill，应激活 buy-stock-is-buy-company（买入决策框架：自己定价、持有 10–20 年之问）",
+      "notes": "同书兄弟混淆诱饵：持有中的心态 vs 买入前的框架"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我手里这个票跌了，但我琢磨着是买入逻辑本身坏了：行业格局变了，管理层也开始乱来。这种情况下我是不是不该死拿，应该止损离场？",
+      "expected_behavior": "不应激活本 skill，应激活 buy-sell-discipline（买入理由消失就离场，不该用长期持有给错误续命）",
+      "notes": "边界诱饵：逻辑坏了的离场不是心态问题，恰好是「拿住心法」不适用的情况"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我仓位很重地买了两只特别看好的公司，长期逻辑我认可，可越集中越睡不着觉，一看账户缩水就后悔买这么重。是集中仓位错了，还是我心态不行？",
+      "expected_behavior": "本 skill 应激活（拿不住、睡不着是持有心态问题，可用六要素自查与平常心处理）；若同时激活 concentrated-few-bets（集中度取舍）属可接受重叠，关键是先区分「仓位设计问题」与「持有心态问题」，而非单方面劝加仓或减仓",
+      "notes": "边界：集中投资与拿住心态的交界，本 skill 与 concentrated-few-bets 合理重叠"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为边界诱饵：逻辑坏了的离场）+ 1 条 edge_case（与 concentrated-few-bets 的交界）。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

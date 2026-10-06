@@ -1,0 +1,59 @@
+{
+  "skill": "buy-sell-discipline",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我拿的一只股票已经赚了60%，身边人都劝我落袋为安，可我又怕卖了以后继续涨。到底该不该卖？卖出到底该看什么条件？",
+      "expected_behavior": "应激活 buy-sell-discipline，用「『我已经赚钱了』是唯一不该用的卖出理由+买入理由消失才卖」判据，纠正成本盈亏锚定",
+      "notes": "典型正面场景：盈利后落袋为安纠结"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我的持仓套了30%，我打算等回本就卖，一分不赚也不亏就走，这样想对吗？",
+      "expected_behavior": "应激活 buy-sell-discipline，指出等回本是成本锚定的变体（e13），应回到买入理由判断去留，而非让成本绑架决策",
+      "notes": "成本锚定变体触发：等回本"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "段永平说有好公司好价钱就满仓，可我总觉得手里该留点现金，万一再跌好补仓，巴菲特不也总留着现金吗？",
+      "expected_behavior": "应激活 buy-sell-discipline，用 p14 原话（老巴留现金与其生意模式有关，有好公司好价钱为什么要留现金）与满仓≠杠杆的边界来回答",
+      "notes": "留现金/满仓场景触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我买的股票这几天大跌，公司基本面没什么变化，但我天天盯着账户睡不着，怎么才能拿得住？",
+      "expected_behavior": "不应激活本 skill，应激活 hold-long-term-mindset（拿住好公司的心法）",
+      "notes": "同书兄弟混淆诱饵：主动卖出判据 vs 被动拿住心态；菜单第5/6行分界"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我看好一家公司想建仓，就是不知道现在这个价格算不算太贵，帮我毛估估一下它到底值多少钱。",
+      "expected_behavior": "不应激活本 skill，应激活 rough-valuation-look-10-years（毛估估估值）",
+      "notes": "同书兄弟混淆诱饵：贵贱判断工具 vs 卖出去留判据"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我在想要不要上两倍杠杆满仓干一只我研究了很久的股票，反正我很有把握。",
+      "expected_behavior": "不应激活本 skill，应激活 stop-doing-list-risk-control（不做空不杠杆不负债、不冒冒不起的风险）",
+      "notes": "边界诱饵：满仓≠杠杆，杠杆问题归风险底线 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我拿了好几年的一家公司，最近管理层爆出负面新闻，但股价还算平稳，我也不知道这算不算买入理由没了，要不要先卖一部分观察观察？",
+      "expected_behavior": "本 skill 的 A2 正面覆盖「重要负面消息增加到不能接受→离场」判据，激活本 skill 属正确行为；关键是引导用户走 E 段流程：列出买入理由逐条核对是否消失、评估负面消息是否触及不可接受线，并按见好就收原则考虑分批，而非给出简单买卖结论",
+      "notes": "边界：负面消息介于噪音与理由消失之间的处置归属，本 skill 应答并需结合 E 段步骤执行"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵 hold-long-term-mindset / rough-valuation-look-10-years，第 3 条为满仓≠杠杆的边界诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

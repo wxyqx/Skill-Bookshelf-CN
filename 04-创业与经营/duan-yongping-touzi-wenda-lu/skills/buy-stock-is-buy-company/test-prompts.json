@@ -1,0 +1,59 @@
+{
+  "skill": "buy-stock-is-buy-company",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "群里都在说这只票筹码集中、主力吸筹完了要拉升，让我赶紧上车。我总觉得哪里不对——买股票到底是不是买公司？这算投资还是投机？",
+      "expected_behavior": "应激活 buy-stock-is-buy-company，用「买股票就是买公司 + 把股票当筹码即投机」重构决策框架，指出主力/筹码逻辑属于博弈他人出价",
+      "notes": "典型正面场景：筹码心态 vs 买公司框架"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "段永平说买一家公司前要想好愿不愿意把整家公司买下来、准备持有10年20年。这个检验具体怎么用？我想拿它检查一下我正准备买的这家公司。",
+      "expected_behavior": "应激活 buy-stock-is-buy-company，给出整公司收购检验 + 自己定价 + 10–20 年持有检验的可执行三步用法",
+      "notes": "核心判据显式触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我看好的一家公司最近被大股东减持，股价跌了不少，市场上大家都说它不行了。可是按我自己的算法它明明便宜——这种时候到底该听市场的还是听自己的？",
+      "expected_behavior": "应激活 buy-stock-is-buy-company，用「股票由每个买家自己定价、到自己觉得便宜才可以买、和市场无关」支撑独立定价，并提醒前提是自己做过估值功课",
+      "notes": "自己定价触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司我已经研究透了，现在就差最后一哆嗦：按它的现金流毛估估一下，现在这个价格到底贵不贵、值不值得出手？",
+      "expected_behavior": "不应激活本 skill，应激活 rough-valuation-look-10-years（毛估估估值）",
+      "notes": "同书兄弟混淆诱饵：决策框架 vs 具体算贵贱"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我想按照买公司的思路认真拆一拆这家公司的生意本身：它有没有护城河，产品有没有定价权？帮我列个分析清单。",
+      "expected_behavior": "不应激活本 skill，应激活 business-model-moat-checklist（商业模式三查）",
+      "notes": "同书兄弟混淆诱饵：买公司框架 vs 生意拆解"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我拿了一只股票快三年了，最近公司基本面明显变坏了，但它是家好公司出身，我是不是应该长期持有到底、不管买入理由变没变？",
+      "expected_behavior": "不应激活本 skill，应激活 buy-sell-discipline（买入理由消失才卖、教条式永久持有是反例）",
+      "notes": "边界诱饵：买前持有检验 vs 买后卖出判据；10–20 年持有不等于免检承诺"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我知道买股票要当买公司，可我现在手里的公司明明是好公司，我却是在它涨了一大截之后追进来的，这算不算违背了买公司原则？还能拿吗？",
+      "expected_behavior": "本 skill 与 rough-valuation-look-10-years / buy-sell-discipline 均有合理重叠：本 skill 应答「好公司不等于任意价格、自己定价不是为光环付溢价」（反例池 e18 精神），激活本 skill 属正确行为；若同时给出估值复核或卖出判据的衔接建议亦可接受，关键是指出高位买入与好公司之间的边界而非简单安抚",
+      "notes": "边界：好公司≠任意价格，框架原则与估值/卖出判据的交接地带"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为边界诱饵：买前持有检验 vs 买后卖出判据）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

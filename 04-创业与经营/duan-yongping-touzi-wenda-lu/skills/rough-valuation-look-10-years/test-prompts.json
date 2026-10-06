@@ -1,0 +1,59 @@
+{
+  "skill": "rough-valuation-look-10-years",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "这家白酒公司我研究了大半年，生意算是看懂了，就是拿不准现在这个价买贵不贵。听说段永平都是毛估估，具体是怎么估的？",
+      "expected_behavior": "应激活 rough-valuation-look-10-years，给出看十年判贵贱 + 存款利率类比打折法（5% 倒算、六折起步）",
+      "notes": "典型正面场景：已看懂、问贵贱"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司跌了很多但现金流太复杂我算不清，能不能像段永平买GE那样用个简单的市盈率倒推一下最坏情况会不会亏大钱？",
+      "expected_behavior": "应激活 rough-valuation-look-10-years，用保守盈利假设×15 倍市盈率的下行估算流程并引 GE 案例",
+      "notes": "市盈率下行估算触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我每天盯着20天线、超买超卖，还有一堆券商目标价，越看越乱，估值到底该看哪些信息、哪些该扔掉？",
+      "expected_behavior": "应激活 rough-valuation-look-10-years，用「凡是过几年回头看很无聊的信息都应排除」做简化，强调简单结论来自长期功课",
+      "notes": "排除无聊信息/简化触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "朋友给我推荐了一只火热的股票，我连它靠什么赚钱都说不清，先帮我判断一下我这样算不算看懂了这家公司？",
+      "expected_behavior": "不应激活本 skill，应激活 circle-of-competence-homework（能力圈自检）",
+      "notes": "同书兄弟混淆诱饵：还没看懂，谈不上估值"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "帮我拆解一下这家公司的生意本身怎么样：它的护城河牢不牢，产品有没有定价权？",
+      "expected_behavior": "不应激活本 skill，应激活 business-model-moat-checklist（商业模式三查）",
+      "notes": "同书兄弟混淆诱饵：生意拆解 vs 价格贵贱"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我买的股票已经赚了30%，最近涨得心里发慌，要不要落袋为安？还是说等我回本了再卖？",
+      "expected_behavior": "不应激活本 skill，应激活 buy-sell-discipline（「我已经赚钱了」不是卖出理由、成本隔离）",
+      "notes": "边界诱饵：已持仓后的卖出决策归买卖纪律，不是买入前的毛估估"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我觉得这家公司十年后应该还挺赚钱的，但总觉得现在这个价格不太对，我又说不出哪里不对，这种模糊的感觉在估值里怎么处理？",
+      "expected_behavior": "激活本 skill 属正确行为：用「宁要模糊的精确」承认毛估估就是模糊区间，引导用户把模糊感拆成明确的毛估估区间+折扣理由，说不出折扣理由的部分回能力圈补课；若同时激活 circle-of-competence-homework 亦可接受，关键是不要用精确模型或技术指标去消除模糊感",
+      "notes": "边界：模糊的价格直觉，本 skill 与能力圈存在合理重叠"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为持仓卖出边界诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

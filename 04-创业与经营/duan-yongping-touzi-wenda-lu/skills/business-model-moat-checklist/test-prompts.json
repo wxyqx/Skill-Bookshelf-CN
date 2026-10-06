@@ -1,0 +1,59 @@
+{
+  "skill": "business-model-moat-checklist",
+  "version": "0.1.0",
+  "source_book": "《段永平投资问答录（全两册）》 — 孙力科 编",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "准备认真研究一家白酒公司，想先搞明白这门生意本身好不好：它的护城河是什么？有没有提价的能力？帮我按段永平的思路拆一下。",
+      "expected_behavior": "应激活 business-model-moat-checklist，用三查清单（护城河=长期差异化、定价权/经济特许权、毛利率与净现金流）逐项拆解，可引茅台自主定价权与喜诗提价案例",
+      "notes": "典型正面场景：商业模式三查拆解"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "航空股和光伏组件这两类公司营收都很大，股价也便宜，为什么段永平说这类行业要避开？",
+      "expected_behavior": "应激活 business-model-moat-checklist，用「产品很难长期做出差异化的公司尽量避开」（航空、太阳能组件反面清单）+「无差异化最后只能靠价钱、毛利率和长期净现金流不会满意」解释",
+      "notes": "反面清单触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "为什么苹果在乔布斯走了之后生意还是这么好？段永平是怎么分析苹果这门生意的？",
+      "expected_behavior": "应激活 business-model-moat-checklist，用苹果四要素示范（极致用户体验/生态黏性护城河/单一品种效率支撑毛利率/利润之上的追求与企业文化）+ 三查逐项对应",
+      "notes": "苹果四要素示范触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "这家公司的商业模式我基本看明白了，护城河也认可，就是拿不准现在 30 倍市盈率贵不贵，帮我毛估估一下。",
+      "expected_behavior": "不应激活本 skill，应激活 rough-valuation-look-10-years（毛估估估值、看十年判贵贱）",
+      "notes": "同书兄弟混淆诱饵：生意好不好 vs 价格贵不贵"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "朋友让我投一家材料公司，我对这个行业完全陌生，连它靠什么赚钱都要查半天，我该不该接这个活？买之前要做哪些功课？",
+      "expected_behavior": "不应激活本 skill，应激活 circle-of-competence-homework（不懂不做、做功课清单、能力圈自检）",
+      "notes": "同书兄弟混淆诱饵：生意拆解 vs 我懂不懂"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我持有一家消费品公司快三年了，基本面没变化，最近股价跌了不少，我有点想卖了先落袋为安，帮我拿拿主意。",
+      "expected_behavior": "不应激活本 skill，应激活 buy-sell-discipline（买入理由未消失不卖、落袋为安与成本心态）或 hold-long-term-mindset（拿住好公司的心法）；若激活两者其一即可，唯独不应激活本 skill",
+      "notes": "同书兄弟混淆诱饵：生意分析 vs 卖出决策与心态"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司市场份额第一、牌子也很响，但这几年毛利率一直在下滑，提价一次用户就抱怨一次，这算不算有护城河的好生意？",
+      "expected_behavior": "应激活 business-model-moat-checklist，用三查判定：份额与品牌知名度不等于护城河，提价后用户流失说明定价权缺失、毛利率下滑说明可替代性增强，倾向「没有长期维持的差异化，不是好的商业模式」；同时提示份额是结果不是原因（诺基亚教训）",
+      "notes": "边界：份额/知名度伪装成护城河，正是本 skill 的核心鉴别对象，应给出三查式判词而非含糊两可"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为同书买卖纪律类混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}
