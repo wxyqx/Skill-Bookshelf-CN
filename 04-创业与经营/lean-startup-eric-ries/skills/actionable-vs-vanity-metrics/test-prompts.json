@@ -1,0 +1,59 @@
+{
+  "skill": "actionable-vs-vanity-metrics",
+  "version": "0.1.0",
+  "source_book": "《精益创业：新创企业的成长思维》 — 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们 App 总注册用户破十万了，周会大家都挺兴奋，但我心里发虚：最近两个版本改了七八个功能，我完全说不清哪个改动真的带来了增长，哪个只是数字自己在涨。这些数据是不是虚荣指标？",
+      "expected_behavior": "应激活 actionable-vs-vanity-metrics，用因果判据甄别虚荣指标，把总量拆成同期群并引入对比测试",
+      "notes": "典型正面场景：总量好看但判断不了因果"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "数据同事每周发一份报表，全是累计注册数、总付费额、累计点击这些大数，看着热闹但开完会谁也不知道下一步该干嘛。我想把它改成能让一线同事自己查、自己看懂的同期群报表，怎么弄？",
+      "expected_behavior": "应激活 actionable-vs-vanity-metrics，按'可执行/可使用/可审查'三标准与人本单位改造报告，同期群取代累积总额",
+      "notes": "三个'可'的指标体系改造触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "下个版本我们想同时试两个新手引导方案，老板说只能看数据说话。怎么设计才能知道到底是哪个方案让留存变好了，而不是瞎猜？",
+      "expected_behavior": "应激活 actionable-vs-vanity-metrics，用对比测试（同时向两组相似顾客提供不同版本）设计实验并预定义行为指标",
+      "notes": "对比测试/分割测试触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "下个月要向董事会汇报了，投资人嫌我们光说'学到了很多'没有依据。我想搭一套像样的核算体系，把基准线、阶段性目标这些立起来，让进展有据可查。",
+      "expected_behavior": "不应激活本 skill，应激活 innovation-accounting（创新核算三步、基准线、阶段性认知目标）",
+      "notes": "同书兄弟混淆诱饵：建核算框架与里程碑归创新核算，本 skill 只管指标真假"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "投放停了增长就停，口碑也没起来。我在琢磨我们这生意到底该靠黏着、病毒还是付费来驱动增长？每种引擎的判据是什么？",
+      "expected_behavior": "不应激活本 skill，应激活 growth-engine-selection（三增长引擎判据、可持续增长来源）",
+      "notes": "同书兄弟混淆诱饵：增长引擎选择归引擎 skill，本 skill 只管指标搭建技法"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "同期群数据都拉出来了，最新几组用户的付费转化一直横着不动，账上还够烧四个月。你帮我拿个主意：是彻底转型换个方向，还是再坚持打磨几个版本？",
+      "expected_behavior": "不应激活本 skill，应激活 pivot-or-persevere（转型还是坚持的方向性决策）",
+      "notes": "边界诱饵：数据已看清之后的方向裁决，超出本 skill 范围"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们在推精益创业转型，CEO 让我统一全公司的数据口径：既要从零定基准线、设阶段目标，又要规定哪些指标算数、报表怎么做。这套东西到底该先找哪个方法？",
+      "expected_behavior": "合理路径是两个 skill 联动：核算框架（基准线、阶段目标）用 innovation-accounting，指标甄别与报表规范（同期群、三'可'标准）用 actionable-vs-vanity-metrics；答出分工与顺序即可接受，只答其一但说明另一部分归属亦可",
+      "notes": "边界：核算框架与指标技法的衔接点，两个 skill 皆沾边"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：innovation-accounting / growth-engine-selection；第 3 条为边界诱饵：pivot-or-persevere）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

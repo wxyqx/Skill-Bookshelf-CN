@@ -1,0 +1,59 @@
+{
+  "skill": "bml-validated-learning",
+  "version": "0.1.0",
+  "source_book": "《精益创业：新创企业的成长思维》 — 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们团队这几个月天天加班开发功能，但我心里越来越没底：这些活儿到底是在验证假设，还是纯粹在瞎忙？怎么判断我们算不算真的学到了东西？",
+      "expected_behavior": "应激活 bml-validated-learning，用经证实的认知作为进展单位，把工作重组为完整的开发—测量—认知循环",
+      "notes": "典型正面场景：进展单位与循环组织"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "投资人说我们成立一年了没拿出任何'经证实的认知'，可我们明明教训一大堆。这种'学到的东西'到底要怎么才算数、怎么证明？",
+      "expected_behavior": "应激活 bml-validated-learning，给出经证实的认知的判定标准（以真实顾客实证数据为基础）并识破'拿学习当借口'",
+      "notes": "证明进展 + 伪学习边界触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "下一个功能到底先做哪个？产品经理说要按用户提的需求排，我说应该按我们要验证的东西排，谁对？",
+      "expected_behavior": "应激活 bml-validated-learning，解释'对顾客的假设拉动开发'而非顾客需求直接拉动，并倒排计划顺序",
+      "notes": "假设拉动 + 计划顺序相反触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "预算只剩两万块了，帮我想想第一个版本做成什么样最合适——是先拍个演示视频，还是我人工挨个帮用户跑流程？",
+      "expected_behavior": "不应激活本 skill，应激活 mvp-design-patterns（视频式/贵宾式等 MVP 变体选择）",
+      "notes": "同书兄弟混淆诱饵：假设已知、只挑实验载体，归 MVP 设计"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们后台注册数涨得挺好看，可总觉得哪里不对劲——帮我看看这些指标里哪些是虚荣指标，该怎么按同期群重新拆一遍？",
+      "expected_behavior": "不应激活本 skill，应激活 actionable-vs-vanity-metrics（虚荣指标甄别与同期群分析）",
+      "notes": "同书兄弟混淆诱饵：循环中'测量'环节的指标技法"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "数据我都看完了：转化率提不上去，账上还能撑五个月。我是不是该彻底转型换个方向？还是咬牙再坚持坚持？",
+      "expected_behavior": "不应激活本 skill，应激活 pivot-or-persevere（转型还是坚持的方向性决策）",
+      "notes": "边界诱饵：循环收口之后的方向裁决，超出本 skill 范围"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们刚拿到第一轮用户测试的数据，结果一半符合预期一半打脸。接下来是再跑一轮实验，还是该坐下来认真讨论要不要转向？",
+      "expected_behavior": "合理路径是先用本 skill 收口本轮循环（判定哪些认知已被证实/推翻、记录循环时长），若涉及核心假设错误再联动 pivot-or-persevere 做方向裁决；只答其一但明确说明分界亦可接受",
+      "notes": "边界：循环收口与转型决策的衔接点，两个 skill 皆沾边"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：mvp-design-patterns / actionable-vs-vanity-metrics；第 3 条为边界诱饵：pivot-or-persevere）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

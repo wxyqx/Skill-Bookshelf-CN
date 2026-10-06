@@ -1,0 +1,59 @@
+{
+  "skill": "anti-waste-discipline",
+  "version": "0.1.0",
+  "source_book": "《精益创业：新创企业的成长思维》 — 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司每个人都很忙，流程执行效率也不算差，可业务就是没起色。我怀疑我们是在高效地做一堆根本不该做的事。能不能帮我做一次审计，看看哪些工作压根就是浪费？",
+      "expected_behavior": "应激活 anti-waste-discipline，用'学习无关即浪费'给工作清单定性，区分'做得低效'与'做错事'，先过'该不该做'的元判断",
+      "notes": "典型正面场景：新浪费审计 + 德鲁克之问"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "有老同事私下吐槽：咱们这套精益实验搞了大半年，越来越像走形式——每周按时交实验报告，可没人在乎结论，转型和MVP都成了口头禅。这套方法是不是已经被我们用僵了、教条化了？",
+      "expected_behavior": "应激活 anti-waste-discipline，对照泰罗制后遗症与'避免教条主义和新伪科学'的警告做方法论自查，给出反教条纠正措施并保留传统创业精神",
+      "notes": "方法论教条化质疑触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "下季度排期又塞满了，但我说不清里面哪些需求根本就不该排进来。我不想再讨论怎么把活干快，我想先弄明白：到底该怎么判断一件事值不值得做？",
+      "expected_behavior": "应激活 anti-waste-discipline，用'与学习认知无关的努力即是浪费'的新定义做'该不该做'的元判断，并说明为何它优先于'怎么做'的执行优化",
+      "notes": "'该不该'元判断 vs '怎么做'执行的边界触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们已经确定下个月要验证新客群的需求了，现在纠结第一个版本做成什么样：是拍个演示视频，还是我人工挨个帮用户跑流程？",
+      "expected_behavior": "不应激活本 skill，应激活 mvp-design-patterns（假设已知、选择 MVP 变体）",
+      "notes": "同书兄弟混淆诱饵：实验载体选择，不是浪费元判断"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "老板问我们烧了一年钱到底有什么进展，光看收入不行，他想要一套像样的说法和里程碑来证明认知上的进步。该怎么建这个体系？",
+      "expected_behavior": "不应激活本 skill，应激活 innovation-accounting（创新核算三步与阶段性认知目标，回答'进展怎么证明'）",
+      "notes": "同书兄弟混淆诱饵：问责框架，menu 第13行明确转介"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们每次上线新版本要手工跑两天回归测试，反馈周期拖得特别长，功能积压越来越多。怎么把发布批次变小、把流程提速？",
+      "expected_behavior": "不应激活本 skill，应激活 small-batch-acceleration（小批量、单件流、持续部署等执行性提速手段）",
+      "notes": "边界诱饵：'做得慢'是执行性浪费，归提速工具；本 skill 只管'做错事'的方向性浪费"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们刚做完一轮工作盘点，发现团队去年最核心的一条假设根本没人验证过，大半开发量都压在上面——这批工作算是白干了吗？接下来是先砍项目做浪费清理，还是直接讨论要不要转型换方向？",
+      "expected_behavior": "合理路径是先用本 skill 完成浪费定性与'该不该做'的元判断（确认哪些属于方向性浪费、释放资源），若确认核心假设错误牵动产品方向，再联动 pivot-or-persevere 做转型还是坚持的裁决；只答其一但明确说明分界与先后亦可接受",
+      "notes": "边界：浪费审计与方向裁决的衔接点，两个 skill 皆沾边"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：mvp-design-patterns / innovation-accounting，后者对应 menu 第13行'进展怎么证明→innovation-accounting'的显式转介；第 3 条为边界诱饵：small-batch-acceleration，检验'低效型浪费'不误触发本 skill）+ 1 条 edge_case（浪费审计与 pivot-or-persevere 的衔接）。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

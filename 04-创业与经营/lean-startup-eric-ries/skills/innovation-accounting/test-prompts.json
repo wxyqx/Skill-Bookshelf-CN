@@ -1,0 +1,59 @@
+{
+  "skill": "innovation-accounting",
+  "version": "0.1.0",
+  "source_book": "《精益创业：新创企业的成长思维》 — 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下个月董事会，投资人明说不想再听'我们在摸索'这种话，要我们拿出能和成熟业务一样汇报的进展证据。可我们连正经收入都没有，我该建一套什么样的账来证明新业务真的在往前走？",
+      "expected_behavior": "应激活 innovation-accounting，用创新核算三步（基准线→调整引擎→转型或坚持）和认知阶段性目标搭建传统财务指标之外的进展证据体系",
+      "notes": "典型正面场景：向投资人/老板证明进展"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们产品刚上线两个月，第一次拿到了真实的注册、试用和付费数据，挺难看的但至少是真的。接下来这些数据该怎么用？我怎么判断我们到底有没有进步？",
+      "expected_behavior": "应激活 innovation-accounting，从基准线出发讲解三步流程：确认基准线、以驱动因素为对准目标逐项调整引擎、按方向和程度评估进展",
+      "notes": "基准线建立 + 调整引擎触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "HR 让我给验证期的团队定季度考核，可我们连像样的收入都没有，按注册数定 KPI 又觉得不对劲。这个阶段到底该按什么给团队问责、定什么样的阶段性目标？",
+      "expected_behavior": "应激活 innovation-accounting，讲认知的阶段性目标（learning milestones）与跨部门团队问责，替代传统职能部门绩效指标",
+      "notes": "认知里程碑 + 团队问责触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "总注册用户涨到十万了，老板很满意，但我总觉得这数字说明不了什么——帮我用同期群把这十万个用户拆开分析一下，看看转化到底有没有在变好？",
+      "expected_behavior": "不应激活本 skill，应激活 actionable-vs-vanity-metrics（虚荣指标甄别与同期群/漏斗图表技法）",
+      "notes": "同书兄弟混淆诱饵：核算框架内部的指标技法"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "基准线我有了，驱动因素也调了大半年，能试的招都试了，数据还是不见起色。我认真在考虑要不要干脆转型换个方向——你能陪我捋一捋该不该转、还剩几次机会吗？",
+      "expected_behavior": "不应激活本 skill，应激活 pivot-or-persevere（转型还是坚持的方向性决策：转型会议、十种转型、跑道算法）",
+      "notes": "同书兄弟混淆诱饵：三步第三步的深水区归方向裁决 skill"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "团队天天加班，但我说不清我们这轮到底验证了什么、学到了什么。怎么把我们手头的活儿组织成一轮从假设到数据的完整验证？",
+      "expected_behavior": "不应激活本 skill，应激活 bml-validated-learning（经证实的认知与开发—测量—认知循环的组织）",
+      "notes": "边界诱饵：循环本身的组织逻辑，超出'核算框架'范围"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "下周一要向投资人汇报，我手上已经有同期群数据和转化漏斗了。该怎么把这些材料组织成一份能证明'我们有进展'的账本？哪些该放进去哪些不该？",
+      "expected_behavior": "合理路径是以本 skill 为主（创新核算账本的组织框架：基准线、每次调整的因果记录、阶段性目标达成情况），具体指标取舍与图表判读可联动 actionable-vs-vanity-metrics；只答其一但明确说明分界亦可接受",
+      "notes": "边界：核算框架（本 skill）与指标技法（actionable-vs-vanity-metrics）的衔接点，两个 skill 皆沾边"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：actionable-vs-vanity-metrics / pivot-or-persevere；第 3 条为边界诱饵：bml-validated-learning）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

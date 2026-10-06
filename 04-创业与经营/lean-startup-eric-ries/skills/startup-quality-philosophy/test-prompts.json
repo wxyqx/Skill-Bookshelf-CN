@@ -1,0 +1,59 @@
+{
+  "skill": "startup-quality-philosophy",
+  "version": "0.1.0",
+  "source_book": "《精益创业：新创企业的成长思维》 — 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们团队吵起来了：产品现在还挺糙的，CTO 说再打磨三个月做到满意再上线，不然太丢人；我说先发个八成的版本收集真实反馈。到底该听谁的？早期版本质量到底该做到几成？",
+      "expected_behavior": "应激活 startup-quality-philosophy，用'早期使用者接受八成产品、超出其需要的修饰皆是浪费、没人要比差劲更糟'化解完美主义，同时守住'会拖慢循环的质量不容牺牲'的底线",
+      "notes": "典型正面场景：要不要做到完美再上的团队之争"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的 MVP 上线后被用户吐槽太简陋，老板让我赶紧返工做精致点。可我们连顾客到底是谁、在意什么都还没搞清楚，怎么判断哪些质量必须马上做、哪些是白费劲？",
+      "expected_behavior": "应激活 startup-quality-philosophy，用'不知谁是顾客就不知什么是质量'把投诉转为了解顾客在意什么的机遇，并给出质量取舍的分类判据",
+      "notes": "返工压力 + 质量悖论触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "之前为了抢上线时间，好多明显的问题都先放着了，结果现在 bug 越积越多，团队天天救火，新功能反而越做越慢。是不是当初就不该那么糙地赶工？为赶时间牺牲质量到底亏在哪？",
+      "expected_behavior": "应激活 startup-quality-philosophy，解释'不能为了时间牺牲质量'——现在引入的缺陷日后必然拖慢速度，以及该慢则慢的自适应流程出路",
+      "notes": "为时间牺牲质量的反面教训触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "预算很紧，第一个版本做成什么样最小又能测出需求？我们是先拍个三分钟演示视频，还是我人工挨个帮用户跑流程？",
+      "expected_behavior": "不应激活本 skill，应激活 mvp-design-patterns（视频式/贵宾式等 MVP 形态选择）",
+      "notes": "同书兄弟混淆诱饵：MVP 形态之争而非质量之争"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们现在每次发版都是攒一大堆功能打包一起上，用户反馈来得特别晚，等改完黄花菜都凉了。怎么把发布批次切小、让迭代节奏快起来？",
+      "expected_behavior": "不应激活本 skill，应激活 small-batch-acceleration（发布节奏与批量大小）",
+      "notes": "同书兄弟混淆诱饵：问的是发布节奏与批量，不是批内质量取舍"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "昨晚线上出了个严重事故，用户数据丢了。这月已经第三次了，每次都是修完就走。我想彻底搞清楚为什么总出这种缺陷，建一套根因分析的机制，别再救火了。",
+      "expected_behavior": "不应激活本 skill，应激活 five-whys-adaptive-org（缺陷根因分析与自适应组织机制）",
+      "notes": "边界诱饵：缺陷已批量发生后的根因治理流程，超出本 skill 范围"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的早期版本被用户骂得挺凶。我梳理了一下，一半是界面土、功能少这种打磨问题，另一半是真缺陷——下单经常失败。这两类是一回事吗？哪些该立刻修、哪些可以先放着继续收集反馈？",
+      "expected_behavior": "合理路径是先用本 skill 给出判据：影响学习与循环的关键缺陷（下单失败）不容纵容、立刻按比例投入，超出的修饰（界面土、功能少）若非早期使用者所需则先放着；若下单失败已成批量顽疾需要根因流程，联动 five-whys-adaptive-org。只答其一但明确说明分界亦可接受",
+      "notes": "边界：质量取舍与缺陷根因治理的衔接点，两个 skill 皆沾边"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：mvp-design-patterns / small-batch-acceleration；第 3 条为边界诱饵：five-whys-adaptive-org）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

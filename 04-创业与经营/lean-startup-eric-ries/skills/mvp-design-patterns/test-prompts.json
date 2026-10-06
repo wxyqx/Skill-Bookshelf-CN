@@ -1,0 +1,59 @@
+{
+  "skill": "mvp-design-patterns",
+  "version": "0.1.0",
+  "source_book": "《精益创业：新创企业的成长思维》 — 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "要验证的假设我们想清楚了，就看顾客愿不愿意为这东西付费。可真把产品做出来至少要开发大半年，我怕做完才发现没人要。第一个版本有没有更省的做法？听说可以先拍个视频或者人工帮用户跑流程？",
+      "expected_behavior": "应激活 mvp-design-patterns，按'假设类型×接触成本'推荐视频式/贵宾式/绿野仙踪等最小变体，并强调以真实行为数据为判据",
+      "notes": "典型正面场景：假设已知、挑选 MVP 形态"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们这个点子门槛不高，投资人提醒先申请专利、法务也说过早公开会影响窗口期；团队还在吵要不要偷偷开发、憋个大招再发布，免得被大厂抄了。MVP 阶段这些顾虑到底怎么处理？",
+      "expected_behavior": "应激活 mvp-design-patterns，逐项化解四大减速路障：专利窗口期先咨询法务、做'让大公司盗用你的主意试试'的作业检验竞争恐惧、必要时换品牌发布，并说明取胜之道是学得更快而非保密",
+      "notes": "四大减速路障触发：法律+竞争恐惧"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "预算快见底了，技术合伙人还没到位。我在想要不要我自己先顶上，用户下需求我人工挨个处理，对外就装成是个软件在跑——这样测出来的需求算数吗？会不会把用户骗了？",
+      "expected_behavior": "应激活 mvp-design-patterns，给出绿野仙踪测试（前台像真产品、后台是真人）与贵宾式 MVP 的做法和纪律，强调判定靠顾客真实行为且不提前解决技术难题",
+      "notes": "绿野仙踪/贵宾式变体触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "项目还没动手，导师让我先把要赌的东西列出来。价值假设和增长假设到底怎么写才算写清楚了？怎么判断哪条是我们最危险的信念飞跃？",
+      "expected_behavior": "不应激活本 skill，应激活 leap-of-faith-assumptions（识别并表述信念飞跃假设）",
+      "notes": "同书兄弟混淆诱饵：循环起点'把假设找对说清'，尚未到选实验载体"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "团队为第一版吵翻了：有人嫌太糙、发出去会砸口碑，得做到九成再上；有人说早期用户能接受八成的产品，赶紧发别磨叽。到底质量做到几成才对？",
+      "expected_behavior": "不应激活本 skill，应激活 startup-quality-philosophy（MVP 阶段的质量取舍哲学）",
+      "notes": "同书兄弟混淆诱饵：质量几成之争归质量哲学 skill，不归载体设计"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们的简陋版上线两周了，注册的人不少，但留存数据乱七八糟。这些数字怎么拆才靠谱？我怎么判断当初的假设到底过没过关？",
+      "expected_behavior": "不应激活本 skill，应激活 actionable-vs-vanity-metrics（MVP 上线后数据的甄别与同期群分析）",
+      "notes": "边界诱饵：MVP 已发出、进入测量环节，超出本 skill 范围"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的 MVP 测出来结果特别糟，核心假设基本被推翻，团队士气垮了，有人主张干脆关掉项目。是发布方式太糙导致的，还是真没戏？该止损还是接着想办法？",
+      "expected_behavior": "合理路径是先用本 skill 复盘 MVP 的有效性（变体是否测得到假设、路障是否已排障、士气路障的'事先承诺不放弃'纪律），再联动 pivot-or-persevere 做方向裁决；只答其一但明确说明分界亦可接受",
+      "notes": "边界：MVP 失败后的士气路障与转型决策的衔接点，两个 skill 皆沾边"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：leap-of-faith-assumptions / startup-quality-philosophy；第 3 条为边界诱饵：actionable-vs-vanity-metrics）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

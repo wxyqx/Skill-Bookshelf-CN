@@ -1,0 +1,59 @@
+{
+  "skill": "growth-engine-selection",
+  "version": "0.1.0",
+  "source_book": "《精益创业：新创企业的成长思维》 — 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们产品现在每天有几百个新用户，有的是朋友口碑介绍来的，有的是我们投信息流广告买来的，还有老用户续费。团队吵了半天谁也说不服谁：咱们到底该把宝押在哪种增长方式上？",
+      "expected_behavior": "应激活 growth-engine-selection，用可持续增长规则审计新顾客来源，并按业务形态判定主引擎（黏着/病毒/付费）及其核心指标",
+      "notes": "典型正面场景：增长驱动选型与可持续增长判据"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我拉了下数据，我们每个老用户平均只带来 0.3 个新用户，感觉邀请机制一直在亏。这种病毒系数不到 1 的还值得继续做吗？还是干脆直接开始收钱？",
+      "expected_behavior": "应激活 growth-engine-selection，讲解病毒系数小于 1 则循环终止的判据，并提示病毒式产品暂不收费以免窒碍传播、一次只专注一种引擎",
+      "notes": "病毒式引擎判据 + 货币化陷阱触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们每月烧二十万投放，获客成本从 80 涨到快 300 了，一个用户的生命周期价值撑死 400 块。投资人还催着继续买量冲数据，我总觉得这种烧钱买来的增长不靠谱，怎么判断它到底可不可持续？",
+      "expected_behavior": "应激活 growth-engine-selection，用付费式引擎的 LTV/CPA 与边际利润判据诊断，并以'新顾客由以往顾客的行动带来'的可持续增长规则和'广告费必须由收入支付'判据评估",
+      "notes": "付费引擎 + 烧钱买量留不住场景触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们注册用户总数涨得挺好看的，但留存到底行不行完全看不出来。帮我把这些总数拆成按周同期的对比曲线，再想想漏斗里哪一步该加个对比测试？",
+      "expected_behavior": "不应激活本 skill，应激活 actionable-vs-vanity-metrics（虚荣指标甄别与同期群/对比测试/漏斗的搭建技法）",
+      "notes": "同书兄弟混淆诱饵：指标搭建技法归指标 skill，引擎选型才归本 skill"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "增长做了一年就是起不来，账上还够烧六个月。合伙人想干脆推倒重来换个方向做别的，我觉得再坚持一下也许就行——你帮我拿个主意，到底转不转？",
+      "expected_behavior": "不应激活本 skill，应激活 pivot-or-persevere（转型还是坚持的方向性裁决、跑道=剩余转型次数）",
+      "notes": "同书兄弟混淆诱饵：方向裁决归转型 skill；本 skill 只管引擎本身的诊断与运营"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我在写商业计划书，其中'用户会主动拉新用户进来'这条我拿不太准——这种最要命的赌注应该怎么表述出来，才能以后拿去验证？",
+      "expected_behavior": "不应激活本 skill，应激活 leap-of-faith-assumptions（信念飞跃假设的识别与表述、增长假设的一般现在时表述）",
+      "notes": "边界诱饵：增长假设的最初表述是循环起点，引擎选型是其后的环节"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们的复合率爬到 0.9 左右就死活上不去了，团队有人想再在提留存上压一压，有人觉得引擎到头了该考虑整个换打法。接下来是在这个引擎里继续做实验，还是该认真讨论转型？",
+      "expected_behavior": "合理路径是先用本 skill 在引擎内穷尽对策（黏着式引擎的反直觉做法是聚焦保留率而非加大销售投入、确认复合率的方向和程度），并核对引擎熄火信号；若引擎内手段穷尽后仍停滞且涉及换打法，再联动 pivot-or-persevere 做方向裁决；只答其一但明确说明分界亦可接受",
+      "notes": "边界：引擎内运营与转型决策的衔接点（引擎停滞→转型评估），两个 skill 皆沾边"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：actionable-vs-vanity-metrics / pivot-or-persevere；第 3 条为边界诱饵：leap-of-faith-assumptions）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

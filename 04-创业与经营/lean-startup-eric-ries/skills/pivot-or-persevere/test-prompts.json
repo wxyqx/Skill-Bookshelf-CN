@@ -1,0 +1,59 @@
+{
+  "skill": "pivot-or-persevere",
+  "version": "0.1.0",
+  "source_book": "《精益创业：新创企业的成长思维》 — 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "数据都看完了，转化率就是在一个不上不下的位置卡着，账上的钱大概还能撑九个月。我们到底是该转型换个方向，还是咬牙再坚持坚持？这种决定有没有个章法？",
+      "expected_behavior": "应激活 pivot-or-persevere，给出转型还是坚持的裁决机制（常规转型会议、对照前提假设直面完整失败），并按十种转型类型学枚举可选方向",
+      "notes": "典型正面场景：进退维谷节点上的方向裁决"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "董事会上我说跑道还剩十个月现金，一个董事纠正我说跑道的算法根本不该是现金除以烧钱速度，而应该看还能做几次根本性的战略调整。这话什么意思？我们该怎么把剩下的机会变多？",
+      "expected_behavior": "应激活 pivot-or-persevere，解释'跑道=剩余转型次数而非剩余时间'，并给出加长跑道的正道：加速每次转型（更小成本更短时间完成同等经证实的认知）",
+      "notes": "跑道=剩余转型次数触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "用户访谈里很多人夸产品做得不错，但都说'这不是给我们的'——有人建议我换个客群接着卖，有人说我该干脆改产品解决别的痛点。转型到底分哪几种？我这种算哪一种、该怎么选？",
+      "expected_behavior": "应激活 pivot-or-persevere，用十种转型类型学判定（产品对、顾客错→客户细分市场转型；问题不重要、相关重要问题出现→客户需求转型），并把所选转型表述为待新 MVP 验证的新战略假设",
+      "notes": "十种转型类型学触发：客户细分 vs 客户需求"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们做了半年什么像样的数据都拿不出来，老板说先把创新核算那套搭起来：定个基准线，再定几个阶段性认知目标，下季度他要看到进展证明。这套体系该怎么建？",
+      "expected_behavior": "不应激活本 skill，应激活 innovation-accounting（创新核算三步与阶段性认知目标的核算框架建设）",
+      "notes": "同书兄弟混淆诱饵：决策前的数据生产与核算体系，归 innovation-accounting"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们增长明显停了，朋友说可能是增长引擎选错了，让我们算算病毒系数和 LTV、CPA，看看到底该靠黏着、病毒还是付费来驱动增长。这三种引擎怎么判断、怎么切换？",
+      "expected_behavior": "不应激活本 skill，应激活 growth-engine-selection（三增长引擎判据与 LTV/CPA 运营），引擎熄火的诊断与日常运营在其范围",
+      "notes": "同书兄弟混淆诱饵：增长引擎的运营与切换判据，归 growth-engine-selection"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "上周的定价实验失败了，核心假设被数据推翻了，但我觉得这只是一个小假设没站住，整个方向没问题。接下来怎么设计下一轮实验继续验证剩下的假设？",
+      "expected_behavior": "不应激活本 skill，应激活 bml-validated-learning（单次假设失败后回到开发—测量—认知循环继续学），未到方向性裁决节点",
+      "notes": "边界诱饵：循环的常规运转（假设失败继续学习），超出本 skill 的'方向抉择'范围"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "下周一就是季度转型会议，开发团队说优化效果对比还没整理完，业务团队的顾客记录也七零八落。是先让两边把材料补齐再开会，还是照常开会直接拍板要不要转？另外会上要是真决定转，第一步该干什么？",
+      "expected_behavior": "合理路径：材料不齐不开会（本 skill 的会议输入纪律：两团队分别带优化效果对比与顾客交谈记录），会上裁决若为转型则第一步是把所选转型类型表述为新战略假设并规划新 MVP；若同时追问裁决依据怎么算数，可联动 innovation-accounting / actionable-vs-vanity-metrics，明确分界亦可接受",
+      "notes": "边界：会议输入纪律、裁决与转型后第一步的衔接，多个 skill 皆沾边但主责在本 skill"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：innovation-accounting / growth-engine-selection；第 3 条为边界诱饵：bml-validated-learning）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

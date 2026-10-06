@@ -1,0 +1,59 @@
+{
+  "skill": "five-whys-adaptive-org",
+  "version": "0.1.0",
+  "source_book": "《精益创业：新创企业的成长思维》 — 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "上周支付接口挂了俩小时，我们当天就修好了，结果这周三同样的地方又挂了一次。老板问我到底根子上哪里出了问题，我不想每次都当救火队员，该怎么把原因追到底？",
+      "expected_behavior": "应激活 five-whys-adaptive-org，用五个为什么从技术症状逐层追到人为根源（培训缺失或流程缺陷），并把表象修复与根因追查分开立项",
+      "notes": "典型正面场景：缺陷重复发生 + 根因追问"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们准备开一次事故复盘会，上次开会差点变成批斗会，各部门互相甩锅，没到场的运维成了替罪羊。这种根因分析会到底该怎么开，出了错误该处理人还是处理流程？",
+      "expected_behavior": "应激活 five-whys-adaptive-org，识破'五大罪状'失败形态，给出全员出席、最高级别申明系统责任、委派负责人的落地规则",
+      "notes": "五大罪状 + 根因会议规则触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "最近 bug 越修越多，CTO 说要不要干脆全面放缓发版节奏。有人说该为每个环节都上最重的防护，有人说先别管那么多。到底该在流程上投多少？",
+      "expected_behavior": "应激活 five-whys-adaptive-org，解释'按比例投入'：对每级问题按严重程度投入，避免过度构架也避免裸奔，机制本身就是自动速度调节器",
+      "notes": "按比例投入 + 速度调节器触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们现在两周才发一版，反馈周期太长了。听说有单件流、持续部署这些做法，怎么把从开发到拿到用户反馈的整个周期压到最短？",
+      "expected_behavior": "不应激活本 skill，应激活 small-batch-acceleration（小批量、单件流、持续部署等提速手段库）",
+      "notes": "同书兄弟混淆诱饵：问题尚未发生，诉求是压缩循环时长"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们产品还没上线，团队吵翻了：有人说早期用户能接受八成品的产品，先把东西发出去再说；有人说第一版太糙会砸了口碑。质量到底该做到几成？",
+      "expected_behavior": "不应激活本 skill，应激活 startup-quality-philosophy（MVP 阶段的质量取舍哲学：八成产品、尽早发布）",
+      "notes": "同书兄弟混淆诱饵：质量哲学之争，非缺陷根因治理"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我在一家大公司推动内部创新，想给新业务团队划一块试验区：给他们独立的资源和开发权，定好实验的边界规则，别让总部一票否决。这种机制怎么设计？",
+      "expected_behavior": "不应激活本 skill，应激活 internal-innovation-sandbox（创新沙盒、三种架构特征等内部创新机制设计）",
+      "notes": "边界诱饵：同为组织机制设计，但服务创新业务而非缺陷根因"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们刚出了一次线上大事故，团队吵成一团：有人说是当初为了赶上线速度没设防活该，有人说过度设防会耽误产品，以后事故肯定还会来。这种时候我该先做复盘追责，还是先定质量标准？",
+      "expected_behavior": "合理路径是先用本 skill 对已发生的事故做五个为什么根因追查并按比例投入（而不是先追责）；'质量该设防到几成'的路线之争转 startup-quality-philosophy；只答其一但明确说明分界亦可接受",
+      "notes": "边界：事故根因流程与质量哲学之争的衔接点，两个 skill 皆沾边"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：small-batch-acceleration / startup-quality-philosophy；第 3 条为边界诱饵：internal-innovation-sandbox）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

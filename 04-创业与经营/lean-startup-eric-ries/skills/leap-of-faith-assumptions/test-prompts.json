@@ -1,0 +1,59 @@
+{
+  "skill": "leap-of-faith-assumptions",
+  "version": "0.1.0",
+  "source_book": "《精益创业：新创企业的成长思维》 — 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我和两个合伙人准备辞职做个面向独立咖啡馆的进货平台，商业计划书写了二十页，但晚上睡不着的时候总觉得心里没底。帮我们把'我们这家公司到底在赌什么'捋清楚吧，最危险的是哪几条？",
+      "expected_behavior": "应激活 leap-of-faith-assumptions，把计划拆解为假设清单，标出信念飞跃假设并聚焦价值假设与增长假设（用一般现在时表述）",
+      "notes": "典型正面场景：项目启动前识别'在赌什么'"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们想做个给中小企业管报销的 SaaS，合伙人关在屋里憋了两个月竞品分析，我总觉得不对劲——是不是该学人家说的'走出办公大楼'？可我要去现场看什么、找谁聊、用户画像怎么定才不是瞎编？",
+      "expected_behavior": "应激活 leap-of-faith-assumptions，给出现地现物（genchi gembutsu）的实地考察方法，锁定早期使用者，并强调顾客典型是假设而非事实",
+      "notes": "正面场景：现地现物/走出办公大楼+顾客典型"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们的 BP 核心逻辑是'对标 Airbnb'——民宿管家版。投资人说我这是自我安慰，可 Airbnb 当年也是这么起来的啊。到底哪些假设能靠类比默认成立，哪些才是我们必须亲自去赌的？",
+      "expected_behavior": "应激活 leap-of-faith-assumptions，用类比与反证策略过滤假设：类比成立的前提可默认，类比与反证对照后'独特的、没有答案的问题'才是真正的信念飞跃，并警惕类推法美化风险",
+      "notes": "正面场景：类比与反证定位真赌点"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "价值假设和增长假设我们都写清楚了，就贴在墙上。现在卡在下一步：第一个实验是先拍个演示视频，还是我人工帮十家咖啡馆代跑一个月进货？帮我们选个最合适的实验形态。",
+      "expected_behavior": "不应激活本 skill，应激活 mvp-design-patterns（视频式/贵宾式等 MVP 变体选择）",
+      "notes": "同书兄弟混淆诱饵：假设已明确、只挑实验载体，归 MVP 设计"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "新业务跑了半年，几个关键假设的实验都做完了。下周要向集团汇报，老板问'没有营收你怎么证明有进展'——该建一套什么样的核算体系和阶段性里程碑？",
+      "expected_behavior": "不应激活本 skill，应激活 innovation-accounting（创新核算三步与阶段性认知目标）",
+      "notes": "同书兄弟混淆诱饵：实验结果之后的进展核算，归创新核算"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "假设清单也列了，第一轮验证也跑完了。现在的问题是接下来整个循环该怎么组织着转起来——开发什么、测什么、什么时候停下来做决定，有没有一套完整的跑法？",
+      "expected_behavior": "不应激活本 skill，应激活 bml-validated-learning（开发—测量—认知循环的整体组织）",
+      "notes": "边界诱饵：循环整体怎么转，超出本 skill'起点：把假设找对说清'的范围"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们做大众健身 App 的，导师说第一轮只找'早期使用者'，可我们最终要服务的是普通小白用户啊——只听最狂热的健身爱好者的话，会不会把产品带偏？这批人找来到底该用来验证什么？",
+      "expected_behavior": "合理路径是用本 skill 讲清早期使用者的定位（最迫切需要产品、对错误更容易谅解、渴望反馈，实验目标是快速验证价值假设而非代表主流），并提示其边界：MVP 数据指向主流顾客前，学习结论不可直接外推；若用户接着问'拿到数据后怎么核算进展'则转 innovation-accounting。答其一但说明分界亦可接受",
+      "notes": "边界：早期使用者的验证用途与其外推局限，涉及本 skill 与后续测量环节的衔接"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：mvp-design-patterns / innovation-accounting；第 3 条为边界诱饵：bml-validated-learning）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

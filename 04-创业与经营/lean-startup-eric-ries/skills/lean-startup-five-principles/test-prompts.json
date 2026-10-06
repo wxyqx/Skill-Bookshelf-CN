@@ -1,0 +1,59 @@
+{
+  "skill": "lean-startup-five-principles",
+  "version": "0.1.0",
+  "source_book": "《精益创业：新创企业的成长思维》 — 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "都说精益创业是互联网公司玩的那一套，我们做传统食品加工的，连个 App 都没有，这套方法论到底适不适合我们？先帮我判断一下大方向。",
+      "expected_behavior": "应激活 lean-startup-five-principles，用'新创企业的定义'（在极端不确定情况下开发新产品或新服务的机构）做适用性自检，而非按行业判断",
+      "notes": "典型正面场景：体系适用性大判断（创业者无处不在）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "有人跟我说创业也需要'管理'，我觉得挺扯的——创业不就是靠冲劲和执行力吗？可我上家公司照着商业计划书严格执行照样黄了。到底该信哪边？帮我理理这套东西的整体逻辑。",
+      "expected_behavior": "应激活 lean-startup-five-principles，讲清'创业即管理'与失败两大原因（传统管理失灵、想做就做也不行），给出体系总纲",
+      "notes": "创业即管理 + 传统管理与想做就做两极失灵触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "上周见了个投资人，他问我们是在'发射火箭'还是'开汽车'，搞得我一头雾水。我想系统搞明白精益创业的五项原则到底都在讲什么，先从全局入个门。",
+      "expected_behavior": "应激活 lean-startup-five-principles，讲解火箭发射 vs 汽车驾驶心智模型与五项原则总纲（创业者无处不在、创业即管理、经证实的认知、开发—测量—认知、创新核算）",
+      "notes": "火箭 vs 驾驶 + 五项原则总纲触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "适用性这些大道理我都认了，现在卡在实操上：我们每天一堆活儿，怎么把它们组织成完整的开发—测量—认知循环？怎么判断我们是真的学到了东西而不是瞎忙？",
+      "expected_behavior": "不应激活本 skill，应激活 bml-validated-learning（验证循环的组织与经证实的认知判定）",
+      "notes": "同书兄弟混淆诱饵：已接受总纲、进入循环执行，归 BML"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "项目下个月就启动了，别跟我讲理论框架，帮我们把最危险的那几个信念飞跃假设——价值假设、增长假设——先一条条写清楚，再设计几个走出办公大楼的用户访谈。",
+      "expected_behavior": "不应激活本 skill，应激活 leap-of-faith-assumptions（假设识别与表述）",
+      "notes": "同书兄弟混淆诱饵：循环起点的假设识别工作"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我在一家两千人的制造集团，老板拍板要搞内部创新，让我设计一套机制：创新团队怎么划资源、给不给独立开发权、考核怎么定才不会把冒险精神考死。",
+      "expected_behavior": "不应激活本 skill，应激活 internal-innovation-sandbox（成熟企业内部创新机制设计）",
+      "notes": "边界诱饵：大企业内部机制设计，超出'适用性判断'范围"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们是大公司里的新事业部，正在纠结要不要全公司引入精益创业：是整个研发体系都照这套来，还是只给我们这种探索新业务的团队用？总得先搞清楚这套东西对我们到底适用到什么程度。",
+      "expected_behavior": "合理路径是先用本 skill 做适用性分层判断（探索新业务适用、已验证业务的纯优化运营收益有限），若决定引入再联动 internal-innovation-sandbox 设计内部机制；只答适用性判断并明确指向后续 skill 亦可接受",
+      "notes": "边界：适用性大判断（本 skill）与内部创新机制设计（internal-innovation-sandbox）的衔接点，两个 skill 皆沾边"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：bml-validated-learning / leap-of-faith-assumptions；第 3 条为边界诱饵：internal-innovation-sandbox）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

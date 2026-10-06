@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**47 本书 · 803 个 skills**（最后更新：2026-10-07）
+**48 本书 · 816 个 skills**（最后更新：2026-10-07）
 
 ### 分类导航
 
@@ -56,7 +56,7 @@
 | 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./03-个人成长/effective-executive/) |
 | 《掌控习惯》*Atomic Habits* | 詹姆斯·克利尔 · 2018/2019 | 习惯设计 / 身份转变 / 行为四定律 | 16 | [`atomic-habits/`](./03-个人成长/atomic-habits/) |
 
-#### 04-创业与经营（12 本）
+#### 04-创业与经营（13 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -72,6 +72,7 @@
 | 《创业投资法律手册：那些你在创业时应该知道的公司法知识》 | 杨春宝、王成兵 · 2014 | 设立形式 / 出资合规 / 股权设计 / 公司治理 / 股东救济 / 股权激励 / 退出清算 | 16 | [`startup-legal-handbook/`](./04-创业与经营/startup-legal-handbook/) |
 | 《穿越寒冬：创业者的融资策略与独角兽思维》 | 史蒂文·霍夫曼 · 2020 | 创业决策 / 需求验证 / 融资策略 / 增长营销 / 团队领导 / 创始人心态 | 16 | [`chuanyue-handong/`](./04-创业与经营/chuanyue-handong/) |
 | 《段永平投资问答录（全两册）》 | 孙力科 编 · 段永平问答实录 | 价值投资 / 能力圈 / 本分经营 / 商业模式 / 人生哲学 | 16 | [`duan-yongping-touzi-wenda-lu/`](./04-创业与经营/duan-yongping-touzi-wenda-lu/) |
+| 《精益创业：新创企业的成长思维》*The Lean Startup* | 埃里克·莱斯 · 2011/2012 | 经验证的学习 / MVP / 创新核算 / 转型 / 增长引擎 | 13 | [`lean-startup-eric-ries/`](./04-创业与经营/lean-startup-eric-ries/) |
 
 #### 05-产品与创新（6 本）
 
@@ -402,6 +403,13 @@
 - **Skills**：`buy-stock-is-buy-company` · `circle-of-competence-homework` · `rough-valuation-look-10-years` · `business-model-moat-checklist` · `hold-long-term-mindset` · `buy-sell-discipline` · `concentrated-few-bets` · `stop-doing-list-risk-control` · `ignore-market-noise` · `benben-do-right-things` · `dare-to-be-later` · `profit-above-profit-consumer-focus` · `bbk-product-channel-playbook` · `bbk-business-philosophy` · `corp-culture-people-system` · `life-philosophy-wealth-view`
 - **备注**：问答实录汇编而非段永平本人著作，各 skill 引文均标【段】（原话）/【编】（编者叙述），引用时注意区分；观点多成于 2010-2020 年代问答语境，具体个股与数字仅作案例背景；与《聪明的投资者》互为中美两套价值投资语汇。
 
+### 48. 《精益创业：新创企业的成长思维》 · [`lean-startup-eric-ries/`](./04-创业与经营/lean-startup-eric-ries/)
+
+- **作者**：埃里克·莱斯（Eric Ries，IMVU 联合创始人兼 CTO）· 2011（中信出版社 2012 中译本）
+- **一句话**：新创企业不是大公司的缩小版而是一门需要管理的新学科——以"经证实的认知"为进展单位，用开发-测量-认知循环把信念飞跃假设逐个变成数据：13 个 skill 覆盖五原则总纲、假设识别、MVP 设计、创新核算与虚荣指标甄别、转型坚持决策与十种转型类型学、增长引擎选择、小批量加速、五个为什么、内部创新沙盒，直到反浪费的元判断。
+- **Skills**：`lean-startup-five-principles` · `bml-validated-learning` · `leap-of-faith-assumptions` · `mvp-design-patterns` · `innovation-accounting` · `actionable-vs-vanity-metrics` · `pivot-or-persevere` · `growth-engine-selection` · `small-batch-acceleration` · `five-whys-adaptive-org` · `startup-quality-philosophy` · `internal-innovation-sandbox` · `anti-waste-discipline`
+- **备注**：成书于 2011-2012 年美国互联网创业语境，案例集中于软件/互联网行业，迁移到其他行业的适用方式见各 skill 盲点说明；书名含"精益"但与精益生产是同源而不同的方法论体系；与《精益创业 2.0》（lean-startup-2，企业内部创业）构成上下篇。
+
 ---
 
 ## 安装
@@ -467,7 +475,8 @@ skill-bookshelf/
 │   ├── growth-hacker/   # 《增长黑客》
 │   ├── startup-legal-handbook/   # 《创业投资法律手册：那些你在创业时应该知道的公司法知识》
 │   ├── chuanyue-handong/   # 《穿越寒冬：创业者的融资策略与独角兽思维》
-│   └── duan-yongping-touzi-wenda-lu/   # 《段永平投资问答录（全两册）》
+│   ├── duan-yongping-touzi-wenda-lu/   # 《段永平投资问答录（全两册）》
+│   └── lean-startup-eric-ries/   # 《精益创业：新创企业的成长思维》
 ├── 05-产品与创新/
 │   ├── how-google-works/   # 《重新定义公司：谷歌是如何运营的》
 │   ├── hooked/   # 《上瘾：让用户养成使用习惯的四大产品逻辑》

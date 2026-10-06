@@ -1,0 +1,59 @@
+{
+  "skill": "internal-innovation-sandbox",
+  "version": "0.1.0",
+  "source_book": "《精益创业：新创企业的成长思维》 — 埃里克·莱斯",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司批了个内部创新项目，可业务部门天天来借人、财务动不动砍预算，团队人心惶惶。到底该给这种创新团队配什么样的资源和保障，才能让他们安心干下去？",
+      "expected_behavior": "应激活 internal-innovation-sandbox，用三种架构特征（稀少但稳定的资源/独立的开发权/与绩效挂钩的个人利益）诊断并补齐架构先决条件",
+      "notes": "典型正面场景：为内部创新团队配架构与资源"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "老板让我给我们这条产品线设计一套内部实验的规矩：既要放手让团队试新东西，又不能把主营业务的客户关系搅乱。这个实验边界到底该怎么划？",
+      "expected_behavior": "应激活 internal-innovation-sandbox，用创新沙盒七规则（限时、限顾客影响面、5~10 个统一可执行指标、熔断等）从小范围起步划定边界，并配反向框定保护母体",
+      "notes": "正面场景：沙盒规则与母体保护"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们公司过去十年就靠一个秘密项目成功过一次，创新团队躲在别的办公楼里偷偷干，之后再没出过第二个像样的产品。几个创新负责人做完产品就被塞去管日常运营，没人愿意再开新东西。是不是我们的机制哪里出问题了？",
+      "expected_behavior": "应激活 internal-innovation-sandbox，指出黑匣子式创新的危害（反向框定）、管理组合四阶段的人才交接问题，并给出'创业企业家'头衔与激励设计",
+      "notes": "正面场景：黑匣子诊断 + 头衔/交接机制"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们内部创新团队的资源和独立权都批下来了，现在就差第一个实验怎么弄——预算很紧，是做个假门测试，还是先人工服务几个客户试试需求？",
+      "expected_behavior": "不应激活本 skill，应激活 mvp-design-patterns（贵宾式/绿野仙踪等 MVP 变体选择）",
+      "notes": "同书兄弟混淆诱饵：机制已定、只挑实验载体，归 MVP 设计"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "沙盒里这几个月跑了不少实验，数据攒了一堆，可管理委员会总觉得我们没拿出'像样的进展'。怎么向管理层证明这些实验是真有成效、不是在烧钱？",
+      "expected_behavior": "不应激活本 skill，应激活 innovation-accounting（创新核算三步与阶段性认知目标，向管理层证明进展）",
+      "notes": "同书兄弟混淆诱饵：沙盒内团队的核算与进展证明，归创新核算"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "说实话我还没想好要不要在公司推精益创业这一套——我们是传统制造企业，节奏和互联网完全不一样。想先从全局搞清楚这套东西到底适不适合我们，再决定怎么落地。",
+      "expected_behavior": "不应激活本 skill，应激活 lean-startup-five-principles（体系适用性判断与总纲）",
+      "notes": "边界诱饵：适用性大判断在落地机制设计之前，超出本 skill 范围"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我正在给内部创新团队起草一份章程：既要定资源和授权，又要划实验边界，还得说清实验怎么做、结果拿什么衡量。这份文件该从哪儿下手、按什么顺序写？",
+      "expected_behavior": "合理路径是用本 skill 搭章程骨架（三种架构特征→反向框定→沙盒七规则→管理组合与头衔交接），实验设计与指标技法部分联动 mvp-design-patterns / actionable-vs-vanity-metrics / innovation-accounting 补充细则；只答机制骨架但明确指出哪些条款需转介亦可接受",
+      "notes": "边界：机制设计为主、工具细节为辅，本 skill 与各工具 skill 皆沾边"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵：mvp-design-patterns / innovation-accounting；第 3 条为边界诱饵：lean-startup-five-principles）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}
