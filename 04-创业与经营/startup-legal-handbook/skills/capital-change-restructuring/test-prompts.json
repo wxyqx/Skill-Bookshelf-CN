@@ -1,0 +1,59 @@
+{
+  "skill": "capital-change-restructuring",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "去年朋友的公司缺钱,我签了一份《入股协议》投了20万,协议写明期限3年、按股东比例分红、入股款不得抽回。钱打到公司账上后,他们没开股东会,也没给我什么证明,更没办工商登记。现在公司经营不行了,我能要求把钱退回来吗?",
+      "expected_behavior": "应激活本 skill,用增资四要件检验(2/3决议+出资证明书+股东名册+工商变更):四要件全缺则增资无效、未取得股东资格,该'入股款'很可能被认定为借款,在约定期限届满后返还",
+      "notes": "主案例场景:H公司20万入股协议纠纷(第九章 问题172)的复现"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司准备增资1000万引入新投资人,我占20%但拿不出钱跟投,大股东放话说我不增资就视同自愿退出、自动放弃股份,他把我该出的部分补上然后吃掉我原来的股份。这合法吗?",
+      "expected_behavior": "应激活本 skill:增资按自愿原则,股权非因法定事由不能剥夺,'视同自愿退出、放弃股份'无效;拒绝增资者被稀释但权益不灭,按稀释后比例仍享有权益;合规方案是同意方认购其份额或按公平价格收购其股权",
+      "notes": "增资稀释与拒绝增资股东的处理(第二章 问题59/60)"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我注册的是个人独资的设计工作室,现在想'升级'成有限公司,是不是直接去工商局办个变更登记就行?原来签的合同和证照能不能继续用?",
+      "expected_behavior": "应激活本 skill:个人独资(无限责任)与有限公司(有限责任)责任形式不同,不能直接互变,只能先注销工作室,再以评估后的资产出资新设(或资产作价合资、被收购资产后注销),名称与证照不能沿用",
+      "notes": "组织形式不能直接互变、注销再设三路径(第七章 问题155/156)"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "给我们做系统开发的公司欠我们30多万开发费,最近听说它按上级要求重组,拆成了四家公司,他们内部商量好原来的债由其中一家承担,让我们只找那一家。我们可以要求另外三家一起还吗?",
+      "expected_behavior": "应激活本 skill:公司分立前债务由分立后公司承担连带责任,内部债务分担约定未经债权人书面同意不对抗债权人,可要求分立后的四家公司连带清偿",
+      "notes": "分立逃债与债务连带(第七章 问题159)"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们公司另一个老股东打算把他手里10%的股权卖给一个投资人,价格快谈好了,钱会直接打给他个人。我们几个股东能拦吗?这10%到底值多少钱怎么算?",
+      "expected_behavior": "不应激活本 skill,应激活 equity-transfer-pricing(股权转让程序、优先购买权与定价三法)——存量股权转让:钱付给出让股东个人、公司注册资本不变;与增资(新资本进公司)方向相反,是同书兄弟 skill 混淆诱饵",
+      "notes": "兄弟诱饵:资金流向判据——转让=钱进个人/资本不变,增资=钱进公司"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司做了两年,股东们商量好散伙不干了,账上也没多少事,注销公司大概要走哪些流程?会有限制吗?",
+      "expected_behavior": "不应激活本 skill,应激活 exit-dissolution-liquidation(解散清算与注销程序)——这是公司终止退出,不是增资、分立或改制;本 skill 只在'改制须先注销再设'时引用注销作为前置环节,同书兄弟 skill 混淆诱饵",
+      "notes": "兄弟诱饵:注销再设中的'注销'不等于终止清算注销场景"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "大股东想通过增资把我的股权比例压下来逼我走人,我既不想掏钱增资,也不想被稀释,更不想卖给他,还有什么办法?",
+      "expected_behavior": "可激活本 skill(增资稀释规则:不能强迫增资、不能剥夺股权、同意方认购份额或公平价收购两案),同时衔接 minority-shareholder-remedies 的退出阶梯与回购救济;两 skill 协作,以本 skill 判定增资方案合法性为起点",
+      "notes": "边界:增资挤压的合法性判断(本 skill)与小股东事后救济(邻 skill)"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "4 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),两条均为同书兄弟 skill 混淆诱饵(分别指向 equity-transfer-pricing 与 exit-dissolution-liquidation)。"
+}

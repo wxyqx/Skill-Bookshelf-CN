@@ -1,0 +1,52 @@
+{
+  "skill": "resolution-validity-procedure",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "上个月公司开股东会,没提前15天通知我,就直接通过了解聘我总经理职务的决议,我算了一下他们表决权也刚好过半。这份决议有效吗?我能不能去法院撤销它,现在还来得及吗?",
+      "expected_behavior": "应激活本 skill,按'无效/可撤销/不成立'三分(2014语境二分)定性:内容属自治范畴不无效,但未提前15日通知全体股东属召集程序违法→可撤销,须自决议作出之日起60日内起诉,并核算时限是否经过",
+      "notes": "最典型正面场景:程序瑕疵+除斥期间核算"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我持股12%,董事长一直不理我,我想召集临时股东会改选董事。我可以自己发通知直接开会吗?会不会开了也白开?",
+      "expected_behavior": "应激活本 skill,给出三级召集顺序:书面提议董事会(签收留痕,拒签则邮寄/公证送达)→监事会→均不召集才可自行召集;并警告跳过法定顺序即使内容合法决议也可撤销",
+      "notes": "1/10表决权股东临时会议召集程序是本书标志性素材(问题102)"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我去调工商档案,发现里面有一份一年前的股东会决议,决议上我的签名是模仿的,我根本不知道开过这个会。都过去大半年了,我还能翻案吗?",
+      "expected_behavior": "应激活本 skill,识别伪造签名情形:2014语境属程序违法可撤销但60日窗口可能已过(拖过即洗白的漏洞);必须提示现行法下此类'未实际开会/表决'情形走决议不成立之诉,不受60日限制,并建议笔迹鉴定+留存证据",
+      "notes": "伪造签名决议场景,须携带时效性警示(二分→三分法)"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们两个创始人打算五五开股权,怕以后闹翻了公司决策瘫痪,章程里要不要写个僵局条款?应该怎么写?",
+      "expected_behavior": "不应激活本 skill,应激活 charter-governance-design(章程定制与治理权力分配)——这是事前章程设计,尚无任何决议作出、无效力之争",
+      "notes": "同书兄弟 skill 混淆诱饵:事后效力判断 vs 事前章程设计,应触发 charter-governance-design"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "大股东把持公司三年不分红,还把业务转到他自己开的另一家公司,我不想跟他玩了,想安全退出拿回我投的钱,有什么路径?",
+      "expected_behavior": "不应激活本 skill,应激活 minority-shareholder-remedies(小股东综合救济)并可能衔接 exit-dissolution-liquidation——核心诉求是退出与赔偿,不是判断某份决议的效力",
+      "notes": "同书兄弟 skill 混淆诱饵:决议程序 vs 小股东退出救济,应触发 minority-shareholder-remedies"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们公司监事上周自己发通知开了临时股东会,决议免掉了执行董事,但执行董事拒不交接,还拿着公章说工商登记上他才是法定代表人,外面客户只认他。这份决议到底算不算数?公章和法定代表人该怎么处理?",
+      "expected_behavior": "可激活本 skill(决议效力判断是入口:无证据表明执行董事不能或不去召集时,监事径行召集属程序违法,决议可撤销),但'算不算数'的对外后果——工商登记对抗第三人、公章交接、法代变更登记30日办理——需衔接 legal-rep-compliance-contracts;两 skill 协作,以本 skill 定性在前",
+      "notes": "边界:决议对内效力(本 skill)与登记公示/公章对外后果(邻 skill)的交叉场景,对应书中问题104+问题93"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),两条均为同书兄弟 skill 混淆测试(分别指向 charter-governance-design 与 minority-shareholder-remedies)。"
+}

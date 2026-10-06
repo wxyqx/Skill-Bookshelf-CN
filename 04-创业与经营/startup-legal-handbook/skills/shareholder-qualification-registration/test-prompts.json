@@ -1,0 +1,59 @@
+{
+  "skill": "shareholder-qualification-registration",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "三年前入股时是我朋友替我办的,股东协议上是我的名字但是朋友代签的。现在公司其他股东不承认我是股东,好在我查过章程和股东名册上都写了我的名字。我怎么证明自己的股东资格?",
+      "expected_behavior": "应激活本 skill,按五类证据链(章程/股东名册/出资证明文件/出资证明书/工商登记)逐项盘点,指出名册+章程已有对公司行权的证明力,并给出补链动作",
+      "notes": "对应第一章 问题34(代签场景五类证据)+名册生效规则"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们把股权转让给一个投资人好几个月了,转让款也收清了,一直没去办工商变更登记,股东名册也没改。这会有什么问题?要不要紧?",
+      "expected_behavior": "应激活本 skill,给出两层效力判断:对内以名册记载为门(受让方尚不能对公司行使股东权利),对外未登记不得对抗善意第三人(卖方一女二嫁时善意第三人可取得),并给30日时限与补救动作",
+      "notes": "登记对抗主义核心场景:变动完成但登记缺位"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "股东会已经决议把法定代表人换成我,但原来的法定代表人拒不配合签字,营业执照上还是他的名字,而且他把公章和执照都拿走了。我打算登报声明他的法定代表人身份和公章作废,这样有用吗?",
+      "expected_behavior": "法代免职/变更登记是本 skill(登记对抗、公章救济)与 legal-rep-compliance-contracts(法代责任与自保)的交界,两者可协作;主导判断取决于用户更关心登记手续还是法代责任",
+      "notes": "边界用例:法代变更登记双 skill 交界"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想让我表弟代我持有公司股份,签个代持协议。协议里应该约定哪些条款,才能最大程度保证我的权益?",
+      "expected_behavior": "不应激活本 skill,应激活 nominee-shareholding-risk(股权代持与隐名投资)——代持架构与协议条款设计是隐名投资场景,不是一般股东资格证据链与登记效力问题;确权后才会回到本 skill 的登记框架",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 nominee-shareholding-risk"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "一位股东想把股权转让出去,转让价格应该怎么定,按注册资本、净资产还是评估值?其他股东说要优先买,优先购买权怎么行使?",
+      "expected_behavior": "不应激活本 skill,应激活 equity-transfer-pricing(股权转让程序、定价与优先购买权)——定价三锚点与优先购买权行使是转让程序设计;本 skill 只管转让完成后的资格证据与登记落地",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 equity-transfer-pricing"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们大股东被股东会免了董事长和法定代表人职务,但一直没办变更登记。他拿着还写他名字的营业执照,以公司名义跟客户签了一份对我们很不利的合同。我们能让客户不认这份合同吗?",
+      "expected_behavior": "可激活本 skill(对内决议有效/对外登记对抗的效力分界是本 skill 核心框架:登记未变更前原法代对外行为公司先承受再追偿,不得以内部免职对抗善意客户;补救是尽快变更登记+向其追偿),合同对客户的最终效力判断可衔接 paper-validity-traps 的表见代表与盖章效力分析;两 skill 协作",
+      "notes": "边界:登记对抗效力(本 skill)与合同效力分层(paper-validity-traps)交叉,真假董事长案(问题93)正是此场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "工商登记的公示信息里没有我,但我实际出了钱,公司股东名册和出资证明书上都有我的名字,到底以哪个为准?我怎么行使股东权利?",
+      "expected_behavior": "应激活本 skill:按五类证据层级判断——股东名册是行使股东权利的依据,工商登记仅有公示对抗力;并给出补办登记与维权路径",
+      "notes": "股东资格证据层级是本 skill 的核心内容"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),其中至少 1 条为同书兄弟 skill 混淆测试。"
+}

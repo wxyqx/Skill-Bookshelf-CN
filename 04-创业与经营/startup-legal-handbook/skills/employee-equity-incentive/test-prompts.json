@@ -1,0 +1,59 @@
+{
+  "skill": "employee-equity-incentive",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们创业公司想给几个核心员工每人分2%的股份,只希望他们拿分红,不要参与决策,而且他们离职后股份要收回公司,这种安排怎么落地才有效?",
+      "expected_behavior": "应激活本 skill:判定为干股(分红权让渡、不登记、无表决权、无当然清算分配权)+无偿情形可附离职收回条件;退出安排提示受让主体不能是公司,应签附生效条件(离职)的股权转让协议、写齐四要素(何时生效/退给谁/什么价/不退怎么办),由控股股东或壳公司受让",
+      "notes": "最典型正面场景:E公司三条件(只要分红+离职收回)的现代重演"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "公司没上市也发不起高薪,想用期权留住两个核心工程师,可行吗?具体怎么操作?",
+      "expected_behavior": "应激活本 skill:指出标准股票期权以上市为前提,未上市公司走五种变通方案(上市后购股/业绩达标购股权/现价购股/低价转让/无偿赠与),按前景清晰度选,实操为股东拿出约20%(不超1/3)股权分别签约、以分红抵高薪;并提示书中无 vesting/cliff/期权池代持与税务处理,需另行补足",
+      "notes": "未上市期权五方案是本书标志性场景(v-A43)"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们两个股东持股80%和20%,现在要拿出20%的股权激励高管,大股东说一人让10%,我觉得吃亏了,到底该怎么分摊?",
+      "expected_behavior": "应激活本 skill:用分红权稀释数学说明激励股份按现有持股比例出让(让出20%后大股东80→64万、小股东20→16万,大股东实际让16万、小股东让4万),小股东按比例主张合理",
+      "notes": "D公司80:20出让僵局的直接复刻(第六章问题149)"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "上个月我花钱从老板手里受让了公司3%的股权,老板让我签一份承诺书,写明我一旦离职股份就自动归他、我也不再是股东,这份承诺书有法律效力吗?",
+      "expected_behavior": "应激活本 skill:判定为有偿受让——单向承诺函可能不够,且不能直接限制其股东权利;正确结构是签附生效条件(离职)的股权转让协议并写齐四要素,同时提示劳动关系与投资关系相互独立,离职丢岗位不当然丢股权",
+      "notes": "有偿/无偿分水岭+承诺函效力(第六章问题146/147)"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我要把手里10%的股权转让给一个外部投资人,对方报价对比出资额打了七折,这价格怎么定才不吃亏?要不要先问问其他股东?",
+      "expected_behavior": "不应激活本 skill,应激活 equity-transfer-pricing(股权转让定价与优先购买权)——这是对外转让的定价与程序问题,不是员工激励的形式选择与退出闭环设计",
+      "notes": "同书兄弟 skill 混淆诱饵:激励闭环 vs 一般转让定价,应触发 equity-transfer-pricing"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的CTO不出一分钱,想让他占30%的股份,拿技术入股可以吗?需要评估吗?",
+      "expected_behavior": "不应激活本 skill,应激活 equity-rights-design(技术股的合法路径菜单)——技术作价出资是权益结构/出资形式问题(须载体化、可估价可转让、评估程序),不是员工激励的干股/期权形式选择",
+      "notes": "同书兄弟 skill 混淆诱饵:技术股作价 vs 激励形式选择,应触发 equity-rights-design"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们准备融资了,想设一个期权池由创始人代持,给员工的期权分四年成熟、干满一年才给第一批,这种做法有什么法律风险?",
+      "expected_behavior": "可激活本 skill 但必须声明边界:vesting/cliff/期权池代持是书中(2014年版)完全不覆盖的现代机制,本 skill 只能迁移其底层逻辑(权能让渡可附条件、退出机制设计、代持对抗风险);期权池代持部分应衔接 nominee-shareholding-risk 的代持风险分析,税务维度提示另行专项测算",
+      "notes": "边界:现代激励机制词汇出现时,skill 只作方法论迁移且必须亮明书中缺失,不得冒充书中内容"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "4 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),两条均为同书兄弟 skill 混淆测试(分别指向 equity-transfer-pricing 与 equity-rights-design)。edge_case 含现代机制(vesting/期权池代持),考察 skill 是否如实声明书中未覆盖。"
+}

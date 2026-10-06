@@ -1,0 +1,52 @@
+{
+  "skill": "entity-choice-incorporation",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们三个同学想做点生意,听说合伙企业不用交企业所得税,是不是直接搞合伙比开公司划算?",
+      "expected_behavior": "应激活本 skill,按责任-税负交换框架回应:先问责任敞口(普通合伙人无限连带三后果——个人财产补足、份额约定不抗债权人、解散后仍连带),再谈先分后税省一道所得税的对价",
+      "notes": "最典型正面场景:责任-税负交换定形式(第一章 问题2)"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我打算注册一家公司,三五年内有上市的想法,是先注册有限责任公司还是直接注册股份有限公司?注册大概要走哪几步?",
+      "expected_behavior": "应激活本 skill,给出'默认有限、有短期上市计划才设股份'的判断+有限公司六步设立流程清单(并可提示股份发起五步/募集八步)",
+      "notes": "有限vs股份(上市预留)+流程清单双主题"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们几个创始人已经谈好股比和分工,签了一份合作协议,准备下个月再去注册公司,是不是签完这份协议就万事大吉了?",
+      "expected_behavior": "应激活本 skill,指出设立协议效力止于公司成立——股比与决策机制必须搬进章程才能存活;并提示设立期签约名义与设立失败时发起人对外连带的风险",
+      "notes": "设立协议寿命止于成立+条款迁移是本 skill 标志性内容(第一章 问题25/35)"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们公司注册资本认缴500万,章程写的2040年缴足,现在公司被起诉了,债权人能不能要求我们股东把没缴的补上?",
+      "expected_behavior": "不应激活本 skill,应激活 capital-contribution-compliance(出资合规与缴纳义务)——形式早已选定、主体已设立,问题是出资义务与债权人补充清偿,不是组织形式选择或设立流程",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 capital-contribution-compliance(出资合规)"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们已经经营了五年的合伙企业想直接变更为有限公司,去登记机关能办变更登记吗?",
+      "expected_behavior": "不应激活本 skill,应激活 capital-change-restructuring(增资改制)——这是既有主体的组织形式改制问题(责任形式不同不能直接互变、只能注销再设),不是从零设立的流程咨询",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 capital-change-restructuring(增资改制)"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我想一个人开公司,但听说一人公司出事股东要连带,是不是注册成两个人的公司更安全?",
+      "expected_behavior": "可激活本 skill(形式选择中的一人公司选项与责任敞口评估属于本 skill 第一、二步),同时衔接 veil-piercing-liability 的财产混同与举证责任倒置内容;两 skill 协作,以本 skill 为主入口",
+      "notes": "边界:形式选择(本 skill)与有限责任边界/一人公司举证倒置(veil-piercing-liability)交界"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),两条均为同书兄弟 skill 混淆测试,分别指向 capital-contribution-compliance 与 capital-change-restructuring。"
+}

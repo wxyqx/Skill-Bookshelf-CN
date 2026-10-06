@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**44 本书 · 755 个 skills**（最后更新：2026-10-06）
+**45 本书 · 771 个 skills**（最后更新：2026-10-07）
 
 ### 分类导航
 
@@ -56,7 +56,7 @@
 | 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./03-个人成长/effective-executive/) |
 | 《掌控习惯》*Atomic Habits* | 詹姆斯·克利尔 · 2018/2019 | 习惯设计 / 身份转变 / 行为四定律 | 16 | [`atomic-habits/`](./03-个人成长/atomic-habits/) |
 
-#### 04-创业与经营（9 本）
+#### 04-创业与经营（10 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -69,6 +69,7 @@
 | 《定位：有史以来对美国营销影响最大的观念》*Positioning* | 艾·里斯、杰克·特劳特 · 1981/2011 | 营销战略 / 心智认知 / 品牌命名 / 攻防策略 | 15 | [`positioning-ries-trout/`](./04-创业与经营/positioning-ries-trout/) |
 | 《流量池》*Traffic Pool* | 杨飞 · 2018 | 流量池思维 / 裂变增长 / 品效合一 / 品牌与场景 / 数字广告 | 19 | [`traffic-pool/`](./04-创业与经营/traffic-pool/) |
 | 《增长黑客》*Growth Hacker* | 范冰 · 2015 | AARRR 漏斗 / PMF 验证 / 冷启动 / 病毒传播 / 增长指标 | 21 | [`growth-hacker/`](./04-创业与经营/growth-hacker/) |
+| 《创业投资法律手册：那些你在创业时应该知道的公司法知识》 | 杨春宝、王成兵 · 2014 | 设立形式 / 出资合规 / 股权设计 / 公司治理 / 股东救济 / 股权激励 / 退出清算 | 16 | [`startup-legal-handbook/`](./04-创业与经营/startup-legal-handbook/) |
 
 #### 05-产品与创新（6 本）
 
@@ -378,6 +379,13 @@
 - **Skills**：`demand-four-questions` · `pmf-gate` · `mvp-validator` · `actions-over-words` · `seed-user-selection` · `do-things-that-dont-scale` · `content-marketing-engine` · `ab-testing-protocol` · `activation-aha-magic-number` · `subsidy-ladder` · `gamification-boundary` · `retention-diagnosis` · `winback-mechanisms` · `growth-metrics-system` · `freemium-decision` · `turn-penalty-into-reward` · `viral-k-factor` · `external-viral-loop` · `moment-marketing` · `aarrr-funnel-diagnosis` · `growth-ethics-redlines`
 - **备注**：2015 年快照——开放平台红利、补贴大战、SEO/ASO 权重、平台规则均已变，各 skill 的 B 段已内嵌时效警示，只取判断逻辑层；案例幸存者偏差明显（引用的都是赢家），与《流量池》同属增长实操谱系、互为补充。
 
+### 45. 《创业投资法律手册：那些你在创业时应该知道的公司法知识》 · [`startup-legal-handbook/`](./04-创业与经营/startup-legal-handbook/)
+
+- **作者**：杨春宝、王成兵 · 2014（中国法制出版社，基于 2013 年《公司法》修正案）
+- **一句话**：创业公司的法律灾难绝大多数来自"用想当然的方式安排公司事务"——本书以 235 个真实咨询问答，按"法定程序 + 章程自治"教创业者安排企业形式、出资、股权、治理、交易与退出：16 个 skill 覆盖设立形式选择、出资合规、股东资格与代持、章程治理设计、决议效力、股权权能与转让定价、增减资与重组、股权激励、小股东救济、退出清算与涉外投资。
+- **Skills**：`entity-choice-incorporation` · `capital-contribution-compliance` · `veil-piercing-liability` · `charter-governance-design` · `equity-rights-design` · `resolution-validity-procedure` · `shareholder-qualification-registration` · `minority-shareholder-remedies` · `nominee-shareholding-risk` · `equity-transfer-pricing` · `capital-change-restructuring` · `employee-equity-incentive` · `exit-dissolution-liquidation` · `legal-rep-compliance-contracts` · `paper-validity-traps` · `cross-border-foreign-investment`
+- **备注**：⚠️ 时效提示——蒸馏自 2014 年公司法语境，2023 年修订《公司法》（2024-07-01 施行）后注册资本认缴、公司治理等条款已有重大变化，涉及具体条文务必对照现行法核验（各 skill 内已内嵌相应警示）；律师问答体，方法论形态为决策框架、法定程序清单与构成要件，非理论体系。
+
 ---
 
 ## 安装
@@ -440,7 +448,8 @@ skill-bookshelf/
 │   ├── xiaomi-startup-thinking/   # 《小米创业思考》
 │   ├── positioning-ries-trout/   # 《定位：有史以来对美国营销影响最大的观念》
 │   ├── traffic-pool/   # 《流量池》
-│   └── growth-hacker/   # 《增长黑客》
+│   ├── growth-hacker/   # 《增长黑客》
+│   └── startup-legal-handbook/   # 《创业投资法律手册：那些你在创业时应该知道的公司法知识》
 ├── 05-产品与创新/
 │   ├── how-google-works/   # 《重新定义公司：谷歌是如何运营的》
 │   ├── hooked/   # 《上瘾：让用户养成使用习惯的四大产品逻辑》

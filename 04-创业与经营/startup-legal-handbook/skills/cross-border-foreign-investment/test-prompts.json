@@ -1,0 +1,59 @@
+{
+  "skill": "cross-border-foreign-investment",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我是美国籍,在中国工作好几年攒了一些人民币,想用这笔钱在国内开一家公司。朋友说外国人只能开外资公司,但我觉得我用的是人民币啊,到底算内资还是外资?",
+      "expected_behavior": "应激活本 skill,用'身份认定看国籍不看币种'框架纠正误判:外国人以人民币出资设立的公司仍是外资企业;并提示工资等非投资所得人民币不能直接出资(历史框架)与现行法下的报告义务,建议按现行法核实",
+      "notes": "最典型正面场景:国籍 vs 币种的身份认定(书中问题202)"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我朋友入了加拿大籍,现在回国想和另一个中国朋友合伙开早教中心。听说自然人不能直接当合资企业的中方股东,有什么合法的变通办法吗?",
+      "expected_behavior": "应激活本 skill,给出自然人合资变通菜单(一人公司搭桥/先内资运营再由外方增资变身/特定地区直接合资),并提示早教行业的组织形式与准入归类须按现行负面清单重新查证",
+      "notes": "高博士合资三部曲的平行场景:结构变通+行业准入"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们公司想在德国设个点试水欧洲市场,先派两个人过去调研,后面如果订单多了再正式经营。是设代表处还是分公司好?",
+      "expected_behavior": "应激活本 skill,按'能否独立签约'的经营性质分水岭给建议:纯调研→代表处(手续简、不能签业务合同,有效合同由总公司签);要独立经营→分公司(非独立实体,总公司全责);并提示境内境外投资手续按现行备案体系办理",
+      "notes": "境外设点形式选择(书中问题171德国例)"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "一个外国投资人去年买了我们大股东的个人股权,协议签了钱也付了,但一直没去办任何审批手续。现在他想反悔要回转让款,这协议到底算生效还是不生效?",
+      "expected_behavior": "应激活本 skill,用'审批生效主义'历史框架分析:受让方是外国人即构成外资并购,当年未报批=效力悬置,法院可能责令补办报批;同时必须强提示该审批生效主义已被2020《外商投资法》终结,现行法下须按负面清单与信息报告制度重新判断,并建议咨询涉外律师",
+      "notes": "动漫公司未报批并购案的平行场景,考察时效警示是否同步输出"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我打算让表哥代我持有公司的股份,签一份代持协议,这种安排有什么风险?协议有效吗?",
+      "expected_behavior": "不应激活本 skill,应激活 nominee-shareholding-risk(股权代持与隐名投资)——纯内资代持的一般风险设计,不涉外资身份与准入;本 skill 只处理规避外资准入的代持无效问题",
+      "notes": "同书兄弟 skill 混淆诱饵:涉外隐名 vs 内资代持,应触发 nominee-shareholding-risk"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们两个内资股东之间要转让股权,一方不同意,另一方说要行使优先购买权,这个价格怎么确定才算公平?",
+      "expected_behavior": "不应激活本 skill,应激活 equity-transfer-pricing(股权转让与定价)——内资股东之间的转让定价与优先购买权,不含涉外主体,无需外资并购定性",
+      "notes": "同书兄弟 skill 混淆诱饵:内资股权转让定价,应触发 equity-transfer-pricing"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "有个外国投资人想进我们这个行业,但这个领域对外资有限制。他提议让我们公司的一个员工出面当显名股东,他做隐名的实际出资人,签个协议就行了吧?",
+      "expected_behavior": "可激活本 skill(优先):涉外主体+规避准入的隐名安排是本 skill 的核心判断——先做准入穿透检查,再给出'规避准入的隐名投资协议直接无效'的结论;同时衔接 nominee-shareholding-risk 讨论协议层面的一般风险,两 skill 协作,本 skill 主导定性",
+      "notes": "边界:代持工具是 nominee-shareholding-risk 的领域,但涉外规避准入的定性必须先经本 skill;考察 skill 协作顺序"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "4 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),两条均为同书兄弟 skill 混淆诱饵(nominee-shareholding-risk / equity-transfer-pricing)。本书为 2014 年语境,所有 should_trigger 的 expected_behavior 均要求附带时效性提示(《外商投资法》/负面清单/现行程序)。"
+}

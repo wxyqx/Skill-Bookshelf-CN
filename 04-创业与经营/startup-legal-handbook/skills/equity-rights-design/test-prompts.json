@@ -1,0 +1,52 @@
+{
+  "skill": "equity-rights-design",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我和两个朋友合伙开科技公司,他们出钱我出技术负责研发,不出资。我想要30%的股份,他们说技术不好作价,请问技术股到底怎么给我才稳妥?",
+      "expected_behavior": "应激活本 skill,先指出技术能力属劳务出资不能直接作价,再按路径菜单(分红权无偿让渡/章程约定超额分红/成立后无偿受让并锁定表决权/代缴出资)按默契度选型,并提示干股不登记、真技术出资须评估加权属转让",
+      "notes": "最典型正面场景:高博士E公司问题的原样复现"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们公司两个股东一个占60%一个占40%,现在想约定40%的股东多拿分红,按45%分,而表决权还是按持股比例来,这样写章程有效吗?",
+      "expected_behavior": "应激活本 skill,依据有限公司人合性确认分红权与出资比例脱钩合法(全体股东约定/写入章程),表决权可按出资比例保留,同时提示该设计仅有限公司可行、分红落地依赖公司作出分红决议",
+      "notes": "权益脱钩设计的核心场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们要引进一个外部投资人增资,有老股东说增资得先让他按比例优先认购,不然程序有问题,是这样吗?我们能让他放弃吗?",
+      "expected_behavior": "应激活本 skill,说明有限公司原股东按实缴比例享有优先认缴权、全体股东可约定排除,引进投资人前须取得放弃安排或章程/协议事先排除,否则增资程序有瑕疵",
+      "notes": "优先认缴权的章程约定空间场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司章程里股东会、董事会怎么分权,僵局条款怎么写,两个人五五开怕以后谁都说了不算,帮我设计一下章程框架?",
+      "expected_behavior": "不应激活本 skill,应激活 charter-governance-design(章程定制与治理权力分配)——问的是治理机构、授权与僵局的完整章程设计,不是股东权益(表决/分红/技术股)的拆分;本 skill 在其中仅是权益比例的输入",
+      "notes": "同书兄弟 skill 混淆诱饵:权益设计 vs 治理章程设计,应触发 charter-governance-design"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我有一项发明专利想作价100万入股朋友的公司,请问必须找评估机构评估吗?专利权要不要过户到公司名下?",
+      "expected_behavior": "不应激活本 skill,应激活 capital-contribution-compliance(非货币出资的评估程序与权利转移)——问的是真技术出资的合法程序,不是权益结构拆分;仅在程序走完后安排权益比例时才衔接本 skill",
+      "notes": "同书兄弟 skill 混淆诱饵:技术出资程序 vs 权益设计,应触发 capital-contribution-compliance"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司想给运营总监'2%股份',只让他年底分钱,不参与决策,离职了就收回,这个怎么落地?和给技术合伙人的技术股是一回事吗?",
+      "expected_behavior": "边界场景:干股协议(只让渡分红权、不登记、离职收回以无偿取得为前提)是员工激励语境,应主要由 employee-equity-incentive 承接;但'只给分红不给表决权'的权能切分逻辑与给技术合伙人的权益设计同源,本 skill 可协作提供权能拆分原理;两 skill 可组合,单判其一均可说明理由",
+      "notes": "干股在激励与权益设计两个语境交界处,考察协作与区分表述"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),两条均为同书兄弟 skill 混淆测试(charter-governance-design / capital-contribution-compliance)。"
+}

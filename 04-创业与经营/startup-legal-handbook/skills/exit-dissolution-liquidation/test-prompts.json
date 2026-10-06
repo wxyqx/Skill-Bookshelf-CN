@@ -1,0 +1,52 @@
+{
+  "skill": "exit-dissolution-liquidation",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我和合伙人各持公司50%的股权,现在彻底闹翻了,谁也不服谁,股东会什么都决定不了,转让股权他也不同意,公司就这么耗着。我还有什么合法出路?",
+      "expected_behavior": "应激活本 skill,按50/50破局阶梯(一方受让→向第三人转让/不同意者应购买→不受欢迎买家施压→穷尽后司法解散)逐级分析,并提示'不受欢迎买家'策略无程序保障、司法解散以穷尽其他途径为前提",
+      "notes": "最典型正面场景:50/50僵局破局术(问题175,对应 v-A47)"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们公司四个股东已经两年开不成董事会和股东会了,决策完全瘫痪,我和另一个股东加起来持股45%,可以向法院申请解散公司吗?需要什么条件?",
+      "expected_behavior": "应激活本 skill,用司法解散三要件检查清单核对:表决僵局(两年开不成会,对应司法解释量化情形)、10%表决权门槛(45%合并达标,借鉴I公司案5%+40%合并起诉)、穷尽其他途径(须留转让/回购/减资不成的证据);并提示亏损欠薪不属于表决僵局",
+      "notes": "司法解散三要件+表决权合并计算(问题184-185,对应 v-A49)"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司股东会已经决定不做了,准备解散注销,听说要先清算。清算组怎么组、债权人怎么通知、注销手续的顺序是什么?另外清算时发现公司欠的债比资产还多,该怎么办?",
+      "expected_behavior": "应激活本 skill,给出清算注销程序清单(15日内组清算组→10日通知债权人→60日公告→清偿→税务/银行/印章/工商注销)并处理资不抵债分支:自行清算无协商清偿依据,必须向法院申请破产",
+      "notes": "清算注销程序+破产转换双主题(问题182-183,对应 v-A50/v-A51)"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想把我手上15%的股权卖给一个外部的投资人,别的股东说他们有优先购买权,这个价格应该怎么算?按出资额还是按净资产?",
+      "expected_behavior": "不应激活本 skill,应激活 equity-transfer-pricing(股权转让程序与定价)——用户还在退出阶梯第一级,核心诉求是转让定价技术(三锚点选择),不是退出路径判断或公司终结",
+      "notes": "同书兄弟 skill 混淆诱饵:退出阶梯第一级的转让定价归 equity-transfer-pricing,本 skill 只管'转不出去之后'"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我是小股东,大股东独揽公司从来不给我们看账,分红也一分没有,我不想退出公司,有什么办法能制衡他?",
+      "expected_behavior": "不应激活本 skill,应激活 minority-shareholder-remedies(小股东存续期救济)——用户明确'不想退出',诉求是知情权、分红请求等公司内存续救济,不是退出阶梯或解散清算",
+      "notes": "同书兄弟 skill 混淆诱饵:存续期救济 vs 退出/终结,判停条件之一"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司连年亏损,工资都发不出来了,大股东还一直欺负我,我能不能直接起诉法院把公司解散了,一了百了?",
+      "expected_behavior": "可激活本 skill,但检查清单的结论是反面运用:亏损、欠薪、大股东欺压均不在'表决僵局'范围内,属司法解释明确的不予受理情形——应明确告知司法解散走不通,并转接 minority-shareholder-remedies 的存续期救济(知情权取证、派生诉讼等);本 skill 的价值是排除错误路径+指路",
+      "notes": "边界:场景词(解散)命中但三要件不满足,考察 skill 是否会用不予受理负面清单判停而非机械激活"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),两条均为同书兄弟 skill 混淆测试(equity-transfer-pricing、minority-shareholder-remedies)。"
+}

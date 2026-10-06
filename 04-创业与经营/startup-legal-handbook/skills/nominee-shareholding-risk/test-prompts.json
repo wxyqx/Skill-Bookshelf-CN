@@ -1,0 +1,66 @@
+{
+  "skill": "nominee-shareholding-risk",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我出全部资金,让小舅子当工商登记的股东,我们俩签一份代持协议,这样是不是就万无一失了?协议要怎么写?",
+      "expected_behavior": "应激活本 skill,纠正\"签协议就安全\"的误区(协议只约束双方、不能对抗第三人),并按六项清单(权利归属/无条件配合/限制管理权/违约救济/内部公开/前置条件核查)给出协议设计要点,附显名化证据工程清单",
+      "notes": "最典型正面场景:事前代持安排+协议设计"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "代我持股的合伙人背着我把登记在他名下的股权全部卖给了一个不知情的投资人,我能起诉把股权追回来吗?",
+      "expected_behavior": "应激活本 skill,按江小姐案框架输出:善意受让人受保护、转让不可追回;只能依代持协议向显名股东索赔(无协议则只能要求返还投资款);并对照显名化两条件复盘为何确权失败、提示事前防控清单",
+      "notes": "主案例场景:显名股东擅自转让(书中第二章问题79)"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "我朋友是外籍人士,想借我和另一个中国股东的名义在国内开一家公司,签个代持协议规避外资准入限制,这样操作可行吗?",
+      "expected_behavior": "规避外资准入的借名安排属 cross-border-foreign-investment 主导(其 description 明示),本 skill 的代持协议设计可作协作;排除条款指向 cross-border 时应优先",
+      "notes": "边界用例:外资准入代持双 skill 交界"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "几年前我帮朋友挂名当股东,实际一分钱没出也没参与经营,现在我想彻底退出,他一直拖着不办变更手续,我该怎么办?",
+      "expected_behavior": "应激活本 skill,按名义股东退出三步(催促履行→以查账权、要求返还公章证照等股东权利施压→诉讼)输出路径,同时提示名义股东的补足出资责任与法代身份风险",
+      "notes": "名义股东退出场景(书中第二章问题76,对应 v-A33)"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们准备给核心团队设一个期权池,打算把15%股权放在大股东名下代持,等员工成熟后再逐个发放,这个方案怎么设计?",
+      "expected_behavior": "不应激活本 skill,应激活 employee-equity-incentive(员工股权激励)——期权池代持只是激励载体细节,核心诉求是激励形式选择与授予/退出机制设计;本 skill 面向投资型代持",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 employee-equity-incentive,拒判本 skill"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我把股权转让给了朋友,协议签了、钱也收清了,但一直没办工商变更登记,他现在要求公司给他分红,公司应该给他吗?",
+      "expected_behavior": "不应激活本 skill,应激活 shareholder-qualification-registration(股东资格与名册/登记规则)——这是显名转让后\"名册生效、登记对抗\"的行权门槛问题,双方之间不存在隐名代持关系",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 shareholder-qualification-registration,拒判本 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "替我持股的朋友个人欠了巨额债务被起诉,债权人申请强制执行登记在他名下的我们公司股权,我提执行异议能挡住吗?",
+      "expected_behavior": "可激活本 skill:代持\"不能对抗第三人\"意味着执行风险是代持的核心风险面之一,可按风险画像输出警示与事前防控;但\"实际出资人能否排除名义股东债权人的执行\"系书中未覆盖的现行争议,必须按 B 段时效警示对照现行裁判口径,并与 shareholder-qualification-registration 协作",
+      "notes": "边界:本 skill 风险框架适用,但具体裁判规则超出 2014 年书内内容"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我爸当年借他战友的名字买了公司股份,钱是我爸出的,只有一份两人签的代持约定,没公开过。现在战友去世,战友家属要把股份当遗产分。这股份能要回来吗?",
+      "expected_behavior": "应激活本 skill:隐名投资协议只约束双方不能对抗第三人;显名化需其他股东知晓+公司认可其行使股东权利;给出资凭证固定与确权诉讼路径",
+      "notes": "隐名投资显名化与对抗效力是本 skill 的核心内容"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "至少 3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),其中至少 1 条为同书兄弟 skill 混淆测试。"
+}

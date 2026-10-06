@@ -1,0 +1,59 @@
+{
+  "skill": "legal-rep-compliance-contracts",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我亲戚开了家公司,让我挂名当法定代表人,说不用我参与经营也不出钱,就是帮个忙。这有什么风险吗?如果有的话我该怎么保护自己?",
+      "expected_behavior": "应激活本 skill,指出挂名法代的民事/行政/刑事三类敞口(尤其印章不受控时作为'直接负责的主管人员'被调查甚至起诉的风险),并给出书中自保方案:只任董事长、让实际经营者任法代、管住签章、留存不知情证据",
+      "notes": "最典型正面场景:挂名法代风险与自保(问题106/107,v-A08)"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们公司股东会已经把原来的老板免职了,但他拒不配合签字,法定代表人变更登记一直办不下来,他现在还拿着公章在外面跟供应商签合同。我们登报声明他的章作废了,这样能挡住吗?",
+      "expected_behavior": "应激活本 skill,指出免职后未办变更登记对第三人仍是法代(登记对抗),登报声明毫无意义;按免职文件+任职文件+申请书(拒签由拟任者凭决议签署)、30日内登记的程序推进;公司对外先担责再向其追偿",
+      "notes": "朱某免职风波+登记对抗核心场景(问题86,v-B09)"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们创业公司没有法务,上个月签了一份设备采购意向书,里面写了'以正式合同为准',现在对方反悔不卖了,我前期投入的考察费和场地准备费能让他赔吗?可以直接告他违约吗?",
+      "expected_behavior": "应激活本 skill,按意向书效力光谱判档:有排除约束力条款则不担违约但担缔约过失,赔偿信赖利益(缔约费用+履约准备费用+合理机会损失);若已具备基本条款、未排除约束力且一方已履行对方接受,则转化为正式合同可追违约",
+      "notes": "意向书三档效力光谱(问题117,v-A53)"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "公司账上闲置了几百万,老板想借给朋友的公司收点利息,又想拿一部分去炒股。这两件事公司能直接做吗?要不要走什么程序?",
+      "expected_behavior": "应激活本 skill,按资金定性框架分析:企业间拆借按现行法判断(偶发+自有资金有效,利率上限LPR四倍,须更新书中'一律无效'的旧结论);炒股属转投资须股东会同意,个人擅自动用触挪用资金罪",
+      "notes": "企业间拆借时效变化+资金红线(问题111/112,v-A55/v-B04)"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我和合伙人打算五五开股权,听说这样容易把公司搞瘫,章程里的僵局条款和表决权应该怎么设计比较好?",
+      "expected_behavior": "不应激活本 skill,应激活 charter-governance-design(章程定制与治理权力分配)——这是章程层的表决权设计与僵局条款事前设计,不是法代责任或合同合规问题",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 charter-governance-design(事前章程设计 vs 法代身份/合同合规)"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们是一人公司,老板平时都用个人微信收货款,公司欠供应商的钱还不上,现在供应商把公司和老板个人一起告了,要求老板对公司债务承担连带责任,这有道理吗?",
+      "expected_behavior": "不应激活本 skill,应激活 veil-piercing-liability(法人人格否认/刺破面纱)——这是股东财产混同对公司债务连带的问题(一人公司举证责任倒置),不是法定代表人个人责任或经营合规问题",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 veil-piercing-liability(股东连带 vs 法代个人责任,两者都涉及'个人担责'但主体不同)"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "公司的公章和营业执照都被闹翻的大股东抢走了,我是法定代表人但手里没有公章,我能以公司名义去法院起诉要回公章吗?还是必须先登报声明遗失?",
+      "expected_behavior": "可激活本 skill(法代代表权是本 skill 的一部分:法代代表公司起诉无须公章;登报在公章遗失补办中只是报案+重新申领的凭证环节),同时衔接 charter-governance-design 的控制权冲突处理;两 skill 协作",
+      "notes": "边界:法代代表权与公章证照救济交叉,涉及'登报崇拜'纠偏(v-A36/v-B09)"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "4 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),两条均为同书兄弟 skill 混淆测试(应触发 charter-governance-design / veil-piercing-liability,见各条 notes)。"
+}

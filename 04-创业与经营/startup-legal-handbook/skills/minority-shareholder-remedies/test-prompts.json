@@ -1,0 +1,52 @@
+{
+  "skill": "minority-shareholder-remedies",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我是小股东占15%,怀疑大股东做两套账,书面要求查会计账簿被公司口头拒绝了,公司也没说要等多久。我还能怎么办?",
+      "expected_behavior": "应激活本 skill,按知情权三步程序输出:书面请求+说明目的→公司15日内书面答复并说明理由(唯一正当抗辩是'不正当目的可能损害公司合法利益',口头拒绝即程序瑕疵)→拒绝或逾期即诉请法院提供查阅;并提示2023年公司法知情权已扩至会计凭证、范围判断须按新法核实",
+      "notes": "最典型正面场景:查账被拒+程序细节"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们公司总经理把公司账上近40万转到自己名下,公司公章也在他一伙人手里,公司肯定不会起诉他自己。我想直接去法院告他,让他把40万里属于我的那份赔给我,行得通吗?",
+      "expected_behavior": "应激活本 skill:先纠正'赔给我那份'的预期错误——侵占资金应全额归还公司,赔偿归公司不归股东个人;再走派生诉讼四步前置(交涉→书面请求监事会→30日不诉或紧急→以自己名义为公司利益直诉),并给取证清单(财务凭证、银行对账单、申请财务人员出庭)与刑事报案并行选项",
+      "notes": "派生诉讼主场景:赔偿归属纠错+四步程序"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司说我的认缴出资还没到缴纳期限、一分钱没掏,就不让我查账,说没出资的股东没有资格行使股东权利,这个说法对吗?",
+      "expected_behavior": "应激活本 skill,用'出资瑕疵不灭知情权'反驳:未丧失股东身份前仍享有知情权,公司唯一正当抗辩是书面说明的不正当目的;正确路径是对未实缴股东走催缴/追责程序而非在知情权上设卡(设卡反而送出可诉的程序瑕疵)",
+      "notes": "v-B05 核心反直觉规则"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "公司连续5年盈利但一分红没分过,我这个小股东受够了,不想跟他们斗了,就想拿回我的投资退出,有什么办法?",
+      "expected_behavior": "不应激活本 skill,应激活 exit-dissolution-liquidation(退出路径阶梯/法定回购/司法解散)——用户诉求是退出而非追责取证;知情权只是可选筹码,救济不是目标",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 exit-dissolution-liquidation"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "上个月的股东会决议是董事长自己签了一批代签的同意票弄出来的,根本没通知我们几个小股东,这个决议本身还有效吗?能撤销吗?",
+      "expected_behavior": "不应激活本 skill,应激活 resolution-validity-procedure(决议效力与会议程序)——问题核心是决议自身的程序瑕疵与撤销权行使,不是对人的知情权/派生诉讼救济",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 resolution-validity-procedure"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "大股东没开股东会就跟别人合资设了一家子公司,现在我想起诉把那家子公司撤销掉,另外这份没我签名的股东会决议我也能一起要求撤销吧?",
+      "expected_behavior": "可激活本 skill:先纠偏'子公司不可诉撤'(无公司瑕疵设立制度、善意第三人受保护,决议撤销也不导致子公司消灭),把救济转向以滥用职权索赔(须自证损失);决议程序瑕疵撤销部分可衔接 resolution-validity-procedure,两 skill 协作",
+      "notes": "边界:子公司不可诉撤(v-A12)归本 skill,决议撤销细节归兄弟 skill"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),两条均为同书兄弟 skill 混淆诱饵(分别应触发 exit-dissolution-liquidation 与 resolution-validity-procedure)。"
+}

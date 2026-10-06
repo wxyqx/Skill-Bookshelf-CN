@@ -1,0 +1,52 @@
+{
+  "skill": "paper-validity-traps",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们公司的执行董事被股东会免职了,但他不肯交出公章。我们已经在报纸上登报声明公章作废,这样他以后拿公章签的合同就都不算数了吧?",
+      "expected_behavior": "应激活本 skill(登报崇拜),指出:登报声明不产生作废效力,在办理法定代表人变更登记前朱式人物对外仍代表公司、其持章行为公司照样担责;正确动作是股东会决议+30日内申请工商变更登记,登报只在报案补刻中作凭证;已签合同按表见代表/盗盖偷盖规则另行判断",
+      "notes": "朱某公章案(第三章问题86)的镜像场景,最典型正面触发"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们有个股东欠了一屁股债,半年前人间蒸发了。其他股东商量好登报公告,限期一个月让他回来,逾期不回来就视为他自动放弃全部股份,大家把股份分掉。这样操作有问题吗?",
+      "expected_behavior": "应激活本 skill(登报崇拜+多数决越权),指出:除非章程或股东协议事先有明确约定,登报催告'自动放弃股份'不产生任何法律效果;股权不因失踪而消灭,正路是追责+申请强制执行其股权,或走催告→合理期限→决议解除/失权程序;多数表决不能直接剥夺股东资格",
+      "notes": "习某失踪股东案(第二章问题67)场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们公司有个股东失联两年了,其他股东开了个会表决把他的股份没收,还在报纸上登了公告说他的股份自动作废,这样就彻底把他清出去了吧?",
+      "expected_behavior": "应激活本 skill:指出\"登报作废/多数决直接没收股份\"均无法律效果(登报崇拜+多数决越权),给出程序替代通道(催缴/失权或转让/司法途径)",
+      "notes": "多数决越权+登报崇拜双陷阱识别,本 skill 的标志性场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我和联合创始人最近矛盾越来越大,想趁现在关系还行,提前在章程里把僵局解决条款和互相制衡的授权清单设计好,应该怎么写?",
+      "expected_behavior": "不应激活本 skill,应激活 charter-governance-design(章程定制与治理权力分配)——这是事前设计,文件还没出问题;本 skill 只做事后'哪份文件没用'的识别",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 charter-governance-design(事前设计 vs 事后识别)"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "公司注册资本1000万想减到600万,听说要登报公告,具体流程怎么走?要不要先通知债权人?",
+      "expected_behavior": "不应激活本 skill,应激活 capital-change-restructuring(资本变动与重组)——减资的法定程序(编表、决议、通知债权人、公告、变更登记)是其核心内容;此处登报是法定公告环节,不是'以为生效其实失效'的陷阱识别",
+      "notes": "混淆诱饵:法定公告场景(登报有效力)vs 登报崇拜(登报无效力),且主诉求是减资流程,应触发 capital-change-restructuring"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "闹翻之后我才发现,我们公司注册时用的就是工商局的免费范本章程,现在大股东拿一份模仿我签名的股东会决议要对外担保,章程里连担保谁说了算都没写。这份章程还有救吗?那份决议我能翻掉吗?",
+      "expected_behavior": "两 skill 协作:先激活本 skill 做识别(范本章程三颗雷体检+伪造签名决议的效力判断与现行法救济通道),再衔接 charter-governance-design 给出章程修订的补设计建议(担保决策机构、授权清单、僵局条款,需2/3表决权修订);伪造签名部分可衔接 resolution-validity-procedure 深入",
+      "notes": "边界:范本章程失效识别(本 skill)+事后补设计(charter-governance-design)+决议瑕疵(resolution-validity-procedure)三重叠加"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须通过(诱饵容错为 0),其中 should-not-trigger-01 为同书兄弟 skill 混淆诱饵,应触发 charter-governance-design;should-not-trigger-02 应触发 capital-change-restructuring。"
+}

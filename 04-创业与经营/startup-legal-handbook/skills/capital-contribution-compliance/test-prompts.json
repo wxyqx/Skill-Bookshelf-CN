@@ -1,0 +1,59 @@
+{
+  "skill": "capital-contribution-compliance",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们三个合伙人注册科技公司,有个朋友说他不出钱,用他的'技术'入股占20%——就是他懂这行、以后负责技术,这样写进章程可行吗?",
+      "expected_behavior": "应激活本 skill,指出'技术能力'实为劳务出资、落入禁止清单(劳务/信用/商誉等不得作价出资),按两要件+禁止清单判定不合格,并给出替代路径(现金出资+无偿受让股权/章程约定分红权/干股)",
+      "notes": "最典型正面场景:技术能力折股=劳务出资违法(书中高博士案例)"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "听说现在是认缴制,我们注册资本写2000万、2045年前缴足就行了吧?反正不用实际掏钱,对吧?",
+      "expected_behavior": "应激活本 skill,纠正'认缴=不缴'误区:缴纳义务与补充清偿责任保留,未足额出资股东在公司债务不能清偿时于未出资本息范围内担责;并按B段时效警示提示2023《公司法》5年实缴+过渡期+加速到期,超长期限条款已成整改瑕疵",
+      "notes": "认缴期限随意写长=v-B14 反面案例,需携带时效性警示"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "公司成立半年,一个股东当时借了高利贷缴的出资,现在他趁管账方便分几次把150万转回自己卡里还债,做了一套假对账单,我们要追他,他会有什么责任?",
+      "expected_behavior": "应激活本 skill,定性为抽逃出资,按三重责任展开(民事返还+赔偿、行政罚款、刑事风险),对照书中吕先生案例与易踩场景清单给出追责路径",
+      "notes": "吕先生抽逃出资案例的镜像场景"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "我们准备收购一家公司60%的股权,卖方股东还有800万认缴出资没实缴,受让之后这800万轮到我们补吗?签转让协议要注意什么?",
+      "expected_behavior": "应激活本 skill,按瑕疵出资责任矩阵回答:原始股东的资本充实责任不随转让消失,受让人知道或应当知道瑕疵的承担连带责任,尽调必须核查实缴凭证,可把补足出资写成交割条件",
+      "notes": "受让人知情连带=v-A14 矩阵的直接应用"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想让我表弟代我持有公司股份并当登记股东,我自己实际出钱,签个代持协议,出资不到位的话会牵连我吗?",
+      "expected_behavior": "不应激活本 skill,应激活 nominee-shareholding-risk(股权代持与隐名投资)——诉求核心是代持安排的风险设计,出资瑕疵只是背景;本 skill 仅覆盖其'登记股东对外补足出资'的一面",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 nominee-shareholding-risk,不是本 skill"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们公司要增资500万引进新投资人,股东会决议和章程修订该怎么弄,老股东优先认购怎么安排比例?",
+      "expected_behavior": "不应激活本 skill,应激活 capital-change-restructuring(资本变动与重组)——诉求是增资程序与优先认购安排,不是出资形式合法性或瑕疵责任判断",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 capital-change-restructuring,不是本 skill"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "当初公司缺钱,我直接转了300万进公司账,没签任何协议也没办增资,现在公司要清算,这笔钱我能以债权人身份优先拿回来吗?",
+      "expected_behavior": "可激活本 skill:追加投入定性问题属本 skill 的'凭证/合意决定股权还是债权'框架——无借款合意与凭证、又无增资程序的,定性不明只能按股权处理排在清偿序列后端;同时衔接收尾环节可提示 exit-dissolution-liquidation,两 skill 协作",
+      "notes": "边界:无凭证投入定性(对应 v-B03 反面案例)是本 skill 素材,但清算顺位问题涉及 exit-dissolution-liquidation"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "4 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须拒判(诱饵容错为 0),两条均为同书兄弟 skill 混淆测试(应触发 nominee-shareholding-risk 与 capital-change-restructuring)。"
+}

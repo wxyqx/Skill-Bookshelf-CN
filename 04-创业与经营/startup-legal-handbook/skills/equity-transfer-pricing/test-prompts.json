@@ -1,0 +1,52 @@
+{
+  "skill": "equity-transfer-pricing",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我刚发现公司大股东在没有通知任何其他股东的情况下,把自己80%的股权全部转让给了外面一家公司,而且已经办完了工商变更登记。我不同意这个买家,我有什么办法能翻盘?",
+      "expected_behavior": "应激活本 skill,指出对外转让的法定程序(通知→30日视为同意→不同意应购买→同等条件优先购买)被绕开,法定权利优先于受让人约定权利,给出两级救济:同等条件搭车跟卖,或起诉出让方与受让方请求确认转让合同无效;已办登记不构成既成事实",
+      "notes": "主案例场景:未通知转让80%股权(第五章 问题121)"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我和合伙人商量好了,他把他40%的股权转给我退出,两人都不想自己掏这笔钱,打算直接从公司账上划款给他当转让款,这样操作有什么问题吗?",
+      "expected_behavior": "应激活本 skill,触发付款主体红线:股权转让款必须由受让方个人支付,公司支付有抽逃出资嫌疑(交易主体是股东而非公司,获益的是受让方);确需公司资金的合法通道是依法定程序减资",
+      "notes": "付款主体红线=公司代付转让款(第九章 问题176,v-B01)"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有投资人想收购我们公司一个股东的股权,现在在谈价格。公司账上有不少未分配利润,他想先分红再谈,卖股权的股东想知道价格到底该怎么定,是按当初的出资额还是净资产?品牌和渠道这些算不算钱?",
+      "expected_behavior": "应激活本 skill,用定价三锚点(未实质经营用实缴出资额/资产负债简单用账面净资产/复杂或有无形资产用资产评估)选择计价基础,并说明未分配利润、应收款、无形资产与发展前景均应在价格中体现,交割后出让人无权再分;出资额不是底线价",
+      "notes": "定价三锚点+未分配利润归属时点(第五章 问题133/140,第九章 问题177)"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们公司想和同行做整体整合,把对方公司注销掉,人员、业务和资产全部并进我们公司继续经营,这个交易应该怎么设计和操作?",
+      "expected_behavior": "不应激活本 skill,应激活 capital-change-restructuring(资本变动与重组)——这是公司合并(吸收合并)层面的重组,法人资格消灭、股东不变只是结构变化,不是股东层面股权转让;本 skill 与合并/资产收购的区分恰是其边界",
+      "notes": "同书兄弟 skill 混淆诱饵:股权转让 vs 公司合并/资产收购,应触发 capital-change-restructuring"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "上个月的股东会没提前15天通知一位小股东就通过了对外转让股权的决议,他现在说要起诉,这个决议的效力有问题吗?",
+      "expected_behavior": "不应激活本 skill,应激活 resolution-validity-procedure(决议效力与程序要件)——争议焦点是股东会召集程序瑕疵与决议撤销(60日除斥期间),不是转让交易本身的程序与定价",
+      "notes": "同书兄弟 skill 混淆诱饵:转让决议的效力之争归 resolution-validity-procedure"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一个小股东欠了外债,法院要强制拍卖他手里的30%股权,我们不想让外面的人进来当股东,但公司章程写的是股权只能在内部转让,法院会理睬章程吗?我们其他股东还有机会买下来吗?",
+      "expected_behavior": "可激活本 skill:强制执行场景其他股东自法院通知起20日内行使优先购买权(比自愿转让的30日更短,以收到通知为起算点,极易错过);强制执行属法定程序,章程的内部转让限制不能对抗,章程再设冲突限制无效;可衔接 charter-governance-design(章程转让条款设计)与 shareholder-qualification-registration(竞得后的名册登记)",
+      "notes": "边界场景:强制执行20日窗口(第二章 问题80,v-B12)与章程限制(第五章 问题122)的冲突,本 skill 为主、兄弟 skill 协作"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。两条 should_not_trigger 均为同书兄弟 skill 混淆诱饵(capital-change-restructuring / resolution-validity-procedure),全部 must_not_trigger 必须通过(诱饵容错为 0)。"
+}

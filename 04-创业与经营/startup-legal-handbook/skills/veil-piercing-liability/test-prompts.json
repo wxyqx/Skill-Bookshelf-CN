@@ -1,0 +1,59 @@
+{
+  "skill": "veil-piercing-liability",
+  "version": "0.1.0",
+  "source_book": "《创业投资法律手册:那些你在创业时应该知道的公司法知识》 — 杨春宝、王成兵",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我自己一个人的有限公司,平时都用个人微信收客户货款,家里的房贷和车也是公司卡在付。现在公司被供应商起诉欠了80多万,他们会执行到我名下的房子吗?",
+      "expected_behavior": "应激活本 skill,指出这是典型财产混同:一人公司举证责任倒置,股东不能证明公司财产独立即对全部债务连带,个人房产面临执行;按自保视角输出隔离制度清单(独立账户/规范账册/审计/往来凭证),并叫停代收货款红线",
+      "notes": "华先生案的现代重演:一人公司+公私混同,主案例场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们官司打赢了,对方公司账上没钱执行不了。但我打听到那个老板名下有豪宅豪车,公司还做两套账,能不能直接追他个人的财产?",
+      "expected_behavior": "应激活本 skill,按追偿视角操作:两套账+公司财产流向个人=财产混同/滥用人格独立的刺破事由;按证据取得时点选通道——已有证据则诉讼中(或另诉)将股东列为被告并申请保全,执行中才发现的线索则走执行程序追加股东承担连带清偿责任",
+      "notes": "债权人侧主场景:执行不能+股东有钱,对应问题46/57"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "听说一人有限公司欠债的话老板要承担无限责任,是真的吗?我打算一个人注册公司创业,怎么安排才能保证公司欠债不连累我和家里人?",
+      "expected_behavior": "应激活本 skill,先纠正'无限责任'的表述(是连带清偿,且仅在看不清白时),讲清举证责任倒置机制,给出自证独立的五项避险动作;若用户尚未确定企业形式,衔接 entity-choice-incorporation 做形式选择",
+      "notes": "事前隔离场景:一人公司规则科普+避险动作"
+    },
+    {
+      "id": "should-trigger-04",
+      "type": "should_trigger",
+      "prompt": "我和合伙的股东闹矛盾了,他手里攥着几个大客户,我听说他让客户把欠公司的货款直接打到他个人银行卡里,这算什么性质?我该怎么处理?",
+      "expected_behavior": "应激活本 skill,指出股东代收公司货款不止是财产混同证据,更涉嫌侵占公司财产罪(书中'千万不可为'的红线);处理路径:先协商/审计固定证据,再由公司主张返还,必要时刑事报案,并可衔接 minority-shareholder-remedies 的派生诉讼",
+      "notes": "代收货款红线场景,对应问题49"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们公司章程写的是股东2040年之前缴足注册资本,大股东认缴的500万到现在一分没缴,公司现在欠债还不上,债权人能要求他个人补这500万吗?",
+      "expected_behavior": "不应激活本 skill,应激活 capital-contribution-compliance(出资义务与出资瑕疵责任)——这是认缴未届期/未实缴的补充清偿问题,责任范围以未出资本息为限,不是财产混同或滥用人格独立的刺破面纱问题;仅当同时出现公私混同线索时才叠加本 skill",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 capital-contribution-compliance(出资瑕疵补充清偿≠刺破面纱连带)"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我朋友想用他自己的名义替我持有一家公司的股份,他有点担心:万一那家公司欠债,会不会连累到他个人的财产?",
+      "expected_behavior": "不应激活本 skill,应激活 nominee-shareholding-risk(股权代持与隐名投资)——显名股东对公司债务的责任问题,书中框架是:实际出资人出资到位且无抽逃、无滥用行为时,名义股东一般不承担其他法律责任,这是代持关系内部风险分配问题,不是刺破面纱",
+      "notes": "同书兄弟 skill 混淆诱饵:应触发 nominee-shareholding-risk(代持风险≠有限责任边界)"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我开的是个人独资企业(个体工作室那种,不是有限公司),现在生意欠了供应商30多万,供应商说要去法院告我并拿我家里的房子抵债。这算不算公司财产和我的财产混同、刺破面纱啊?",
+      "expected_behavior": "边界处理:不套用刺破面纱框架——个人独资企业投资人本来就对企业债务承担无限责任,不存在'面纱'可刺,'拿房子抵债'是责任形式的默认结果而非混同后果。应先纠正概念混淆(B 段明确列出的最易误判邻近概念),再衔接 entity-choice-incorporation 说明独资企业与一人有限公司的责任差异,并可提示'转为一人有限公司+严格分账'的架构选项",
+      "notes": "考察个人独资企业无限责任 vs 一人公司有限责任的区分,B 段'易混淆邻近方法论'的直接测试"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "4 条 should_trigger + 2 条 should_not_trigger + 1 条 edge_case。全部 should_not_trigger 必须拒判(诱饵容错为 0),两条均为同书兄弟 skill 混淆诱饵并写明应触发的兄弟 skill(capital-contribution-compliance / nominee-shareholding-risk)。edge_case 测试个人独资企业无限责任与刺破面纱的边界。"
+}
