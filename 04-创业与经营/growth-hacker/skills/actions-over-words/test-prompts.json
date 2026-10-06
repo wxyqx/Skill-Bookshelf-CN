@@ -1,0 +1,48 @@
+{
+  "skill": "actions-over-words",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "用户访谈 10 个人有 8 个说想要深色模式，支持率很高，我们要不要下个版本就做？",
+      "expected_behavior": "激活行胜于言：先查行为证据（有无用户用第三方插件/夜间模式替代），对纯口头主张降级为待验证假设；提示口头一致率高是失真警报，建议用付费或付出门槛让用户用行为表态。",
+      "notes": "verified.md U04 的 V2 原题场景，标准命中。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "我们上个月做了 30 个用户深访，免费用户都喊要'批量导出'，付费用户反而说'搜索体验'更重要。两组意见打架，听谁的？",
+      "expected_behavior": "激活付费意愿加权：付费用户的意见权重高于免费评论家——掏过钱的人对产品的判断经过真金白银校准；输出加权后的优先级排序并注明依据，提示免费用户的口头热情常与付费行为脱节。",
+      "notes": "A2 场景 4'免费与付费用户意见打架'的标准命中。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "Survey results say 95% of respondents consider detailed onboarding profiles 'very important'. Should we make profile completion mandatory at signup?",
+      "expected_behavior": "英文触发同样激活：标记 95% 高一致率为社会正确答案嫌疑；引用书中'强制填资料'教训（100% 受访者称重要、实装吓退新用户），要求对照注册转化行为数据后再裁决。",
+      "notes": "英文 trigger 'survey results say' + 与书中反例直接同构。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我们想验证这个新工具到底有没有人要，打算做一个假门网站收集点击，该怎么设计？",
+      "expected_behavior": "不应停留在调研解读原则；应归属 mvp-validator——这是'构造产生行为数据的验证载体'的设计问题，选型是假门形态。",
+      "notes": "同书兄弟混淆诱饵：设计验证载体属于 mvp-validator，本 skill 只管读数。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "用户投诉说新版首页找不到设置入口了，好几个人都在骂，这个反馈我们要认真改吗？",
+      "expected_behavior": "不应启动'质疑口头诚意'的加权流程；用户报告的是可用性 bug，行为与口头一致，应直接修复并可用 ab-testing-protocol 验证改版效果。",
+      "notes": "B 段反场景：明确的 bug 报告不适用'口是心非'怀疑框架。"
+    },
+    {
+      "id": "t06",
+      "type": "edge_case",
+      "prompt": "我们是个免费社交产品，没有付费通道，'用付费意愿校准意见权重'这条根本没法用，那怎么分辨用户意见的可信度？",
+      "expected_behavior": "应承认付费标尺的边界（作者盲点之一），退而使用替代性付出门槛（邀请好友、生产内容、长期活跃等不可伪造的行为承诺）作为免费产品的加权代理，并强调替代品使用等既有行为证据仍是第一优先。",
+      "notes": "考察对 B 段'付费标尺适用性弱'局限的诚实处理，而非生搬硬套。"
+    }
+  ]
+}

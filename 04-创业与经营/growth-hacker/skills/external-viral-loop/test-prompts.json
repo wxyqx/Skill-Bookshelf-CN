@@ -1,0 +1,69 @@
+{
+  "skill": "external-viral-loop",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我们是个小众职场工具，主产品没什么传播性，想做个 H5 测试类活动给公众号和 App 引流，帮我评估一下值不值得做、怎么做。",
+      "expected_behavior": "激活 skill：先过三大考验（创意可转述性/生命周期/产品契合度），判停检查契合度；通过后按六要点设计，用付出感设计替代白给，最后做参与量与转化双口径+平台风险评估。",
+      "notes": "核心触发场景：体外循环的可行性评估与策划。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "看到百度云当年 1 毛钱买年费会员的 Bug 营销火遍全网，我们也想搞个类似的价格漏洞活动，要注意什么？",
+      "expected_behavior": "激活 skill：讲 Bug 营销三要件（话题简明可转述/边际成本可控/修复拖延造窗口）与付出感更高段位，同时明确警告价格欺诈合规风险并转交 growth-ethics-redlines 审查。",
+      "notes": "Bug 营销触发，须带红线警示。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "上次 H5 活动有 200 万人参与，结果只带来几千个下载，问题出在哪？",
+      "expected_behavior": "激活 skill：以追TA案例（700万参与/1%转化）解释参与量不等于用户量，归因检查产品契合度、导流路径设计，并提醒平台封杀风险。",
+      "notes": "复盘类触发：参与量与转化落差。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "策划一个裂变活动，让用户直接白嫖最大的奖励是不是传播效果最好？",
+      "expected_behavior": "激活 skill：引用云诺'世界末日'点击领空间案例反驳——让用户略微付出代价反而更显价值更珍惜，付出感设计比直接白给更高段。",
+      "notes": "付出感设计原则触发。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "我们的邮件客户端想在每个用户发出的邮件末尾自动加一行推广签名，帮我设计一下这个增长机制。",
+      "expected_behavior": "不激活本 skill。应激活 viral-k-factor（产品内建传播因子/Hotmail 式签名机制）。",
+      "notes": "同书兄弟混淆诱饵：产品使用过程中的内建传播机制属 viral-k-factor，不是体外活动。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "明天有个大热点估计会刷屏，我们连夜做几张借势海报蹭一下流量，来得及吗？",
+      "expected_behavior": "不激活本 skill。应激活 moment-marketing（借势营销时机判断）。",
+      "notes": "同书兄弟混淆诱饵：搭现成热点的顺风车属 moment-marketing；本 skill 管自己制造话题的活动体系。"
+    },
+    {
+      "id": "t07",
+      "type": "should_not_trigger",
+      "prompt": "我们想给老用户发打车红包，必须分享到朋友圈才能用，这种补贴怎么设计转化最高？",
+      "expected_behavior": "不激活本 skill。应激活 subsidy-ladder（补贴模式升级路径：现金→红包关系链）。",
+      "notes": "同书兄弟混淆诱饵：红包的关系链传播属补贴设计 subsidy-ladder。"
+    },
+    {
+      "id": "t08",
+      "type": "edge_case",
+      "prompt": "我们想借当下一个明星塌房热点做个 H5 测试活动，顺便故意留个'漏洞'让用户疯传，风险评估一下？",
+      "expected_behavior": "触发本 skill 但双重判停：热点灾难类借势违反连接性与伦理（转 moment-marketing 边界），故意留漏洞涉嫌价格欺诈/误导（转 growth-ethics-redlines 三道闸），预期结论是不做或大改。",
+      "notes": "边界场景：本 skill 与 moment-marketing、growth-ethics-redlines 的三方交界，正确行为是闸门否决。"
+    },
+    {
+      "id": "t09",
+      "type": "edge_case",
+      "prompt": "微信刚又封了一批诱导分享的 H5，我们预算好的下季度活动全是这种玩法，现在怎么办？",
+      "expected_behavior": "激活 skill：应用 B 段时效警示——体外循环寄生于平台生态，2015 年后微信封杀持续加码；引导做平台政策重查、分散渠道、评估把传播机制内建进产品（转 viral-k-factor）。",
+      "notes": "时效边界：平台规则变动场景，检验逻辑层与参数层分离。"
+    }
+  ]
+}

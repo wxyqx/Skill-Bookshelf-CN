@@ -1,0 +1,55 @@
+{
+  "skill": "growth-metrics-system",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我们公司产品、市场、运营各报各的数，每周例会都在吵'活跃重要还是收入重要'，怎么终结这种争论？",
+      "expected_behavior": "给 North Star 共识法：自上而下确立一个锚定品类核心价值的唯一核心指标（社交看月活而非注册量、IM 看消息发送量、电商看成交价值量），写出精确定义与反例口径；说明其作用是领导者不在场时全员仍能自行判断取舍。",
+      "notes": "核心场景：指标打架与 North Star 选型。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "我们的累计注册用户 2000 万、PV 很高，但付费一直起不来，这些数字是不是有水分？",
+      "expected_behavior": "识别虚荣指标：累计总用户数系相加而得、体现不了流失与沉默用户（附录A 点名）；逐项排查口径陷阱（PV 可刷 iframe、升级下载算新增、后台常驻算活跃），给出'可零成本刷出来的数字一律存疑'的排雷清单与替代口径建议。",
+      "notes": "虚荣指标排雷场景（x19 反例域）。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我们要从零搭一套增长数据看板，该放哪些指标、每个指标的口径怎么定？",
+      "expected_behavior": "按'网站 13 项+移动 13 项'指标字典思路选核心看板指标，逐项标注定义、统计口径陷阱与作弊识别；立两条分析纪律（先假设后取数、结论跨指标互证）；提示当代口径（MMP/隐私合规）需按当期重查。",
+      "notes": "指标体系搭建主场景。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我们 DAU 还在涨但收入不涨，帮我分析用户到底为什么留不下来，问题出在哪个环节？",
+      "expected_behavior": "不激活本 skill；这是拿数据做业务归因：留存问题归 retention-diagnosis（三口径+五分类），若是增长链路瓶颈定位则归 aarrr-funnel-diagnosis。本 skill 只负责口径与度量底座，不做业务归因。",
+      "notes": "兄弟混淆诱饵：'看什么数'vs'数说明什么'，预期归属 retention-diagnosis/aarrr-funnel-diagnosis。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "我们免费用户占了 99%，服务器成本快撑不住了，要不要把免费版砍掉全面收费？",
+      "expected_behavior": "不激活本 skill；免费/收费模式决策属 freemium-decision（四支柱前提判据+静默砍免费版试验）。付费率口径问题可顺带提示查 growth-metrics-system，但决策本身不归本 skill。",
+      "notes": "兄弟混淆诱饵：'付费率数字'与'收费决策'易混，预期归属 freemium-decision。"
+    },
+    {
+      "id": "t06",
+      "type": "edge_case",
+      "prompt": "上周新增突然翻倍，市场部说是他们投放做得好，我要怎么验证？",
+      "expected_behavior": "属本 skill 的数据互证与异动排查：先查口径与上报机制（是否升级下载/重复安装计入），再跨指标互证（付费、留存、活跃是否同步抬升，若只有新增涨则是渠道泡沫信号），最后按渠道剥离归因；归因结论可衔接 aarrr-funnel-diagnosis。",
+      "notes": "异动预警+互证纪律的组合应用。"
+    },
+    {
+      "id": "t07",
+      "type": "edge_case",
+      "prompt": "团队连埋点都没埋全，老板就想先买一套 BI 看板工具，合理吗？",
+      "expected_behavior": "触发判停条件：上报机制与采集不具备时先停在'打通数据采集'，不要先买看板工具；给出埋点最小集（核心行为事件+关键漏斗节点）与上报机制核查清单，再谈指标字典与看板。",
+      "notes": "考察 E 段判停：采集先于工具。"
+    }
+  ]
+}

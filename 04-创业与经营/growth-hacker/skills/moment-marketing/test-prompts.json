@@ -1,0 +1,69 @@
+{
+  "skill": "moment-marketing",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "有个行业热点刚爆发，老板让我们今天之内出借势文案，这个热点到底该不该蹭？怎么判断？",
+      "expected_behavior": "激活 skill：按三问判断（爆发期时机/一句话可转述/与产品真实连接），给出追或不追的结论；追则产出融入用户语境的方案，不追则明确止损。",
+      "notes": "核心触发场景：热点的追/不追判断。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "明年春节前我们想针对返乡人群做一轮营销，现在开始准备是不是太早了？",
+      "expected_behavior": "激活 skill：这正是'营销前置'——为可预测节点在产品研发阶段预埋卖点与发布节奏（猎豹春运抢票版案例），产出节点-卖点映射表。",
+      "notes": "营销前置触发。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "上次蹭热点发了一波海报，阅读量是有了但一个转化都没有，哪里出了问题？",
+      "expected_behavior": "激活 skill：用'真实连接'检验复盘——话题与产品价值是否挂钩、是否生硬硬广、时机是否已过爆发期，并引向营销前置避免再次临时跟风。",
+      "notes": "借势失败复盘触发。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "SegmentFault 当年光棍节的程序员闯关秀为什么能把注册量做翻 18 倍？节点营销有什么套路？",
+      "expected_behavior": "激活 skill：以该案例讲解节点×人群双重契合的节点营销，与可预测节点的提前规划。",
+      "notes": "书中节点营销案例触发。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "我们想自己做一个刷屏 H5 小游戏来传播品牌，而不是蹭别人的热点，该怎么策划？",
+      "expected_behavior": "不激活本 skill。应激活 external-viral-loop（自己制造话题的体外病毒循环三大考验+六要点）。",
+      "notes": "同书兄弟混淆诱饵：自己造话题属 external-viral-loop；本 skill 管搭现成热点的顺风车。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "老板要求做个能持续涨粉的公司内容账号，每周稳定输出干货文章，怎么搭体系？",
+      "expected_behavior": "不激活本 skill。应激活 content-marketing-engine（三作用+持续输出引擎）。",
+      "notes": "同书兄弟混淆诱饵：常设内容引擎属 content-marketing-engine；借势是瞬时爆发不是常态输出。"
+    },
+    {
+      "id": "t07",
+      "type": "should_not_trigger",
+      "prompt": "我们 App 里想加一个'分享给好友解锁高级功能'的机制提升自增长，怎么设计？",
+      "expected_behavior": "不激活本 skill。应激活 viral-k-factor（产品内置传播因子设计）。",
+      "notes": "同书兄弟混淆诱饵：产品内传播机制属 viral-k-factor。"
+    },
+    {
+      "id": "t08",
+      "type": "edge_case",
+      "prompt": "某地发生严重事故正在全网刷屏，公关说这是巨大的曝光机会，让我们连夜出借势海报，怎么看？",
+      "expected_behavior": "触发本 skill 但 E 段步骤 1 判停生效：灾难/悲剧类话题属'不追'硬规则，且须转 growth-ethics-redlines 一票否决，明确拒绝该借势。",
+      "notes": "边界场景：灾难热点否决闸。"
+    },
+    {
+      "id": "t09",
+      "type": "edge_case",
+      "prompt": "热点来了，我们既想发借势海报，又想顺势上线一个 H5 互动活动承接流量，两条线怎么配合？",
+      "expected_behavior": "同时涉及本 skill（时机与语境判断）和 external-viral-loop（活动三大考验与六要点）：先判断热点追不追，追则海报承担语境借势、H5 按 external-viral-loop 三大考验过审，两 skill 组合使用。",
+      "notes": "组合边界：moment-marketing 与 external-viral-loop 的叠加使用场景。"
+    }
+  ]
+}

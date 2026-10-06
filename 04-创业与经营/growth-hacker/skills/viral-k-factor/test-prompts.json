@@ -1,0 +1,69 @@
+{
+  "skill": "viral-k-factor",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我们的邀请功能上线两个月了，测了下 K 因子只有 0.3，平均一个用户邀请 2 个人但转化率不到 15%，怎么诊断该改哪里？",
+      "expected_behavior": "激活 skill：按双指标拆解定位瓶颈（转化率 15% 偏低→优化落地页/注册路径/缩短操作路径；感染率→扩渠道），再为分享动作匹配心理触发器，给出单变量验证实验。",
+      "notes": "核心触发场景：已有 referral 数据的瓶颈诊断。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "我们做的是团队协作工具，想让产品自带增长引擎，有哪些内置传播因子的设计模式可以参考？",
+      "expected_behavior": "激活 skill：介绍内置传播因子三式（分享解锁高级功能/服务器动态下发活动/噱头功能自传播），强调传播动作须嵌在真实使用场景中、产品本身足够好才是最佳传播因素。",
+      "notes": "设计类触发：内置传播因子选型。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "What is the K factor formula for viral growth, and how do I use viral loop period to measure referral speed?",
+      "expected_behavior": "激活 skill：给出 K=感染率×转化率、K>1 判据、病毒循环周期定义与缩短手段（简化操作+紧迫感），并提醒模型未考虑饱和与衰减。",
+      "notes": "英文 trigger：K factor / viral loop。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "LinkedIn 当年是怎么做到双重病毒循环的？我们的产品也想让新用户注册时把老用户唤回来。",
+      "expected_behavior": "激活 skill：以 LinkedIn 案例（魔法数字 4、通讯录导入、重建关系流）讲解第一循环带新、第二循环唤老的双循环结构。",
+      "notes": "双重病毒循环概念触发。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "我们想做一个朋友圈刷屏的 H5 整蛊小游戏来给 App 引流，怎么策划才容易爆？",
+      "expected_behavior": "不激活本 skill。应激活 external-viral-loop（体外病毒循环三大考验+活动六要点）。",
+      "notes": "同书兄弟混淆诱饵：主产品外的 H5 活动属 external-viral-loop，而非产品内建 K 因子设计。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "产品增长全面停滞，注册、活跃、付费都不行，预算只够做一件事，你说先优化哪个环节？",
+      "expected_behavior": "不激活本 skill。应激活 aarrr-funnel-diagnosis（先做漏斗定位找卡点环节）。",
+      "notes": "同书兄弟混淆诱饵：未定位到传播环之前的全漏斗诊断属 aarrr-funnel-diagnosis。"
+    },
+    {
+      "id": "t07",
+      "type": "should_not_trigger",
+      "prompt": "最近有个社会热点事件跟我们的产品沾点边，要不要趁机发海报蹭一下曝光？",
+      "expected_behavior": "不激活本 skill。应激活 moment-marketing（借势营销的时机判断与连接性检验）。",
+      "notes": "同书兄弟混淆诱饵：热点借势属 moment-marketing。"
+    },
+    {
+      "id": "t08",
+      "type": "edge_case",
+      "prompt": "我们留存很差、次日留存不到 15%，但老板觉得先做个邀请有奖活动把量拉起来再说，你怎么看？",
+      "expected_behavior": "双路径一致（已修正）：正确行为是到达\"先修留存/PMF 再谈传播\"的结论。PASS 条件 = viral-k-factor 触发后判停转介，或直接归口 pmf-gate / retention-diagnosis（盲测选此路径，结论等价）。2026-10-06 记录。",
+      "notes": "边界场景：B 段反场景的实战检验，正确行为是判停并转介。 | 2026-10-06 修正（盲测路径与判停转介殊途同归）"
+    },
+    {
+      "id": "t09",
+      "type": "edge_case",
+      "prompt": "我们想默认上传用户通讯录来提高邀请匹配的精准度，这样 K 因子应该能翻倍，有风险吗？",
+      "expected_behavior": "触发本 skill 但立即转交 growth-ethics-redlines 三道闸审查（最小授权最大知情；2015 年后 ATT/GDPR/个保法已明文禁止），预期结论是放弃或改为明确授权。",
+      "notes": "跨 skill 边界：K 值诉求撞上伦理红线，正确行为是调用守门闸而非给技术方案。"
+    }
+  ]
+}

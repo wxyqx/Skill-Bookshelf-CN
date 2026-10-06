@@ -1,0 +1,55 @@
+{
+  "skill": "do-things-that-dont-scale",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我们拿不到任何应用商店推荐位，也没有一分钱投放预算，第一批客户到底还能从哪里来？",
+      "expected_behavior": "激活'最笨的事情'打法：先诊断获客卡点属于内容/信任/供给哪一环，再选人工补课动作（人肉内容/一对一陪聊/手工服务），配时间盒与观察指标，参照 Airbnb 上门拍照（周营收 200→400 美元）与聚美马甲软文案例。",
+      "notes": "verified.md U06 的 V2 原题场景，标准命中。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "我们的房源照片全是房东随手拍的，丑得没法看，用户点进来就走。写了个《拍照指南》发给他们也没人看。要不要我们自己动手？",
+      "expected_behavior": "激活人工补课选型：判断卡点在'内容/展示缺失'，指南类软性手段已被证伪，直接人工补课（替用户拍照/实拍），要求预设观察指标（周营收、预订转化），并预留 Airbnb 式制度化路径（专业摄影师项目）作为见效后的退出方案。",
+      "notes": "Airbnb 案例的直接同构场景，标准命中。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "Founders keep telling me to 'do things that don't scale' but I don't know what that actually means for our marketplace startup. Where do we start?",
+      "expected_behavior": "英文触发同样激活：解释'不规模化的动作'是按卡点选择的人工补课（manual content production / one-on-one user interviews / concierge supply），强调时间盒、指标与制度化退出三件套，并给出本书中国语境判据作为 PG 格言的补充。",
+      "notes": "英文 trigger 'do things that don't scale' 应正常激活。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "产品还没开放注册，我们想先设计邀请码机制，把最先进来的 500 个用户严格筛成最精准的种子用户。",
+      "expected_behavior": "不应进入人工补课动作设计；应归属 seed-user-selection——这是准入机制与筛选门槛的设计问题。",
+      "notes": "同书兄弟混淆诱饵：准入筛选属于 seed-user-selection；两 skill 分工是'谁进来'vs'进来后补什么'。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "我们的信息流广告 ROI 已经是正的，团队人手不够，要不要让创始人停掉手头工作去人肉回帖拉新？",
+      "expected_behavior": "边界裁决场景（已修正）：prompt 本身邀请 skill 裁决\"要不要继续人肉\"，激活后按 B 段回答\"不适用/停止\"与不激活直接回答均为克制行为。PASS 条件 = 不激活，或激活但裁决为否。2026-10-06 盲测后修正并记录（原预期过严）。",
+      "notes": "B 段反场景：规模化渠道已成立时不适用本 skill。 | 2026-10-06 修正预期（理由见 TEST_RESULTS.md）"
+    },
+    {
+      "id": "t06",
+      "type": "edge_case",
+      "prompt": "我们打算注册一批女性马甲账号，在竞品社区里发软文把用户挖过来。这个打法可以吗？",
+      "expected_behavior": "应激活选型逻辑但强制先过道德与合规闸（growth-ethics-redlines 三闸）：马甲内容在本书聚美案例中有效，但'挖竞品用户'的越界变体叠加平台规则与欺诈风险；给出'自建内容 vs 冒充身份'的边界建议，并提示平台封号与信誉风险按当期政策重查。",
+      "notes": "考察马甲打法的合规降权处理——书中案例正面但须锚定后记道德红线与时效警示。"
+    },
+    {
+      "id": "t07",
+      "type": "edge_case",
+      "prompt": "创始人一对一陪聊用户做了三个月了，用户确实更爱我们了，但产品迭代全停了。这个节奏对吗？",
+      "expected_behavior": "应用 E 段步骤 3：补课动作见效后必须回答'能否制度化或退出'——三个月无退出点已属无限期人扛；应把陪聊洞察沉淀为产品决策输入、把人工环节工具化（FAQ/自动化触达）或设定退出日期，把创始人时间还给迭代。",
+      "notes": "考察'制度化或退出'铁律与创始人机会成本盲点的应用。"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "skill": "demand-four-questions",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我想做一个 AI 自动整理邮件附件的工具，帮用户把所有邮件里的附件单列出来分组浏览。这个需求靠谱吗？值不值得立项？",
+      "expected_behavior": "按四问顺序过筛：真伪问要求给出用户当前用什么笨办法管理附件的行为证据；指出这与书中 QQ 邮箱附件聚合功能（上线一天即撤）高度同构，标记真伪问存疑并给出裁决建议。",
+      "notes": "直接命中真伪问的核心场景，且与 x02 反例同构，应完整走四问流程。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "老板在需求评审会上拍板要做一个新功能，说'客户肯定会喜欢'，但我们只有他一个人的判断。立项前该怎么快速评估这个需求？",
+      "expected_behavior": "激活四问检验器：逐问拷问（有无行为证据/涨价20%还用吗/基数×付费能力/谁付钱），输出书面化结论与'做/降级/放弃'裁决，并提示方向性错误拖到上线后修复代价是立项阶段的68~200倍。",
+      "notes": "'要不要立项/快速评估'是 A2 场景 1、3 的标准信号。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "We're considering adding a paid tier to our free note-taking app. How do I validate whether this is a real need before spending months on development?",
+      "expected_behavior": "英文触发同样激活：先走四问（is there observable behavioral evidence / will users pay 20% more / market size × willingness / who pays），结论为通过时明确移交 mvp-validator 设计低成本验证，而非直接开发。",
+      "notes": "英文 trigger 'validate real need before development' 应正常激活。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我们产品整体的日活停了两周了，融到的钱该先加投放预算还是先扩招？帮我决定现在能不能开始大规模推广。",
+      "expected_behavior": "不应走单需求四问流程；应归属 pmf-gate——这是产品整体'能否放量'的决策门问题，先核对留存曲线走平、自发口碑、复购三类 PMF 证据。",
+      "notes": "同书兄弟混淆诱饵：产品整体放量判断属于 pmf-gate，不是单需求真伪。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "用户访谈里有 8 成人说想要深色模式，问卷支持率很高，我该信这个调研结果吗？",
+      "expected_behavior": "不应走四问；应归属 actions-over-words——这是'解读调研数据可信度'问题，用行为优先与付费意愿加权原则裁决。",
+      "notes": "同书兄弟混淆诱饵：调研数据解读属于 actions-over-words。"
+    },
+    {
+      "id": "t06",
+      "type": "edge_case",
+      "prompt": "竞品上周上线了一个'AI 日程摘要'功能，数据看起来不错，我们要不要跟进做一个？",
+      "expected_behavior": "四问可用但需调整：真伪问的证据来源改为竞品公开数据（不可尽信），补充'竞争性跟进'维度；预期 skill 激活并在真伪问处提示竞品数据的水分风险，而非机械套用。",
+      "notes": "边界场景：仿竞品功能是 A2 场景 4，四问仍适用但证据形态不同，考验灵活应用。"
+    },
+    {
+      "id": "t07",
+      "type": "edge_case",
+      "prompt": "这个需求四问里真伪和刚性都过了，但'量与肥'那问的目标用户基数算出来太小，养不活团队。四问有一问不过，是不是直接判死刑？",
+      "expected_behavior": "应给出判停规则的细化解释：单问不过的默认裁决是'降级或放弃'，但可检查基数估算的口径（是否低估可扩展人群/付费意愿）后复算一次，仍不过则维持放弃，不建议带着硬伤硬上。",
+      "notes": "考察对 E 段'任一问不过即降级或放弃'判停条件的理解深度。"
+    }
+  ]
+}

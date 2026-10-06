@@ -1,0 +1,62 @@
+{
+  "skill": "content-marketing-engine",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我们是一款 B 端 SaaS 产品，想开始做内容营销，公众号和博客都开了但完全不知道该输出什么、多久发一篇，帮我规划一下内容体系。",
+      "expected_behavior": "按内容引擎流程执行：先定位三作用主目标（B 端通常以培养潜在用户为主）、搭 4 周选题排期表、给出单篇六要领检查项与月度复盘指标。",
+      "notes": "典型的'从零搭建内容体系'请求，核心命中持续输出引擎骨架。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "老板要求我们下个月做出一篇 10 万+ 爆款来带量，团队很焦虑，你觉得这个目标合理吗？",
+      "expected_behavior": "指出'赌爆款'是错误心智：内容营销三作用需要持续输出支撑（约 7 次重复提醒才转化），应改为搭引擎、把爆款当副产品，并给出可执行的排产与测试替代方案。",
+      "notes": "命中'拒绝一次性爆款思维'原则。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我们公众号做了一年，每篇阅读量还行但几乎不带来注册，内容也没人愿意转发，帮我诊断一下内容营销哪里出了问题。",
+      "expected_behavior": "按三作用定位检查内容与转化目标是否错配，再逐项过六要领（受众、标题 A/B、篇幅、互动钩子、渠道）与数据复盘维度，产出诊断清单而非直接改稿。",
+      "notes": "存量内容体系诊断场景。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "明天世界杯决赛，我们想蹭这个热点做一波传播，怎么借势效果最好？",
+      "expected_behavior": "不激活本 skill；应归属 moment-marketing（借势营销/时机的艺术），本 skill 管日常持续排产而非单次热点。",
+      "notes": "兄弟混淆诱饵：热点借势 vs 内容排产，预期归属 moment-marketing。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "产品刚上线没人用，我们没预算投放，第一批用户你说要不要人工去小红书发帖攒内容？",
+      "expected_behavior": "不激活本 skill；冷启动期人工补课（含人肉产内容）应归属 do-things-that-dont-scale，本 skill 适用于引擎化持续运营阶段的规划。",
+      "notes": "兄弟混淆诱饵：冷启动人工补课 vs 持续引擎，预期归属 do-things-that-dont-scale。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "我们的产品要不要设置邀请码和答题门槛来筛选早期用户？",
+      "expected_behavior": "不激活本 skill；属种子用户准入设计，归属 seed-user-selection。",
+      "notes": "兄弟混淆诱饵：同为获客域但管准入门槛，预期归属 seed-user-selection。"
+    },
+    {
+      "id": "t07",
+      "type": "edge_case",
+      "prompt": "我们想给内容团队的每篇文章标题做 A/B 测试，怎么设计才规范？",
+      "expected_behavior": "边界情形：标题 A/B 的实验设计规范（单变量、预设判优标准、失败率预期）应主要调用 ab-testing-protocol；本 skill 可作为场景上下文补充（标题多版本测试是六要领之一），回复中应显式区分两层。",
+      "notes": "与 ab-testing-protocol 的交界：测量方法归 A/B 规范，选题排产归本 skill。"
+    },
+    {
+      "id": "t08",
+      "type": "edge_case",
+      "prompt": "内容营销和投放买量，我们预算有限只能选一个，怎么决定？",
+      "expected_behavior": "可用本 skill 的三作用定位框架评估内容侧的性价比与长短板（引擎慢但可复利），但渠道选型的完整对比应结合 aarrr-funnel-diagnosis 做漏斗定位后再回答，不宜只用单一 skill 下结论。",
+      "notes": "跨域决策题，考察 skill 是否清楚自身只覆盖内容引擎部分。"
+    }
+  ]
+}

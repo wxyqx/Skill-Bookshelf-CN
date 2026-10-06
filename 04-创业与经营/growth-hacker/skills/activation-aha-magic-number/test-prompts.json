@@ -1,0 +1,62 @@
+{
+  "skill": "activation-aha-magic-number",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我们的社交 App 注册转化率还可以，但新用户第二天基本都不打开了，应该先从哪一步优化？",
+      "expected_behavior": "按激活三步走：先从留存数据反推与留存强相关的关键行为（如关注若干人/完善资料），把它做成注册流程的默认引导，再用 A/B 校准参数；若找不到相关行为则建议先做产品价值（PMF/留存）诊断。",
+      "notes": "典型'注册尚可但次日流失'激活问题，命中核心流程。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "听说 Twitter 和 LinkedIn 有什么魔法数字，我们做内容社区想给自己产品也找一个，怎么找？",
+      "expected_behavior": "解释魔法数字是'引导用户完成关键行为的最佳默认参数'：找留存相关行为→做成默认引导→A/B 校准参数（LinkedIn=邀请4人、Twitter=关注5-10人是其产品语境的解，不可直接移植数值）。",
+      "notes": "直接命中魔法数字术语与方法。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我们想让新用户注册后立刻导入通讯录好友，但 iOS 平台限制很多，实现成本特别高，怎么办？",
+      "expected_behavior": "给出'要结果不要路径'的绕路思路：重新解构问题（用户要的是快速建立关系链，不是通讯录导入这一条路径），提供替代方案并逐项做当期合规检查（平台规则、隐私授权）。",
+      "notes": "命中降门槛绕路实现；应带合规边界提醒。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我们想对比新版注册页和旧版注册页哪个转化率高，实验要怎么设计才规范？",
+      "expected_behavior": "不激活本 skill 作为主策略；实验设计规范（并行/单变量/判优标准/样本量）归属 ab-testing-protocol；本 skill 只在其结论用于激活策略时才相关。",
+      "notes": "兄弟混淆诱饵：激活策略 vs 实验方法，预期归属 ab-testing-protocol。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "我们有一批三个月没打开 App 的老用户，用什么方式可以把他们唤回来？",
+      "expected_behavior": "不激活本 skill；流失用户召回通道选型归属 winback-mechanisms（EDM/推送/网页唤起，唤醒是补救而非替代）。",
+      "notes": "兄弟混淆诱饵：新用户激活 vs 流失唤醒，预期归属 winback-mechanisms。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "我们的产品日活一直在缓慢下滑，各年龄段用户都在流失，帮我分析一下原因。",
+      "expected_behavior": "不激活本 skill；整体留存度量与流失归因（三口径、品类基准、流失五分类、有损服务）归属 retention-diagnosis；本 skill 只管新用户注册到 Aha 时刻一段。",
+      "notes": "兄弟混淆诱饵：存量留存诊断 vs 新用户激活，预期归属 retention-diagnosis。"
+    },
+    {
+      "id": "t07",
+      "type": "edge_case",
+      "prompt": "我们要不要在新手引导里加一套积分和徽章，让新用户跟着任务走完引导？",
+      "expected_behavior": "边界情形：游戏化可以给引导流程加动机，但应先声明红线——游戏化只能锦上添花，不能替代核心价值体验；若引导本身没指向 Aha 时刻，PBL 只是空转。主策略仍应是'更快抵达核心价值'，游戏化作为放大器并参考 gamification-boundary 判据。",
+      "notes": "与 gamification-boundary 的交界，考察是否会把游戏化当激活的替代品。"
+    },
+    {
+      "id": "t08",
+      "type": "edge_case",
+      "prompt": "数据显示完成关注行为的用户留存高很多，我们直接把关注步骤设为强制不可跳过，可以吗？",
+      "expected_behavior": "应提示相关≠因果（愿意关注的用户可能本来就意向更高），建议用对照实验验证因果再做强制；同时权衡强制门槛对注册转化的反噬（原书中强制填资料吓跑新用户的教训）。",
+      "notes": "考察'魔法数字'方法论中最易踩的相关性误读。"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "skill": "pmf-gate",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我们刚拿到 800 万天使轮，团队想立刻扩招 20 个人再投 300 万做地铁广告。产品现在的次日留存大概 15%。这么干行吗？",
+      "expected_behavior": "激活 PMF 决策门：先出示三类 PMF 证据（留存曲线是否走平/自发口碑/复购），15% 次日留存需对照品类基准；证据不足则给出'禁止过早推广与烧钱扩张'裁决，建议资源改道 mvp-validator 或 retention-diagnosis，并用叮咚小区 1 亿元案例作反面参照。",
+      "notes": "融资后扩张决策是 A2 场景 1 的标准命中，且数据暗示未达 PMF。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "投资人催我们'跑马圈地'抢占市场，但我觉得产品的留存曲线还在持续下坠。怎么判断现在是不是过早扩张？",
+      "expected_behavior": "激活决策门流程：留存曲线持续下坠本身就是 PMF 未达的硬证据；输出'冻结推广'裁决与书面证据清单，提示'推广越猛，负面口碑扩散越快'的逻辑，供用户顶回外部压力。",
+      "notes": "'过早扩张/premature scaling 的判断'是核心语言信号。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "How do I know if we've achieved product-market fit before we start spending on paid acquisition?",
+      "expected_behavior": "英文触发同样激活：核对 PMF 证据（retention curve flattening / organic word of mouth / repeat usage），通过则移交 aarrr-funnel-diagnosis 定位最弱环节再分配预算，未通过则禁止 paid acquisition。",
+      "notes": "英文 trigger 'product-market fit before spending' 应正常激活。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我们 App 里有个'智能收藏'功能想下个版本上线，但团队吵得很凶，一半人说没人会用，一半人说刚需。这个功能到底该不该做？",
+      "expected_behavior": "不应走 PMF 门禁流程；应归属 demand-four-questions——这是单个功能/需求的真伪评估，按四问逐项过筛。",
+      "notes": "同书兄弟混淆诱饵：单功能取舍属于 demand-four-questions，层次是需求级而非产品级。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "产品已经过 PMF 了，留存也很健康，现在漏斗里从注册到激活的转化率特别低，我该先优化哪个环节？",
+      "expected_behavior": "不应回门禁判定；应归属 aarrr-funnel-diagnosis——已过 PMF 门，问题是在漏斗各环中定位卡点并分配实验预算。",
+      "notes": "同书兄弟混淆诱饵：过门之后的漏斗定位属于 aarrr-funnel-diagnosis。"
+    },
+    {
+      "id": "t06",
+      "type": "edge_case",
+      "prompt": "我们的产品像你画我猜一样突然爆红了，一周涌进来几百万用户，DAU 很高。现在是不是说明 PMF 达成了，可以拿这波热度去融资扩张了？",
+      "expected_behavior": "应用 x14 反例：爆红不等于 PMF——需检验留存结构与新鲜感消退后的留存预测（'新鲜感消退后用户凭什么留下来'），DAU 高位不构成门禁证据，裁决应为'暂缓扩张、先验证留存结构'。",
+      "notes": "考察能否顶住'虚荣指标当证据'的诱惑，用硬证据语言回应。"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "skill": "mvp-validator",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我想验证宠物主是否愿意为'AI 宠物体检 App'付费，但我们只有两个人，写不了几行代码。有没有不开发完整产品的验证办法？",
+      "expected_behavior": "激活 MVP 验证器：先写双假设（价值：宠物主需要体检辅助判断；增长：愿意付费/传播）与量化阈值，再按成本选形态（假门网页收集点击投票 / 公众号承接 / 宣传视频测热度），并强制带上反馈渠道、公告、自动升级三大模块，参照 Sendwithus 28 美元假门与悠泊公众号案例。",
+      "notes": "verified.md U02 的 V2 原题场景，标准命中。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "团队在吵 MVP 到底该做成什么样：CTO 坚持要做一个完整 App 才算 MVP，产品经理说做个落地页就行。MVP 的正确做法是什么？",
+      "expected_behavior": "激活选型逻辑：纠正'MVP=完整产品'与'MVP=便宜难看残破'两种误读——MVP 是能帮用户完成任务的最小功能合集，形态跟着验证目标走；要求先写双假设再选形态，并给出 Dropbox 视频/Sendwithus 假门/悠泊公众号三个参照。",
+      "notes": "'MVP 该做成什么形态'是 A2 场景 2 的标准信号。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "We want to smoke-test demand for a B2B analytics tool with a fake door landing page. What should we watch out for?",
+      "expected_behavior": "英文触发同样激活：给出假门 MVP 的完整清单——预设点击/留资阈值、GA 类点击追踪、三大必备模块（feedback channel / changelog / upgrade path）、以及云诺漏模块与多啦口袋环境适配两个反例警示。",
+      "notes": "英文 trigger 'fake door / smoke-test demand' 应正常激活。"
+    },
+    {
+      "id": "t04",
+      "type": "should_not_trigger",
+      "prompt": "我们的问卷显示 80% 受访者都支持这个新功能方向，这份数据可信吗？要不要直接按它开发？",
+      "expected_behavior": "不应进入 MVP 设计流程；应归属 actions-over-words——这是'解读调研数据可信度'问题，口头一致性高反而是失真信号，应先做行为证据加权。",
+      "notes": "同书兄弟混淆诱饵：问卷可信度判断属于 actions-over-words，不是 MVP 选型。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "这个 idea 我越想越不对劲：好像没什么人真的需要，付费理由也编不出来。要不要直接开做？",
+      "expected_behavior": "不应做 MVP；应先走 demand-four-questions 纸面过筛——四问在纸面即可否决的需求，不需要花任何验证成本。",
+      "notes": "同书兄弟混淆诱饵：纸面四问先于动手验证，顺序是 E 段的判停条件。"
+    },
+    {
+      "id": "t06",
+      "type": "edge_case",
+      "prompt": "我们上个月的 MVP 验证'成功'了：当时有 500 个人点了'想用'。现在正式版要做推广了，怎么找回这批人？",
+      "expected_behavior": "应用 x04 云诺反例：验证时漏掉反馈/公告/触达模块，导致验证用户无法回访——应先盘点当时留下的触达渠道（邮箱/关注关系），触达不了则这批'成功'证据需降级，新验证必须三大模块先行。",
+      "notes": "考察 E 段步骤 3'确认验证用户可被触达'完成标准的应用。"
+    },
+    {
+      "id": "t07",
+      "type": "edge_case",
+      "prompt": "MVP 假门数据没到我们预设的阈值，但差得不远，团队说'再观察一个月说不定就好了'。该怎么办？",
+      "expected_behavior": "应回到 E 段三选一裁决：未达预设阈值时输出'投入开发/调整假设重验/放弃'，'再看看'不是合法选项；允许的路径是明确调整假设后重新验证一次并设新时间盒，而非无限期拖延。",
+      "notes": "考察对'按预设阈值裁决'纪律的坚持，以及作者盲点中'pivot 判据缺失'的补位处理。"
+    }
+  ]
+}

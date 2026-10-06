@@ -1,0 +1,69 @@
+{
+  "skill": "aarrr-funnel-diagnosis",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我们产品增长全面停滞了，预算只够再烧三个月，市场部要投广告、产品组要改新手引导、运营要做召回，你说先从哪个环节下手？",
+      "expected_behavior": "激活 skill：画出指标链填数、算真增长（新增−流失）、定位转化率最低的瓶颈环节，只对该环节设计实验并转交对应专项 skill；先做 PMF/留存判停检查。",
+      "notes": "核心触发场景：资源有限时的漏斗定位。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "刚接手一个电商小程序的增长，怎么给产品做一次 AARRR 漏斗体检，找出最该优化的一环？",
+      "expected_behavior": "激活 skill：按访问→注册→激活→留存→付费→分享逐环取数、对照品类常识找卡点，产出瓶颈判断与实验建议。",
+      "notes": "增长体检触发。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "每周会各部门都在吵拉新重要还是留存重要，有没有一个框架能客观决定增长优先级？",
+      "expected_behavior": "激活 skill：用漏斗指标链做客观定位（哪环损耗最大先修哪环），并用'真增长=新增−流失'修正'获取第一'的排序偏见。",
+      "notes": "优先级争执的裁决触发。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "我们花了大钱投广告，注册量涨了但整体收入没动，是不是力气用错地方了？怎么用漏斗分析确认？",
+      "expected_behavior": "激活 skill：检查漏斗下游各环转化率（注册→激活→留存→付费），确认卡点是否在广告之外的环节，避免继续在非瓶颈环节烧钱。",
+      "notes": "非瓶颈环节投入浪费的识别触发。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "已经确认我们卡在留存上，次日留存只有 12%，流失用户到底因为什么在走？具体怎么诊断？",
+      "expected_behavior": "不激活本 skill。应激活 retention-diagnosis（留存环深度诊断：三口径/品类基准/流失五分类/有损服务）。",
+      "notes": "同书兄弟混淆诱饵：已定位到留存环后的专项诊断属 retention-diagnosis；本 skill 只做定位不做单环技术。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "老板说我们的活跃定义太随意，要把全公司的核心指标和各项数据口径统一起来，该怎么搭指标体系？",
+      "expected_behavior": "不激活本 skill。应激活 growth-metrics-system（North Star 共识+26项指标字典+虚荣指标排除）。",
+      "notes": "同书兄弟混淆诱饵：指标体系搭建属 growth-metrics-system；本 skill 假设指标链已可信。"
+    },
+    {
+      "id": "t07",
+      "type": "should_not_trigger",
+      "prompt": "产品还没验证需求是否成立，但我们想先跑一轮投放看看市场反应，怎么设计投放漏斗？",
+      "expected_behavior": "不激活本 skill。应激活 pmf-gate（未达 PMF 禁止推广投放的三禁止决策门）。",
+      "notes": "同书兄弟混淆诱饵：PMF 未达成时漏斗优化冻结，上游闸门优先。"
+    },
+    {
+      "id": "t08",
+      "type": "edge_case",
+      "prompt": "DAU 还在涨但收入不涨，漏斗各环转化率看着也都正常，问题可能在哪？",
+      "expected_behavior": "跨 skill 归属（已修正）：\"DAU 涨收入不涨且各环转化正常\"由 retention-diagnosis 的 description 明列触发且为更精确归属（漏斗各环正常→卡点在留存侧）。PASS 条件 = retention-diagnosis 或 aarrr-funnel-diagnosis，主归属前者。2026-10-06 盲测后修正并记录（原预期与 retention description 的明列触发冲突）。",
+      "notes": "边界场景：指标口径污染漏斗读数时的分流。 | 2026-10-06 修正预期（理由见 TEST_RESULTS.md）"
+    },
+    {
+      "id": "t09",
+      "type": "edge_case",
+      "prompt": "我们传播环的 K 因子其实已经大于 1 了，但整体用户量还是不涨，这漏斗怎么回事？",
+      "expected_behavior": "触发本 skill：传播环不是瓶颈时重新扫描上游——K>1 只在基数存在时起作用，重点查获取与激活环的量级；展示漏斗环节间联动而非只盯单环数据。",
+      "notes": "边界场景：单环数据好但整体不涨的联动诊断。"
+    }
+  ]
+}

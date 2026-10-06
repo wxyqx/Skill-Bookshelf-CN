@@ -1,0 +1,69 @@
+{
+  "skill": "growth-ethics-redlines",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "新版本想默认上传用户通讯录来提升好友匹配精度，用户不用手动同意，这样能做吗？",
+      "expected_behavior": "激活 skill：过三道闸——闸一换位思考（用户知情吗？接受吗？）、闸二最小授权最大知情（是否必要/已知/知情，预期不过）、闸三长期监管推演（个保法/ATT 已明文禁止），裁决为否决或改为明示授权。",
+      "notes": "核心触发场景：权限索取审查。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "竞品都在用'残忍地拒绝'这种诱导按钮和限时倒计时的紧迫感设计提升转化，我们跟不跟？有没有合规风险？",
+      "expected_behavior": "激活 skill：识别为 dark pattern 类操纵设计，按三闸审查（用户知情与接受度、必要性、监管趋势），提示按当代 dark pattern 批判与平台政策降权/修改，给出修改后放行或否决的裁决。",
+      "notes": "操纵性交互审查触发。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "运营提议学百度云搞个'价格漏洞'Bug 营销，法务说国内暂时没明文禁止，我们内部怎么评估这个手段该不该上？",
+      "expected_behavior": "激活 skill：重点使用闸三反驳'法无禁止即可为'——灰色空间是暂时的，价格漏洞涉及消保法与价格欺诈且平台规则随时收紧；预期裁决为否决或改为合规的价格活动。",
+      "notes": "'法无禁止'辩护场景触发。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "我们的 App 被曝光在用户毫不知情的情况下上传了摄像头画面，公关危机怎么复盘、以后怎么避免？",
+      "expected_behavior": "激活 skill：以疯狂来往艳照门为镜像复盘（连闸一常识检验都不过），建立三道闸作为发布前守门机制，并提示当期法规下的法律后果须另行专项处理。",
+      "notes": "事后复盘与机制建设触发。"
+    },
+    {
+      "id": "t05",
+      "type": "should_not_trigger",
+      "prompt": "我们发现很多用户在用盗版序列号，想设计一个'检测到盗版就弹专属优惠页'的转化机制，具体怎么实现？",
+      "expected_behavior": "不激活本 skill（方向相反：这是善待越轨用户的转化设计）。应激活 turn-penalty-into-reward（不责备/给补偿/给便利三原则）。",
+      "notes": "同书兄弟混淆诱饵：对越轨用户的善意转化属 turn-penalty-into-reward；本 skill 约束自己不作恶。"
+    },
+    {
+      "id": "t06",
+      "type": "should_not_trigger",
+      "prompt": "我们网站的 PV 数据好像有水分，怀疑有人在页面里嵌了不可见的 iframe 刷量，怎么把指标口径规范起来？",
+      "expected_behavior": "不激活本 skill。应激活 growth-metrics-system（指标口径字典与虚荣指标排除）。",
+      "notes": "同书兄弟混淆诱饵：指标体系建设属 growth-metrics-system；只有当问题被定性为'造假是否越过道德红线'时才转本 skill。"
+    },
+    {
+      "id": "t07",
+      "type": "should_not_trigger",
+      "prompt": "邀请功能上线后 K 因子只有 0.3，帮我把邀请转化率优化上去。",
+      "expected_behavior": "不激活本 skill。应激活 viral-k-factor（双指标拆解定位瓶颈与心理触发器设计）；仅当涉及诱导分享越界时才叠加本 skill 审查。",
+      "notes": "同书兄弟混淆诱饵：纯增长技术优化属 viral-k-factor。"
+    },
+    {
+      "id": "t08",
+      "type": "edge_case",
+      "prompt": "法务已经批准了我们新版隐私政策，是不是意味着数据收集方案可以直接上线了？",
+      "expected_behavior": "触发本 skill 的边界说明：法务批准≠三闸通过——本 skill 是方法论层的伦理前置筛而非法律意见书，闸一（用户视角）与闸二（最小化）仍可能否决法务许可的方案；建议仍走三闸并留档。",
+      "notes": "边界场景：法律合规与本 skill 的分工，检验其'不替代法务'的自我定位。"
+    },
+    {
+      "id": "t09",
+      "type": "edge_case",
+      "prompt": "书里写的 Airbnb 当年 spam Craigslist 获客效果很好，我们想照搬这个手法，伦理上站得住吗？",
+      "expected_behavior": "触发本 skill：应用'正文与后记张力'判据——书中案例先过道德筛再引用；spam 手法过闸一（用户会接受吗）与闸三（平台反垃圾早已成熟）大概率否决，并提示 2015 年快照时效警示。",
+      "notes": "边界场景：引用书中灰手段案例时的道德筛，检验与全书其他 skill 的守门关系。"
+    }
+  ]
+}

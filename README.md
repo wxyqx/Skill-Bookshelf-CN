@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**43 本书 · 734 个 skills**（最后更新：2026-10-06）
+**44 本书 · 755 个 skills**（最后更新：2026-10-06）
 
 ### 分类导航
 
@@ -56,7 +56,7 @@
 | 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./03-个人成长/effective-executive/) |
 | 《掌控习惯》*Atomic Habits* | 詹姆斯·克利尔 · 2018/2019 | 习惯设计 / 身份转变 / 行为四定律 | 16 | [`atomic-habits/`](./03-个人成长/atomic-habits/) |
 
-#### 04-创业与经营（8 本）
+#### 04-创业与经营（9 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -68,6 +68,7 @@
 | 《小米创业思考》 | 雷军 / 徐洁云 · 2022 | 创业方法论 / 效率模型 / 爆品模式 / 互联网七字诀 | 17 | [`xiaomi-startup-thinking/`](./04-创业与经营/xiaomi-startup-thinking/) |
 | 《定位：有史以来对美国营销影响最大的观念》*Positioning* | 艾·里斯、杰克·特劳特 · 1981/2011 | 营销战略 / 心智认知 / 品牌命名 / 攻防策略 | 15 | [`positioning-ries-trout/`](./04-创业与经营/positioning-ries-trout/) |
 | 《流量池》*Traffic Pool* | 杨飞 · 2018 | 流量池思维 / 裂变增长 / 品效合一 / 品牌与场景 / 数字广告 | 19 | [`traffic-pool/`](./04-创业与经营/traffic-pool/) |
+| 《增长黑客》*Growth Hacker* | 范冰 · 2015 | AARRR 漏斗 / PMF 验证 / 冷启动 / 病毒传播 / 增长指标 | 21 | [`growth-hacker/`](./04-创业与经营/growth-hacker/) |
 
 #### 05-产品与创新（6 本）
 
@@ -370,6 +371,13 @@
 - **Skills**：`identity-based-habits` · `identity-flexibility` · `habit-loop-four-laws` · `start-new-habit` · `environment-design` · `quit-bad-habit` · `temptation-bundling` · `join-the-culture` · `craving-reframing` · `two-minute-start` · `commitment-devices` · `reward-design` · `tracking-and-accountability` · `domain-selection` · `goldilocks-difficulty` · `mastery-reflection`
 - **备注**：2019 年出版，行为科学证据持续更新，重要健康/心理场景请结合专业意见（各 skill B 段已注明判停与转介）；与《习惯的力量》分属体系设计与习惯发现科普，术语边界见 GLOSSARY。
 
+### 44. 《增长黑客》 · [`growth-hacker/`](./04-创业与经营/growth-hacker/)
+
+- **作者**：范冰 · 2015（电子工业出版社）
+- **一句话**：创业公司没钱没流量也能增长——先用 PMF 确认产品值得增长，再用数据驱动的实验沿 AARRR 漏斗（获取→活跃→留存→收入→传播）逐环破局：种子用户筛选、最笨的事情人肉冷启动、A/B 测试铁律、魔法数字激活、留存诊断、免费-收费切分、K 因子内生传播，全程用指标说话。
+- **Skills**：`demand-four-questions` · `pmf-gate` · `mvp-validator` · `actions-over-words` · `seed-user-selection` · `do-things-that-dont-scale` · `content-marketing-engine` · `ab-testing-protocol` · `activation-aha-magic-number` · `subsidy-ladder` · `gamification-boundary` · `retention-diagnosis` · `winback-mechanisms` · `growth-metrics-system` · `freemium-decision` · `turn-penalty-into-reward` · `viral-k-factor` · `external-viral-loop` · `moment-marketing` · `aarrr-funnel-diagnosis` · `growth-ethics-redlines`
+- **备注**：2015 年快照——开放平台红利、补贴大战、SEO/ASO 权重、平台规则均已变，各 skill 的 B 段已内嵌时效警示，只取判断逻辑层；案例幸存者偏差明显（引用的都是赢家），与《流量池》同属增长实操谱系、互为补充。
+
 ---
 
 ## 安装
@@ -377,7 +385,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 734 个 skills（用户级，所有项目可用）
+# 一次性安装全部 755 个 skills（用户级，所有项目可用）
 for d in */*/skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -431,7 +439,8 @@ skill-bookshelf/
 │   ├── power-48-laws/   # 《权力的48条法则》
 │   ├── xiaomi-startup-thinking/   # 《小米创业思考》
 │   ├── positioning-ries-trout/   # 《定位：有史以来对美国营销影响最大的观念》
-│   └── traffic-pool/   # 《流量池》
+│   ├── traffic-pool/   # 《流量池》
+│   └── growth-hacker/   # 《增长黑客》
 ├── 05-产品与创新/
 │   ├── how-google-works/   # 《重新定义公司：谷歌是如何运营的》
 │   ├── hooked/   # 《上瘾：让用户养成使用习惯的四大产品逻辑》
