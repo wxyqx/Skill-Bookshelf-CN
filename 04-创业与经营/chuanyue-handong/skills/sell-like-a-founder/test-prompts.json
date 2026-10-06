@@ -1,0 +1,59 @@
+{
+ "skill": "sell-like-a-founder",
+ "version": "0.1.0",
+ "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+ "darwin_compatible": true,
+ "test_cases": [
+  {
+   "id": "should-trigger-01",
+   "type": "should_trigger",
+   "prompt": "我亲自跑了几家大企业，采购经理都说方案不错，但问了半天我连他们内部谁拍板都搞不清楚，单子一个个悬着，该怎么办？",
+   "expected_behavior": "应激活 sell-like-a-founder，用客户访谈八问（购买需获得谁的批准/利益相关者）与 22 条军规中的尽早找到真正决策者、寻找内线，建立每笔交易的决策者地图",
+   "notes": "典型正面场景：决策链不清、创始人亲跑 B2B 销售"
+  },
+  {
+   "id": "should-trigger-02",
+   "type": "should_trigger",
+   "prompt": "有个潜在客户聊完说'挺有意思的，等产品成熟了我们再合作'，我该把这类客户当希望还是放弃？怎么判断我的产品对客户到底重不重要？",
+   "expected_behavior": "应激活 sell-like-a-founder，用前五优先事项测试判断必需品属性（对不上前五即无成交可能），并引用礼貌性反馈假阳性（e05）：行动式反馈才是反馈，客套话等于零反馈",
+   "notes": "必需品判断+假阳性反馈触发"
+  },
+  {
+   "id": "should-trigger-03",
+   "type": "should_trigger",
+   "prompt": "这个月又被七八个客户拒绝了，有点扛不住，还有一笔谈了四个月的单子完全卡死，我是继续耗着还是撤？",
+   "expected_behavior": "应激活 sell-like-a-founder，用 p70 拥抱拒绝（每次被拒索要原因、转化为信息来源）与 p71/f59 僵局交易处理（预设底线、推进不动即移出日程、90% 精力聚焦决定性交易）",
+   "notes": "拒绝应对+僵局止损触发"
+  },
+  {
+   "id": "should-not-trigger-01",
+   "type": "should_not_trigger",
+   "prompt": "下周要给投资人做第二次会面了，帮我把路演 PPT 的融资故事再打磨一遍，最好加一页数据支撑。",
+   "expected_behavior": "不应激活本 skill，应激活 pitch-materials-that-land（对投资人'销售'的材料准备）；用户说的是'卖'给投资人，但融资方法论自成一系",
+   "notes": "同书兄弟混淆诱饵：融资销售 vs 客户销售"
+  },
+  {
+   "id": "should-not-trigger-02",
+   "type": "should_not_trigger",
+   "prompt": "产品快上线了，没预算投放，我想搞个活动让行业外的普通人也来注册试试，有没有低成本的获客玩法？",
+   "expected_behavior": "不应激活本 skill，应激活 market-and-grow-on-a-shoestring（一对多的游击营销获客）；本 skill 管一对一的战略销售，不管规模化获客",
+   "notes": "同书兄弟混淆诱饵：获客 vs 销售"
+  },
+  {
+   "id": "should-not-trigger-03",
+   "type": "should_not_trigger",
+   "prompt": "我有个 B2B 的点子还在纸面上，连产品都没有，想先去问问潜在客户这需求是不是真的，该带哪些问题去聊？",
+   "expected_behavior": "不应激活本 skill，应激活 validate-before-you-build（需求真伪验证上游）；本 skill 假设产品已在卖，重点是成交与谈判",
+   "notes": "边界诱饵：验证上游未完成先回验证"
+  },
+  {
+   "id": "edge-01",
+   "type": "edge_case",
+   "prompt": "我们 SaaS 同时在跟一个几百块的中小企业客户和一个可能占全年营收一半的大集团单子，销售时间到底该怎么分？大集团单子谈了半年没进展。",
+   "expected_behavior": "合理答案可激活 sell-like-a-founder：用 p71 的成交概率×影响力排序给交易组合排序，90% 精力投向决定性交易，但聚焦的依据是排序而非客户规模；对半年无进展的大单用 e48 僵局判据——预设底线、推进不动即移出日程；需注意书中聚焦律以大型战略销售为原型的局限",
+   "notes": "边界：交易组合分配，需同时用排序律与僵局止损，并暴露小客单价场景的盲点"
+  }
+ ],
+ "minimum_pass_rate": 0.8,
+ "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟 skill 混淆诱饵：对投资人销售、大众营销获客；第 3 条为验证上游边界诱饵）+ 1 条 edge_case（交易组合分配，同时考排序律与僵局止损）。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

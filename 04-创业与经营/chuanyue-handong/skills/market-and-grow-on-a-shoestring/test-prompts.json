@@ -1,0 +1,59 @@
+{
+ "skill": "market-and-grow-on-a-shoestring",
+ "version": "0.1.0",
+ "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+ "darwin_compatible": true,
+ "test_cases": [
+  {
+   "id": "should-trigger-01",
+   "type": "should_trigger",
+   "prompt": "我们产品上线三个月了，账户上一分钱广告费都没有，怎么才能不花钱拿到第一批真实客户？",
+   "expected_behavior": "应激活 market-and-grow-on-a-shoestring，给出游击营销创意替代预算、集客营销起步四问与借势打法的落地动作",
+   "notes": "典型正面场景：零预算获客"
+  },
+  {
+   "id": "should-trigger-02",
+   "type": "should_trigger",
+   "prompt": "公众号阅读量一直趴着，编辑团队都说这篇最好，但数据就是不涨，有没有办法科学地定标题和选题？",
+   "expected_behavior": "应激活 market-and-grow-on-a-shoestring，用 Upworthy 25→4→测点击→数据裁决四步法与十条标题写法重建选题流程",
+   "notes": "标题 A/B 与数据裁决触发"
+  },
+  {
+   "id": "should-trigger-03",
+   "type": "should_trigger",
+   "prompt": "现在同时跑着信息流和地推两个获客渠道，越投越亏，帮我算算到底哪个渠道该加钱哪个该砍，还有没有别的路子？",
+   "expected_behavior": "应激活 market-and-grow-on-a-shoestring，用 LTV-CAC 渠道算术逐渠道判停（加码/维持/砍掉），并启动月度新渠道测试节奏",
+   "notes": "渠道算术触发：LTV/CAC 判断"
+  },
+  {
+   "id": "should-not-trigger-01",
+   "type": "should_not_trigger",
+   "prompt": "下周我要亲自去拜访一家大企业的采购总监，帮我把电梯陈述和谈判话术打磨一下。",
+   "expected_behavior": "不应激活本 skill，应激活 sell-like-a-founder（创始人亲跑 B2B 大客户销售）",
+   "notes": "跨 skill 混淆诱饵：获客机器 vs 创始人亲跑销售"
+  },
+  {
+   "id": "should-not-trigger-02",
+   "type": "should_not_trigger",
+   "prompt": "我们免费转化率还行，但怎么定价、走订阅还是买断、护城河靠什么，这套模式我一直没想清楚。",
+   "expected_behavior": "不应激活本 skill，应激活 design-business-model-and-moat（商业模式与护城河设计）",
+   "notes": "跨 skill 混淆诱饵：渠道级判断 vs 模式级设计"
+  },
+  {
+   "id": "should-not-trigger-03",
+   "type": "should_not_trigger",
+   "prompt": "用户试用都说好，但就是没人愿意掏钱复购，我是不是该先想清楚这需求是不是伪需求？",
+   "expected_behavior": "不应激活本 skill，应激活 validate-before-you-build（需求验证）；本 skill 假设需求已验证、只解决客户从哪来",
+   "notes": "边界诱饵：需求未验证先回验证"
+  },
+  {
+   "id": "edge-01",
+   "type": "edge_case",
+   "prompt": "有人建议我花 15 万请一个明星穿我们牌子上热搜，说能一举打开知名度，这钱该花吗？",
+   "expected_behavior": "合理答案可激活 market-and-grow-on-a-shoestring：用 Young & Reckless 反例指出无故事支撑的名人代言是烧钱，推广必须嵌入品牌叙事；关键是用'有没有故事可讲'给出判据而非简单说贵或便宜",
+   "notes": "边界：品牌推广决策，反例判据"
+  }
+ ],
+ "minimum_pass_rate": 0.8,
+ "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为需求未验证边界诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

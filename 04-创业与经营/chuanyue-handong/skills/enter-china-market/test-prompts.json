@@ -1,0 +1,59 @@
+{
+  "skill": "enter-china-market",
+  "version": "0.1.0",
+  "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们是一家美国的SaaS公司，董事会下个月要讨论要不要进军中国。有人担心像优步那样烧几十亿也打不进去。帮我们系统判断一下该不该进、进了守不守得住。",
+      "expected_behavior": "应激活 enter-china-market，用四道防御自检（技术/品牌/本地伙伴/生态系统）与扩张顺序判据给出进入/暂缓结论",
+      "notes": "典型正面场景：进入前'守得住吗'自检，并点名优步中国败例"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "一家中国分销商想跟我们签独家合作、直接成立合资公司全面代理我们的业务，这样进中国是不是最快？",
+      "expected_behavior": "应激活 enter-china-market，指出先WOFE缓合资、不做独家、用多点平行小试验选伙伴，必要时提以色列模式",
+      "notes": "结构选择与伙伴策略触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们中国团队每个产品决定都要等硅谷总部审批，上线速度比本地对手慢半年，而且和本地伙伴的关系好像只停留在饭局上，怎么破？",
+      "expected_behavior": "应激活 enter-china-market，给出决策本地化授权方案、管理风格按任务选用与关系纵深模型的落地动作",
+      "notes": "已进场症状触发：本地化+关系"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我们设计一下新的商业模式：订阅加广告混合，怎么变现和建立护城河比较好？",
+      "expected_behavior": "不应激活本 skill，应激活 design-business-model-and-moat（商业模式设计与护城河）",
+      "notes": "同书兄弟诱饵：模式设计 vs 进入中国，A2 必须区分"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "用独角兽的标准帮我们公司估个值：我们现在算不算一家值10亿的潜力公司？",
+      "expected_behavior": "不应激活本 skill，应激活 think-like-a-unicorn-hunter（独角兽标准评估）",
+      "notes": "同书兄弟诱饵：估值评估 vs 市场进入，A2 必须区分"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我们是广州的一家连锁餐饮品牌，今年打算在成都再开八家分店，帮我看看扩张节奏。",
+      "expected_behavior": "不应激活本 skill，属于纯国内业务扩张，不在'外国/跨境公司进入中国市场'范围内",
+      "notes": "边界诱饵：纯国内业务，B 段明确不适用"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "一家中国战略投资人愿意领投我们，条件是签独家合作并全权代理我们在中国市场的销售，这钱和这个绑定该不该要？",
+      "expected_behavior": "合理答案可激活 enter-china-market（f30 不做独家绑定、以色列模式中的利益一致点分析）并联动 choose-your-funding-path（资金红线与投资人审查）；关键是同时回答'钱的条款'与'独家绑定的进入后果'两个层面",
+      "notes": "边界：融资条款与市场进入交织，双向皆可，优先按进入后果给判据"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟混淆诱饵，第 3 条为纯国内业务边界诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

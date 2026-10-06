@@ -1,0 +1,59 @@
+{
+  "skill": "choose-your-funding-path",
+  "version": "0.1.0",
+  "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们在做一家稳扎稳打的 B2B 服务公司，三年撑死做到两三千万营收，最近有朋友劝我去找风投，说有钱才跑得快——我到底该不该去融？",
+      "expected_behavior": "应激活 choose-your-funding-path，用三年 5000 万美元资格线判定与风投模式不匹配，引导走替代路径",
+      "notes": "典型正面场景：风投匹配闸（资格线算术）"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我爸准备把退休金取出来给我当创业启动资金，说就当投资我了他放心，另外我小舅子也想借我 30 万——这些钱我该不该拿？",
+      "expected_behavior": "应激活 choose-your-funding-path，触发资金红线：退休金不可动、亲友借款是撒旦的糖果（父母赠与例外且只当礼物），给出拒绝话术与替代方案",
+      "notes": "典型正面场景：红线闸（退休金＋亲友借款）"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "融资一年被拒了十几次，账上的钱快见底了。是不是就不该创业了？有没有不靠融资把公司先做起来的办法？",
+      "expected_behavior": "应激活 choose-your-funding-path，先回总闸门（未验证不借债续命），再给替代路径：低前期投入业务、副业起步、缺钱是纪律",
+      "notes": "典型正面场景：替代路径（自力更生/副业起步）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我讲讲 VC 到底是怎么赚钱的？2/20 是什么意思，为什么他们非要投那种能退出的公司？",
+      "expected_behavior": "不应激活本 skill，应激活 vc-dynamics-demystified（理解风投机器）",
+      "notes": "同书兄弟诱饵：懂机器 vs 选路"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我有个点子还没验证，想先花最少的钱测试一下需求是真是假，实验该怎么设计、多久没起色该放弃？",
+      "expected_behavior": "不应激活本 skill，应激活 validate-before-you-build（低成本验证与止损）",
+      "notes": "同书兄弟诱饵：验证闸门本身 vs 融资选路"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我已经决定这轮融资做 800 万估值，下个月要见五个机构，帮我排一下跟进节奏和每家的突破策略。",
+      "expected_behavior": "不应激活本 skill，应激活 run-the-fundraising-process（融资流程执行）",
+      "notes": "同书兄弟诱饵：决定后的执行 vs 决定本身"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "有家行业里的大公司想战略投资我们，但他们同时是我们最大客户的直接竞争对手，这笔钱拿了会怎么样？",
+      "expected_behavior": "合理答案是激活 choose-your-funding-path（绝不拿客户的竞争对手的钱，讲清战略投资的锁死机制）；若后续要背调这家投资人的可信度联动 vet-investors-and-advisors 亦可接受，关键是给出该不该拿的判断而非谈判技巧",
+      "notes": "边界：资金红线判断归本 skill，具体投资人背调归 vet-investors-and-advisors"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（3 条均为同书兄弟混淆诱饵：vc-dynamics-demystified、validate-before-you-build、run-the-fundraising-process）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

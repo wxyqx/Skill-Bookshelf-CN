@@ -1,0 +1,59 @@
+{
+  "skill": "run-the-fundraising-process",
+  "version": "0.1.0",
+  "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我们准备启动新一轮融资，估值到底定多少？听说可以查可比公司的融资数据，具体怎么校准才不会被投资人压价？",
+      "expected_behavior": "应激活 run-the-fundraising-process，用房产类比估值法与询价校准流程，给出可比数据收集与钟形曲线取中位数的定价方法",
+      "notes": "典型正面场景：估值定价"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "手上同时有四家机构在聊，其中一家明显在拖时间，每次都往低处压。跟进节奏该怎么排？那家沉默的还要不要继续追？",
+      "expected_behavior": "应激活 run-the-fundraising-process，用 10 个投资人渠道法则与三振出局跟进法（次日跟进、一周节奏、三振出局）安排管道",
+      "notes": "渠道与跟进触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有位行业内的大佬愿意给我们背书，怎么用他来撬动领投？另外投资人总打听我还跟谁在谈，还建议把几家机构拉到一起互相认识，这样是不是更快？",
+      "expected_behavior": "应激活 run-the-fundraising-process，用社会资本攀爬法与领投策略讲背书用法，并警告投资人互相介绍=串通报价，应保持隔离直到双承诺",
+      "notes": "领投/背书 + 隔离策略触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "下周就要见投资人了，帮我把我那 11 页路演 PPT 的市场规模页和团队页改得更有说服力。",
+      "expected_behavior": "不应激活本 skill，应激活 pitch-materials-that-land（路演材料制作）",
+      "notes": "同书兄弟诱饵：材料制作 vs 流程执行"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "有位投资人特别积极，但我总觉得哪里不对劲。我该不该拿这个人的钱？怎么判断他是不是伪装成天使的推销者？",
+      "expected_behavior": "不应激活本 skill，应激活 vet-investors-and-advisors（投资人筛选与背调）",
+      "notes": "同书兄弟诱饵：筛人背调 vs 跑流程"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "按现实估算我们五年后撑死 3 个亿退出，是不是根本不该去敲大基金的门，直接找种子基金更合适？",
+      "expected_behavior": "不应激活本 skill，应激活 vc-dynamics-demystified（退出规模算术与融资阶梯匹配）",
+      "notes": "同书兄弟诱饵：轮次匹配 vs 流程执行"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我打算在下一场路演现场宣布我们两周后关闭这一轮，逼大家赶紧表态——这算谈判话术还是流程安排？截止日期到底该怎么用？",
+      "expected_behavior": "合理答案应拆成两层：人为截止日期的流程设计（何时宣布、如何执行、验证口头承诺真伪）归 run-the-fundraising-process；现场怎么用表情、语气和心理张力施压归 win-the-pitch-room。两层联动给出亦可接受，关键是不丢掉'截止日期必须真的执行'与'对朋友也一样设期限'的纪律",
+      "notes": "边界：截止日期横跨流程（本 skill）与现场话术（win-the-pitch-room）"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（均为同书兄弟混淆诱饵：pitch-materials-that-land、vet-investors-and-advisors、vc-dynamics-demystified）+ 1 条 edge_case（与 win-the-pitch-room 的截止日期边界）。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

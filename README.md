@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**45 本书 · 771 个 skills**（最后更新：2026-10-07）
+**46 本书 · 787 个 skills**（最后更新：2026-10-07）
 
 ### 分类导航
 
@@ -56,7 +56,7 @@
 | 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./03-个人成长/effective-executive/) |
 | 《掌控习惯》*Atomic Habits* | 詹姆斯·克利尔 · 2018/2019 | 习惯设计 / 身份转变 / 行为四定律 | 16 | [`atomic-habits/`](./03-个人成长/atomic-habits/) |
 
-#### 04-创业与经营（10 本）
+#### 04-创业与经营（11 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -70,6 +70,7 @@
 | 《流量池》*Traffic Pool* | 杨飞 · 2018 | 流量池思维 / 裂变增长 / 品效合一 / 品牌与场景 / 数字广告 | 19 | [`traffic-pool/`](./04-创业与经营/traffic-pool/) |
 | 《增长黑客》*Growth Hacker* | 范冰 · 2015 | AARRR 漏斗 / PMF 验证 / 冷启动 / 病毒传播 / 增长指标 | 21 | [`growth-hacker/`](./04-创业与经营/growth-hacker/) |
 | 《创业投资法律手册：那些你在创业时应该知道的公司法知识》 | 杨春宝、王成兵 · 2014 | 设立形式 / 出资合规 / 股权设计 / 公司治理 / 股东救济 / 股权激励 / 退出清算 | 16 | [`startup-legal-handbook/`](./04-创业与经营/startup-legal-handbook/) |
+| 《穿越寒冬：创业者的融资策略与独角兽思维》 | 史蒂文·霍夫曼 · 2020 | 创业决策 / 需求验证 / 融资策略 / 增长营销 / 团队领导 / 创始人心态 | 16 | [`chuanyue-handong/`](./04-创业与经营/chuanyue-handong/) |
 
 #### 05-产品与创新（6 本）
 
@@ -386,6 +387,13 @@
 - **Skills**：`entity-choice-incorporation` · `capital-contribution-compliance` · `veil-piercing-liability` · `charter-governance-design` · `equity-rights-design` · `resolution-validity-procedure` · `shareholder-qualification-registration` · `minority-shareholder-remedies` · `nominee-shareholding-risk` · `equity-transfer-pricing` · `capital-change-restructuring` · `employee-equity-incentive` · `exit-dissolution-liquidation` · `legal-rep-compliance-contracts` · `paper-validity-traps` · `cross-border-foreign-investment`
 - **备注**：⚠️ 时效提示——蒸馏自 2014 年公司法语境，2023 年修订《公司法》（2024-07-01 施行）后注册资本认缴、公司治理等条款已有重大变化，涉及具体条文务必对照现行法核验（各 skill 内已内嵌相应警示）；律师问答体，方法论形态为决策框架、法定程序清单与构成要件，非理论体系。
 
+### 46. 《穿越寒冬：创业者的融资策略与独角兽思维》 · [`chuanyue-handong/`](./04-创业与经营/chuanyue-handong/)
+
+- **作者**：史蒂文·霍夫曼 · 2020（中信出版集团，"创始人空间"CEO）
+- **一句话**：缺钱是创业的常态更是纪律的来源——先验证需求再谈融资、能不拿钱就不拿钱，必须拿时看懂风投机器（2/20、幂律、退出算术）再进流程：16 个 skill 覆盖创业自评与需求验证、融资路径与风投机制、路演材料与现场、增长黑客与商业模式护城河、独角兽评估、团队组建、创始人销售、文化与董事会，直到挫折复原与持续学习。
+- **Skills**：`founder-fit-self-assessment` · `validate-before-you-build` · `choose-your-funding-path` · `vc-dynamics-demystified` · `pitch-materials-that-land` · `run-the-fundraising-process` · `vet-investors-and-advisors` · `win-the-pitch-room` · `enter-china-market` · `market-and-grow-on-a-shoestring` · `design-business-model-and-moat` · `think-like-a-unicorn-hunter` · `build-your-team-right` · `sell-like-a-founder` · `lead-culture-and-board` · `founder-resilience-and-learning`
+- **备注**：案例与渠道集中于 2012-2019 美国风投语境，作者为孵化器操盘手立场（幸存者偏差明显），迁移判断逻辑而非具体渠道与数字（各 skill B 段已内嵌警示）；与《创业投资法律手册》《增长黑客》互补，覆盖创业全周期。
+
 ---
 
 ## 安装
@@ -449,7 +457,8 @@ skill-bookshelf/
 │   ├── positioning-ries-trout/   # 《定位：有史以来对美国营销影响最大的观念》
 │   ├── traffic-pool/   # 《流量池》
 │   ├── growth-hacker/   # 《增长黑客》
-│   └── startup-legal-handbook/   # 《创业投资法律手册：那些你在创业时应该知道的公司法知识》
+│   ├── startup-legal-handbook/   # 《创业投资法律手册：那些你在创业时应该知道的公司法知识》
+│   └── chuanyue-handong/   # 《穿越寒冬：创业者的融资策略与独角兽思维》
 ├── 05-产品与创新/
 │   ├── how-google-works/   # 《重新定义公司：谷歌是如何运营的》
 │   ├── hooked/   # 《上瘾：让用户养成使用习惯的四大产品逻辑》

@@ -1,0 +1,59 @@
+{
+  "skill": "pitch-materials-that-land",
+  "version": "0.1.0",
+  "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "下个月有个路演，只有3分钟向投资人介绍公司，PPT完全不知道该放哪几页，帮我搭一个结构。",
+      "expected_behavior": "应激活 pitch-materials-that-land，给出11页路演文档逐页骨架与'少即是多、每页一个要点'原则",
+      "notes": "典型正面场景：路演文档制作"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我想给红杉的一位合伙人写邮件，但完全不认识他，我们是做工业质检AI的，这封冷邮件该怎么写？",
+      "expected_behavior": "应激活 pitch-materials-that-land，按四段式冷邮件模板（一句话业务→三个硬成果→链接→署名）起草并附一句话跟进邮件",
+      "notes": "冷邮件触达触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "上次给投资人讲完，对方记不住我们公司。朋友说数据讲一堆没用，得会讲故事，融资时到底该怎么讲创业故事？",
+      "expected_behavior": "应激活 pitch-materials-that-land，用讲故事四问（为何创立/为何痴迷/如何颠覆行业/对客户的冲击）帮用户挖掘并植入融资故事",
+      "notes": "融资故事触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "下周就要进会议室见投资人了，他们要是当场挑战我的数据和估值怎么办？现场怎么应对提问？",
+      "expected_behavior": "不应激活本 skill，应激活 win-the-pitch-room（现场应对提问与控场）",
+      "notes": "同书兄弟诱饵：材料 vs 现场——材料阶段已结束"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "现在有五家机构同时在推进，帮我定一个跟进节奏：什么时候该催TS、怎么谈估值条款。",
+      "expected_behavior": "不应激活本 skill，应激活 run-the-fundraising-process（融资流程与估值执行）",
+      "notes": "同书兄弟诱饵：弹药制造 vs 流程执行"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我把BP发给一家大基金，对面说我们退出体量撑不起他们的账，为什么大基金总拒我们这种项目？",
+      "expected_behavior": "不应激活本 skill，应激活 vc-dynamics-demystified（基金规模与退出算术的匹配逻辑）",
+      "notes": "同书兄弟诱饵：材料问题 vs 机制问题"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "11页路演PPT做完了，帮我演练一下：投资人最可能在哪几页发难，我现场该怎么接？",
+      "expected_behavior": "合理答案是主要激活 win-the-pitch-room（现场答辩演练）；但若联动本 skill 顺着材料逐页指出易被攻击的薄弱页（第5页市场数字、第8页烧钱率、第11页估值）并先补材料，亦可接受——关键是现场话术部分归 win-the-pitch-room，不能只做材料修改而回避现场应对",
+      "notes": "边界：材料收尾与现场准备交叠，以用户主要诉求（现场怎么接）判断去向"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（3 条均为同书兄弟混淆诱饵：win-the-pitch-room / run-the-fundraising-process / vc-dynamics-demystified）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,59 @@
+{
+  "skill": "win-the-pitch-room",
+  "version": "0.1.0",
+  "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "明天上午要见一家风投，只有15分钟，我该用什么开场？他们要是中途打断我或者问出我答不上的问题怎么办？",
+      "expected_behavior": "应激活 win-the-pitch-room，给出开门见山的综述开场、被打断是好事要顺着语境讲、不知道就说不知道但承诺跟进等现场动作",
+      "notes": "典型正面场景：会面前的现场准备"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "有家机构拖了我们两个月，每次都说很有兴趣但就是不拍板，还反复打听我们是不是也在跟别人聊。怎么制造紧迫感让他们尽快做决定？",
+      "expected_behavior": "应激活 win-the-pitch-room，用人为止损日期、隔离投资人与竞争张力（若对方也感兴趣就介绍）、让错失交易的恐惧压过亏损恐惧来推动成交",
+      "notes": "截止日期+竞争张力触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们账上的钱只够撑三个月了，又要同时跟几家机构谈估值，我最怕谈判时被看出急缺钱被压价，现场怎么保持筹码？",
+      "expected_behavior": "应激活 win-the-pitch-room，给出扑克脸原则（不暴露绝望，哪怕破产边缘也表现得随时能走）并以顾问姿态提问引导对方说'不'暴露顾虑",
+      "notes": "扑克脸+不暴露绝望触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我的11页路演PPT要改第三版了，帮我把市场规模和竞争那两页写得更抓人，冷邮件的标题也帮我想几个。",
+      "expected_behavior": "不应激活本 skill，应激活 pitch-materials-that-land（路演材料与冷邮件制作）",
+      "notes": "同书兄弟诱饵：上台前的材料 vs 会面现场"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这轮融资估值到底怎么定？我现在同时在跟8家机构聊，帮我排一下跟进节奏，第一封跟进邮件几天发合适？",
+      "expected_behavior": "不应激活本 skill，应激活 run-the-fundraising-process（估值定价与融资流程执行）",
+      "notes": "同书兄弟诱饵：流程执行 vs 现场心理"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "有位'天使'主动约我见面，但我查不到他投过什么项目；另外风投内部那个年轻投资助理到底说得上话吗？",
+      "expected_behavior": "不应激活本 skill，应激活 vet-investors-and-advisors（鉴别假天使、风投内部三类支持者）",
+      "notes": "同书兄弟诱饵：筛人背调 vs 现场成交"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "上个月见过一次的投资人说'很有兴趣，回去再看看'就没下文了，我接下来该怎么办？",
+      "expected_behavior": "合理答案是激活 run-the-fundraising-process（三振出局跟进法：次日邮件、一周一期、三封出局，并问清对方决策流程）；若同时用本 skill 补'追问决策必经步骤、设截止日期逼真话'亦可接受，关键是给出跟进节奏判断而非只讲临场话术",
+      "notes": "边界：会面结束后的跟进，主归流程 skill，本 skill 仅作现场动作补充"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（其中 2 条为同书兄弟混淆诱饵：pitch-materials-that-land 与 run-the-fundraising-process，另 1 条 vet-investors-and-advisors）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

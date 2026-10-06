@@ -1,0 +1,59 @@
+{
+  "skill": "vc-dynamics-demystified",
+  "version": "0.1.0",
+  "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我准备接触几家风投，但完全不懂他们的商业模式——VC 到底靠什么赚钱，为什么我们的项目他们看不上？",
+      "expected_behavior": "应激活 vc-dynamics-demystified，拆解 2/20、幂律与退出算术并预判对方行为",
+      "notes": "典型正面场景：理解风投机器"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "帮我校准一下：我们这种体量的公司，五年后撑死也就 3 个亿退出，该去找大基金还是小基金？",
+      "expected_behavior": "应激活 vc-dynamics-demystified，用退出规模算术与融资阶梯给出匹配建议",
+      "notes": "退出算术自检触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "有位合伙人聊得很投缘，但为什么到最后一步团队还是投票拒绝了？融资里到底谁说了算？",
+      "expected_behavior": "应激活 vc-dynamics-demystified，解释全体合伙人会议与一票否决机制",
+      "notes": "决策机制触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我想辞职创业，但不知道自己适不适合，听说大部分公司都死了，帮我分析分析。",
+      "expected_behavior": "不应激活本 skill，应激活 founder-fit-self-assessment（创业抉择自我评估）",
+      "notes": "跨 skill 混淆诱饵：创业抉择 vs 风投机制"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我的 11 页路演 PPT 快做完了，帮我把市场规模那几页改得更有说服力。",
+      "expected_behavior": "不应激活本 skill，应激活 pitch-materials-that-land（路演材料制作）",
+      "notes": "跨 skill 混淆诱饵：材料 vs 机制"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "最近三个月同时在谈五家机构，帮我排一个跟进节奏和估值谈判策略。",
+      "expected_behavior": "不应激活本 skill，应激活 run-the-fundraising-process（融资流程与估值执行）",
+      "notes": "跨 skill 混淆诱饵：流程执行 vs 机制理解"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "要不要接受亲戚的 50 万启动我的想法？还是去找天使投资人？",
+      "expected_behavior": "合理答案是激活 choose-your-funding-path（资金来源红线与替代路径比较）；若联动本 skill 讲清天使与机构差异亦可接受，关键是给出去向判断而非机制科普",
+      "notes": "边界：资金来源选择，主要归 choose-your-funding-path"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（3 条均为同书兄弟混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

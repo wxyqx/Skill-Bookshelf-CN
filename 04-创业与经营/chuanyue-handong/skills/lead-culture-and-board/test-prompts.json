@@ -1,0 +1,59 @@
+{
+ "skill": "lead-culture-and-board",
+ "version": "0.1.0",
+ "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+ "darwin_compatible": true,
+ "test_cases": [
+  {
+   "id": "should-trigger-01",
+   "type": "should_trigger",
+   "prompt": "公司从 15 人涨到 60 人之后感觉完全变了，以前那种有话直说的劲头没了，开会上没人敢反驳我。作为 CEO 我该怎么把文化找回来？",
+   "expected_behavior": "应激活 lead-culture-and-board，用 p74（基调靠行动而非说教）做 CEO 行为审计、p75（不用恐惧控制团队）给替代做法，并指出奖励质疑权威才是文化的真实内容",
+   "notes": "典型正面场景：文化基调与 CEO 行为"
+  },
+  {
+   "id": "should-trigger-02",
+   "type": "should_trigger",
+   "prompt": "下个月董事会要审我们的转型方案，我知道有两位董事大概率反对。是直接上会硬闯，还是有什么更稳妥的推进办法？",
+   "expected_behavior": "应激活 lead-culture-and-board，用 p77（重大决策前一对一拜访每位董事、议程外达成一致、绝不让董事会大吃一惊）给出会前沟通动作，并提醒示弱换信任（p76）",
+   "notes": "正面场景：董事会重大决策沟通"
+  },
+  {
+   "id": "should-trigger-03",
+   "prompt": "团队什么小事都来找我拍板，我自己成了瓶颈。想放手又怕他们搞砸，有什么办法让团队自己做决定？",
+   "type": "should_trigger",
+   "expected_behavior": "应激活 lead-culture-and-board，用 f64 提问式管理：把告知改提问（你打算怎么办/有没有后备计划）、将犯错时不直接干预、目标是只需指明方向即可运转的团队",
+   "notes": "正面场景：授权与提问式管理"
+  },
+  {
+   "id": "should-not-trigger-01",
+   "type": "should_not_trigger",
+   "prompt": "我们要招一个销售 VP，面试了好几个都不满意，听说有什么十位候选人法则和招聘委员会打分，具体怎么操作？",
+   "expected_behavior": "不应激活本 skill，应激活 build-your-team-right（招聘流程执行：十人法则、委员会评分）；本 skill 管的是带人方式，不是招人流程",
+   "notes": "跨 skill 混淆诱饵：招聘执行细节归兄弟 skill 13"
+  },
+  {
+   "id": "should-not-trigger-02",
+   "type": "should_not_trigger",
+   "prompt": "有个老员工连续三个月绩效垫底，我拖了半年下不了决心，到底该怎么处理、怎么谈离职？",
+   "expected_behavior": "不应激活本 skill，应激活 build-your-team-right（解雇要快与 12 步解雇行动方案）；本 skill 不覆盖解雇执行细节",
+   "notes": "跨 skill 混淆诱饵：解雇执行归兄弟 skill 13"
+  },
+  {
+   "id": "should-not-trigger-03",
+   "type": "should_not_trigger",
+   "prompt": "被投资人拒了二十多次，我现在每天都怀疑自己是不是根本不适合创业，晚上睡不着，感觉快撑不住了。",
+   "expected_behavior": "不应激活本 skill，应激活 founder-resilience-and-learning（挫折 vs 失败、心理复原）；这是创始人个人心态问题，不是组织领导或董事会治理问题",
+   "notes": "边界诱饵：个人心态调适归兄弟 skill 16"
+  },
+  {
+   "id": "edge-01",
+   "type": "edge_case",
+   "prompt": "董事会下季度要换掉一个业绩不达标的联合创始人高管，我担心消息传出去团队军心动摇，先不告诉董事们直接办了行不行？",
+   "expected_behavior": "合理答案可激活 lead-culture-and-board：用 e51 谎言螺旋指出对董事会隐瞒会摧毁信任且终会暴露，正确顺序是重大人事决策前一对一沟通每位董事（p77）；同时把解雇执行细节（怎么谈）转介 build-your-team-right，说明两 skill 在此交界",
+   "notes": "边界：重大人事决策的董事会沟通归本 skill，执行细节归 skill 13"
+  }
+ ],
+ "minimum_pass_rate": 0.8,
+ "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟 skill 13 的混淆诱饵，第 3 条为个人心态边界诱饵，归 skill 16）+ 1 条 edge_case（董事会沟通与解雇执行的交界）。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

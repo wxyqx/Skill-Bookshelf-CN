@@ -1,0 +1,59 @@
+{
+  "skill": "vet-investors-and-advisors",
+  "version": "0.1.0",
+  "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "有个不太熟的朋友介绍了一位\"天使投资人\"说要投我们，见面之前我想先背调一下这个人靠不靠谱，别是个骗子或者推销的，该怎么查？",
+      "expected_behavior": "应激活 vet-investors-and-advisors：问最近三次投资时间、查公开记录、核对领域阶段匹配（真伪投资人鉴别）",
+      "notes": "典型正面场景：真伪投资人背调"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "一家风投口头答应领投，还要拿一个董事会席位。我打听了一下，以前跟他合作过的创业者里有一家最后做黄了。我该不该拿这个人的钱？",
+      "expected_behavior": "应激活 vet-investors-and-advisors：反向参考访谈（专找失败创业者）、清单终审加直觉判断",
+      "notes": "\"该不该拿这个人的钱\"终审场景"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们马上开始天使轮，第一次请融资律师。选大所还是精品所？怎么判断这个律师靠不靠谱，别又被律师费坑一笔。",
+      "expected_behavior": "应激活 vet-investors-and-advisors：延期收费试探、确认合伙人亲自谈判、面试其他客户、省钱边界",
+      "notes": "律师选择与试探场景"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我们见了五家风投都被拒了，VC 内部到底是怎么决定投还是不投的，为什么总拒绝我们？",
+      "expected_behavior": "不应激活本 skill，应激活 vc-dynamics-demystified（风投决策机制与拒绝原因），而非背调具体投资人",
+      "notes": "同书兄弟诱饵：理解机器 vs 背调人"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "下周就是全体合伙人那场终面了，现场被几位合伙人轮番质询的时候，我该怎么应对才能稳住全场？",
+      "expected_behavior": "不应激活本 skill，应激活 win-the-pitch-room（路演现场表现与应对质询）",
+      "notes": "同书兄弟诱饵：现场应对 vs 事前背调"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "同时在谈四家机构，帮我定一个估值区间，再排一下这三个月的跟进节奏和该让谁做领投。",
+      "expected_behavior": "不应激活本 skill，应激活 run-the-fundraising-process（融资流程执行与估值谈判）",
+      "notes": "同书兄弟诱饵：流程执行 vs 选人防坑"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "有位投资人周末约我们全家一起吃饭，还要见我太太，说投了就是一家人。这正常吗？我要不要去？",
+      "expected_behavior": "合理答案是激活 vet-investors-and-advisors：作者认为与投资人多相处（周末、家庭场合）是精明的投资——投资人是团队的一部分；但提醒赴约不替代背调清单，关系热络不等于可以跳过参考访谈与冲突检查。若同时联动 choose-your-funding-path 判断这笔钱该不该拿亦可接受",
+      "notes": "边界：关系相处（p35 正面面）与背调纪律的组合，仍属本 skill 范围但需要两段式回答"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（3 条均为同书兄弟混淆诱饵：vc-dynamics-demystified、win-the-pitch-room、run-the-fundraising-process）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

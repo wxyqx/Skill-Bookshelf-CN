@@ -1,0 +1,59 @@
+{
+ "skill": "build-your-team-right",
+ "version": "0.1.0",
+ "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+ "darwin_compatible": true,
+ "test_cases": [
+  {
+   "id": "should-trigger-01",
+   "type": "should_trigger",
+   "prompt": "有个前同事想兼职加入我们当联合创始人，他说愿意出力但暂时不想辞职，先做半年看看，这个伙值不值得搭？",
+   "expected_behavior": "应激活 build-your-team-right，用全身心投入测试逐题考察（愿不愿意辞职、能否长期加班、夏天是否度假），并指出兼职者再优秀也会在关键时刻消失，最多按顾问 0.25%~1% 股权处理",
+   "notes": "典型正面场景：合伙人准入与投入测试"
+  },
+  {
+   "id": "should-trigger-02",
+   "type": "should_trigger",
+   "prompt": "我们刚融完 A 轮，投资人催着三个月内把团队翻一倍，HR 说这样招人根本来不及细筛，我该用什么流程保证不招进一帮凑合的人？",
+   "expected_behavior": "应激活 build-your-team-right，给出提前 6 个月招聘计划书＋董事会预批、独立招聘委员会五大标准评分、十位候选人法则与一丁点怀疑就否的决策规则",
+   "notes": "扩张压力下的招聘流程触发"
+  },
+  {
+   "id": "should-trigger-03",
+   "type": "should_trigger",
+   "prompt": "团队里有个早期员工，这半年绩效一直不行，我拿不准是该再给一次机会、给他调岗，还是直接请他走？真要开的话怎么开比较稳妥？",
+   "expected_behavior": "应激活 build-your-team-right，先查流程/沟通/协作缺陷再判个人不胜任，然后在调岗与解雇间二选一；若确认解雇，按 12 步方案执行（记录证据、找好替代者、遣散费绑定授权协议、上半周执行、当天离开、同日下午统一口径）",
+   "notes": "绩效处理与解雇流程触发"
+  },
+  {
+   "id": "should-not-trigger-01",
+   "type": "should_not_trigger",
+   "prompt": "最近团队士气很低落，大家出了错就互相甩锅，没人敢说真话，我是不是管理方式出了问题，该怎么带这支队伍？",
+   "expected_behavior": "不应激活本 skill，应激活 lead-culture-and-board（恐惧文化、提问式管理、领导者主动担责等领导与文化议题）",
+   "notes": "跨 skill 混淆诱饵：选人用人执行 vs 领导风格与文化建设"
+  },
+  {
+   "id": "should-not-trigger-02",
+   "type": "should_not_trigger",
+   "prompt": "有个自称天使投资人的人主动找我要投我们，还推荐他朋友的律所给我，我该怎么背调这个人靠不靠谱？另外他说可以介绍个行业大佬给我们当顾问，顾问股权一般给多少合适？",
+   "expected_behavior": "不应激活本 skill，应激活 vet-investors-and-advisors（投资人真伪背调、选律师、外部顾问股权 0.25%~1% 属选外部人方法论）",
+   "notes": "跨 skill 混淆诱饵：选内部人（合伙人/员工） vs 选外部人（投资人/律师/顾问）"
+  },
+  {
+   "id": "should-not-trigger-03",
+   "type": "should_not_trigger",
+   "prompt": "我在纠结到底要不要辞职出来创业，总觉得现在的工作没成长，但放弃稳定收入又下不了决心，帮我评估一下我适不适合创业。",
+   "expected_behavior": "不应激活本 skill，应激活 founder-fit-self-assessment（创业自我拷问清单，是选合伙人和组团队之前的上游决策）",
+   "notes": "边界诱饵：还没创业，先回自我评估"
+  },
+  {
+   "id": "edge-01",
+   "type": "edge_case",
+   "prompt": "下个月要面一位高管候选人，简历是斯坦福硕士加两家大厂副总裁，朋友都说别犹豫了，但我总觉得他谈的都是战略没落地过，这点疑虑该不该放过？",
+   "expected_behavior": "合理答案可激活 build-your-team-right：用一丁点怀疑就改变的决策规则、五大标准独立评分与头衔偏差反例（大厂副总裁可能只是优秀执行者）给出判据——深挖他过去实际做成的决策与承担的责任，而不是被名校和大厂头衔说服；关键是用'怀疑是否可被事例级证据化解'给结论而非简单说面或不面",
+   "notes": "边界：个案录用判断，头衔偏差反例判据"
+  }
+ ],
+ "minimum_pass_rate": 0.8,
+ "notes": "3 条 should_trigger（合伙人投入测试、扩张期招聘流程、绩效与解雇）+ 3 条 should_not_trigger（前 2 条为同书兄弟 skill 混淆诱饵：lead-culture-and-board 与 vet-investors-and-advisors，第 3 条为'尚未创业'边界诱饵，转 founder-fit-self-assessment）+ 1 条 edge_case（头衔偏差下的个案录用判断）。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

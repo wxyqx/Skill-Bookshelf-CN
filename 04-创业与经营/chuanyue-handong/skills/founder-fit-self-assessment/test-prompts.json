@@ -1,0 +1,59 @@
+{
+  "skill": "founder-fit-self-assessment",
+  "version": "0.1.0",
+  "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我在大厂干了八年，最近总想辞职创业，但怕自己只是一时冲动。帮我判断一下我到底适不适合创业。",
+      "expected_behavior": "应激活 founder-fit-self-assessment，用十个错误理由清单排查动机，再用自我拷问清单与打钩测试给结论",
+      "notes": "典型正面场景：要不要辞职创业的自我评估"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我朋友说我想创业就是为了不用听老板的、早点财务自由，这种理由靠谱吗？帮我看看我的创业动机有没有问题。",
+      "expected_behavior": "应激活 founder-fit-self-assessment，逐条对照'成为自己的老板''快速致富'等错误理由，引导转向'解决特定问题'的唯一正确理由",
+      "notes": "动机排查触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我决定先不裸辞，想花两年时间为创业做准备。现在有两个 offer，一个薪资高很多，一个职责和自主权大得多，我该怎么选？",
+      "expected_behavior": "应激活 founder-fit-self-assessment，用'以学习效率最大化选择工作'原则（职责、资源、自主决策范围）给出择业建议",
+      "notes": "p04 择业原则触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我已经决定辞职做宠物上门喂养平台了，现在最要紧的是搞清楚这个需求是真的还是我想出来的——怎么用最小成本验证？",
+      "expected_behavior": "不应激活本 skill，应激活 validate-before-you-build（需求验证与创新循环）",
+      "notes": "同书兄弟诱饵：要不要创业 vs 点子怎么验证"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我的小生意已经跑通了，现在纠结该不该拿风投的钱加速，还是靠积蓄慢慢滚——听说拿风投要稀释很多股权。",
+      "expected_behavior": "不应激活本 skill，应激活 choose-your-funding-path（要不要融资与资金红线）",
+      "notes": "同书兄弟诱饵：创业资格闸门 vs 融资决策"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "融资被三十家机构连续拒绝，我现在非常自我怀疑，甚至开始怀疑自己当年就不该创业。怎么撑下去？",
+      "expected_behavior": "不应激活本 skill，应激活 founder-resilience-and-learning（挫折不是失败、时机比愿景重要等心理复原工具）",
+      "notes": "同书兄弟诱饵：决策前自评 vs 创业后心理复原"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我有个开社区咖啡馆的想法，但分不清自己是真心想解决'社区没有第三空间'的问题，还是只是想逃离现在这份无聊的工作。先帮我判断该不该创业，如果该创再说怎么验证。",
+      "expected_behavior": "主要激活 founder-fit-self-assessment（先做动机排查与打钩测试）；后续自然衔接 validate-before-you-build 做点子验证。两个 skill 都被调用可接受，关键是先给'该不该'的判断而不是直接跳到验证方法",
+      "notes": "边界：动机排查与点子验证串联的场景，判停结论取决于打钩结果"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（3 条均为同书兄弟混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

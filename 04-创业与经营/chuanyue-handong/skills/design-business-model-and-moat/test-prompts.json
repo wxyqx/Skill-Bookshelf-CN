@@ -1,0 +1,59 @@
+{
+  "skill": "design-business-model-and-moat",
+  "version": "0.1.0",
+  "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我做了个面向中小餐馆的订货 App，现在纠结怎么赚钱：收订阅费还是按交易抽佣金？要不要做免费版靠广告？帮我理清变现模式。",
+      "expected_behavior": "应激活 design-business-model-and-moat，先归入两种根本模式，再对照订阅/易耗品/功能升级/平台四种变现方式，结合使用频率与 LTV-CAC 判据给结论",
+      "notes": "典型正面场景：变现方式选择"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "看了优步和瑞幸的报道，我想做'宠物美容行业的优步'，上门服务按次抽成。朋友说很多这么干的都倒闭了，帮我分析这个模式到底成不成立。",
+      "expected_behavior": "应激活 design-business-model-and-moat，用优步 8 要素清单逐项核对（高频、网络效应、LTV>获客+服务成本等），并引用照搬模式倒闭潮的教训",
+      "notes": "照搬模式要素检验触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们做了一个新式制冰机硬件，卖一台赚一台，但深圳的厂商三个月就能出仿品打价格战，我快被逼死了。这个生意模式是不是有根本问题？怎么改？",
+      "expected_behavior": "应激活 design-business-model-and-moat，指出一次性售卖+硬件的双重脆弱，转向可持续收入模式（耗材/租赁/软件连接硬件的特洛伊木马原则）与不公平优势盘点",
+      "notes": "模式改造与护城河触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "有个投资人让我用独角兽的标准把我们公司从头到尾打一遍分，说看看离 A 轮还差什么。评估该从哪些维度入手？",
+      "expected_behavior": "不应激活本 skill，应激活 think-like-a-unicorn-hunter（独角兽猎人评估主链，评估者视角）",
+      "notes": "同书兄弟诱饵：设计者视角 vs 评估者视角"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "商业模式基本定了，靠门店订阅，现在的问题是每月投信息流广告的获客成本越来越高，想知道这些钱该不该继续花、要不要换渠道。",
+      "expected_behavior": "不应激活本 skill，应激活 market-and-grow-on-a-shoestring（渠道级 LTV-CAC 判断与月度新渠道测试）",
+      "notes": "同书兄弟诱饵：模式级设计 vs 渠道级算术"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "我的模式是平台抽成，账算得过来。但我还没确认餐馆老板是不是真的嫌现在订货流程麻烦——怎么用最小成本验证这个需求是真是假？",
+      "expected_behavior": "不应激活本 skill，应激活 validate-before-you-build（需求验证与创新循环/否定性实验）",
+      "notes": "边界诱饵：模式成立但需求未验证，验证在前"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我要给投资人讲我们'是生鲜行业的瓦尔比派克'来融资，顺便帮我把这个模式的定价和护城河也设计一下。",
+      "expected_behavior": "主要激活 design-business-model-and-moat（先做瓦尔比派克成立要素检验与定价/护城河设计，并警告缺要素时照搬即崩塌、不为融资硬套叙事）；若用户明确要求路演材料可衔接 pitch-materials-that-land，但不应跳过要素检验直接给话术",
+      "notes": "边界：模式设计为主、融资叙事为辅的串联场景"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟 skill 混淆诱饵：think-like-a-unicorn-hunter 与 market-and-grow-on-a-shoestring；第 3 条为边界诱饵 validate-before-you-build）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

@@ -1,0 +1,59 @@
+{
+ "skill": "think-like-a-unicorn-hunter",
+ "version": "0.1.0",
+ "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+ "darwin_compatible": true,
+ "test_cases": [
+  {
+   "id": "should-trigger-01",
+   "type": "should_trigger",
+   "prompt": "有个基金约我下周做尽调前沟通，听说他们会分开单独问我们每个联合创始人同样的问题再对笔记。帮我过一遍这家公司现在最经不起投资人深挖的环节有哪些，我想先自己体检一遍。",
+   "expected_behavior": "应激活 think-like-a-unicorn-hunter，用评估主链逐环打分找出最先断裂的环节，并给出尽调透明度对策（全员口径一致、提前披露实质性信息、协议集中云文件夹）",
+   "notes": "典型正面场景：创始人尽调自审"
+  },
+  {
+   "id": "should-trigger-02",
+   "type": "should_trigger",
+   "prompt": "我们在评估一个想领投我们也被别人推着看的项目方向，说白了就是想搞清楚：这个赛道到底能不能长出独角兽，还是又一窝蜂？另外我们手里那几项专利到底值不值钱、能不能挡住对手？",
+   "expected_behavior": "应激活 think-like-a-unicorn-hunter，用市场第一判据与趋势时机审赛道（区分趋势与拥挤模仿者），并用专利四问判断专利是真壁垒还是装饰",
+   "notes": "赛道评估+专利价值双触发"
+  },
+  {
+   "id": "should-trigger-03",
+   "type": "should_trigger",
+   "prompt": "合伙人想投一个创始团队，两个创始人一个是名校 MBA、一个是大厂出来的副总裁，我个人总觉得这俩履历好看但说不出具体做成过什么，怎么把这个人挖透？",
+   "expected_behavior": "应激活 think-like-a-unicorn-hunter，用投资人深挖五问检验真实领导力（原创想法、说服与管理、克服障碍、失败教训、如何让人放弃薪水跟投），并指出名校与头衔是筛选噪音、个人品质重于头衔",
+   "notes": "团队深挖触发：五问清单+头衔偏差"
+  },
+  {
+   "id": "should-not-trigger-01",
+   "type": "should_not_trigger",
+   "prompt": "客户直接付钱还是该走广告、订阅还是平台抽成、价格定多少合适——我们这套变现模式我一直没想清楚，帮我从头设计一下。",
+   "expected_behavior": "不应激活本 skill，应激活 design-business-model-and-moat（商业模式与护城河的设计者视角）；本 skill 只对现成公司做评估打分",
+   "notes": "跨 skill 混淆诱饵：评估者 vs 设计者"
+  },
+  {
+   "id": "should-not-trigger-02",
+   "type": "should_not_trigger",
+   "prompt": "评估下来团队确实要动手术：得开掉一个不称职的总监，后面还要补招两个核心岗，帮我把解雇流程和招聘评分标准定一下。",
+   "expected_behavior": "不应激活本 skill，应激活 build-your-team-right（招聘与解雇执行流程）；本 skill 只回答团队行不行的评估结论",
+   "notes": "跨 skill 混淆诱饵：团队评估 vs 招聘执行"
+  },
+  {
+   "id": "should-not-trigger-03",
+   "type": "should_not_trigger",
+   "prompt": "我们现在是盈利的小型 SaaS 公司，一年几百万利润挺稳，朋友劝我拿风投冲一把，我到底该不该碰风投这笔钱？",
+   "expected_behavior": "不应激活本 skill，应激活 choose-your-funding-path（要不要融资的资金决策），并可用 vc-dynamics-demystified 的匹配逻辑说明盈利中小企业与风投模式错配；本 skill 是对公司质量评估，不做资金决策",
+   "notes": "边界诱饵：资金决策而非公司评估"
+  },
+  {
+   "id": "edge-01",
+   "type": "edge_case",
+   "prompt": "有个项目 DAU 涨得很猛，团队也全是名校背景，唯一的顾虑是用户好像什么都没沉淀在里面，说走就走，这种项目你们会投吗？",
+   "expected_behavior": "合理答案可激活 think-like-a-unicorn-hunter：指出 DAU/MAU 活跃不等于客户锁定，用时间投入判定转换成本（零定制、零集成、零内容沉淀=低锁定），在主链锁定与变现环节记低分并可能否决高活跃项目；关键是区分'活跃'与'锁定'两个环节的指标而非只看 DAU",
+   "notes": "边界：高活跃低锁定产品的评估权衡"
+  }
+ ],
+ "minimum_pass_rate": 0.8,
+ "notes": "3 条 should_trigger + 3 条 should_not_trigger（前 2 条为同书兄弟 skill 混淆诱饵，第 3 条为资金决策边界诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

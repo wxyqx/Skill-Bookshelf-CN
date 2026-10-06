@@ -1,0 +1,59 @@
+{
+  "skill": "validate-before-you-build",
+  "version": "0.1.0",
+  "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我有个点子想做一个面向自由职业者的记账 App，身边朋友都说不错，但我怕他们只是客套。怎么用最小的成本验证这是不是真需求？",
+      "expected_behavior": "应激活 validate-before-you-build，给出创新循环/最小成本证伪实验设计，并提醒礼貌性反馈是假阳性",
+      "notes": "典型正面场景：点子验证 + 假阳性反馈"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我们的产品上线快六个月了，用户基本都是用过一次就不来了，早期投入的钱也不算少。我是该再坚持坚持，还是就此止损？",
+      "expected_behavior": "应激活 validate-before-you-build，用必需品判据与六个月止损规则给出客观判据",
+      "notes": "止损决策触发"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我想到一个特别好的创业创意，怕被别人偷走，是不是应该先保密、甚至申请专利，等产品做出来再去找用户聊？",
+      "expected_behavior": "应激活 validate-before-you-build，用'绝不保密创意'的概率对比纠偏：被剽窃概率远低于因保密而失败的概率",
+      "notes": "保密与公开触发"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我最近特别想辞职创业，但一直下不了决心，帮我评估一下我的动机和承受能力到底适不适合创业。",
+      "expected_behavior": "不应激活本 skill，应激活 founder-fit-self-assessment（创业抉择自我评估）",
+      "notes": "同书兄弟诱饵：评估人 vs 验证点子"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们的产品已经验证了需求、留存也不错，现在纠结变现用订阅还是平台抽成，以及怎么建护城河防止大厂抄袭。",
+      "expected_behavior": "不应激活本 skill，应激活 design-business-model-and-moat（商业模式与护城河设计）",
+      "notes": "同书兄弟诱饵：验证已完成，进入模式设计"
+    },
+    {
+      "id": "should-not-trigger-03",
+      "type": "should_not_trigger",
+      "prompt": "产品验证通过了，现在在纠结要不要拿天使的钱快速扩张，还是不融资自己慢慢做——听说拿风投的钱代价很大？",
+      "expected_behavior": "不应激活本 skill，应激活 choose-your-funding-path（要不要融资的资金红线与替代路径）",
+      "notes": "同书兄弟诱饵：验证已完成，进入融资决策"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "点子还没验证过，我现在是先去做用户访谈把需求搞清楚，还是先写商业计划书找天使投资人聊聊？",
+      "expected_behavior": "合理答案是激活 validate-before-you-build 为主（先验证后融资，验证是融资的前置闸门）；若联动 choose-your-funding-path 讲融资时机亦可接受，关键是给出'先验证'的顺序判断而非直接进入融资流程",
+      "notes": "边界：验证与融资时机的先后关系"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 3 条 should_not_trigger（3 条均为同书兄弟混淆诱饵）+ 1 条 edge_case。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}

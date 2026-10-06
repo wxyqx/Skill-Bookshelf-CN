@@ -1,0 +1,59 @@
+{
+ "skill": "founder-resilience-and-learning",
+ "version": "0.1.0",
+ "source_book": "《穿越寒冬：创业者的融资策略与独角兽思维》 — 史蒂文·霍夫曼",
+ "darwin_compatible": true,
+ "test_cases": [
+  {
+   "id": "should-trigger-01",
+   "type": "should_trigger",
+   "prompt": "见了三十七家机构全部被拒，有几个还是我多年的朋友，我现在每天早上不想睁眼，开始怀疑这个项目是不是根本就不该做。帮我理一理，我到底该放弃还是该继续？",
+   "expected_behavior": "应激活 founder-resilience-and-learning，用「挫折不是失败，放弃才是失败」做心理重构，用「时机比愿景更重要」做归因校准（时机/模式不匹配/结构性存疑三分类），并提示被所有人拒绝时更努力推进+换渠道的先例（贝尼奥夫被所有VC拒绝后转天使）",
+   "notes": "典型正面场景：融资连续被拒+自我怀疑"
+  },
+  {
+   "id": "should-trigger-02",
+   "type": "should_trigger",
+   "prompt": "创业第四年了，账上钱撑不了太久，我人也快垮了，身边所有人都在劝我停。都说创业要quit early，但我总觉得再咬咬牙就过去了——这种疲惫到底该不该听？",
+   "expected_behavior": "应激活 founder-resilience-and-learning，用「疲惫时跑得更快」的长跑者心态与临界点规则（戴森40岁负债、5年5000多个原型），同时区分「方向已验证下的疲惫」与「结构性死局」，建议预设临界点信号清单、不在疲惫峰值做放弃决策",
+   "notes": "临界点/疲惫场景触发"
+  },
+  {
+   "id": "should-trigger-03",
+   "type": "should_trigger",
+   "prompt": "最近越来越觉得知识不够用了，天天只看本行业的公众号，脑子里没新东西。成功创业者都是怎么保持学习、找灵感的？有没有办法建立自己的输入机制？",
+   "expected_behavior": "应激活 founder-resilience-and-learning，用跨学科求知与知识迁移机制（f67）：大量消费跨领域信息、方法移植、线下亲身体验、越远离主流越可能遇到原创想法，并给出每周输入+移植笔记的落地机制",
+   "notes": "学习与跨域输入机制触发"
+  },
+  {
+   "id": "should-not-trigger-01",
+   "type": "should_not_trigger",
+   "prompt": "我在大厂干了八年，最近特别想辞职出来做自己的事，又怕自己不是那块料。你能帮我判断一下我到底适不适合创业吗？",
+   "expected_behavior": "不应激活本 skill，应激活 founder-fit-self-assessment（要不要辞职创业/适不适合创业的上游抉择）——用户还在场外，谈不上挫折复原与坚持判断",
+   "notes": "跨 skill 混淆诱饵：心理状态 vs 入场抉择"
+  },
+  {
+   "id": "should-not-trigger-02",
+   "type": "should_not_trigger",
+   "prompt": "我们新产品做了快六个月，用户就是不上量。我情绪上其实还能扛，但你客观帮我判断一下：这需求到底是真的还是伪需求？按规矩我现在该不该收手？",
+   "expected_behavior": "不应激活本 skill，应激活 validate-before-you-build（六个月规则与需求验证的客观判据）——用户明确要客观放弃判据而非心理建设，且自称情绪上还能扛",
+   "notes": "跨 skill 混淆诱饵：坚持判断 vs 放弃客观判据"
+  },
+  {
+   "id": "should-not-trigger-03",
+   "type": "should_not_trigger",
+   "prompt": "合伙人天天跟我吵架，核心员工这两个月走了三个，剩下的人士气也特别低，我现在自己心态也崩了。先帮我处理团队的问题吧。",
+   "expected_behavior": "不应激活本 skill，应转 build-your-team-right（团队进出与处理）或 lead-culture-and-board（文化与授权）——用户明确说「先处理团队问题」，团队问题优先于个人心态；本 skill 边界规定具体团队问题不适用",
+   "notes": "边界诱饵：团队问题优先于心态"
+  },
+  {
+   "id": "edge-01",
+   "type": "edge_case",
+   "prompt": "上周见的一个投资人拒绝我时说：你这个创意五年前有家公司做过，死得很惨。但我查了下，当年的技术和成本跟现在完全不一样。他到底是老糊涂了，还是我在自欺欺人？",
+   "expected_behavior": "可激活 founder-resilience-and-learning：双侧回应——用 p80 时机校准与 e54 专家弱点指出「过去失败不等于今天行不通，专家易沉浸在过去」；同时用 e03 死亡预警要求先研究那家公司具体死因、排查死因今天是否已消除，再用一页纸「重现史+死亡预警」评估做客观检查；若指向结构性存疑则转 validate-before-you-build 做需求验证",
+   "notes": "边界：坚持判断与死亡预警判据的交叠场景，考验四步判据链的顺序"
+  }
+ ],
+ "minimum_pass_rate": 0.8,
+ "notes": "3 条 should_trigger（融资连续被拒、疲惫临界点、跨域学习机制）+ 3 条 should_not_trigger（前 2 条为同书兄弟 skill 混淆诱饵：founder-fit-self-assessment 与 validate-before-you-build，第 3 条为团队问题优先的边界诱饵）+ 1 条 edge_case（专家否定 vs 时机校准的双向判断）。全部 should_not_trigger 必须通过（诱饵容错为 0）。"
+}
