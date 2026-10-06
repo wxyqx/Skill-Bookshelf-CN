@@ -1,0 +1,69 @@
+{
+  "skill": "mechanical-allocation-dca",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我的组合里股票涨到 58% 了，按纪律要不要止盈一部分？",
+      "expected_behavior": "activate",
+      "notes": "u10 V2 novel question 原型：55% 触发卖 1/11 恢复对半——机械执行消除'再等等'冲动。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "定投两年一直在跌，要不要停扣，等企稳重新开始？",
+      "expected_behavior": "activate",
+      "notes": "u11 V2 novel question 原型：区分存量计划（不停，低价买更多正是威力）与增量计划（危险水平不新开）两个决策。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "年终奖 20 万到手，是现在全买入还是分批等回调？",
+      "expected_behavior": "activate",
+      "notes": "u12 V2 novel question 原型：默认投入，等待方须举证'市场远超公认价值标准'——择时举证责任反转。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "帮我定一套不用预测市场的股债配置规则。",
+      "expected_behavior": "activate",
+      "notes": "比例带立规场景：25–75 带 + 50:50 ±5%→1/11 的完整规则输出。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "我持仓跌了 40%，财报没变化，慌得不行。",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 market-mr-volatility-discipline——波动情绪与买卖判断，不是既定规则的执行。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "防御型该买哪些股票？给我一个筛选清单。",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 defensive-stock-selection——比例定了之后'买什么'归 C7，C4 只管比例。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "现在市场过热吗？我该清仓避险还是降杠杆？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 overheated-market-defense——当期市场打分与谨慎三准则；C4 只在既有比例带内动作。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "市场处于危险水平，我的新定投计划还开不开？",
+      "expected_behavior": "模糊边界（已修正）：notes 自身即双归属——C6 提供过热打分与\"暂停新定投\"动作，C4 管计划状态管理。PASS 条件 = 两者其一；原预期强制单侧，属过窄。2026-10-06 盲测后修正并记录。",
+      "notes": "边界混合：'危险水平'判断需 overheated-market-defense 打分支撑，但'开/不开计划'的状态管理归 C4——预期 C4 主答并衔接 C6。 | 2026-10-06 修正预期（理由见 TEST_RESULTS.md）"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "我想把股票比例提到 75%，因为我强烈看多后市。",
+      "expected_behavior": "activate",
+      "notes": "边界：极值使用举证检验——'看多'情绪不是'廉价/危险'证据，预期 C4 拒绝动用 75/25 并回到 50:50（判停条件测试）。"
+    }
+  ]
+}

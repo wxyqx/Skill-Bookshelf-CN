@@ -1,0 +1,69 @@
+{
+  "skill": "neglected-large-cap-strategy",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "道指里有一家大公司股价三年没人理，市盈率只有同业一半，公司基本面没出大事——格雷厄姆会怎么看这种冷门大蓝筹？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "主场景：冷落而非受损的大公司识别（u24/c03）。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "进攻型第一推荐领域里的冷门大公司，具体怎么筛选？买几只、持有多久？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "执行参数：6–10 种、持有 1–5 年（u24/第7章）。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "有人说小公司更便宜、弹性更大，为什么不干脆买冷门小盘股？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "大小公司边界论证：双重风险拒绝小公司（u24 V2）。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "怎么用 Drexel 的 26 项年度调查数据论证买失宠大公司的逻辑？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "证据层使用（c23）。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "这只股票价格只有每股净流动资产的三分之二，账上全是现金——这算不算格雷厄姆说的廉价证券？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：资产侧深度低估，预期归属 bargain-issues-net-nets（C12）；本 skill 管盈利完好的低倍数正常股。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "我是防御型，不想研究个股，有没有自动买低倍数股的省事办法？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：防御型三路径之低倍数法，预期归属 defensive-stock-selection（C7）。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "冷门股因子近十年被量化策略收割了，这条策略今天还能依赖吗？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：策略时效元检验，预期归属 rule-reliability-trend-skepticism（C2）。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "一只冷门大公司股价连跌三年，刚发现它债务爆表、行业在结构性萎缩，还适用冷门大公司策略吗？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "E3 判停条件触发：低价可能源于盈利能力永久丧失→剔除候选；如需深入诊断转 stock-diagnosis-techniques（C17）。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "我想在冷门大公司和廉价证券两个领域里选一个主攻方向，怎么选？",
+      "expected_behavior": "双边界探针（已回填定义）：原构造未定义 expected，两个独立盲测代理分别选中两侧之一，确认该场景位于 neglected-large-cap-strategy 与 excess-return-path-selection 的边界。PASS 条件 = 两者其一。2026-10-06 记录。",
+      "notes": "半移交：三域气质匹配归 excess-return-path-selection（C10）；本 skill 只在选定冷门大公司后接管执行。 | 2026-10-06 双清判定一致确认边界，PASS 双侧其一"
+    }
+  ]
+}

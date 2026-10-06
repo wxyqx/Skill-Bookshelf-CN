@@ -1,0 +1,69 @@
+{
+  "skill": "invest-vs-speculation-filter",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我想用两成仓位买点 meme 股玩玩，这算投资吗？",
+      "expected_behavior": "activate",
+      "notes": "三判据过筛典型场景：小比例投机仓位——预期输出'定性为投机+专款隔离处置'，而非禁止。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "客户经理劝我融资上杠杆买热门股，说这是价值投资，帮我判断一下这个说法。",
+      "expected_behavior": "activate",
+      "notes": "两个信号叠加：保证金操作（按保守观点即投机）+ 卖方推销话术冒充投资；预期用三判据拆穿。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "朋友说有接近内幕的消息，某公司要被收购，问我要不要跟一单？",
+      "expected_behavior": "activate",
+      "notes": "对应 u02 V2 novel question：消息链上每一步都无算术支撑——原理2（不让人经营你的业务）+原理3（无可靠计算不做）全部否决。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "我就是想拿五万块钱投机试试，怎么安排才不影响我的养老钱？",
+      "expected_behavior": "activate",
+      "notes": "理性投机安排场景：预期给专款账户、比例越小越好、分账分记的处置，并检验三非理性。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "我持仓跌了 40%，财报没变化，慌得睡不着，要不要卖？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 market-mr-volatility-discipline——已持仓位的涨跌应对，不是买入前的定性判断。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "国债 4.5% 的今天，股票要多少预期回报才值得买？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 margin-of-safety-core——定量顺差计算，不是投机定性。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "我想年化 8% 但每天只愿意看 10 分钟盘，该选什么策略？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 investor-identity-matching——身份与投入匹配，不是单笔操作定性。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "用保证金买国债算投资吗？",
+      "expected_behavior": "activate",
+      "notes": "边界正例：证券类型看似最安全，但按三判据保证金操作即投机——检验'与证券类型无关'是否被正确应用；应触发 C1 而非按常识放行。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "定投连跌两年要不要停扣？",
+      "expected_behavior": "双边界探针（已回填定义）：原构造未定义 expected，两个独立盲测代理分别选中两侧之一，确认该场景位于 invest-vs-speculation-filter 与 mechanical-allocation-dca 的边界。PASS 条件 = 两者其一。2026-10-06 记录。",
+      "notes": "边界反例：涉及纪律但归属 mechanical-allocation-dca（DCA 状态管理）；C1 的准入定性框架不应接管此问题。 | 2026-10-06 双清判定一致确认边界，PASS 双侧其一"
+    }
+  ]
+}

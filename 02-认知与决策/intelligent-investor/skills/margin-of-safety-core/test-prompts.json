@@ -1,0 +1,69 @@
+{
+  "skill": "margin-of-safety-core",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "按估值这家公司内在价值大约60块，现在股价48块，这个安全边际够吗？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "顺差量化主场景（u40）：48/60=0.8>2/3 → 议价证券口径下不足；输出可比较数字。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "现在无风险利率4.5%，股票要有多高的预期盈利能力才值得买？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "普通股臂门槛（u40 V2 问题）：期望盈利能力须大大高于债券利率，10 年超额≥所付价格 50% 为佳；参数按当期利率重查。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我感觉这只股票已经跌到位了，凭这个直觉买入算真正的投资吗？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "可证明性试金石（u42）：感觉、自信、时机判断全部出局，只接受可由数据证明的顺差。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "把组合里失宠的A换成更热门'更好'的B，什么条件下这次换股才值得做？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "换股内在价值等价检验（u43/c53）：买进的每一美元须显示比卖出的每一美元更高的内在价值；默认不换。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "怎么用盈利能力和资本化率五因素给这家公司算内在价值？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：估值计算本身，预期归属 earnings-power-valuation（C14）；分工是 C14 算价值、C18 判价格够不够便宜。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "股票暴涨之后要不要追，暴跌之后要不要割？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：波动应对纪律（剧涨莫买暴跌莫卖），预期归属 market-mr-volatility-discipline（C3）。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "我打算用两成仓买点meme股玩玩，这算投资还是投机？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：操作身份的定性判定（三判据+专款隔离），预期归属 invest-vs-speculation-filter（C1）；本 skill 是定量边际判定。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "一只垃圾债跌到账面价值的四折，但这家公司前景确实没什么希望了，算不算有了安全边际的机会？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "edge：充分低价格改造劣质证券的三条件检验（u45）——顺差实质+购买者条件+前程并非真无望，三者缺一不可；前程无望时无论多低都应避开；与 aggressive-negative-list（C9）折扣线衔接。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "我持有5只不同行业的股票，这样算分散风险了吗？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "edge：保险同构两问（u41）——各笔结果是否相互独立+是否存在正边际；无正边际时多样化放大失败，有正边际时 20 只或更多才接近确定；先边际后数量。"
+    }
+  ]
+}

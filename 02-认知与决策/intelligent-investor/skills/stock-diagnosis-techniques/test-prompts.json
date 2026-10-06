@@ -1,0 +1,69 @@
+{
+  "skill": "stock-diagnosis-techniques",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "这家公司账面 EPS 和经营现金流长期背离，报表又很复杂，怎么还原出真实盈利？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "报表还原主场景（u37）：非经常项目分离→联属并回→表外还原→可比对标。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "我持有的这家公司每股收益常年稳定在2块钱左右，股价却在12块到60块之间来回摆，这正常吗？该怎么理解？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "股价-收益四模式之模式1（u38/c40）：稳定收益剧摆，波动起因于心理变化。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "一家高增长公司收入翻倍但应收账款也翻倍，还背着大量短期长期借款，从财报上怎么排查它会不会暴雷？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "高增长三查预警（u39/c43）：降价扩张压力、巨额外债、未收现挂账利润。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "公司公告里有一大块非经常性收益，附注里还有未并表联属企业的利润和表外资产，怎么把这些加回真实收益和真实资产？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "还原四件套的组合使用（u37）：产出真实收益与真实资产两个数。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "我已经算出这家公司还原后的真实收益是每股7.15美元，它现在每股值多少钱、该不该买？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：还原之后的估值与买卖判断，预期归属 earnings-power-valuation（C14 算价值）与 margin-of-safety-core（C18 判价格）；本 skill 止于还原真相。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "我的持仓跌了40%，财报没什么变化，我恐慌得睡不着，要不要割肉？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：波动应对与恐慌处置，预期归属 market-mr-volatility-discipline（C3）；本 skill 只负责先归类波动属于哪种模式。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "从数据看管理层相对同业效率在滑落，我作为股东该怎么质询和问责？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：拿着证据向管理层主张权利，预期归属 shareholder-governance（C19）；本 skill 只产出诊断证据。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "报表还原后确认这家公司价值被会计复杂性掩盖、明显低估，但它连年亏损，我该直接买吗？",
+      "expected_behavior": "双边界探针（已回填定义）：原构造未定义 expected，两个独立盲测代理分别选中两侧之一，确认该场景位于 stock-diagnosis-techniques 与 bargain-issues-net-nets 的边界。PASS 条件 = 两者其一。2026-10-06 记录。",
+      "notes": "edge：还原结论不等于买卖判断——低估来源辨析（暂时失望 vs 长期忽视）与成组购买逻辑转 bargain-issues-net-nets（C12），顺差检验转 margin-of-safety-core（C18）。 | 2026-10-06 双清判定一致确认边界，PASS 双侧其一"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "1964年那套报表还原手法（未并账子公司并回、参与优先股处理）在今天还适用吗？",
+      "expected_behavior": "双边界探针（已回填定义）：原构造未定义 expected，两个独立盲测代理分别选中两侧之一，确认该场景位于 stock-diagnosis-techniques 与 rule-reliability-trend-skepticism 的边界。PASS 条件 = 两者其一。2026-10-06 记录。",
+      "notes": "edge：时效自检——未并账子公司在当代权益法下已多数并表，还原对象转向表外实体/经营租赁/SBC；问题结构（解开复杂因素）不变，属本 skill 时效边界的正当讨论。 | 2026-10-06 双清判定一致确认边界，PASS 双侧其一"
+    }
+  ]
+}

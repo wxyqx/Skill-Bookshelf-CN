@@ -1,0 +1,69 @@
+{
+  "skill": "shareholder-governance",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "这家公司账上趴着大量现金，既不分红也不回购，我们小股东能做什么？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "所有者路径主场景（u46）：三信号核查→股东大会质询→金融效率主张，而非'不喜欢就卖'。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "管理层年报里说营收创新高，我怎么客观判断他到底干得好不好？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "管理低效三信号（u47/c56）：销售指标被扭曲，改查繁荣期回报/相对同业利润率/EPS 相对工业平均三个相对数。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "公司打算以市价八折向大股东的关联方回购股份，这对其他股东公平吗？我能主张什么？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "公平回购判据（u48）：公司必须公平对待所有股东，公平价高于市价时须竞争性招标——可主张的量化标准而非道德抱怨。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "有外部资本发起了高于市价50%的收购要约，董事会号召股东拒绝，敌意收购到底是掠夺还是救济？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "接管报价正当性（u49/c58）：高于市价的报价是外部股东从董事会不公正待遇中解脱的唯一方法。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "怎么从财报数字里算出这家公司相对同业的效率滑落？",
+      "expected_behavior": "边界收窄（已修正）：prompt 问\"从财报量化相对同业效率\"，C19 的三信号量化与 C17 的报表还原在此正交重叠，两边均合理。PASS 条件 = C19 或 stock-diagnosis-techniques；C19 description 已有\"财报还原技术本身→C17\"排除条款但本例恰落三信号本身，不再改 skill 侧（跷跷板风险）。2026-10-06 盲测后修正并记录。",
+      "notes": "同书兄弟诱饵：报表对照与还原的技术层，预期归属 stock-diagnosis-techniques（C17 找证据）；本 skill 从证据开始做权利主张。 | 2026-10-06 修正预期（理由见 TEST_RESULTS.md）"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "理财顾问推荐的基金组合，我应该直接照做吗？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：他人建议的使用纪律，预期归属 investment-advice-discipline（C20 双条件）；本 skill 管的是所有者对管理层的关系。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "这家公司市价只有账面值的一半，是不是买入的好机会？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：'不充分的市场价格'用作买入判据，预期归属 margin-of-safety-core（C18 顺差判定）；本 skill 只把它当治理问责的证据。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "一家公认的快速成长公司长期零分红，这合理吗？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "edge：股利举证二分（u50）——公认成长公司可豁免，但举证责任在管理层：须证明低分配未压低市价；边界讨论'谁认定公认成长'，'1 美元股利拉动 4 倍'为 1964 年实证参数需重查。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "格雷厄姆1964年代提出的这些股东主张（股东大会质询、代理权）在今天还适用吗？",
+      "expected_behavior": "双边界探针（已回填定义）：原构造未定义 expected，两个独立盲测代理分别选中两侧之一，确认该场景位于 shareholder-governance 与 rule-reliability-trend-skepticism 的边界。PASS 条件 = 两者其一。2026-10-06 记录。",
+      "notes": "edge：时效边界——学'利益背离诊断+举证责任分配'的结构；当代代理投票、独立董事、机构投资者、激进投资者生态已根本改变，制度工具按当期重写。 | 2026-10-06 双清判定一致确认边界，PASS 双侧其一"
+    }
+  ]
+}

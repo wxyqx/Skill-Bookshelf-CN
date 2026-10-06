@@ -1,0 +1,69 @@
+{
+  "skill": "earnings-power-valuation",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "一家制造业公司过去七年平均每股收益 2 美元，现在股价 18 美元，用格雷厄姆的盈利能力法它值多少钱？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "主场景：盈利能力×资本化率流程（u29-u31/c27）。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "两家公司每股收益一样，市场估值却差三倍，问题出在哪？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "资本化率五因素分解（u29 V2 场景）。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "周期股在利润历史最高点上只有 10 倍市盈率，这算便宜吗？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "跨周期均值纠正：繁荣≠安全（u30/c25）。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "这只股票的价格里投机成分占几成？怎么把投资价值和投机溢价分开？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "20 倍投资价值上限与投机成分分解（u31/c30）。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "一只高成长股预计未来八年年增 25%，8.5+2g 公式怎么用？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：成长股专用工具，预期归属 growth-stock-appraisal（C15）。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "安全边际到底要多大才算真正的投资？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：边际收束判据，预期归属 margin-of-safety-core（C18）。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "为什么格雷厄姆坚持用定量方法而不是预测公司前景？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：认识论立场，预期归属 protection-over-forecast（C16）。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "公司刚并表了一个全新业务，历史平均收益没有参考意义，盈利能力怎么定？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "E1 判停条件触发：盈利能力无法可靠估计→拒绝给出'精确'估值，按 C16 数学化反比要求更大边际或放弃。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "我的评估价比市价只高 10%，格雷厄姆会建议买入吗？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "1/3 线检验：评估价须超市价约 1/3 买入才有意义→不足，不买（u31/第10章规则）。"
+    }
+  ]
+}

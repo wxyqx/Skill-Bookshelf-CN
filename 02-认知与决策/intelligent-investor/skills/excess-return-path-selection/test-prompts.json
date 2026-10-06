@@ -1,0 +1,69 @@
+{
+  "skill": "excess-return-path-selection",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我不想满足于市场平均收益，愿意投入大量时间研究，超额收益到底应该从哪里找？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "路径总纲主场景：五路排除+三域选择。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "大家都说这只股票前景极好必涨，现在上车晚不晚？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "差异化公理把提问方向反转为'市场哪里看错了'（u22）。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "普通交易、精选交易、买低卖高、买成长股、买廉价股——这些路哪条真能跑赢？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "五路排除程序（u23）。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "冷门大公司、廉价证券、并购套利三个方向，按我的知识背景和气质该选哪个？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "三域气质匹配（u23/第7章）。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "进攻型投资者的负面清单里具体哪几类证券不能碰？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：排除动作本身，预期归属 aggressive-negative-list（C9）；本 skill 管正面路径选择。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "Drexel 那个冷门股调查里低价组具体怎么筛、持有几年？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：领域内具体技术，预期归属 neglected-large-cap-strategy（C11）；本 skill 只做路径选择与移交。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "我是防御型，不想选股，直接买下整个市场（指数）行不行？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：防御型全取样路径，预期归属 defensive-stock-selection（C7）；本 skill 假定进攻型身份。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "我每天只有10分钟看盘，但想年化跑赢大盘5个点，该走哪条路？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "回报与努力矛盾：应判停转 investor-identity-matching（C5）——大概率结论是防御型（C7）；本 skill 的 E1 判停条件即为此设计。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "冷门股因子这些年好像被量化策略收割了，差异化策略这条路还有效吗？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "策略参数层的时效检验归 rule-reliability-trend-skepticism（C2）；本 skill 保留框架层（路径结构+双刃警告）并引用时效警示。"
+    }
+  ]
+}

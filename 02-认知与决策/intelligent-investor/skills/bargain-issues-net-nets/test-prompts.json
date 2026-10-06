@@ -1,0 +1,69 @@
+{
+  "skill": "bargain-issues-net-nets",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "怎么用格雷厄姆的方法区分'便宜的垃圾'和'廉价的金子'？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "定义过筛主场景（u25/第7章）。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "我筛到几只股价低于每股净流动资产三分之二的股票，账上现金很多，能不能成组买入？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "净流动资产折扣法+成组购买逻辑（u26/c24）。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "格雷厄姆说可以为厂房机器商誉付零价，这个 net-net 筛选清单具体有哪几条？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "四条配套筛选（u26/c31）。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "流动资产价值超过收益能力价值时，估值该怎么加成？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "+50% 加成规则（u26/c29 Burton-Dixie）。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "一只知名大蓝筹市盈率只有同业一半，公司盈利正常，要不要买它？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：低倍数正常大公司，预期归属 neglected-large-cap-strategy（C11）；本 skill 管资产侧深度低估。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "这家公司正被收购，要约价差能按方案条款预先算出来吗？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：事件驱动预计算，预期归属 special-situations-arbitrage（C13）。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "用盈利能力乘以资本化率给一般公司估值，倍数该怎么取？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：收益侧评估工具，预期归属 earnings-power-valuation（C14）。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "按净流动资产 2/3 买入后公司连年亏损、流动资产持续消耗，要不要止损？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "u26 V2 场景：不按单笔止损，成组+资产吸收逻辑；但 E3 判停（前程确实无望）触发时应退出——需区分'暂时失望'与'无望'。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "这家公司报表很复杂，账面 EPS 和真实盈利差很远，是先还原报表再谈廉价吗？",
+      "expected_behavior": "双边界探针（已回填定义）：原构造未定义 expected，两个独立盲测代理分别选中两侧之一，确认该场景位于 bargain-issues-net-nets 与 stock-diagnosis-techniques 的边界。PASS 条件 = 两者其一。2026-10-06 记录。",
+      "notes": "顺序问题：还原手法归 stock-diagnosis-techniques（C17），还原后的买卖判断回本 skill；长期被忽视的低估常由会计复杂性掩盖（u25）。 | 2026-10-06 双清判定一致确认边界，PASS 双侧其一"
+    }
+  ]
+}

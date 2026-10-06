@@ -1,0 +1,69 @@
+{
+  "skill": "investor-identity-matching",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我想年化 8%，但每天只愿意花 10 分钟看盘，选什么策略？",
+      "expected_behavior": "activate",
+      "notes": "u13 V2 novel question 原型：目标与投入矛盾→先定努力预算再定收益预期，降预期走防御或升级投入走进攻。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "我到底算防御型还是进攻型投资者？怎么判断？",
+      "expected_behavior": "activate",
+      "notes": "身份判定核心场景：按知识/经验/气质（非资金量）定位。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "朋友做个股研究赚得不错，我直接照搬他的策略行不行？",
+      "expected_behavior": "activate",
+      "notes": "照搬他人策略前自检：进攻型第一原则（决不买未经自己研究的证券）+身份匹配检验。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "想跑赢市场平均，又不想花太多时间研究公司，有折衷方案吗？",
+      "expected_behavior": "activate",
+      "notes": "'折衷最可能产生失望'场景：预期明确拒绝中间立场并给出二选一，而非提供折衷策略。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "用两成仓位买 meme 股算投资吗？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 invest-vs-speculation-filter——单笔操作定性过筛，不是身份定位。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "股票涨到组合 58%，按 50:50 要不要卖 1/11？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 mechanical-allocation-dca——机械再平衡执行，与身份谈判无关。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "进攻型投资者该避开哪几类证券？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 aggressive-negative-list——身份已定后的负面清单（四不碰），C5 只定身份不出清单。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "我已经确认自己是进攻型，接下来该走冷门大公司、廉价股还是套利？",
+      "expected_behavior": "deactivate",
+      "notes": "边界：身份已定→预期 excess-return-path-selection 接管路径选择；C5 不重复作答（判停条件测试）。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "我没时间研究，那直接买成长股基金行吗？",
+      "expected_behavior": "模糊边界（已修正）：起点是身份判定（无时间研究→防御型）落点是成长股工具回避，双命中。PASS 条件 = C5 或 growth-stock-appraisal。2026-10-06 盲测后修正并记录。",
+      "notes": "边界混合：起点是投入/预期矛盾（C5 身份判定：无时间→防御型），落点涉成长股工具（growth-stock-appraisal）——预期 C5 先给身份结论再衔接，不直接评价成长股。 | 2026-10-06 修正预期（理由见 TEST_RESULTS.md）"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "skill": "market-mr-volatility-discipline",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我的持仓一个月跌了 40%，财报没什么变化，我慌得睡不着，该卖吗？",
+      "expected_behavior": "activate",
+      "notes": "u06 V2 novel question 原型：跌幅>1/3 触发检视→复核计算→内在价值未损则属市场先生情绪，'无权恐慌'。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "股票三个月涨了 80%，我是不是该追加点仓，怕踏空。",
+      "expected_behavior": "activate",
+      "notes": "'股票剧涨后莫买'格言场景：波动二义（大涨=卖点）+追涨本能对治。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "现在止盈落袋为安，等回调再买回来，这样操作对吗？",
+      "expected_behavior": "activate",
+      "notes": "u07 浮盈不可兑现律场景：用'卖出价-再买入价'度量检验，卖出后无法以更低价格买回的时段利润清零。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "帮我审计一下这个择时服务展示的历史收益曲线靠不靠谱。",
+      "expected_behavior": "activate",
+      "notes": "u07 V2 novel question 原型：全部改用再购买测试度量→大多数择时战绩消失。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "国债 4.5% 的今天，股票多少预期回报才值得买？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 margin-of-safety-core——定量顺差门槛计算，不是波动应对。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "我的组合股票涨到 58% 了，按 50:50 纪律该怎么调？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 mechanical-allocation-dca——机械再平衡程序执行，不是波动态度判断。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "道氏理论 1938 年后为什么失灵？现在还能用吗？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 rule-reliability-trend-skepticism——规则寿命元判断，不是情绪与仓位应对。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "我空仓一年了一直在等暴跌，现在该进吗？",
+      "expected_behavior": "activate",
+      "notes": "边界：等待成本（股息+机会）与时机/价格之路分岔属 C3；若追问'进了按什么比例配'→移交 mechanical-allocation-dca。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "跌 40% 后我重算了内在价值约 45 块，市价 30 块，值得加仓吗？",
+      "expected_behavior": "deactivate",
+      "notes": "边界：已进入定量顺差计算→预期 margin-of-safety-core 接管定夺；C3 只提供行为背书（计算无误后有权买更多），不作定价结论。"
+    }
+  ]
+}

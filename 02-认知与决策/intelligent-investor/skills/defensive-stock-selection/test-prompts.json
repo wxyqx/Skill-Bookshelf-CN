@@ -1,0 +1,69 @@
+{
+  "skill": "defensive-stock-selection",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我是个不想天天盯盘的普通投资者，只想安稳拿点还不错的回报，该买什么样的股票、买多少只合适？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "防御型身份+选股清单/三路径主场景。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "某热门中型科技股连涨三年，市盈率45倍，没有分红记录，防御型组合里能买它吗？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "逐条过四原则：大概率挂红利记录与价格上限，给替代动作（列入低倍数法候选观察而非追买）。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我不想费心选股，但又必须持有股票，有没有什么省力而系统的方法？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "三路径选择：全取样/排除法/低倍数法（u17）。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "防御型组合里能标准持有公用事业股吗？铁路股和金融股呢？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "板块区别意见（u17/第9章）。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "有一只收益率9%的次级公司债，价格在面值附近，经纪人说比国债划算多了，能买吗？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：二等债全价买入的否决与2/3折扣线，预期归属 aggressive-negative-list（C9）。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "这只公司债的利息覆盖倍数怎么算？最差年份达标吗？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：债券端安全检验，预期归属 bond-safety-terms（C8）。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "我股票已经涨到组合的55%了，要不要按规则卖掉1/11转入债券？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：比例带机械再平衡，预期归属 mechanical-allocation-dca（C4）。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "我想要超过平均的收益，也愿意花大量时间研究，那我按防御型四原则选股是不是就够稳了？",
+      "expected_behavior": "双边界探针（已回填定义）：原构造未定义 expected，两个独立盲测代理分别选中两侧之一，确认该场景位于 defensive-stock-selection 与 investor-identity-matching 的边界。PASS 条件 = 两者其一。2026-10-06 记录。",
+      "notes": "身份矛盾：进攻型诉求与防御型工具错配，应先转 investor-identity-matching（C5）再转 excess-return-path-selection（C10）；四原则的价格上限会整体排除其目标标的。 | 2026-10-06 双清判定一致确认边界，PASS 双侧其一"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "按排除法筛完以后剩下的都是冷门股，我能把价格上限放宽一点买两只成长股吗？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "放宽即失去防御型保护：拒绝放宽；成长股的估值与参与上限归 growth-stock-appraisal（C15），身份若改为进攻型走 C10。"
+    }
+  ]
+}

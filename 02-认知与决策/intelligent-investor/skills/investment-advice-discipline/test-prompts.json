@@ -1,0 +1,69 @@
+{
+  "skill": "investment-advice-discipline",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "客户经理极力向我推荐一只基金，说过去三年收益很高，我该不该按他说的买？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "双条件检验主场景（u51）：先审来源利益结构（佣金随什么增长），再定使用方式。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "现在智能投顾和大V荐股很多，正确使用这些推荐的方式是什么？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "u51 V2 问题：双条件+提问重构——建议只用来增长知识、形成独立见解，除非双条件满足。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "朋友给我透了个'接近内幕'的消息说这只票要涨，我该怎么处理这条信息？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "小费免疫（p22/提问重构）：声明对小费毫无兴趣——消息链上每一步都无算术支撑，只可作素材转独立验证。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "我去见财务顾问，应该问什么问题才能判断他的建议对我有没有用？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "提问重构（p21）：只问安全性/吸引力/内在价值，不问'下几个月涨不涨'——问题质量决定建议质量。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "我自己做研究时，该更看重管理层访谈的前景判断，还是价格与收益、资产的测量关系？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：自己分析的方法认识论（预言法 vs 保护法），预期归属 protection-over-forecast（C16）；本 skill 管的是别人建议的使用。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "道氏理论在过去40年很有效，这条交易规则现在还能依赖吗？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：规则寿命判别与流行即失效，预期归属 rule-reliability-trend-skepticism（C2）；本 skill 管人际建议来源。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "我想用保证金买这只大家都说很安全的蓝筹股，这算投资还是投机？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：操作性质的定性判定（保证金操作即投机、三判据过筛），预期归属 invest-vs-speculation-filter（C1）；本 skill 的来源审查通过后仍需 C1 过筛。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "顾问的正直和能力'被完全证明'具体怎么验证？他管理的产品业绩好算不算证明？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "edge：双条件 (b) 的操作化——长期跟踪记录+利益结构透明+历史行为与客户利益一致；业绩好本身不构成'完全证明'（x20：专家整体跑输指数），边界讨论 1964 年与当代验证手段差异。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "如果一份卖方研报的分析本身质量很高，我能直接按它操作吗？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "edge：建议质量与来源利益并存——内容质量不豁免双条件检验；高质量研报仍是好'知识素材'，能否行动取决于双条件，内容验证转 C16/C14。"
+    }
+  ]
+}

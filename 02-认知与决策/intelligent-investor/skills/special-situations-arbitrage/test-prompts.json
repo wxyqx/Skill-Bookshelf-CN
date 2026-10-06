@@ -1,0 +1,69 @@
+{
+  "skill": "special-situations-arbitrage",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "A 公司刚宣布被 B 公司收购，要约价比现价高 25%，这个价差能赚吗、怎么算？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "主场景：按方案条款预先计算利润（u28/c26）。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "格雷厄姆说的'特别情况'具体指什么？清算和重组里的利润为什么可以预先计算？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "概念定义与三关检验路径（u28/第7章）。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "为什么说'决不买进一场诉讼'的偏见反而会制造便宜货？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "偏见反用（u28 V1 语境1）。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "并购套利今天还能做吗，需要什么条件？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "u28 V2 场景：检验路径不随时代失效+门槛自限。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "这只股票价格只有净流动资产的一半，没有并购没有清算，能买吗？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：无事件依赖的持续低估，预期归属 bargain-issues-net-nets（C12）。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "这次收购标的公司的债券覆盖倍数够不够安全？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：覆盖倍数安全检验，预期归属 bond-safety-terms（C8）。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "我想跑赢市场，冷门大公司、廉价股、套利三选一该怎么选方向？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：三域路径选择，预期归属 excess-return-path-selection（C10）；本 skill 只管选定后的域内执行。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "要约价差 20%，但反垄断审查结果不明，预计要拖两年——这笔怎么定价？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "E2 时间风险定价：折算年化并写明失败情景；若年化后无正边际则 E 判停放弃。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "我没有法律分析能力也没有信息渠道，只看到别人做并购套利赚钱，我要不要跟？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "E4 门槛自检触发：不具备'非同寻常的知识与设施'→按格雷厄姆边界放弃；转 investor-identity-matching（C5）重估进攻型身份。"
+    }
+  ]
+}

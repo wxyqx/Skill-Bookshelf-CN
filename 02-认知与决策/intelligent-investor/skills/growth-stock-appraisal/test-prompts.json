@@ -1,0 +1,69 @@
+{
+  "skill": "growth-stock-appraisal",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "一只成长股现在市盈率 35 倍，预计未来十年年增 20%，用格雷厄姆的 8.5+2g 公式算它贵不贵？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "正算工具主场景（u32/第10章）。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "怎么从当前股价反推市场对一家公司的隐含增长率，再和历史增速对比？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "反解工具（u32：道指隐含 5.1% vs 实际 3.4%、施乐隐含 33.8%）。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "格雷厄姆说进攻型投资者最多只能用多少倍市盈率参与成长股？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "20 倍参与上限（u32/p36）。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "为什么防御型投资者要整体回避成长股？专业成长基金不是有最好的分析师吗？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "防御回避+c32 基金实证反面（u32 语境3）。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "一家周期性化工公司在盈利顶点上只有 10 倍 PE，值不值得买？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：周期股须用盈利能力跨周期均值估值，预期归属 earnings-power-valuation（C14）；8.5+2g 只适用于持续成长股。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "防御型选股四原则里的价格上限具体是多少倍？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：防御型选股框架，预期归属 defensive-stock-selection（C7）。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "我的成长股持仓半年翻倍了，要不要先止盈落袋为安？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：浮盈不可兑现律与剧涨莫买，预期归属 market-mr-volatility-discipline（C3）。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "PEG 0.8 看起来很便宜的成长股，用格雷厄姆的双工具检验会得出什么结论？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "否决链演示：反解隐含 g→过分贴现检验，再过 20 倍上限；PEG 低不等于通过（u32 V2）。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "现在利率比 1964 年低得多，8.5 这个基数还能直接用吗？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "利率校准警告：基数 8.5 与 20 倍上限绑定 1964 年债息环境，须按当期重校（u32 V3 时效标注）。"
+    }
+  ]
+}

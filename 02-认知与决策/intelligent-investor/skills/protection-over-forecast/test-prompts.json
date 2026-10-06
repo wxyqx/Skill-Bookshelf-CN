@@ -1,0 +1,69 @@
+{
+  "skill": "protection-over-forecast",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我去公司调研和管理层聊了一天，特别兴奋，觉得前景非常好，现在能买吗？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "预言法警报主场景（u34 V2 问题）：把气质兴奋强制转译为价格与收益/资产/股利的定量关系。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "分析师的 DCF 模型参数调到小数点后两位，连五年后的 EPS 都算出来了，这种精确的预测更可信吗？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "数学化-准确性反比定律（u33）：精确感本身是可靠性折价信号。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "我订阅了一个五星分析师的精选股票组合，合理的收益预期应该是什么？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "精选无用推理链（u35）：共识抵消机制→期待应设为平均结果。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "我的信息比一般散户更快更全，靠这个优势能赢市场吗？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "技巧中和定律（u36）：对手是同等聪明且设备更好的群体，信息优势被抵消。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "券商客户经理极力给我推荐一只股票，我该不该信他、怎么用这份推荐？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：他人建议的使用纪律，预期归属 investment-advice-discipline（C20 双条件+提问重构）；本 skill 管自己分析的方法认识论。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "用资本化率五因素给这只非成长股估值，倍数带应该怎么定？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：具体估值计算，预期归属 earnings-power-valuation（C14）；本 skill 只定方法不算数。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "低波动因子近十年回测很有效，这条规则还能继续依赖吗？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：规则寿命判别，预期归属 rule-reliability-trend-skepticism（C2 元规则）。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "一份研报通篇都是行业前景叙事，只在最后给了一个目标价，这算预测还是算分析？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "edge：分栏识别的判停场景——保护栏近空→按本 skill 判为投机性论证；目标价的算术是否成立转 earnings-power-valuation（C14）。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "23 种成长股基金十年跑输标普 500，你说是市场有效还是方法有缺陷？我还能买成长股吗？",
+      "expected_behavior": "双边界探针（已回填定义）：原构造未定义 expected，两个独立盲测代理分别选中两侧之一，确认该场景位于 protection-over-forecast 与 growth-stock-appraisal 的边界。PASS 条件 = 两者其一。2026-10-06 记录。",
+      "notes": "edge：证据层与 growth-stock-appraisal（C15）共用素材 c32/x20——本 skill 输出'按前景精选结构性失效'的结论；成长股参与上限与估值转 C15。 | 2026-10-06 双清判定一致确认边界，PASS 双侧其一"
+    }
+  ]
+}

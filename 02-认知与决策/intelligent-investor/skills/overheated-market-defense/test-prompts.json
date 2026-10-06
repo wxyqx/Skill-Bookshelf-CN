@@ -1,0 +1,69 @@
+{
+  "skill": "overheated-market-defense",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "指数连创新高，市盈率处于历史高位，股息率已经低于十年期国债利率。现在是不是牛市顶部？我要不要减仓避险？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "典型顶部打分场景：多信号并现+防守动作，六条件打分+谨慎三准则。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "最近新股发行特别火爆，很多小公司一上市就翻倍，质地很差的公司也能高价发行，这是不是市场接近顶部的信号？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "新股定价倒挂信号（u15，第6章信号）用于市场顶部打分。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "利率和地缘政治我都看不清，现在股票仓位70%，要不要清仓躲一躲？还是加杠杆搏一把？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "不确定性优先+谨慎三准则：不加杠杆 > 不追加 > 必要时降到最多50%。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "市场都热成这样了，我还能不能新开一个每月定投的计划？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "危险水平不新开 DCA 计划（u14 的 DCA 暂停规则挂在 C6）。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "我手里的股票跌了35%，公司财报没什么变化，我恐慌得睡不着，该割肉吗？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：单只持仓的下跌检视与恐慌应对，预期归属 market-mr-volatility-discipline（C3），不是市场整体过热。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "'股息率跌破债息就是顶部'这个信号过去几十年用起来到底准不准，现在还能不能信？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：信号/准则本身的可靠性检验，预期归属 rule-reliability-trend-skepticism（C2）；C6 只管当期打分与防守动作。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "我的股票占比涨到58%了，按55%触发线该卖多少转债券？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：比例带内机械再平衡，预期归属 mechanical-allocation-dca（C4）。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "我判断市场已经过热，把股票降到50%了；剩下的仓位以后还要不要按55%卖1/11的规则继续机械调整？",
+      "expected_behavior": "双边界探针（已回填定义）：原构造未定义 expected，两个独立盲测代理分别选中两侧之一，确认该场景位于 overheated-market-defense 与 mechanical-allocation-dca 的边界。PASS 条件 = 两者其一。2026-10-06 记录。",
+      "notes": "混合场景：过热判断（C6）触发降档后，比例带内的机械执行细节归 mechanical-allocation-dca（C4）；本 skill 输出警惕等级与三准则即止。 | 2026-10-06 双清判定一致确认边界，PASS 双侧其一"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "牛市里新股又多又贵，我一股都不该碰吗？还是说这只是见顶信号？",
+      "expected_behavior": "双边界探针（已回填定义）：原构造未定义 expected，两个独立盲测代理分别选中两侧之一，确认该场景位于 overheated-market-defense 与 aggressive-negative-list 的边界。PASS 条件 = 两者其一。2026-10-06 记录。",
+      "notes": "双重归属：作为顶部信号在本 skill 打分；作为个体买卖禁令转 aggressive-negative-list（C9）。触发时应两义并答并指路。 | 2026-10-06 双清判定一致确认边界，PASS 双侧其一"
+    }
+  ]
+}

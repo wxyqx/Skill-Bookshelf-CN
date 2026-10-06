@@ -152,4 +152,4 @@
 
 - 书单总数：**101** 本
 - 已蒸馏：**10** 本（对应书架目录：[`mankiw-microeconomics`](./01-经济与大势/mankiw-microeconomics/)、[`how-google-works`](./05-产品与创新/how-google-works/)、[`hooked`](./05-产品与创新/hooked/)、[`nintendo-experience-design`](./05-产品与创新/nintendo-experience-design/)、[`inspired`](./05-产品与创新/inspired/)、[`simple-and-usable`](./05-产品与创新/simple-and-usable/)、[`influence-cialdini`](./06-沟通与领导力/influence-cialdini/)、[`poor-charlies-almanack`](./02-认知与决策/poor-charlies-almanack/)、[`seven-habits`](./03-个人成长/seven-habits/)、[`asking-the-right-questions`](./02-认知与决策/asking-the-right-questions/)）
-- 书架中尚不在本清单的已蒸馏书：*心流*、*Ready, Fire, Aim*、《人性的弱点》、《洛克菲勒留给儿子的38封信》、《刻意练习》、《富爸爸穷爸爸系列》、《思考，快与慢》、《权力的48条法则》、《稀缺》、《当下的力量》、《精益创业 2.0》、《领导梯队建设系列》、《卓有成效的管理者》
+- 书架中尚不在本清单的已蒸馏书：*聪明的投资者*、*心流*、*Ready, Fire, Aim*、《人性的弱点》、《洛克菲勒留给儿子的38封信》、《刻意练习》、《富爸爸穷爸爸系列》、《思考，快与慢》、《权力的48条法则》、《稀缺》、《当下的力量》、《精益创业 2.0》、《领导梯队建设系列》、《卓有成效的管理者》

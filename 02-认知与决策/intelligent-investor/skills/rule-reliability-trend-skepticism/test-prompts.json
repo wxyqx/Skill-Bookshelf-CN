@@ -1,0 +1,69 @@
+{
+  "skill": "rule-reliability-trend-skepticism",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "低波动因子近十年很有效，我能长期依赖它吗？",
+      "expected_behavior": "activate",
+      "notes": "u03 V2 novel question 原型：类型挂钩因子须假设会失效并重查当期证据——预期输出'分类检验+当期重查'结论。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "某策略回测年化 20%，最近刚被大 V 普及，现在上车预期怎么样？",
+      "expected_behavior": "activate",
+      "notes": "u04 V2 novel question 原型：预期收益衰减+拥挤警告（下调预期而非怀疑回测造假）。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "这个行业龙头组连涨五年了，现在追加是不是接盘？",
+      "expected_behavior": "activate",
+      "notes": "u05 趋势逆转场景：预期用逆转 2:1 统计与回报趋同原理给'警惕条款+价格上限'，而非简单禁令。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "格雷厄姆说市盈率不超过 25 倍，这条标准今天还能直接用吗？",
+      "expected_behavior": "activate",
+      "notes": "规则寿命+参数重校场景：25× 是 1964 年类型挂钩参数——预期给'保留思想、重查参数'的分层结论。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "道指创新高、新股满天飞、经纪贷款猛增——现在是不是顶部，我该清仓吗？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 overheated-market-defense——对当期市场逐条打分并给防守动作，不是评判某条规则的寿命。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "我的持仓跌了 40%，财报没变化，要不要卖？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 market-mr-volatility-discipline——波动应对纪律，与规则可靠性无关。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "用两成仓位买 meme 股算投资吗？",
+      "expected_behavior": "deactivate",
+      "notes": "兄弟诱饵：预期归属 invest-vs-speculation-filter——单笔操作定性，不是准则寿命判断。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "股息率跌破债息这个顶部信号 1957 年后失灵了 7 年，以后还能用吗？",
+      "expected_behavior": "activate",
+      "notes": "边界混合：信号本身属 overheated-market-defense 清单第3条，但'信号失效史→还能用吗'是 C2 的规则寿命问题——预期 C2 主答'寿命'（7年不能验证的信号不作实际指南），当期打分移交 C6。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "大家都说价值投资长期有效，我还要不要学别的？",
+      "expected_behavior": "activate",
+      "notes": "边界：'调查后投资'属人性挂钩准则可长期依赖，但其执行载体（冷门因子被量化收割）需按当期重查——检验是否给出分层结论而非一刀切。"
+    }
+  ]
+}

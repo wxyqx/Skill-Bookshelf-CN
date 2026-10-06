@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**41 本书 · 698 个 skills**（最后更新：2026-10-06）
+**42 本书 · 718 个 skills**（最后更新：2026-10-06）
 
 ### 分类导航
 
@@ -35,7 +35,7 @@
 | 《财务报表分析(简明版·立体化数字教材版)》*Financial Statement Analysis* | 张新民、钱爱民 · 2020 | 财务报表分析 / 资产质量 / 利润质量 / 战略透视 / 造假识别 | 18 | [`financial-statement-analysis/`](./01-经济与大势/financial-statement-analysis/) |
 | 《从报表看企业：数字背后的秘密（第5版）》 | 张新民 · 2024 | 财务报表分析 / 战略判型 / 利润质量 / 风险识别 / 前景预测 | 17 | [`cong-baobiao-kan-qiye/`](./01-经济与大势/cong-baobiao-kan-qiye/) |
 
-#### 02-认知与决策（5 本）
+#### 02-认知与决策（6 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
@@ -44,6 +44,7 @@
 | 《稀缺》*Scarcity* | 穆来纳森、沙菲尔 · 2022 | 稀缺 / 带宽 / 决策 | 7 | [`scarcity/`](./02-认知与决策/scarcity/) |
 | 《学会提问（原书第10版）》*Asking the Right Questions* | 尼尔·布朗、斯图尔特·基利 · 2012 | 批判性思维 / 论证审查 / 提问 | 22 | [`asking-the-right-questions/`](./02-认知与决策/asking-the-right-questions/) |
 | 《刻意练习》*PEAK* | 艾利克森、普尔 · 2016 | 学习 / 技能精进 | 8 | [`peak-deliberate-practice/`](./02-认知与决策/peak-deliberate-practice/) |
+| 《聪明的投资者》*The Intelligent Investor* | 本杰明·格雷厄姆 · 1949/1965（第4版） | 价值投资 / 安全边际 / 投资纪律 / 市场波动 | 20 | [`intelligent-investor/`](./02-认知与决策/intelligent-investor/) |
 
 #### 03-个人成长（4 本）
 
@@ -354,6 +355,13 @@
 - **Skills**：`traffic-pool-diagnosis` · `pinxiao-heyi-marketing` · `brand-as-traffic-well` · `brand-positioning-trilogy` · `brand-symbol-building` · `scene-trigger-niche` · `traditional-ad-conversion` · `ad-creative-iteration` · `social-fission-principle` · `fission-playbook-design` · `fission-cold-start-lowfreq` · `wechat-service-superapp` · `social-content-light-fast` · `event-marketing-five-boosts` · `ad-anti-fraud-channel` · `landing-page-conversion` · `feed-native-creative` · `livestream-imbt` · `bd-traffic-exchange`
 - **备注**：作者亲历操盘型营销书（神州专车 Beat 谣体、瑞幸裂变均为一手复盘）；2018 年快照，微信裂变规则/模板消息/DMP/直播参数已变，各 skill 的 B 段已内嵌时效警示，只取判断逻辑层。
 
+### 42. 《聪明的投资者》 · [`intelligent-investor/`](./02-认知与决策/intelligent-investor/)
+
+- **作者**：本杰明·格雷厄姆 · 1949/1965（第 4 版；本包基于 16 章老译本，数据截至 1964 年）
+- **一句话**：投资操作是"经过深入分析、承诺本金安全并追求满意（而非超额）回报"，不满足这些条件的就是投机——围绕这条操作化定义，格雷厄姆给出市场先生应对纪律、防御/进攻型身份判定、25-75 组合再平衡、债券覆盖倍数、廉价证券与特别情况选股、盈利能力估值与成长股公式，最终收束于全书核心概念"安全边际"。
+- **Skills**：`invest-vs-speculation-filter` · `rule-reliability-trend-skepticism` · `market-mr-volatility-discipline` · `mechanical-allocation-dca` · `investor-identity-matching` · `overheated-market-defense` · `defensive-stock-selection` · `bond-safety-terms` · `aggressive-negative-list` · `excess-return-path-selection` · `neglected-large-cap-strategy` · `bargain-issues-net-nets` · `special-situations-arbitrage` · `earnings-power-valuation` · `growth-stock-appraisal` · `protection-over-forecast` · `stock-diagnosis-techniques` · `margin-of-safety-core` · `shareholder-governance` · `investment-advice-discipline`
+- **备注**：本包基于 1964 年数据版本（无指数基金时代、无 Zweig 点评），各 skill 的 B 段已内嵌时效警示——估值锚与绝对门槛只学"替换参数"的示范，使用前按当期重查；与《穷查理宝典》同属理性决策谱系，本卷专注投资操作层。
+
 ---
 
 ## 安装
@@ -361,7 +369,7 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 698 个 skills（用户级，所有项目可用）
+# 一次性安装全部 718 个 skills（用户级，所有项目可用）
 for d in */*/skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
@@ -399,7 +407,8 @@ skill-bookshelf/
 │   ├── poor-charlies-almanack/   # 《穷查理宝典》
 │   ├── scarcity/   # 《稀缺：我们是如何陷入贫穷与忙碌的》
 │   ├── asking-the-right-questions/   # 《学会提问（原书第10版）》
-│   └── peak-deliberate-practice/   # 《刻意练习：如何从新手到大师》
+│   ├── peak-deliberate-practice/   # 《刻意练习：如何从新手到大师》
+│   └── intelligent-investor/   # 《聪明的投资者》
 ├── 03-个人成长/
 │   ├── flow/   # 《心流：最优体验心理学》
 │   ├── power-of-now/   # 《当下的力量（白金版）》

@@ -1,0 +1,69 @@
+{
+  "skill": "aggressive-negative-list",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "t01",
+      "type": "should_trigger",
+      "prompt": "我愿意花时间研究、想追求超过平均的收益，有没有哪些证券是坚决不该碰的？给我一份负面清单。",
+      "expected_behavior": "应触发本 skill",
+      "notes": "进攻型身份+四不碰清单主场景。"
+    },
+    {
+      "id": "t02",
+      "type": "should_trigger",
+      "prompt": "一只收益率8%的次级公司债按面值附近出售，销售说只比国债差一点点，能买吗？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "收益换本金检验+2/3账面值折扣线（u20）。"
+    },
+    {
+      "id": "t03",
+      "type": "should_trigger",
+      "prompt": "朋友劝我打新，某热门公司分拆子公司IPO，说上市必涨，我要不要参与？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "新证券双重怀疑（u21）。"
+    },
+    {
+      "id": "t04",
+      "type": "should_trigger",
+      "prompt": "可转债宣传说'下有债底、上不封顶'，进可攻退可守，这话有问题吗？",
+      "expected_behavior": "应触发本 skill",
+      "notes": "可转债公理：转换权的代价是质量或收益（u21/t17）。"
+    },
+    {
+      "id": "n01",
+      "type": "should_not_trigger",
+      "prompt": "我是防御型投资者，只想省心，该买什么样的股票满足什么标准？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：防御型正面选股，预期归属 defensive-stock-selection（C7）；本 skill 只管进攻型不碰什么。"
+    },
+    {
+      "id": "n02",
+      "type": "should_not_trigger",
+      "prompt": "新股发行这么火爆，市场是不是快见顶了，我该不该减仓？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：新股狂潮作为市场顶部信号用于打分与减仓，预期归属 overheated-market-defense（C6）；本 skill 只管个体买卖禁令。"
+    },
+    {
+      "id": "n03",
+      "type": "should_not_trigger",
+      "prompt": "这只老可转债已经跌到60块、价格远低于它的价值和账面了，还能不能捡？",
+      "expected_behavior": "不应触发本 skill；兄弟诱饵预期归属见 notes",
+      "notes": "同书兄弟诱饵：已跌透老证券的大折扣机会进入负面清单的唯一例外通道，预期归属 bargain-issues-net-nets（C12，并与 margin-of-safety-core 衔接）。"
+    },
+    {
+      "id": "e01",
+      "type": "edge_case",
+      "prompt": "新兴市场主权债收益率只比国债高1.5%，这个国家信用看着不错，能买吗？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "外国政府债券条款（u20）：结构性索赔风险，默认回避；当代有评级/CDS工具但结构风险仍在，按当期重查后回答。"
+    },
+    {
+      "id": "e02",
+      "type": "edge_case",
+      "prompt": "有一只二等债券价格是账面值的65%，收益也高，这算不算负面清单的例外？",
+      "expected_behavior": "边界判断：按 skill description 的包含/排除条款执行",
+      "notes": "例外通道检验：低于账面约30%（2/3价格）达标→可进入廉价证券评估（C12/C18），需进一步验证增值空间与公司前程并非真无望。"
+    }
+  ]
+}
