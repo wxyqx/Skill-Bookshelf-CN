@@ -108,25 +108,6 @@
 | 《人性的弱点》 | 戴尔·卡耐基 · 1936 | 人际关系 / 说服 | 8 | [`how-to-win-friends/`](./09-其他/how-to-win-friends/) |
 | 《领导梯队建设系列（共5册）》 | 拉姆·查兰 等 · 2001–2016 | 领导梯队 / 执行 / 人才培养 | 59 | [`leadership-pipeline-series/`](./09-其他/leadership-pipeline-series/) |
 
----|---|---:|---|---|
-| 《经济学原理（微观分册）》 | 曼昆 · 2020 | 经济学 / 决策分析 | 6 | [`mankiw-microeconomics/`](./01-经济和大势/mankiw-microeconomics/) |
-| 《宏观经济学（第十版）》*Macroeconomics, 10th Ed.* | 曼昆 · 2019 | 宏观经济学 / 政策分析 / 经济数据 | 20 | [`mankiw-macroeconomics-10e/`](./01-经济和大势/mankiw-macroeconomics-10e/) |
-| 《宏观经济学二十五讲：中国视角》 | 徐高 · 2019 | 中国宏观经济 / 货币政策 / 结构分析 | 24 | [`xugao-macro-25-lectures/`](./01-经济和大势/xugao-macro-25-lectures/) |
-| 《战略与路径：黄奇帆的十二堂经济课》 | 黄奇帆 · 2022 | 宏观战略 / 结构性分析 / 政策方法论 | 19 | [`strategy-and-path/`](./01-经济和大势/strategy-and-path/) |
-| 《分析与思考：黄奇帆的复旦经济课》 | 黄奇帆 · 2020 | 金融 / 货币制度 / 风险诊断 | 15 | [`analysis-and-thinking/`](./01-经济和大势/analysis-and-thinking/) |
-| 《八次危机：中国的真实经验 (1949-2009)》 | 温铁军 · 2013 | 经济史 / 政治经济学 / 三农 | 10 | [`eight-crises/`](./01-经济和大势/eight-crises/) |
-| 《从“老冷战”到“新冷战”》 | 温铁军、李卞 · 2023 | 政治经济学 / 全球化史 / 货币与冷战 | 9 | [`cold-war-to-cold-war/`](./01-经济和大势/cold-war-to-cold-war/) |
-| 《中国改革三部曲》 | 吴敬琏 · 2017 | 比较体制 / 改革史 / 增长模式 | 10 | [`china-reform-trilogy/`](./01-经济和大势/china-reform-trilogy/) |
-| 《繁荣与衰退》 | 格林斯潘 & 伍德里奇 · 2019 | 美国经济史 / 创造性破坏 / 政治经济学 | 8 | [`capitalism-in-america/`](./01-经济和大势/capitalism-in-america/) |
-| 《时运变迁》*Changing Fortunes* | 保罗·沃尔克 & 行天丰雄 · 1992 | 国际货币体系 / 危机管理 / 承诺与协调 | 14 | [`changing-fortunes/`](./01-经济和大势/changing-fortunes/) |
-| 《21世纪货币政策》*21st Century Monetary Policy* | 本·伯南克 · 2022 | 货币政策 / 信誉与预期管理 / 危机应对 | 16 | [`21st-century-monetary-policy/`](./01-经济和大势/21st-century-monetary-policy/) |
-| 《当音乐停止之后》 | 艾伦·布林德 · 2014 | 金融危机 / 政策评估 / 政治经济学 | 11 | [`after-the-music-stopped/`](./01-经济和大势/after-the-music-stopped/) |
-| 《激荡四十年》*Turbulent Forty Years* | 吴晓波 · 2018 | 中国企业史 / 政策周期 / 政商关系 / 产权改革 | 16 | [`turbulent-forty-years/`](./01-经济和大势/turbulent-forty-years/) |
-| 《财务报表分析(简明版·立体化数字教材版)》*Financial Statement Analysis* | 张新民、钱爱民 · 2020 | 财务报表分析 / 资产质量 / 利润质量 / 战略透视 / 造假识别 | 18 | [`financial-statement-analysis/`](./06-财务金融和法律/financial-statement-analysis/) |
-| 《从报表看企业：数字背后的秘密（第5版）》 | 张新民 · 2024 | 财务报表分析 / 战略判型 / 利润质量 / 风险识别 / 前景预测 | 17 | [`cong-baobiao-kan-qiye/`](./06-财务金融和法律/cong-baobiao-kan-qiye/) |
-
----
-
 ## 逐本详情
 
 ### 1. 《心流：最优体验心理学》 — *Flow: The Psychology of Optimal Experience* · [`flow/`](./09-其他/flow/)
