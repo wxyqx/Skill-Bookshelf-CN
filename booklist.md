@@ -2,44 +2,44 @@
 
 > 共 **101** 本书，按 8 个 Part 分组。
 >
-> - **蒸馏** 列标 ✅ 的书已完成 cangjie-skill 蒸馏，链接直达书架中对应技能集（共 **29** 本，**708** 个 skills 中的 **451** 个来自这批书）。
+> - **蒸馏** 列标 ✅ 的书已完成 cangjie-skill 蒸馏，链接直达书架中对应技能集（共 **33** 本，**816** 个 skills 中的 **523** 个来自这批书）。
 > - 「有书」为纸质/电子书已在手。
 
 ## Part I - 经济和大势
 
 | 分类 | 书名 | 有书 | 蒸馏 |
 |---|---|---|---|
-| 教材类 | 经济学原理-微观分册-曼昆 | ✓ | ✅ [已蒸馏 6 skills](./01-经济与大势/mankiw-microeconomics/) |
-| 教材类 | 宏观经济学-曼昆 | ✓ | ✅ [已蒸馏 20 skills](./01-经济与大势/mankiw-macroeconomics-10e/) |
-| 教材类 | 中国宏观经济分析-徐高 | ✓ | ✅ [已蒸馏 24 skills](./01-经济与大势/xugao-macro-25-lectures/) |
-| 中国智库级专家 | 战略与路径-黄奇帆 | ✓ | ✅ [已蒸馏 19 skills](./01-经济与大势/strategy-and-path/) |
-| 中国智库级专家 | 分析与思考-黄奇帆 | ✓ | ✅ [已蒸馏 15 skills](./01-经济与大势/analysis-and-thinking/) |
-| 中国智库级专家 | 十次危机-温铁军 | ✓ | ✅ [已蒸馏 10 skills](./01-经济与大势/eight-crises/)（书架收录《八次危机：中国的真实经验 1949-2009》） |  |
-| 中国智库级专家 | 从冷战到冷战-温铁军 | ✓ | ✅ [已蒸馏 9 skills](./01-经济与大势/cold-war-to-cold-war/)（书架收录《从“老冷战”到“新冷战”》讲稿汇编） |  |
-| 中国智库级专家 | 当代中国经济改革程-吴敬链 | ✓ | ✅ [已蒸馏 10 skills](./01-经济与大势/china-reform-trilogy/)（书架收录吴敬琏《中国改革三部曲》，含《当代中国经济改革》） |  |
-| 美国智库级专家 | 繁荣与衰退-美国经济发展史-格林斯潘 | ✓ | ✅ [已蒸馏 8 skills](./01-经济与大势/capitalism-in-america/) |
-| 美国智库级专家 | 时代变迁-世界货币、美元地位和人民币的未来-沃尔克 |  | ✅ [已蒸馏 14 skills](./01-经济与大势/changing-fortunes/)（书架收录《时运变迁》，Changing Fortunes） |
-| 美国智库级专家 | 21世纪货币政策-伯南克 | ✓ | ✅ [已蒸馏 16 skills](./01-经济与大势/21st-century-monetary-policy/) |
-| 美国智库级专家 | 当音乐停止之后-布林德 | ✓ | ✅ [已蒸馏 11 skills](./01-经济与大势/after-the-music-stopped/) |
+| 教材类 | 经济学原理-微观分册-曼昆 | ✓ | ✅ [已蒸馏 6 skills](./01-经济和大势/mankiw-microeconomics/) |
+| 教材类 | 宏观经济学-曼昆 | ✓ | ✅ [已蒸馏 20 skills](./01-经济和大势/mankiw-macroeconomics-10e/) |
+| 教材类 | 中国宏观经济分析-徐高 | ✓ | ✅ [已蒸馏 24 skills](./01-经济和大势/xugao-macro-25-lectures/) |
+| 中国智库级专家 | 战略与路径-黄奇帆 | ✓ | ✅ [已蒸馏 19 skills](./01-经济和大势/strategy-and-path/) |
+| 中国智库级专家 | 分析与思考-黄奇帆 | ✓ | ✅ [已蒸馏 15 skills](./01-经济和大势/analysis-and-thinking/) |
+| 中国智库级专家 | 十次危机-温铁军 | ✓ | ✅ [已蒸馏 10 skills](./01-经济和大势/eight-crises/)（书架收录《八次危机：中国的真实经验 1949-2009》） |  |
+| 中国智库级专家 | 从冷战到冷战-温铁军 | ✓ | ✅ [已蒸馏 9 skills](./01-经济和大势/cold-war-to-cold-war/)（书架收录《从“老冷战”到“新冷战”》讲稿汇编） |  |
+| 中国智库级专家 | 当代中国经济改革程-吴敬链 | ✓ | ✅ [已蒸馏 10 skills](./01-经济和大势/china-reform-trilogy/)（书架收录吴敬琏《中国改革三部曲》，含《当代中国经济改革》） |  |
+| 美国智库级专家 | 繁荣与衰退-美国经济发展史-格林斯潘 | ✓ | ✅ [已蒸馏 8 skills](./01-经济和大势/capitalism-in-america/) |
+| 美国智库级专家 | 时代变迁-世界货币、美元地位和人民币的未来-沃尔克 |  | ✅ [已蒸馏 14 skills](./01-经济和大势/changing-fortunes/)（书架收录《时运变迁》，Changing Fortunes） |
+| 美国智库级专家 | 21世纪货币政策-伯南克 | ✓ | ✅ [已蒸馏 16 skills](./01-经济和大势/21st-century-monetary-policy/) |
+| 美国智库级专家 | 当音乐停止之后-布林德 | ✓ | ✅ [已蒸馏 11 skills](./01-经济和大势/after-the-music-stopped/) |
 | 美国智库级专家 | 亚洲大趋势-中国和新兴经济体未来-乔什维特 |  |  |
-| 美国智库级专家 | 激荡三十年-吴晓波 | ✓ | ✅ [已蒸馏 16 skills](./01-经济与大势/turbulent-forty-years/)（书架收录《激荡四十年》，含《激荡三十年》+《激荡十年》） |
+| 美国智库级专家 | 激荡三十年-吴晓波 | ✓ | ✅ [已蒸馏 16 skills](./01-经济和大势/turbulent-forty-years/)（书架收录《激荡四十年》，含《激荡三十年》+《激荡十年》） |
 
 ## Part II - 创业思维
 
 | 分类 | 书名 | 有书 | 蒸馏 |
 |---|---|---|---|
-| 中国和亚洲商业发展史 | 小米创业思考-雷军 |  | ✅ [已蒸馏 17 skills](./04-创业与经营/xiaomi-startup-thinking/) |
-| 中国和亚洲商业发展史 | 段永平投资问答录-商业逻辑篇-段永平 |  | ✅ [已蒸馏 16 skills](./04-创业与经营/duan-yongping-touzi-wenda-lu/)（书架收录《段永平投资问答录（全两册）》，孙力科 编） |
+| 中国和亚洲商业发展史 | 小米创业思考-雷军 |  | ✅ [已蒸馏 17 skills](./02-创业思维/xiaomi-startup-thinking/) |
+| 中国和亚洲商业发展史 | 段永平投资问答录-商业逻辑篇-段永平 |  | ✅ [已蒸馏 16 skills](./02-创业思维/duan-yongping-touzi-wenda-lu/)（书架收录《段永平投资问答录（全两册）》，孙力科 编） |
 | 成功企业家创业方法论 | 精益创业-埃里克·里斯 |  |  |
 | 成功企业家创业方法论 | 一致九败-柳井正 |  |  |
 | 成功企业家创业方法论 | 从0到1-开启商业与未来的秘密-彼得蒂尔 |  |  |
-| 精益创业 | 精益创业-新创企业的成长思维-埃里克莱斯 |  | ✅ [已蒸馏 13 skills](./04-创业与经营/lean-startup-eric-ries/)（书架收录《精益创业：新创企业的成长思维》，埃里克·莱斯） |
+| 精益创业 | 精益创业-新创企业的成长思维-埃里克莱斯 |  | ✅ [已蒸馏 13 skills](./02-创业思维/lean-startup-eric-ries/)（书架收录《精益创业：新创企业的成长思维》，埃里克·莱斯） |
 | 运营管理层 | 雷军：从程序员到CEO的奋斗之路-沃尔顿自传-山姆沃尔顿 |  |  |
 | 运营管理层 | 创京东-刘强东 |  |  |
 | 失败教训类 | 十一只小鸟告诉我的事-杜斯通 |  |  |
-| 失败教训类 | 创业者的解答-克莱顿克里斯坦森 |  | ✅ [已蒸馏 15 skills](./05-产品与创新/innovators-solution/)（书架收录《创新者的解答》，The Innovator's Solution） |
+| 失败教训类 | 创业者的解答-克莱顿克里斯坦森 |  | ✅ [已蒸馏 15 skills](./02-创业思维/innovators-solution/)（书架收录《创新者的解答》，The Innovator's Solution） |
 | 失败教训类 | 精益创业实战-阿什莫瑞亚 |  |  |
-| 失败教训类 | 重新定义公司-谷歌是如何运营的-埃里克施密特 | ✓ | ✅ [已蒸馏 18 skills](./05-产品与创新/how-google-works/) |
+| 失败教训类 | 重新定义公司-谷歌是如何运营的-埃里克施密特 | ✓ | ✅ [已蒸馏 18 skills](./02-创业思维/how-google-works/) |
 | 失败教训类 | 格鲁夫给经理人的第一课-安迪格鲁夫 |  |  |
 | 失败教训类 | 天下无-中小企业赢的秘诀-大前研一 |  |  |
 | 失败教训类 | 创业维艰-如何完成比难更难的事-本霍洛维茨 | ✓ |  |
@@ -58,24 +58,24 @@
 | 一线导师视角做产品 | 俞军产品方法论-俞军 |  |  |
 | 实物产品 | 鞋狗-菲尔奈特 | ✓ |  |
 | 实物产品 | designing brand identity-alina wheeler |  |  |
-| 实际落地方法论 | 上瘾-让用户养成使用习惯四大产品逻辑-尼尔艾亚尔 |  | ✅ [已蒸馏 21 skills](./05-产品与创新/hooked/) |
-| 实际落地方法论 | 任天堂的体验设计-玉树真一郎 |  | ✅ [已蒸馏 13 skills](./05-产品与创新/nintendo-experience-design/) |
-| 实际落地方法论 | 启示录-打造用户喜爱的产品-马蒂卡根 |  | ✅ [已蒸馏 18 skills](./05-产品与创新/inspired/) |
+| 实际落地方法论 | 上瘾-让用户养成使用习惯四大产品逻辑-尼尔艾亚尔 |  | ✅ [已蒸馏 21 skills](./03-如何做产品/hooked/) |
+| 实际落地方法论 | 任天堂的体验设计-玉树真一郎 |  | ✅ [已蒸馏 13 skills](./03-如何做产品/nintendo-experience-design/) |
+| 实际落地方法论 | 启示录-打造用户喜爱的产品-马蒂卡根 |  | ✅ [已蒸馏 18 skills](./03-如何做产品/inspired/) |
 | 实际落地方法论 | 用户体验要素-以用户为中心的产品设计-jesse james garrett |  |  |
 | 实际落地方法论 | 用户体验度量-收集、分析与呈现-tom tullis/bill albert |  |  |
-| 实际落地方法论 | 简约至上-交互式设计四策略-giles colborne |  | ✅ [已蒸馏 20 skills](./05-产品与创新/simple-and-usable/) |
+| 实际落地方法论 | 简约至上-交互式设计四策略-giles colborne |  | ✅ [已蒸馏 20 skills](./03-如何做产品/simple-and-usable/) |
 
 ## Part IV - 营销和定位
 
 | 分类 | 书名 | 有书 | 蒸馏 |
 |---|---|---|---|
-| 定位类 | 定位-艾里斯·杰克特劳特 | ✓ | ✅ [已蒸馏 15 skills](./04-创业与经营/positioning-ries-trout/)（书架收录《定位：有史以来对美国营销影响最大的观念》，艾·里斯、杰克·特劳特） |  |
+| 定位类 | 定位-艾里斯·杰克特劳特 | ✓ | ✅ [已蒸馏 15 skills](./04-营销和定位/positioning-ries-trout/)（书架收录《定位：有史以来对美国营销影响最大的观念》，艾·里斯、杰克·特劳特） |  |
 | 定位类 | 21世纪的定位-邓德隆 |  |  |
 | 定位类 | 升级定位-冯卫东 |  |  |
 | 营销实战策略 | 跟华杉学品牌营销 |  |  |
 | 营销实战策略 | 参与感-黎万强 |  |  |
 | 营销心理学 | 如何让他买-改变消费者行为的十大策略-亚当费里尔 |  |  |
-| 营销传播学 | 影响力-罗伯特西奥迪尼 |  | ✅ [已蒸馏 9 skills](./06-沟通与领导力/influence-cialdini/) |
+| 营销传播学 | 影响力-罗伯特西奥迪尼 |  | ✅ [已蒸馏 9 skills](./04-营销和定位/influence-cialdini/) |
 | 营销传播学 | the culting of brands-douglas atkin |  |  |
 | 营销传播学 | 疯传-乔纳伯杰 |  |  |
 | 营销传播学 | 引爆点-马尔科姆格拉德威尔 |  |  |
@@ -89,8 +89,8 @@
 
 | 分类 | 书名 | 有书 | 蒸馏 |
 |---|---|---|---|
-| 流量的战略级理解 | 流量池-杨飞 | ✓ | ✅ [已蒸馏 19 skills](./04-创业与经营/traffic-pool/) |
-| 流量的战略级理解 | 增长黑客-范冰 | ✓ | ✅ [已蒸馏 21 skills](./04-创业与经营/growth-hacker/) |
+| 流量的战略级理解 | 流量池-杨飞 | ✓ | ✅ [已蒸馏 19 skills](./05-增长和流量/traffic-pool/) |
+| 流量的战略级理解 | 增长黑客-范冰 | ✓ | ✅ [已蒸馏 21 skills](./05-增长和流量/growth-hacker/) |
 | 增长黑客 | 增长黑客-如何低成本实现爆发式增长 |  |  |
 | 增长黑客 | 硅谷增长黑客实战笔记-曲卉 |  |  |
 | 增长黑客 | 极简增长-彭志强 |  |  |
@@ -105,13 +105,13 @@
 
 | 分类 | 书名 | 有书 | 蒸馏 |
 |---|---|---|---|
-| 财务类 | 财务报表分析必修课-张新民 | ✓ | ✅ [已蒸馏 18 skills](./01-经济与大势/financial-statement-analysis/)（书架收录《财务报表分析(简明版·立体化数字教材版)》，张新民、钱爱民） |
-| 财务类 | 从报表看企业-张新民 | ✓ | ✅ [已蒸馏 17 skills](./01-经济与大势/cong-baobiao-kan-qiye/)（书架收录《从报表看企业：数字背后的秘密（第5版）》，张新民） |  |
+| 财务类 | 财务报表分析必修课-张新民 | ✓ | ✅ [已蒸馏 18 skills](./06-财务金融和法律/financial-statement-analysis/)（书架收录《财务报表分析(简明版·立体化数字教材版)》，张新民、钱爱民） |
+| 财务类 | 从报表看企业-张新民 | ✓ | ✅ [已蒸馏 17 skills](./06-财务金融和法律/cong-baobiao-kan-qiye/)（书架收录《从报表看企业：数字背后的秘密（第5版）》，张新民） |  |
 | 财务类 | 经营与会计-稻盛和夫 |  |  |
 | 财务类 | 中小企业财务报表分析-张新民 |  |  |
 | 财务类 | 企业财税合规实践入门-宋建善 |  |  |
 | 法律类 | 电商财税合规一本通-春戈 |  |  |
-| 公司金融类 | 创业投资法律手册-那些你在创业初期应该知道的公司法知识 |  | ✅ [已蒸馏 16 skills](./04-创业与经营/startup-legal-handbook/)（书架收录《创业投资法律手册：那些你在创业时应该知道的公司法知识》，杨春宝、王成兵） |
+| 公司金融类 | 创业投资法律手册-那些你在创业初期应该知道的公司法知识 |  | ✅ [已蒸馏 16 skills](./06-财务金融和法律/startup-legal-handbook/)（书架收录《创业投资法律手册：那些你在创业时应该知道的公司法知识》，杨春宝、王成兵） |
 | 公司金融类 | 什么是金融-米歇尔诺韦 |  |  |
 | 公司金融类 | 公司金融-对外经贸大学 |  |  |
 | 公司金融类 | 金融经济学25讲-徐高 |  |  |
@@ -121,7 +121,7 @@
 
 | 分类 | 书名 | 有书 | 蒸馏 |
 |---|---|---|---|
-| 外部融资 | 穿越寒冬-创业者的融资策略与独角兽思维-史蒂夫霍夫曼 |  | ✅ [已蒸馏 16 skills](./04-创业与经营/chuanyue-handong/) |
+| 外部融资 | 穿越寒冬-创业者的融资策略与独角兽思维-史蒂夫霍夫曼 |  | ✅ [已蒸馏 16 skills](./07-股份分配和融资/chuanyue-handong/) |
 | 外部融资 | 超级天使投资-捕捉未来商业机会的行动指南-戴维罗斯 |  |  |
 | 外部融资 | 风险投资的游戏-条款清单全揭秘-布拉德菲尔德 |  |  |
 | 外部融资 | 股权融资-创业与风险投资-桂曙光 |  |  |
@@ -135,9 +135,9 @@
 
 | 分类 | 书名 | 有书 | 蒸馏 |
 |---|---|---|---|
-| 人生智慧 | 穷查理宝典-查理芒格 |  | ✅ [已蒸馏 12 skills](./02-认知与决策/poor-charlies-almanack/) |
-| 人生智慧 | 高效能人士的七个习惯-史蒂芬柯维 |  | ✅ [已蒸馏 29 skills](./03-个人成长/seven-habits/) |
-| 效率提升 | 学会提问-尼尔布朗 |  | ✅ [已蒸馏 22 skills](./02-认知与决策/asking-the-right-questions/) |
+| 人生智慧 | 穷查理宝典-查理芒格 |  | ✅ [已蒸馏 12 skills](./08-团队建设/poor-charlies-almanack/) |
+| 人生智慧 | 高效能人士的七个习惯-史蒂芬柯维 |  | ✅ [已蒸馏 29 skills](./08-团队建设/seven-habits/) |
+| 效率提升 | 学会提问-尼尔布朗 |  | ✅ [已蒸馏 22 skills](./08-团队建设/asking-the-right-questions/) |
 | 效率提升 | okr-源于英特尔和谷歌的目标管理利器-保罗尼文 |  |  |
 | 效率提升 | 这就是okr-让谷歌和亚马逊实现爆炸性增长的工作法-约翰杜尔 |  |  |
 | okr管理 | 金字塔原理-芭芭拉明托 |  |  |
@@ -151,5 +151,5 @@
 ## 统计
 
 - 书单总数：**101** 本
-- 已蒸馏：**10** 本（对应书架目录：[`mankiw-microeconomics`](./01-经济与大势/mankiw-microeconomics/)、[`how-google-works`](./05-产品与创新/how-google-works/)、[`hooked`](./05-产品与创新/hooked/)、[`nintendo-experience-design`](./05-产品与创新/nintendo-experience-design/)、[`inspired`](./05-产品与创新/inspired/)、[`simple-and-usable`](./05-产品与创新/simple-and-usable/)、[`influence-cialdini`](./06-沟通与领导力/influence-cialdini/)、[`poor-charlies-almanack`](./02-认知与决策/poor-charlies-almanack/)、[`seven-habits`](./03-个人成长/seven-habits/)、[`asking-the-right-questions`](./02-认知与决策/asking-the-right-questions/)）
+- 已蒸馏：**33** 本（对应书架目录：[`mankiw-microeconomics`](./01-经济和大势/mankiw-microeconomics/)、[`mankiw-macroeconomics-10e`](./01-经济和大势/mankiw-macroeconomics-10e/)、[`xugao-macro-25-lectures`](./01-经济和大势/xugao-macro-25-lectures/)、[`strategy-and-path`](./01-经济和大势/strategy-and-path/)、[`analysis-and-thinking`](./01-经济和大势/analysis-and-thinking/)、[`eight-crises`](./01-经济和大势/eight-crises/)、[`cold-war-to-cold-war`](./01-经济和大势/cold-war-to-cold-war/)、[`china-reform-trilogy`](./01-经济和大势/china-reform-trilogy/)、[`capitalism-in-america`](./01-经济和大势/capitalism-in-america/)、[`changing-fortunes`](./01-经济和大势/changing-fortunes/)、[`21st-century-monetary-policy`](./01-经济和大势/21st-century-monetary-policy/)、[`after-the-music-stopped`](./01-经济和大势/after-the-music-stopped/)、[`turbulent-forty-years`](./01-经济和大势/turbulent-forty-years/)、[`xiaomi-startup-thinking`](./02-创业思维/xiaomi-startup-thinking/)、[`duan-yongping-touzi-wenda-lu`](./02-创业思维/duan-yongping-touzi-wenda-lu/)、[`lean-startup-eric-ries`](./02-创业思维/lean-startup-eric-ries/)、[`innovators-solution`](./02-创业思维/innovators-solution/)、[`how-google-works`](./02-创业思维/how-google-works/)、[`hooked`](./03-如何做产品/hooked/)、[`nintendo-experience-design`](./03-如何做产品/nintendo-experience-design/)、[`inspired`](./03-如何做产品/inspired/)、[`simple-and-usable`](./03-如何做产品/simple-and-usable/)、[`positioning-ries-trout`](./04-营销和定位/positioning-ries-trout/)、[`influence-cialdini`](./04-营销和定位/influence-cialdini/)、[`traffic-pool`](./05-增长和流量/traffic-pool/)、[`growth-hacker`](./05-增长和流量/growth-hacker/)、[`financial-statement-analysis`](./06-财务金融和法律/financial-statement-analysis/)、[`cong-baobiao-kan-qiye`](./06-财务金融和法律/cong-baobiao-kan-qiye/)、[`startup-legal-handbook`](./06-财务金融和法律/startup-legal-handbook/)、[`chuanyue-handong`](./07-股份分配和融资/chuanyue-handong/)、[`poor-charlies-almanack`](./08-团队建设/poor-charlies-almanack/)、[`seven-habits`](./08-团队建设/seven-habits/)、[`asking-the-right-questions`](./08-团队建设/asking-the-right-questions/)）
 - 书架中尚不在本清单的已蒸馏书：*掌控习惯*、*聪明的投资者*、*心流*、*Ready, Fire, Aim*、《人性的弱点》、《洛克菲勒留给儿子的38封信》、《刻意练习》、《富爸爸穷爸爸系列》、《思考，快与慢》、《权力的48条法则》、《稀缺》、《当下的力量》、《精益创业 2.0》、《领导梯队建设系列》、《卓有成效的管理者》

@@ -15,321 +15,353 @@
 
 ### 分类导航
 
-#### 01-经济与大势（15 本）
+#### 01-经济和大势（13 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
-| 《经济学原理（微观分册）》 | 曼昆 · 2020 | 经济学 / 决策分析 | 6 | [`mankiw-microeconomics/`](./01-经济与大势/mankiw-microeconomics/) |
-| 《宏观经济学（第十版）》*Macroeconomics, 10th Ed.* | 曼昆 · 2019 | 宏观经济学 / 政策分析 / 经济数据 | 20 | [`mankiw-macroeconomics-10e/`](./01-经济与大势/mankiw-macroeconomics-10e/) |
-| 《宏观经济学二十五讲：中国视角》 | 徐高 · 2019 | 中国宏观经济 / 货币政策 / 结构分析 | 24 | [`xugao-macro-25-lectures/`](./01-经济与大势/xugao-macro-25-lectures/) |
-| 《战略与路径：黄奇帆的十二堂经济课》 | 黄奇帆 · 2022 | 宏观战略 / 结构性分析 / 政策方法论 | 19 | [`strategy-and-path/`](./01-经济与大势/strategy-and-path/) |
-| 《分析与思考：黄奇帆的复旦经济课》 | 黄奇帆 · 2020 | 金融 / 货币制度 / 风险诊断 | 15 | [`analysis-and-thinking/`](./01-经济与大势/analysis-and-thinking/) |
-| 《八次危机：中国的真实经验 (1949-2009)》 | 温铁军 · 2013 | 经济史 / 政治经济学 / 三农 | 10 | [`eight-crises/`](./01-经济与大势/eight-crises/) |
-| 《从“老冷战”到“新冷战”》 | 温铁军、李卞 · 2023 | 政治经济学 / 全球化史 / 货币与冷战 | 9 | [`cold-war-to-cold-war/`](./01-经济与大势/cold-war-to-cold-war/) |
-| 《中国改革三部曲》 | 吴敬琏 · 2017 | 比较体制 / 改革史 / 增长模式 | 10 | [`china-reform-trilogy/`](./01-经济与大势/china-reform-trilogy/) |
-| 《繁荣与衰退》 | 格林斯潘 & 伍德里奇 · 2019 | 美国经济史 / 创造性破坏 / 政治经济学 | 8 | [`capitalism-in-america/`](./01-经济与大势/capitalism-in-america/) |
-| 《时运变迁》*Changing Fortunes* | 保罗·沃尔克 & 行天丰雄 · 1992 | 国际货币体系 / 危机管理 / 承诺与协调 | 14 | [`changing-fortunes/`](./01-经济与大势/changing-fortunes/) |
-| 《21世纪货币政策》*21st Century Monetary Policy* | 本·伯南克 · 2022 | 货币政策 / 信誉与预期管理 / 危机应对 | 16 | [`21st-century-monetary-policy/`](./01-经济与大势/21st-century-monetary-policy/) |
-| 《当音乐停止之后》 | 艾伦·布林德 · 2014 | 金融危机 / 政策评估 / 政治经济学 | 11 | [`after-the-music-stopped/`](./01-经济与大势/after-the-music-stopped/) |
-| 《激荡四十年》*Turbulent Forty Years* | 吴晓波 · 2018 | 中国企业史 / 政策周期 / 政商关系 / 产权改革 | 16 | [`turbulent-forty-years/`](./01-经济与大势/turbulent-forty-years/) |
-| 《财务报表分析(简明版·立体化数字教材版)》*Financial Statement Analysis* | 张新民、钱爱民 · 2020 | 财务报表分析 / 资产质量 / 利润质量 / 战略透视 / 造假识别 | 18 | [`financial-statement-analysis/`](./01-经济与大势/financial-statement-analysis/) |
-| 《从报表看企业：数字背后的秘密（第5版）》 | 张新民 · 2024 | 财务报表分析 / 战略判型 / 利润质量 / 风险识别 / 前景预测 | 17 | [`cong-baobiao-kan-qiye/`](./01-经济与大势/cong-baobiao-kan-qiye/) |
+| 《经济学原理（微观分册）》 | 曼昆 · 2020 | 经济学 / 决策分析 | 6 | [`mankiw-microeconomics/`](./01-经济和大势/mankiw-microeconomics/) |
+| 《宏观经济学（第十版）》*Macroeconomics, 10th Ed.* | 曼昆 · 2019 | 宏观经济学 / 政策分析 / 经济数据 | 20 | [`mankiw-macroeconomics-10e/`](./01-经济和大势/mankiw-macroeconomics-10e/) |
+| 《宏观经济学二十五讲：中国视角》 | 徐高 · 2019 | 中国宏观经济 / 货币政策 / 结构分析 | 24 | [`xugao-macro-25-lectures/`](./01-经济和大势/xugao-macro-25-lectures/) |
+| 《战略与路径：黄奇帆的十二堂经济课》 | 黄奇帆 · 2022 | 宏观战略 / 结构性分析 / 政策方法论 | 19 | [`strategy-and-path/`](./01-经济和大势/strategy-and-path/) |
+| 《分析与思考：黄奇帆的复旦经济课》 | 黄奇帆 · 2020 | 金融 / 货币制度 / 风险诊断 | 15 | [`analysis-and-thinking/`](./01-经济和大势/analysis-and-thinking/) |
+| 《八次危机：中国的真实经验 (1949-2009)》 | 温铁军 · 2013 | 经济史 / 政治经济学 / 三农 | 10 | [`eight-crises/`](./01-经济和大势/eight-crises/) |
+| 《从“老冷战”到“新冷战”》 | 温铁军、李卞 · 2023 | 政治经济学 / 全球化史 / 货币与冷战 | 9 | [`cold-war-to-cold-war/`](./01-经济和大势/cold-war-to-cold-war/) |
+| 《中国改革三部曲》 | 吴敬琏 · 2017 | 比较体制 / 改革史 / 增长模式 | 10 | [`china-reform-trilogy/`](./01-经济和大势/china-reform-trilogy/) |
+| 《繁荣与衰退》 | 格林斯潘 & 伍德里奇 · 2019 | 美国经济史 / 创造性破坏 / 政治经济学 | 8 | [`capitalism-in-america/`](./01-经济和大势/capitalism-in-america/) |
+| 《时运变迁》*Changing Fortunes* | 保罗·沃尔克 & 行天丰雄 · 1992 | 国际货币体系 / 危机管理 / 承诺与协调 | 14 | [`changing-fortunes/`](./01-经济和大势/changing-fortunes/) |
+| 《21世纪货币政策》*21st Century Monetary Policy* | 本·伯南克 · 2022 | 货币政策 / 信誉与预期管理 / 危机应对 | 16 | [`21st-century-monetary-policy/`](./01-经济和大势/21st-century-monetary-policy/) |
+| 《当音乐停止之后》 | 艾伦·布林德 · 2014 | 金融危机 / 政策评估 / 政治经济学 | 11 | [`after-the-music-stopped/`](./01-经济和大势/after-the-music-stopped/) |
+| 《激荡四十年》*Turbulent Forty Years* | 吴晓波 · 2018 | 中国企业史 / 政策周期 / 政商关系 / 产权改革 | 16 | [`turbulent-forty-years/`](./01-经济和大势/turbulent-forty-years/) |
 
-#### 02-认知与决策（6 本）
+#### 02-创业思维（5 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
-| 《思考，快与慢》*Thinking, Fast and Slow* | 卡尼曼 · 2025 | 认知偏差 / 判断决策 | 28 | [`thinking-fast-and-slow/`](./02-认知与决策/thinking-fast-and-slow/) |
-| 《穷查理宝典》*Poor Charlie's Almanack* | 查理·芒格 · 2021 | 决策 / 思维模型 | 12 | [`poor-charlies-almanack/`](./02-认知与决策/poor-charlies-almanack/) |
-| 《稀缺》*Scarcity* | 穆来纳森、沙菲尔 · 2022 | 稀缺 / 带宽 / 决策 | 7 | [`scarcity/`](./02-认知与决策/scarcity/) |
-| 《学会提问（原书第10版）》*Asking the Right Questions* | 尼尔·布朗、斯图尔特·基利 · 2012 | 批判性思维 / 论证审查 / 提问 | 22 | [`asking-the-right-questions/`](./02-认知与决策/asking-the-right-questions/) |
-| 《刻意练习》*PEAK* | 艾利克森、普尔 · 2016 | 学习 / 技能精进 | 8 | [`peak-deliberate-practice/`](./02-认知与决策/peak-deliberate-practice/) |
-| 《聪明的投资者》*The Intelligent Investor* | 本杰明·格雷厄姆 · 1949/1965（第4版） | 价值投资 / 安全边际 / 投资纪律 / 市场波动 | 20 | [`intelligent-investor/`](./02-认知与决策/intelligent-investor/) |
+| 《小米创业思考》 | 雷军 / 徐洁云 · 2022 | 创业方法论 / 效率模型 / 爆品模式 / 互联网七字诀 | 17 | [`xiaomi-startup-thinking/`](./02-创业思维/xiaomi-startup-thinking/) |
+| 《段永平投资问答录（全两册）》 | 孙力科 编 · 段永平问答实录 | 价值投资 / 能力圈 / 本分经营 / 商业模式 / 人生哲学 | 16 | [`duan-yongping-touzi-wenda-lu/`](./02-创业思维/duan-yongping-touzi-wenda-lu/) |
+| 《精益创业：新创企业的成长思维》*The Lean Startup* | 埃里克·莱斯 · 2011/2012 | 经验证的学习 / MVP / 创新核算 / 转型 / 增长引擎 | 13 | [`lean-startup-eric-ries/`](./02-创业思维/lean-startup-eric-ries/) |
+| 《创新者的解答》*The Innovator's Solution* | 克里斯坦森 & 雷纳 · 2003 | 创新理论 / 破坏性创新 / 组织能力 / 增长战略 | 15 | [`innovators-solution/`](./02-创业思维/innovators-solution/) |
+| 《重新定义公司：谷歌是如何运营的》*How Google Works* | 埃里克·施密特、乔纳森·罗森伯格 · 2015 | 企业管理 / 赋能 / 创意精英 | 18 | [`how-google-works/`](./02-创业思维/how-google-works/) |
 
-#### 03-个人成长（5 本）
-
-| 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
-|---|---|---:|---|---|
-| 《心流》*Flow* | 米哈里·契克森米哈赖 · 1990 | 心流 / 注意力 / 意义 | 8 | [`flow/`](./03-个人成长/flow/) |
-| 《当下的力量（白金版）》*The Power of Now* | 埃克哈特·托利 · 1997 | 临在 / 当下 / 心灵成长 | 19 | [`power-of-now/`](./03-个人成长/power-of-now/) |
-| 《高效能人士的七个习惯（30周年纪念版）》*The 7 Habits of Highly Effective People* | 史蒂芬·柯维 · 1989 | 个人管理 / 领导力 / 思维方式 | 29 | [`seven-habits/`](./03-个人成长/seven-habits/) |
-| 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./03-个人成长/effective-executive/) |
-| 《掌控习惯》*Atomic Habits* | 詹姆斯·克利尔 · 2018/2019 | 习惯设计 / 身份转变 / 行为四定律 | 16 | [`atomic-habits/`](./03-个人成长/atomic-habits/) |
-
-#### 04-创业与经营（13 本）
+#### 03-如何做产品（4 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
-| 《精益创业 2.0》*The Startup Way* | 埃里克·莱斯 · 2017 | 企业创新 / 精益方法 / 组织变革 | 36 | [`lean-startup-2/`](./04-创业与经营/lean-startup-2/) |
-| *Ready, Fire, Aim* | Michael Masterson · 2008 | 创业 / 销售 / 营销 | 11 | [`ready-fire-aim/`](./04-创业与经营/ready-fire-aim/) |
-| 《富爸爸穷爸爸系列》*Rich Dad Poor Dad* | 罗伯特·T·清崎 · 2021 | 财商 / 投资 / 创业 | 18 | [`rich-dad-poor-dad-series/`](./04-创业与经营/rich-dad-poor-dad-series/) |
-| 《洛克菲勒留给儿子的38封信》 | 约翰·D·洛克菲勒 · 19 世纪末–20 世纪初 | 商业哲学 / 领导 / 行动 | 15 | [`rockefeller-38-letters/`](./04-创业与经营/rockefeller-38-letters/) |
-| 《权力的48条法则》*The 48 Laws of Power* | 罗伯特·格林 · 1998 | 权力 / 策略 / 人际 | 15 | [`power-48-laws/`](./04-创业与经营/power-48-laws/) |
-| 《小米创业思考》 | 雷军 / 徐洁云 · 2022 | 创业方法论 / 效率模型 / 爆品模式 / 互联网七字诀 | 17 | [`xiaomi-startup-thinking/`](./04-创业与经营/xiaomi-startup-thinking/) |
-| 《定位：有史以来对美国营销影响最大的观念》*Positioning* | 艾·里斯、杰克·特劳特 · 1981/2011 | 营销战略 / 心智认知 / 品牌命名 / 攻防策略 | 15 | [`positioning-ries-trout/`](./04-创业与经营/positioning-ries-trout/) |
-| 《流量池》*Traffic Pool* | 杨飞 · 2018 | 流量池思维 / 裂变增长 / 品效合一 / 品牌与场景 / 数字广告 | 19 | [`traffic-pool/`](./04-创业与经营/traffic-pool/) |
-| 《增长黑客》*Growth Hacker* | 范冰 · 2015 | AARRR 漏斗 / PMF 验证 / 冷启动 / 病毒传播 / 增长指标 | 21 | [`growth-hacker/`](./04-创业与经营/growth-hacker/) |
-| 《创业投资法律手册：那些你在创业时应该知道的公司法知识》 | 杨春宝、王成兵 · 2014 | 设立形式 / 出资合规 / 股权设计 / 公司治理 / 股东救济 / 股权激励 / 退出清算 | 16 | [`startup-legal-handbook/`](./04-创业与经营/startup-legal-handbook/) |
-| 《穿越寒冬：创业者的融资策略与独角兽思维》 | 史蒂文·霍夫曼 · 2020 | 创业决策 / 需求验证 / 融资策略 / 增长营销 / 团队领导 / 创始人心态 | 16 | [`chuanyue-handong/`](./04-创业与经营/chuanyue-handong/) |
-| 《段永平投资问答录（全两册）》 | 孙力科 编 · 段永平问答实录 | 价值投资 / 能力圈 / 本分经营 / 商业模式 / 人生哲学 | 16 | [`duan-yongping-touzi-wenda-lu/`](./04-创业与经营/duan-yongping-touzi-wenda-lu/) |
-| 《精益创业：新创企业的成长思维》*The Lean Startup* | 埃里克·莱斯 · 2011/2012 | 经验证的学习 / MVP / 创新核算 / 转型 / 增长引擎 | 13 | [`lean-startup-eric-ries/`](./04-创业与经营/lean-startup-eric-ries/) |
+| 《上瘾》*Hooked* | 尼尔·埃亚尔、瑞安·胡佛 · 2014 | 产品设计 / 习惯养成 / 增长 | 21 | [`hooked/`](./03-如何做产品/hooked/) |
+| 《任天堂的体验设计——创造不知不觉打动人心的体验》*任天堂の体験設計* | 玉树真一郎 · 2021 | 体验设计 / 打动人心 / 游戏化 | 13 | [`nintendo-experience-design/`](./03-如何做产品/nintendo-experience-design/) |
+| 《启示录：打造用户喜爱的产品》*INSPIRED* | Marty Cagan · 2008 | 产品管理 / 产品探索 / 用户体验 | 18 | [`inspired/`](./03-如何做产品/inspired/) |
+| 《简约至上：交互式设计四策略》*Simple and Usable* | Giles Colborne · 2011 | 交互设计 / 简化 / 用户体验 | 20 | [`simple-and-usable/`](./03-如何做产品/simple-and-usable/) |
 
-#### 05-产品与创新（6 本）
+#### 04-营销和定位（2 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
-| 《重新定义公司：谷歌是如何运营的》*How Google Works* | 埃里克·施密特、乔纳森·罗森伯格 · 2015 | 企业管理 / 赋能 / 创意精英 | 18 | [`how-google-works/`](./05-产品与创新/how-google-works/) |
-| 《上瘾》*Hooked* | 尼尔·埃亚尔、瑞安·胡佛 · 2014 | 产品设计 / 习惯养成 / 增长 | 21 | [`hooked/`](./05-产品与创新/hooked/) |
-| 《任天堂的体验设计——创造不知不觉打动人心的体验》*任天堂の体験設計* | 玉树真一郎 · 2021 | 体验设计 / 打动人心 / 游戏化 | 13 | [`nintendo-experience-design/`](./05-产品与创新/nintendo-experience-design/) |
-| 《启示录：打造用户喜爱的产品》*INSPIRED* | Marty Cagan · 2008 | 产品管理 / 产品探索 / 用户体验 | 18 | [`inspired/`](./05-产品与创新/inspired/) |
-| 《简约至上：交互式设计四策略》*Simple and Usable* | Giles Colborne · 2011 | 交互设计 / 简化 / 用户体验 | 20 | [`simple-and-usable/`](./05-产品与创新/simple-and-usable/) |
-| 《创新者的解答》*The Innovator's Solution* | 克里斯坦森 & 雷纳 · 2003 | 创新理论 / 破坏性创新 / 组织能力 / 增长战略 | 15 | [`innovators-solution/`](./05-产品与创新/innovators-solution/) |
+| 《定位：有史以来对美国营销影响最大的观念》*Positioning* | 艾·里斯、杰克·特劳特 · 1981/2011 | 营销战略 / 心智认知 / 品牌命名 / 攻防策略 | 15 | [`positioning-ries-trout/`](./04-营销和定位/positioning-ries-trout/) |
+| 《影响力》*Influence* | 罗伯特·西奥迪尼 · 2016 | 说服 / 心理 / 防御 | 9 | [`influence-cialdini/`](./04-营销和定位/influence-cialdini/) |
 
-#### 06-沟通与领导力（3 本）
+#### 05-增长和流量（2 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
-| 《人性的弱点》 | 戴尔·卡耐基 · 1936 | 人际关系 / 说服 | 8 | [`how-to-win-friends/`](./06-沟通与领导力/how-to-win-friends/) |
-| 《影响力》*Influence* | 罗伯特·西奥迪尼 · 2016 | 说服 / 心理 / 防御 | 9 | [`influence-cialdini/`](./06-沟通与领导力/influence-cialdini/) |
-| 《领导梯队建设系列（共5册）》 | 拉姆·查兰 等 · 2001–2016 | 领导梯队 / 执行 / 人才培养 | 59 | [`leadership-pipeline-series/`](./06-沟通与领导力/leadership-pipeline-series/) |
+| 《流量池》*Traffic Pool* | 杨飞 · 2018 | 流量池思维 / 裂变增长 / 品效合一 / 品牌与场景 / 数字广告 | 19 | [`traffic-pool/`](./05-增长和流量/traffic-pool/) |
+| 《增长黑客》*Growth Hacker* | 范冰 · 2015 | AARRR 漏斗 / PMF 验证 / 冷启动 / 病毒传播 / 增长指标 | 21 | [`growth-hacker/`](./05-增长和流量/growth-hacker/) |
+
+#### 06-财务金融和法律（3 本）
+
+| 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
+|---|---|---:|---|---|
+| 《财务报表分析(简明版·立体化数字教材版)》*Financial Statement Analysis* | 张新民、钱爱民 · 2020 | 财务报表分析 / 资产质量 / 利润质量 / 战略透视 / 造假识别 | 18 | [`financial-statement-analysis/`](./06-财务金融和法律/financial-statement-analysis/) |
+| 《从报表看企业：数字背后的秘密（第5版）》 | 张新民 · 2024 | 财务报表分析 / 战略判型 / 利润质量 / 风险识别 / 前景预测 | 17 | [`cong-baobiao-kan-qiye/`](./06-财务金融和法律/cong-baobiao-kan-qiye/) |
+| 《创业投资法律手册：那些你在创业时应该知道的公司法知识》 | 杨春宝、王成兵 · 2014 | 设立形式 / 出资合规 / 股权设计 / 公司治理 / 股东救济 / 股权激励 / 退出清算 | 16 | [`startup-legal-handbook/`](./06-财务金融和法律/startup-legal-handbook/) |
+
+#### 07-股份分配和融资（1 本）
+
+| 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
+|---|---|---:|---|---|
+| 《穿越寒冬：创业者的融资策略与独角兽思维》 | 史蒂文·霍夫曼 · 2020 | 创业决策 / 需求验证 / 融资策略 / 增长营销 / 团队领导 / 创始人心态 | 16 | [`chuanyue-handong/`](./07-股份分配和融资/chuanyue-handong/) |
+
+#### 08-团队建设（3 本）
+
+| 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
+|---|---|---:|---|---|
+| 《穷查理宝典》*Poor Charlie's Almanack* | 查理·芒格 · 2021 | 决策 / 思维模型 | 12 | [`poor-charlies-almanack/`](./08-团队建设/poor-charlies-almanack/) |
+| 《高效能人士的七个习惯（30周年纪念版）》*The 7 Habits of Highly Effective People* | 史蒂芬·柯维 · 1989 | 个人管理 / 领导力 / 思维方式 | 29 | [`seven-habits/`](./08-团队建设/seven-habits/) |
+| 《学会提问（原书第10版）》*Asking the Right Questions* | 尼尔·布朗、斯图尔特·基利 · 2012 | 批判性思维 / 论证审查 / 提问 | 22 | [`asking-the-right-questions/`](./08-团队建设/asking-the-right-questions/) |
+
+#### 09-其他（15 本）
+
+| 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
+|---|---|---:|---|---|
+| 《思考，快与慢》*Thinking, Fast and Slow* | 卡尼曼 · 2025 | 认知偏差 / 判断决策 | 28 | [`thinking-fast-and-slow/`](./09-其他/thinking-fast-and-slow/) |
+| 《稀缺》*Scarcity* | 穆来纳森、沙菲尔 · 2022 | 稀缺 / 带宽 / 决策 | 7 | [`scarcity/`](./09-其他/scarcity/) |
+| 《刻意练习》*PEAK* | 艾利克森、普尔 · 2016 | 学习 / 技能精进 | 8 | [`peak-deliberate-practice/`](./09-其他/peak-deliberate-practice/) |
+| 《聪明的投资者》*The Intelligent Investor* | 本杰明·格雷厄姆 · 1949/1965（第4版） | 价值投资 / 安全边际 / 投资纪律 / 市场波动 | 20 | [`intelligent-investor/`](./09-其他/intelligent-investor/) |
+| 《心流》*Flow* | 米哈里·契克森米哈赖 · 1990 | 心流 / 注意力 / 意义 | 8 | [`flow/`](./09-其他/flow/) |
+| 《当下的力量（白金版）》*The Power of Now* | 埃克哈特·托利 · 1997 | 临在 / 当下 / 心灵成长 | 19 | [`power-of-now/`](./09-其他/power-of-now/) |
+| 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive* | 彼得·德鲁克 · 1966 | 有效性 / 时间管理 / 决策 | 25 | [`effective-executive/`](./09-其他/effective-executive/) |
+| 《掌控习惯》*Atomic Habits* | 詹姆斯·克利尔 · 2018/2019 | 习惯设计 / 身份转变 / 行为四定律 | 16 | [`atomic-habits/`](./09-其他/atomic-habits/) |
+| 《精益创业 2.0》*The Startup Way* | 埃里克·莱斯 · 2017 | 企业创新 / 精益方法 / 组织变革 | 36 | [`lean-startup-2/`](./09-其他/lean-startup-2/) |
+| *Ready, Fire, Aim* | Michael Masterson · 2008 | 创业 / 销售 / 营销 | 11 | [`ready-fire-aim/`](./09-其他/ready-fire-aim/) |
+| 《富爸爸穷爸爸系列》*Rich Dad Poor Dad* | 罗伯特·T·清崎 · 2021 | 财商 / 投资 / 创业 | 18 | [`rich-dad-poor-dad-series/`](./09-其他/rich-dad-poor-dad-series/) |
+| 《洛克菲勒留给儿子的38封信》 | 约翰·D·洛克菲勒 · 19 世纪末–20 世纪初 | 商业哲学 / 领导 / 行动 | 15 | [`rockefeller-38-letters/`](./09-其他/rockefeller-38-letters/) |
+| 《权力的48条法则》*The 48 Laws of Power* | 罗伯特·格林 · 1998 | 权力 / 策略 / 人际 | 15 | [`power-48-laws/`](./09-其他/power-48-laws/) |
+| 《人性的弱点》 | 戴尔·卡耐基 · 1936 | 人际关系 / 说服 | 8 | [`how-to-win-friends/`](./09-其他/how-to-win-friends/) |
+| 《领导梯队建设系列（共5册）》 | 拉姆·查兰 等 · 2001–2016 | 领导梯队 / 执行 / 人才培养 | 59 | [`leadership-pipeline-series/`](./09-其他/leadership-pipeline-series/) |
+
+---|---|---:|---|---|
+| 《经济学原理（微观分册）》 | 曼昆 · 2020 | 经济学 / 决策分析 | 6 | [`mankiw-microeconomics/`](./01-经济和大势/mankiw-microeconomics/) |
+| 《宏观经济学（第十版）》*Macroeconomics, 10th Ed.* | 曼昆 · 2019 | 宏观经济学 / 政策分析 / 经济数据 | 20 | [`mankiw-macroeconomics-10e/`](./01-经济和大势/mankiw-macroeconomics-10e/) |
+| 《宏观经济学二十五讲：中国视角》 | 徐高 · 2019 | 中国宏观经济 / 货币政策 / 结构分析 | 24 | [`xugao-macro-25-lectures/`](./01-经济和大势/xugao-macro-25-lectures/) |
+| 《战略与路径：黄奇帆的十二堂经济课》 | 黄奇帆 · 2022 | 宏观战略 / 结构性分析 / 政策方法论 | 19 | [`strategy-and-path/`](./01-经济和大势/strategy-and-path/) |
+| 《分析与思考：黄奇帆的复旦经济课》 | 黄奇帆 · 2020 | 金融 / 货币制度 / 风险诊断 | 15 | [`analysis-and-thinking/`](./01-经济和大势/analysis-and-thinking/) |
+| 《八次危机：中国的真实经验 (1949-2009)》 | 温铁军 · 2013 | 经济史 / 政治经济学 / 三农 | 10 | [`eight-crises/`](./01-经济和大势/eight-crises/) |
+| 《从“老冷战”到“新冷战”》 | 温铁军、李卞 · 2023 | 政治经济学 / 全球化史 / 货币与冷战 | 9 | [`cold-war-to-cold-war/`](./01-经济和大势/cold-war-to-cold-war/) |
+| 《中国改革三部曲》 | 吴敬琏 · 2017 | 比较体制 / 改革史 / 增长模式 | 10 | [`china-reform-trilogy/`](./01-经济和大势/china-reform-trilogy/) |
+| 《繁荣与衰退》 | 格林斯潘 & 伍德里奇 · 2019 | 美国经济史 / 创造性破坏 / 政治经济学 | 8 | [`capitalism-in-america/`](./01-经济和大势/capitalism-in-america/) |
+| 《时运变迁》*Changing Fortunes* | 保罗·沃尔克 & 行天丰雄 · 1992 | 国际货币体系 / 危机管理 / 承诺与协调 | 14 | [`changing-fortunes/`](./01-经济和大势/changing-fortunes/) |
+| 《21世纪货币政策》*21st Century Monetary Policy* | 本·伯南克 · 2022 | 货币政策 / 信誉与预期管理 / 危机应对 | 16 | [`21st-century-monetary-policy/`](./01-经济和大势/21st-century-monetary-policy/) |
+| 《当音乐停止之后》 | 艾伦·布林德 · 2014 | 金融危机 / 政策评估 / 政治经济学 | 11 | [`after-the-music-stopped/`](./01-经济和大势/after-the-music-stopped/) |
+| 《激荡四十年》*Turbulent Forty Years* | 吴晓波 · 2018 | 中国企业史 / 政策周期 / 政商关系 / 产权改革 | 16 | [`turbulent-forty-years/`](./01-经济和大势/turbulent-forty-years/) |
+| 《财务报表分析(简明版·立体化数字教材版)》*Financial Statement Analysis* | 张新民、钱爱民 · 2020 | 财务报表分析 / 资产质量 / 利润质量 / 战略透视 / 造假识别 | 18 | [`financial-statement-analysis/`](./06-财务金融和法律/financial-statement-analysis/) |
+| 《从报表看企业：数字背后的秘密（第5版）》 | 张新民 · 2024 | 财务报表分析 / 战略判型 / 利润质量 / 风险识别 / 前景预测 | 17 | [`cong-baobiao-kan-qiye/`](./06-财务金融和法律/cong-baobiao-kan-qiye/) |
 
 ---
 
 ## 逐本详情
 
-### 1. 《心流：最优体验心理学》 — *Flow: The Psychology of Optimal Experience* · [`flow/`](./03-个人成长/flow/)
+### 1. 《心流：最优体验心理学》 — *Flow: The Psychology of Optimal Experience* · [`flow/`](./09-其他/flow/)
 
 - **作者**：米哈里·契克森米哈赖（Mihaly Csikszentmihalyi）· 1990
 - **一句话**：幸福不能直接追求——它是你全身心投入一件有挑战性的活动时，作为副产品自然涌现的最优体验。
 - **Skills**：`flow-channel-trigger` · `pleasure-vs-enjoyment` · `flow-activity-designer` · `attention-audit` · `adversity-converter` · `life-theme-builder` · `meaning-spiral-assessor` · `action-reflection-balance`
 
-### 2. *Ready, Fire, Aim* · [`ready-fire-aim/`](./04-创业与经营/ready-fire-aim/)
+### 2. *Ready, Fire, Aim* · [`ready-fire-aim/`](./09-其他/ready-fire-aim/)
 
 - **作者**：Michael Masterson · 2008
 - **一句话**：创业先开枪再瞄准——用快速试错替代"准备完美再开始"的瘫痪，覆盖从获客、定价、销售到组织诊断的一整套增长方法。
 - **Skills**：`ready-fire-aim` · `allowable-acquisition-cost` · `bottleneck-diagnosis` · `four-stages-of-growth` · `free-market-management` · `front-end-back-end-marketing` · `incremental-degradation` · `marketing-four-legged-stool` · `optimum-selling-strategy` · `tipping-point-innovation` · `unique-selling-proposition`
 
-### 3. 《人性的弱点》 — *How to Win Friends and Influence People* · [`how-to-win-friends/`](./06-沟通与领导力/how-to-win-friends/)
+### 3. 《人性的弱点》 — *How to Win Friends and Influence People* · [`how-to-win-friends/`](./09-其他/how-to-win-friends/)
 
 - **作者**：戴尔·卡耐基（Dale Carnegie）· 1936
 - **一句话**：人是被「重要感」驱动的生物——你能让别人感到自己重要，就能赢得合作；你打击别人的自尊，就永远树敌。
 - **Skills**：`listening-as-persuasion` · `bait-the-fish-thinking` · `argument-avoidance` · `yes-ladder-socratic` · `preemptive-self-criticism` · `face-saving-feedback` · `micro-progress-praise` · `reputation-anchoring`
 
-### 4. 《洛克菲勒留给儿子的38封信》 · [`rockefeller-38-letters/`](./04-创业与经营/rockefeller-38-letters/)
+### 4. 《洛克菲勒留给儿子的38封信》 · [`rockefeller-38-letters/`](./09-其他/rockefeller-38-letters/)
 
 - **作者**：约翰·D·洛克菲勒（John D. Rockefeller）· 原信写于 19 世纪末至 20 世纪初
 - **一句话**：一个白手起家者如何通过态度、行动、谋略、合作与责任，持续创造财富并掌控命运的完整心智体系。
 - **Skills**：`attitude-reframe` · `deliberate-hardship` · `impulse-control` · `low-profile-wisdom` · `no-excuse-action` · `action-first` · `time-money-planning` · `planned-luck` · `calculated-risk` · `negotiation-preparation` · `competitive-weakness-strike` · `purpose-driven-leadership` · `no-blame-leadership` · `strength-based-management` · `employees-first`
 
-### 5. 《刻意练习：如何从新手到大师》 — *PEAK* · [`peak-deliberate-practice/`](./02-认知与决策/peak-deliberate-practice/)
+### 5. 《刻意练习：如何从新手到大师》 — *PEAK* · [`peak-deliberate-practice/`](./09-其他/peak-deliberate-practice/)
 
 - **作者**：安德斯·艾利克森（Anders Ericsson）、罗伯特·普尔（Robert Pool）· 2016
 - **一句话**：杰出表现并非依赖天生才华，而是通过走出舒适区、获得即时反馈、持续构建高质量心理表征的刻意练习被系统地塑造出来。
 - **Skills**：`build-mental-representation` · `design-deliberate-practice-plan` · `self-practice-3f-method` · `sustain-long-term-motivation` · `break-through-plateau` · `identify-true-experts` · `workplace-deliberate-practice` · `deliberate-practice-in-teaching`
 
-### 6. 《穷查理宝典》 — *Poor Charlie's Almanack* · [`poor-charlies-almanack/`](./02-认知与决策/poor-charlies-almanack/)
+### 6. 《穷查理宝典》 — *Poor Charlie's Almanack* · [`poor-charlies-almanack/`](./08-团队建设/poor-charlies-almanack/)
 
 - **作者**：查理·芒格（Charles T. Munger）/ 编：彼得·考夫曼 · 2021
 - **一句话**：通过跨学科的重要思维模型、诚实面对自身局限、在能力圈内保持纪律与耐心，从而少犯愚蠢的错误并抓住少数关键机会。
 - **Skills**：`circle-of-competence` · `multi-disciplinary-thinking` · `two-track-analysis` · `psychology-of-misjudgment` · `inversion-thinking` · `stop-doing-list` · `checklist-method` · `opportunity-cost` · `margin-of-safety` · `patience-and-action` · `lollapalooza-effect` · `destroy-favorite-idea`
 
-### 7. 《经济学原理（微观分册）》 — *Principles of Economics: Microeconomics* · [`mankiw-microeconomics/`](./01-经济与大势/mankiw-microeconomics/)
+### 7. 《经济学原理（微观分册）》 — *Principles of Economics: Microeconomics* · [`mankiw-microeconomics/`](./01-经济和大势/mankiw-microeconomics/)
 
 - **作者**：N. Gregory Mankiw（曼昆）· 2020
 - **一句话**：把经济学的基础思维工具——权衡取舍、机会成本、边际分析、供需均衡、市场效率与失灵——提炼成可调用的决策分析框架。
 - **Skills**：`econ-ten-principles` · `comparative-advantage` · `supply-demand-analysis` · `welfare-cost-benefit` · `market-failure-diagnosis` · `market-structure-analysis`
 
-### 8. 《富爸爸穷爸爸系列》 — *Rich Dad Poor Dad* · [`rich-dad-poor-dad-series/`](./04-创业与经营/rich-dad-poor-dad-series/)
+### 8. 《富爸爸穷爸爸系列》 — *Rich Dad Poor Dad* · [`rich-dad-poor-dad-series/`](./09-其他/rich-dad-poor-dad-series/)
 
 - **作者**：罗伯特·T·清崎（Robert T. Kiyosaki）· 2021 套装（1997–2020）
 - **一句话**：通过转变金钱观、持续买入「能把钱放进口袋的资产」、从 E/S 象限迁往 B/I 象限，普通人可以跳出「为钱工作」的老鼠赛跑，实现不依赖工资的财务自由。
 - **Skills**：`asset-liability-filter` · `cashflow-quadrant` · `rat-race-detector` · `pay-yourself-first` · `mind-your-own-business` · `good-debt-bad-debt` · `five-financial-iqs` · `opm-opt-leverage` · `put-money-to-work` · `four-pillars-investing` · `real-estate-cashflow` · `bi-triangle` · `startup-ten-lessons` · `sales-dogs` · `code-of-honor` · `retirement-ark` · `second-chance` · `kids-financial-iq`
 
-### 9. 《思考，快与慢》 — *Thinking, Fast and Slow* · [`thinking-fast-and-slow/`](./02-认知与决策/thinking-fast-and-slow/)
+### 9. 《思考，快与慢》 — *Thinking, Fast and Slow* · [`thinking-fast-and-slow/`](./09-其他/thinking-fast-and-slow/)
 
 - **作者**：丹尼尔·卡尼曼（Daniel Kahneman）· 中信 2025（原书 2011）
 - **一句话**：判断与选择由爱编故事的快速直觉（系统1）主导，负责怀疑与统计的慢思考（系统2）天性懒惰，因此错误是系统性、可预测的——本书提供诊断词汇与程序性纠偏工具。
 - **Skills**：`substitution-check` · `wysiati-check` · `base-rate-first` · `availability-check` · `scenario-scrutiny` · `rare-events-check` · `anti-anchoring` · `high-stakes-slow-thinking` · `small-sample-rules` · `regression-to-mean` · `outside-view` · `four-step-prediction` · `interval-calibration` · `expert-intuition-precheck` · `formula-over-intuition` · `premortem` · `bias-proof-review` · `frame-check` · `fourfold-risk-locator` · `wide-frame-trader` · `risk-policy` · `zero-base-rethink` · `two-selves-check` · `peak-end-design` · `focusing-illusion` · `dual-ledger` · `independent-judgment` · `decision-factory`
 
-### 10. 《权力的48条法则》 — *The 48 Laws of Power* · [`power-48-laws/`](./04-创业与经营/power-48-laws/)
+### 10. 《权力的48条法则》 — *The 48 Laws of Power* · [`power-48-laws/`](./09-其他/power-48-laws/)
 
 - **作者**：罗伯特·格林（Robert Greene）· 1998
 - **一句话**：权力是一场文明化的战争——你必须学会用迂回、隐蔽、耐心的手段操控人心与局势，而非依赖暴力或直白的力量对抗。
 - **Skills**：`indirect-approach` · `emotion-mastery` · `conceal-intent` · `silence-power` · `reputation-strategy` · `enemy-to-ally` · `manage-superior` · `result-judgment` · `patience-shield` · `people-reading` · `strategic-surrender` · `detect-deception` · `command-attention` · `selective-honesty` · `cost-assessment`
 
-### 11. 《稀缺：我们是如何陷入贫穷与忙碌的》 — *Scarcity* · [`scarcity/`](./02-认知与决策/scarcity/)
+### 11. 《稀缺：我们是如何陷入贫穷与忙碌的》 — *Scarcity* · [`scarcity/`](./09-其他/scarcity/)
 
 - **作者**：塞德希尔·穆来纳森（Sendhil Mullainathan）、埃尔德·沙菲尔（Eldar Shafir）· 2022（原版约 2013）
 - **一句话**：稀缺会俘获大脑，造成管窥心态与带宽负担，通过借用、杂耍等行为自我强化成难以逃脱的陷阱——应对之道不是靠意志力，而是靠设计环境与系统。
 - **Skills**：`bandwidth-management` · `tunneling-decision-check` · `borrowing-vigilance-checklist` · `pull-into-tunnel` · `slack-building-strategy` · `abundance-planning` · `scarcity-trap-escape`
 
-### 12. 《影响力：你为什么说"是"》 — *Influence: The Psychology of Persuasion* · [`influence-cialdini/`](./06-沟通与领导力/influence-cialdini/)
+### 12. 《影响力：你为什么说"是"》 — *Influence: The Psychology of Persuasion* · [`influence-cialdini/`](./04-营销和定位/influence-cialdini/)
 
 - **作者**：罗伯特·西奥迪尼（Robert B. Cialdini）· 2016（初版 1984）
 - **一句话**：六大心理原理（互惠、承诺一致、社会认同、喜好、权威、短缺）如何自动触发人类的「卡嗒，哗」依从反应，以及如何识别与防御。
 - **Skills**：`click-whirr` · `contrast-principle` · `reciprocity-defense` · `commitment-consistency` · `social-proof` · `liking` · `authority` · `scarcity` · `rejection-retreat`
 
-### 13. 《当下的力量（白金版）》 — *The Power of Now* · [`power-of-now/`](./03-个人成长/power-of-now/)
+### 13. 《当下的力量（白金版）》 — *The Power of Now* · [`power-of-now/`](./09-其他/power-of-now/)
 
 - **作者**：埃克哈特·托利（Eckhart Tolle），译者 曹植 · 1997（白金版 2009 中文版）
 - **一句话**：痛苦不来自发生了什么，而来自对思维与时间的两个认同——把注意力从思维中撤回、完全接纳当下时刻（临在），痛苦之身便失去燃料；当下是你唯一拥有、也唯一能借力的东西。
 - **Skills**：`observe-the-thinker` · `inner-body-connection` · `silence-and-space` · `pain-body-awareness` · `unconsciousness-levels` · `clock-time-vs-psychological-time` · `no-problem-in-now` · `pressure-here-wanting-there` · `emotion-as-truth-check` · `accept-then-act` · `two-surrender-chances` · `non-reactive-no` · `fake-acceptance-alert` · `waiting-state-exit` · `inner-purpose-vs-outer-purpose` · `no-understanding-the-past` · `present-forgiveness` · `fully-accept-your-partner` · `relationship-as-awareness-dojo`
 
-### 14. 《高效能人士的七个习惯（30周年纪念版）》 — *The 7 Habits of Highly Effective People* · [`seven-habits/`](./03-个人成长/seven-habits/)
+### 14. 《高效能人士的七个习惯（30周年纪念版）》 — *The 7 Habits of Highly Effective People* · [`seven-habits/`](./08-团队建设/seven-habits/)
 
 - **作者**：史蒂芬·柯维（Stephen R. Covey）· 1989（本批以 30 周年纪念版为底本）
 - **一句话**：高效能不是技巧的叠加，而是把普遍永恒的原则内化为习惯、由内而外（先个人领域成功、后公众领域成功）地实现「产出/产能平衡」的持续过程。
 - **Skills**：`paradigm-shift-first` · `habit-knowledge-skill-desire` · `maturity-continuum` · `ppc-balance` · `influence-circle` · `stimulus-response-gap` · `proactive-language` · `make-and-keep-promises` · `two-creations` · `leadership-before-management` · `personal-mission-statement` · `life-center-diagnosis` · `funeral-exercise` · `transition-person` · `fourth-gen-time-management` · `stewardship-delegation` · `effectiveness-not-efficiency-with-people` · `emotional-bank-account` · `clarify-expectations` · `honor-the-absent` · `win-win-five-dimensions` · `six-interaction-modes` · `win-win-or-no-deal` · `no-involvement-no-commitment` · `seek-first-to-understand` · `diagnose-before-prescribe` · `synergy-third-alternative` · `affirm-potential` · `sharpen-the-saw-four-dimensions`
 
-### 15. 《精益创业 2.0》 — *The Startup Way* · [`lean-startup-2/`](./04-创业与经营/lean-startup-2/)
+### 15. 《精益创业 2.0》 — *The Startup Way* · [`lean-startup-2/`](./09-其他/lean-startup-2/)
 
 - **作者**：埃里克·莱斯（Eric Ries）· 2017（中文版中信 2020）
 - **一句话**：创业管理应当成为成熟企业的第二套核心管理体制——像设立财务部一样设立「创业部」，用创新核算与里程碑式拨款问责，分三个阶段完成一场可以反复进行的「二次创业」。
 - **Skills**：`organizational-experiment-loop` · `leap-of-faith-assumption-audit` · `value-and-growth-hypotheses` · `good-experiment-four-traits` · `mvp-trio-and-scorecard` · `mvp-for-learning-not-scale` · `prfaq-working-backwards` · `business-model-six-questions` · `lean-for-non-startup-work` · `innovation-accounting-three-levels` · `audit-against-past-not-plan` · `bingo-card-diagnostic` · `growth-board-design` · `milestone-based-funding` · `innovation-needs-constraints` · `wield-the-sword` · `one-page-preapproval` · `one-team-success-is-enough` · `startup-team-basic-unit` · `dedicated-cross-functional-teams` · `three-tier-support-structure` · `train-the-veto-holders` · `gatekeeper-to-enabler` · `unified-entrepreneurial-theory` · `internal-change-owner` · `three-stage-transformation` · `pivot-persevere-cadence` · `leaders-two-questions` · `coach-assume-they-are-right` · `coach-not-leader-not-spy` · `reward-useful-failure` · `innovate-in-the-open` · `accountability-method-culture` · `behavior-before-tools` · `voluntary-adoption-indicator` · `localize-dont-copy`
 
-### 16. 《领导梯队建设系列（共 5 册）》 · [`leadership-pipeline-series/`](./06-沟通与领导力/leadership-pipeline-series/)
+### 16. 《领导梯队建设系列（共 5 册）》 · [`leadership-pipeline-series/`](./09-其他/leadership-pipeline-series/)
 
 - **作者**：拉姆·查兰（Ram Charan）、斯蒂芬·德罗特（Stephen Drotter）、詹姆斯·诺埃尔（James Noel）、拉里·博西迪（Larry Bossidy）等 · 2001–2016 系列（系列 5 册合并蒸馏）
 - **一句话**：公司的成败很大程度上取决于能否成批量、可预见地从内部培养出各层级领导者——五册合并给出层级标准（领导梯队）、业绩契约（业绩梯队）、轮岗培养（高管路径）、商业语言（CEO说）与执行系统（执行）的完整操作系统。
 - **Skills**：`leadership-pipeline-six-passages` · `three-dimension-transition` · `first-manager-three-transitions` · `manager-transition-tactics-three-steps` · `managing-managers-role` · `functional-manager-maturity` · `business-manager-complexity-triangle` · `group-executive-indirect-success` · `ceo-five-challenges` · `diagnosis-five-steps` · `role-clarity-gaps-overlaps` · `performance-gap-circle` · `succession-five-steps` · `potential-three-types` · `nine-box-actions` · `leadership-deficit-four-causes` · `corporate-function-six-relations` · `dual-track-management-technical` · `promotion-due-diligence` · `customize-not-copy` · `performance-pipeline-interview-build` · `job-essence-two-factors` · `control-three-points-immune-system` · `functional-vp-four-results` · `environment-three-variables` · `mealer-transition-six-steps` · `performance-dialogue-evidence` · `apprenticeship-model` · `concentric-learning-job-design` · `deliberate-practice-feedback-loop` · `leadership-potential-double-helix` · `ceo-selection-process` · `tolerate-failure-conditions` · `developing-talent-is-every-leaders-job` · `assessment-dual-track` · `leadership-is-work-not-honor` · `business-acumen-six-elements` · `r-m-v-return-decomposition` · `cash-net-inflow-everyones-business` · `direct-customer-contact` · `complexity-to-priorities` · `priority-focus-three-to-four` · `pe-multiple-wealth-mechanism` · `company-panorama-seven-questions` · `coaching-two-tracks` · `social-operating-mechanism` · `profitable-sustainable-growth` · `not-betting-is-betting` · `execution-system-architecture` · `question-to-reality` · `field-visit-protocol` · `culture-performance-linkage` · `talent-review-meeting-mrr` · `underperformer-tiered-handling` · `bedrock-strategy-one-pager` · `strategy-review-question-set` · `operations-plan-three-step` · `assumptions-and-contingency` · `follow-through-discipline`
 
-### 17. 《卓有成效的管理者（中英文双语珍藏版）》 — *The Effective Executive* · [`effective-executive/`](./03-个人成长/effective-executive/)
+### 17. 《卓有成效的管理者（中英文双语珍藏版）》 — *The Effective Executive* · [`effective-executive/`](./09-其他/effective-executive/)
 
 - **作者**：彼得·德鲁克（Peter F. Drucker），译者 许是祥 · 1966
 - **一句话**：有效性不是天赋而是可以学会的习惯——知识工作者通过记录时间、聚焦贡献、发挥长处、要事优先、有效决策五项实践，把自己管理成能对组织成果负责的「管理者」，让平凡人做出不平凡的事。
 - **Skills**：`effectiveness-five-habits` · `results-outside-the-organization` · `know-thy-time` · `time-diagnosis-questions` · `time-waste-institution-scan` · `consolidate-free-time` · `contribution-question` · `three-domains-of-contribution` · `make-output-usable` · `strengths-based-staffing` · `appraisal-four-questions` · `manage-your-boss` · `use-your-own-strengths` · `one-thing-at-a-time` · `abandon-yesterday` · `priority-and-posterior` · `decision-five-elements` · `problem-classification` · `boundary-conditions` · `correct-before-compromise` · `decision-to-action` · `feedback-and-inspect` · `opinions-first` · `dissent-as-resource` · `decide-and-act-fully`
 
-### 18. 《任天堂的体验设计——创造不知不觉打动人心的体验》 — *任天堂の体験設計* · [`nintendo-experience-design/`](./05-产品与创新/nintendo-experience-design/)
+### 18. 《任天堂的体验设计——创造不知不觉打动人心的体验》 — *任天堂の体験設計* · [`nintendo-experience-design/`](./03-如何做产品/nintendo-experience-design/)
 
 - **作者**：玉树真一郎（前任天堂 Wii 策划开发） · 2021（电子工业出版社中文版，王芳译；日文原版约 2020）
 - **一句话**：任何人都能创造打动人心的体验——把"用户经历体验的过程"本身当设计对象，用直觉设计让人不由自主地行动、惊喜设计让人不由自主地着迷、故事设计让人不由自主地想叙述。
 - **Skills**：`intuition-design-loop` · `comprehension-first-affordance` · `primacy-frontload-first-timers` · `fatigue-timing-management` · `surprise-design-two-beliefs` · `taboo-theme-toolkit` · `story-design-user-growth` · `gap-collection-engine` · `risk-reward-choice-feedback` · `engineered-empathy-companion` · `foreshadow-payoff-homecoming` · `psychological-context-redesign` · `stop-design-graceful-endings`
 
-### 19. 《上瘾：让用户养成使用习惯的四大产品逻辑》 — *Hooked: How to Build Habit-Forming Products* · [`hooked/`](./05-产品与创新/hooked/)
+### 19. 《上瘾：让用户养成使用习惯的四大产品逻辑》 — *Hooked: How to Build Habit-Forming Products* · [`hooked/`](./03-如何做产品/hooked/)
 
 - **作者**：尼尔·埃亚尔（Nir Eyal）、瑞安·胡佛（Ryan Hoover），钟莉婷、杨晓红 译 · 2014（中文版中信出版社）
 - **一句话**：习惯养成类产品的引擎是「触发→行动→多变酬赏→投入」的四阶段闭环——用户的投入沉淀为储存价值并自动加载下一次触发，外部触发逐步内化为情绪绑定；设计者必须先用操纵矩阵问「该不该」，再问「能不能」。
 - **Skills**：`hook-model-four-stages` · `habit-zone-frequency-first` · `vitamin-to-painkiller` · `four-opportunity-sources` · `external-triggers-four-types` · `internal-trigger-anchoring` · `five-whys-emotional-root` · `bmat-action-diagnosis` · `three-core-motivations` · `six-simplicity-elements` · `three-variable-rewards` · `finite-infinite-variability` · `investment-changes-attitude` · `five-stored-values` · `load-next-trigger` · `investment-timing-granularity` · `habit-test-three-steps` · `manipulation-matrix` · `preserve-user-autonomy` · `protect-heavy-users` · `upgrade-not-replace`
 
-### 20. 《启示录：打造用户喜爱的产品》 — *INSPIRED: How to Create Tech Products Customers Love* · [`inspired/`](./05-产品与创新/inspired/)
+### 20. 《启示录：打造用户喜爱的产品》 — *INSPIRED: How to Create Tech Products Customers Love* · [`inspired/`](./03-如何做产品/inspired/)
 
 - **作者**：Marty Cagan（曾任惠普程序员、网景平台及工具部门副总裁、eBay 产品管理及设计高级副总裁） · 2008（华中科技大学出版社中文版 2011，七印部落 译）
 - **一句话**：产品经理的本职是探索出**有价值的、可用的、可行的**产品——在写第一行代码之前，用高保真原型和真实用户验证这三点；因为"如果产品没有市场价值，无论开发团队多么优秀也无济于事"。
 - **Skills**：`opportunity-assessment-ten-questions` · `discovery-execution-two-modes` · `product-validation-trio` · `minimal-product-definition` · `hi-fi-prototype-as-spec` · `charter-user-program` · `prototype-testing-playbook` · `user-research-limits` · `persona-driven-focus` · `irrational-user-signals` · `product-principles-priority` · `special-product-defense` · `emotion-based-demand` · `new-old-thing` · `metric-driven-improvement` · `smooth-deployment` · `rapid-response-window` · `tech-headroom-20percent`
 
-### 21. 《重新定义公司：谷歌是如何运营的》 — *How Google Works* · [`how-google-works/`](./05-产品与创新/how-google-works/)
+### 21. 《重新定义公司：谷歌是如何运营的》 — *How Google Works* · [`how-google-works/`](./02-创业思维/how-google-works/)
 
 - **作者**：埃里克·施密特（Eric Schmidt，谷歌前 CEO）、乔纳森·罗森伯格（谷歌前产品负责人），与艾伦·伊格尔合著 · 2015（中信出版社中文版，靳婷婷译；英文原版 2014）
 - **一句话**：互联网时代企业的成功之道，是聚集一群"创意精英"（smart creative）并营造让他们自由发挥的环境——**赋能而非管理**；信息、连接、计算的成本骤降让"速度定成败"，卓越产品是唯一护城河。
 - **Skills**：`hippo-resistance` · `org-design-rules` · `expel-villains-protect-stars` · `technical-insight-first` · `open-as-strategy` · `focus-user-think-10x` · `hiring-quality-bar` · `talent-portrait` · `hiring-ops` · `retention-playbook` · `real-consensus` · `decision-timing-discipline` · `default-open-candor` · `resource-70-20-10` · `twenty-percent-time` · `ship-iterate-fail-well` · `innovation-chaos` · `ask-hard-questions`
 
-### 22. 《学会提问（原书第10版）》 — *Asking the Right Questions: A Guide to Critical Thinking* · [`asking-the-right-questions/`](./02-认知与决策/asking-the-right-questions/)
+### 22. 《学会提问（原书第10版）》 — *Asking the Right Questions: A Guide to Critical Thinking* · [`asking-the-right-questions/`](./08-团队建设/asking-the-right-questions/)
 
 - **作者**：[美] 尼尔·布朗（M. Neil Browne）、斯图尔特·基利（Stuart M. Keeley） · 2012（英文原版 10th ed.；中文版机械工业出版社 2013，吴礼敬 译）
 - **一句话**：批判性思维不是"多想一下"的态度，而是一张环环相扣的关键问题清单（论题→结论→理由→歧义词→假设→谬误→证据→替代原因→数据→省略信息→备选结论）——用它逐层拆解任何想说服你的论证，同时把同一张清单对准自己的结论（强势批判性思维），否则它只会沦为护短工具。
 - **Skills**：`scrutiny-worthiness-filter` · `pan-for-gold-reading` · `strong-sense-self-audit` · `critical-thinker-values` · `keep-dialogue-alive` · `wishful-feeling-check` · `critical-question-master-list` · `locate-issue-conclusion` · `identify-reasons` · `charity-before-judgment` · `ambiguity-loaded-words` · `value-assumption-mining` · `descriptive-assumption-mining` · `fallacy-three-questions` · `evidence-grade-triage` · `expert-opinion-audit` · `research-survey-audit` · `analogy-evaluation` · `rival-causes-audit` · `deceptive-data-check` · `omitted-info-probe` · `alternative-conclusions`
 
-### 23. 《简约至上：交互式设计四策略》 — *Simple and Usable: Web, Mobile, and Interaction Design* · [`simple-and-usable/`](./05-产品与创新/simple-and-usable/)
+### 23. 《简约至上：交互式设计四策略》 — *Simple and Usable: Web, Mobile, and Interaction Design* · [`simple-and-usable/`](./03-如何做产品/simple-and-usable/)
 
 - **作者**：[英] Giles Colborne（cxpartners 公司总裁，曾任英国航空可用性顾问） · 2011（英文原版 New Riders；中文版人民邮电出版社 2011，李松峰、秦绪文 译）
 - **一句话**：简单不是减少功能数，而是用户的感觉——先用主流用户的视角明确"什么才是简单"，再通过删除、组织、隐藏、转移四个策略，把无法消除的复杂性（Tesler 法则：复杂性守恒，只能决定谁面对它）放到正确的位置上。
 - **Skills**：`pseudo-simplicity-detection` · `business-case-for-simplicity` · `simplicity-baseline` · `field-observation` · `mainstream-user-lens` · `control-and-emotion` · `extreme-usability-goals` · `user-story-craft` · `share-the-insight` · `four-strategies` · `remove-strategy` · `declutter` · `organize-strategy` · `visual-organization` · `hide-strategy` · `transfer-strategy` · `open-experience` · `complexity-placement` · `details-carry-simplicity` · `simplicity-boundaries`
 
-### 24. 《宏观经济学（第十版）》 — *Macroeconomics, 10th Edition* · [`mankiw-macroeconomics-10e/`](./01-经济与大势/mankiw-macroeconomics-10e/)
+### 24. 《宏观经济学（第十版）》 — *Macroeconomics, 10th Edition* · [`mankiw-macroeconomics-10e/`](./01-经济和大势/mankiw-macroeconomics-10e/)
 
 - **作者**：N. Gregory Mankiw（N. 格里高利·曼昆，哈佛大学教授）· 2019（中文版中国人民大学出版社，经济学译丛）
 - **一句话**：宏观经济现象必须按时间范围选模型——长期用价格弹性的古典理论（产出由要素与技术决定，货币只决定价格），短期用价格黏性的波动理论（需求决定产出），政策评估要同时看清两个时间范围的效应；全书把这套"模型工具箱"拆成可调用的 20 个分析技能。
 - **Skills**：`macro-timeframe-selection` · `macro-model-toolbox` · `macro-data-literacy` · `factor-income-distribution` · `loanable-funds-analysis` · `money-system-analysis` · `inflation-diagnosis` · `open-economy-flows` · `unemployment-diagnosis` · `solow-golden-rule` · `growth-engine-analysis` · `ad-as-fluctuations` · `is-lm-demand-management` · `mundell-fleming-analysis` · `phillips-curve-analysis` · `dynamic-ad-as-taylor-rule` · `policy-rules-vs-discretion` · `government-debt-analysis` · `financial-crisis-diagnosis` · `consumption-investment-basics`
 
-### 25. 《宏观经济学二十五讲：中国视角》 — *Lectures on Macroeconomics from a Chinese Perspective* · [`xugao-macro-25-lectures/`](./01-经济与大势/xugao-macro-25-lectures/)
+### 25. 《宏观经济学二十五讲：中国视角》 — *Lectures on Macroeconomics from a Chinese Perspective* · [`xugao-macro-25-lectures/`](./01-经济和大势/xugao-macro-25-lectures/)
 
 - **作者**：徐高（中银国际证券首席经济学家；本书源自其在北京大学国家发展研究院连开四年的课程讲义）· 2019（中国人民大学出版社，21世纪经济学系列教材）
 - **一句话**：用标准宏观经济学的均衡分析工具回答中国的真实宏观问题——消费不足、内外失衡、货币政策传导、房价与债务——并在次优理论的自觉下指出：忽视中国特有约束（收入分配、预算软约束、政策目标函数）的最优化药方会系统性误判中国经济；收尾的"六层思维"把一切中国经济观点还原为认识层次。
 - **Skills**：`six-levels-thinking` · `china-macro-perspective` · `price-quantity-diagnosis` · `gdp-welfare-analysis` · `china-growth-accounting` · `development-strategy-analysis` · `equilibrium-methodology` · `expectations-lucas-critique` · `ramsey-consumption-savings` · `china-underconsumption` · `global-imbalances-saving-glut` · `bop-crisis-dollar-privilege` · `fiscal-keynes-vs-ricardo` · `money-neutrality-analysis` · `phillips-curve-china` · `monetary-transmission-blockage` · `soft-budget-constraint` · `monetary-policy-toolbox` · `china-monetary-practice` · `exchange-rate-open-money` · `china-inflation-housing` · `china-debt-financial-chaos` · `macro-theory-debate` · `second-best-transition`
 
-### 26. 《战略与路径：黄奇帆的十二堂经济课》 · [`strategy-and-path/`](./01-经济与大势/strategy-and-path/)
+### 26. 《战略与路径：黄奇帆的十二堂经济课》 · [`strategy-and-path/`](./01-经济和大势/strategy-and-path/)
 
 - **作者**：黄奇帆（原重庆市市长、中国国际经济交流中心副理事长；2018-2021 复旦大学经济学院授课讲稿）· 2022（上海人民出版社）
 - **一句话**：在 2020-2035 窗口期，用"数据→边界条件→结构机制→量化推演→分级对策"的结构性思维拆解中国十二个重大战略议题——议题会过时，这套分析工具不会。
 - **Skills**：`five-step-structural-analysis` · `boundary-condition-analysis` · `war-game-scenario-analysis` · `first-build-then-demolish` · `origin-sale-vs-local-production` · `chain-power-analysis` · `scale-market-three-effects` · `data-rights-layering` · `snowball-alliance-strategy` · `institutional-gene-analysis` · `long-cycle-constants-filter` · `source-governance-thinking` · `innovation-three-stages` · `first-allocation-order` · `manufacturing-share-diagnosis` · `self-reliance-boundary` · `relative-cost-judgment` · `financial-opening-sequencing` · `city-land-structure`
 
-### 27. 《分析与思考：黄奇帆的复旦经济课》 · [`analysis-and-thinking/`](./01-经济与大势/analysis-and-thinking/)
+### 27. 《分析与思考：黄奇帆的复旦经济课》 · [`analysis-and-thinking/`](./01-经济和大势/analysis-and-thinking/)
 
 - **作者**：黄奇帆 · 2020（上海人民出版社；2018.11-2019.12 复旦大学经济学院授课讲稿，张军作序）
 - **一句话**：金融的本质是"为有钱人理财、为缺钱人融资，把握信用—杠杆—风险的度，为实体经济服务"——用"问题—结构—对策"范式拆解中国的杠杆、货币、资本市场、房地产与开放博弈。
 - **Skills**：`macro-leverage-four-indicators` · `leverage-toolkit-detection` · `digital-credit-five-principles` · `finance-essence-check` · `monetary-anchor-diagnosis` · `sovereign-currency-discipline` · `capital-market-health-diagnosis` · `housing-affordability-one-sixth` · `three-zeros-trade-rules` · `trade-deficit-value-chain-accounting` · `crisis-deferral-chain` · `macro-bubble-four-indicators` · `rmb-internationalization-five-pools` · `import-power-five-reasons` · `capital-recruitment-model`
 - **备注**：姊妹卷《战略与路径》（第 26 本）同作者，本卷 15 个 skills 已与其跨书去重并建立导航。
 
-### 28. 《八次危机：中国的真实经验 (1949-2009)》 · [`eight-crises/`](./01-经济与大势/eight-crises/)
+### 28. 《八次危机：中国的真实经验 (1949-2009)》 · [`eight-crises/`](./01-经济和大势/eight-crises/)
 
 - **作者**：温铁军 · 2013（东方出版社；研究跨 1949-2009 六十年）
 - **一句话**：六十年八次城市经济危机，凡能向组织化的农村转嫁代价则"软着陆"、体制维持，凡不能转嫁则城市"硬着陆"、倒逼制度变革——"三农"既是中国工业化的成本承担者，也是危机的稳定器。
 - **Skills**：`cost-transfer-analysis` · `foreign-capital-dependency-risk` · `foreign-capital-crisis-cycle` · `government-behavior-phases` · `government-entry-exit-cycle` · `rural-buffer-mechanism` · `excess-capacity-diagnosis` · `re-dependency-analysis` · `middle-class-formation-analysis` · `agriculture-modernization-path`
 - **备注**：方法论与黄奇帆两卷不同源；cost-transfer-analysis（代价归属）与 crisis-deferral-chain（危机传导）为互补成对框架。
 
-### 29. 《从“老冷战”到“新冷战”》 · [`cold-war-to-cold-war/`](./01-经济与大势/cold-war-to-cold-war/)
+### 29. 《从“老冷战”到“新冷战”》 · [`cold-war-to-cold-war/`](./01-经济和大势/cold-war-to-cold-war/)
 
 - **作者**：温铁军、李卞 · 2023（讲稿汇编发行版本 v1.0；基于温铁军全球化与冷战系列课程）
 - **一句话**：全球化三阶段各有核心竞争要素（贸易白银、原材料市场、货币体系话语权），一切意识形态都是竞争的包装——美国金融资本在无新韭菜地可收割后，把体量相当的中国拖入“新冷战”是结构使然。
 - **Skills**：`globalization-stage-analysis` · `financial-exclusion-mechanism` · `industrial-transfer-fate` · `monetization-sovereignty` · `crisis-harvesting-mechanism` · `currency-bloc-competition` · `demand-engine-structure` · `state-asset-monetization` · `ideology-softpower-analysis`
 - **备注**：与《八次危机》（第 28 本）同作者互补——内向代价归属与本卷对外竞争结构成对。
 
-### 30. 《当音乐停止之后》 · [`after-the-music-stopped/`](./01-经济与大势/after-the-music-stopped/)
+### 30. 《当音乐停止之后》 · [`after-the-music-stopped/`](./01-经济和大势/after-the-music-stopped/)
 
 - **作者**：艾伦·布林德（Alan Blinder，普林斯顿大学教授、美联储前副主席）· 中译本 2014（中国人民大学出版社；英文原版 2013）
 - **一句话**：2007-2009 危机源于七个祸源的叠加共振（本可避免），政府的应对在技术上基本成功却输掉了政治——“政策的成功与政治的失败”是危机留给后人的双重遗产。
 - **Skills**：`crisis-cause-inventory` · `leverage-amplification-layers` · `shadow-banking-anatomy` · `panic-contagion-mechanics` · `bailout-decision-framework` · `spread-based-unconventional-policy` · `fiscal-stimulus-design` · `financial-reform-principles` · `policy-failure-trinity` · `policy-paradox-communication` · `policy-exit-design`
 - **备注**：西方亲历者视角的危机解剖学，与《八次危机》《分析与思考》的中式结构分析互为对冲视角。
 
-### 31. 《中国改革三部曲》 · [`china-reform-trilogy/`](./01-经济与大势/china-reform-trilogy/)
+### 31. 《中国改革三部曲》 · [`china-reform-trilogy/`](./01-经济和大势/china-reform-trilogy/)
 
 - **作者**：吴敬琏 · 合订本 2017（中信出版社；Ⅰ《论竞争性市场体制》1991、Ⅱ《当代中国经济改革》、Ⅲ《中国增长模式抉择》，写作跨越 20 年、论述跨越 60 年）
 - **一句话**：中国改革的成败系于资源配置方式从行政协调转向市场协调——增量改革成功了，但双轨制留下寻租与权贵资本主义的隐患；增长模式从粗放转向集约最终取决于政府自身的改革，中国面临"法治的市场经济"与"权贵资本主义"两种前途。
 - **Skills**：`economic-system-typology` · `decentralization-type-analysis` · `reform-strategy-phases` · `incremental-reform-rent` · `soe-reform-dilemma` · `growth-mode-transformation` · `export-oriented-strategy-risks` · `coordinated-reform-approach` · `rule-of-law-market-economy` · `financial-repression-analysis`
 - **备注**：中国改革叙事的理论/方案设计者视角，与黄奇帆两卷（实操工具）、温铁军两卷（代价视角）构成三角对照。
 
-### 32. 《繁荣与衰退》 · [`capitalism-in-america/`](./01-经济与大势/capitalism-in-america/)
+### 32. 《繁荣与衰退》 · [`capitalism-in-america/`](./01-经济和大势/capitalism-in-america/)
 
 - **作者**：艾伦·格林斯潘 & 艾德里安·伍德里奇 · 中译本 2019（中信出版集团；英文原版 Capitalism in America 2018）
 - **一句话**：美国 400 年繁荣的秘密是宪法保护下的创造性破坏——统一市场、专利、有限责任、破产宽容让"更前沿的技术替换旧资产"持续发生；今日的停滞不是沼泽而是自制的铁笼：福利挤出储蓄、监管爆炸扼杀企业家精神，找对钥匙仍可重启增长。
 - **Skills**：`creative-destruction-framework` · `market-building-institutions` · `gpt-productivity-lag` · `monopoly-context-evaluation` · `laissez-faire-collapse` · `great-depression-attribution` · `managerial-capitalism-cycle` · `vitality-decline-diagnosis`
 - **备注**：与《当音乐停止之后》（第 30 本）构成联储内部人两种立场的对冲；与黄奇帆、吴敬琏、温铁军各卷合成四视角知识库。
 
-### 33. 《时运变迁》 · [`changing-fortunes/`](./01-经济与大势/changing-fortunes/)
+### 33. 《时运变迁》 · [`changing-fortunes/`](./01-经济和大势/changing-fortunes/)
 
 - **作者**：保罗·沃尔克 & 行天丰雄（Paul Volcker & Toyoo Gyohten）· 1992（Changing Fortunes: The World's Money and the Threat to American Leadership；美联储前主席 × 日本大藏省前财务官的双当事人回忆录）
 - **一句话**：战后国际货币体系的兴衰反复证明，稳定的货币秩序只能来自"纪律 + 承诺 + 大国协调"，三者缺一都不可持续——特里芬难题、广场协议、拉美债务危机是同一条主线的三种面孔。
 - **Skills**：`crisis-diagnosis-first` · `crisis-management-sequence` · `unilateral-default-trap` · `confidence-fragility-check` · `commitment-device-design` · `strong-commitment-intervention` · `soft-commitment-ambiguity` · `paradigm-failure-discipline` · `eliminate-exit-leverage` · `negotiation-structure-design` · `multilateral-coordination-assessment` · `triffin-dilemma-diagnosis` · `incentive-symmetry-check` · `devaluation-accounting`
 - **备注**：亲历者视角的货币外交方法论（1971 关黄金窗口、1979.10.6 换锚、广场/卢浮宫、拉美债务危机），与《当音乐停止之后》《从"老冷战"到"新冷战"》互补成"危机三视角"。
 
-### 34. 《21世纪货币政策》 · [`21st-century-monetary-policy/`](./01-经济与大势/21st-century-monetary-policy/)
+### 34. 《21世纪货币政策》 · [`21st-century-monetary-policy/`](./01-经济和大势/21st-century-monetary-policy/)
 
 - **作者**：本·伯南克（Ben Bernanke，美联储前主席、2022 诺贝尔经济学奖得主）· 2022（21st Century Monetary Policy；中信出版集团中译本）
 - **一句话**：美联储 60 年的政策演进由三大结构性力量驱动（通胀行为改变、中性利率长期下行、系统性金融不稳定上升），而每一代央行人的成败都系于同一件事——用可信的行动管理预期；工具会过时，这一点不会。
 - **Skills**：`credibility-capital-management` · `stop-go-discipline` · `signal-engineering` · `announcement-as-policy` · `commitment-spectrum-design` · `guidance-credibility-design` · `bounded-discretion-design` · `political-feasibility-engineering` · `preemptive-strike-policy` · `risk-management-insurance` · `policy-firepower-accounting` · `policy-evaluation-discipline` · `panic-contagion-template` · `bailout-three-step-program` · `bagehot-stigma-design` · `monetary-fiscal-boundary`
 - **备注**：与《时运变迁》（第 33 本）构成两代联储主席的跨时代对话——沃尔克重建信誉的代价与伯南克管理信誉的工艺互为镜像；与《当音乐停止之后》（第 30 本）合成"危机应对三视角"。
 
-### 35. 《激荡四十年》 · [`turbulent-forty-years/`](./01-经济与大势/turbulent-forty-years/)
+### 35. 《激荡四十年》 · [`turbulent-forty-years/`](./01-经济和大势/turbulent-forty-years/)
 
 - **作者**：吴晓波 · 2017-2018（《激荡四十年：中国企业 1978—2018》全三册，=《激荡三十年》+《激荡十年》；中信出版社）
 - **一句话**：四十年中国企业史是国营、民营、外资三大资本集团的博弈史，改革的每一步都从"违规"开始、在政策灰区中完成原始积累——制度创新可以逆转，技术破壁不可逆转；看懂制度窗口与政策周期的人赢得时代，把象征身份当护身符的人被时代清算。
 - **Skills**：`policy-thermometer-reading` · `policy-signal-capture` · `policy-cycle-positioning` · `dormant-clause-interpretation` · `marginal-zone-entry` · `latecomer-resource-borrowing` · `rent-based-model-audit` · `initial-identity-pricing` · `red-hat-structure-decision` · `property-rights-timing` · `half-step-rights-reform` · `business-government-distance` · `institutional-leverage-negotiation` · `media-deification-cycle` · `delusional-expansion-detection` · `bubble-exit-discipline`
 - **备注**：编年史蒸馏的代表作——政策信号、制度灰区、产权路径、政商距离四套方法论均以多年代、多人物的跨域案例支撑；与《战略与路径》《分析与思考》的宏观政策视角互补为"企业与制度"的双面。
 
-### 36. 《小米创业思考》 · [`xiaomi-startup-thinking/`](./04-创业与经营/xiaomi-startup-thinking/)
+### 36. 《小米创业思考》 · [`xiaomi-startup-thinking/`](./02-创业思维/xiaomi-startup-thinking/)
 
 - **作者**：雷军 / 徐洁云（执笔）· 2022（中信出版集团；创始人方法论自述，含 IPO 公开信与四篇年度演讲附录）
 - **一句话**：小米 12 年只做了一件事——用互联网方法改造制造业、推动效率革命：把"感动人心、价格厚道"从口号变成可计算的模型（ROI=利润率×周转）、可执行的纪律（七字诀）和可制度化的承诺（硬件净利率红线），方法论的价值超过公司本身。
 - **Skills**：`efficiency-accounting` · `impossible-triangle-model` · `new-retail-efficiency` · `cost-performance-philosophy` · `hit-product-judgment` · `hit-product-system` · `one-core-business` · `optimal-solution-excellence` · `speed-four-abilities` · `sunk-cost-restart` · `word-of-mouth-design` · `word-of-mouth-verification` · `endgame-reasoning` · `new-business-three-pits` · `downturn-remediation` · `values-into-governance` · `minority-stake-empowerment`
 - **备注**：方法论密度最高的创始人自述——效率公式、爆品四特征、终局思维三层推论等均为公式化/条款化表达；与《精益创业 2.0》同属"创业与经营"分类，从大公司视角与之互补。
 
-### 37. 《创新者的解答》 · [`innovators-solution/`](./05-产品与创新/innovators-solution/)
+### 37. 《创新者的解答》 · [`innovators-solution/`](./02-创业思维/innovators-solution/)
 
 - **作者**：克莱顿·克里斯坦森 & 迈克尔·雷纳（Clayton M. Christensen & Michael E. Raynor）· 2003（The Innovator's Solution，哈佛商学院出版社；中信中译本，《创新者的窘境》续作）
 - **一句话**：创新的成功不靠天赋与运气，而靠理解塑造创新的力量并用"基于情境的因果理论"做决策——选对战场（不对称动机）、选对客户（任务理论/零消费者）、配对组织（RPV）与资金（好钱坏钱）、用对流程（应急 vs 谋划）：起始条件正确比战略精确更重要。
 - **Skills**：`three-stone-tests` · `asymmetric-motivation-test` · `nonconsumer-screening` · `new-market-disruption-pattern` · `hire-product-theory` · `channel-motivation-test` · `interdependence-modularity-match` · `modular-outsourcing-conditions` · `commoditization-positioning` · `rpv-capability-audit` · `resource-allocation-audit` · `emergent-deliberate-strategy`
 
-### 38. 《财务报表分析(简明版·立体化数字教材版)》 · [`financial-statement-analysis/`](./01-经济与大势/financial-statement-analysis/)
+### 38. 《财务报表分析(简明版·立体化数字教材版)》 · [`financial-statement-analysis/`](./06-财务金融和法律/financial-statement-analysis/)
 
 - **作者**：张新民、钱爱民 · 2020（中国人民大学出版社，教育部经济管理类核心课程教材）
 - **一句话**：看报表不能只看规模和比率，要把每个项目还原成质量和战略问题——资产有没有实际效用、利润是不是真金白银、资本结构在支持还是拖累企业——从公开报表反推管理质量与企业质地。
@@ -338,7 +370,7 @@
 
 ---
 
-### 39. 《从报表看企业：数字背后的秘密（第5版）》 · [`cong-baobiao-kan-qiye/`](./01-经济与大势/cong-baobiao-kan-qiye/)
+### 39. 《从报表看企业：数字背后的秘密（第5版）》 · [`cong-baobiao-kan-qiye/`](./06-财务金融和法律/cong-baobiao-kan-qiye/)
 
 - **作者**：张新民 · 2024（中国人民大学出版社，第 1 版 2012 年源自 EMBA 课堂实录）
 - **一句话**：把报表从会计数字还原成企业故事——以母公司报表为基础，资产结构写满战略、核心利润必须被 1.2~1.5 倍经营净现金支撑、风险的根源常在治理而非财会，最后落到"还有哪些牌可打"的前景判断。
@@ -347,63 +379,63 @@
 
 ---
 
-### 40. 《定位：有史以来对美国营销影响最大的观念》 · [`positioning-ries-trout/`](./04-创业与经营/positioning-ries-trout/)
+### 40. 《定位：有史以来对美国营销影响最大的观念》 · [`positioning-ries-trout/`](./04-营销和定位/positioning-ries-trout/)
 
 - **作者**：艾·里斯、杰克·特劳特 · 1981（机械工业出版社“定位经典丛书”，本版基于 20 周年纪念版）
 - **一句话**：营销之争发生在潜在顾客的心智而非工厂——定位就是让品牌在心智中占据一个词、一个梯级：领导者守第一（正宗货/拦截），跟随者找空位（关联/非可乐），打不赢就重新定位对手，全程靠名字这只"钩子"把品牌挂在心智阶梯上，并以成功六步曲与游戏规则保证落地。
 - **Skills**：`outside-in-perception-first` · `own-one-word-in-mind` · `first-in-mind-beats-better` · `mental-ladder-diagnosis` · `challenger-follower-positioning` · `reposition-the-competitor` · `leader-defense-playbook` · `naming-that-hooks` · `brand-extension-rules` · `company-institution-positioning` · `country-place-positioning` · `personal-career-positioning` · `positioning-six-question-process` · `mind-runs-by-ear-media-rules` · `positioning-game-rules`
 - **备注**：定位理论开山之作，"心智阶梯/空位/重新定位/跷跷板"等判据已成营销通用语言；与《影响力》《上瘾》分属营销心理与产品习惯，本卷专注战略层的心智占位与攻防选择。
 
-### 41. 《流量池》 · [`traffic-pool/`](./04-创业与经营/traffic-pool/)
+### 41. 《流量池》 · [`traffic-pool/`](./05-增长和流量/traffic-pool/)
 
 - **作者**：杨飞 · 2018（中信出版集团；神州优车/瑞幸咖啡营销操盘人，时任瑞幸 CMO）
 - **一句话**：流量红利消失后，把"买流量用掉"换成"把流量存进池子里养"——品牌是最稳定的流量池，裂变是最低成本的获客，投放要全程数据监测防作弊，落地页是转化的第一生产力；19 个 skill 覆盖从预算诊断（该不该买量）、品牌定位与符号、裂变原理与玩法选型、社媒与事件营销，到防作弊排查、落地页六要素、信息流原生创意、直播 IMBT 与 BD 互推的全链路。
 - **Skills**：`traffic-pool-diagnosis` · `pinxiao-heyi-marketing` · `brand-as-traffic-well` · `brand-positioning-trilogy` · `brand-symbol-building` · `scene-trigger-niche` · `traditional-ad-conversion` · `ad-creative-iteration` · `social-fission-principle` · `fission-playbook-design` · `fission-cold-start-lowfreq` · `wechat-service-superapp` · `social-content-light-fast` · `event-marketing-five-boosts` · `ad-anti-fraud-channel` · `landing-page-conversion` · `feed-native-creative` · `livestream-imbt` · `bd-traffic-exchange`
 - **备注**：作者亲历操盘型营销书（神州专车 Beat 谣体、瑞幸裂变均为一手复盘）；2018 年快照，微信裂变规则/模板消息/DMP/直播参数已变，各 skill 的 B 段已内嵌时效警示，只取判断逻辑层。
 
-### 42. 《聪明的投资者》 · [`intelligent-investor/`](./02-认知与决策/intelligent-investor/)
+### 42. 《聪明的投资者》 · [`intelligent-investor/`](./09-其他/intelligent-investor/)
 
 - **作者**：本杰明·格雷厄姆 · 1949/1965（第 4 版；本包基于 16 章老译本，数据截至 1964 年）
 - **一句话**：投资操作是"经过深入分析、承诺本金安全并追求满意（而非超额）回报"，不满足这些条件的就是投机——围绕这条操作化定义，格雷厄姆给出市场先生应对纪律、防御/进攻型身份判定、25-75 组合再平衡、债券覆盖倍数、廉价证券与特别情况选股、盈利能力估值与成长股公式，最终收束于全书核心概念"安全边际"。
 - **Skills**：`invest-vs-speculation-filter` · `rule-reliability-trend-skepticism` · `market-mr-volatility-discipline` · `mechanical-allocation-dca` · `investor-identity-matching` · `overheated-market-defense` · `defensive-stock-selection` · `bond-safety-terms` · `aggressive-negative-list` · `excess-return-path-selection` · `neglected-large-cap-strategy` · `bargain-issues-net-nets` · `special-situations-arbitrage` · `earnings-power-valuation` · `growth-stock-appraisal` · `protection-over-forecast` · `stock-diagnosis-techniques` · `margin-of-safety-core` · `shareholder-governance` · `investment-advice-discipline`
 - **备注**：本包基于 1964 年数据版本（无指数基金时代、无 Zweig 点评），各 skill 的 B 段已内嵌时效警示——估值锚与绝对门槛只学"替换参数"的示范，使用前按当期重查；与《穷查理宝典》同属理性决策谱系，本卷专注投资操作层。
 
-### 43. 《掌控习惯》 · [`atomic-habits/`](./03-个人成长/atomic-habits/)
+### 43. 《掌控习惯》 · [`atomic-habits/`](./09-其他/atomic-habits/)
 
 - **作者**：詹姆斯·克利尔 · 2018/2019（北京联合出版公司，迩东晨 译）
 - **一句话**：问题不在你，在你的体系——目标是你要的东西，体系是通向它的过程：习惯是自我提升的复利，围绕"提示→渴望→反应→奖励"四步，用四定律（让它显而易见/有吸引力/简便易行/令人愉悦）逐环设计行为，并以身份转变（每个行动都是给理想自我投票）替代目标依赖。
 - **Skills**：`identity-based-habits` · `identity-flexibility` · `habit-loop-four-laws` · `start-new-habit` · `environment-design` · `quit-bad-habit` · `temptation-bundling` · `join-the-culture` · `craving-reframing` · `two-minute-start` · `commitment-devices` · `reward-design` · `tracking-and-accountability` · `domain-selection` · `goldilocks-difficulty` · `mastery-reflection`
 - **备注**：2019 年出版，行为科学证据持续更新，重要健康/心理场景请结合专业意见（各 skill B 段已注明判停与转介）；与《习惯的力量》分属体系设计与习惯发现科普，术语边界见 GLOSSARY。
 
-### 44. 《增长黑客》 · [`growth-hacker/`](./04-创业与经营/growth-hacker/)
+### 44. 《增长黑客》 · [`growth-hacker/`](./05-增长和流量/growth-hacker/)
 
 - **作者**：范冰 · 2015（电子工业出版社）
 - **一句话**：创业公司没钱没流量也能增长——先用 PMF 确认产品值得增长，再用数据驱动的实验沿 AARRR 漏斗（获取→活跃→留存→收入→传播）逐环破局：种子用户筛选、最笨的事情人肉冷启动、A/B 测试铁律、魔法数字激活、留存诊断、免费-收费切分、K 因子内生传播，全程用指标说话。
 - **Skills**：`demand-four-questions` · `pmf-gate` · `mvp-validator` · `actions-over-words` · `seed-user-selection` · `do-things-that-dont-scale` · `content-marketing-engine` · `ab-testing-protocol` · `activation-aha-magic-number` · `subsidy-ladder` · `gamification-boundary` · `retention-diagnosis` · `winback-mechanisms` · `growth-metrics-system` · `freemium-decision` · `turn-penalty-into-reward` · `viral-k-factor` · `external-viral-loop` · `moment-marketing` · `aarrr-funnel-diagnosis` · `growth-ethics-redlines`
 - **备注**：2015 年快照——开放平台红利、补贴大战、SEO/ASO 权重、平台规则均已变，各 skill 的 B 段已内嵌时效警示，只取判断逻辑层；案例幸存者偏差明显（引用的都是赢家），与《流量池》同属增长实操谱系、互为补充。
 
-### 45. 《创业投资法律手册：那些你在创业时应该知道的公司法知识》 · [`startup-legal-handbook/`](./04-创业与经营/startup-legal-handbook/)
+### 45. 《创业投资法律手册：那些你在创业时应该知道的公司法知识》 · [`startup-legal-handbook/`](./06-财务金融和法律/startup-legal-handbook/)
 
 - **作者**：杨春宝、王成兵 · 2014（中国法制出版社，基于 2013 年《公司法》修正案）
 - **一句话**：创业公司的法律灾难绝大多数来自"用想当然的方式安排公司事务"——本书以 235 个真实咨询问答，按"法定程序 + 章程自治"教创业者安排企业形式、出资、股权、治理、交易与退出：16 个 skill 覆盖设立形式选择、出资合规、股东资格与代持、章程治理设计、决议效力、股权权能与转让定价、增减资与重组、股权激励、小股东救济、退出清算与涉外投资。
 - **Skills**：`entity-choice-incorporation` · `capital-contribution-compliance` · `veil-piercing-liability` · `charter-governance-design` · `equity-rights-design` · `resolution-validity-procedure` · `shareholder-qualification-registration` · `minority-shareholder-remedies` · `nominee-shareholding-risk` · `equity-transfer-pricing` · `capital-change-restructuring` · `employee-equity-incentive` · `exit-dissolution-liquidation` · `legal-rep-compliance-contracts` · `paper-validity-traps` · `cross-border-foreign-investment`
 - **备注**：⚠️ 时效提示——蒸馏自 2014 年公司法语境，2023 年修订《公司法》（2024-07-01 施行）后注册资本认缴、公司治理等条款已有重大变化，涉及具体条文务必对照现行法核验（各 skill 内已内嵌相应警示）；律师问答体，方法论形态为决策框架、法定程序清单与构成要件，非理论体系。
 
-### 46. 《穿越寒冬：创业者的融资策略与独角兽思维》 · [`chuanyue-handong/`](./04-创业与经营/chuanyue-handong/)
+### 46. 《穿越寒冬：创业者的融资策略与独角兽思维》 · [`chuanyue-handong/`](./07-股份分配和融资/chuanyue-handong/)
 
 - **作者**：史蒂文·霍夫曼 · 2020（中信出版集团，"创始人空间"CEO）
 - **一句话**：缺钱是创业的常态更是纪律的来源——先验证需求再谈融资、能不拿钱就不拿钱，必须拿时看懂风投机器（2/20、幂律、退出算术）再进流程：16 个 skill 覆盖创业自评与需求验证、融资路径与风投机制、路演材料与现场、增长黑客与商业模式护城河、独角兽评估、团队组建、创始人销售、文化与董事会，直到挫折复原与持续学习。
 - **Skills**：`founder-fit-self-assessment` · `validate-before-you-build` · `choose-your-funding-path` · `vc-dynamics-demystified` · `pitch-materials-that-land` · `run-the-fundraising-process` · `vet-investors-and-advisors` · `win-the-pitch-room` · `enter-china-market` · `market-and-grow-on-a-shoestring` · `design-business-model-and-moat` · `think-like-a-unicorn-hunter` · `build-your-team-right` · `sell-like-a-founder` · `lead-culture-and-board` · `founder-resilience-and-learning`
 - **备注**：案例与渠道集中于 2012-2019 美国风投语境，作者为孵化器操盘手立场（幸存者偏差明显），迁移判断逻辑而非具体渠道与数字（各 skill B 段已内嵌警示）；与《创业投资法律手册》《增长黑客》互补，覆盖创业全周期。
 
-### 47. 《段永平投资问答录（全两册）》 · [`duan-yongping-touzi-wenda-lu/`](./04-创业与经营/duan-yongping-touzi-wenda-lu/)
+### 47. 《段永平投资问答录（全两册）》 · [`duan-yongping-touzi-wenda-lu/`](./02-创业思维/duan-yongping-touzi-wenda-lu/)
 
 - **编者**：孙力科 编（内容主体为段永平——步步高/OPPO/vivo 背后创始人、雪球 ID"大道无形我有型"——的访谈与雪球问答实录）
 - **一句话**：买股票就是买公司，本分是把事情做对的地基——先用能力圈闸门问"我懂不懂"，再用毛估估问"贵不贵"，用不为清单守住"不做空不杠杆用闲钱"的底线，经营端以本分、敢为天下后与利润之上的追求立业：16 个 skill 覆盖投资第一性、估值与买卖纪律、心性与风控、步步高产品渠道打法、企业文化与组织用人，直到人生哲学与财富观。
 - **Skills**：`buy-stock-is-buy-company` · `circle-of-competence-homework` · `rough-valuation-look-10-years` · `business-model-moat-checklist` · `hold-long-term-mindset` · `buy-sell-discipline` · `concentrated-few-bets` · `stop-doing-list-risk-control` · `ignore-market-noise` · `benben-do-right-things` · `dare-to-be-later` · `profit-above-profit-consumer-focus` · `bbk-product-channel-playbook` · `bbk-business-philosophy` · `corp-culture-people-system` · `life-philosophy-wealth-view`
 - **备注**：问答实录汇编而非段永平本人著作，各 skill 引文均标【段】（原话）/【编】（编者叙述），引用时注意区分；观点多成于 2010-2020 年代问答语境，具体个股与数字仅作案例背景；与《聪明的投资者》互为中美两套价值投资语汇。
 
-### 48. 《精益创业：新创企业的成长思维》 · [`lean-startup-eric-ries/`](./04-创业与经营/lean-startup-eric-ries/)
+### 48. 《精益创业：新创企业的成长思维》 · [`lean-startup-eric-ries/`](./02-创业思维/lean-startup-eric-ries/)
 
 - **作者**：埃里克·莱斯（Eric Ries，IMVU 联合创始人兼 CTO）· 2011（中信出版社 2012 中译本）
 - **一句话**：新创企业不是大公司的缩小版而是一门需要管理的新学科——以"经证实的认知"为进展单位，用开发-测量-认知循环把信念飞跃假设逐个变成数据：13 个 skill 覆盖五原则总纲、假设识别、MVP 设计、创新核算与虚荣指标甄别、转型坚持决策与十种转型类型学、增长引擎选择、小批量加速、五个为什么、内部创新沙盒，直到反浪费的元判断。
@@ -417,11 +449,11 @@
 一次性安装**所有书**的 skills，或只装某一本：
 
 ```bash
-# 一次性安装全部 755 个 skills（用户级，所有项目可用）
+# 一次性安装全部 816 个 skills（用户级，所有项目可用）
 for d in */*/skills; do cp -r "$d"/* ~/.claude/skills/; done
 
 # 或只装某一本（以心流为例）
-cp -r 03-个人成长/flow/skills/* ~/.claude/skills/
+cp -r 09-其他/flow/skills/* ~/.claude/skills/
 ```
 
 每本书的 `skills/` 里每个技能目录都包含 `SKILL.md`（+ `test-prompts.json` / `test-results.md` 测试产物）。
@@ -434,9 +466,9 @@ cp -r 03-个人成长/flow/skills/* ~/.claude/skills/
 skill-bookshelf/
 ├── README.md                 # 总导航（你在这里）
 ├── booklist.md               # 完整书单与蒸馏进度对照
-├── 01-经济与大势/
+├── 01-经济和大势/
 │   ├── mankiw-microeconomics/   # 《经济学原理（微观分册）》
-│   ├── mankiw-macroeconomics-10e/   # 《宏观经济学（第十版）》
+│   ├── mankiw-macroeconomics-10e/   # 《宏观经济学（第十版）》*Macroeconomics, 10th Ed.*
 │   ├── xugao-macro-25-lectures/   # 《宏观经济学二十五讲：中国视角》
 │   ├── strategy-and-path/   # 《战略与路径：黄奇帆的十二堂经济课》
 │   ├── analysis-and-thinking/   # 《分析与思考：黄奇帆的复旦经济课》
@@ -444,50 +476,53 @@ skill-bookshelf/
 │   ├── cold-war-to-cold-war/   # 《从“老冷战”到“新冷战”》
 │   ├── china-reform-trilogy/   # 《中国改革三部曲》
 │   ├── capitalism-in-america/   # 《繁荣与衰退》
-│   ├── changing-fortunes/   # 《时运变迁》
-│   ├── 21st-century-monetary-policy/   # 《21世纪货币政策》
+│   ├── changing-fortunes/   # 《时运变迁》*Changing Fortunes*
+│   ├── 21st-century-monetary-policy/   # 《21世纪货币政策》*21st Century Monetary Policy*
 │   ├── after-the-music-stopped/   # 《当音乐停止之后》
-│   ├── turbulent-forty-years/   # 《激荡四十年》
-│   ├── financial-statement-analysis/   # 《财务报表分析(简明版·立体化数字教材版)》
-│   └── cong-baobiao-kan-qiye/   # 《从报表看企业：数字背后的秘密（第5版）》
-├── 02-认知与决策/
-│   ├── thinking-fast-and-slow/   # 《思考，快与慢》
-│   ├── poor-charlies-almanack/   # 《穷查理宝典》
-│   ├── scarcity/   # 《稀缺：我们是如何陷入贫穷与忙碌的》
-│   ├── asking-the-right-questions/   # 《学会提问（原书第10版）》
-│   ├── peak-deliberate-practice/   # 《刻意练习：如何从新手到大师》
-│   └── intelligent-investor/   # 《聪明的投资者》
-├── 03-个人成长/
-│   ├── flow/   # 《心流：最优体验心理学》
-│   ├── power-of-now/   # 《当下的力量（白金版）》
-│   ├── seven-habits/   # 《高效能人士的七个习惯（30周年纪念版）》
-│   ├── effective-executive/   # 《卓有成效的管理者（中英文双语珍藏版）》
-│   └── atomic-habits/   # 《掌控习惯》
-├── 04-创业与经营/
-│   ├── lean-startup-2/   # 《精益创业 2.0》
-│   ├── ready-fire-aim/   # 《*Ready, Fire, Aim*》
-│   ├── rich-dad-poor-dad-series/   # 《富爸爸穷爸爸系列》
-│   ├── rockefeller-38-letters/   # 《洛克菲勒留给儿子的38封信》
-│   ├── power-48-laws/   # 《权力的48条法则》
+│   ├── turbulent-forty-years/   # 《激荡四十年》*Turbulent Forty Years*
+├── 02-创业思维/
 │   ├── xiaomi-startup-thinking/   # 《小米创业思考》
-│   ├── positioning-ries-trout/   # 《定位：有史以来对美国营销影响最大的观念》
-│   ├── traffic-pool/   # 《流量池》
-│   ├── growth-hacker/   # 《增长黑客》
-│   ├── startup-legal-handbook/   # 《创业投资法律手册：那些你在创业时应该知道的公司法知识》
-│   ├── chuanyue-handong/   # 《穿越寒冬：创业者的融资策略与独角兽思维》
 │   ├── duan-yongping-touzi-wenda-lu/   # 《段永平投资问答录（全两册）》
-│   └── lean-startup-eric-ries/   # 《精益创业：新创企业的成长思维》
-├── 05-产品与创新/
-│   ├── how-google-works/   # 《重新定义公司：谷歌是如何运营的》
-│   ├── hooked/   # 《上瘾：让用户养成使用习惯的四大产品逻辑》
-│   ├── nintendo-experience-design/   # 《任天堂的体验设计——创造不知不觉打动人心的体验》
-│   ├── inspired/   # 《启示录：打造用户喜爱的产品》
-│   ├── simple-and-usable/   # 《简约至上：交互式设计四策略》
-│   └── innovators-solution/   # 《创新者的解答》
-└── 06-沟通与领导力/
-│   ├── how-to-win-friends/   # 《人性的弱点》
-│   ├── influence-cialdini/   # 《影响力：你为什么说"是"》
-│   └── leadership-pipeline-series/   # 《领导梯队建设系列（共 5 册）》
+│   ├── lean-startup-eric-ries/   # 《精益创业：新创企业的成长思维》*The Lean Startup*
+│   ├── innovators-solution/   # 《创新者的解答》*The Innovator's Solution*
+│   ├── how-google-works/   # 《重新定义公司：谷歌是如何运营的》*How Google Works*
+├── 03-如何做产品/
+│   ├── hooked/   # 《上瘾》*Hooked*
+│   ├── nintendo-experience-design/   # 《任天堂的体验设计——创造不知不觉打动人心的体验》*任天堂の体験設計*
+│   ├── inspired/   # 《启示录：打造用户喜爱的产品》*INSPIRED*
+│   ├── simple-and-usable/   # 《简约至上：交互式设计四策略》*Simple and Usable*
+├── 04-营销和定位/
+│   ├── positioning-ries-trout/   # 《定位：有史以来对美国营销影响最大的观念》*Positioning*
+│   ├── influence-cialdini/   # 《影响力》*Influence*
+├── 05-增长和流量/
+│   ├── traffic-pool/   # 《流量池》*Traffic Pool*
+│   ├── growth-hacker/   # 《增长黑客》*Growth Hacker*
+├── 06-财务金融和法律/
+│   ├── financial-statement-analysis/   # 《财务报表分析(简明版·立体化数字教材版)》*Financial Statement Analysis*
+│   ├── cong-baobiao-kan-qiye/   # 《从报表看企业：数字背后的秘密（第5版）》
+│   ├── startup-legal-handbook/   # 《创业投资法律手册：那些你在创业时应该知道的公司法知识》
+├── 07-股份分配和融资/
+│   ├── chuanyue-handong/   # 《穿越寒冬：创业者的融资策略与独角兽思维》
+├── 08-团队建设/
+│   ├── poor-charlies-almanack/   # 《穷查理宝典》*Poor Charlie's Almanack*
+│   ├── seven-habits/   # 《高效能人士的七个习惯（30周年纪念版）》*The 7 Habits of Highly Effective People*
+│   ├── asking-the-right-questions/   # 《学会提问（原书第10版）》*Asking the Right Questions*
+└── 09-其他/
+    ├── thinking-fast-and-slow/   # 《思考，快与慢》*Thinking, Fast and Slow*
+    ├── scarcity/   # 《稀缺》*Scarcity*
+    ├── peak-deliberate-practice/   # 《刻意练习》*PEAK*
+    ├── intelligent-investor/   # 《聪明的投资者》*The Intelligent Investor*
+    ├── flow/   # 《心流》*Flow*
+    ├── power-of-now/   # 《当下的力量（白金版）》*The Power of Now*
+    ├── effective-executive/   # 《卓有成效的管理者（中英文双语珍藏版）》*The Effective Executive*
+    ├── atomic-habits/   # 《掌控习惯》*Atomic Habits*
+    ├── lean-startup-2/   # 《精益创业 2.0》*The Startup Way*
+    ├── ready-fire-aim/   # *Ready, Fire, Aim*
+    ├── rich-dad-poor-dad-series/   # 《富爸爸穷爸爸系列》*Rich Dad Poor Dad*
+    ├── rockefeller-38-letters/   # 《洛克菲勒留给儿子的38封信》
+    ├── power-48-laws/   # 《权力的48条法则》*The 48 Laws of Power*
+    ├── how-to-win-friends/   # 《人性的弱点》
+    ├── leadership-pipeline-series/   # 《领导梯队建设系列（共5册）》
 ```
 
 ---
@@ -496,7 +531,7 @@ skill-bookshelf/
 
 每蒸馏完成一本新书，把它作为新子目录加入这个合集，保持三步同步：
 
-1. 按书的主题归入对应的分类目录（`01-经济与大势` … `06-沟通与领导力`），把蒸馏产物按 `<分类>/<book-slug>/skills/` + `<分类>/<book-slug>/docs/` 结构放进新子目录（命名约定：去掉 `-skills` 后缀的 slug）；没有合适分类时新建一个带数字前缀的分类目录；
+1. 按书单的 Part 归入对应的分类目录（`01-经济和大势` … `08-团队建设`，书单里没有的书进 `09-其他`），把蒸馏产物按 `<分类>/<book-slug>/skills/` + `<分类>/<book-slug>/docs/` 结构放进新子目录（命名约定：去掉 `-skills` 后缀的 slug）；没有合适分类时新建一个带数字前缀的分类目录；
 2. 在「目录总览」表格里加一行，并把「N 本书 · M 个 skills」的计数更新；
 3. 在「逐本详情」里追加一个 `###` 小节，链接指向新子目录。
 
