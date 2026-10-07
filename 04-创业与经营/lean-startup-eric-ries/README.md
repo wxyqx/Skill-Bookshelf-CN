@@ -55,10 +55,10 @@
 
 ## docs
 
-- `docs/BOOK_OVERVIEW.md` — 阶段 0 整书理解
-- `docs/INDEX.md` — 技能总览、五组分类与引用图（分工对照 / 上下游组合 / related_skills）
-- `docs/GLOSSARY.md` — 共享术语词典
-- `docs/DIGEST.md` — 面向读者的精华长文
-- `docs/verified.md` — 三重验证总记录
-- `docs/verified-cases.md` — 反例与案例验证记录
-- `docs/candidates/` — 候选池（frameworks / principles / cases / counterexamples / terms 合并单元）
+- [`BOOK_OVERVIEW.md`](docs/BOOK_OVERVIEW.md) — 阶段 0 整书理解
+- [`INDEX.md`](docs/INDEX.md) — 技能总览、五组分类与引用图（分工对照 / 上下游组合 / related_skills）
+- [`GLOSSARY.md`](docs/GLOSSARY.md) — 共享术语词典
+- [`DIGEST.md`](docs/DIGEST.md) — 面向读者的精华长文
+- [`verified.md`](docs/verified.md) — 三重验证总记录
+- [`verified-cases.md`](docs/verified-cases.md) — 反例与案例验证记录
+- [`candidates`](docs/candidates/) — 候选池（frameworks / principles / cases / counterexamples / terms 合并单元）
