@@ -30,7 +30,7 @@
 
 **什么时候会失效**:税负结论未含税务筹划维度(如核定征收、税收洼地),且 2014 年后的个税与创投基金政策变化较大,落地前须单独测算。
 
-→ 深入: [`entity-choice-incorporation`](./entity-choice-incorporation/SKILL.md)
+→ 深入: [`entity-choice-incorporation`](../skills/./entity-choice-incorporation/SKILL.md)
 
 ### 什么能当出资:两要件与"技术股"的合法路径
 
@@ -42,7 +42,7 @@
 
 **什么时候会失效**:2014 年后知识产权评估与作价入股实践(含所得税递延政策)有更新,技术成果出资的税务成本须单独核算。
 
-→ 深入: [`capital-contribution-compliance`](./capital-contribution-compliance/SKILL.md) / [`equity-rights-design`](./equity-rights-design/SKILL.md)
+→ 深入: [`capital-contribution-compliance`](../skills/./capital-contribution-compliance/SKILL.md) / [`equity-rights-design`](../skills/./equity-rights-design/SKILL.md)
 
 ### 认缴幻觉:认缴不等于不缴,更不等于可以随便写
 
@@ -56,7 +56,7 @@
 
 **什么时候会失效**:本书的"期限自治"结论已被 2023 年《公司法》五年实缴制、加速到期与股东失权制度推翻——这是全书中时效性冲击最大的一条。
 
-→ 深入: [`capital-contribution-compliance`](./capital-contribution-compliance/SKILL.md)
+→ 深入: [`capital-contribution-compliance`](../skills/./capital-contribution-compliance/SKILL.md)
 
 ---
 
@@ -74,7 +74,7 @@
 
 **什么时候会失效**:脱钩设计只适用于有限公司;股份公司同股同权,不能这样设计。
 
-→ 深入: [`charter-governance-design`](./charter-governance-design/SKILL.md)
+→ 深入: [`charter-governance-design`](../skills/./charter-governance-design/SKILL.md)
 
 ### 授权清单:授权不明确,连追责的请求权基础都没有
 
@@ -86,7 +86,7 @@
 
 **什么时候会失效**:授权清单防君子不防恶意串通;对方明知越权时交易本身仍可主张不生效,需另行判断。
 
-→ 深入: [`charter-governance-design`](./charter-governance-design/SKILL.md)
+→ 深入: [`charter-governance-design`](../skills/./charter-governance-design/SKILL.md)
 
 ### 僵局条款:先程序、后终裁,别一上来就给董事长一票否决
 
@@ -98,7 +98,7 @@
 
 **什么时候会失效**:僵局条款只能解决"表决僵局",解决不了信任破裂;后者请直接看退出机制一节。
 
-→ 深入: [`charter-governance-design`](./charter-governance-design/SKILL.md)
+→ 深入: [`charter-governance-design`](../skills/./charter-governance-design/SKILL.md)
 
 ---
 
@@ -116,7 +116,7 @@
 
 **什么时候会失效**:仅凭孤立转账记录证明力弱;纠纷时的补救须按证据链逐项补证,而非逐条争论转账性质。
 
-→ 深入: [`shareholder-qualification-registration`](./shareholder-qualification-registration/SKILL.md)
+→ 深入: [`shareholder-qualification-registration`](../skills/./shareholder-qualification-registration/SKILL.md)
 
 ### 隐名投资:对内有效、对外不抗第三人,确权看"被知晓"
 
@@ -128,7 +128,7 @@
 
 **什么时候会失效**:一切防控都无法对抗善意第三人取得;规避准入的代持任何清单都救不了。
 
-→ 深入: [`nominee-shareholding-risk`](./nominee-shareholding-risk/SKILL.md)
+→ 深入: [`nominee-shareholding-risk`](../skills/./nominee-shareholding-risk/SKILL.md)
 
 ### 小股东的两张牌:知情权三步与派生诉讼四步
 
@@ -140,7 +140,7 @@
 
 **什么时候会失效**:派生诉讼的赔偿归公司,小股东不直接落袋,激励有限;2023 年《公司法》已将派生诉讼扩至全资子公司,程序对象有细化。
 
-→ 深入: [`minority-shareholder-remedies`](./minority-shareholder-remedies/SKILL.md)
+→ 深入: [`minority-shareholder-remedies`](../skills/./minority-shareholder-remedies/SKILL.md)
 
 ---
 
@@ -158,7 +158,7 @@
 
 **什么时候会失效**:2023 年《公司法》第 84 条已删除"对外转让须经其他股东过半数同意"环节,保留书面通知 + 优先购买权;引用"过半数同意"时须标注为旧法规则。
 
-→ 深入: [`equity-transfer-pricing`](./equity-transfer-pricing/SKILL.md)
+→ 深入: [`equity-transfer-pricing`](../skills/./equity-transfer-pricing/SKILL.md)
 
 ### 定价三锚点:出资额不是底线价,未分配利润交割即让渡
 
@@ -170,7 +170,7 @@
 
 **什么时候会失效**:评估方法与税务处理(个税核定、平价转让的税局认可)本书几乎未覆盖,而这是退出谈判的核心变量,须另行咨询。
 
-→ 深入: [`equity-transfer-pricing`](./equity-transfer-pricing/SKILL.md)
+→ 深入: [`equity-transfer-pricing`](../skills/./equity-transfer-pricing/SKILL.md)
 
 ### 干股分水岭:权能可以切割,股权不能打折
 
@@ -184,7 +184,7 @@
 
 **什么时候会失效**:现行实践多了有限合伙持股平台等载体,期权税务处理(财税 101 号等)是书中未覆盖的维度;五种变通的逻辑仍可用,参数须更新。
 
-→ 深入: [`employee-equity-incentive`](./employee-equity-incentive/SKILL.md)
+→ 深入: [`employee-equity-incentive`](../skills/./employee-equity-incentive/SKILL.md)
 
 ### 增资四要件检验:缺一步,"入股款"可能变借款
 
@@ -196,7 +196,7 @@
 
 **什么时候会失效**:投资条款实践(对赌、反稀释、领售随售)是本书空白;VC 交易的判断须另循投资协议框架。
 
-→ 深入: [`capital-change-restructuring`](./capital-change-restructuring/SKILL.md)
+→ 深入: [`capital-change-restructuring`](../skills/./capital-change-restructuring/SKILL.md)
 
 ---
 
@@ -214,7 +214,7 @@
 
 **什么时候会失效**:2023 年《公司法》第 89 条新增"控股股东滥用股东权利严重损害公司或其他股东利益"的回购情形,行权面比书内三种情形更宽。
 
-→ 深入: [`exit-dissolution-liquidation`](./exit-dissolution-liquidation/SKILL.md)
+→ 深入: [`exit-dissolution-liquidation`](../skills/./exit-dissolution-liquidation/SKILL.md)
 
 ### 司法解散三要件:只救"表决失灵",不救"经营失败"
 
@@ -226,7 +226,7 @@
 
 **什么时候会失效**:司法解散是最后手段、法院极谨慎;"策略性施压"一步存在滥用风险,使用前须自行评估合法性与商业后果。
 
-→ 深入: [`exit-dissolution-liquidation`](./exit-dissolution-liquidation/SKILL.md)
+→ 深入: [`exit-dissolution-liquidation`](../skills/./exit-dissolution-liquidation/SKILL.md)
 
 ### 置之不理的代价:吊照不等于免责,清算义务不消失
 
@@ -240,23 +240,23 @@
 
 **什么时候会失效**:2023 年《公司法》已将清算义务人由股东改为董事,并强化怠于清算责任;注销流程实践中已大幅简化("一网通办"),程序细节以现行登记规则为准。
 
-→ 深入: [`exit-dissolution-liquidation`](./exit-dissolution-liquidation/SKILL.md)
+→ 深入: [`exit-dissolution-liquidation`](../skills/./exit-dissolution-liquidation/SKILL.md)
 
 ---
 
 ## 陷阱与反例
 
-**1. 工商范本章程:免费的,是后置收费。** 范本"没有任何针对性",三颗雷——担保决策机构未约定(每次担保都要开股东会)、无授权清单(执行董事越权时连追责基础都模糊)、无僵局条款(死锁时只剩法定回购/司法解散窄门)。预警信号:新公司章程全文不超过三页。→ [`paper-validity-traps`](./paper-validity-traps/SKILL.md)
+**1. 工商范本章程:免费的,是后置收费。** 范本"没有任何针对性",三颗雷——担保决策机构未约定(每次担保都要开股东会)、无授权清单(执行董事越权时连追责基础都模糊)、无僵局条款(死锁时只剩法定回购/司法解散窄门)。预警信号:新公司章程全文不超过三页。→ [`paper-validity-traps`](../skills/./paper-validity-traps/SKILL.md)
 
-**2. 公私财产混同:一人公司老板最贵的省事。** 个人微信收货款、公司卡付房贷、两套账——一人公司适用**举证责任倒置**:股东不能自证公司财产独立(独立账户、规范账册、审计可查、往来留痕),即对公司全部债务连带;多人公司的混同走法人人格否认,债权人可诉讼中列股东为被告或执行中追加。→ [`veil-piercing-liability`](./veil-piercing-liability/SKILL.md)
+**2. 公私财产混同:一人公司老板最贵的省事。** 个人微信收货款、公司卡付房贷、两套账——一人公司适用**举证责任倒置**:股东不能自证公司财产独立(独立账户、规范账册、审计可查、往来留痕),即对公司全部债务连带;多人公司的混同走法人人格否认,债权人可诉讼中列股东为被告或执行中追加。→ [`veil-piercing-liability`](../skills/./veil-piercing-liability/SKILL.md)
 
-**3. 公司代付股权转让款:付款主体即罪证。** 股东 A 转股权给股东 B,让公司账直接划款作对价——该笔支出等于股东收回出资,有抽逃嫌疑:民事返还赔偿、清算时按抽逃补回,B 的出资还可能被认定未实缴。识别信号永远看资金流向而非协议怎么写:受让方个人账户支付;确需公司支持的合法通道是依法减资。→ [`equity-transfer-pricing`](./equity-transfer-pricing/SKILL.md)
+**3. 公司代付股权转让款:付款主体即罪证。** 股东 A 转股权给股东 B,让公司账直接划款作对价——该笔支出等于股东收回出资,有抽逃嫌疑:民事返还赔偿、清算时按抽逃补回,B 的出资还可能被认定未实缴。识别信号永远看资金流向而非协议怎么写:受让方个人账户支付;确需公司支持的合法通道是依法减资。→ [`equity-transfer-pricing`](../skills/./equity-transfer-pricing/SKILL.md)
 
-**4. 登报崇拜:"登报了"永远不等于"生效了"。** 登报声明公章作废,此前公章所签合同不因此推翻(按偷盖/盗盖/表见代表规则判断,公司管理有过失照样担责);登报声明法代换了人,变更登记前原法代对外仍代表公司。登报在公章、法代、减资、清算各场景只是程序环节(报案凭证、公告义务),不是效力来源。→ [`paper-validity-traps`](./paper-validity-traps/SKILL.md)
+**4. 登报崇拜:"登报了"永远不等于"生效了"。** 登报声明公章作废,此前公章所签合同不因此推翻(按偷盖/盗盖/表见代表规则判断,公司管理有过失照样担责);登报声明法代换了人,变更登记前原法代对外仍代表公司。登报在公章、法代、减资、清算各场景只是程序环节(报案凭证、公告义务),不是效力来源。→ [`paper-validity-traps`](../skills/./paper-validity-traps/SKILL.md)
 
-**5. 伪造签名的股东会决议:当年拖过 60 日即可"洗白"。** 2014 年语境下伪造签名属可撤销,60 日除斥期间一过即形式有效,受害者只能另追损害赔偿——旧法的真实漏洞。2023 年《公司法》已补上"决议不成立"之诉:未实际开会表决的决议不受 60 日限制。发现被伪造,当日动作仍是尽快起诉 + 并行刑事报案。→ [`resolution-validity-procedure`](./resolution-validity-procedure/SKILL.md)
+**5. 伪造签名的股东会决议:当年拖过 60 日即可"洗白"。** 2014 年语境下伪造签名属可撤销,60 日除斥期间一过即形式有效,受害者只能另追损害赔偿——旧法的真实漏洞。2023 年《公司法》已补上"决议不成立"之诉:未实际开会表决的决议不受 60 日限制。发现被伪造,当日动作仍是尽快起诉 + 并行刑事报案。→ [`resolution-validity-procedure`](../skills/./resolution-validity-procedure/SKILL.md)
 
-**6. 置之不理直到吊照:最贵的"不作为"。** 反应链:不年报 → 列入异常 → 吊销执照 → 仍须 15 日内清算 → 法人资格存续、债权人照样追 → 怠于清算致无法清算的连带担责;法定代表人还被任职限制缠身。预警信号:公司停摆超一年且从未税务申报。→ [`exit-dissolution-liquidation`](./exit-dissolution-liquidation/SKILL.md)
+**6. 置之不理直到吊照:最贵的"不作为"。** 反应链:不年报 → 列入异常 → 吊销执照 → 仍须 15 日内清算 → 法人资格存续、债权人照样追 → 怠于清算致无法清算的连带担责;法定代表人还被任职限制缠身。预警信号:公司停摆超一年且从未税务申报。→ [`exit-dissolution-liquidation`](../skills/./exit-dissolution-liquidation/SKILL.md)
 
 ---
 

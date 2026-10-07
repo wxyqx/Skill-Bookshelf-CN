@@ -28,7 +28,7 @@
 
 **什么时候会失效**：如果把五项读成"个人努力清单"，在几乎没有时间与决策自主权的岗位上（护理、客服、流水线）会产生"你不有效是因为你不练"的误读。本书默认读者是有秘书、有下属、有一定自主权的高管——这个假设的当代换算见文末"作者局限"。
 
-→ 深入: [`effectiveness-five-habits`](./effectiveness-five-habits/SKILL.md)
+→ 深入: [`effectiveness-five-habits`](../skills/./effectiveness-five-habits/SKILL.md)
 
 ### 成果在组织之外：理解全书的公共背景
 
@@ -40,7 +40,7 @@
 
 **什么时候会失效**：对公共组织（学校、医院、政府），"外部"是谁（学生？家长？纳税人？）远比企业复杂，德鲁克未给可操作判据；把这条定律读成"内部工作都是浪费"也是误读——内部是必要的成本，定律防止的是把内部数字当成果。
 
-→ 深入: [`results-outside-the-organization`](./results-outside-the-organization/SKILL.md)
+→ 深入: [`results-outside-the-organization`](../skills/./results-outside-the-organization/SKILL.md)
 
 ---
 
@@ -56,7 +56,7 @@
 
 **什么时候会失效**：无时间自主权的岗位（急诊、客服、流水线）不能强推完整三步，替代动作是"只记录可自主的片段与被打断次数，不做自责式结算"；把记录做成监控/考核工具则会摧毁"敢说真话"的前提。
 
-→ 深入: [`know-thy-time`](./know-thy-time/SKILL.md)
+→ 深入: [`know-thy-time`](../skills/./know-thy-time/SKILL.md)
 
 ### 时间诊断三问：取消 / 授权 / 问下属
 
@@ -66,7 +66,7 @@
 
 **什么时候会失效**：法定、合规、安全义务类事项不在"取消"之列（它们的后果明确）；提问若在缺乏心理安全的组织里进行，第三问只能收到客气话——德鲁克未讨论权力不对等对答案可靠性的影响。
 
-→ 深入: [`time-diagnosis-questions`](./time-diagnosis-questions/SKILL.md)
+→ 深入: [`time-diagnosis-questions`](../skills/./time-diagnosis-questions/SKILL.md)
 
 ### 制度检修四项：时间浪费常常是结构症状
 
@@ -76,7 +76,7 @@
 
 **什么时候会失效**：真正的偶发事件不能强行例行化；服务与危机响应行业（急诊、运维）的"高潮迭现"可能确是业务特性，需区分"可预见却复发"与"本质不可预见的波动"；1/10 判据是诊断信号，不是裁员的裁决依据。
 
-→ 深入: [`time-waste-institution-scan`](./time-waste-institution-scan/SKILL.md)
+→ 深入: [`time-waste-institution-scan`](../skills/./time-waste-institution-scan/SKILL.md)
 
 ### 集中整块自由时间：并成大块，持续防守
 
@@ -86,7 +86,7 @@
 
 **什么时候会失效**：无时间自主权岗位不承诺固定整块，替代动作是"每周保留一段可协商的短块、只保护它、不自责其余，优先减少切换次数而非增加总时长"；"最低整块门槛"（6–8 小时等）是 1960 年代的经验数字，对编程、设计、谈判等需自行校准。
 
-→ 深入: [`consolidate-free-time`](./consolidate-free-time/SKILL.md)
+→ 深入: [`consolidate-free-time`](../skills/./consolidate-free-time/SKILL.md)
 
 ---
 
@@ -100,7 +100,7 @@
 
 **什么时候会失效**：在明显被边缘化、存在结构性歧视的环境里，把"你能不能说清成果"当作唯一解释会变成二次伤害——须先承认权力与机会分配的现实约束；这问句是自我要求，不是邀功话术。
 
-→ 深入: [`contribution-question`](./contribution-question/SKILL.md)
+→ 深入: [`contribution-question`](../skills/./contribution-question/SKILL.md)
 
 ### 贡献三领域：直接成果 / 价值观 / 人才
 
@@ -110,7 +110,7 @@
 
 **什么时候会失效**：三领域不是 KPI 清单，不是增设三套考核指标；公共组织的多重目标（谁的价值观？）不是"把边界写清"就能消解的管理糊涂，可能只是政治必然。
 
-→ 深入: [`three-domains-of-contribution`](./three-domains-of-contribution/SKILL.md)
+→ 深入: [`three-domains-of-contribution`](../skills/./three-domains-of-contribution/SKILL.md)
 
 ### 交付设计：让专业产出为他人可用
 
@@ -118,7 +118,7 @@
 
 **什么时候会失效**：读者是同行评审时，同行语言正是正确选择——误用此方法会把专业精确性削成通俗化；组织拒用信息若源于权力与激励，"翻译"不能解决，须先处理制度。
 
-→ 深入: [`make-output-usable`](./make-output-usable/SKILL.md)
+→ 深入: [`make-output-usable`](../skills/./make-output-usable/SKILL.md)
 
 ---
 
@@ -134,7 +134,7 @@
 
 **什么时候会失效**：案例全部来自总统、将军、总裁级人事决策——"重设职位""另找岗位"的权力对中层与基层往往不存在，需降级为"在可控范围内调整分工与汇报关系"；调职、免职须依当地劳动法规与组织程序，本方法只管"该不该"，不提供执行合法性。
 
-→ 深入: [`strengths-based-staffing`](./strengths-based-staffing/SKILL.md)
+→ 深入: [`strengths-based-staffing`](../skills/./strengths-based-staffing/SKILL.md)
 
 ### 绩效考评四问：只评绩效，末问是资格门槛
 
@@ -142,7 +142,7 @@
 
 **什么时候会失效**：把四问改造成打分排序机器就违背设计意图（它是主管的私人判断工具，用于面谈与发展）；"潜能不可评估"是作者断言，与今日人才测评实践直接冲突——本单元采其"以长处为重心"的取向，不替其否定一切潜力评估工具；正直否决权须以具体行为事实为依据，防止被用来排除异己。
 
-→ 深入: [`appraisal-four-questions`](./appraisal-four-questions/SKILL.md)
+→ 深入: [`appraisal-four-questions`](../skills/./appraisal-four-questions/SKILL.md)
 
 ### 管理上司：用其长处，按他接受的方式
 
@@ -152,7 +152,7 @@
 
 **什么时候会失效**：上司存在正直问题或职场霸凌时，这不是沟通方式能解决的，应转入组织渠道与法律路径；"上司不升迁下属无法上升"是大科层组织的观察，在跳槽文化下部分失效。
 
-→ 深入: [`manage-your-boss`](./manage-your-boss/SKILL.md)
+→ 深入: [`manage-your-boss`](../skills/./manage-your-boss/SKILL.md)
 
 ### 发挥自己的长处：工作习惯与机会意识
 
@@ -162,7 +162,7 @@
 
 **什么时候会失效**："限制多半是借口"不能用来把真实的结构问题个人化——歧视、照护责任、资源绝对匮乏是硬约束，其正确动作可能是联合行动、换环境或争取制度改变；本单元也不替用户做职业去留决策（要不要接受升职、要不要离职），只回答"匹配度与做法"一维。
 
-→ 深入: [`use-your-own-strengths`](./use-your-own-strengths/SKILL.md)
+→ 深入: [`use-your-own-strengths`](../skills/./use-your-own-strengths/SKILL.md)
 
 ---
 
@@ -178,7 +178,7 @@
 
 **什么时候会失效**：涉及员工安置、客户合约、监管义务的关停必须叠加法律与合规流程，本方法只管"该不该"；主业暂时亏损但属战略必需（基础设施、牌照、临床期项目）——能证明"确属有效及需要"者不适用放弃；也一律不用于个人坏习惯的戒断（那是行为设计范畴）。
 
-→ 深入: [`abandon-yesterday`](./abandon-yesterday/SKILL.md)
+→ 深入: [`abandon-yesterday`](../skills/./abandon-yesterday/SKILL.md)
 
 ### 优先次序四原则与"优后"
 
@@ -188,7 +188,7 @@
 
 **什么时候会失效**：如果用户没有资源调配权，"优后"决定须由有权限者做出——本方法提供论据与压力偏差分析，不假装用户能单方面暂缓组织级项目。
 
-→ 深入: [`priority-and-posterior`](./priority-and-posterior/SKILL.md)
+→ 深入: [`priority-and-posterior`](../skills/./priority-and-posterior/SKILL.md)
 
 ### 一次只做一件事
 
@@ -198,7 +198,7 @@
 
 **什么时候会失效**：值守型/响应型岗位（客服、运维、急诊）的事务队列本质要求并行响应，"一次只做一件事"只适用于其中的"要事"；无连续时间可得时，替代动作是先争取每天 30–60 分钟的稳定连续段。
 
-→ 深入: [`one-thing-at-a-time`](./one-thing-at-a-time/SKILL.md)
+→ 深入: [`one-thing-at-a-time`](../skills/./one-thing-at-a-time/SKILL.md)
 
 ---
 
@@ -214,7 +214,7 @@
 
 **什么时候会失效**：五要素是方向与顺序的标准，不是算法——德鲁克自认没有给出"如何识别例行事件、找出边界条件"的具体方法；危机响应中的即时决策不适用完整程序（德鲁克自己说有效的决策者"给人的印象是决策往往需要宽松的时间"）。
 
-→ 深入: [`decision-five-elements`](./decision-five-elements/SKILL.md)
+→ 深入: [`decision-five-elements`](../skills/./decision-five-elements/SKILL.md)
 
 ### 问题四分类：先假定它是经常性问题
 
@@ -224,7 +224,7 @@
 
 **什么时候会失效**：四分类不覆盖"结构性政治问题"（谁受益谁受损的再分配冲突）——把政治问题误判为技术问题是本方法的边界；已有明确规则且问题在规则覆盖内时直接执行，不需要为分类而分类。
 
-→ 深入: [`problem-classification`](./problem-classification/SKILL.md)
+→ 深入: [`problem-classification`](../skills/./problem-classification/SKILL.md)
 
 ### 边界条件：判定"够不够格"与"何时抛弃"
 
@@ -234,7 +234,7 @@
 
 **什么时候会失效**：边界条件的确定"是一种充满风险的判断"，德鲁克没有给"各方边界条件冲突时谁说了算"的裁决程序，实践中需自行补充对齐机制（书面清单、责任人裁定）。
 
-→ 深入: [`boundary-conditions`](./boundary-conditions/SKILL.md)
+→ 深入: [`boundary-conditions`](../skills/./boundary-conditions/SKILL.md)
 
 ### 先"正确"后折中：半片面包 vs 半个婴儿
 
@@ -244,7 +244,7 @@
 
 **什么时候会失效**：双方没有共同目标、纯立场争夺的零和博弈不适用（本方法预设"存在一个满足边界条件的正确解"）；"先正确"不是不肯让步的挡箭牌；权力不对等时，算出"正确"仍可能被迫接受错误折中——方法只完成了"辨别"，没有提供"守住"的杠杆。
 
-→ 深入: [`correct-before-compromise`](./correct-before-compromise/SKILL.md)
+→ 深入: [`correct-before-compromise`](../skills/./correct-before-compromise/SKILL.md)
 
 ### 化决策为行动四问：含衡量与激励同步
 
@@ -254,7 +254,7 @@
 
 **什么时候会失效**：衡量与激励的改动通常超出中基层权限，德鲁克未给"无权限者如何推动"的路径；四问预设决策者有权指名道姓，对无下属者，有效部分退化为"向谁澄清、与谁对齐"。
 
-→ 深入: [`decision-to-action`](./decision-to-action/SKILL.md)
+→ 深入: [`decision-to-action`](../skills/./decision-to-action/SKILL.md)
 
 ### 反馈制度：决策前反馈与亲自视察
 
@@ -264,7 +264,7 @@
 
 **什么时候会失效**：日常进度跟踪不需要"检验衡量方法"这一层；"亲自视察"要防止变成微观管理——目的是获取未被报告过滤的现实，不是替代执行者做事；无实体现场的决策（内容策略、算法指标）改用与使用者直接对话、完整走一遍用户路径、抽查原始样本等直接证据渠道。
 
-→ 深入: [`feedback-and-inspect`](./feedback-and-inspect/SKILL.md)
+→ 深入: [`feedback-and-inspect`](../skills/./feedback-and-inspect/SKILL.md)
 
 ---
 
@@ -278,7 +278,7 @@
 
 **什么时候会失效**：纯事实查询不适用（直接查数）；两个都"经得起验证"的见解互相矛盾时，书中没有裁决程序，需补充责任人裁定或外部判据；"见解为先"不是拒绝取证的挡箭牌。
 
-→ 深入: [`opinions-first`](./opinions-first/SKILL.md)
+→ 深入: [`opinions-first`](../skills/./opinions-first/SKILL.md)
 
 ### 反面意见：把"一致同意"当警号
 
@@ -288,7 +288,7 @@
 
 **什么时候会失效**：危机处置现场先行动、事后复盘；在政治化组织里，鼓励异议+"假定出于至诚"的组合可能被用来无限拖延——德鲁克未设防操纵机制，本单元已在 E 段补上收敛规则与拍板时限；提出异议者的保护机制书中未讨论，文化未改善前不宜强推对抗式检验。
 
-→ 深入: [`dissent-as-resource`](./dissent-as-resource/SKILL.md)
+→ 深入: [`dissent-as-resource`](../skills/./dissent-as-resource/SKILL.md)
 
 ### 是否需要决策与做全：两端判据
 
@@ -298,7 +298,7 @@
 
 **什么时候会失效**："不做也是决策"不能被当拖延或卸责的挡箭牌（判据是"保持现状会有什么后果"）；把最后一步归为勇气容易滑向对人品的评判，掩盖真实阻碍（信息不足、授权不清）；无拍板权者应先解决授权问题。
 
-→ 深入: [`decide-and-act-fully`](./decide-and-act-fully/SKILL.md)
+→ 深入: [`decide-and-act-fully`](../skills/./decide-and-act-fully/SKILL.md)
 
 ---
 

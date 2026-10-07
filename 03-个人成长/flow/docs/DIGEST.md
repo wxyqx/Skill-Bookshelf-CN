@@ -30,7 +30,7 @@
 
 **什么时候会失效**：享乐并非"不好"——极度疲劳时恢复均衡是必要的。但把享乐当成唯一的愉悦来源，生活品质必然持续下降。
 
-→ 深入：[`pleasure-vs-enjoyment`](./pleasure-vs-enjoyment/SKILL.md)
+→ 深入：[`pleasure-vs-enjoyment`](../skills/./pleasure-vs-enjoyment/SKILL.md)
 
 ---
 
@@ -48,7 +48,7 @@
 
 **什么时候会失效**：注意力问题是生理性的（ADHD、睡眠不足）时，需要医学干预。且"126比特"是估算，不应作为精确值。
 
-→ 深入：[`attention-audit`](./attention-audit/SKILL.md)
+→ 深入：[`attention-audit`](../skills/./attention-audit/SKILL.md)
 
 ---
 
@@ -68,7 +68,7 @@
 
 > "乐趣仿佛是无聊与焦虑中间的藩篱，在此，挑战与行动能力恰好平衡。"
 
-→ 深入：[`flow-channel-trigger`](./flow-channel-trigger/SKILL.md)
+→ 深入：[`flow-channel-trigger`](../skills/./flow-channel-trigger/SKILL.md)
 
 ### 心流活动设计
 
@@ -76,7 +76,7 @@
 
 德国物理学家海因茨·莱布尼茨为应对无聊会议，发明了手指敲击888种组合的小游戏——在桌沿用手指按固定顺序敲击，加入休止变化可产生888种组合。他甚至用它记录思考时间。这证明：不需要更换活动，只需要在活动中嵌入微型游戏。
 
-→ 深入：[`flow-activity-designer`](./flow-activity-designer/SKILL.md)
+→ 深入：[`flow-activity-designer`](../skills/./flow-activity-designer/SKILL.md)
 
 ---
 
@@ -98,7 +98,7 @@
 
 三种压力应对资源中（外来支持/心理资源/适应策略），**适应策略最重要也最可自主控制**。退化型适应（否认/逃避/借酒消愁）→自我萎缩；转换型适应（重定义/学习/行动）→自我成长。
 
-→ 深入：[`adversity-converter`](./adversity-converter/SKILL.md)
+→ 深入：[`adversity-converter`](../skills/./adversity-converter/SKILL.md)
 
 ---
 
@@ -116,7 +116,7 @@
 
 构建人生主题不应从零开始——从前人智慧（哲学、宗教、艺术、文学）中汲取秩序模式。马尔科姆·艾克斯在狱中通过阅读和思考"发现"了新目标，不是凭空创造。
 
-→ 深入：[`life-theme-builder`](./life-theme-builder/SKILL.md)
+→ 深入：[`life-theme-builder`](../skills/./life-theme-builder/SKILL.md)
 
 ### 意义螺旋评估
 
@@ -124,7 +124,7 @@
 
 **自由增加反而不利于创造意义**——选择过多→方向摇摆→决心衰退→目标贬值。有限且明确的选择更容易投入心流。
 
-→ 深入：[`meaning-spiral-assessor`](./meaning-spiral-assessor/SKILL.md)
+→ 深入：[`meaning-spiral-assessor`](../skills/./meaning-spiral-assessor/SKILL.md)
 
 ### 行动反省平衡
 
@@ -132,7 +132,7 @@
 
 行动式生活（面对具体外在挑战）和反省式生活（独立评估选择）各有缺陷：前者忽视放弃的机会，后者缺乏行动力。**必须平衡——行动本身是盲目的，光靠反省又流于缺乏行动力。**
 
-→ 深入：[`action-reflection-balance`](./action-reflection-balance/SKILL.md)
+→ 深入：[`action-reflection-balance`](../skills/./action-reflection-balance/SKILL.md)
 
 ---
 

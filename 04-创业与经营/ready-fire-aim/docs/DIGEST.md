@@ -46,7 +46,7 @@ Marc Singer 是一位失业的英国移民，发现纽约地铁隧道里的 home
 
 ### 对应 Skill
 
-- [`ready-fire-aim`](./ready-fire-aim/SKILL.md)
+- [`ready-fire-aim`](../skills/./ready-fire-aim/SKILL.md)
 
 ---
 
@@ -87,7 +87,7 @@ Scott Moore 创立金融公关公司时，早期大多数营销想法都失败�
 
 #### 对应 Skill
 
-- [`optimum-selling-strategy`](./optimum-selling-strategy/SKILL.md)
+- [`optimum-selling-strategy`](../skills/./optimum-selling-strategy/SKILL.md)
 
 ---
 
@@ -123,7 +123,7 @@ AAC 的计算路径是：
 
 #### 对应 Skill
 
-- [`allowable-acquisition-cost`](./allowable-acquisition-cost/SKILL.md)
+- [`allowable-acquisition-cost`](../skills/./allowable-acquisition-cost/SKILL.md)
 
 ---
 
@@ -158,7 +158,7 @@ AAC 的计算路径是：
 
 #### 对应 Skill
 
-- [`front-end-back-end-marketing`](./front-end-back-end-marketing/SKILL.md)
+- [`front-end-back-end-marketing`](../skills/./front-end-back-end-marketing/SKILL.md)
 
 ---
 
@@ -192,7 +192,7 @@ USP 可以是行业中人人皆知但消费者第一次听说的真相。Schlitz
 
 #### 对应 Skill
 
-- [`unique-selling-proposition`](./unique-selling-proposition/SKILL.md)
+- [`unique-selling-proposition`](../skills/./unique-selling-proposition/SKILL.md)
 
 ---
 
@@ -234,7 +234,7 @@ FedEx 借此成为隔夜快递的代名词。
 
 #### 对应 Skill
 
-- [`marketing-four-legged-stool`](./marketing-four-legged-stool/SKILL.md)
+- [`marketing-four-legged-stool`](../skills/./marketing-four-legged-stool/SKILL.md)
 
 ---
 
@@ -264,7 +264,7 @@ FedEx 借此成为隔夜快递的代名词。
 
 #### 对应 Skill
 
-- [`tipping-point-innovation`](./tipping-point-innovation/SKILL.md)
+- [`tipping-point-innovation`](../skills/./tipping-point-innovation/SKILL.md)
 
 ---
 
@@ -303,7 +303,7 @@ Steve Carter 是作者的第一位出版业老板，擅长销售与开拓，但�
 
 #### 对应 Skill
 
-- [`four-stages-of-growth`](./four-stages-of-growth/SKILL.md)
+- [`four-stages-of-growth`](../skills/./four-stages-of-growth/SKILL.md)
 
 ---
 
@@ -336,7 +336,7 @@ Steve Carter 是作者的第一位出版业老板，擅长销售与开拓，但�
 
 #### 对应 Skill
 
-- [`bottleneck-diagnosis`](./bottleneck-diagnosis/SKILL.md)
+- [`bottleneck-diagnosis`](../skills/./bottleneck-diagnosis/SKILL.md)
 
 ---
 
@@ -369,7 +369,7 @@ Steve Carter 是作者的第一位出版业老板，擅长销售与开拓，但�
 
 #### 对应 Skill
 
-- [`free-market-management`](./free-market-management/SKILL.md)
+- [`free-market-management`](../skills/./free-market-management/SKILL.md)
 
 ---
 
@@ -400,7 +400,7 @@ Steve Carter 是作者的第一位出版业老板，擅长销售与开拓，但�
 
 #### 对应 Skill
 
-- [`incremental-degradation`](./incremental-degradation/SKILL.md)
+- [`incremental-degradation`](../skills/./incremental-degradation/SKILL.md)
 
 ---
 
@@ -482,14 +482,14 @@ Masterson 假设所有企业都天然适合“快速行动、快速修正”，�
 
 ## 结语：如何开始使用这些 Skill
 
-如果你刚有一个创业想法，建议从 [`ready-fire-aim`](./ready-fire-aim/SKILL.md) 开始：定义一个最小可销售版本，在 48–72 小时内获取真实反馈。
+如果你刚有一个创业想法，建议从 [`ready-fire-aim`](../skills/./ready-fire-aim/SKILL.md) 开始：定义一个最小可销售版本，在 48–72 小时内获取真实反馈。
 
-如果你已经在卖但还不稳定，使用 [`optimum-selling-strategy`](./optimum-selling-strategy/SKILL.md) 和 [`allowable-acquisition-cost`](./allowable-acquisition-cost/SKILL.md)：前者帮你找到可重复的获客组合，后者给你财务边界。
+如果你已经在卖但还不稳定，使用 [`optimum-selling-strategy`](../skills/./optimum-selling-strategy/SKILL.md) 和 [`allowable-acquisition-cost`](../skills/./allowable-acquisition-cost/SKILL.md)：前者帮你找到可重复的获客组合，后者给你财务边界。
 
-如果你有了稳定销售但增长放缓，进入 [`front-end-back-end-marketing`](./front-end-back-end-marketing/SKILL.md)、[`unique-selling-proposition`](./unique-selling-proposition/SKILL.md)、[`marketing-four-legged-stool`](./marketing-four-legged-stool/SKILL.md) 和 [`tipping-point-innovation`](./tipping-point-innovation/SKILL.md)：它们帮你把单一产品销售放大为可持续的营销系统。
+如果你有了稳定销售但增长放缓，进入 [`front-end-back-end-marketing`](../skills/./front-end-back-end-marketing/SKILL.md)、[`unique-selling-proposition`](../skills/./unique-selling-proposition/SKILL.md)、[`marketing-four-legged-stool`](../skills/./marketing-four-legged-stool/SKILL.md) 和 [`tipping-point-innovation`](../skills/./tipping-point-innovation/SKILL.md)：它们帮你把单一产品销售放大为可持续的营销系统。
 
-如果你感到“什么事都离不开我”，先用 [`four-stages-of-growth`](./four-stages-of-growth/SKILL.md) 判断阶段，再用 [`bottleneck-diagnosis`](./bottleneck-diagnosis/SKILL.md) 或 [`free-market-management`](./free-market-management/SKILL.md) 解决组织层面的瓶颈或政治。
+如果你感到“什么事都离不开我”，先用 [`four-stages-of-growth`](../skills/./four-stages-of-growth/SKILL.md) 判断阶段，再用 [`bottleneck-diagnosis`](../skills/./bottleneck-diagnosis/SKILL.md) 或 [`free-market-management`](../skills/./free-market-management/SKILL.md) 解决组织层面的瓶颈或政治。
 
-最后，无论处于哪一阶段，都要定期回到 [`incremental-degradation`](./incremental-degradation/SKILL.md)：畅销产品不是“没坏就不修”，而是需要持续小改进，否则会在不知不觉中变得平庸。
+最后，无论处于哪一阶段，都要定期回到 [`incremental-degradation`](../skills/./incremental-degradation/SKILL.md)：畅销产品不是“没坏就不修”，而是需要持续小改进，否则会在不知不觉中变得平庸。
 
 Masterson 的方法论不是一剂万能药，而是一套在不同阶段使用不同工具的地图。理解了它的边界，它比任何“成功学口号”都更有用。

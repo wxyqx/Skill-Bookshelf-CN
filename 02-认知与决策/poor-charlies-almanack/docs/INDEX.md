@@ -14,7 +14,7 @@
 - **整书理解**：见 [BOOK_OVERVIEW.md](./BOOK_OVERVIEW.md)
 - **精华长文**：见 [DIGEST.md](./DIGEST.md)
 - **术语词典**：见 [GLOSSARY.md](./GLOSSARY.md)
-- **使用指南**：见 [README.md](./README.md)
+- **使用指南**：见 [README.md](.././README.md)
 
 ---
 

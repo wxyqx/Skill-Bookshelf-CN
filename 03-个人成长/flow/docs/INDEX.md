@@ -18,23 +18,23 @@
 
 ### 心流诊断与触发
 
-- [`flow-channel-trigger`](./flow-channel-trigger/SKILL.md) — 诊断活动的挑战-技巧比例，调整进入心流通道
-- [`pleasure-vs-enjoyment`](./pleasure-vs-enjoyment/SKILL.md) — 区分恢复均衡型享乐与成长型乐趣，评估活动品质
-- [`flow-activity-designer`](./flow-activity-designer/SKILL.md) — 为无聊/重复性活动注入心流要素（目标/规则/反馈/难度）
+- [`flow-channel-trigger`](../skills/./flow-channel-trigger/SKILL.md) — 诊断活动的挑战-技巧比例，调整进入心流通道
+- [`pleasure-vs-enjoyment`](../skills/./pleasure-vs-enjoyment/SKILL.md) — 区分恢复均衡型享乐与成长型乐趣，评估活动品质
+- [`flow-activity-designer`](../skills/./flow-activity-designer/SKILL.md) — 为无聊/重复性活动注入心流要素（目标/规则/反馈/难度）
 
 ### 意识管理
 
-- [`attention-audit`](./attention-audit/SKILL.md) — 诊断注意力带宽分配，识别精神熵来源并重分配
+- [`attention-audit`](../skills/./attention-audit/SKILL.md) — 诊断注意力带宽分配，识别精神熵来源并重分配
 
 ### 逆境与成长
 
-- [`adversity-converter`](./adversity-converter/SKILL.md) — 将精神熵（打击/压力/创伤）转化为内在秩序（目标/挑战/成长）
+- [`adversity-converter`](../skills/./adversity-converter/SKILL.md) — 将精神熵（打击/压力/创伤）转化为内在秩序（目标/挑战/成长）
 
 ### 人生意义
 
-- [`life-theme-builder`](./life-theme-builder/SKILL.md) — 从分散目标中提炼统一人生主题，赋予整体生命意义
-- [`meaning-spiral-assessor`](./meaning-spiral-assessor/SKILL.md) — 评估当前意义发展阶段，判断是否该前进
-- [`action-reflection-balance`](./action-reflection-balance/SKILL.md) — 投入大目标前的五问自检与行动/反省平衡
+- [`life-theme-builder`](../skills/./life-theme-builder/SKILL.md) — 从分散目标中提炼统一人生主题，赋予整体生命意义
+- [`meaning-spiral-assessor`](../skills/./meaning-spiral-assessor/SKILL.md) — 评估当前意义发展阶段，判断是否该前进
+- [`action-reflection-balance`](../skills/./action-reflection-balance/SKILL.md) — 投入大目标前的五问自检与行动/反省平衡
 
 ---
 

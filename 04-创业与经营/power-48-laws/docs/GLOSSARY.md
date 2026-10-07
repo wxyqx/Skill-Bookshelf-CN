@@ -29,7 +29,7 @@
 **本书定义**: 积极、核心的权力获取方式。直线道路本身就是陷阱。迂回=以最不显眼的方式实施+优雅风度+掩盖攻击意图。
 **为什么重要**: 全书的元方法论。几乎所有 48 条法则都是迂回策略的具体应用。
 
-**关联 skill**: [`indirect-approach`](./indirect-approach/SKILL.md)
+**关联 skill**: [`indirect-approach`](../skills/./indirect-approach/SKILL.md)
 
 ---
 
@@ -42,7 +42,7 @@
 **本书定义**: 心理层面的系统策略。五种形式：高贵姿态、模式化行为、亲密融洽、平庸温和外表、张扬表演。
 **为什么重要**: 烟幕是隐藏意图的核心工具，不是简单的谎言而是创造让谎言自然融入的环境。
 
-**关联 skill**: [`conceal-intent`](./conceal-intent/SKILL.md)
+**关联 skill**: [`conceal-intent`](../skills/./conceal-intent/SKILL.md)
 
 ---
 
@@ -55,7 +55,7 @@
 **本书定义**: 权力工具和战略资源——可主动建立、可攻击对手、可漂白、可不战而胜。
 **为什么重要**: 声誉在本书中是动态的攻防武器而非静态标签。
 
-**关联 skill**: [`reputation-strategy`](./reputation-strategy/SKILL.md)
+**关联 skill**: [`reputation-strategy`](../skills/./reputation-strategy/SKILL.md)
 
 ---
 
@@ -68,7 +68,7 @@
 **本书定义**: 中性的、高度发达的文明艺术和权力核心武器。"人与人之间的交际互动在多方面都需要欺骗。"
 **为什么重要**: 全书的底层世界观之一。不理解欺诈的中性化定义，整本书会被误读为邪恶指南。
 
-**关联 skill**: [`conceal-intent`](./conceal-intent/SKILL.md), [`selective-honesty`](./selective-honesty/SKILL.md), [`strategic-surrender`](./strategic-surrender/SKILL.md)
+**关联 skill**: [`conceal-intent`](../skills/./conceal-intent/SKILL.md), [`selective-honesty`](../skills/./selective-honesty/SKILL.md), [`strategic-surrender`](../skills/./strategic-surrender/SKILL.md)
 
 ---
 
@@ -81,7 +81,7 @@
 **本书定义**: 主动的防御工具和技能。耐心什么都不需要只需要时间，它防止犯下愚蠢大错。缺乏耐心"只会让你变得虚弱"。
 **为什么重要**: 与欺诈构成"武器与盾牌"的对仗关系。耐心是权力之神的至高美德。
 
-**关联 skill**: [`patience-shield`](./patience-shield/SKILL.md)
+**关联 skill**: [`patience-shield`](../skills/./patience-shield/SKILL.md)
 
 ---
 
@@ -94,7 +94,7 @@
 **本书定义**: 权力博弈中的陷阱和借口。即使朋友心怀善意但结果造成损害，用道德判断会"混淆概念、模糊主题，起到欺骗的作用"。
 **为什么重要**: "超越道德判断"是全书的哲学基础。不理解这一点，整本书会被误读为道德说教。
 
-**关联 skill**: [`result-judgment`](./result-judgment/SKILL.md)
+**关联 skill**: [`result-judgment`](../skills/./result-judgment/SKILL.md)
 
 ---
 
@@ -107,7 +107,7 @@
 **本书定义**: 权力博弈中的可预期驱动力——不是需要治疗的情感问题，而是可以利用和规避的战略变量。
 **为什么重要**: 上司的不安全感决定了下属应隐藏的程度，是 manage-superior 的核心心理机制。
 
-**关联 skill**: [`manage-superior`](./manage-superior/SKILL.md)
+**关联 skill**: [`manage-superior`](../skills/./manage-superior/SKILL.md)
 
 ---
 
@@ -120,7 +120,7 @@
 **本书定义**: 去道德化的人性规律和权力博弈的必然结果。施恩会"打破所有事情应有的平衡"，使人"忘记了所受的恩惠"。
 **为什么重要**: 忘恩负义是可预期的人性反应，需要以策略而非道德来应对——这决定了"利用敌人优于朋友"的逻辑基础。
 
-**关联 skill**: [`enemy-to-ally`](./enemy-to-ally/SKILL.md)
+**关联 skill**: [`enemy-to-ally`](../skills/./enemy-to-ally/SKILL.md)
 
 ---
 
@@ -132,7 +132,7 @@
 > — 前言，引拿破仑
 
 **含义**: 外在文明优雅（天鹅绒手套、甜美微笑）与内在强硬冷酷（铁手、利刃）的结合。概括全书方法论：表面文明高尚，实际深谋远虑和毫不留情。
-**关联 skill**: [`indirect-approach`](./indirect-approach/SKILL.md), [`conceal-intent`](./conceal-intent/SKILL.md)
+**关联 skill**: [`indirect-approach`](../skills/./indirect-approach/SKILL.md), [`conceal-intent`](../skills/./conceal-intent/SKILL.md)
 
 ---
 
@@ -162,7 +162,7 @@
 > — 前言
 
 **含义**: 主动的角色扮演能力——不是精神分裂而是演员般的专业切换。内心不背负沉重负疚感是前提条件。千面人是获取权力的关键能力而非道德缺陷。
-**关联 skill**: [`conceal-intent`](./conceal-intent/SKILL.md), [`strategic-surrender`](./strategic-surrender/SKILL.md), [`manage-superior`](./manage-superior/SKILL.md)
+**关联 skill**: [`conceal-intent`](../skills/./conceal-intent/SKILL.md), [`strategic-surrender`](../skills/./strategic-surrender/SKILL.md), [`manage-superior`](../skills/./manage-superior/SKILL.md)
 
 ---
 

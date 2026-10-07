@@ -26,7 +26,7 @@
 
 **什么时候会失效**: 精神科急症（命令性幻听）不适用"观察"，须就医；创伤闪回急性期先做稳定化；"观察即转化"对成瘾、重度抑郁的效力未证。
 
-→ 深入: [`observe-the-thinker`](./observe-the-thinker/SKILL.md)
+→ 深入: [`observe-the-thinker`](../skills/./observe-the-thinker/SKILL.md)
 
 ### 与内在身体联结：转化通过身体发生
 
@@ -36,7 +36,7 @@
 
 **什么时候会失效**: 不明躯体症状、急性伤病必须先就医；书中"进驻内在身体可减缓衰老、增强免疫"是未经举证的主张，不构成医疗建议。
 
-→ 深入: [`inner-body-connection`](./inner-body-connection/SKILL.md)
+→ 深入: [`inner-body-connection`](../skills/./inner-body-connection/SKILL.md)
 
 ### 寂静与空间：最省力的门
 
@@ -46,7 +46,7 @@
 
 **什么时候会失效**: 需要精确听取内容的场合（会议纪要、操作指令）不适用；耳鸣等听力问题先就医。
 
-→ 深入: [`silence-and-space`](./silence-and-space/SKILL.md)
+→ 深入: [`silence-and-space`](../skills/./silence-and-space/SKILL.md)
 
 ---
 
@@ -62,7 +62,7 @@
 
 **什么时候会失效**: 急性心理危机（惊恐发作、闪回）先转介专业干预；现实侵害正在发生时安全与维权优先；持续两周以上的低落先做临床评估。
 
-→ 深入: [`pain-body-awareness`](./pain-body-awareness/SKILL.md)
+→ 深入: [`pain-body-awareness`](../skills/./pain-body-awareness/SKILL.md)
 
 ### 无意识分层与挑战测试：独处的平静不作数
 
@@ -72,7 +72,7 @@
 
 **什么时候会失效**: 不能替代临床评估；只能自测，给他人打"意识分"违背原意且沦为傲慢。
 
-→ 深入: [`unconsciousness-levels`](./unconsciousness-levels/SKILL.md)
+→ 深入: [`unconsciousness-levels`](../skills/./unconsciousness-levels/SKILL.md)
 
 ### 情绪真实性检验：思维与情绪冲突时，信身体
 
@@ -82,7 +82,7 @@
 
 **什么时候会失效**: 有明确外部数据的决策（条款、体检指标）数据优先；躯体症状必须交给医学检查；临床状态下读到的"情绪真实"是症状的真实。
 
-→ 深入: [`emotion-as-truth-check`](./emotion-as-truth-check/SKILL.md)
+→ 深入: [`emotion-as-truth-check`](../skills/./emotion-as-truth-check/SKILL.md)
 
 ---
 
@@ -98,7 +98,7 @@
 
 **什么时候会失效**: 单纯的日程管理、纪念性怀旧不适用；对集体性创伤，"放下过去"会消解记忆与追责的正当性。
 
-→ 深入: [`clock-time-vs-psychological-time`](./clock-time-vs-psychological-time/SKILL.md)
+→ 深入: [`clock-time-vs-psychological-time`](../skills/./clock-time-vs-psychological-time/SKILL.md)
 
 ### 此刻问题清零：焦虑的燃料库
 
@@ -108,7 +108,7 @@
 
 **什么时候会失效**: 火警、事故等此刻真实紧急事务先行动；合理风险规划（买保险、做预案）是钟表时间不是反刍；借"当下无问题"逃避必要对话是灵性逃避。
 
-→ 深入: [`no-problem-in-now`](./no-problem-in-now/SKILL.md)
+→ 深入: [`no-problem-in-now`](../skills/./no-problem-in-now/SKILL.md)
 
 ### 等待状态：用一生等待生活开始的人
 
@@ -118,7 +118,7 @@
 
 **什么时候会失效**: 等待中的必要行动（催进度、备 Plan B）先做；医疗结果等高应激等待只作辅助，不强迫"享受等待"。
 
-→ 深入: [`waiting-state-exit`](./waiting-state-exit/SKILL.md)
+→ 深入: [`waiting-state-exit`](../skills/./waiting-state-exit/SKILL.md)
 
 ### 压力诊断：身在此、心在彼
 
@@ -128,7 +128,7 @@
 
 **什么时候会失效**: 慢性过载与职业倦怠需要减负、休息与边界谈判，不是更高效地"享受忙碌"；老板派不可能完成的量是制度问题，不是内在分裂。
 
-→ 深入: [`pressure-here-wanting-there`](./pressure-here-wanting-there/SKILL.md)
+→ 深入: [`pressure-here-wanting-there`](../skills/./pressure-here-wanting-there/SKILL.md)
 
 ### 内在目的 vs 外在目的：目标之外的第二根轴
 
@@ -138,7 +138,7 @@
 
 **什么时候会失效**: 不提供职业选择答案；生存性困境中"改 how 不改 what"可能成为忍受伤害的借口；持续无意义感是症状不是哲学问题。
 
-→ 深入: [`inner-purpose-vs-outer-purpose`](./inner-purpose-vs-outer-purpose/SKILL.md)
+→ 深入: [`inner-purpose-vs-outer-purpose`](../skills/./inner-purpose-vs-outer-purpose/SKILL.md)
 
 ### 不要试图理解过去：警惕无底洞
 
@@ -146,7 +146,7 @@
 
 **什么时候会失效（硬边界）**: 这是全书与临床证据冲突最尖锐处——创伤研究强烈支持"过去需要被专业处理"。凡涉及创伤（PTSD、虐待、重大丧失），必须转介专业心理治疗；本原则不构成放弃治疗的依据。
 
-→ 深入: [`no-understanding-the-past`](./no-understanding-the-past/SKILL.md)
+→ 深入: [`no-understanding-the-past`](../skills/./no-understanding-the-past/SKILL.md)
 
 ---
 
@@ -162,7 +162,7 @@
 
 **什么时候会失效**: 安全、法律、健康受威胁时先止损维权；重大丧失的急性哀伤有自己的过程，强行"接纳"是压抑的变体。
 
-→ 深入: [`accept-then-act`](./accept-then-act/SKILL.md)
+→ 深入: [`accept-then-act`](../skills/./accept-then-act/SKILL.md)
 
 ### 两次臣服机会（厄运级）
 
@@ -172,7 +172,7 @@
 
 **什么时候会失效**: 事实仍可改变且情绪尚可承受时先行动；对结构性不公必须先穷尽维权路径，"臣服"一词有安抚受害者之嫌；自伤念头等急性危机立即转介。
 
-→ 深入: [`two-surrender-chances`](./two-surrender-chances/SKILL.md)
+→ 深入: [`two-surrender-chances`](../skills/./two-surrender-chances/SKILL.md)
 
 ### 非反应的"不"：冲突现场
 
@@ -182,7 +182,7 @@
 
 **什么时候会失效**: 暴力、霸凌、欺诈现场先安全、先程序——"放弃反应"不等于不举报、不报警；权力不对等的重大利害（职场抢功涉晋升）主路径是留证据走程序。
 
-→ 深入: [`non-reactive-no`](./non-reactive-no/SKILL.md)
+→ 深入: [`non-reactive-no`](../skills/./non-reactive-no/SKILL.md)
 
 ### 假接纳警报：修炼者的质检
 
@@ -192,7 +192,7 @@
 
 **什么时候会失效**: 急性情绪事件现场做元诊断是二次伤害；对不公的正当愤怒不能用"假接纳"否定；临床抑郁焦虑中"话术与情绪不符"是症状不是修行问题。
 
-→ 深入: [`fake-acceptance-alert`](./fake-acceptance-alert/SKILL.md)
+→ 深入: [`fake-acceptance-alert`](../skills/./fake-acceptance-alert/SKILL.md)
 
 ### 当下宽恕：不给未来囤积怨恨
 
@@ -202,7 +202,7 @@
 
 **什么时候会失效**: 伤害正在持续先止损求助；绝不用于催促他人"大度"；重大创伤的宽恕须在专业支持下进行。
 
-→ 深入: [`present-forgiveness`](./present-forgiveness/SKILL.md)
+→ 深入: [`present-forgiveness`](../skills/./present-forgiveness/SKILL.md)
 
 ---
 
@@ -218,7 +218,7 @@
 
 **什么时候会失效（硬边界）**: 家暴、恐吓、控制不是"道场"——"每一个危机都蕴藏机会"绝不能成为留在危险关系里的理由；一方觉察、另一方持续施害且拒绝觉察的消耗关系，作者框架在此失效。
 
-→ 深入: [`relationship-as-awareness-dojo`](./relationship-as-awareness-dojo/SKILL.md)
+→ 深入: [`relationship-as-awareness-dojo`](../skills/./relationship-as-awareness-dojo/SKILL.md)
 
 ### 完全接受你的伴侣（微观操作）
 
@@ -226,7 +226,7 @@
 
 **什么时候会失效（硬边界）**: 暴力、控制、成瘾伤害不得套用接受原则——"完全接受"不是受害者忍受伤害的理由，更不得被施害方征用为话术。
 
-→ 深入: [`fully-accept-your-partner`](./fully-accept-your-partner/SKILL.md)
+→ 深入: [`fully-accept-your-partner`](../skills/./fully-accept-your-partner/SKILL.md)
 
 ---
 

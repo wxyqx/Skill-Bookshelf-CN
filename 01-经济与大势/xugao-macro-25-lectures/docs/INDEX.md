@@ -6,30 +6,30 @@
 
 | # | Skill | 一句话定位 | 主要讲次 |
 |---|---|---|---|
-| 1 | [`six-levels-thinking`](skills/six-levels-thinking/SKILL.md) | **元框架入口**：六层思维把中国经济观点定位到谱系 | 第25讲 |
-| 2 | [`china-macro-perspective`](skills/china-macro-perspective/SKILL.md) | 水与石头：普适工具+中国约束的分析方法论 | 前言/第1讲 |
-| 3 | [`price-quantity-diagnosis`](skills/price-quantity-diagnosis/SKILL.md) | 价量判别法：同向=需求主导、反向=供给主导 | 第1/3讲 |
-| 4 | [`gdp-welfare-analysis`](skills/gdp-welfare-analysis/SKILL.md) | GDP 与福利标尺：终极关切追问链 | 第2讲 |
-| 5 | [`china-growth-accounting`](skills/china-growth-accounting/SKILL.md) | 增长供给面：生产函数与增长核算 | 第3讲 |
-| 6 | [`development-strategy-analysis`](skills/development-strategy-analysis/SKILL.md) | 发展战略：比较优势 vs 赶超与索洛剩余再解读 | 第4讲 |
-| 7 | [`equilibrium-methodology`](skills/equilibrium-methodology/SKILL.md) | 一般均衡建模纪律：内生外生/求解纪律/校准 | 第5-6讲 |
-| 8 | [`expectations-lucas-critique`](skills/expectations-lucas-critique/SKILL.md) | 理性预期与卢卡斯批判：政策评估必内生化预期 | 第5讲 |
-| 9 | [`ramsey-consumption-savings`](skills/ramsey-consumption-savings/SKILL.md) | 拉姆齐模型：跨期消费储蓄与刺穿企业帷幕 | 第7-8讲 |
-| 10 | [`china-underconsumption`](skills/china-underconsumption/SKILL.md) | 消费不足诊断：收入分配根源与国企分红 | 第9讲 |
-| 11 | [`global-imbalances-saving-glut`](skills/global-imbalances-saving-glut/SKILL.md) | 全球失衡：S-I=CA 与过剩储蓄外溢 | 第10讲 |
-| 12 | [`bop-crisis-dollar-privilege`](skills/bop-crisis-dollar-privilege/SKILL.md) | 国际收支危机与美元过度特权 | 第11讲 |
-| 13 | [`fiscal-keynes-vs-ricardo`](skills/fiscal-keynes-vs-ricardo/SKILL.md) | 财政政策：凯恩斯 vs 李嘉图的产能闲置度裁决 | 第12讲 |
-| 14 | [`money-neutrality-analysis`](skills/money-neutrality-analysis/SKILL.md) | 货币中性：交易方程式/古典二分法/两层账 | 第13讲 |
-| 15 | [`phillips-curve-china`](skills/phillips-curve-china/SKILL.md) | 菲利普斯曲线：中国逆时针螺旋与产出缺口 | 第14讲 |
-| 16 | [`monetary-transmission-blockage`](skills/monetary-transmission-blockage/SKILL.md) | 传导堰塞湖：市场分割与流动性效应 | 第15讲 |
-| 17 | [`soft-budget-constraint`](skills/soft-budget-constraint/SKILL.md) | 预算软约束：刚性兑付、挤出与财政接权 | 第16讲 |
-| 18 | [`monetary-policy-toolbox`](skills/monetary-policy-toolbox/SKILL.md) | 货币政策工具箱：泰勒准则、三环套利、伯南克路线图 | 第17-18讲 |
-| 19 | [`china-monetary-practice`](skills/china-monetary-practice/SKILL.md) | 中国货币政策实践：财政/货币主导与两步法 | 第19讲 |
-| 20 | [`exchange-rate-open-money`](skills/exchange-rate-open-money/SKILL.md) | 开放经济货币：UIP 检验、不可能三角、冲销 | 第20讲 |
-| 21 | [`china-inflation-housing`](skills/china-inflation-housing/SKILL.md) | 结构性通胀与房价：土地垄断供给 | 第21讲 |
-| 22 | [`china-debt-financial-chaos`](skills/china-debt-financial-chaos/SKILL.md) | 债务与金融乱象：刚性储蓄者与猫鼠博弈 | 第22讲 |
-| 23 | [`macro-theory-debate`](skills/macro-theory-debate/SKILL.md) | 理论之争：新古典综合 vs 非正统的需求不足 | 第23-24讲 |
-| 24 | [`second-best-transition`](skills/second-best-transition/SKILL.md) | 次优理论与转轨策略：阵痛是约束信号 | 第25讲 |
+| 1 | [`six-levels-thinking`](../skills/six-levels-thinking/SKILL.md) | **元框架入口**：六层思维把中国经济观点定位到谱系 | 第25讲 |
+| 2 | [`china-macro-perspective`](../skills/china-macro-perspective/SKILL.md) | 水与石头：普适工具+中国约束的分析方法论 | 前言/第1讲 |
+| 3 | [`price-quantity-diagnosis`](../skills/price-quantity-diagnosis/SKILL.md) | 价量判别法：同向=需求主导、反向=供给主导 | 第1/3讲 |
+| 4 | [`gdp-welfare-analysis`](../skills/gdp-welfare-analysis/SKILL.md) | GDP 与福利标尺：终极关切追问链 | 第2讲 |
+| 5 | [`china-growth-accounting`](../skills/china-growth-accounting/SKILL.md) | 增长供给面：生产函数与增长核算 | 第3讲 |
+| 6 | [`development-strategy-analysis`](../skills/development-strategy-analysis/SKILL.md) | 发展战略：比较优势 vs 赶超与索洛剩余再解读 | 第4讲 |
+| 7 | [`equilibrium-methodology`](../skills/equilibrium-methodology/SKILL.md) | 一般均衡建模纪律：内生外生/求解纪律/校准 | 第5-6讲 |
+| 8 | [`expectations-lucas-critique`](../skills/expectations-lucas-critique/SKILL.md) | 理性预期与卢卡斯批判：政策评估必内生化预期 | 第5讲 |
+| 9 | [`ramsey-consumption-savings`](../skills/ramsey-consumption-savings/SKILL.md) | 拉姆齐模型：跨期消费储蓄与刺穿企业帷幕 | 第7-8讲 |
+| 10 | [`china-underconsumption`](../skills/china-underconsumption/SKILL.md) | 消费不足诊断：收入分配根源与国企分红 | 第9讲 |
+| 11 | [`global-imbalances-saving-glut`](../skills/global-imbalances-saving-glut/SKILL.md) | 全球失衡：S-I=CA 与过剩储蓄外溢 | 第10讲 |
+| 12 | [`bop-crisis-dollar-privilege`](../skills/bop-crisis-dollar-privilege/SKILL.md) | 国际收支危机与美元过度特权 | 第11讲 |
+| 13 | [`fiscal-keynes-vs-ricardo`](../skills/fiscal-keynes-vs-ricardo/SKILL.md) | 财政政策：凯恩斯 vs 李嘉图的产能闲置度裁决 | 第12讲 |
+| 14 | [`money-neutrality-analysis`](../skills/money-neutrality-analysis/SKILL.md) | 货币中性：交易方程式/古典二分法/两层账 | 第13讲 |
+| 15 | [`phillips-curve-china`](../skills/phillips-curve-china/SKILL.md) | 菲利普斯曲线：中国逆时针螺旋与产出缺口 | 第14讲 |
+| 16 | [`monetary-transmission-blockage`](../skills/monetary-transmission-blockage/SKILL.md) | 传导堰塞湖：市场分割与流动性效应 | 第15讲 |
+| 17 | [`soft-budget-constraint`](../skills/soft-budget-constraint/SKILL.md) | 预算软约束：刚性兑付、挤出与财政接权 | 第16讲 |
+| 18 | [`monetary-policy-toolbox`](../skills/monetary-policy-toolbox/SKILL.md) | 货币政策工具箱：泰勒准则、三环套利、伯南克路线图 | 第17-18讲 |
+| 19 | [`china-monetary-practice`](../skills/china-monetary-practice/SKILL.md) | 中国货币政策实践：财政/货币主导与两步法 | 第19讲 |
+| 20 | [`exchange-rate-open-money`](../skills/exchange-rate-open-money/SKILL.md) | 开放经济货币：UIP 检验、不可能三角、冲销 | 第20讲 |
+| 21 | [`china-inflation-housing`](../skills/china-inflation-housing/SKILL.md) | 结构性通胀与房价：土地垄断供给 | 第21讲 |
+| 22 | [`china-debt-financial-chaos`](../skills/china-debt-financial-chaos/SKILL.md) | 债务与金融乱象：刚性储蓄者与猫鼠博弈 | 第22讲 |
+| 23 | [`macro-theory-debate`](../skills/macro-theory-debate/SKILL.md) | 理论之争：新古典综合 vs 非正统的需求不足 | 第23-24讲 |
+| 24 | [`second-best-transition`](../skills/second-best-transition/SKILL.md) | 次优理论与转轨策略：阵痛是约束信号 | 第25讲 |
 
 ## 引用关系图
 

@@ -28,7 +28,7 @@
 
 **什么时候会失效**：需求明确、可交付验收的执行型任务用它只会拖慢交付；成熟业务的渐进优化用传统计划-执行-考核更高效。它是第二套体制，不是替代品。
 
-→ 深入：[`organizational-experiment-loop`](./organizational-experiment-loop/SKILL.md)
+→ 深入：[`organizational-experiment-loop`](../skills/./organizational-experiment-loop/SKILL.md)
 
 ### 信仰飞跃假设审计
 
@@ -40,7 +40,7 @@
 
 **什么时候会失效**：已有真实行为数据时直接看数据，不必走审计；假设已选定、只差测试载体时转用 MVP 三件套。
 
-→ 深入：[`leap-of-faith-assumption-audit`](./leap-of-faith-assumption-audit/SKILL.md)
+→ 深入：[`leap-of-faith-assumption-audit`](../skills/./leap-of-faith-assumption-audit/SKILL.md)
 
 ### 价值与增长假设二分，与好实验四特征
 
@@ -52,7 +52,7 @@
 
 **什么时候会失效**：已过产品市场匹配的成熟业务不必回到假设二分；合规与安全底线不可用"风险控制"绕过——风险控制解决的是商业风险，不是监管责任。
 
-→ 深入：[`value-and-growth-hypotheses`](./value-and-growth-hypotheses/SKILL.md)、[`good-experiment-four-traits`](./good-experiment-four-traits/SKILL.md)
+→ 深入：[`value-and-growth-hypotheses`](../skills/./value-and-growth-hypotheses/SKILL.md)、[`good-experiment-four-traits`](../skills/./good-experiment-four-traits/SKILL.md)
 
 ### MVP 三件套与"为学习，不为规模"
 
@@ -64,7 +64,7 @@
 
 **什么时候会失效**：已经验证、进入执行期的正式版本，质量就是价值本身；强监管场景的合规底线不可绕——但注意"合规 ≠ 高可用"，可谈的是把合规参数化，而不是放弃实验；也不准拿"这是 MVP"当借口逃避基本可用性。
 
-→ 深入：[`mvp-trio-and-scorecard`](./mvp-trio-and-scorecard/SKILL.md)、[`mvp-for-learning-not-scale`](./mvp-for-learning-not-scale/SKILL.md)
+→ 深入：[`mvp-trio-and-scorecard`](../skills/./mvp-trio-and-scorecard/SKILL.md)、[`mvp-for-learning-not-scale`](../skills/./mvp-for-learning-not-scale/SKILL.md)
 
 ### PRFAQ 逆向工作法与商业模式实验六问
 
@@ -76,7 +76,7 @@
 
 **什么时候会失效**：需求已明确的执行项目直接排期，写"新闻稿"是表演；PRFAQ 也替代不了行为验证——口头兴趣不等于付款，之后仍需 MVP。
 
-→ 深入：[`prfaq-working-backwards`](./prfaq-working-backwards/SKILL.md)、[`business-model-six-questions`](./business-model-six-questions/SKILL.md)
+→ 深入：[`prfaq-working-backwards`](../skills/./prfaq-working-backwards/SKILL.md)、[`business-model-six-questions`](../skills/./business-model-six-questions/SKILL.md)
 
 ### 转型/坚持会议节奏
 
@@ -88,11 +88,11 @@
 
 **什么时候会失效**：执行型成熟业务的日常经营复盘不属于它；没有愿景的团队谈不上转型（愿景不可讨价还价）；决定权者不在场时，节奏机制只是表演。
 
-→ 深入：[`pivot-persevere-cadence`](./pivot-persevere-cadence/SKILL.md)
+→ 深入：[`pivot-persevere-cadence`](../skills/./pivot-persevere-cadence/SKILL.md)
 
 ### 附：这套方法不限于"创业项目"
 
-作者反复强调"你无法预知谁是创业者"：财捷一位高级行政助理在研讨会上用几天实验验证"教人报税"的假设，把报税辅导班从 500 个联谊会做到 13000 个；另一个五人小组先办一场模拟慈善舞会试运行，最终让晚宴捐款 app 当晚突破百万美元筹款目标；政府把"招聘技术人才"本身当实验做（"总统创新之友"）。这使方法论同时成为**人才发现机制**——谁在无人要求时自发测试假设，谁就是创业者。 → 深入：[`lean-for-non-startup-work`](./lean-for-non-startup-work/SKILL.md)
+作者反复强调"你无法预知谁是创业者"：财捷一位高级行政助理在研讨会上用几天实验验证"教人报税"的假设，把报税辅导班从 500 个联谊会做到 13000 个；另一个五人小组先办一场模拟慈善舞会试运行，最终让晚宴捐款 app 当晚突破百万美元筹款目标；政府把"招聘技术人才"本身当实验做（"总统创新之友"）。这使方法论同时成为**人才发现机制**——谁在无人要求时自发测试假设，谁就是创业者。 → 深入：[`lean-for-non-startup-work`](../skills/./lean-for-non-startup-work/SKILL.md)
 
 ---
 
@@ -110,7 +110,7 @@
 
 **什么时候会失效**：NPV 层在 HR、文化类项目上书中从未真正走通（PD@GE 停在领先性指标层），止步于 L1/L2 即可；把核算做成新一轮绿灯黄灯表演，是它自己最想取代的东西。
 
-→ 深入：[`innovation-accounting-three-levels`](./innovation-accounting-three-levels/SKILL.md)
+→ 深入：[`innovation-accounting-three-levels`](../skills/./innovation-accounting-three-levels/SKILL.md)
 
 ### 审计对照过去，不对照梦想计划；宾果卡诊断矩阵
 
@@ -122,7 +122,7 @@
 
 **什么时候会失效**：成熟业务的常规经营审计照用预算对照；宾果卡一旦变成 KPI 排名表就会诱发格格造数——它自称"只是一种聚焦工具"。
 
-→ 深入：[`audit-against-past-not-plan`](./audit-against-past-not-plan/SKILL.md)、[`bingo-card-diagnostic`](./bingo-card-diagnostic/SKILL.md)
+→ 深入：[`audit-against-past-not-plan`](../skills/./audit-against-past-not-plan/SKILL.md)、[`bingo-card-diagnostic`](../skills/./bingo-card-diagnostic/SKILL.md)
 
 ### 增长委员会 —— 可运作的内部风险资本基金会
 
@@ -134,7 +134,7 @@
 
 **什么时候会失效**：只有一两个项目不必设常设机构；委员会若拿不到真实拨款权，会沦为表演——先修资金制度。
 
-→ 深入：[`growth-board-design`](./growth-board-design/SKILL.md)
+→ 深入：[`growth-board-design`](../skills/./growth-board-design/SKILL.md)
 
 ### 里程碑式资金拨付 vs 按指定用途拨款
 
@@ -146,7 +146,7 @@
 
 **什么时候会失效**：执行/承包类项目的里程碑就是交付节点，传统预算更高效；"给钱图省心、不设复审"比水龙头更糟——只给钱不给问责是全书反复痛批的独角兽式失误。
 
-→ 深入：[`milestone-based-funding`](./milestone-based-funding/SKILL.md)、[`innovation-needs-constraints`](./innovation-needs-constraints/SKILL.md)
+→ 深入：[`milestone-based-funding`](../skills/./milestone-based-funding/SKILL.md)、[`innovation-needs-constraints`](../skills/./innovation-needs-constraints/SKILL.md)
 
 ### 舞动宝剑与一页纸预批 —— 为实验开路的两件武器
 
@@ -158,7 +158,7 @@
 
 **什么时候会失效**：没有筹码的交换是乞讨；风险不可参数化的重大安全伦理事项不适用预批；把关部门担着个人责任却不担延误责任时，参数化会失效——先修问责对称性。
 
-→ 深入：[`wield-the-sword`](./wield-the-sword/SKILL.md)、[`one-page-preapproval`](./one-page-preapproval/SKILL.md)
+→ 深入：[`wield-the-sword`](../skills/./wield-the-sword/SKILL.md)、[`one-page-preapproval`](../skills/./one-page-preapproval/SKILL.md)
 
 ### 只要有一个团队成功就是胜利
 
@@ -168,7 +168,7 @@
 
 **什么时候会失效**：单团队的转型/坚持判断不属于它（那是节奏会议的事）；组合容错不能当无限续命——必须与增长委员会铁律成对使用；成熟业务的 KPI 问责不适用。
 
-→ 深入：[`one-team-success-is-enough`](./one-team-success-is-enough/SKILL.md)
+→ 深入：[`one-team-success-is-enough`](../skills/./one-team-success-is-enough/SKILL.md)
 
 ---
 
@@ -186,7 +186,7 @@
 
 **什么时候会失效**：执行型项目套"创业团队"名头会逃避执行问责；不是所有事务都该由创业团队打理；只建团队不做预谈判等于埋雷。
 
-→ 深入：[`startup-team-basic-unit`](./startup-team-basic-unit/SKILL.md)、[`dedicated-cross-functional-teams`](./dedicated-cross-functional-teams/SKILL.md)
+→ 深入：[`startup-team-basic-unit`](../skills/./startup-team-basic-unit/SKILL.md)、[`dedicated-cross-functional-teams`](../skills/./dedicated-cross-functional-teams/SKILL.md)
 
 ### 支持者三层结构与教练体系
 
@@ -198,7 +198,7 @@
 
 **什么时候会失效**：用"找靠山"心态层层挂名是假的，支持是职能不是头衔；把教练当领导用（替团队决策）或当间谍用，两种滥用都会关闭学习通道；组织缺的若是制度资源，支持者替代不了制度。
 
-→ 深入：[`three-tier-support-structure`](./three-tier-support-structure/SKILL.md)、[`coach-not-leader-not-spy`](./coach-not-leader-not-spy/SKILL.md)、[`coach-assume-they-are-right`](./coach-assume-they-are-right/SKILL.md)
+→ 深入：[`three-tier-support-structure`](../skills/./three-tier-support-structure/SKILL.md)、[`coach-not-leader-not-spy`](../skills/./coach-not-leader-not-spy/SKILL.md)、[`coach-assume-they-are-right`](../skills/./coach-assume-they-are-right/SKILL.md)
 
 ### 培训要覆盖"能喊停的人"，把关部门要变成赋能部门
 
@@ -210,7 +210,7 @@
 
 **什么时候会失效**：以培训本身为目的的合规年训不属于它；把否决者请进教室当批斗会只会让否决转入地下；否决权持有者保留否决权——被更新的是他们依据的信息。
 
-→ 深入：[`train-the-veto-holders`](./train-the-veto-holders/SKILL.md)、[`gatekeeper-to-enabler`](./gatekeeper-to-enabler/SKILL.md)
+→ 深入：[`train-the-veto-holders`](../skills/./train-the-veto-holders/SKILL.md)、[`gatekeeper-to-enabler`](../skills/./gatekeeper-to-enabler/SKILL.md)
 
 ### 统一的创业理论与内部专人专责
 
@@ -222,7 +222,7 @@
 
 **什么时候会失效**：单个项目的实验问题不归它管；把"统一管理"理解成总部收权是误用——创业部是定标准、养人才、留政策口的职能部门，不替团队做资源决定。
 
-→ 深入：[`unified-entrepreneurial-theory`](./unified-entrepreneurial-theory/SKILL.md)、[`internal-change-owner`](./internal-change-owner/SKILL.md)
+→ 深入：[`unified-entrepreneurial-theory`](../skills/./unified-entrepreneurial-theory/SKILL.md)、[`internal-change-owner`](../skills/./internal-change-owner/SKILL.md)
 
 ### 转型三阶段路线图 —— 本书的推进总纲
 
@@ -234,7 +234,7 @@
 
 **什么时候会失效**：创业公司（没有深层机制可改）、正在流血的危机现场（先急救）、外部咨询主导的变革（先解决所有权问题）都不适用。
 
-→ 深入：[`three-stage-transformation`](./three-stage-transformation/SKILL.md)
+→ 深入：[`three-stage-transformation`](../skills/./three-stage-transformation/SKILL.md)
 
 ---
 
@@ -252,7 +252,7 @@
 
 **什么时候会失效**：纯执行力问题（流程明确、无不确定性）套两问会变成纵容；紧急事故先止损；更不能用作假惺惺的话术表演——第二问就是防表演的。
 
-→ 深入：[`leaders-two-questions`](./leaders-two-questions/SKILL.md)
+→ 深入：[`leaders-two-questions`](../skills/./leaders-two-questions/SKILL.md)
 
 ### 责任制 → 方法 → 文化：因果链不能倒着走
 
@@ -264,7 +264,7 @@
 
 **什么时候会失效**：新组建的团队没有历史残留，直接设计责任制即可，不需要"改造"叙事；纯技能缺失用培训解决，动考核只会惩罚无辜；你无权触碰任何考核条款时，先攒政治资本（回到三阶段）。
 
-→ 深入：[`accountability-method-culture`](./accountability-method-culture/SKILL.md)
+→ 深入：[`accountability-method-culture`](../skills/./accountability-method-culture/SKILL.md)
 
 ### 奖励有益的失败，终止叙述权归创业者
 
@@ -276,7 +276,7 @@
 
 **什么时候会失效**：确定性生产的质量事故仍是缺陷，六西格玛纪律照常；把"容错"当无限续命是对本书的误读——创业者恰恰要为结果负责。
 
-→ 深入：[`reward-useful-failure`](./reward-useful-failure/SKILL.md)
+→ 深入：[`reward-useful-failure`](../skills/./reward-useful-failure/SKILL.md)
 
 ### 行为先于工具，自愿率是领先性指标
 
@@ -288,7 +288,7 @@
 
 **什么时候会失效**：安全、合规类必须全员执行的上线，"自愿"不适用；自愿率也不能替代后端测量——自愿的人多不等于用得好；自愿率低的先查入口成本与信息透明度，别急着判死刑。
 
-→ 深入：[`behavior-before-tools`](./behavior-before-tools/SKILL.md)、[`voluntary-adoption-indicator`](./voluntary-adoption-indicator/SKILL.md)
+→ 深入：[`behavior-before-tools`](../skills/./behavior-before-tools/SKILL.md)、[`voluntary-adoption-indicator`](../skills/./voluntary-adoption-indicator/SKILL.md)
 
 ### 公开创新与"用本公司语言重述"
 
@@ -298,7 +298,7 @@
 
 **什么时候会失效**：合规与会计硬约束不参与"语言重述"；组织尚无任何实验能力时，"本地化"没有可供验证的载体；给旧做法换新名词的口号包装恰是本书批判的对象。
 
-→ 深入：[`innovate-in-the-open`](./innovate-in-the-open/SKILL.md)、[`localize-dont-copy`](./localize-dont-copy/SKILL.md)
+→ 深入：[`innovate-in-the-open`](../skills/./innovate-in-the-open/SKILL.md)、[`localize-dont-copy`](../skills/./localize-dont-copy/SKILL.md)
 
 ---
 

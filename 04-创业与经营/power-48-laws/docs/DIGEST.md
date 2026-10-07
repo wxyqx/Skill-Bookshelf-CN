@@ -31,7 +31,7 @@
 
 **什么时候会失效**: 亲密关系中需要共情和情感连接的场景——这不是控制情绪的战场，而是表达情绪的领域。
 
-→ 深入: [`emotion-mastery`](./emotion-mastery/SKILL.md)
+→ 深入: [`emotion-mastery`](../skills/./emotion-mastery/SKILL.md)
 
 ### 耐心盾牌
 
@@ -43,7 +43,7 @@
 
 **什么时候会失效**: 紧急危机需要立即行动时；等待的代价超过行动的代价时——耐心不是无限的。
 
-→ 深入: [`patience-shield`](./patience-shield/SKILL.md)
+→ 深入: [`patience-shield`](../skills/./patience-shield/SKILL.md)
 
 ### 代价评估法
 
@@ -55,7 +55,7 @@
 
 **什么时候会失效**: 纯粹的创造性活动中过度评估代价会扼杀创造力；紧急情况来不及评估。
 
-→ 深入: [`cost-assessment`](./cost-assessment/SKILL.md)
+→ 深入: [`cost-assessment`](../skills/./cost-assessment/SKILL.md)
 
 ---
 
@@ -73,7 +73,7 @@
 
 **什么时候会失效**: 紧急危机需要直接行动时；对方已经知道你的意图时——迂回的前提是意图未被察觉。
 
-→ 深入: [`indirect-approach`](./indirect-approach/SKILL.md)
+→ 深入: [`indirect-approach`](../skills/./indirect-approach/SKILL.md)
 
 ### 隐藏意图与烟幕策略
 
@@ -85,7 +85,7 @@
 
 **什么时候会失效**: 需要建立长期信任的核心关系（婚姻、合伙）；骗名远扬后再也无法施烟幕。
 
-→ 深入: [`conceal-intent`](./conceal-intent/SKILL.md)
+→ 深入: [`conceal-intent`](../skills/./conceal-intent/SKILL.md)
 
 ### 沉默威慑法
 
@@ -97,7 +97,7 @@
 
 **什么时候会失效**: 需要透明沟通的团队管理场景；需要明确表态的危机时刻——沉默不能替代决策。
 
-→ 深入: [`silence-power`](./silence-power/SKILL.md)
+→ 深入: [`silence-power`](../skills/./silence-power/SKILL.md)
 
 ### 选择性诚实缴械
 
@@ -109,7 +109,7 @@
 
 **什么时候会失效**: 核心利益相关的坦诚（不能坦白真正的底牌）；法律/合规要求完整披露的场景。
 
-→ 深入: [`selective-honesty`](./selective-honesty/SKILL.md)
+→ 深入: [`selective-honesty`](../skills/./selective-honesty/SKILL.md)
 
 ---
 
@@ -127,7 +127,7 @@
 
 **什么时候会失效**: 对方有根本性利益冲突无法调和时；所有联盟基于利益的假设忽略了真诚关系的存在。
 
-→ 深入: [`enemy-to-ally`](./enemy-to-ally/SKILL.md)
+→ 深入: [`enemy-to-ally`](../skills/./enemy-to-ally/SKILL.md)
 
 ### 不盖过上司光芒
 
@@ -139,7 +139,7 @@
 
 **什么时候会失效**: 上司有能力且客观公正时不需要伪装；作者假设所有上司都有不安全感且会因此迫害下属，忽略了安全型领导者的存在。
 
-→ 深入: [`manage-superior`](./manage-superior/SKILL.md)
+→ 深入: [`manage-superior`](../skills/./manage-superior/SKILL.md)
 
 ### 研究他人与弱点识别
 
@@ -151,7 +151,7 @@
 
 **什么时候会失效**: 偏执倾向——不是所有人都在玩权力游戏；亲密关系中的深度信任不能永远研究而不信任。
 
-→ 深入: [`people-reading`](./people-reading/SKILL.md)
+→ 深入: [`people-reading`](../skills/./people-reading/SKILL.md)
 
 ---
 
@@ -169,7 +169,7 @@
 
 **什么时候会失效**: 产品质量和技术能力无法用声誉替代；幸存者偏差——只选了成功的声誉案例。
 
-→ 深入: [`reputation-strategy`](./reputation-strategy/SKILL.md)
+→ 深入: [`reputation-strategy`](../skills/./reputation-strategy/SKILL.md)
 
 ### 引人注目策略
 
@@ -181,7 +181,7 @@
 
 **什么时候会失效**: 负面关注会严重损害核心利益的场景（法律/合规问题）；已经过度曝光时。
 
-→ 深入: [`command-attention`](./command-attention/SKILL.md)
+→ 深入: [`command-attention`](../skills/./command-attention/SKILL.md)
 
 ---
 
@@ -199,7 +199,7 @@
 
 **什么时候会失效**: 实力其实占优时示弱反而引起怀疑；如果对方也是"示弱"的高手，你可能在和另一个老练权术家博弈。
 
-→ 深入: [`strategic-surrender`](./strategic-surrender/SKILL.md)
+→ 深入: [`strategic-surrender`](../skills/./strategic-surrender/SKILL.md)
 
 ### 结果导向判断
 
@@ -211,7 +211,7 @@
 
 **什么时候会失效**: 法律判断必须考虑意图；亲密关系中的情感修复需要理解意图。
 
-→ 深入: [`result-judgment`](./result-judgment/SKILL.md)
+→ 深入: [`result-judgment`](../skills/./result-judgment/SKILL.md)
 
 ---
 
@@ -229,7 +229,7 @@
 
 **什么时候会失效**: 不是所有谦虚都是伪装——偏执地假设所有人都在伪装会错过真正谦虚的人。
 
-→ 深入: [`detect-deception`](./detect-deception/SKILL.md)
+→ 深入: [`detect-deception`](../skills/./detect-deception/SKILL.md)
 
 ---
 

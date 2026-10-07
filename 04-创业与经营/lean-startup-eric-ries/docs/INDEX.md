@@ -8,31 +8,31 @@
 
 ## 一、总纲与元判断（体系入口与"该不该做"）
 
-- [lean-startup-five-principles](skills/lean-startup-five-principles/SKILL.md) — **精益创业五项原则**：判断精益创业是否适用于你的处境（新创企业定义、创业即管理、火箭发射 vs 汽车驾驶、愿景—战略—产品），整本书的根目录与入口。
-- [anti-waste-discipline](skills/anti-waste-discipline/SKILL.md) — **反浪费纪律**：识别 21 世纪的新浪费（高效地做根本不该做的事），并防止精益创业自身教条化、伪科学化；站在全部执行 skill 之上的元判断。
+- [lean-startup-five-principles](../skills/lean-startup-five-principles/SKILL.md) — **精益创业五项原则**：判断精益创业是否适用于你的处境（新创企业定义、创业即管理、火箭发射 vs 汽车驾驶、愿景—战略—产品），整本书的根目录与入口。
+- [anti-waste-discipline](../skills/anti-waste-discipline/SKILL.md) — **反浪费纪律**：识别 21 世纪的新浪费（高效地做根本不该做的事），并防止精益创业自身教条化、伪科学化；站在全部执行 skill 之上的元判断。
 
 ## 二、学习循环与假设实验（"驾驭"篇前半：循环怎么转）
 
-- [bml-validated-learning](skills/bml-validated-learning/SKILL.md) — **经证实的认知与 BML 循环**：以经证实的认知为进展单位，把开发—测量—认知循环跑对跑快；计划顺序与执行顺序相反，对顾客的假设拉动开发。
-- [leap-of-faith-assumptions](skills/leap-of-faith-assumptions/SKILL.md) — **信念飞跃假设**：动手之前把"我们在赌什么"说清楚——价值假设与增长假设、类比与反证、现地现物、柯达四问、找早期使用者。
-- [mvp-design-patterns](skills/mvp-design-patterns/SKILL.md) — **MVP 设计模式**：把假设变成最小实验——视频式、贵宾式、绿野仙踪、冒烟测试的选型，以及法律/竞争/品牌/士气四大减速路障的排障。
-- [startup-quality-philosophy](skills/startup-quality-philosophy/SKILL.md) — **新创企业质量观**：化解"要不要做到完美再上线"之争——不知顾客即不知质量、早期使用者接受八成产品、尽早发布，但不为时间牺牲会拖慢循环的质量。
+- [bml-validated-learning](../skills/bml-validated-learning/SKILL.md) — **经证实的认知与 BML 循环**：以经证实的认知为进展单位，把开发—测量—认知循环跑对跑快；计划顺序与执行顺序相反，对顾客的假设拉动开发。
+- [leap-of-faith-assumptions](../skills/leap-of-faith-assumptions/SKILL.md) — **信念飞跃假设**：动手之前把"我们在赌什么"说清楚——价值假设与增长假设、类比与反证、现地现物、柯达四问、找早期使用者。
+- [mvp-design-patterns](../skills/mvp-design-patterns/SKILL.md) — **MVP 设计模式**：把假设变成最小实验——视频式、贵宾式、绿野仙踪、冒烟测试的选型，以及法律/竞争/品牌/士气四大减速路障的排障。
+- [startup-quality-philosophy](../skills/startup-quality-philosophy/SKILL.md) — **新创企业质量观**：化解"要不要做到完美再上线"之争——不知顾客即不知质量、早期使用者接受八成产品、尽早发布，但不为时间牺牲会拖慢循环的质量。
 
 ## 三、衡量与核算（"驾驭"篇后半：进展怎么证明）
 
-- [innovation-accounting](skills/innovation-accounting/SKILL.md) — **创新核算**：三步问责体系（定基准线→调整引擎→转型或坚持）与认知的阶段性目标，回答"怎么向老板/投资人证明有进展"。
-- [actionable-vs-vanity-metrics](skills/actionable-vs-vanity-metrics/SKILL.md) — **可执行指标 vs 虚荣指标**：同期群分析、对比测试、漏斗衡量与"可执行/可使用/可审查"三标准；看方向和程度而非当前数值。
+- [innovation-accounting](../skills/innovation-accounting/SKILL.md) — **创新核算**：三步问责体系（定基准线→调整引擎→转型或坚持）与认知的阶段性目标，回答"怎么向老板/投资人证明有进展"。
+- [actionable-vs-vanity-metrics](../skills/actionable-vs-vanity-metrics/SKILL.md) — **可执行指标 vs 虚荣指标**：同期群分析、对比测试、漏斗衡量与"可执行/可使用/可审查"三标准；看方向和程度而非当前数值。
 
 ## 四、方向与增长（决策与扩张）
 
-- [pivot-or-persevere](skills/pivot-or-persevere/SKILL.md) — **转型还是坚持**：方向性裁决的机器——常规转型会议、十种转型类型、跑道=剩余转型次数、拖延转型的三大原因。
-- [growth-engine-selection](skills/growth-engine-selection/SKILL.md) — **增长引擎的选择与运营**：黏着式（流失率/复合率）、病毒式（病毒系数）、付费式（LTV/CPA）三引擎判据、可持续增长四来源、一次只专注一种引擎。
+- [pivot-or-persevere](../skills/pivot-or-persevere/SKILL.md) — **转型还是坚持**：方向性裁决的机器——常规转型会议、十种转型类型、跑道=剩余转型次数、拖延转型的三大原因。
+- [growth-engine-selection](../skills/growth-engine-selection/SKILL.md) — **增长引擎的选择与运营**：黏着式（流失率/复合率）、病毒式（病毒系数）、付费式（LTV/CPA）三引擎判据、可持续增长四来源、一次只专注一种引擎。
 
 ## 五、加速与组织（"加速"篇：规模化后仍跑得快）
 
-- [small-batch-acceleration](skills/small-batch-acceleration/SKILL.md) — **小批量加速**：用精益生产工具（单件流、SMED、看板四阶段、持续部署、产品免疫系统）压缩循环总时间；要义是更快学习，不是高效生产。
-- [five-whys-adaptive-org](skills/five-whys-adaptive-org/SKILL.md) — **五个为什么与自适应组织**：连问五次"为什么"追到人的问题、按比例投入、五大罪状陷阱与自动速度调节器。
-- [internal-innovation-sandbox](skills/internal-innovation-sandbox/SKILL.md) — **内部创新沙盒**：大企业创新机制设计——三种架构特征、反向框定、沙盒七规则、管理组合四阶段与"创业企业家"头衔。
+- [small-batch-acceleration](../skills/small-batch-acceleration/SKILL.md) — **小批量加速**：用精益生产工具（单件流、SMED、看板四阶段、持续部署、产品免疫系统）压缩循环总时间；要义是更快学习，不是高效生产。
+- [five-whys-adaptive-org](../skills/five-whys-adaptive-org/SKILL.md) — **五个为什么与自适应组织**：连问五次"为什么"追到人的问题、按比例投入、五大罪状陷阱与自动速度调节器。
+- [internal-innovation-sandbox](../skills/internal-innovation-sandbox/SKILL.md) — **内部创新沙盒**：大企业创新机制设计——三种架构特征、反向框定、沙盒七规则、管理组合四阶段与"创业企业家"头衔。
 
 ---
 

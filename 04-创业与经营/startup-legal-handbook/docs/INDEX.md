@@ -31,43 +31,43 @@
 
 ### 一、起点与形式选择
 
-- [`entity-choice-incorporation`](./entity-choice-incorporation/SKILL.md) — 按"责任敞口→税负交换→上市预留→过渡方案"选择企业形式,配合设立流程清单与"设立协议条款搬进章程"完成设立期安排(合伙/有限/股份/独资、一人公司)。
+- [`entity-choice-incorporation`](../skills/./entity-choice-incorporation/SKILL.md) — 按"责任敞口→税负交换→上市预留→过渡方案"选择企业形式,配合设立流程清单与"设立协议条款搬进章程"完成设立期安排(合伙/有限/股份/独资、一人公司)。
 
 ### 二、出资与财产边界
 
-- [`capital-contribution-compliance`](./capital-contribution-compliance/SKILL.md) — 判断"什么能出资":按"两要件→禁止清单→财产判定→瑕疵与抽逃责任→债权人追责路径"输出出资合规判断(技术股、认缴、抽逃、补充赔偿)。
-- [`veil-piercing-liability`](./veil-piercing-liability/SKILL.md) — 判断公司债务是否会烧到股东个人财产:按"出资到位+财产独立→刺破情形→一人公司举证倒置→追加两通道"输出避险与追偿方案(公私混用、两套账、代收货款)。
+- [`capital-contribution-compliance`](../skills/./capital-contribution-compliance/SKILL.md) — 判断"什么能出资":按"两要件→禁止清单→财产判定→瑕疵与抽逃责任→债权人追责路径"输出出资合规判断(技术股、认缴、抽逃、补充赔偿)。
+- [`veil-piercing-liability`](../skills/./veil-piercing-liability/SKILL.md) — 判断公司债务是否会烧到股东个人财产:按"出资到位+财产独立→刺破情形→一人公司举证倒置→追加两通道"输出避险与追偿方案(公私混用、两套账、代收货款)。
 
 ### 三、治理与章程
 
-- [`charter-governance-design`](./charter-governance-design/SKILL.md) — 按"表决权数学→授权清单→僵局条款→控制权可行性检查"输出章程层设计建议,而非泛泛说"章程很重要"(五五开、一票否决、董事职权)。
-- [`equity-rights-design`](./equity-rights-design/SKILL.md) — 为技术/不出资方安排股东权益:表决/分红权脱钩判断 + 技术贡献者三路径选型 + 章程落点(同股不同权、超额分红、优先认缴权安排)。
-- [`resolution-validity-procedure`](./resolution-validity-procedure/SKILL.md) — 判断已作出的股东会/董事会决议"算不算数":按"无效/可撤销/决议不成立"分流定性,核对召集顺序、通知送达、表决基数与 60 日除斥期间。
+- [`charter-governance-design`](../skills/./charter-governance-design/SKILL.md) — 按"表决权数学→授权清单→僵局条款→控制权可行性检查"输出章程层设计建议,而非泛泛说"章程很重要"(五五开、一票否决、董事职权)。
+- [`equity-rights-design`](../skills/./equity-rights-design/SKILL.md) — 为技术/不出资方安排股东权益:表决/分红权脱钩判断 + 技术贡献者三路径选型 + 章程落点(同股不同权、超额分红、优先认缴权安排)。
+- [`resolution-validity-procedure`](../skills/./resolution-validity-procedure/SKILL.md) — 判断已作出的股东会/董事会决议"算不算数":按"无效/可撤销/决议不成立"分流定性,核对召集顺序、通知送达、表决基数与 60 日除斥期间。
 
 ### 四、股东权利与救济
 
-- [`shareholder-qualification-registration`](./shareholder-qualification-registration/SKILL.md) — 用五类证据链判断"谁是股东":章程/名册/出资证明文件/出资证明书/工商登记,名册生效、登记对抗、30 日时限与分场景补救(含公章证照被抢)。
-- [`minority-shareholder-remedies`](./minority-shareholder-remedies/SKILL.md) — 小股东遭大股东滥权时的工具箱:知情权三步(请求→15 日答复→拒绝即诉)+ 派生诉讼四步,先固定证据再诉讼,赔偿归公司不归个人。
-- [`nominee-shareholding-risk`](./nominee-shareholding-risk/SKILL.md) — 代持/隐名投资的防控与救济:按"效力→不抗第三人→显名化→协议六项清单→名义股东风险"输出方案(显名股东擅自处分、借代持绕准入)。
+- [`shareholder-qualification-registration`](../skills/./shareholder-qualification-registration/SKILL.md) — 用五类证据链判断"谁是股东":章程/名册/出资证明文件/出资证明书/工商登记,名册生效、登记对抗、30 日时限与分场景补救(含公章证照被抢)。
+- [`minority-shareholder-remedies`](../skills/./minority-shareholder-remedies/SKILL.md) — 小股东遭大股东滥权时的工具箱:知情权三步(请求→15 日答复→拒绝即诉)+ 派生诉讼四步,先固定证据再诉讼,赔偿归公司不归个人。
+- [`nominee-shareholding-risk`](../skills/./nominee-shareholding-risk/SKILL.md) — 代持/隐名投资的防控与救济:按"效力→不抗第三人→显名化→协议六项清单→名义股东风险"输出方案(显名股东擅自处分、借代持绕准入)。
 
 ### 五、股权流转与激励
 
-- [`equity-transfer-pricing`](./equity-transfer-pricing/SKILL.md) — 股权转让全流程:按"四步程序→两级救济→定价三锚点→瑕疵出资与付款红线"输出方案(优先购买权、未分配利润归属、公司代付转让款红线)。
-- [`capital-change-restructuring`](./capital-change-restructuring/SKILL.md) — 增资与组织形式改制:按"增资四要件→稀释处理→改制路径→分立连带"输出程序与效力判断(入股协议打款、分公司转子公司、分家后债务)。
-- [`employee-equity-incentive`](./employee-equity-incentive/SKILL.md) — 员工股权激励设计:干股 vs 真股权 vs 未上市期权五种变通的分水岭判断,配套离职退出与股份收回机制。
+- [`equity-transfer-pricing`](../skills/./equity-transfer-pricing/SKILL.md) — 股权转让全流程:按"四步程序→两级救济→定价三锚点→瑕疵出资与付款红线"输出方案(优先购买权、未分配利润归属、公司代付转让款红线)。
+- [`capital-change-restructuring`](../skills/./capital-change-restructuring/SKILL.md) — 增资与组织形式改制:按"增资四要件→稀释处理→改制路径→分立连带"输出程序与效力判断(入股协议打款、分公司转子公司、分家后债务)。
+- [`employee-equity-incentive`](../skills/./employee-equity-incentive/SKILL.md) — 员工股权激励设计:干股 vs 真股权 vs 未上市期权五种变通的分水岭判断,配套离职退出与股份收回机制。
 
 ### 六、退出与清算
 
-- [`exit-dissolution-liquidation`](./exit-dissolution-liquidation/SKILL.md) — 退出全路径:四级退出阶梯→50/50 僵局破局→司法解散三要件→清算注销程序→破产转换→"置之不理"的连环后果。
+- [`exit-dissolution-liquidation`](../skills/./exit-dissolution-liquidation/SKILL.md) — 退出全路径:四级退出阶梯→50/50 僵局破局→司法解散三要件→清算注销程序→破产转换→"置之不理"的连环后果。
 
 ### 七、合规与陷阱
 
-- [`legal-rep-compliance-contracts`](./legal-rep-compliance-contracts/SKILL.md) — 法定代表人责任与经营合规:身份体检→登记程序→合同三步清单(代签/冒签/意向书/公章)→资金红线(闲钱拆借、挪用)。
-- [`paper-validity-traps`](./paper-validity-traps/SKILL.md) — "以为生效其实失效"的文件与程序陷阱识别:登报声明公章作废、公告自动放弃股份、伪造签名决议、工商范本章程、多数决直接除名,按四类陷阱判定真实效力并给程序替代通道。
+- [`legal-rep-compliance-contracts`](../skills/./legal-rep-compliance-contracts/SKILL.md) — 法定代表人责任与经营合规:身份体检→登记程序→合同三步清单(代签/冒签/意向书/公章)→资金红线(闲钱拆借、挪用)。
+- [`paper-validity-traps`](../skills/./paper-validity-traps/SKILL.md) — "以为生效其实失效"的文件与程序陷阱识别:登报声明公章作废、公告自动放弃股份、伪造签名决议、工商范本章程、多数决直接除名,按四类陷阱判定真实效力并给程序替代通道。
 
 ### 八、涉外(强时效警示)
 
-- [`cross-border-foreign-investment`](./cross-border-foreign-investment/SKILL.md) — 涉外投资定性与结构方法论:身份认定→准入穿透→结构变通→形式选择→程序效力→管辖(代表处 vs 分公司、离岸地选择、合资中方资格)。**2014 年语境,现行实操须按《外商投资法》及负面清单重核。**
+- [`cross-border-foreign-investment`](../skills/./cross-border-foreign-investment/SKILL.md) — 涉外投资定性与结构方法论:身份认定→准入穿透→结构变通→形式选择→程序效力→管辖(代表处 vs 分公司、离岸地选择、合资中方资格)。**2014 年语境,现行实操须按《外商投资法》及负面清单重核。**
 
 ---
 

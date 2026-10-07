@@ -36,7 +36,7 @@
 
 **什么时候会失效**：六阶段以"大型的、分权管理的公司"为原型（GE 式科层）；扁平化、平台型、项目制/敏捷组织并不按此分层，作者没有正面处理"中层消失"的挑战。20 人以下的公司只有"老板—员工"一级，把它当"缺了五个阶段"来补是误用。
 
-→ 深入: [`leadership-pipeline-six-passages`](./leadership-pipeline-six-passages/SKILL.md)
+→ 深入: [`leadership-pipeline-six-passages`](../skills/./leadership-pipeline-six-passages/SKILL.md)
 
 ### 三维度转型：日程表是最硬的证据
 
@@ -48,7 +48,7 @@
 
 **什么时候会失效**：扁平/矩阵组织里时间被打散，"时间占比"证据需要与"实际做的是哪一层级的决策"合并使用；"理念先于技能"缺少可操作的心理测量支持，只能靠行为证据间接判断。
 
-→ 深入: [`three-dimension-transition`](./three-dimension-transition/SKILL.md)
+→ 深入: [`three-dimension-transition`](../skills/./three-dimension-transition/SKILL.md)
 
 ### 第一层与第二层的具体转型：三项工作与四项技能
 
@@ -60,7 +60,7 @@
 
 **什么时候会失效**：部门总监这一层在扁平组织中可能根本不存在；"一半时间"是经验阈值（书中未给出研究依据），player-coach 形态在两栖岗位上可以长期存在，关键是新层级的关键动作是否持续发生，而不是机械卡 50%。
 
-→ 深入: [`first-manager-three-transitions`](./first-manager-three-transitions/SKILL.md) · [`manager-transition-tactics-three-steps`](./manager-transition-tactics-three-steps/SKILL.md) · [`managing-managers-role`](./managing-managers-role/SKILL.md)
+→ 深入: [`first-manager-three-transitions`](../skills/./first-manager-three-transitions/SKILL.md) · [`manager-transition-tactics-three-steps`](../skills/./manager-transition-tactics-three-steps/SKILL.md) · [`managing-managers-role`](../skills/./managing-managers-role/SKILL.md)
 
 ### 第三到第六层：成熟度、协同三角形、间接成功、五项挑战
 
@@ -74,7 +74,7 @@
 
 **什么时候会失效**：第三层的问题"最难看穿"（技术贡献会掩盖不成熟）；越往上的案例越依赖作者亲历，缺乏对照；"许多失败 CEO 恰恰是出色的战略家"这一诊断不可证伪——任何失败都可以被归因为"技能/时间/理念未随角色改变"。
 
-→ 深入: [`functional-manager-maturity`](./functional-manager-maturity/SKILL.md) · [`corporate-function-six-relations`](./corporate-function-six-relations/SKILL.md) · [`business-manager-complexity-triangle`](./business-manager-complexity-triangle/SKILL.md) · [`group-executive-indirect-success`](./group-executive-indirect-success/SKILL.md) · [`ceo-five-challenges`](./ceo-five-challenges/SKILL.md)
+→ 深入: [`functional-manager-maturity`](../skills/./functional-manager-maturity/SKILL.md) · [`corporate-function-six-relations`](../skills/./corporate-function-six-relations/SKILL.md) · [`business-manager-complexity-triangle`](../skills/./business-manager-complexity-triangle/SKILL.md) · [`group-executive-indirect-success`](../skills/./group-executive-indirect-success/SKILL.md) · [`ceo-five-challenges`](../skills/./ceo-five-challenges/SKILL.md)
 
 ### 诊断与纠偏工具：五步法、职责三步、绩效圆圈
 
@@ -86,7 +86,7 @@
 
 **什么时候会失效**：绩效圆圈是"对话与定位"工具，不产生分数——把它当雷达图打分就退化了；诊断结论**只能用于发展对话**，不能直接作为人事处置依据。
 
-→ 深入: [`diagnosis-five-steps`](./diagnosis-five-steps/SKILL.md) · [`role-clarity-gaps-overlaps`](./role-clarity-gaps-overlaps/SKILL.md) · [`performance-gap-circle`](./performance-gap-circle/SKILL.md)
+→ 深入: [`diagnosis-five-steps`](../skills/./diagnosis-five-steps/SKILL.md) · [`role-clarity-gaps-overlaps`](../skills/./role-clarity-gaps-overlaps/SKILL.md) · [`performance-gap-circle`](../skills/./performance-gap-circle/SKILL.md)
 
 ### 继任与潜能：从"给岗位找替补"到"培养各级高绩效者"
 
@@ -98,7 +98,7 @@
 
 **什么时候会失效**：潜能三分类与"三年绩效"判据**没有任何效度证据**；标签会实际影响晋升与薪酬，须防止固化造成事实上的歧视（作者自己在 ethics_legal_note 里提示了这一点）。
 
-→ 深入: [`succession-five-steps`](./succession-five-steps/SKILL.md) · [`potential-three-types`](./potential-three-types/SKILL.md) · [`nine-box-actions`](./nine-box-actions/SKILL.md)
+→ 深入: [`succession-five-steps`](../skills/./succession-five-steps/SKILL.md) · [`potential-three-types`](../skills/./potential-three-types/SKILL.md) · [`nine-box-actions`](../skills/./nine-box-actions/SKILL.md)
 
 ---
 
@@ -116,7 +116,7 @@
 
 **什么时候会失效**：作者自己警告"业绩梯队自身并不能成功"，环境不支持（土地问题）时加"营养物"无用；六步流程"一个小组约 10 个工作日"的乐观估计依赖组织配合度。
 
-→ 深入: [`performance-pipeline-interview-build`](./performance-pipeline-interview-build/SKILL.md) · [`job-essence-two-factors`](./job-essence-two-factors/SKILL.md) · [`control-three-points-immune-system`](./control-three-points-immune-system/SKILL.md) · [`environment-three-variables`](./environment-three-variables/SKILL.md)
+→ 深入: [`performance-pipeline-interview-build`](../skills/./performance-pipeline-interview-build/SKILL.md) · [`job-essence-two-factors`](../skills/./job-essence-two-factors/SKILL.md) · [`control-three-points-immune-system`](../skills/./control-three-points-immune-system/SKILL.md) · [`environment-three-variables`](../skills/./environment-three-variables/SKILL.md)
 
 ### 过渡与业绩对话：MEALER 顺序与证据二因素
 
@@ -128,7 +128,7 @@
 
 **什么时候会失效**：MEALER 的神经科学包装（理性/感性双系统＋六个功能网络）属于流行通俗神经科学，**六阶段与大脑网络的一一对应无实证引用、不可证伪**——使用必须声明只保留操作步骤；书中未处理 turnaround 情境对六步顺序的现实冲击。
 
-→ 深入: [`mealer-transition-six-steps`](./mealer-transition-six-steps/SKILL.md) · [`performance-dialogue-evidence`](./performance-dialogue-evidence/SKILL.md) · [`functional-vp-four-results`](./functional-vp-four-results/SKILL.md)
+→ 深入: [`mealer-transition-six-steps`](../skills/./mealer-transition-six-steps/SKILL.md) · [`performance-dialogue-evidence`](../skills/./performance-dialogue-evidence/SKILL.md) · [`functional-vp-four-results`](../skills/./functional-vp-four-results/SKILL.md)
 
 ### 轮岗培养：把人才生产从运气变成工程
 
@@ -140,7 +140,7 @@
 
 **什么时候会失效**：四要件的完整闭环与 25 年培养周期的推算，前提是"可全球流动、职业路径稳定的稳态大公司"；对家庭与照护约束、失败代价的外部化、普通员工是否有试错空间，作者几乎没有讨论。
 
-→ 深入: [`apprenticeship-model`](./apprenticeship-model/SKILL.md) · [`concentric-learning-job-design`](./concentric-learning-job-design/SKILL.md) · [`deliberate-practice-feedback-loop`](./deliberate-practice-feedback-loop/SKILL.md) · [`leadership-potential-double-helix`](./leadership-potential-double-helix/SKILL.md) · [`tolerate-failure-conditions`](./tolerate-failure-conditions/SKILL.md)
+→ 深入: [`apprenticeship-model`](../skills/./apprenticeship-model/SKILL.md) · [`concentric-learning-job-design`](../skills/./concentric-learning-job-design/SKILL.md) · [`deliberate-practice-feedback-loop`](../skills/./deliberate-practice-feedback-loop/SKILL.md) · [`leadership-potential-double-helix`](../skills/./leadership-potential-double-helix/SKILL.md) · [`tolerate-failure-conditions`](../skills/./tolerate-failure-conditions/SKILL.md)
 
 ### 评估与选拔：两套评估、一条双轨、一道治理程序
 
@@ -152,7 +152,7 @@
 
 **什么时候会失效**：把"背后议论公开化"视为优点的集体讨论，未讨论被评估者的知情权与评估者群体偏差；8 阶段程序要求董事会放弃控制与游说空间，作者自己承认"错位已经成为一种沾沾自喜的文化"——模型最需要的前提（组织的坦诚与自律）恰恰最难满足。
 
-→ 深入: [`assessment-dual-track`](./assessment-dual-track/SKILL.md) · [`developing-talent-is-every-leaders-job`](./developing-talent-is-every-leaders-job/SKILL.md) · [`leadership-is-work-not-honor`](./leadership-is-work-not-honor/SKILL.md) · [`ceo-selection-process`](./ceo-selection-process/SKILL.md)
+→ 深入: [`assessment-dual-track`](../skills/./assessment-dual-track/SKILL.md) · [`developing-talent-is-every-leaders-job`](../skills/./developing-talent-is-every-leaders-job/SKILL.md) · [`leadership-is-work-not-honor`](../skills/./leadership-is-work-not-honor/SKILL.md) · [`ceo-selection-process`](../skills/./ceo-selection-process/SKILL.md)
 
 ---
 
@@ -170,7 +170,7 @@
 
 **什么时候会失效**：模型对平台型/软件型/研发驱动型业务（边际成本近零、网络效应、烧钱换市场）**并不直接适用**——这是 BOOK_OVERVIEW 批判节的明确结论；R=M×V 以资产/存货为核心，对研发、品牌、数据等无形投入解释力弱。
 
-→ 深入: [`business-acumen-six-elements`](./business-acumen-six-elements/SKILL.md) · [`r-m-v-return-decomposition`](./r-m-v-return-decomposition/SKILL.md) · [`cash-net-inflow-everyones-business`](./cash-net-inflow-everyones-business/SKILL.md)
+→ 深入: [`business-acumen-six-elements`](../skills/./business-acumen-six-elements/SKILL.md) · [`r-m-v-return-decomposition`](../skills/./r-m-v-return-decomposition/SKILL.md) · [`cash-net-inflow-everyones-business`](../skills/./cash-net-inflow-everyones-business/SKILL.md)
 
 ### 顾客与全景：第一手观察胜过一切汇报
 
@@ -182,7 +182,7 @@
 
 **什么时候会失效**：本方法是补充（提供问卷问不出的信息），不能替代定量市场调研；无法接触终端时必须设计替代证据链，否则输出的会是想象。
 
-→ 深入: [`direct-customer-contact`](./direct-customer-contact/SKILL.md) · [`company-panorama-seven-questions`](./company-panorama-seven-questions/SKILL.md)
+→ 深入: [`direct-customer-contact`](../skills/./direct-customer-contact/SKILL.md) · [`company-panorama-seven-questions`](../skills/./company-panorama-seven-questions/SKILL.md)
 
 ### 化繁为简与优先事项：从复杂性到下注
 
@@ -194,7 +194,7 @@
 
 **什么时候会失效**：SWOT/五力类工具通常止步于前两步（列因素、找机会威胁），本路径的独特处是强制推到"基本行为＋优先事项＋停止做"；情景规划（若 X 则 Y）不能代替选择——它是应对不确定性的工具，不是决断的替身。
 
-→ 深入: [`complexity-to-priorities`](./complexity-to-priorities/SKILL.md) · [`priority-focus-three-to-four`](./priority-focus-three-to-four/SKILL.md) · [`not-betting-is-betting`](./not-betting-is-betting/SKILL.md)
+→ 深入: [`complexity-to-priorities`](../skills/./complexity-to-priorities/SKILL.md) · [`priority-focus-three-to-four`](../skills/./priority-focus-three-to-four/SKILL.md) · [`not-betting-is-betting`](../skills/./not-betting-is-betting/SKILL.md)
 
 ### 增长纪律与估值机制：两件容易被欲望劫持的事
 
@@ -206,7 +206,7 @@
 
 **什么时候会失效**：非营利与使命型组织需改写后再用（"赢利"替换为"可持续覆盖成本＋使命产出效率"）；未上市且无出售/上市计划时不必围绕 P-E 设计经营动作。
 
-→ 深入: [`profitable-sustainable-growth`](./profitable-sustainable-growth/SKILL.md) · [`pe-multiple-wealth-mechanism`](./pe-multiple-wealth-mechanism/SKILL.md)
+→ 深入: [`profitable-sustainable-growth`](../skills/./profitable-sustainable-growth/SKILL.md) · [`pe-multiple-wealth-mechanism`](../skills/./pe-multiple-wealth-mechanism/SKILL.md)
 
 ### 教练与沟通机制：把带人变成日常动作
 
@@ -218,7 +218,7 @@
 
 **什么时候会失效**：外部教练在观察位置上有结构性局限（看不到真实工作现场、不懂业务），最佳用法是尽早参与、限于自身专长、扮演辅助角色；小团队（十余人的同址团队）上完整机制是浪费。
 
-→ 深入: [`coaching-two-tracks`](./coaching-two-tracks/SKILL.md) · [`social-operating-mechanism`](./social-operating-mechanism/SKILL.md)
+→ 深入: [`coaching-two-tracks`](../skills/./coaching-two-tracks/SKILL.md) · [`social-operating-mechanism`](../skills/./social-operating-mechanism/SKILL.md)
 
 ---
 
@@ -236,7 +236,7 @@
 
 **什么时候会失效**：作者把复杂组织失败压缩为"没执行"，对组织政治、股权结构、董事会约束、行业周期处理很薄；"结构化会议文化＋强 KPI"在知识密集型/创意型组织中可能适得其反（2010 年代敏捷与心理安全研究提供了相反证据）。
 
-→ 深入: [`execution-system-architecture`](./execution-system-architecture/SKILL.md)
+→ 深入: [`execution-system-architecture`](../skills/./execution-system-architecture/SKILL.md)
 
 ### 追问到现实与深入一线：两个未过滤信息的入口
 
@@ -248,7 +248,7 @@
 
 **什么时候会失效**：追问过度会变成审问（对方已无回答条件时应停止、改单独沟通或转教练辅导）；视察若缺"带假设、尖锐问题、书面结论、复查"四要素中的任一项，就退化为走马观花。
 
-→ 深入: [`question-to-reality`](./question-to-reality/SKILL.md) · [`field-visit-protocol`](./field-visit-protocol/SKILL.md)
+→ 深入: [`question-to-reality`](../skills/./question-to-reality/SKILL.md) · [`field-visit-protocol`](../skills/./field-visit-protocol/SKILL.md)
 
 ### 文化、评估会与处置：把人管起来的三个机制
 
@@ -260,7 +260,7 @@
 
 **什么时候会失效**：把 MRR 做成"绩效校准会"（目标是打分公平）就偏离了本意（目标是人才决策与责任落地）；问卷式文化诊断"未触及行为"，不是本框架的入口；处置类方法**不构成人力资源法律意见**，必须依当地劳动法与公司程序执行、提供转岗或改进机会。
 
-→ 深入: [`culture-performance-linkage`](./culture-performance-linkage/SKILL.md) · [`talent-review-meeting-mrr`](./talent-review-meeting-mrr/SKILL.md) · [`underperformer-tiered-handling`](./underperformer-tiered-handling/SKILL.md)
+→ 深入: [`culture-performance-linkage`](../skills/./culture-performance-linkage/SKILL.md) · [`talent-review-meeting-mrr`](../skills/./talent-review-meeting-mrr/SKILL.md) · [`underperformer-tiered-handling`](../skills/./underperformer-tiered-handling/SKILL.md)
 
 ### 战略与运营：从一页纸到三天预算
 
@@ -272,7 +272,7 @@
 
 **什么时候会失效**：探索期过早压缩会把战略变成口号；紧急止血优先于完整流程（但快速版仍须标注关键假设）；传统预算的三大病（不谈前提、不谈执行方案、领导者无指导机会）不是靠换表格能治的。
 
-→ 深入: [`bedrock-strategy-one-pager`](./bedrock-strategy-one-pager/SKILL.md) · [`strategy-review-question-set`](./strategy-review-question-set/SKILL.md) · [`assumptions-and-contingency`](./assumptions-and-contingency/SKILL.md) · [`operations-plan-three-step`](./operations-plan-three-step/SKILL.md)
+→ 深入: [`bedrock-strategy-one-pager`](../skills/./bedrock-strategy-one-pager/SKILL.md) · [`strategy-review-question-set`](../skills/./strategy-review-question-set/SKILL.md) · [`assumptions-and-contingency`](../skills/./assumptions-and-contingency/SKILL.md) · [`operations-plan-three-step`](../skills/./operations-plan-three-step/SKILL.md)
 
 ### 跟进纪律与模型定制：体系能不能活下来
 
@@ -284,7 +284,7 @@
 
 **什么时候会失效**：小公司/快速成长公司沿用大公司节律（两年计划、五岗位、25 年）会空转；继任五步、九格矩阵这类工具的定制化是**第一步**而不是可选项。
 
-→ 深入: [`follow-through-discipline`](./follow-through-discipline/SKILL.md) · [`customize-not-copy`](./customize-not-copy/SKILL.md) · [`dual-track-management-technical`](./dual-track-management-technical/SKILL.md) · [`promotion-due-diligence`](./promotion-due-diligence/SKILL.md)
+→ 深入: [`follow-through-discipline`](../skills/./follow-through-discipline/SKILL.md) · [`customize-not-copy`](../skills/./customize-not-copy/SKILL.md) · [`dual-track-management-technical`](../skills/./dual-track-management-technical/SKILL.md) · [`promotion-due-diligence`](../skills/./promotion-due-diligence/SKILL.md)
 
 ---
 
@@ -296,7 +296,7 @@
 
 **陷阱**：集团高管亲自跑业务做交易、事业部总经理自己扛所有难题、部门总监天天抓项目——"领导者可能犯的最大错误是越俎代庖"（册2/册5 共同立场）。**机制**：短期看，自己做最快也最可靠；长期看，下属得不到历练、关键战略与人才工作无人做，且错位会**沿层级向下推挤**——上级抢下级的工作，下级就去抢更下层的工作，形成"连锁越俎代庖"。**预警信号**：日程表上公司层面事务只占 5%~10%（健康基准是 ≥50% 育人与 ≥25% 战略）；审批量居高不下（审批量＝控制机制缺位的度量）；每次业务决策都由上一级替下一级拍板。
 
-→ 相关: [`group-executive-indirect-success`](./group-executive-indirect-success/SKILL.md) · [`business-manager-complexity-triangle`](./business-manager-complexity-triangle/SKILL.md) · [`control-three-points-immune-system`](./control-three-points-immune-system/SKILL.md)
+→ 相关: [`group-executive-indirect-success`](../skills/./group-executive-indirect-success/SKILL.md) · [`business-manager-complexity-triangle`](../skills/./business-manager-complexity-triangle/SKILL.md) · [`control-three-points-immune-system`](../skills/./control-three-points-immune-system/SKILL.md)
 
 ### 2. "他能做好现在，就能做好下一个"
 
@@ -304,31 +304,31 @@
 
 > "领导梯队不是一根笔直的管道而是有六道90度拐弯的弯道。在每一个拐弯处，都应减速、思考、学习、进步。"——册5 第10章（L11943）
 
-→ 相关: [`leadership-pipeline-six-passages`](./leadership-pipeline-six-passages/SKILL.md) · [`promotion-due-diligence`](./promotion-due-diligence/SKILL.md) · [`leadership-deficit-four-causes`](./leadership-deficit-four-causes/SKILL.md)
+→ 相关: [`leadership-pipeline-six-passages`](../skills/./leadership-pipeline-six-passages/SKILL.md) · [`promotion-due-diligence`](../skills/./promotion-due-diligence/SKILL.md) · [`leadership-deficit-four-causes`](../skills/./leadership-deficit-four-causes/SKILL.md)
 
 ### 3. 把潜质等同于表现
 
 **陷阱**：把人才库当继任体系、把"高潜"当标签发。"人才库的概念促成了一些继任计划，但从领导梯队的角度来看，这一概念存在缺陷。……问题在于人才库存将潜质等同于表现。"**机制**：表现是过去式、潜质是将来式，两者用同一批证据取巧；且高潜标签会自我实现。**预警信号**：高潜名单来自"每个经理报他喜欢的人"；评级多年不变（"最坏的情况是出现正负的评价永远不变"）；用"平步青云"的许诺招人留人，反而使人害怕失败、拒绝艰巨任务。
 
-→ 相关: [`potential-three-types`](./potential-three-types/SKILL.md) · [`leadership-potential-double-helix`](./leadership-potential-double-helix/SKILL.md) · [`nine-box-actions`](./nine-box-actions/SKILL.md)
+→ 相关: [`potential-three-types`](../skills/./potential-three-types/SKILL.md) · [`leadership-potential-double-helix`](../skills/./leadership-potential-double-helix/SKILL.md) · [`nine-box-actions`](../skills/./nine-box-actions/SKILL.md)
 
 ### 4. 只做行动与学习：过渡期的虚假成功
 
 **陷阱**：新领导上任就推大创意、发新战略，或把上任计划做成"培训＋任务清单"。作者称之为"充满行动的过渡计划"——它"会造成短期成功的假象，过渡过程很快就会无法继续进行"。**机制**：意义（新角色身份与归属）与动力（促他人动力、防自我陶醉）被跳过，行动失去了作用对象；直接下属未理解与接受前不会投入，小事情被忽略、业绩受损。**预警信号**：上任三个月就要推翻前任战略；"总觉得自己很特别、融不进新同事"；老板不检查新岗位的角色与业绩标准是否已明确。
 
-→ 相关: [`mealer-transition-six-steps`](./mealer-transition-six-steps/SKILL.md) · [`three-dimension-transition`](./three-dimension-transition/SKILL.md)
+→ 相关: [`mealer-transition-six-steps`](../skills/./mealer-transition-six-steps/SKILL.md) · [`three-dimension-transition`](../skills/./three-dimension-transition/SKILL.md)
 
 ### 5. 用旧层级的工具解决新层级的问题
 
 **陷阱**：技术专家升研发总监后继续当"大号工程师"；事业部总经理靠"把成熟产品做得更高效"来应对份额下滑（卡特琳娜）；集团高管"像家长一样指使他们"（那是典型的一线经理水平）。**机制**：熟悉的工作带来即时的成就感与安全感，而新层级的核心动作（育人、取舍、整合）反馈慢、见效周期长。**预警信号**：时间占比统计显示旧工作仍占大头（写代码 60%）；会上只问技术性问题（"什么时候完成"）而不问管理性问题（"你打算怎么保证"）；只重技术业绩、自我孤立、层级僵化（四条警示）。
 
-→ 相关: [`functional-manager-maturity`](./functional-manager-maturity/SKILL.md) · [`functional-vp-four-results`](./functional-vp-four-results/SKILL.md) · [`three-dimension-transition`](./three-dimension-transition/SKILL.md)
+→ 相关: [`functional-manager-maturity`](../skills/./functional-manager-maturity/SKILL.md) · [`functional-vp-four-results`](../skills/./functional-vp-four-results/SKILL.md) · [`three-dimension-transition`](../skills/./three-dimension-transition/SKILL.md)
 
 ### 6. 把文化、战略、沟通都做成宣示
 
 **陷阱**：文化宣讲半年无行为改变（奖励还是大锅饭）；战略文件 40 页还是讲不清；沟通机制做成"多开会"；一页纸 KPI 立了一堆却无人取舍。**机制**：宣示型动作成本低、仪式感强、容易做成 KPI；而真正的杠杆是奖励、前提、零过滤与取舍——这些都会触碰利益。**预警信号**：价值观挂在墙上但奖励与业绩脱钩；战略会变成念 PPT（"议而不决、没有跟进"）；会议议题反复上会但没有结论；十个"重点"各自都排了优先级。
 
-→ 相关: [`culture-performance-linkage`](./culture-performance-linkage/SKILL.md) · [`strategy-review-question-set`](./strategy-review-question-set/SKILL.md) · [`social-operating-mechanism`](./social-operating-mechanism/SKILL.md) · [`priority-focus-three-to-four`](./priority-focus-three-to-four/SKILL.md)
+→ 相关: [`culture-performance-linkage`](../skills/./culture-performance-linkage/SKILL.md) · [`strategy-review-question-set`](../skills/./strategy-review-question-set/SKILL.md) · [`social-operating-mechanism`](../skills/./social-operating-mechanism/SKILL.md) · [`priority-focus-three-to-four`](../skills/./priority-focus-three-to-four/SKILL.md)
 
 ---
 

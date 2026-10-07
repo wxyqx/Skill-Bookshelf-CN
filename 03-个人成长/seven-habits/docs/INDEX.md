@@ -20,66 +20,66 @@
 
 ### 思维方式与原则（第 1–2 章的地基）
 
-- [`paradigm-shift-first`](./paradigm-shift-first/SKILL.md) — 思维转换优先：先判定问题在行为层、态度层还是地图（思维方式）层，地图错了越努力越错。
-- [`habit-knowledge-skill-desire`](./habit-knowledge-skill-desire/SKILL.md) — 习惯三要素：习惯 = 知识 × 技巧 × 意愿的交集，"知道做不到"先定位缺哪一栏再对症下药。
-- [`maturity-continuum`](./maturity-continuum/SKILL.md) — 成熟模式图：依赖→独立→互赖三阶段给个人或团队定位，是全书 29 个 skill 排序逻辑的骨架。
-- [`ppc-balance`](./ppc-balance/SKILL.md) — 产出/产能平衡：金蛋与鹅——识别杀鹅取蛋（透支健康、信任、士气换短期数字）与守鹅不取蛋。
+- [`paradigm-shift-first`](../skills/./paradigm-shift-first/SKILL.md) — 思维转换优先：先判定问题在行为层、态度层还是地图（思维方式）层，地图错了越努力越错。
+- [`habit-knowledge-skill-desire`](../skills/./habit-knowledge-skill-desire/SKILL.md) — 习惯三要素：习惯 = 知识 × 技巧 × 意愿的交集，"知道做不到"先定位缺哪一栏再对症下药。
+- [`maturity-continuum`](../skills/./maturity-continuum/SKILL.md) — 成熟模式图：依赖→独立→互赖三阶段给个人或团队定位，是全书 29 个 skill 排序逻辑的骨架。
+- [`ppc-balance`](../skills/./ppc-balance/SKILL.md) — 产出/产能平衡：金蛋与鹅——识别杀鹅取蛋（透支健康、信任、士气换短期数字）与守鹅不取蛋。
 
 ### 个人领域的成功（习惯一/二/三：依赖→独立）
 
 **习惯一·积极主动**
 
-- [`influence-circle`](./influence-circle/SKILL.md) — 影响圈与关注圈：把挂心事归圈、审计精力投放，把行动拉回影响圈。
-- [`stimulus-response-gap`](./stimulus-response-gap/SKILL.md) — 刺激与回应之间的距离：在刺激与回应之间行使选择的自由，用四大天赋选回应。
-- [`proactive-language`](./proactive-language/SKILL.md) — 替换消极语言：把"要是/我不得不/我办不到"改写为"我可以/我选择"，并绑定圈内行动。
-- [`make-and-keep-promises`](./make-and-keep-promises/SKILL.md) — 做出承诺，信守诺言：影响圈的核心——从小事"承诺-兑现"循环培育内心的诚信。
+- [`influence-circle`](../skills/./influence-circle/SKILL.md) — 影响圈与关注圈：把挂心事归圈、审计精力投放，把行动拉回影响圈。
+- [`stimulus-response-gap`](../skills/./stimulus-response-gap/SKILL.md) — 刺激与回应之间的距离：在刺激与回应之间行使选择的自由，用四大天赋选回应。
+- [`proactive-language`](../skills/./proactive-language/SKILL.md) — 替换消极语言：把"要是/我不得不/我办不到"改写为"我可以/我选择"，并绑定圈内行动。
+- [`make-and-keep-promises`](../skills/./make-and-keep-promises/SKILL.md) — 做出承诺，信守诺言：影响圈的核心——从小事"承诺-兑现"循环培育内心的诚信。
 
 **习惯二·以终为始**
 
-- [`two-creations`](./two-creations/SKILL.md) — 两次创造：任何事物先有心智创造（蓝图）再有实体创造（施工），警惕蓝图被他人代写。
-- [`leadership-before-management`](./leadership-before-management/SKILL.md) — 领导先于管理：先验证方向（做正确的事）再优化执行（正确地做事）。
-- [`personal-mission-statement`](./personal-mission-statement/SKILL.md) — 个人使命宣言：品德+贡献+原则的个人宪法，重大取舍用它裁决而非临场权衡。
-- [`life-center-diagnosis`](./life-center-diagnosis/SKILL.md) — 生活中心诊断：用两难情境反推安全感/方向/智慧/力量的供给源，十种中心+情境测试。
-- [`funeral-exercise`](./funeral-exercise/SKILL.md) — 葬礼演练：以人生终点为衡量标准，四位发言人的价值观探测仪。
-- [`transition-person`](./transition-person/SKILL.md) — 转型者：识别并改写家族代际传递的行为模式，"到我这为止"。
+- [`two-creations`](../skills/./two-creations/SKILL.md) — 两次创造：任何事物先有心智创造（蓝图）再有实体创造（施工），警惕蓝图被他人代写。
+- [`leadership-before-management`](../skills/./leadership-before-management/SKILL.md) — 领导先于管理：先验证方向（做正确的事）再优化执行（正确地做事）。
+- [`personal-mission-statement`](../skills/./personal-mission-statement/SKILL.md) — 个人使命宣言：品德+贡献+原则的个人宪法，重大取舍用它裁决而非临场权衡。
+- [`life-center-diagnosis`](../skills/./life-center-diagnosis/SKILL.md) — 生活中心诊断：用两难情境反推安全感/方向/智慧/力量的供给源，十种中心+情境测试。
+- [`funeral-exercise`](../skills/./funeral-exercise/SKILL.md) — 葬礼演练：以人生终点为衡量标准，四位发言人的价值观探测仪。
+- [`transition-person`](../skills/./transition-person/SKILL.md) — 转型者：识别并改写家族代际传递的行为模式，"到我这为止"。
 
 **习惯三·要事第一**
 
-- [`fourth-gen-time-management`](./fourth-gen-time-management/SKILL.md) — 第四代时间管理：以角色与第二象限（重要不紧急）为中心的周规划，六标准+四步骤。
-- [`stewardship-delegation`](./stewardship-delegation/SKILL.md) — 责任型授权：指令型授权 vs 责任型授权，五要素共识，盯结果不盯方法。
-- [`effectiveness-not-efficiency-with-people`](./effectiveness-not-efficiency-with-people/SKILL.md) — 对人讲效用，对事讲效率：为人牺牲日程合法且不应内疚。
+- [`fourth-gen-time-management`](../skills/./fourth-gen-time-management/SKILL.md) — 第四代时间管理：以角色与第二象限（重要不紧急）为中心的周规划，六标准+四步骤。
+- [`stewardship-delegation`](../skills/./stewardship-delegation/SKILL.md) — 责任型授权：指令型授权 vs 责任型授权，五要素共识，盯结果不盯方法。
+- [`effectiveness-not-efficiency-with-people`](../skills/./effectiveness-not-efficiency-with-people/SKILL.md) — 对人讲效用，对事讲效率：为人牺牲日程合法且不应内疚。
 
 ### 公众领域的成功（习惯四/五/六：独立→互赖）
 
 **关系介质（第六章）**
 
-- [`emotional-bank-account`](./emotional-bank-account/SKILL.md) — 情感账户：信任是可存取、会透支、按对方汇率计价的账户，七种存款方式——公众领域三个习惯的共同介质。
-- [`clarify-expectations`](./clarify-expectations/SKILL.md) — 一开始就明确期望：几乎所有的人际障碍源于对角色和目标的期望不明。
-- [`honor-the-absent`](./honor-the-absent/SKILL.md) — 维护不在场的人：在场的人会据此推定你将如何对待他们。
+- [`emotional-bank-account`](../skills/./emotional-bank-account/SKILL.md) — 情感账户：信任是可存取、会透支、按对方汇率计价的账户，七种存款方式——公众领域三个习惯的共同介质。
+- [`clarify-expectations`](../skills/./clarify-expectations/SKILL.md) — 一开始就明确期望：几乎所有的人际障碍源于对角色和目标的期望不明。
+- [`honor-the-absent`](../skills/./honor-the-absent/SKILL.md) — 维护不在场的人：在场的人会据此推定你将如何对待他们。
 
 **习惯四·双赢思维**
 
-- [`win-win-five-dimensions`](./win-win-five-dimensions/SKILL.md) — 双赢思维五要领：品德、关系、协议、体系、过程五层检视"双赢推行不下去"卡在哪。
-- [`six-interaction-modes`](./six-interaction-modes/SKILL.md) — 人际交往六模式：双赢/赢输/输赢/输输/独善其身/无交易，给交往定性并追溯模式来源。
-- [`win-win-or-no-deal`](./win-win-or-no-deal/SKILL.md) — 不能双赢就好聚好散：无交易是双赢不可得时的合法出口。
-- [`no-involvement-no-commitment`](./no-involvement-no-commitment/SKILL.md) — 唯有参与，才有认同：让执行者参与拟定共同目标，四问检验。
+- [`win-win-five-dimensions`](../skills/./win-win-five-dimensions/SKILL.md) — 双赢思维五要领：品德、关系、协议、体系、过程五层检视"双赢推行不下去"卡在哪。
+- [`six-interaction-modes`](../skills/./six-interaction-modes/SKILL.md) — 人际交往六模式：双赢/赢输/输赢/输输/独善其身/无交易，给交往定性并追溯模式来源。
+- [`win-win-or-no-deal`](../skills/./win-win-or-no-deal/SKILL.md) — 不能双赢就好聚好散：无交易是双赢不可得时的合法出口。
+- [`no-involvement-no-commitment`](../skills/./no-involvement-no-commitment/SKILL.md) — 唯有参与，才有认同：让执行者参与拟定共同目标，四问检验。
 
 **习惯五·知彼解己**
 
-- [`seek-first-to-understand`](./seek-first-to-understand/SKILL.md) — 先理解再被理解：先移情聆听直到能替对方复述其立场，再争取被理解。
-- [`diagnose-before-prescribe`](./diagnose-before-prescribe/SKILL.md) — 先诊断，后开方：暂停四种自传式回应，走移情聆听四阶段，诊断完成前不开方。
+- [`seek-first-to-understand`](../skills/./seek-first-to-understand/SKILL.md) — 先理解再被理解：先移情聆听直到能替对方复述其立场，再争取被理解。
+- [`diagnose-before-prescribe`](../skills/./diagnose-before-prescribe/SKILL.md) — 先诊断，后开方：暂停四种自传式回应，走移情聆听四阶段，诊断完成前不开方。
 
 **习惯六·统合综效**
 
-- [`synergy-third-alternative`](./synergy-third-alternative/SKILL.md) — 统合综效与第三选择：从立场下探到真实关切，共创既非折中（1+1≈1.5）也非单方胜利的 1+1>2。
+- [`synergy-third-alternative`](../skills/./synergy-third-alternative/SKILL.md) — 统合综效与第三选择：从立场下探到真实关切，共创既非折中（1+1≈1.5）也非单方胜利的 1+1>2。
 
 **影响他人**
 
-- [`affirm-potential`](./affirm-potential/SKILL.md) — 以潜能期许他人：不做社会之镜的复读机，按潜能而非现有表现设定并明说期许（第十章·改变他人）。
+- [`affirm-potential`](../skills/./affirm-potential/SKILL.md) — 以潜能期许他人：不做社会之镜的复读机，按潜能而非现有表现设定并明说期许（第十章·改变他人）。
 
 ### 更新（习惯七）
 
-- [`sharpen-the-saw-four-dimensions`](./sharpen-the-saw-four-dimensions/SKILL.md) — 不断更新·四层面：身体/精神/智力/社会情感平衡"磨刀"，最小单元是每天一小时——所有习惯的保鲜机制。
+- [`sharpen-the-saw-four-dimensions`](../skills/./sharpen-the-saw-four-dimensions/SKILL.md) — 不断更新·四层面：身体/精神/智力/社会情感平衡"磨刀"，最小单元是每天一小时——所有习惯的保鲜机制。
 
 ---
 

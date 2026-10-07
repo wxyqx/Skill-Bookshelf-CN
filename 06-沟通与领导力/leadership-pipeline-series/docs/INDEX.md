@@ -28,77 +28,77 @@
 
 ### 册5《领导梯队》 — 体系总框架（20 个）
 
-- [`leadership-pipeline-six-passages`](./leadership-pipeline-six-passages/SKILL.md) — 领导力发展六阶段模型（领导梯队总框架）｜framework｜册5·导论、第1章｜b5-f01
-- [`three-dimension-transition`](./three-dimension-transition/SKILL.md) — 阶段转型三维度：技能/时间/理念｜framework｜册5·导论、第1/9章｜b5-f02
-- [`first-manager-three-transitions`](./first-manager-three-transitions/SKILL.md) — 初任经理三项工作转型（通过他人完成任务）｜framework｜册5·第2章｜b5-f04
-- [`manager-transition-tactics-three-steps`](./manager-transition-tactics-three-steps/SKILL.md) — 疏通梯队三步战术：准备—监督—干预｜framework｜册5·第2章｜b5-f07
-- [`managing-managers-role`](./managing-managers-role/SKILL.md) — 部门总监：四项技能与两年期杠杆机制｜framework｜册5·第3章（＋册2·第6章）｜b5-f08
-- [`functional-manager-maturity`](./functional-manager-maturity/SKILL.md) — 职能主管：领导力成熟度与竞争优势使命｜framework｜册5·第4章｜b5-f10
-- [`business-manager-complexity-triangle`](./business-manager-complexity-triangle/SKILL.md) — 事业部总经理：协同三角形与整合团队｜framework｜册5·第5章｜b5-f13
-- [`group-executive-indirect-success`](./group-executive-indirect-success/SKILL.md) — 集团高管：间接成功与组合管理｜framework｜册5·第6章｜b5-f14
-- [`ceo-five-challenges`](./ceo-five-challenges/SKILL.md) — CEO 五项领导力挑战与执行到位五问｜framework｜册5·第7章｜b5-f17
-- [`diagnosis-five-steps`](./diagnosis-five-steps/SKILL.md) — 个体与组织诊断五步/四步法｜framework｜册5·第8章｜b5-f19
-- [`role-clarity-gaps-overlaps`](./role-clarity-gaps-overlaps/SKILL.md) — 明确职责三步法与职责断裂/重叠检查｜framework｜册5·第9章｜b5-f21
-- [`performance-gap-circle`](./performance-gap-circle/SKILL.md) — 绩效圆圈与绩效缺口：七项内容与培养四步循环｜framework｜册5·第9章｜b5-f23
-- [`succession-five-steps`](./succession-five-steps/SKILL.md) — 继任计划：新定义、四原则与五步骤｜framework｜册5·第10章｜b5-f27
-- [`potential-three-types`](./potential-three-types/SKILL.md) — 潜能三分类：转型/成长/熟练｜framework｜册5·第10章｜b5-f28
-- [`nine-box-actions`](./nine-box-actions/SKILL.md) — 潜能-绩效九格矩阵与每格行动｜framework｜册5·第10章｜b5-f29
-- [`leadership-deficit-four-causes`](./leadership-deficit-four-causes/SKILL.md) — 领导缺陷四因与组织三缺失｜framework｜册5·第11章｜b5-f30
-- [`corporate-function-six-relations`](./corporate-function-six-relations/SKILL.md) — 企业/集团职能主管：六关系点与角色重定义｜framework｜册5·第12章｜b5-f32
-- [`dual-track-management-technical`](./dual-track-management-technical/SKILL.md) — 管理/技术双轨发展框架｜framework｜册5·第1/2章（＋册2·第8章）｜b5-f36
-- [`promotion-due-diligence`](./promotion-due-diligence/SKILL.md) — 提拔尽调三必问：能否复制成绩、接受新理念、具备新技能｜principle｜册5·第11章（＋册1·第6章）｜b5-p24
-- [`customize-not-copy`](./customize-not-copy/SKILL.md) — 模型必须按组织定制，严禁机械照搬｜principle｜册5·导论、第10/14章｜b5-p28
+- [`leadership-pipeline-six-passages`](../skills/./leadership-pipeline-six-passages/SKILL.md) — 领导力发展六阶段模型（领导梯队总框架）｜framework｜册5·导论、第1章｜b5-f01
+- [`three-dimension-transition`](../skills/./three-dimension-transition/SKILL.md) — 阶段转型三维度：技能/时间/理念｜framework｜册5·导论、第1/9章｜b5-f02
+- [`first-manager-three-transitions`](../skills/./first-manager-three-transitions/SKILL.md) — 初任经理三项工作转型（通过他人完成任务）｜framework｜册5·第2章｜b5-f04
+- [`manager-transition-tactics-three-steps`](../skills/./manager-transition-tactics-three-steps/SKILL.md) — 疏通梯队三步战术：准备—监督—干预｜framework｜册5·第2章｜b5-f07
+- [`managing-managers-role`](../skills/./managing-managers-role/SKILL.md) — 部门总监：四项技能与两年期杠杆机制｜framework｜册5·第3章（＋册2·第6章）｜b5-f08
+- [`functional-manager-maturity`](../skills/./functional-manager-maturity/SKILL.md) — 职能主管：领导力成熟度与竞争优势使命｜framework｜册5·第4章｜b5-f10
+- [`business-manager-complexity-triangle`](../skills/./business-manager-complexity-triangle/SKILL.md) — 事业部总经理：协同三角形与整合团队｜framework｜册5·第5章｜b5-f13
+- [`group-executive-indirect-success`](../skills/./group-executive-indirect-success/SKILL.md) — 集团高管：间接成功与组合管理｜framework｜册5·第6章｜b5-f14
+- [`ceo-five-challenges`](../skills/./ceo-five-challenges/SKILL.md) — CEO 五项领导力挑战与执行到位五问｜framework｜册5·第7章｜b5-f17
+- [`diagnosis-five-steps`](../skills/./diagnosis-five-steps/SKILL.md) — 个体与组织诊断五步/四步法｜framework｜册5·第8章｜b5-f19
+- [`role-clarity-gaps-overlaps`](../skills/./role-clarity-gaps-overlaps/SKILL.md) — 明确职责三步法与职责断裂/重叠检查｜framework｜册5·第9章｜b5-f21
+- [`performance-gap-circle`](../skills/./performance-gap-circle/SKILL.md) — 绩效圆圈与绩效缺口：七项内容与培养四步循环｜framework｜册5·第9章｜b5-f23
+- [`succession-five-steps`](../skills/./succession-five-steps/SKILL.md) — 继任计划：新定义、四原则与五步骤｜framework｜册5·第10章｜b5-f27
+- [`potential-three-types`](../skills/./potential-three-types/SKILL.md) — 潜能三分类：转型/成长/熟练｜framework｜册5·第10章｜b5-f28
+- [`nine-box-actions`](../skills/./nine-box-actions/SKILL.md) — 潜能-绩效九格矩阵与每格行动｜framework｜册5·第10章｜b5-f29
+- [`leadership-deficit-four-causes`](../skills/./leadership-deficit-four-causes/SKILL.md) — 领导缺陷四因与组织三缺失｜framework｜册5·第11章｜b5-f30
+- [`corporate-function-six-relations`](../skills/./corporate-function-six-relations/SKILL.md) — 企业/集团职能主管：六关系点与角色重定义｜framework｜册5·第12章｜b5-f32
+- [`dual-track-management-technical`](../skills/./dual-track-management-technical/SKILL.md) — 管理/技术双轨发展框架｜framework｜册5·第1/2章（＋册2·第8章）｜b5-f36
+- [`promotion-due-diligence`](../skills/./promotion-due-diligence/SKILL.md) — 提拔尽调三必问：能否复制成绩、接受新理念、具备新技能｜principle｜册5·第11章（＋册1·第6章）｜b5-p24
+- [`customize-not-copy`](../skills/./customize-not-copy/SKILL.md) — 模型必须按组织定制，严禁机械照搬｜principle｜册5·导论、第10/14章｜b5-p28
 
 ### 册2《业绩梯队》 — 业绩维度（7 个）
 
-- [`performance-pipeline-interview-build`](./performance-pipeline-interview-build/SKILL.md) — 业绩梯队建队六步骤（含名词提取与标准双栏）｜framework｜册2·第1章｜b2-f03
-- [`job-essence-two-factors`](./job-essence-two-factors/SKILL.md) — 工作本质双因素判定：决策权＋障碍｜framework｜册2·第1章｜b2-f07
-- [`control-three-points-immune-system`](./control-three-points-immune-system/SKILL.md) — 控制机制三时点与免疫系统｜framework｜册2·第2章｜b2-f11
-- [`functional-vp-four-results`](./functional-vp-four-results/SKILL.md) — 事业部副总经理四项关键业绩与四条警示｜framework｜册2·第5章｜b2-f14
-- [`environment-three-variables`](./environment-three-variables/SKILL.md) — 大环境（土地）分析三变量｜framework｜册2·第9章｜b2-f19
-- [`mealer-transition-six-steps`](./mealer-transition-six-steps/SKILL.md) — MEALER 六阶段过渡模型｜framework｜册2·第10章｜b2-f21
-- [`performance-dialogue-evidence`](./performance-dialogue-evidence/SKILL.md) — 业绩讨论与证据法｜framework｜册2·第11章｜b2-f22
+- [`performance-pipeline-interview-build`](../skills/./performance-pipeline-interview-build/SKILL.md) — 业绩梯队建队六步骤（含名词提取与标准双栏）｜framework｜册2·第1章｜b2-f03
+- [`job-essence-two-factors`](../skills/./job-essence-two-factors/SKILL.md) — 工作本质双因素判定：决策权＋障碍｜framework｜册2·第1章｜b2-f07
+- [`control-three-points-immune-system`](../skills/./control-three-points-immune-system/SKILL.md) — 控制机制三时点与免疫系统｜framework｜册2·第2章｜b2-f11
+- [`functional-vp-four-results`](../skills/./functional-vp-four-results/SKILL.md) — 事业部副总经理四项关键业绩与四条警示｜framework｜册2·第5章｜b2-f14
+- [`environment-three-variables`](../skills/./environment-three-variables/SKILL.md) — 大环境（土地）分析三变量｜framework｜册2·第9章｜b2-f19
+- [`mealer-transition-six-steps`](../skills/./mealer-transition-six-steps/SKILL.md) — MEALER 六阶段过渡模型｜framework｜册2·第10章｜b2-f21
+- [`performance-dialogue-evidence`](../skills/./performance-dialogue-evidence/SKILL.md) — 业绩讨论与证据法｜framework｜册2·第11章｜b2-f22
 
 ### 册4《高管路径》 — 人才生产（9 个）
 
-- [`apprenticeship-model`](./apprenticeship-model/SKILL.md) — 轮岗培养模式总框架｜framework｜册4·前言、第2章｜b4-f01
-- [`concentric-learning-job-design`](./concentric-learning-job-design/SKILL.md) — 同心圆学习与以人定岗（岗位路径设计）｜framework｜册4·第2/4章｜b4-f02
-- [`deliberate-practice-feedback-loop`](./deliberate-practice-feedback-loop/SKILL.md) — 持续强化练习与导师反馈（反馈＋改进闭环）｜framework｜册4·第2/5章｜b4-f03
-- [`leadership-potential-double-helix`](./leadership-potential-double-helix/SKILL.md) — 双螺旋领导潜质（驭人之道×经商之道）｜framework｜册4·第3章｜b4-f04
-- [`ceo-selection-process`](./ceo-selection-process/SKILL.md) — CEO 选拔流程与治理（三原则＋8 阶段＋资格分层）｜framework｜册4·第7章｜b4-f16
-- [`tolerate-failure-conditions`](./tolerate-failure-conditions/SKILL.md) — 宽容失败三条件（给人才自由，把失败当信号）｜framework｜册4·第4章｜b4-f18
-- [`developing-talent-is-every-leaders-job`](./developing-talent-is-every-leaders-job/SKILL.md) — 培养人才是每位现任领导的职责，必须考核与奖惩｜principle｜册4·第1–2章、附录｜b4-p03
-- [`assessment-dual-track`](./assessment-dual-track/SKILL.md) — 评估双轨：数字导向的绩效考核不能替代领导力评估｜principle｜册4·第5章｜b4-p12
-- [`leadership-is-work-not-honor`](./leadership-is-work-not-honor/SKILL.md) — 领导是一种工作而非荣誉；警惕自恋与诚信损耗｜principle｜册4·结语、附录｜b4-p16
+- [`apprenticeship-model`](../skills/./apprenticeship-model/SKILL.md) — 轮岗培养模式总框架｜framework｜册4·前言、第2章｜b4-f01
+- [`concentric-learning-job-design`](../skills/./concentric-learning-job-design/SKILL.md) — 同心圆学习与以人定岗（岗位路径设计）｜framework｜册4·第2/4章｜b4-f02
+- [`deliberate-practice-feedback-loop`](../skills/./deliberate-practice-feedback-loop/SKILL.md) — 持续强化练习与导师反馈（反馈＋改进闭环）｜framework｜册4·第2/5章｜b4-f03
+- [`leadership-potential-double-helix`](../skills/./leadership-potential-double-helix/SKILL.md) — 双螺旋领导潜质（驭人之道×经商之道）｜framework｜册4·第3章｜b4-f04
+- [`ceo-selection-process`](../skills/./ceo-selection-process/SKILL.md) — CEO 选拔流程与治理（三原则＋8 阶段＋资格分层）｜framework｜册4·第7章｜b4-f16
+- [`tolerate-failure-conditions`](../skills/./tolerate-failure-conditions/SKILL.md) — 宽容失败三条件（给人才自由，把失败当信号）｜framework｜册4·第4章｜b4-f18
+- [`developing-talent-is-every-leaders-job`](../skills/./developing-talent-is-every-leaders-job/SKILL.md) — 培养人才是每位现任领导的职责，必须考核与奖惩｜principle｜册4·第1–2章、附录｜b4-p03
+- [`assessment-dual-track`](../skills/./assessment-dual-track/SKILL.md) — 评估双轨：数字导向的绩效考核不能替代领导力评估｜principle｜册4·第5章｜b4-p12
+- [`leadership-is-work-not-honor`](../skills/./leadership-is-work-not-honor/SKILL.md) — 领导是一种工作而非荣誉；警惕自恋与诚信损耗｜principle｜册4·结语、附录｜b4-p16
 
 ### 册3《CEO说》 — 商业语言（12 个）
 
-- [`business-acumen-six-elements`](./business-acumen-six-elements/SKILL.md) — 商业智慧：六要素＋两基础总框架｜framework｜册3·第1–2章｜b3-f01
-- [`r-m-v-return-decomposition`](./r-m-v-return-decomposition/SKILL.md) — R=M×V：资产收益率＝利润率×周转率｜framework｜册3·第2章｜b3-f03
-- [`cash-net-inflow-everyones-business`](./cash-net-inflow-everyones-business/SKILL.md) — 现金净流入视角（公司氧气与人人有责）｜framework｜册3·第2章｜b3-f04
-- [`direct-customer-contact`](./direct-customer-contact/SKILL.md) — 顾客直接接触法（未经过滤的第一手观察）｜framework｜册3·第2章｜b3-f05
-- [`complexity-to-priorities`](./complexity-to-priorities/SKILL.md) — 化繁为简的决策路径（因素→关系→基本行为→优先事项）｜framework｜册3·第4/9章｜b3-f06
-- [`priority-focus-three-to-four`](./priority-focus-three-to-four/SKILL.md) — 优先事项聚焦（少而稳定的 3~4 项）｜framework｜册3·第4/9章｜b3-f07
-- [`pe-multiple-wealth-mechanism`](./pe-multiple-wealth-mechanism/SKILL.md) — P-E 值：财富创造机制与管理纪律｜framework｜册3·第5章｜b3-f08
-- [`company-panorama-seven-questions`](./company-panorama-seven-questions/SKILL.md) — 公司全景诊断七问｜framework｜册3·第3/9章｜b3-f10
-- [`coaching-two-tracks`](./coaching-two-tracks/SKILL.md) — 教练辅导双轨框架（业务轨＋行为轨）｜framework｜册3·第6章｜b3-f12
-- [`social-operating-mechanism`](./social-operating-mechanism/SKILL.md) — 社会化沟通执行机制的设计｜framework｜册3·第7章｜b3-f13
-- [`profitable-sustainable-growth`](./profitable-sustainable-growth/SKILL.md) — 增长必须赢利、可持续（四条同步标准）｜principle｜册3·第2章｜b3-p03
-- [`not-betting-is-betting`](./not-betting-is-betting/SKILL.md) — 不下注本身就是一种赌博｜principle｜册3·第9/4章｜b3-p08
+- [`business-acumen-six-elements`](../skills/./business-acumen-six-elements/SKILL.md) — 商业智慧：六要素＋两基础总框架｜framework｜册3·第1–2章｜b3-f01
+- [`r-m-v-return-decomposition`](../skills/./r-m-v-return-decomposition/SKILL.md) — R=M×V：资产收益率＝利润率×周转率｜framework｜册3·第2章｜b3-f03
+- [`cash-net-inflow-everyones-business`](../skills/./cash-net-inflow-everyones-business/SKILL.md) — 现金净流入视角（公司氧气与人人有责）｜framework｜册3·第2章｜b3-f04
+- [`direct-customer-contact`](../skills/./direct-customer-contact/SKILL.md) — 顾客直接接触法（未经过滤的第一手观察）｜framework｜册3·第2章｜b3-f05
+- [`complexity-to-priorities`](../skills/./complexity-to-priorities/SKILL.md) — 化繁为简的决策路径（因素→关系→基本行为→优先事项）｜framework｜册3·第4/9章｜b3-f06
+- [`priority-focus-three-to-four`](../skills/./priority-focus-three-to-four/SKILL.md) — 优先事项聚焦（少而稳定的 3~4 项）｜framework｜册3·第4/9章｜b3-f07
+- [`pe-multiple-wealth-mechanism`](../skills/./pe-multiple-wealth-mechanism/SKILL.md) — P-E 值：财富创造机制与管理纪律｜framework｜册3·第5章｜b3-f08
+- [`company-panorama-seven-questions`](../skills/./company-panorama-seven-questions/SKILL.md) — 公司全景诊断七问｜framework｜册3·第3/9章｜b3-f10
+- [`coaching-two-tracks`](../skills/./coaching-two-tracks/SKILL.md) — 教练辅导双轨框架（业务轨＋行为轨）｜framework｜册3·第6章｜b3-f12
+- [`social-operating-mechanism`](../skills/./social-operating-mechanism/SKILL.md) — 社会化沟通执行机制的设计｜framework｜册3·第7章｜b3-f13
+- [`profitable-sustainable-growth`](../skills/./profitable-sustainable-growth/SKILL.md) — 增长必须赢利、可持续（四条同步标准）｜principle｜册3·第2章｜b3-p03
+- [`not-betting-is-betting`](../skills/./not-betting-is-betting/SKILL.md) — 不下注本身就是一种赌博｜principle｜册3·第9/4章｜b3-p08
 
 ### 册1《执行》 — 执行系统（11 个）
 
-- [`execution-system-architecture`](./execution-system-architecture/SKILL.md) — 执行三基石与三流程整合架构｜framework｜册1·导言、第1章｜b1-f01
-- [`question-to-reality`](./question-to-reality/SKILL.md) — 追问到现实（提问式领导）｜framework｜册1·第1/3/8章｜b1-f03
-- [`field-visit-protocol`](./field-visit-protocol/SKILL.md) — 深入一线视察流程｜framework｜册1·第3/6章｜b1-f04
-- [`culture-performance-linkage`](./culture-performance-linkage/SKILL.md) — 文化变革的绩效联结框架｜framework｜册1·第4章｜b1-f05
-- [`talent-review-meeting-mrr`](./talent-review-meeting-mrr/SKILL.md) — 人才评估会议机制（MRR）｜framework｜册1·第6章｜b1-f12
-- [`underperformer-tiered-handling`](./underperformer-tiered-handling/SKILL.md) — 表现不佳者分层处置流程｜framework｜册1·第3/5/6章｜b1-f15
-- [`bedrock-strategy-one-pager`](./bedrock-strategy-one-pager/SKILL.md) — 基石式战略表达法｜framework｜册1·第7章｜b1-f16
-- [`strategy-review-question-set`](./strategy-review-question-set/SKILL.md) — 战略评估会议的问题框架｜framework｜册1·第8章｜b1-f17
-- [`operations-plan-three-step`](./operations-plan-three-step/SKILL.md) — 运营实施流程三步法与预算从属｜framework｜册1·第9章｜b1-f20
-- [`assumptions-and-contingency`](./assumptions-and-contingency/SKILL.md) — 前提假设显性化与应急计划｜framework｜册1·第9/7章｜b1-f22
-- [`follow-through-discipline`](./follow-through-discipline/SKILL.md) — 持续跟进，直至达成目标｜principle｜册1·第3/6/8/9章｜b1-p08
+- [`execution-system-architecture`](../skills/./execution-system-architecture/SKILL.md) — 执行三基石与三流程整合架构｜framework｜册1·导言、第1章｜b1-f01
+- [`question-to-reality`](../skills/./question-to-reality/SKILL.md) — 追问到现实（提问式领导）｜framework｜册1·第1/3/8章｜b1-f03
+- [`field-visit-protocol`](../skills/./field-visit-protocol/SKILL.md) — 深入一线视察流程｜framework｜册1·第3/6章｜b1-f04
+- [`culture-performance-linkage`](../skills/./culture-performance-linkage/SKILL.md) — 文化变革的绩效联结框架｜framework｜册1·第4章｜b1-f05
+- [`talent-review-meeting-mrr`](../skills/./talent-review-meeting-mrr/SKILL.md) — 人才评估会议机制（MRR）｜framework｜册1·第6章｜b1-f12
+- [`underperformer-tiered-handling`](../skills/./underperformer-tiered-handling/SKILL.md) — 表现不佳者分层处置流程｜framework｜册1·第3/5/6章｜b1-f15
+- [`bedrock-strategy-one-pager`](../skills/./bedrock-strategy-one-pager/SKILL.md) — 基石式战略表达法｜framework｜册1·第7章｜b1-f16
+- [`strategy-review-question-set`](../skills/./strategy-review-question-set/SKILL.md) — 战略评估会议的问题框架｜framework｜册1·第8章｜b1-f17
+- [`operations-plan-three-step`](../skills/./operations-plan-three-step/SKILL.md) — 运营实施流程三步法与预算从属｜framework｜册1·第9章｜b1-f20
+- [`assumptions-and-contingency`](../skills/./assumptions-and-contingency/SKILL.md) — 前提假设显性化与应急计划｜framework｜册1·第9/7章｜b1-f22
+- [`follow-through-discipline`](../skills/./follow-through-discipline/SKILL.md) — 持续跟进，直至达成目标｜principle｜册1·第3/6/8/9章｜b1-p08
 
 ### 类型说明
 

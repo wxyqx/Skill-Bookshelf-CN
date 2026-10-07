@@ -16,7 +16,7 @@
 
 **边界**：石头清单若写不成能进推演的条件，就只是托辞；套用失灵时，是"结论失灵"，不是"规律失效"。
 
-对应框架：[skills/china-macro-perspective/SKILL.md](skills/china-macro-perspective/SKILL.md)、[skills/price-quantity-diagnosis/SKILL.md](skills/price-quantity-diagnosis/SKILL.md)
+对应框架：[skills/china-macro-perspective/SKILL.md](../skills/china-macro-perspective/SKILL.md)、[skills/price-quantity-diagnosis/SKILL.md](../skills/price-quantity-diagnosis/SKILL.md)
 
 ---
 
@@ -32,7 +32,7 @@
 
 **边界**：层次高不等于正确——第①层的 GDP 导向有地方政府竞争的历史功绩；也防层次混同：三层都说"稳增长"，论证却完全不同。
 
-对应框架：[skills/six-levels-thinking/SKILL.md](skills/six-levels-thinking/SKILL.md)
+对应框架：[skills/six-levels-thinking/SKILL.md](../skills/six-levels-thinking/SKILL.md)
 
 ### 次优理论：方向正确的改革为什么会帮倒忙
 
@@ -44,7 +44,7 @@
 
 **边界**：作者自己承认，次优理论未指出从"次优"到"最优"的具体路径；用不好就变成"约束崇拜"，任何改革受挫都能赖"条件没具备"。解药是改革循环：改革→阵痛暴露缺失条件→补上→再改革。
 
-对应框架：[skills/second-best-transition/SKILL.md](skills/second-best-transition/SKILL.md)
+对应框架：[skills/second-best-transition/SKILL.md](../skills/second-best-transition/SKILL.md)
 
 ---
 
@@ -60,7 +60,7 @@
 
 **边界**：GDP 下降不等于福利变坏；占比小不等于不重要——存货与净出口各占约 2%，却常主导波动；数据有误差不等于不能分析，看走势比抠水平值可靠。
 
-对应框架：[skills/gdp-welfare-analysis/SKILL.md](skills/gdp-welfare-analysis/SKILL.md)
+对应框架：[skills/gdp-welfare-analysis/SKILL.md](../skills/gdp-welfare-analysis/SKILL.md)
 
 ### 增长核算：给中国增长体检
 
@@ -72,7 +72,7 @@
 
 **边界**：索洛剩余是残差，技术、制度、文化全在里面，读成"技术退步"会卡壳；稻田条件把资本回报为负（产能过剩）排除在新古典视野外；数学正确只是必要条件。
 
-对应框架：[skills/china-growth-accounting/SKILL.md](skills/china-growth-accounting/SKILL.md)
+对应框架：[skills/china-growth-accounting/SKILL.md](../skills/china-growth-accounting/SKILL.md)
 
 ### 发展战略：A 和 α 是两码事
 
@@ -84,7 +84,7 @@
 
 **边界**："劳动密集=吃亏"和"产业高端=绩效好"都是直觉陷阱——资本稀缺时"几亿条裤子换一架飞机"完全合理；数值模拟裁决战略之争的前提是假设贴合现实。
 
-对应框架：[skills/development-strategy-analysis/SKILL.md](skills/development-strategy-analysis/SKILL.md)
+对应框架：[skills/development-strategy-analysis/SKILL.md](../skills/development-strategy-analysis/SKILL.md)
 
 ### 消费不足：这是收入分配问题，不是文化问题
 
@@ -96,7 +96,7 @@
 
 **边界**：文化归因被日韩证伪（同受儒家影响，消费占比远高于中国）；强制分红不万能（分红或以补贴回流，恰当比率只有所有权竞争市场知道）；私有化不等于良策（苏东内部人攫取）；还要区分自愿高储蓄（不该强制促消费）与结构强加的低消费（该纠正）。
 
-对应框架：[skills/china-underconsumption/SKILL.md](skills/china-underconsumption/SKILL.md)、[skills/ramsey-consumption-savings/SKILL.md](skills/ramsey-consumption-savings/SKILL.md)
+对应框架：[skills/china-underconsumption/SKILL.md](../skills/china-underconsumption/SKILL.md)、[skills/ramsey-consumption-savings/SKILL.md](../skills/ramsey-consumption-savings/SKILL.md)
 
 ---
 
@@ -112,7 +112,7 @@
 
 **边界**：单边叙事两个方向都错——"顺差国害了美国"推卸了美国责任，"被剥削"也不成立，这是各取所需的交换；消费不足与储蓄过剩是同一枚硬币两面，但国内诊断拆到收入分配，对外用总量恒等式，两层别混。
 
-对应框架：[skills/global-imbalances-saving-glut/SKILL.md](skills/global-imbalances-saving-glut/SKILL.md)
+对应框架：[skills/global-imbalances-saving-glut/SKILL.md](../skills/global-imbalances-saving-glut/SKILL.md)
 
 ### 国际收支危机与美元特权
 
@@ -124,7 +124,7 @@
 
 **边界**：炒家是引爆器，外债不可持续才是火药；次贷危机不是国际收支危机——美元特权保护美国政府，不保护美国居民和企业；SDR 不是货币，人民币入篮不等于各国自动储备人民币。
 
-对应框架：[skills/bop-crisis-dollar-privilege/SKILL.md](skills/bop-crisis-dollar-privilege/SKILL.md)
+对应框架：[skills/bop-crisis-dollar-privilege/SKILL.md](../skills/bop-crisis-dollar-privilege/SKILL.md)
 
 ### 债务与金融乱象：先算账，再查前提
 
@@ -136,7 +136,7 @@
 
 **边界**：拿欧债往中国身上套是"找错参照物"——中国是对应国内储蓄的内债；城投不是庞氏，回报大头是落在政府账上的外部性；"压房价去杠杆"方向反了——名义 GDP 收缩比债务快，杠杆率反而升。
 
-对应框架：[skills/china-debt-financial-chaos/SKILL.md](skills/china-debt-financial-chaos/SKILL.md)
+对应框架：[skills/china-debt-financial-chaos/SKILL.md](../skills/china-debt-financial-chaos/SKILL.md)
 
 ---
 
@@ -152,7 +152,7 @@
 
 **边界**：把储蓄当货币（储蓄是真实变量，货币只是持有形式）；"货币超发必然通胀"把恒等式当因果；也别在现实中执行弗里德曼最优（名义利率为零+持续通缩）——价格下调困难、债务通缩会酿成灾难。
 
-对应框架：[skills/money-neutrality-analysis/SKILL.md](skills/money-neutrality-analysis/SKILL.md)
+对应框架：[skills/money-neutrality-analysis/SKILL.md](../skills/money-neutrality-analysis/SKILL.md)
 
 ### 菲利普斯曲线：在中国画反了方向
 
@@ -164,7 +164,7 @@
 
 **边界**：微观加总谬误是宏观错误认知的头号来源；"宽松总能刺激"是外推——效力来自超预期，民众不会永远被欺骗；产出缺口估算很主观，换方法可能得出相反方向，用之前先报方法。
 
-对应框架：[skills/phillips-curve-china/SKILL.md](skills/phillips-curve-china/SKILL.md)
+对应框架：[skills/phillips-curve-china/SKILL.md](../skills/phillips-curve-china/SKILL.md)
 
 ### 传导与流动性堰塞湖
 
@@ -176,7 +176,7 @@
 
 **边界**：堰塞湖定性依据是指标背离，不是涨跌幅；"放水后利率必然降/升"各对一半；水位是状态不是永态——判断短期方向可以，外推长期均衡不行。
 
-对应框架：[skills/monetary-transmission-blockage/SKILL.md](skills/monetary-transmission-blockage/SKILL.md)
+对应框架：[skills/monetary-transmission-blockage/SKILL.md](../skills/monetary-transmission-blockage/SKILL.md)
 
 ### 预算软约束：低回报为什么挤走高回报
 
@@ -188,7 +188,7 @@
 
 **边界**：放开利率管制不等于利率市场化成功，判据是资金是否流向回报更高的企业；打破刚兑不等于必然理顺（违约落在民企头上会适得其反）；城投不等于庞氏，只压融资不接财政责任就是"按下葫芦起了瓢"。
 
-对应框架：[skills/soft-budget-constraint/SKILL.md](skills/soft-budget-constraint/SKILL.md)
+对应框架：[skills/soft-budget-constraint/SKILL.md](../skills/soft-budget-constraint/SKILL.md)
 
 ### 货币政策工具箱：从常规到 QE
 
@@ -200,7 +200,7 @@
 
 **边界**：连续上调准备金率不一定是在紧缩（2006-2008 年那轮是对冲外汇占款被动投放的"锁钱"）；没有基础货币操作支撑的"政策利率"只是报价牌；"零利率=通缩无解"是三连错——问题从"能不能"转向"愿不愿、代价几何"。
 
-对应框架：[skills/monetary-policy-toolbox/SKILL.md](skills/monetary-policy-toolbox/SKILL.md)
+对应框架：[skills/monetary-policy-toolbox/SKILL.md](../skills/monetary-policy-toolbox/SKILL.md)
 
 ### 中国货币政策实践：两步法读懂央行
 
@@ -212,7 +212,7 @@
 
 **边界**：把"与教科书不符"当"不懂"是政策分析第一大忌；照抄西方制度是诉诸权威；"赤字大必然货币超发"在 1995 年后被事实否证。
 
-对应框架：[skills/china-monetary-practice/SKILL.md](skills/china-monetary-practice/SKILL.md)
+对应框架：[skills/china-monetary-practice/SKILL.md](../skills/china-monetary-practice/SKILL.md)
 
 ### 财政政策：凯恩斯还是李嘉图
 
@@ -224,7 +224,7 @@
 
 **边界**：李嘉图等价在现实中普遍不成立（乘数估计显著非零），它是随产能利用率上升而收紧的约束，不是真理；满负荷经济里"破窗创造需求"失效；IS-LM 直接假设宏观数量关系，受卢卡斯批判，只能当语言，不能当测算公式。
 
-对应框架：[skills/fiscal-keynes-vs-ricardo/SKILL.md](skills/fiscal-keynes-vs-ricardo/SKILL.md)
+对应框架：[skills/fiscal-keynes-vs-ricardo/SKILL.md](../skills/fiscal-keynes-vs-ricardo/SKILL.md)
 
 ### 汇率：不可能三角与中国选择
 
@@ -236,7 +236,7 @@
 
 **边界**："人民币低估造成消费不足、升值可平衡经济"错把内部问题归因于外部价格；"管制失效→必须浮动"漏掉了冲销选项；一次性大幅贬值是下策——预期自我实现时，"出清"最贵。
 
-对应框架：[skills/exchange-rate-open-money/SKILL.md](skills/exchange-rate-open-money/SKILL.md)
+对应框架：[skills/exchange-rate-open-money/SKILL.md](../skills/exchange-rate-open-money/SKILL.md)
 
 ### 房价与结构性通胀：钥匙在土地财政
 
@@ -248,7 +248,7 @@
 
 **边界**：土地财政的因果别搞反——就算财权事权平衡，垄断者照样高价卖地；"通胀推高房价"被数据证伪——房价在 CPI 平稳时独立波动且领先 CPI。
 
-对应框架：[skills/china-inflation-housing/SKILL.md](skills/china-inflation-housing/SKILL.md)
+对应框架：[skills/china-inflation-housing/SKILL.md](../skills/china-inflation-housing/SKILL.md)
 
 ---
 
@@ -264,7 +264,7 @@
 
 **边界**：内生/外生误设是"宏观建模极易出错的地方"；把帕累托当伦理标准、在信息不对称时走中央计划者捷径，都会系统性出错。
 
-对应框架：[skills/equilibrium-methodology/SKILL.md](skills/equilibrium-methodology/SKILL.md)
+对应框架：[skills/equilibrium-methodology/SKILL.md](../skills/equilibrium-methodology/SKILL.md)
 
 ### 理性预期与卢卡斯批判
 
@@ -276,7 +276,7 @@
 
 **边界**：批判不能泛化——消费函数是行为关系，生产函数是技术关系，不受攻击；理性预期是均衡应满足的性质，不是"人人精于预测"的行为假设，更不是已证实的真理。
 
-对应框架：[skills/expectations-lucas-critique/SKILL.md](skills/expectations-lucas-critique/SKILL.md)
+对应框架：[skills/expectations-lucas-critique/SKILL.md](../skills/expectations-lucas-critique/SKILL.md)
 
 ### 正统 vs 非正统：世界观之争
 
@@ -288,7 +288,7 @@
 
 **边界**：最危险的是教条式套用——承认中国与框架不符、却用它批评中国，被作者称为次贷危机后最大的经济风险；拟合成功不等于解释为真（RBC 模拟逼真，却推出"大萧条 25% 失业是工人自愿休假"）；分析失败先查是否工具错配。
 
-对应框架：[skills/macro-theory-debate/SKILL.md](skills/macro-theory-debate/SKILL.md)
+对应框架：[skills/macro-theory-debate/SKILL.md](../skills/macro-theory-debate/SKILL.md)
 
 ---
 

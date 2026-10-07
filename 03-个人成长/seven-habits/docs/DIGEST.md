@@ -30,7 +30,7 @@
 
 **什么时候会失效**：纯技能缺失（不会用软件）不是地图问题；急性事实危机（资金链断裂）先处理事实再复盘判层；最危险的是把"转变思维"当话术要求别人当场顿悟——领导喊"大家要先转变观念"却不给证据与资源，恰是滥用。
 
-→ 深入： [`paradigm-shift-first`](./paradigm-shift-first/SKILL.md)
+→ 深入： [`paradigm-shift-first`](../skills/./paradigm-shift-first/SKILL.md)
 
 ### 习惯三要素：知识 × 技巧 × 意愿
 
@@ -42,7 +42,7 @@
 
 **什么时候会失效**：环境强制阻断（没有时间预算、没有器械）先改环境；临床成瘾与抑郁性动机缺失需要专业评估；三栏打分是启发式，不是心理量表。
 
-→ 深入： [`habit-knowledge-skill-desire`](./habit-knowledge-skill-desire/SKILL.md)
+→ 深入： [`habit-knowledge-skill-desire`](../skills/./habit-knowledge-skill-desire/SKILL.md)
 
 ### 成熟模式图：依赖→独立→互赖
 
@@ -54,7 +54,7 @@
 
 **什么时候会失效**：不把互赖当道德工具（"为了团队你必须服从"可能是赢/输模式的变体）；不给他人贴阶段标签；它只定位干预次序，不设计具体协作机制。
 
-→ 深入： [`maturity-continuum`](./maturity-continuum/SKILL.md)
+→ 深入： [`maturity-continuum`](../skills/./maturity-continuum/SKILL.md)
 
 ### 产出/产能平衡：金蛋与鹅
 
@@ -66,7 +66,7 @@
 
 **什么时候会失效**：一次性资产（临期库存、到期合同）没有长期产能，讲平衡反而误事；明知的生存性取舍（账上只够发两个月工资）不做道德劝说，只做显式化：杀哪只鹅、止损线在哪、何时恢复。
 
-→ 深入： [`ppc-balance`](./ppc-balance/SKILL.md)
+→ 深入： [`ppc-balance`](../skills/./ppc-balance/SKILL.md)
 
 ---
 
@@ -76,32 +76,32 @@
 
 柯维的人性论起点：人不是"刺激—回应"的动物。在刺激与回应之间存在一段距离，选择回应方式的自由是人类最根本的自由。这一习惯有三个练习面：
 
-- **影响圈与关注圈**（[`influence-circle`](./influence-circle/SKILL.md)）：把挂心事分入两圈，审计精力投放。关键不是静态的"分清能不能改变"，而是一个动力学：注意力投给哪圈，圈的相对大小就会变——投影响圈，圈扩大；紧盯他人缺点与行情，怨天尤人，影响圈反而收缩。书中最有代表性的用法：独断总裁手下的主管不加入走廊抱怨，而是缓冲上司缺点、写建议清单——全公司开会时只有他被征询意见。
-- **刺激与回应之间的距离**（[`stimulus-response-gap`](./stimulus-response-gap/SKILL.md)）：被抢功、被怒斥的那一刻，先在距离中调用四大天赋（自我意识、想象力、良知、独立意志）列出至少两个可选回应，再决定行动。与影响圈是微观/宏观分工：先归圈，再谈距离。
-- **替换消极语言**（[`proactive-language`](./proactive-language/SKILL.md)）：语言是影响圈位置的可观察指标。"要是/我不得不/我办不到"把责任外包给环境；替换成"我可以/我选择"后必须绑定一个影响圈内的真实动作，否则只是话术。
-- **做出承诺，信守诺言**（[`make-and-keep-promises`](./make-and-keep-promises/SKILL.md)）：柯维把前三个习惯的总纲归结为一句话——做出承诺并信守诺言。影响圈的核心就是承诺-兑现的能力：从每周 1-2 条小事承诺循环培育"内心的诚信"，再承担更大责任。新年计划三周崩溃的解药不是定更大的目标逼自己，而是提高承诺频次与兑现率。
+- **影响圈与关注圈**（[`influence-circle`](../skills/./influence-circle/SKILL.md)）：把挂心事分入两圈，审计精力投放。关键不是静态的"分清能不能改变"，而是一个动力学：注意力投给哪圈，圈的相对大小就会变——投影响圈，圈扩大；紧盯他人缺点与行情，怨天尤人，影响圈反而收缩。书中最有代表性的用法：独断总裁手下的主管不加入走廊抱怨，而是缓冲上司缺点、写建议清单——全公司开会时只有他被征询意见。
+- **刺激与回应之间的距离**（[`stimulus-response-gap`](../skills/./stimulus-response-gap/SKILL.md)）：被抢功、被怒斥的那一刻，先在距离中调用四大天赋（自我意识、想象力、良知、独立意志）列出至少两个可选回应，再决定行动。与影响圈是微观/宏观分工：先归圈，再谈距离。
+- **替换消极语言**（[`proactive-language`](../skills/./proactive-language/SKILL.md)）：语言是影响圈位置的可观察指标。"要是/我不得不/我办不到"把责任外包给环境；替换成"我可以/我选择"后必须绑定一个影响圈内的真实动作，否则只是话术。
+- **做出承诺，信守诺言**（[`make-and-keep-promises`](../skills/./make-and-keep-promises/SKILL.md)）：柯维把前三个习惯的总纲归结为一句话——做出承诺并信守诺言。影响圈的核心就是承诺-兑现的能力：从每周 1-2 条小事承诺循环培育"内心的诚信"，再承担更大责任。新年计划三周崩溃的解药不是定更大的目标逼自己，而是提高承诺频次与兑现率。
 
 **共同的失效边界**：面对结构性不公（制度、法律纠纷），把"你对自己的遭遇负全责"压给个体是把制度问题个人化——可先归圈分清，但解法必须外挂制度路径；临床情绪问题先转介专业。
 
 ### 习惯二：以终为始——任何事物都经两次创造
 
-**两次创造**（[`two-creations`](./two-creations/SKILL.md)）：先在头脑中构思（心智创造），再付诸实践（实体创造）。柯维的增量在于：第一次创造可能**未经你同意就被环境代写**——装修被装修公司牵着走、人生被父母的期待牵着走，都是"跳过第一次创造"的症状。解法是先补自己的图纸与验收标准，把对方降级为第二次创造的执行者。
+**两次创造**（[`two-creations`](../skills/./two-creations/SKILL.md)）：先在头脑中构思（心智创造），再付诸实践（实体创造）。柯维的增量在于：第一次创造可能**未经你同意就被环境代写**——装修被装修公司牵着走、人生被父母的期待牵着走，都是"跳过第一次创造"的症状。解法是先补自己的图纸与验收标准，把对方降级为第二次创造的执行者。
 
-**领导先于管理**（[`leadership-before-management`](./leadership-before-management/SKILL.md)）：管理是正确地做事，领导是做正确的事；"再成功的管理也无法弥补领导的失败"。执行力差时先回答"要砍的是不是这块丛林"，再决定加人、换人还是改流程——个人同样需要自我领导先于自我管理。
+**领导先于管理**（[`leadership-before-management`](../skills/./leadership-before-management/SKILL.md)）：管理是正确地做事，领导是做正确的事；"再成功的管理也无法弥补领导的失败"。执行力差时先回答"要砍的是不是这块丛林"，再决定加人、换人还是改流程——个人同样需要自我领导先于自我管理。
 
-**个人使命宣言**（[`personal-mission-statement`](./personal-mission-statement/SKILL.md)）：以终为始最有效的落地物——品德（成为谁）+贡献（成就什么）+原则（凭何判断）的个人宪法。它的用法不是励志，而是**裁决**：外派 offer 与孩子的关键期冲突时，按角色逐条对照长期目标，产出可辩护的结论，"无论结果如何都心安理得"。家庭版、组织版靠"唯有参与，才有认同"落地（[`no-involvement-no-commitment`](./no-involvement-no-commitment/SKILL.md)）：贴在墙上的家规没人遵守，缺的不是宣传与惩罚，是参与拟定的过程。
+**个人使命宣言**（[`personal-mission-statement`](../skills/./personal-mission-statement/SKILL.md)）：以终为始最有效的落地物——品德（成为谁）+贡献（成就什么）+原则（凭何判断）的个人宪法。它的用法不是励志，而是**裁决**：外派 offer 与孩子的关键期冲突时，按角色逐条对照长期目标，产出可辩护的结论，"无论结果如何都心安理得"。家庭版、组织版靠"唯有参与，才有认同"落地（[`no-involvement-no-commitment`](../skills/./no-involvement-no-commitment/SKILL.md)）：贴在墙上的家规没人遵守，缺的不是宣传与惩罚，是参与拟定的过程。
 
 **两个配套探测器**：
-- **葬礼演练**（[`funeral-exercise`](./funeral-exercise/SKILL.md)）：想象自己的葬礼与四位发言人（亲人/挚友/同事/社团），用"希望盖棺定论时获得什么评价"反推当下决定——它是使命宣言的价值观输入工序。
-- **生活中心诊断**（[`life-center-diagnosis`](./life-center-diagnosis/SKILL.md)）：情绪为什么大起大落？因为生活中心是"摇摆的混合体"（配偶/金钱/工作/名利/敌人……）。用两难回放反推中心，再用原则中心替换——它给出的干预与情绪调节技术在不同的层。
+- **葬礼演练**（[`funeral-exercise`](../skills/./funeral-exercise/SKILL.md)）：想象自己的葬礼与四位发言人（亲人/挚友/同事/社团），用"希望盖棺定论时获得什么评价"反推当下决定——它是使命宣言的价值观输入工序。
+- **生活中心诊断**（[`life-center-diagnosis`](../skills/./life-center-diagnosis/SKILL.md)）：情绪为什么大起大落？因为生活中心是"摇摆的混合体"（配偶/金钱/工作/名利/敌人……）。用两难回放反推中心，再用原则中心替换——它给出的干预与情绪调节技术在不同的层。
 
-**转型者**（[`transition-person`](./transition-person/SKILL.md)）：第十一章的进阶——把"以终为始"用在代际链条上。发现自己冲孩子发火的语气跟父亲一模一样，仅靠意志警戒会复发；断链路径是：把模式行为化→写进个人使命宣言→每天的个人领域的成功中演练→理解并原谅父母。"根和翅膀"：给孩子家族认同，也给摆脱消极遗传的自由。
+**转型者**（[`transition-person`](../skills/./transition-person/SKILL.md)）：第十一章的进阶——把"以终为始"用在代际链条上。发现自己冲孩子发火的语气跟父亲一模一样，仅靠意志警戒会复发；断链路径是：把模式行为化→写进个人使命宣言→每天的个人领域的成功中演练→理解并原谅父母。"根和翅膀"：给孩子家族认同，也给摆脱消极遗传的自由。
 
 ### 习惯三：要事第一——自我管理
 
-- **第四代时间管理**（[`fourth-gen-time-management`](./fourth-gen-time-management/SKILL.md)）：根本否定"时间管理"这个名词——关键是个人管理。周计划承载角色与第二象限目标（重要不紧急），日计划降级为每日调整；"只要把握原则，任何调整都可以心安理得"。周计划周一就作废的病根不是自律，是"日计划承载要务"的层次错误。
-- **责任型授权**（[`stewardship-delegation`](./stewardship-delegation/SKILL.md)）：指令型授权（盯方法）产出依赖，责任型授权（盯结果）产出信任。五要素共识：预期结果、指导方针、可用资源、责任归属、奖惩；按对方成熟度调权限。任务总返工的病因通常缺"指导方针"或"责任归属"，不是下属不行。
-- **对人讲效用，对事讲效率**（[`effectiveness-not-efficiency-with-people`](./effectiveness-not-efficiency-with-people/SKILL.md)）：一条裁决规则——"人总是比事情更加重要"。陪客户"低效"的倾听本身是投资；把对人的时间压成 15 分钟，省下的是时间，赔掉的是账户。
+- **第四代时间管理**（[`fourth-gen-time-management`](../skills/./fourth-gen-time-management/SKILL.md)）：根本否定"时间管理"这个名词——关键是个人管理。周计划承载角色与第二象限目标（重要不紧急），日计划降级为每日调整；"只要把握原则，任何调整都可以心安理得"。周计划周一就作废的病根不是自律，是"日计划承载要务"的层次错误。
+- **责任型授权**（[`stewardship-delegation`](../skills/./stewardship-delegation/SKILL.md)）：指令型授权（盯方法）产出依赖，责任型授权（盯结果）产出信任。五要素共识：预期结果、指导方针、可用资源、责任归属、奖惩；按对方成熟度调权限。任务总返工的病因通常缺"指导方针"或"责任归属"，不是下属不行。
+- **对人讲效用，对事讲效率**（[`effectiveness-not-efficiency-with-people`](../skills/./effectiveness-not-efficiency-with-people/SKILL.md)）：一条裁决规则——"人总是比事情更加重要"。陪客户"低效"的倾听本身是投资；把对人的时间压成 15 分钟，省下的是时间，赔掉的是账户。
 
 ---
 
@@ -109,35 +109,35 @@
 
 ### 关系的地基：情感账户
 
-**情感账户**（[`emotional-bank-account`](./emotional-bank-account/SKILL.md)）是全部公众领域技巧的共同介质：人际关系中储蓄的是信任与安全感，可存取、会透支、**按对方的汇率计价**。两条反直觉推论：其一，越是持久的关系越需要不断储蓄（老夫老妻最容易透支）；其二，**余额决定技巧的释义权**——账户透支时，送礼被读作操纵，移情聆听被读作策略。同事突然疏远，正确的第一动作不是请客送礼，而是查提款记录（是否失信/背后议论/忽视小节）。
+**情感账户**（[`emotional-bank-account`](../skills/./emotional-bank-account/SKILL.md)）是全部公众领域技巧的共同介质：人际关系中储蓄的是信任与安全感，可存取、会透支、**按对方的汇率计价**。两条反直觉推论：其一，越是持久的关系越需要不断储蓄（老夫老妻最容易透支）；其二，**余额决定技巧的释义权**——账户透支时，送礼被读作操纵，移情聆听被读作策略。同事突然疏远，正确的第一动作不是请客送礼，而是查提款记录（是否失信/背后议论/忽视小节）。
 
-两条最常用存款规则：**一开始就明确期望**（[`clarify-expectations`](./clarify-expectations/SKILL.md)）——"几乎所有的人际关系障碍都源于对角色和目标的期望不明"，过年回谁家的第一次大吵是含蓄期望的必然爆发；**维护不在场的人**（[`honor-the-absent`](./honor-the-absent/SKILL.md)）——在场的人会据此推定你将如何对待他们，附和吐槽换来的合群假象之下信任归零。
+两条最常用存款规则：**一开始就明确期望**（[`clarify-expectations`](../skills/./clarify-expectations/SKILL.md)）——"几乎所有的人际关系障碍都源于对角色和目标的期望不明"，过年回谁家的第一次大吵是含蓄期望的必然爆发；**维护不在场的人**（[`honor-the-absent`](../skills/./honor-the-absent/SKILL.md)）——在场的人会据此推定你将如何对待他们，附和吐槽换来的合群假象之下信任归零。
 
 ### 习惯四：双赢思维——品德、关系、协议、体系、过程
 
-**双赢思维五要领**（[`win-win-five-dimensions`](./win-win-five-dimensions/SKILL.md)）把"双赢"从口号变成五层结构：品德（诚信+富足心态）→关系（情感账户）→协议（五要素双赢协议）→体系（激励）→过程。它最大的价值是**定位失败层级**：公司推行协作文化没人理，多半不是工具问题——季度奖只发给业绩第一的组（体系层百慕大结构），个人双赢会被制度绞杀。
+**双赢思维五要领**（[`win-win-five-dimensions`](../skills/./win-win-five-dimensions/SKILL.md)）把"双赢"从口号变成五层结构：品德（诚信+富足心态）→关系（情感账户）→协议（五要素双赢协议）→体系（激励）→过程。它最大的价值是**定位失败层级**：公司推行协作文化没人理，多半不是工具问题——季度奖只发给业绩第一的组（体系层百慕大结构），个人双赢会被制度绞杀。
 
-配套三件：**人际交往六模式**（[`six-interaction-modes`](./six-interaction-modes/SKILL.md)）先给交往定性（双赢/赢输/输赢/输输/独善其身/无交易）——孩子宁可输也不参赛是输/赢环境浸染出的姿态，劝"要争"只会强化框架，处方是补勇气与自我价值支点；**不能双赢就好聚好散**（[`win-win-or-no-deal`](./win-win-or-no-deal/SKILL.md)）——无交易是双赢不可得时的合法出口，心中留有退路反而使双方坦诚；家族/友谊生意启动前先写退出条款。**唯有参与，才有认同**（[`no-involvement-no-commitment`](./no-involvement-no-commitment/SKILL.md)）——参与是过程层最常用的第一杠杆。
+配套三件：**人际交往六模式**（[`six-interaction-modes`](../skills/./six-interaction-modes/SKILL.md)）先给交往定性（双赢/赢输/输赢/输输/独善其身/无交易）——孩子宁可输也不参赛是输/赢环境浸染出的姿态，劝"要争"只会强化框架，处方是补勇气与自我价值支点；**不能双赢就好聚好散**（[`win-win-or-no-deal`](../skills/./win-win-or-no-deal/SKILL.md)）——无交易是双赢不可得时的合法出口，心中留有退路反而使双方坦诚；家族/友谊生意启动前先写退出条款。**唯有参与，才有认同**（[`no-involvement-no-commitment`](../skills/./no-involvement-no-commitment/SKILL.md)）——参与是过程层最常用的第一杠杆。
 
 ### 习惯五：知彼解己——先诊断，后开方
 
-**先理解再被理解**（[`seek-first-to-understand`](./seek-first-to-understand/SKILL.md)）是一条次序律：先移情聆听直到能替对方复述其立场**并获对方认可**，再争取被理解；"在影响对方之前，你必须先被影响"。它的结构化应用是议程设计——跨部门会议每个方案陈述前，先由对方复述该方案至提案人认可，冲突降级、第三选择出现率上升。
+**先理解再被理解**（[`seek-first-to-understand`](../skills/./seek-first-to-understand/SKILL.md)）是一条次序律：先移情聆听直到能替对方复述其立场**并获对方认可**，再争取被理解；"在影响对方之前，你必须先被影响"。它的结构化应用是议程设计——跨部门会议每个方案陈述前，先由对方复述该方案至提案人认可，冲突降级、第三选择出现率上升。
 
-**先诊断，后开方**（[`diagnose-before-prescribe`](./diagnose-before-prescribe/SKILL.md)）是它的操作规程：暂停四种自传式回应（价值判断、追根究底、好为人师、自以为是），走移情聆听四阶段（复述语句→加入解释→掺入感情→解释+感情）。朋友失业倒苦水时直接推荐猎头，等于未问诊开方——多数倾诉先要"心理空气"。柯维自认最难做到的正是这个："当我深信自己正确的时候，我真不想听别人说话，我甚至会假装聆听。"
+**先诊断，后开方**（[`diagnose-before-prescribe`](../skills/./diagnose-before-prescribe/SKILL.md)）是它的操作规程：暂停四种自传式回应（价值判断、追根究底、好为人师、自以为是），走移情聆听四阶段（复述语句→加入解释→掺入感情→解释+感情）。朋友失业倒苦水时直接推荐猎头，等于未问诊开方——多数倾诉先要"心理空气"。柯维自认最难做到的正是这个："当我深信自己正确的时候，我真不想听别人说话，我甚至会假装聆听。"
 
 ### 习惯六：统合综效——第三选择
 
-**统合综效与第三选择**（[`synergy-third-alternative`](./synergy-third-alternative/SKILL.md)）：夫妻一个要学区房一个要改善居住，正确出口既不是轮流妥协（1+1≈1.5），也不是单方胜利，而是从立场下探到真实关切（教育焦虑 vs 生活质量）后共创的第三方案（1+1>2）。"相同不是统一，一致也不等于团结"——尊重差异是精髓。它的先决条件链暴露了整个公众领域的结构：情感账户充足 + 双赢共识 + 已完成移情理解，三者缺一，共创就会被读作操纵。
+**统合综效与第三选择**（[`synergy-third-alternative`](../skills/./synergy-third-alternative/SKILL.md)）：夫妻一个要学区房一个要改善居住，正确出口既不是轮流妥协（1+1≈1.5），也不是单方胜利，而是从立场下探到真实关切（教育焦虑 vs 生活质量）后共创的第三方案（1+1>2）。"相同不是统一，一致也不等于团结"——尊重差异是精髓。它的先决条件链暴露了整个公众领域的结构：情感账户充足 + 双赢共识 + 已完成移情理解，三者缺一，共创就会被读作操纵。
 
 ### 影响他人的第一杠杆
 
-**以潜能期许他人**（[`affirm-potential`](./affirm-potential/SKILL.md)）：不做社会之镜的复读机。新下属上手慢、错误多，先做"明说的高期许+达标路径+配套支持"的对照实验，观察一个周期再裁决——多数"笨手笨脚"是期望生态的产物，直接按辞退准备会错过可造者。边界同样明确：期许与问责并行，不能掩盖已确认的行为问题，更不能当操控用。
+**以潜能期许他人**（[`affirm-potential`](../skills/./affirm-potential/SKILL.md)）：不做社会之镜的复读机。新下属上手慢、错误多，先做"明说的高期许+达标路径+配套支持"的对照实验，观察一个周期再裁决——多数"笨手笨脚"是期望生态的产物，直接按辞退准备会错过可造者。边界同样明确：期许与问责并行，不能掩盖已确认的行为问题，更不能当操控用。
 
 ---
 
 ## 四、更新：磨刀不误砍柴工（习惯七）
 
-**不断更新·四层面**（[`sharpen-the-saw-four-dimensions`](./sharpen-the-saw-four-dimensions/SKILL.md)）：习惯七就是个人产能——保护并优化你最重要的资产：你自己。身体、精神、智力、社会/情感四个层面**平衡**更新，任何一层失衡都会拖垮其他层；最小单元是"每天一小时磨刀"，落回第四代时间管理的周历。
+**不断更新·四层面**（[`sharpen-the-saw-four-dimensions`](../skills/./sharpen-the-saw-four-dimensions/SKILL.md)）：习惯七就是个人产能——保护并优化你最重要的资产：你自己。身体、精神、智力、社会/情感四个层面**平衡**更新，任何一层失衡都会拖垮其他层；最小单元是"每天一小时磨刀"，落回第四代时间管理的周历。
 
 它的诊断力来自映射：工作五年遇到瓶颈，该跳槽还是读在职硕士？四层面审计常发现瓶颈在社会/情感层（内在安全感）而非智力层（学历）——先补安全感与关系更新再决定投资方向，避免用智力层支出掩盖其他层失衡。组织版同样成立：公司只砍成本不投员工，砍掉的是心智与体质层面的产能。四个层面分别强化习惯一/二/三与四/五/六——"磨刀"是所有习惯的保鲜机制，"最忙的人最需要磨刀"。
 
@@ -145,11 +145,11 @@
 
 ## 五、skill 之间如何组合：三个典型场景
 
-**场景 1 · 被裁员后的三个月（个人领域链）**：[`influence-circle`](./influence-circle/SKILL.md) 先归圈（抱怨前雇主=关注圈，更新简历=影响圈）→ [`proactive-language`](./proactive-language/SKILL.md) 把"要是行情好就好了"改写为"我可以约谈谁" → [`make-and-keep-promises`](./make-and-keep-promises/SKILL.md) 用每周承诺-兑现重建自我信任 → [`fourth-gen-time-management`](./fourth-gen-time-management/SKILL.md) 把求职动作作为第二象限事务排进周历。反过来先换工具、先订大目标，都会在两周内退回原点。
+**场景 1 · 被裁员后的三个月（个人领域链）**：[`influence-circle`](../skills/./influence-circle/SKILL.md) 先归圈（抱怨前雇主=关注圈，更新简历=影响圈）→ [`proactive-language`](../skills/./proactive-language/SKILL.md) 把"要是行情好就好了"改写为"我可以约谈谁" → [`make-and-keep-promises`](../skills/./make-and-keep-promises/SKILL.md) 用每周承诺-兑现重建自我信任 → [`fourth-gen-time-management`](../skills/./fourth-gen-time-management/SKILL.md) 把求职动作作为第二象限事务排进周历。反过来先换工具、先订大目标，都会在两周内退回原点。
 
-**场景 2 · 夫妻的"过年回谁家"（关系修复链）**：[`emotional-bank-account`](./emotional-bank-account/SKILL.md) 先查账（大吵之后账户透支，讲道理按操纵计价）→ [`clarify-expectations`](./clarify-expectations/SKILL.md) 把双方从未言明的期望落成条目与轮替规则 → 若分歧仍在，[`synergy-third-alternative`](./synergy-third-alternative/SKILL.md) 从立场下探到真实关切找第三方案 → 找不到时 [`win-win-or-no-deal`](./win-win-or-no-deal/SKILL.md) 的家庭版兜底：放弃这次安排，另做别的。全程伴随 [`honor-the-absent`](./honor-the-absent/SKILL.md)——不向任何一方背后描述对方。
+**场景 2 · 夫妻的"过年回谁家"（关系修复链）**：[`emotional-bank-account`](../skills/./emotional-bank-account/SKILL.md) 先查账（大吵之后账户透支，讲道理按操纵计价）→ [`clarify-expectations`](../skills/./clarify-expectations/SKILL.md) 把双方从未言明的期望落成条目与轮替规则 → 若分歧仍在，[`synergy-third-alternative`](../skills/./synergy-third-alternative/SKILL.md) 从立场下探到真实关切找第三方案 → 找不到时 [`win-win-or-no-deal`](../skills/./win-win-or-no-deal/SKILL.md) 的家庭版兜底：放弃这次安排，另做别的。全程伴随 [`honor-the-absent`](../skills/./honor-the-absent/SKILL.md)——不向任何一方背后描述对方。
 
-**场景 3 · 团队协作失败（组织次序链）**：[`maturity-continuum`](./maturity-continuum/SKILL.md) 先定位团队在哪个阶段（未到互赖期，一切共创都是空转）→ [`win-win-five-dimensions`](./win-win-five-dimensions/SKILL.md) 定位双赢卡在哪一层（多半在激励体系）→ [`no-involvement-no-commitment`](./no-involvement-no-commitment/SKILL.md) 让执行者参与拟定目标 → [`stewardship-delegation`](./stewardship-delegation/SKILL.md) 用责任型授权替换指令型 → [`seek-first-to-understand`](./seek-first-to-understand/SKILL.md)+[`diagnose-before-prescribe`](./diagnose-before-prescribe/SKILL.md) 重排会议议程 → 最后才是 [`synergy-third-alternative`](./synergy-third-alternative/SKILL.md)。跳过前四步直接上共创工作坊，是本书预测"必然失败"的经典路径。
+**场景 3 · 团队协作失败（组织次序链）**：[`maturity-continuum`](../skills/./maturity-continuum/SKILL.md) 先定位团队在哪个阶段（未到互赖期，一切共创都是空转）→ [`win-win-five-dimensions`](../skills/./win-win-five-dimensions/SKILL.md) 定位双赢卡在哪一层（多半在激励体系）→ [`no-involvement-no-commitment`](../skills/./no-involvement-no-commitment/SKILL.md) 让执行者参与拟定目标 → [`stewardship-delegation`](../skills/./stewardship-delegation/SKILL.md) 用责任型授权替换指令型 → [`seek-first-to-understand`](../skills/./seek-first-to-understand/SKILL.md)+[`diagnose-before-prescribe`](../skills/./diagnose-before-prescribe/SKILL.md) 重排会议议程 → 最后才是 [`synergy-third-alternative`](../skills/./synergy-third-alternative/SKILL.md)。跳过前四步直接上共创工作坊，是本书预测"必然失败"的经典路径。
 
 ---
 

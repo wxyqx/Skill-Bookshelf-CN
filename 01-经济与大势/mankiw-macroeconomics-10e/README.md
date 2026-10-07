@@ -76,7 +76,7 @@ graph TD
     LR --> GR
 ```
 
-图例：`macro-timeframe-selection` 是入口（如微观卷的 `econ-ten-principles`），四大族沿时间范围与主题分流。完整单技能级引用图见 [`INDEX.md`](INDEX.md)。
+图例：`macro-timeframe-selection` 是入口（如微观卷的 `econ-ten-principles`），四大族沿时间范围与主题分流。完整单技能级引用图见 [`INDEX.md`](docs/INDEX.md)。
 
 **推荐学习顺序**：`macro-timeframe-selection` → `macro-data-literacy` → 长期族 → 增长族 → 短期族 → 政策族（沿原书"先长期后短期"的教学次序）
 

@@ -83,7 +83,7 @@
 2. **对称性缺口**：对救助的分配后果、强制注资的法治代价、借款人端责任的处理弱于对监管者与投行的解剖。
 3. **时效**：成书 2013——QE 退出的政治约束其后成为现实难题，2021-2022 通胀部分翻案其对"通胀恐惧"的驳斥；欧债章作者自认"肤浅"。
 
-**使用建议**：本卷是书架的"西方危机解剖学"，与中式分析互为对冲——复盘危机用 [crisis-cause-inventory](../skills/crisis-cause-inventory/SKILL.md)，设计救助与退出用 [bailout-decision-framework](../skills/bailout-decision-framework/SKILL.md) 与 [policy-exit-design](../skills/policy-exit-design/SKILL.md)，管理政策政治用 [policy-paradox-communication](../skills/policy-paradox-communication/SKILL.md)；代价归属问题对照《八次危机》的 [cost-transfer-analysis](../../eight-crises/skills/cost-transfer-analysis/SKILL.md)，货币主权对照《分析与思考》的 [monetization-sovereignty](../../analysis-and-thinking/skills/monetization-sovereignty/SKILL.md)。
+**使用建议**：本卷是书架的"西方危机解剖学"，与中式分析互为对冲——复盘危机用 [crisis-cause-inventory](../skills/crisis-cause-inventory/SKILL.md)，设计救助与退出用 [bailout-decision-framework](../skills/bailout-decision-framework/SKILL.md) 与 [policy-exit-design](../skills/policy-exit-design/SKILL.md)，管理政策政治用 [policy-paradox-communication](../skills/policy-paradox-communication/SKILL.md)；代价归属问题对照《八次危机》的 [cost-transfer-analysis](../../eight-crises/skills/cost-transfer-analysis/SKILL.md)，货币主权对照《分析与思考》的 [monetization-sovereignty](../../cold-war-to-cold-war/skills/monetization-sovereignty/SKILL.md)。
 
 ---
 

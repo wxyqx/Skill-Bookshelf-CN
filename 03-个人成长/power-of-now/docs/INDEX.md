@@ -18,37 +18,37 @@
 
 ### 一、觉察的入口（把注意力从思维移开）
 
-- [`observe-the-thinker`](./observe-the-thinker/SKILL.md) — 观察思考者：倾听脑内声音但不评判，观察使思维失去能量（全书之母，公共内核）。
-- [`inner-body-connection`](./inner-body-connection/SKILL.md) — 与内在身体联结：注意力放进身体能量场，挑战来时先回体内几秒。
-- [`silence-and-space`](./silence-and-space/SKILL.md) — 寂静与空间：注意力从声音/物体转向其下的寂静/空间，最省力的当下入口。
+- [`observe-the-thinker`](../skills/./observe-the-thinker/SKILL.md) — 观察思考者：倾听脑内声音但不评判，观察使思维失去能量（全书之母，公共内核）。
+- [`inner-body-connection`](../skills/./inner-body-connection/SKILL.md) — 与内在身体联结：注意力放进身体能量场，挑战来时先回体内几秒。
+- [`silence-and-space`](../skills/./silence-and-space/SKILL.md) — 寂静与空间：注意力从声音/物体转向其下的寂静/空间，最省力的当下入口。
 
 ### 二、看清机制的诊断器
 
-- [`pain-body-awareness`](./pain-body-awareness/SKILL.md) — 痛苦之身觉察：把反复发作的情绪痛苦当能量体识别、断粮、不认同。
-- [`unconsciousness-levels`](./unconsciousness-levels/SKILL.md) — 无意识分层与挑战测试：用小挑战的反应测量自己的清醒度，独处的平静不作数。
-- [`clock-time-vs-psychological-time`](./clock-time-vs-psychological-time/SKILL.md) — 钟表时间 vs 心理时间：用过去未来干活可以，被它们认同不行。
-- [`no-problem-in-now`](./no-problem-in-now/SKILL.md) — 此刻问题清零："此刻你有什么问题？"把焦虑的燃料库当场清空。
-- [`pressure-here-wanting-there`](./pressure-here-wanting-there/SKILL.md) — 压力诊断：压力不在活多，在身在此心在彼；可以手快，不许心逃。
-- [`emotion-as-truth-check`](./emotion-as-truth-check/SKILL.md) — 情绪真实性检验：脑中叙事与身体感受冲突时，先信身体。
+- [`pain-body-awareness`](../skills/./pain-body-awareness/SKILL.md) — 痛苦之身觉察：把反复发作的情绪痛苦当能量体识别、断粮、不认同。
+- [`unconsciousness-levels`](../skills/./unconsciousness-levels/SKILL.md) — 无意识分层与挑战测试：用小挑战的反应测量自己的清醒度，独处的平静不作数。
+- [`clock-time-vs-psychological-time`](../skills/./clock-time-vs-psychological-time/SKILL.md) — 钟表时间 vs 心理时间：用过去未来干活可以，被它们认同不行。
+- [`no-problem-in-now`](../skills/./no-problem-in-now/SKILL.md) — 此刻问题清零："此刻你有什么问题？"把焦虑的燃料库当场清空。
+- [`pressure-here-wanting-there`](../skills/./pressure-here-wanting-there/SKILL.md) — 压力诊断：压力不在活多，在身在此心在彼；可以手快，不许心逃。
+- [`emotion-as-truth-check`](../skills/./emotion-as-truth-check/SKILL.md) — 情绪真实性检验：脑中叙事与身体感受冲突时，先信身体。
 
 ### 三、对处境的接纳与行动
 
-- [`accept-then-act`](./accept-then-act/SKILL.md) — 接纳然后行动：像它是你选择的一样接受现状，再行动（日常级）。
-- [`two-surrender-chances`](./two-surrender-chances/SKILL.md) — 两次臣服机会：先接受已发生的事实，接受不了就接受感受本身（厄运级）。
-- [`non-reactive-no`](./non-reactive-no/SKILL.md) — 非反应的"不"：可以坚定说不或陈述事实，但让它出自洞见而非反应。
-- [`fake-acceptance-alert`](./fake-acceptance-alert/SKILL.md) — 假接纳警报："允许一切"若不迈向"不再创造"就只是灵性徽章。
+- [`accept-then-act`](../skills/./accept-then-act/SKILL.md) — 接纳然后行动：像它是你选择的一样接受现状，再行动（日常级）。
+- [`two-surrender-chances`](../skills/./two-surrender-chances/SKILL.md) — 两次臣服机会：先接受已发生的事实，接受不了就接受感受本身（厄运级）。
+- [`non-reactive-no`](../skills/./non-reactive-no/SKILL.md) — 非反应的"不"：可以坚定说不或陈述事实，但让它出自洞见而非反应。
+- [`fake-acceptance-alert`](../skills/./fake-acceptance-alert/SKILL.md) — 假接纳警报："允许一切"若不迈向"不再创造"就只是灵性徽章。
 
 ### 四、与过去和未来和解
 
-- [`waiting-state-exit`](./waiting-state-exit/SKILL.md) — 等待状态识别：识别"用一生等待生活开始"的思维状态并当场撤离。
-- [`inner-purpose-vs-outer-purpose`](./inner-purpose-vs-outer-purpose/SKILL.md) — 内在目的 vs 外在目的：目标尽管去追，决定体验的是你如何做此刻的事。
-- [`no-understanding-the-past`](./no-understanding-the-past/SKILL.md) — 不研究过去：当下观察即化解过去，无限回溯是无底洞（创伤场景须转介）。
-- [`present-forgiveness`](./present-forgiveness/SKILL.md) — 当下宽恕：事中即时宽恕，不给未来囤积怨恨。
+- [`waiting-state-exit`](../skills/./waiting-state-exit/SKILL.md) — 等待状态识别：识别"用一生等待生活开始"的思维状态并当场撤离。
+- [`inner-purpose-vs-outer-purpose`](../skills/./inner-purpose-vs-outer-purpose/SKILL.md) — 内在目的 vs 外在目的：目标尽管去追，决定体验的是你如何做此刻的事。
+- [`no-understanding-the-past`](../skills/./no-understanding-the-past/SKILL.md) — 不研究过去：当下观察即化解过去，无限回溯是无底洞（创伤场景须转介）。
+- [`present-forgiveness`](../skills/./present-forgiveness/SKILL.md) — 当下宽恕：事中即时宽恕，不给未来囤积怨恨。
 
 ### 五、关系道场
 
-- [`fully-accept-your-partner`](./fully-accept-your-partner/SKILL.md) — 完全接受伴侣：停止批判与改造工程，接受或分开，禁止中间态。
-- [`relationship-as-awareness-dojo`](./relationship-as-awareness-dojo/SKILL.md) — 关系=意识道场：关系不负责让你幸福，负责让无意识现形。
+- [`fully-accept-your-partner`](../skills/./fully-accept-your-partner/SKILL.md) — 完全接受伴侣：停止批判与改造工程，接受或分开，禁止中间态。
+- [`relationship-as-awareness-dojo`](../skills/./relationship-as-awareness-dojo/SKILL.md) — 关系=意识道场：关系不负责让你幸福，负责让无意识现形。
 
 ### 类型说明
 

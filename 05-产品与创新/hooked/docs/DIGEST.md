@@ -28,7 +28,7 @@
 
 **什么时候会失效**：人寿保险、婚庆这类低频一次性产品没有频率轴可言（作者自设边界 L310–314）；"提高频率"指用户主动行为的发生频率，不是运营发送的频率——为凑数给用户刷屏推送，既违反自主权也推高打开率的衰减。
 
-→ 深入: [`habit-zone-frequency-first`](./habit-zone-frequency-first/SKILL.md)
+→ 深入: [`habit-zone-frequency-first`](../skills/./habit-zone-frequency-first/SKILL.md)
 
 ### 维生素→止痛药：验收看"痒"，不看口碑
 
@@ -40,7 +40,7 @@
 
 **什么时候会失效**：判据未过时先回频率轴——低频行为的"痒"永远建立不起来，阶段论不是留存差的借口；支付、报税这类一开始就解决显性痛点的产品不必从维生素起步。
 
-→ 深入: [`vitamin-to-painkiller`](./vitamin-to-painkiller/SKILL.md)
+→ 深入: [`vitamin-to-painkiller`](../skills/./vitamin-to-painkiller/SKILL.md)
 
 ### 机会从哪来：四路扫描
 
@@ -52,7 +52,7 @@
 
 **什么时候会失效**：设计者≠目标人群，照镜子须配"还有谁与我同痛"的验证；多数"玩具"就是玩具，作者没给新生行为的证伪标准——扫描产出的是候选，不是结论，逐个过频率闸与伦理闸之后才算数。
 
-→ 深入: [`four-opportunity-sources`](./four-opportunity-sources/SKILL.md)
+→ 深入: [`four-opportunity-sources`](../skills/./four-opportunity-sources/SKILL.md)
 
 ---
 
@@ -70,7 +70,7 @@
 
 **什么时候会失效**：停投即流失说明问题不在投放而在内部触发未建立——停止加码，转诊循环后段；人际型的红线是不做透支信任的黑暗模式（"代价却是失去用户的信任与期望"，L616）。
 
-→ 深入: [`external-triggers-four-types`](./external-triggers-four-types/SKILL.md)
+→ 深入: [`external-triggers-four-types`](../skills/./external-triggers-four-types/SKILL.md)
 
 ### 5 问法：从功能请求挖到情绪根源
 
@@ -82,7 +82,7 @@
 
 **什么时候会失效**：对真人连问五次"为什么"是审讯不是访谈——作者配套的做法是基于情境与资料推演、配合移情图；挖到的情绪是设计原材料，不是营销弹药（放大恐惧再卖安抚是明确的越线）。
 
-→ 深入: [`five-whys-emotional-root`](./five-whys-emotional-root/SKILL.md)
+→ 深入: [`five-whys-emotional-root`](../skills/./five-whys-emotional-root/SKILL.md)
 
 ### 内部触发锚定：把情绪做成条件反射
 
@@ -94,7 +94,7 @@
 
 **什么时候会失效**：低频工具硬找情绪锚只会产出打扰式推送；"内部触发可以通过设计安装"是全书论证最少的断言（Instagram 是解释性案例而非证据）——把安装成功当待验证假设，用习惯测试验收；伦理上这是全书风险最高处：不得制造负面情绪再卖药方，不得对未成年人做情绪锚定。
 
-→ 深入: [`internal-trigger-anchoring`](./internal-trigger-anchoring/SKILL.md)
+→ 深入: [`internal-trigger-anchoring`](../skills/./internal-trigger-anchoring/SKILL.md)
 
 ---
 
@@ -112,7 +112,7 @@
 
 **什么时候会失效**：0→1 阶段先验证需求存在，行为公式不解释"要不要做"；纯触达量问题先回触发端；奢侈品等动机本位的产品，"先简化"可能稀释吸引力。
 
-→ 深入: [`bmat-action-diagnosis`](./bmat-action-diagnosis/SKILL.md)
+→ 深入: [`bmat-action-diagnosis`](../skills/./bmat-action-diagnosis/SKILL.md)
 
 ### 动机三分类：先选杠杆，再设计强度
 
@@ -124,7 +124,7 @@
 
 **什么时候会失效**：动机杠杆放大既有欲望，不能无中生有创造需求；行为缺失时先走 B=MAT 归因——多数"不行动"卡在能力而非动机；动用负面杠杆后过操纵矩阵复核。
 
-→ 深入: [`three-core-motivations`](./three-core-motivations/SKILL.md)
+→ 深入: [`three-core-motivations`](../skills/./three-core-motivations/SKILL.md)
 
 ### 能力六要素：摩擦不只存在于界面里
 
@@ -136,7 +136,7 @@
 
 **什么时候会失效**：投入阶段（填资料、建内容）需要的是拆小步而非减摩擦——方向相反（见第五节）；用户根本不认为行为有价值时，简化救不了零转化。
 
-→ 深入: [`six-simplicity-elements`](./six-simplicity-elements/SKILL.md)
+→ 深入: [`six-simplicity-elements`](../skills/./six-simplicity-elements/SKILL.md)
 
 ---
 
@@ -154,7 +154,7 @@
 
 **什么时候会失效**：产品核心价值不成立时，再多的积分徽章只会放大"任务毫无意义"的认知（游戏化警示）；赌博式变量机制（开箱、抽签）对易感人群构成成瘾设计——机制有效性必须先过伦理红线。
 
-→ 深入: [`three-variable-rewards`](./three-variable-rewards/SKILL.md)
+→ 深入: [`three-variable-rewards`](../skills/./three-variable-rewards/SKILL.md)
 
 ### 有限 vs 无穷的多变性：新鲜感的结构问题
 
@@ -166,7 +166,7 @@
 
 **什么时候会失效**：工具型产品的价值就在可预测，"用完即走"是正当的；变量是酬赏的属性——先选通道再查变量，别把"类型"和"存续"答成一个问题。
 
-→ 深入: [`finite-infinite-variability`](./finite-infinite-variability/SKILL.md)
+→ 深入: [`finite-infinite-variability`](../skills/./finite-infinite-variability/SKILL.md)
 
 ---
 
@@ -184,7 +184,7 @@
 
 **什么时候会失效**：宜家效应是估值偏差，不是价值证明——用它掩盖产品缺陷是把心理效应当遮羞布；以榨取持续付费为目的的投入设计（不可逆投入阻止用户离开的恶意锁定）必须被操纵矩阵拦截。
 
-→ 深入: [`investment-changes-attitude`](./investment-changes-attitude/SKILL.md)
+→ 深入: [`investment-changes-attitude`](../skills/./investment-changes-attitude/SKILL.md)
 
 ### 储存价值五形式：五条迁移性不同的绳索
 
@@ -196,7 +196,7 @@
 
 **什么时候会失效**：储存价值必须与隐私权衡（健康、财务数据存得越多风险越大）；GDPR 与数据可携带权之后，"资产天然不可迁移"的前提部分变成了法律义务；区分"用户真心获益的留存"与"被迫锁定的留存"是本书批判视角下最重要的一条边界。
 
-→ 深入: [`five-stored-values`](./five-stored-values/SKILL.md)
+→ 深入: [`five-stored-values`](../skills/./five-stored-values/SKILL.md)
 
 ### 时机与粒度：酬赏之后才要投入，小步开始
 
@@ -208,7 +208,7 @@
 
 **什么时候会失效**：给注销流程加摩擦、以沉没成本为目的的繁琐步骤是恶意锁定不是投入设计；"小步"的最佳粒度无跨行业推导；GDPR/ATT 之后，预填与默认授权在多个法域有合规边界。
 
-→ 深入: [`investment-timing-granularity`](./investment-timing-granularity/SKILL.md)
+→ 深入: [`investment-timing-granularity`](../skills/./investment-timing-granularity/SKILL.md)
 
 ### 加载下一个触发：闭环的合页
 
@@ -220,7 +220,7 @@
 
 **什么时候会失效**：内部触发尚未定位就先排推送时机，属于空转；把群发伪装成"个性化触发"改善打开率是明确的操纵（内生性的判定标准是触发事件来自用户行为，而非文案个性化）；通知过载的消耗在书中缺位——落地时应同时为用户保留关闭权。
 
-→ 深入: [`load-next-trigger`](./load-next-trigger/SKILL.md)
+→ 深入: [`load-next-trigger`](../skills/./load-next-trigger/SKILL.md)
 
 ---
 
@@ -238,15 +238,15 @@
 
 **什么时候会失效**：矩阵全依赖自报与主观羞愧感，对自欺几乎无防御力——必须配合外部反馈（用户访谈、投诉数据）；它是自愿自检，不替代法律合规；"过了矩阵"不是免死金牌，外部数据恶化（如使用时长整体暴涨）时必须重新审视第二问。
 
-→ 深入: [`manipulation-matrix`](./manipulation-matrix/SKILL.md)
+→ 深入: [`manipulation-matrix`](../skills/./manipulation-matrix/SKILL.md)
 
 ### 三个配套原则
 
-**保障自主权（p09）**：人对"被剥夺选择"有一触即发的防御反应——逆反心理；而规避方式反直觉：在提出要求的同一句话里明示对方可以拒绝——综合 42 项研究、22000 名参与者的分析，"你有权接受，也有权拒绝"让顺从率**翻倍**（L1421–1427），因为它卸去了"听命于人"的防御。产品化推论有两条：凡要求（授权、公开、记录、升级）都应附带退出选项与"拒绝不影响核心功能"的保证；强迫感本身就是设计缺陷的信号——Quora 未经提醒强加"显示浏览者身份"功能，数周后在声讨中撤回；作者对 MyFitnessPal 的弃用宣言是"我要么臣服，要么放弃，最终我选择了放弃"（L1455）。法定强制场景（实名制等）不能伪装成可拒绝——套用话术反而是欺骗。→ [`preserve-user-autonomy`](./preserve-user-autonomy/SKILL.md)
+**保障自主权（p09）**：人对"被剥夺选择"有一触即发的防御反应——逆反心理；而规避方式反直觉：在提出要求的同一句话里明示对方可以拒绝——综合 42 项研究、22000 名参与者的分析，"你有权接受，也有权拒绝"让顺从率**翻倍**（L1421–1427），因为它卸去了"听命于人"的防御。产品化推论有两条：凡要求（授权、公开、记录、升级）都应附带退出选项与"拒绝不影响核心功能"的保证；强迫感本身就是设计缺陷的信号——Quora 未经提醒强加"显示浏览者身份"功能，数周后在声讨中撤回；作者对 MyFitnessPal 的弃用宣言是"我要么臣服，要么放弃，最终我选择了放弃"（L1455）。法定强制场景（实名制等）不能伪装成可拒绝——套用话术反而是欺骗。→ [`preserve-user-autonomy`](../skills/./preserve-user-autonomy/SKILL.md)
 
-**重度使用保护义务（p16）**：这条原则的独特处是推理结构——**义务不来自伤害已经发生，而来自识别能力已经出现**。"公司现已首次被允许用自身数据标记过度使用的用户"（L1928），从这一刻起"不知道"不再构成辩护；"只有约 1% 病理性上瘾"不能当豁免理由（极端个案的诉讼与报道足以定义产品形象），作者甚至预言它将法律化——部分已经应验。落地动作：使用报告、用户可自设的限速、成瘾求助入口；边界是识别数据不得反用于优化粘性，且其余用户的行为责任归用户本人（L1966）。→ [`protect-heavy-users`](./protect-heavy-users/SKILL.md)
+**重度使用保护义务（p16）**：这条原则的独特处是推理结构——**义务不来自伤害已经发生，而来自识别能力已经出现**。"公司现已首次被允许用自身数据标记过度使用的用户"（L1928），从这一刻起"不知道"不再构成辩护；"只有约 1% 病理性上瘾"不能当豁免理由（极端个案的诉讼与报道足以定义产品形象），作者甚至预言它将法律化——部分已经应验。落地动作：使用报告、用户可自设的限速、成瘾求助入口；边界是识别数据不得反用于优化粘性，且其余用户的行为责任归用户本人（L1966）。→ [`protect-heavy-users`](../skills/./protect-heavy-users/SKILL.md)
 
-**改良而非替代（p18）**：让用户改变习惯，最稳的路径不是发布"新方式"，而是把产品呈现为既有行为的更顺手版本——照旧写周报，只是自动归档可检索——然后让用户自己决定换不换。心理机制与逆反心理同源：被迫换习惯触发对抗；威廉姆斯的观察给出方向性注脚——"人们上网只是为了继续做他们熟悉的事情"（L682）。Facebook 复刻线下花名册长成十亿用户产品是正向证据。操作判据：检验一个习惯设计是否健康，看用户是否保有**退回旧行为的自由**；业务上必须强制替换时，诚实说明原因、给足过渡期与储存价值补偿，不伪装成"为你好"的改良。→ [`upgrade-not-replace`](./upgrade-not-replace/SKILL.md)
+**改良而非替代（p18）**：让用户改变习惯，最稳的路径不是发布"新方式"，而是把产品呈现为既有行为的更顺手版本——照旧写周报，只是自动归档可检索——然后让用户自己决定换不换。心理机制与逆反心理同源：被迫换习惯触发对抗；威廉姆斯的观察给出方向性注脚——"人们上网只是为了继续做他们熟悉的事情"（L682）。Facebook 复刻线下花名册长成十亿用户产品是正向证据。操作判据：检验一个习惯设计是否健康，看用户是否保有**退回旧行为的自由**；业务上必须强制替换时，诚实说明原因、给足过渡期与储存价值补偿，不伪装成"为你好"的改良。→ [`upgrade-not-replace`](../skills/./upgrade-not-replace/SKILL.md)
 
 ---
 
@@ -264,7 +264,7 @@
 
 **什么时候会失效**：5% 对低频高价产品（汽车、房产、保险类）明显失灵；冷启动无数据阶段先做五问自检；只测频率不测质量——频率达标也可能来自焦虑驱动（打卡清零式使用），达标后应并操纵矩阵检查这个习惯是否值得经营、并按保护义务检查对过度使用者的责任。
 
-→ 深入: [`habit-test-three-steps`](./habit-test-three-steps/SKILL.md)
+→ 深入: [`habit-test-three-steps`](../skills/./habit-test-three-steps/SKILL.md)
 
 ---
 

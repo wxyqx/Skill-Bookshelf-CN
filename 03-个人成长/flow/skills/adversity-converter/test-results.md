@@ -1,7 +1,7 @@
 # adversity-converter — 压力测试结果
 
 > 测试时间: 2026-08-16 | 方式: 独立 sub-agent 盲测
-> 详细结果见 [TEST_RESULTS.md](../TEST_RESULTS.md)
+> 详细结果见 [TEST_RESULTS.md](../../docs/TEST_RESULTS.md)
 
 ## 通过率: 6/6 = 100% ✅
 

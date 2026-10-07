@@ -83,7 +83,7 @@ graph TD
     POL --> THEORY
 ```
 
-图例：`six-levels-thinking` 是入口（如曼昆卷的 `macro-timeframe-selection`）。完整单技能级引用图见 [`INDEX.md`](INDEX.md)。与书架曼昆卷的关系：曼昆卷是通用工具箱，本卷是用工具箱解中国题并做方法论自觉。
+图例：`six-levels-thinking` 是入口（如曼昆卷的 `macro-timeframe-selection`）。完整单技能级引用图见 [`INDEX.md`](docs/INDEX.md)。与书架曼昆卷的关系：曼昆卷是通用工具箱，本卷是用工具箱解中国题并做方法论自觉。
 
 **快速决策指南**：
 

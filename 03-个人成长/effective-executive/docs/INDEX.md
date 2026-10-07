@@ -23,61 +23,61 @@
 
 | slug | 标题 | 一句话 | 类型 | 来源章节 | verified id |
 |---|---|---|---|---|---|
-| [`effectiveness-five-habits`](./effectiveness-five-habits/SKILL.md) | 有效性五项习惯（总纲与自检） | 不存在"有效的个性"，有效性是可训练的五项习惯，也是从"忙而无果"到"查缺下钻"的诊断路径 | framework（总纲/路由） | 第1章（L442–468、L482）；第8章（L1904–1914） | f01 |
-| [`results-outside-the-organization`](./results-outside-the-organization/SKILL.md) | 成果在组织之外（内/外定向） | 内部只有人工和成本，成果只能由外部产生；须付出特殊努力保持直接接触、观察"趋势的转变" | framework（结构定律/定向体检） | 第1章（L358–394）；第3章（L799、L861、L970）；第8章（L1922） | f25 |
+| [`effectiveness-five-habits`](../skills/./effectiveness-five-habits/SKILL.md) | 有效性五项习惯（总纲与自检） | 不存在"有效的个性"，有效性是可训练的五项习惯，也是从"忙而无果"到"查缺下钻"的诊断路径 | framework（总纲/路由） | 第1章（L442–468、L482）；第8章（L1904–1914） | f01 |
+| [`results-outside-the-organization`](../skills/./results-outside-the-organization/SKILL.md) | 成果在组织之外（内/外定向） | 内部只有人工和成本，成果只能由外部产生；须付出特殊努力保持直接接触、观察"趋势的转变" | framework（结构定律/定向体检） | 第1章（L358–394）；第3章（L799、L861、L970）；第8章（L1922） | f25 |
 
 ### 二、时间管理（第2章：掌握自己的时间）
 
 | slug | 标题 | 一句话 | 类型 | 来源章节 | verified id |
 |---|---|---|---|---|---|
-| [`know-thy-time`](./know-thy-time/SKILL.md) | 从时间开始：记录规范与三步总纲 | 起点不是做计划而是"认识你的时间"——当时记录、连续取样，再管理、再集中 | framework（记录规范/流程） | 第2章（L493–509、L601–609）；第8章（L1904） | f02 |
-| [`time-diagnosis-questions`](./time-diagnosis-questions/SKILL.md) | 时间诊断三问（取消 / 授权 / 问下属） | 逐项问"不做会怎样／能否别人代做／我在浪费谁的时间"，分别指向删、转、改三个动作 | framework（三问清单） | 第2章（L611–635、L639–657）；第8章（L1906） | f03 |
-| [`time-waste-institution-scan`](./time-waste-institution-scan/SKILL.md) | 时间浪费的制度检修四项 | 重复危机、人员过多（1/10 判据）、会议过多（1/4 判据）、信息不健全——时间浪费常是结构症状 | framework（检修清单/阈值判据） | 第2章（L663–724）；第8章（L1906） | f04 |
-| [`consolidate-free-time`](./consolidate-free-time/SKILL.md) | 集中整块自由时间并持续防守 | 自由时间只剩约 1/4；碎片时间之和等于没有，必须并成整块并持续防守 | framework（操作程序） | 第2章（L730–769） | f05 |
+| [`know-thy-time`](../skills/./know-thy-time/SKILL.md) | 从时间开始：记录规范与三步总纲 | 起点不是做计划而是"认识你的时间"——当时记录、连续取样，再管理、再集中 | framework（记录规范/流程） | 第2章（L493–509、L601–609）；第8章（L1904） | f02 |
+| [`time-diagnosis-questions`](../skills/./time-diagnosis-questions/SKILL.md) | 时间诊断三问（取消 / 授权 / 问下属） | 逐项问"不做会怎样／能否别人代做／我在浪费谁的时间"，分别指向删、转、改三个动作 | framework（三问清单） | 第2章（L611–635、L639–657）；第8章（L1906） | f03 |
+| [`time-waste-institution-scan`](../skills/./time-waste-institution-scan/SKILL.md) | 时间浪费的制度检修四项 | 重复危机、人员过多（1/10 判据）、会议过多（1/4 判据）、信息不健全——时间浪费常是结构症状 | framework（检修清单/阈值判据） | 第2章（L663–724）；第8章（L1906） | f04 |
+| [`consolidate-free-time`](../skills/./consolidate-free-time/SKILL.md) | 集中整块自由时间并持续防守 | 自由时间只剩约 1/4；碎片时间之和等于没有，必须并成整块并持续防守 | framework（操作程序） | 第2章（L730–769） | f05 |
 
 ### 三、聚焦贡献（第3章：我能贡献什么）
 
 | slug | 标题 | 一句话 | 类型 | 来源章节 | verified id |
 |---|---|---|---|---|---|
-| [`contribution-question`](./contribution-question/SKILL.md) | 贡献自问法："我能贡献什么" | 一句自问把注意力从勤奋、职权与融洽转向外部成果（含有效人际关系四项要求） | framework（自问句/心态转换） | 第3章（L782–811、L896–949）；第8章（L1908） | f06 |
-| [`three-domains-of-contribution`](./three-domains-of-contribution/SKILL.md) | 贡献三领域（直接成果 / 价值观 / 人才） | 三条互不替代的成效线，缺任一条机构衰败，权重随处境定 | framework（清单/配比检查） | 第3章（L813–829、L845–853）；第8章（L1908） | f07 |
-| [`make-output-usable`](./make-output-usable/SKILL.md) | 交付设计：让专业产出为他人可用 | 被理解的责任在产出者一方；按使用者需要的时机、形式与语言交付 | framework（四问交付设计） | 第3章（L867–890）；机制来源第1章 L276 | f08 |
+| [`contribution-question`](../skills/./contribution-question/SKILL.md) | 贡献自问法："我能贡献什么" | 一句自问把注意力从勤奋、职权与融洽转向外部成果（含有效人际关系四项要求） | framework（自问句/心态转换） | 第3章（L782–811、L896–949）；第8章（L1908） | f06 |
+| [`three-domains-of-contribution`](../skills/./three-domains-of-contribution/SKILL.md) | 贡献三领域（直接成果 / 价值观 / 人才） | 三条互不替代的成效线，缺任一条机构衰败，权重随处境定 | framework（清单/配比检查） | 第3章（L813–829、L845–853）；第8章（L1908） | f07 |
+| [`make-output-usable`](../skills/./make-output-usable/SKILL.md) | 交付设计：让专业产出为他人可用 | 被理解的责任在产出者一方；按使用者需要的时机、形式与语言交付 | framework（四问交付设计） | 第3章（L867–890）；机制来源第1章 L276 | f08 |
 
 ### 四、用人所长（第4章：如何发挥人的长处）
 
 | slug | 标题 | 一句话 | 类型 | 来源章节 | verified id |
 |---|---|---|---|---|---|
-| [`strengths-based-staffing`](./strengths-based-staffing/SKILL.md) | 用人所长四原则（职位设计 → 择人 → 容忍短处） | 职位为常人设计、要求严涵盖广、先看能做什么、容忍短处并使其不产生作用——不改造人 | framework（四原则） | 第4章（L990–1170）；第1章 L411；第8章（L1910） | f09 |
-| [`appraisal-four-questions`](./appraisal-four-questions/SKILL.md) | 绩效考评四问（含正直否决项） | 只评绩效不评"潜能"；末问"愿否让子女随他工作"是唯一的资格门槛 | framework（四问+资格门槛） | 第4章（L1086–1118） | f10 |
-| [`manage-your-boss`](./manage-your-boss/SKILL.md) | 管理上司：用其长处、按他接受的方式 | 协助上司发挥所长是下属的责任；"与其说提什么建议，倒不如说如何提出这一建议" | framework（四问+方式判定） | 第4章（L1176–1201） | f11 |
-| [`use-your-own-strengths`](./use-your-own-strengths/SKILL.md) | 发挥自己的长处（工作习惯与机会意识） | 以"别人费力我轻松"定位长处，顺应工作习惯设计做法，"别人不让我干"多半是借口 | framework（盘点+改写） | 第4章（L1207–1244） | f12 |
+| [`strengths-based-staffing`](../skills/./strengths-based-staffing/SKILL.md) | 用人所长四原则（职位设计 → 择人 → 容忍短处） | 职位为常人设计、要求严涵盖广、先看能做什么、容忍短处并使其不产生作用——不改造人 | framework（四原则） | 第4章（L990–1170）；第1章 L411；第8章（L1910） | f09 |
+| [`appraisal-four-questions`](../skills/./appraisal-four-questions/SKILL.md) | 绩效考评四问（含正直否决项） | 只评绩效不评"潜能"；末问"愿否让子女随他工作"是唯一的资格门槛 | framework（四问+资格门槛） | 第4章（L1086–1118） | f10 |
+| [`manage-your-boss`](../skills/./manage-your-boss/SKILL.md) | 管理上司：用其长处、按他接受的方式 | 协助上司发挥所长是下属的责任；"与其说提什么建议，倒不如说如何提出这一建议" | framework（四问+方式判定） | 第4章（L1176–1201） | f11 |
+| [`use-your-own-strengths`](../skills/./use-your-own-strengths/SKILL.md) | 发挥自己的长处（工作习惯与机会意识） | 以"别人费力我轻松"定位长处，顺应工作习惯设计做法，"别人不让我干"多半是借口 | framework（盘点+改写） | 第4章（L1207–1244） | f12 |
 
 ### 五、要事优先（第5章：先做要事）
 
 | slug | 标题 | 一句话 | 类型 | 来源章节 | verified id |
 |---|---|---|---|---|---|
-| [`one-thing-at-a-time`](./one-thing-at-a-time/SKILL.md) | 一次只做一件事（含三件自毁习惯） | 每件要事有最低整块时间门槛，人不能同时抛接多个球——越集中，完成得越多 | framework（串行纪律） | 第5章（L1257–1289，含第2章 L540–546） | f13 |
-| [`abandon-yesterday`](./abandon-yesterday/SKILL.md) | 摆脱昨天（该不该开始之问与推陈出新） | 先删旧、后开新：对既有投入问"如果还没做，现在该不该开始" | framework（判据+配比规则） | 第5章（L1295–1332） | f14 |
-| [`priority-and-posterior`](./priority-and-posterior/SKILL.md) | 优先次序四原则与"优后" | 重将来/重机会/自选方向/目标高；真正的困难是敢定"不做什么"并坚持 | framework（四原则+优后决策） | 第5章（L1338–1383） | f15 |
+| [`one-thing-at-a-time`](../skills/./one-thing-at-a-time/SKILL.md) | 一次只做一件事（含三件自毁习惯） | 每件要事有最低整块时间门槛，人不能同时抛接多个球——越集中，完成得越多 | framework（串行纪律） | 第5章（L1257–1289，含第2章 L540–546） | f13 |
+| [`abandon-yesterday`](../skills/./abandon-yesterday/SKILL.md) | 摆脱昨天（该不该开始之问与推陈出新） | 先删旧、后开新：对既有投入问"如果还没做，现在该不该开始" | framework（判据+配比规则） | 第5章（L1295–1332） | f14 |
+| [`priority-and-posterior`](../skills/./priority-and-posterior/SKILL.md) | 优先次序四原则与"优后" | 重将来/重机会/自选方向/目标高；真正的困难是敢定"不做什么"并坚持 | framework（四原则+优后决策） | 第5章（L1338–1383） | f15 |
 
 ### 六、决策要素（第6章：决策的要素）
 
 | slug | 标题 | 一句话 | 类型 | 来源章节 | verified id |
 |---|---|---|---|---|---|
-| [`decision-five-elements`](./decision-five-elements/SKILL.md) | 决策五要素（审计清单） | 问题性质/边界条件/正确方案/化决策为行动/反馈，顺序不可倒置 | framework（五要素审计清单） | 第6章（L1391–1488）；第8章（L1914） | f16 |
-| [`problem-classification`](./problem-classification/SKILL.md) | 问题四分类（"先假定它是经常性问题"） | 按"是否重复出现"分类，除真正偶发外一律建立规则/政策/原则 | framework（四分类法） | 第6章（L1492–1556）；第7章 L1861 | f17 |
-| [`boundary-conditions`](./boundary-conditions/SKILL.md) | 边界条件：决策必须满足的最低规范 | 最低必须达成什么；不符者无效；据以判定决策何时应被抛弃 | framework（三用途判据） | 第6章（L1558–1586；L1550；L1630–1638） | f18 |
-| [`correct-before-compromise`](./correct-before-compromise/SKILL.md) | 先"正确"再谈折中（两种折中的辨别） | 先有"正确"的基准，才能分辨"半片面包"与"半个婴儿"式折中 | framework（两类折中辨别） | 第6章第三要素（L1588–1598；L1746–1762） | f19 |
-| [`decision-to-action`](./decision-to-action/SKILL.md) | 化决策为行动（四问与激励同步） | 谁了解/什么行动/谁执行/如何执行；要求改变行为时衡量与激励必须同步 | framework（四问+激励同步） | 第6章第四要素（L1600–1628） | f20 |
-| [`feedback-and-inspect`](./feedback-and-inspect/SKILL.md) | 反馈制度：决策前反馈与亲自视察 | 决策前反馈检验衡量方法本身；最可靠的反馈是亲自视察而非批阅报告 | framework（两层反馈设计） | 第6章第五要素（L1630–1652）；第7章（L1701–1707） | f21 |
+| [`decision-five-elements`](../skills/./decision-five-elements/SKILL.md) | 决策五要素（审计清单） | 问题性质/边界条件/正确方案/化决策为行动/反馈，顺序不可倒置 | framework（五要素审计清单） | 第6章（L1391–1488）；第8章（L1914） | f16 |
+| [`problem-classification`](../skills/./problem-classification/SKILL.md) | 问题四分类（"先假定它是经常性问题"） | 按"是否重复出现"分类，除真正偶发外一律建立规则/政策/原则 | framework（四分类法） | 第6章（L1492–1556）；第7章 L1861 | f17 |
+| [`boundary-conditions`](../skills/./boundary-conditions/SKILL.md) | 边界条件：决策必须满足的最低规范 | 最低必须达成什么；不符者无效；据以判定决策何时应被抛弃 | framework（三用途判据） | 第6章（L1558–1586；L1550；L1630–1638） | f18 |
+| [`correct-before-compromise`](../skills/./correct-before-compromise/SKILL.md) | 先"正确"再谈折中（两种折中的辨别） | 先有"正确"的基准，才能分辨"半片面包"与"半个婴儿"式折中 | framework（两类折中辨别） | 第6章第三要素（L1588–1598；L1746–1762） | f19 |
+| [`decision-to-action`](../skills/./decision-to-action/SKILL.md) | 化决策为行动（四问与激励同步） | 谁了解/什么行动/谁执行/如何执行；要求改变行为时衡量与激励必须同步 | framework（四问+激励同步） | 第6章第四要素（L1600–1628） | f20 |
+| [`feedback-and-inspect`](../skills/./feedback-and-inspect/SKILL.md) | 反馈制度：决策前反馈与亲自视察 | 决策前反馈检验衡量方法本身；最可靠的反馈是亲自视察而非批阅报告 | framework（两层反馈设计） | 第6章第五要素（L1630–1652）；第7章（L1701–1707） | f21 |
 
 ### 七、有效决策（第7章：有效的决策）
 
 | slug | 标题 | 一句话 | 类型 | 来源章节 | verified id |
 |---|---|---|---|---|---|
-| [`opinions-first`](./opinions-first/SKILL.md) | 见解为先：把见解当假设，先定衡量标准 | 决策不从"搜集事实"开始；见解=尚待证实的假设，"相关的标准是什么"才是第一问 | framework（认识论规则） | 第7章（L1673–1717） | f22 |
-| [`dissent-as-resource`](./dissent-as-resource/SKILL.md) | 反面意见：制造并运用不同意见 | 有意制造冲突意见（防俘虏/另一方案/激发想象），先理解后判是非 | framework（异议制造与处理纪律） | 第7章（L1719–1784） | f23 |
-| [`decide-and-act-fully`](./decide-and-act-fully/SKILL.md) | 是否需要决策与行动收尾 | 不做也是决策；行动或不行动，绝不只做一半；最后一步是勇气 | framework（两端判据） | 第7章（L1786–1820） | f24 |
+| [`opinions-first`](../skills/./opinions-first/SKILL.md) | 见解为先：把见解当假设，先定衡量标准 | 决策不从"搜集事实"开始；见解=尚待证实的假设，"相关的标准是什么"才是第一问 | framework（认识论规则） | 第7章（L1673–1717） | f22 |
+| [`dissent-as-resource`](../skills/./dissent-as-resource/SKILL.md) | 反面意见：制造并运用不同意见 | 有意制造冲突意见（防俘虏/另一方案/激发想象），先理解后判是非 | framework（异议制造与处理纪律） | 第7章（L1719–1784） | f23 |
+| [`decide-and-act-fully`](../skills/./decide-and-act-fully/SKILL.md) | 是否需要决策与行动收尾 | 不做也是决策；行动或不行动，绝不只做一半；最后一步是勇气 | framework（两端判据） | 第7章（L1786–1820） | f24 |
 
 ---
 

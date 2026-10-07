@@ -17,23 +17,23 @@
 
 ### 阶段一：行动与销售验证
 
-- [`ready-fire-aim`](./ready-fire-aim/SKILL.md) — 先行动再瞄准的快速试错框架，打破“准备完美才开始”的 paralysis。
-- [`optimum-selling-strategy`](./optimum-selling-strategy/SKILL.md) — 同时测试渠道、产品、定价、主张四个变量，找到可重复获客的 OSS。
-- [`allowable-acquisition-cost`](./allowable-acquisition-cost/SKILL.md) — 用客户终身毛利倒推可承受获客成本，把前端亏损变成有边界的投资。
+- [`ready-fire-aim`](../skills/./ready-fire-aim/SKILL.md) — 先行动再瞄准的快速试错框架，打破“准备完美才开始”的 paralysis。
+- [`optimum-selling-strategy`](../skills/./optimum-selling-strategy/SKILL.md) — 同时测试渠道、产品、定价、主张四个变量，找到可重复获客的 OSS。
+- [`allowable-acquisition-cost`](../skills/./allowable-acquisition-cost/SKILL.md) — 用客户终身毛利倒推可承受获客成本，把前端亏损变成有边界的投资。
 
 ### 阶段二：营销与产品创新
 
-- [`front-end-back-end-marketing`](./front-end-back-end-marketing/SKILL.md) — 把产品线拆成“获客品”与“利润品”，设计完整的客户终身价值路径。
-- [`unique-selling-proposition`](./unique-selling-proposition/SKILL.md) — 在拥挤市场中找到“看起来独特、对客户有用、一句话能说清”的定位。
-- [`marketing-four-legged-stool`](./marketing-four-legged-stool/SKILL.md) — 用 Big Idea / Big Benefit / Big Promise / Proof 四脚凳检查营销活动是否站得住。
-- [`tipping-point-innovation`](./tipping-point-innovation/SKILL.md) — 在已有趋势上做 80% 熟悉 + 20% 新意的微创新，成为“最后一滴水”。
+- [`front-end-back-end-marketing`](../skills/./front-end-back-end-marketing/SKILL.md) — 把产品线拆成“获客品”与“利润品”，设计完整的客户终身价值路径。
+- [`unique-selling-proposition`](../skills/./unique-selling-proposition/SKILL.md) — 在拥挤市场中找到“看起来独特、对客户有用、一句话能说清”的定位。
+- [`marketing-four-legged-stool`](../skills/./marketing-four-legged-stool/SKILL.md) — 用 Big Idea / Big Benefit / Big Promise / Proof 四脚凳检查营销活动是否站得住。
+- [`tipping-point-innovation`](../skills/./tipping-point-innovation/SKILL.md) — 在已有趋势上做 80% 熟悉 + 20% 新意的微创新，成为“最后一滴水”。
 
 ### 阶段三/四：组织与成长诊断
 
-- [`four-stages-of-growth`](./four-stages-of-growth/SKILL.md) — 判断企业处于婴儿期/童年期/青春期/成年期，并匹配正确优先级。
-- [`free-market-management`](./free-market-management/SKILL.md) — 用利润中心、内部自由市场与信息透明来降低办公室政治。
-- [`bottleneck-diagnosis`](./bottleneck-diagnosis/SKILL.md) — 通过时间审计与团队访谈，判断创始人是否已成为最大瓶颈。
-- [`incremental-degradation`](./incremental-degradation/SKILL.md) — 把“维护”重新定义为持续小改进，防止产品与 USP 随时间渐进退化。
+- [`four-stages-of-growth`](../skills/./four-stages-of-growth/SKILL.md) — 判断企业处于婴儿期/童年期/青春期/成年期，并匹配正确优先级。
+- [`free-market-management`](../skills/./free-market-management/SKILL.md) — 用利润中心、内部自由市场与信息透明来降低办公室政治。
+- [`bottleneck-diagnosis`](../skills/./bottleneck-diagnosis/SKILL.md) — 通过时间审计与团队访谈，判断创始人是否已成为最大瓶颈。
+- [`incremental-degradation`](../skills/./incremental-degradation/SKILL.md) — 把“维护”重新定义为持续小改进，防止产品与 USP 随时间渐进退化。
 
 ---
 
