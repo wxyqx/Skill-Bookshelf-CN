@@ -1,9 +1,10 @@
 # 09-其他
 
-> 暂未列入书单的已蒸馏书 · 15 本
+> 暂未列入书单的已蒸馏书 · 16 本
 
 | 书名 | 目录 |
 |---|---|
+| 《亲密关系（第6版）》*Intimate Relationships* | [`intimate-relationships/`](./intimate-relationships/) |
 | 《思考，快与慢》*Thinking, Fast and Slow* | [`thinking-fast-and-slow/`](./thinking-fast-and-slow/) |
 | 《稀缺》*Scarcity* | [`scarcity/`](./scarcity/) |
 | 《刻意练习》*PEAK* | [`peak-deliberate-practice/`](./peak-deliberate-practice/) |
