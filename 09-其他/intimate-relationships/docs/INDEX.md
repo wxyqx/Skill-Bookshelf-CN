@@ -17,28 +17,28 @@
 
 ### 关系评估框架
 
-- [`interdependence-assessment`](./interdependence-assessment/SKILL.md) — 相互依赖关系评估：用奖赏-代价-CL-CLalt 模型判断关系满意度与稳定性
-- [`negativity-bias-ratio`](./negativity-bias-ratio/SKILL.md) — 坏比好更有力量与 5:1 黄金比例：正负互动比率预测关系存续
+- [`interdependence-assessment`](../skills/interdependence-assessment/SKILL.md) — 相互依赖关系评估：用奖赏-代价-CL-CLalt 模型判断关系满意度与稳定性
+- [`negativity-bias-ratio`](../skills/negativity-bias-ratio/SKILL.md) — 坏比好更有力量与 5:1 黄金比例：正负互动比率预测关系存续
 
 ### 关系认知与信念
 
-- [`relationship-mindset`](./relationship-mindset/SKILL.md) — 关系信念：宿命型 vs 成长型
-- [`cognitive-bias-defense`](./cognitive-bias-defense/SKILL.md) — 关系认知偏差防御：首因效应、证实偏差、归因偏差、自我实现预言
+- [`relationship-mindset`](../skills/relationship-mindset/SKILL.md) — 关系信念：宿命型 vs 成长型
+- [`cognitive-bias-defense`](../skills/cognitive-bias-defense/SKILL.md) — 关系认知偏差防御：首因效应、证实偏差、归因偏差、自我实现预言
 
 ### 爱情与激情
 
-- [`love-triangle-passion-decline`](./love-triangle-passion-decline/SKILL.md) — 爱情三角理论与激情消退规律
-- [`self-expansion-boredom`](./self-expansion-boredom/SKILL.md) — 自我延伸模型与关系厌倦
+- [`love-triangle-passion-decline`](../skills/love-triangle-passion-decline/SKILL.md) — 爱情三角理论与激情消退规律
+- [`self-expansion-boredom`](../skills/self-expansion-boredom/SKILL.md) — 自我延伸模型与关系厌倦
 
 ### 关系建立与亲密
 
-- [`social-penetration-intimacy`](./social-penetration-intimacy/SKILL.md) — 社会渗透与亲密建立
-- [`attachment-pattern-awareness`](./attachment-pattern-awareness/SKILL.md) — 依恋类型自我觉察
+- [`social-penetration-intimacy`](../skills/social-penetration-intimacy/SKILL.md) — 社会渗透与亲密建立
+- [`attachment-pattern-awareness`](../skills/attachment-pattern-awareness/SKILL.md) — 依恋类型自我觉察
 
 ### 冲突与维持
 
-- [`conflict-management-toolbox`](./conflict-management-toolbox/SKILL.md) — 冲突管理工具箱
-- [`relationship-maintenance`](./relationship-maintenance/SKILL.md) — 关系维持策略库
+- [`conflict-management-toolbox`](../skills/conflict-management-toolbox/SKILL.md) — 冲突管理工具箱
+- [`relationship-maintenance`](../skills/relationship-maintenance/SKILL.md) — 关系维持策略库
 
 ---
 
@@ -106,5 +106,5 @@ graph TD
 ## 审计轨迹
 
 - 候选单元池: [candidates/](./candidates/)
-- 被淘汰的候选: [rejected/](./rejected/)
+- 被淘汰的候选: 见 [verified.md](./verified.md) 的「淘汰单元摘要」（13 候选 → 10 通过 / 3 淘汰）
 - 验证结果: [verified.md](./verified.md)

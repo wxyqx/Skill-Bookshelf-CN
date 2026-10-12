@@ -11,7 +11,7 @@
 
 ## 目录总览
 
-**48 本书 · 816 个 skills**（最后更新：2026-10-07）
+**49 本书 · 826 个 skills**（最后更新：2026-10-12）
 
 ### 分类导航
 
@@ -92,7 +92,7 @@
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
-| 《亲密关系（第6版）》*Intimate Relationships* | 罗兰·米勒 · 2010-2015 | 亲密关系 / 依恋 / 冲突 / 关系维持 | 10 | [intimate-relationships/](./09-其他/intimate-relationships/) |
+| 《亲密关系（第6版）》*Intimate Relationships* | 罗兰·米勒 · 2010-2015 | 亲密关系 / 依恋 / 冲突 / 关系维持 | 10 | [`intimate-relationships/`](./09-其他/intimate-relationships/) |
 | 《思考，快与慢》*Thinking, Fast and Slow* | 卡尼曼 · 2025 | 认知偏差 / 判断决策 | 28 | [`thinking-fast-and-slow/`](./09-其他/thinking-fast-and-slow/) |
 | 《稀缺》*Scarcity* | 穆来纳森、沙菲尔 · 2022 | 稀缺 / 带宽 / 决策 | 7 | [`scarcity/`](./09-其他/scarcity/) |
 | 《刻意练习》*PEAK* | 艾利克森、普尔 · 2016 | 学习 / 技能精进 | 8 | [`peak-deliberate-practice/`](./09-其他/peak-deliberate-practice/) |
@@ -111,12 +111,11 @@
 
 ## 逐本详情
 
-### 0. 《亲密关系（第6版）》 — *Intimate Relationships* · [intimate-relationships/](./09-其他/intimate-relationships/)
+### 0. 《亲密关系（第6版）》 — *Intimate Relationships* · [`intimate-relationships/`](./09-其他/intimate-relationships/)
 
 - **作者**：罗兰·米勒（Rowland S. Miller）· 第6版
 - **一句话**：亲密关系的质量不是运气而是多种可识别因素的动态交互结果——从相互依赖、认知偏差、依恋模式到冲突管理，本书用扎实的社会心理学研究系统纠正了关于爱情的常识误解。
-- **Skills**：interdependence-assessment · 
-egativity-bias-ratio · elationship-mindset · love-triangle-passion-decline · self-expansion-boredom · conflict-management-toolbox · elationship-maintenance · ttachment-pattern-awareness · social-penetration-intimacy · cognitive-bias-defense`r
+- **Skills**：`interdependence-assessment` · `negativity-bias-ratio` · `relationship-mindset` · `love-triangle-passion-decline` · `self-expansion-boredom` · `conflict-management-toolbox` · `relationship-maintenance` · `attachment-pattern-awareness` · `social-penetration-intimacy` · `cognitive-bias-defense`
 
 ### 1. 《心流：最优体验心理学》 — *Flow: The Psychology of Optimal Experience* · [`flow/`](./09-其他/flow/)
 

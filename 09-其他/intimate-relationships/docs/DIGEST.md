@@ -29,7 +29,7 @@ Miller 教授用扎实的社会心理学研究，系统地纠正了这些误解�
 
 **反常识发现**: 婚姻满意度下降是正常的。原因有五：(1)缺少努力（不再保持风度）、(2)相互依赖放大摩擦（越亲密越容易伤害彼此）、(3)对敏感信息武器的了解（伴侣知道你的弱点）、(4)不受欢迎的意外（孩子、疾病）、(5)不现实的期望。
 
-→ 深入: [`interdependence-assessment`](./interdependence-assessment/SKILL.md)
+→ 深入: [`interdependence-assessment`](../skills/interdependence-assessment/SKILL.md)
 
 ### 坏比好更有力量与 5:1 黄金比例
 
@@ -41,7 +41,7 @@ Miller 教授用扎实的社会心理学研究，系统地纠正了这些误解�
 
 **关键启示**: 仅仅没有冲突是不够的——你需要大量的积极互动来缓冲不可避免的负面事件。"零冲突"的关系可能比"经常吵架但也经常示爱"的关系更危险。
 
-→ 深入: [`negativity-bias-ratio`](./negativity-bias-ratio/SKILL.md)
+→ 深入: [`negativity-bias-ratio`](../skills/negativity-bias-ratio/SKILL.md)
 
 ---
 
@@ -69,7 +69,7 @@ Miller 教授用扎实的社会心理学研究，系统地纠正了这些误解�
 
 **自我实现的循环**: 信念影响行为，行为影响结果。宿命信念者遇到问题时倾向于逃避或结束关系（"找错人了"），导致关系真的失败，反过来强化"果然找不到对的人"的信念。成长信念者遇到问题积极寻求解决，关系更可能改善，反过来强化"努力可以改善"的信念。
 
-→ 深入: [`relationship-mindset`](./relationship-mindset/SKILL.md)
+→ 深入: [`relationship-mindset`](../skills/relationship-mindset/SKILL.md)
 
 ---
 
@@ -98,7 +98,7 @@ Miller 教授用扎实的社会心理学研究，系统地纠正了这些误解�
 
 **关键启示**: 激情消退不是不爱了，而是爱情类型从**浪漫之爱**向**相伴之爱**的正常过渡。相伴之爱（高亲密+高承诺）更稳定持久，与催产素和内啡肽系统相关，是长期关系幸福的主要来源。对长期关系的合理预期应该是这种转变，而不是"永远像热恋一样"。
 
-→ 深入: [`love-triangle-passion-decline`](./love-triangle-passion-decline/SKILL.md)
+→ 深入: [`love-triangle-passion-decline`](../skills/love-triangle-passion-decline/SKILL.md)
 
 ### 自我延伸模型与关系厌倦
 
@@ -110,7 +110,7 @@ Miller 教授用扎实的社会心理学研究，系统地纠正了这些误解�
 
 **换人错觉**: 厌倦时很容易想"是不是我找错人了，换一个就好了"。但换人只是把自我延伸的曲线重新走一遍——新关系的新鲜感同样会消退。真正的解决方案不是换人，而是**和同一个人一起做新的事**。
 
-→ 深入: [`self-expansion-boredom`](./self-expansion-boredom/SKILL.md)
+→ 深入: [`self-expansion-boredom`](../skills/self-expansion-boredom/SKILL.md)
 
 ---
 
@@ -134,7 +134,7 @@ Miller 教授用扎实的社会心理学研究，系统地纠正了这些误解�
 
 **相互性原则**: 早期交往中，自我表露存在相互性——人们倾向于匹配彼此的开放程度。一次说太多太快是危险的，会让对方不舒服。最好的策略是循序渐进，让亲密感逐步增加。
 
-→ 深入: [`social-penetration-intimacy`](./social-penetration-intimacy/SKILL.md)
+→ 深入: [`social-penetration-intimacy`](../skills/social-penetration-intimacy/SKILL.md)
 
 ### 依恋类型自我觉察
 
@@ -148,7 +148,7 @@ Miller 教授用扎实的社会心理学研究，系统地纠正了这些误解�
 
 依恋类型影响关系中的行为、认知和情绪。焦虑型的人容易过度解读伴侣的冷淡，回避型的人面对亲密会想要逃跑。但依恋类型不是固定的——安全的关系体验可以改变依恋模式，自我觉察是改变的第一步。
 
-→ 深入: [`attachment-pattern-awareness`](./attachment-pattern-awareness/SKILL.md)
+→ 深入: [`attachment-pattern-awareness`](../skills/attachment-pattern-awareness/SKILL.md)
 
 ---
 
@@ -169,7 +169,7 @@ Miller 教授用扎实的社会心理学研究，系统地纠正了这些误解�
 
 **人际隔阂**: 讽刺的是，亲密关系中因为想当然地认为对方理解自己，反而更少检查共识，隔阂比陌生人之间更严重。"传递者的意图和对接受者产生的影响并不相同"。
 
-→ 深入: [`cognitive-bias-defense`](./cognitive-bias-defense/SKILL.md)
+→ 深入: [`cognitive-bias-defense`](../skills/cognitive-bias-defense/SKILL.md)
 
 ---
 
@@ -194,7 +194,7 @@ Miller 教授用扎实的社会心理学研究，系统地纠正了这些误解�
 - **顺应原则**：忍住以牙还牙的冲动，以建设性方式回应
 - **要求/退避模式识别**：识别并打破"一方要求、一方退避"的恶性循环
 
-→ 深入: [`conflict-management-toolbox`](./conflict-management-toolbox/SKILL.md)
+→ 深入: [`conflict-management-toolbox`](../skills/conflict-management-toolbox/SKILL.md)
 
 ---
 
@@ -223,7 +223,7 @@ Miller 教授用扎实的社会心理学研究，系统地纠正了这些误解�
 
 **米开朗基罗现象**: 好的伴侣关系像雕塑家雕琢大理石，帮助对方成为其理想中的样子。伴侣通过支持学习、赞同新角色、促进成长，潜移默化地塑造对方。这种现象能同时提升关系质量和个人幸福感。
 
-→ 深入: [`relationship-maintenance`](./relationship-maintenance/SKILL.md)
+→ 深入: [`relationship-maintenance`](../skills/relationship-maintenance/SKILL.md)
 
 ---
 
