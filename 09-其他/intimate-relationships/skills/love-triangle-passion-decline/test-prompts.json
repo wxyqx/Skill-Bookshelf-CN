@@ -1,0 +1,52 @@
+{
+  "skill": "love-triangle-passion-decline",
+  "version": "0.1.0",
+  "source_book": "亲密关系（第6版）— Rowland Miller",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我和他在一起五年了，刚在一起的时候每天都心跳加速，现在牵手像左手摸右手，是不是不爱了？",
+      "expected_behavior": "应激活 love-triangle-passion-decline skill，引导用户用爱情三角理论重新审视关系——区分激情消退与爱情消亡，帮助做三角体检（亲密/激情/承诺三个维度打分），理解从浪漫之爱到相伴之爱的过渡是正常的。",
+      "notes": "正面场景: 用户明确对激情消退产生焦虑，质疑爱情是否还存在，是本 skill 最典型的触发场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "结婚三年，感觉爱情变成亲情了，日子过得平平淡淡的，有时候会想当初的心动去哪了，这正常吗？",
+      "expected_behavior": "应激活 love-triangle-passion-decline skill，帮助用户理解激情消退的三个机制（比较水平上升、新奇感消失、生理适应），重新定义相伴之爱的价值，而不是把激情下降等同于关系失败。",
+      "notes": "正面场景: 用户用'爱情变亲情'描述关系变化，内心有失落感，需要用三角理论做认知重构。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我好想找回当初那种心动的感觉啊，我们是不是哪里出问题了？是不是我找错人了？",
+      "expected_behavior": "应激活 love-triangle-passion-decline skill，先做归一化（激情消退是正常现象），再用双因素理论引导用户理解激情可以主动创造（共同参与唤醒性活动），同时警惕错误归因陷阱。",
+      "notes": "正面场景: 用户寻求重燃激情的方法，并因激情下降产生'找错人'的自我怀疑，涉及幻灭模型的核心议题。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "和男朋友在一起三年，每天都是上班下班吃饭睡觉，好无聊啊，一点新鲜感都没有，感觉日子过得死气沉沉的。",
+      "expected_behavior": "不应激活本 skill，应激活 self-expansion-boredom。用户的核心诉求是'无聊/没意思/没新鲜感'，是关系厌倦和自我延伸速度下降的问题，关注的是'为什么厌倦'和'怎么办'，而不是对爱情成分结构性变化的困惑。",
+      "notes": "跨 skill 混淆诱饵: 用户提到'没新鲜感'和关系平淡，容易与三角理论中的'新奇感消失'混淆。但核心情绪是厌倦（boredom）而非对爱情本质的怀疑，应触发 self-expansion-boredom 而非本 skill。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我和女朋友一吵架就冷战，谁也不理谁，每次都不了了之，我都不知道这段关系还能不能继续。",
+      "expected_behavior": "不应激活本 skill，因为这是冲突管理和沟通模式问题，应激活 conflict-management-toolbox。用户的核心困扰是吵架后的冷战和冲突无法解决，与激情消退无关。",
+      "notes": "诱饵: 完全不同领域的关系问题——冲突与冷战，不应被误判为激情消退议题。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我和他在一起久了，既觉得每天都一样没意思，又怀疑是不是不爱了，有时候看着他完全没有心动的感觉，我也不知道到底是无聊还是不爱了。",
+      "expected_behavior": "边界场景，可能触发也可能需要进一步澄清。用户同时表达了厌倦感和对爱情是否存在的怀疑，介于 love-triangle-passion-decline 和 self-expansion-boredom 之间。如果用户更强调'是不是不爱了''心动的感觉'，应触发本 skill（三角理论帮助理解爱情成分变化）；如果更强调'没意思''每天都一样'，应触发 self-expansion-boredom。本例中两者权重接近，激活其中任一均可接受，但更优解是先识别两种机制的区别再引导。",
+      "notes": "边界: 厌倦感与激情消退交织，用户自己也分不清是哪种问题。考验 skill 触发的优先级判断——需捕捉'是不是不爱了''心动的感觉'等更偏向三角理论的关键词，还是'每天都一样''没意思'等更偏向自我延伸的关键词。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆 self-expansion-boredom) + 1 条 edge_case"
+}

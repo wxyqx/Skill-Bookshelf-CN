@@ -1,0 +1,52 @@
+{
+  "skill": "conflict-management-toolbox",
+  "version": "0.1.0",
+  "source_book": "亲密关系（第6版）— Rowland Miller",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我和男朋友一吵架就冷战，谁也不理谁，每次都这样耗着，我真的很累，不知道怎么打破这种局面。",
+      "expected_behavior": "应激活 conflict-management-toolbox skill，引导用户识别退避/石墙模式和可能的要求/退避循环，介绍戈特曼三不要原则（不要退避、不要消极、不要陷入负面循环），并教说话者-听话者技术和暂停机制来改善沟通。",
+      "notes": "正面场景: 用户明确描述冷战/退避模式，寻求打破冲突僵局的方法，是本 skill 最典型的触发场景之一。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "每次我想跟他好好谈谈我们之间的问题，他就转移话题或者躲起来，我越追他越逃，越逃我越生气，最后就变成大吵一架。",
+      "expected_behavior": "应激活 conflict-management-toolbox skill，帮助用户识别要求/退避模式——这是一个自我强化的恶性循环，不是某一方的错。引导用户理解模式的运作机制，并教双方各自的改变方法（要求者降低压力、退避者学习面对）。",
+      "notes": "正面场景: 典型的'一个追一个逃'的要求/退避模式，是本工具箱重点解决的核心互动模式之一。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我们总是因为一点小事就吵得不可开交，翻旧账、人身攻击、互相指责，吵到最后都忘了最初是为什么吵的，怎么吵架才能不伤感情啊？",
+      "expected_behavior": "应激活 conflict-management-toolbox skill，引导用户识别末日四骑士（批评、蔑视、防卫、石墙）中的表现，教说话者-听话者技术和戈特曼三不要原则，帮助用户从互相指责转向建设性沟通。",
+      "notes": "正面场景: 用户描述冲突升级的具体表现（翻旧账、人身攻击、偏离主题），主动寻求'怎么吵架才好'的沟通技能，完全匹配本 skill 的工具属性。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我听说坏比好更有力量，关系里要五件好事才能抵消一件坏事，是真的吗？为什么负面的东西影响这么大啊？",
+      "expected_behavior": "不应激活本 skill，应激活 negativity-bias-ratio。用户明确关注'坏比好更有力量'这一认知原则和 5:1 比率的原理，核心是理解消极偏差的心理机制，而不是学习冲突管理的具体工具和技术。",
+      "notes": "跨 skill 混淆诱饵: 用户提到的 5:1 比率也是冲突工具箱中的一个诊断指标，但用户的提问方式是对原理本身的好奇（'为什么影响这么大'），而非如何管理冲突。应触发 negativity-bias-ratio 而非本 skill。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我总觉得他做什么都是故意针对我，一点小事我就能联想到他不爱我了，是不是我想太多了？我控制不住自己往坏处想。",
+      "expected_behavior": "不应激活本 skill，因为用户的核心困扰是认知层面的偏差（消极诠释、归因偏差），应激活 cognitive-bias-defense。用户描述的是自己的思维模式和解释方式问题，而非实际发生的冲突互动或沟通模式。",
+      "notes": "诱饵: 用户描述的是关系中的认知偏差和消极思维倾向，属于认知层面的问题，不是行为层面的冲突管理工具可以直接解决的。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们最近吵架越来越频繁，感觉关系里负能量越来越多，好的时候越来越少，再这样下去会不会出问题啊？",
+      "expected_behavior": "边界场景，可能触发也可能需要进一步澄清。用户既提到冲突增多（conflict-management-toolbox 的范畴——冲突频率和管理方式），又关注正负互动比例失衡和负能量累积（negativity-bias-ratio 的范畴——坏比好更有力量、5:1比率）。如果用户更关注'怎么吵架/怎么解决冲突'，应触发本 skill；如果更关注'负面事件影响力更大/正负比例失衡'，应触发 negativity-bias-ratio。本例中'吵架越来越频繁'略偏向冲突管理，但'负能量越来越多，好的时候越来越少'也带有对比例失衡的担忧。",
+      "notes": "边界: 冲突频率增加与正负比例失衡交织，用户同时表达了对吵架增多的困扰和对关系整体负面化的担忧。考验 skill 对核心诉求的判断——是想学冲突处理工具，还是想理解消极偏差的原理。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆 negativity-bias-ratio) + 1 条 edge_case"
+}
