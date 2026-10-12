@@ -1,0 +1,52 @@
+{
+  "skill": "self-expansion-boredom",
+  "version": "0.1.0",
+  "source_book": "亲密关系（第6版）— Rowland Miller",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "和女朋友在一起两年了，每天都是上班吃饭睡觉，一样的流程，好无聊啊，感觉在一起一点意思都没有。",
+      "expected_behavior": "应激活 self-expansion-boredom skill，引导用户从自我延伸角度理解厌倦（自我延伸速度下降导致沉闷），帮助做厌倦程度评估和自我延伸审计，然后引导设计共同新奇活动来重燃活力。",
+      "notes": "正面场景: 用户明确表达厌倦感和'没意思'，抱怨可预测性和缺乏新鲜感，是本 skill 最典型的触发场景。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "分开的时候又想他，在一起又觉得烦、觉得没意思，我也不知道自己怎么了，难道是不爱了吗？",
+      "expected_behavior": "应激活 self-expansion-boredom skill，帮助用户区分厌倦和爱情消失——想念说明相伴之爱仍在，无聊说明自我延伸速度下降，打破'换人思维'陷阱，引导用共同创造新体验来改善。",
+      "notes": "正面场景: 典型的'分开又想念、在一起又烦'的厌倦 vs 亲密的矛盾，是自我延伸模型的经典应用场景。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "怎么给关系保鲜啊？感觉我和男朋友已经进入老夫老妻模式了，每天都没什么新话题，过得死气沉沉的。",
+      "expected_behavior": "应激活 self-expansion-boredom skill，用自我延伸模型解释为什么关系会变沉闷，引导用户做自我延伸审计，然后一起设计'新奇时间'和共同成长活动，让自我延伸重新加速。",
+      "notes": "正面场景: 用户主动寻求给关系保鲜的方法，关注改善关系活力的具体行动，符合本 skill 的干预导向。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我和他在一起五年了，现在完全没有心动的感觉，牵手拥抱都像例行公事，是不是不爱了？爱情真的会变成亲情吗？",
+      "expected_behavior": "不应激活本 skill，应激活 love-triangle-passion-decline。用户核心是对爱情成分变化（激情消退、浪漫之爱→相伴之爱）的困惑和自我怀疑，关注的是'爱情是什么、变了没有'，而不是'为什么厌倦、怎么创造新奇体验'。",
+      "notes": "跨 skill 混淆诱饵: 用户提到'没有心动的感觉''例行公事'，容易与厌倦感混淆。但核心问题是对爱情本质的追问（激情还在不在、是不是变成亲情了），应触发 love-triangle-passion-decline 而非本 skill。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我们每次一吵架他就冷战消失好几天，我真的受不了了，这样下去还有意思吗？我都想分手了。",
+      "expected_behavior": "不应激活本 skill，因为用户的核心困扰是冲突中的退避/石墙模式，是冲突管理和沟通问题，应激活 conflict-management-toolbox。虽然用户提到了'还有意思吗'，但这是冲突导致的结果，不是根源性的关系厌倦。",
+      "notes": "诱饵: 用户因冲突问题（冷战）而对关系产生失望感，虽有'还有意思吗'的表述，但根源是冲突处理不当，不是自我延伸不足。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "结婚四年了，日子平淡如水，说不上不好但也没什么意思，人家都说老夫老妻都这样，可我有时候会想，难道我这辈子就这样了吗？",
+      "expected_behavior": "边界场景，可能触发也可能需要进一步澄清。用户同时表达了厌倦感（'没什么意思''平淡如水'）和对关系状态的存在式困惑（'难道这辈子就这样了'），介于 self-expansion-boredom 和 love-triangle-passion-decline 之间。如果用户更强调'无聊/想改变现状'，应触发本 skill（自我延伸+创造新奇）；如果更强调'激情消失/爱情变了'，应触发 love-triangle-passion-decline。本例中'平淡如水''没什么意思'略偏向厌倦，但'老夫老妻都这样'也带有接受激情消退的认命感。",
+      "notes": "边界: 平淡接受感与厌倦改变欲交织，用户既有'老夫老妻都这样'的认命（接近三角理论的相伴之爱认知），又有'难道就这样了'的不甘（接近自我延伸的成长需求）。考验 skill 对核心动机的捕捉能力。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆 love-triangle-passion-decline) + 1 条 edge_case"
+}

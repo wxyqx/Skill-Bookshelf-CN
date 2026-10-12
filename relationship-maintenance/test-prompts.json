@@ -1,0 +1,52 @@
+{
+  "skill": "relationship-maintenance",
+  "version": "0.1.0",
+  "source_book": "亲密关系（第6版）— Rowland Miller",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "结婚五年了，感觉日子越来越平淡，每天就是上班下班吃饭睡觉，好像没什么激情了。我想知道婚姻该怎么经营才能一直幸福下去？",
+      "expected_behavior": "应激活 relationship-maintenance skill，引导用户评估当前关系维持水平，介绍积极性、保证、分担任务三大核心策略，帮助用户从认知和行为两个层面主动维护关系",
+      "notes": "正面场景: 结婚多年感觉平淡，主动寻求关系经营方法，典型的关系维持触发场景"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我和女朋友在一起三年了，最近总觉得她没以前那么上心了，消息回得慢了，也不怎么主动找我聊天。是我想多了还是我们的关系真的在变淡？该怎么维持一段长期关系呢？",
+      "expected_behavior": "应激活 relationship-maintenance skill，引导用户用卡纳里-斯塔福德清单评估双方的维持行为，检查积极性、保证、分担任务等维度是否出现下滑，并讨论如何重建维持习惯",
+      "notes": "正面场景: 长期恋爱中感觉对方不上心，关心关系是否在变淡，询问如何维持，符合维持策略库的触发条件"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我朋友最近离婚了，说是因为婚后慢慢就不爱了。我有点担心自己的婚姻，虽然现在挺好的，但想提前做些什么防止以后出问题。有什么能让关系越来越好的方法吗？",
+      "expected_behavior": "应激活 relationship-maintenance skill，引导用户建立预防性的维持机制，介绍认知维持机制（积极错觉、认知相互依赖）和行为策略，甚至引入米开朗基罗现象的成长型维持理念",
+      "notes": "正面场景: 看到别人关系出问题想提前预防，希望关系持续成长提升，符合关系维持的预防性/提升性定位"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我刚认识一个男生两周，对他挺有好感的，想知道怎么才能让他更喜欢我？",
+      "expected_behavior": "不应激活本 skill，因为关系处于最初的约会阶段（3个月以内），此时主要任务是相互了解和吸引，而非关系维持。关系维持适用于已确立的长期关系",
+      "notes": "诱饵: 刚认识的约会阶段，属于关系建立初期，不在关系维持的适用范围内"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我和男朋友一吵架就冷战，谁也不理谁，每次都要僵好几天。我想好好谈但他总是逃避，根本说不通，怎么办啊？",
+      "expected_behavior": "不应激活本 skill，应激活 conflict-management-toolbox。用户的核心问题是冲突中的冷战和要求/退避模式，属于冲突管理的范畴，而非日常关系维持。关系维持是'平时怎么防火'，冲突管理是'出了火怎么灭'",
+      "notes": "跨 skill 混淆诱饵: 冲突场景容易被误判为关系问题，但用户描述的是具体的吵架-冷战-逃避模式，应触发 conflict-management-toolbox 而非 relationship-maintenance"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我们结婚十年了，感情一直很稳定也没什么大矛盾，但就是感觉日子像白开水一样，有点无聊。说不爱吧也不是，就是太平淡了，我也不知道算不算有问题。",
+      "expected_behavior": "边界场景: 可能触发也可能需要与 self-expansion-boredom 配合。用户的核心感受是'平淡/无聊'，这既可以用关系维持策略库中的'共同活动''积极性'来回应，也与自我延伸模型中'关系厌倦'的主题高度相关。如果用户更强调'无聊没新意'，偏自我延伸；如果更强调'怎么经营维持'，偏本 skill。此场景建议优先激活本 skill，在执行中可引入自我延伸的新奇体验作为补充策略",
+      "notes": "边界: 平淡/无聊是关系维持和自我延伸两个 skill 的交叉地带，需要根据用户更偏'维持经营'还是'厌倦无聊'来判断主触发 skill"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆) + 1 条 edge_case"
+}
