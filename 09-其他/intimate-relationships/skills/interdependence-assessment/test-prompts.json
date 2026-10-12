@@ -1,0 +1,52 @@
+{
+  "skill": "interdependence-assessment",
+  "version": "0.1.0",
+  "source_book": "亲密关系（第6版）— Rowland Miller",
+  "darwin_compatible": true,
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我和他在一起三年了，越来越觉得不开心，经常吵架，他也不像以前那样关心我。可是我就是舍不得分手，一想到要离开就心慌，我都搞不懂自己为什么这么纠结。",
+      "expected_behavior": "应激活 interdependence-assessment skill，引导用户从奖赏-代价、比较水平 CL、替代比较水平 CLalt 三个维度拆解当前关系，定位属于四类型矩阵中的哪一型（大概率是不幸福稳定型），并解释为什么不开心却离不开。",
+      "notes": "正面场景: 典型的不满意但舍不得分手，是相互依赖框架最核心的应用场景——满意度低但依赖度高。"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我各方面条件都比我男朋友好，工资是他的两倍，长得也不差，为什么每次吵架都是我先低头？感觉他反而更有底气，好像吃定了我不会走一样。",
+      "expected_behavior": "应激活 interdependence-assessment skill，用较小利益原则解释权力不平衡——谁对关系的依赖更小（CLalt 更高）谁就更有权力，引导用户评估双方的替代选择和依赖程度，而不是纠结于表面条件。",
+      "notes": "正面场景: 权力不平衡与较小利益原则，是相互依赖框架的重要推论应用。"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我和女朋友感情其实挺好的，在一起很开心，朋友也都羡慕我们。但我总觉得有点不安，她身边追求者不少，她自己也很优秀独立，我有时候会想她会不会哪天遇到更好的就走了。",
+      "expected_behavior": "应激活 interdependence-assessment skill，引导用户分析关系的满意度和依赖度两个维度——满意度可能很高，但对方的 CLalt 也高，属于幸福不稳定型，帮助用户理解这种开心但不安的矛盾感。",
+      "notes": "正面场景: 幸福但不稳定，四类型矩阵中的幸福不稳定型，体现满意度与依赖度是两个独立维度。"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "我暗恋我们公司一个同事半年了，他好像对我也有点意思但又不确定，我想知道我们到底有没有可能在一起。",
+      "expected_behavior": "不应激活本 skill，因为相互依赖评估框架适用于已建立的亲密关系，单相思或未建立关系的暗恋不在适用范围内。",
+      "notes": "诱饵: 单相思/未确立关系的场景，触发边界条件——相互依赖需要双方已建立关系。"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "我和老公结婚五年了，感觉感情越来越淡，不像以前那么有激情了。我想知道平时该做些什么能让关系保持新鲜感，不要越来越疏远。",
+      "expected_behavior": "不应激活本 skill，应激活 relationship-maintenance。用户的核心诉求是'做些什么来维持关系、保持新鲜感'，是在寻求具体的维持策略和行动清单，而不是评估关系的满意度和依赖度结构。",
+      "notes": "跨 skill 混淆诱饵: 关系变淡既可能涉及满意度评估（相互依赖），也可能需要维持策略（relationship-maintenance）。本题用户明确问'该做什么'，偏向行动策略，应触发维持策略库而非评估框架。"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "结婚三年了，刚结婚的时候特别幸福，现在感觉越来越平淡，吵架也多了。我不知道这是婚姻的正常现象，还是我们真的不合适、走不下去了。",
+      "expected_behavior": "边界场景，可以触发本 skill。用户提到婚姻满意度下降并怀疑关系是否还能继续，涉及满意度变化和关系稳定性的评估，属于相互依赖框架的范畴。但同时也可能触及 love-triangle-passion-decline（激情消退）的领域。触发理由：用户的核心困惑是关系状态的评估——是正常下滑还是已经出了问题，这与相互依赖框架中'婚姻满意度下降的五原因'和四类型矩阵高度相关。如果用户更多关注激情本身的消退，则可能偏向爱情三角理论。",
+      "notes": "边界: 婚姻满意度下降是正常过程还是关系危机，既属于相互依赖评估（满意度维度），也可能涉及激情消退规律。关键在于用户更关注状态评估还是情感成分变化。"
+    }
+  ],
+  "minimum_pass_rate": 0.8,
+  "notes": "3 条 should_trigger + 2 条 should_not_trigger (含 1 条跨 skill 混淆 relationship-maintenance) + 1 条 edge_case"
+}
