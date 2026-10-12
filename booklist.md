@@ -2,7 +2,7 @@
 
 > 共 **101** 本书，按 8 个 Part 分组。
 >
-> - **蒸馏** 列标 ✅ 的书已完成 cangjie-skill 蒸馏，链接直达书架中对应技能集（共 **33** 本，**816** 个 skills 中的 **523** 个来自这批书）。
+> - **蒸馏** 列标 ✅ 的书已完成 cangjie-skill 蒸馏，链接直达书架中对应技能集（共 **34** 本，**826** 个 skills 中的 **533** 个来自这批书）。
 > - 「有书」为纸质/电子书已在手。
 
 ## Part I - 经济和大势
@@ -92,7 +92,7 @@
 | 流量的战略级理解 | 流量池-杨飞 | ✓ | ✅ [已蒸馏 19 skills](./05-增长和流量/traffic-pool/) |
 | 流量的战略级理解 | 增长黑客-范冰 | ✓ | ✅ [已蒸馏 21 skills](./05-增长和流量/growth-hacker/) |
 | 增长黑客 | 增长黑客-如何低成本实现爆发式增长 |  |  |
-| 增长黑客 | 硅谷增长黑客实战笔记-曲卉 |  |  |
+| 增长黑客 | 硅谷增长黑客实战笔记-曲芲 |  |  |
 | 增长黑客 | 极简增长-彭志强 |  |  |
 | 平台环境 | 精益数据分析-阿利斯泰尔克罗尔 |  |  |
 | 平台环境 | 拉新-快速实现用户增长-加布里埃尔温伯格 |  |  |
@@ -151,5 +151,5 @@
 ## 统计
 
 - 书单总数：**101** 本
-- 已蒸馏：**33** 本（对应书架目录：[`mankiw-microeconomics`](./01-经济和大势/mankiw-microeconomics/)、[`mankiw-macroeconomics-10e`](./01-经济和大势/mankiw-macroeconomics-10e/)、[`xugao-macro-25-lectures`](./01-经济和大势/xugao-macro-25-lectures/)、[`strategy-and-path`](./01-经济和大势/strategy-and-path/)、[`analysis-and-thinking`](./01-经济和大势/analysis-and-thinking/)、[`eight-crises`](./01-经济和大势/eight-crises/)、[`cold-war-to-cold-war`](./01-经济和大势/cold-war-to-cold-war/)、[`china-reform-trilogy`](./01-经济和大势/china-reform-trilogy/)、[`capitalism-in-america`](./01-经济和大势/capitalism-in-america/)、[`changing-fortunes`](./01-经济和大势/changing-fortunes/)、[`21st-century-monetary-policy`](./01-经济和大势/21st-century-monetary-policy/)、[`after-the-music-stopped`](./01-经济和大势/after-the-music-stopped/)、[`turbulent-forty-years`](./01-经济和大势/turbulent-forty-years/)、[`xiaomi-startup-thinking`](./02-创业思维/xiaomi-startup-thinking/)、[`duan-yongping-touzi-wenda-lu`](./02-创业思维/duan-yongping-touzi-wenda-lu/)、[`lean-startup-eric-ries`](./02-创业思维/lean-startup-eric-ries/)、[`innovators-solution`](./02-创业思维/innovators-solution/)、[`how-google-works`](./02-创业思维/how-google-works/)、[`hooked`](./03-如何做产品/hooked/)、[`nintendo-experience-design`](./03-如何做产品/nintendo-experience-design/)、[`inspired`](./03-如何做产品/inspired/)、[`simple-and-usable`](./03-如何做产品/simple-and-usable/)、[`positioning-ries-trout`](./04-营销和定位/positioning-ries-trout/)、[`influence-cialdini`](./04-营销和定位/influence-cialdini/)、[`traffic-pool`](./05-增长和流量/traffic-pool/)、[`growth-hacker`](./05-增长和流量/growth-hacker/)、[`financial-statement-analysis`](./06-财务金融和法律/financial-statement-analysis/)、[`cong-baobiao-kan-qiye`](./06-财务金融和法律/cong-baobiao-kan-qiye/)、[`startup-legal-handbook`](./06-财务金融和法律/startup-legal-handbook/)、[`chuanyue-handong`](./07-股份分配和融资/chuanyue-handong/)、[`poor-charlies-almanack`](./08-团队建设/poor-charlies-almanack/)、[`seven-habits`](./08-团队建设/seven-habits/)、[`asking-the-right-questions`](./08-团队建设/asking-the-right-questions/)）
-- 书架中尚不在本清单的已蒸馏书：*掌控习惯*、*聪明的投资者*、*心流*、*Ready, Fire, Aim*、《人性的弱点》、《洛克菲勒留给儿子的38封信》、《刻意练习》、《富爸爸穷爸爸系列》、《思考，快与慢》、《权力的48条法则》、《稀缺》、《当下的力量》、《精益创业 2.0》、《领导梯队建设系列》、《卓有成效的管理者》
+- 已蒸馏：**34** 本（对应书架目录：[`mankiw-microeconomics`](./01-经济和大势/mankiw-microeconomics/)、[`mankiw-macroeconomics-10e`](./01-经济和大势/mankiw-macroeconomics-10e/)、[`xugao-macro-25-lectures`](./01-经济和大势/xugao-macro-25-lectures/)、[`strategy-and-path`](./01-经济和大势/strategy-and-path/)、[`analysis-and-thinking`](./01-经济和大势/analysis-and-thinking/)、[`eight-crises`](./01-经济和大势/eight-crises/)、[`cold-war-to-cold-war`](./01-经济和大势/cold-war-to-cold-war/)、[`china-reform-trilogy`](./01-经济和大势/china-reform-trilogy/)、[`capitalism-in-america`](./01-经济和大势/capitalism-in-america/)、[`changing-fortunes`](./01-经济和大势/changing-fortunes/)、[`21st-century-monetary-policy`](./01-经济和大势/21st-century-monetary-policy/)、[`after-the-music-stopped`](./01-经济和大势/after-the-music-stopped/)、[`turbulent-forty-years`](./01-经济和大势/turbulent-forty-years/)、[`xiaomi-startup-thinking`](./02-创业思维/xiaomi-startup-thinking/)、[`duan-yongping-touzi-wenda-lu`](./02-创业思维/duan-yongping-touzi-wenda-lu/)、[`lean-startup-eric-ries`](./02-创业思维/lean-startup-eric-ries/)、[`innovators-solution`](./02-创业思维/innovators-solution/)、[`how-google-works`](./02-创业思维/how-google-works/)、[`hooked`](./03-如何做产品/hooked/)、[`nintendo-experience-design`](./03-如何做产品/nintendo-experience-design/)、[`inspired`](./03-如何做产品/inspired/)、[`simple-and-usable`](./03-如何做产品/simple-and-usable/)、[`positioning-ries-trout`](./04-营销和定位/positioning-ries-trout/)、[`influence-cialdini`](./04-营销和定位/influence-cialdini/)、[`traffic-pool`](./05-增长和流量/traffic-pool/)、[`growth-hacker`](./05-增长和流量/growth-hacker/)、[`financial-statement-analysis`](./06-财务金融和法律/financial-statement-analysis/)、[`cong-baobiao-kan-qiye`](./06-财务金融和法律/cong-baobiao-kan-qiye/)、[`startup-legal-handbook`](./06-财务金融和法律/startup-legal-handbook/)、[`chuanyue-handong`](./07-股份分配和融资/chuanyue-handong/)、[`poor-charlies-almanack`](./08-团队建设/poor-charlies-almanack/)、[`seven-habits`](./08-团队建设/seven-habits/)、[`asking-the-right-questions`](./08-团队建设/asking-the-right-questions/)、[`intimate-relationships`](./09-其他/intimate-relationships/)）
+- 书架中尚不在本清单的已蒸馏书：*亲密关系*、*掌控习惯*、*聪明的投资者*、*心流*、*Ready, Fire, Aim*、《人性的弱点》、《洛克菲勒留给儿子的38封信》、《刻意练习》、《富爸爸穷爸爸系列》、《思考，快与慢》、《权力的48条法则》、《稀缺》、《当下的力量》、《精益创业 2.0》、《领导梯队建设系列》、《卓有成效的管理者》
