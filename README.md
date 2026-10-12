@@ -1,4 +1,4 @@
-# skill-bookshelf 📚
+﻿# skill-bookshelf 📚
 
 把书籍蒸馏成 **AI Skills** 的总目录导航 —— 也是一个**单仓合集（monorepo）**。
 
@@ -88,10 +88,11 @@
 | 《高效能人士的七个习惯（30周年纪念版）》*The 7 Habits of Highly Effective People* | 史蒂芬·柯维 · 1989 | 个人管理 / 领导力 / 思维方式 | 29 | [`seven-habits/`](./08-团队建设/seven-habits/) |
 | 《学会提问（原书第10版）》*Asking the Right Questions* | 尼尔·布朗、斯图尔特·基利 · 2012 | 批判性思维 / 论证审查 / 提问 | 22 | [`asking-the-right-questions/`](./08-团队建设/asking-the-right-questions/) |
 
-#### 09-其他（15 本）
+#### 09-其他（16 本）
 
 | 书名 | 作者 / 年份 | 主题 | Skills | 目录 |
 |---|---|---:|---|---|
+| 《亲密关系（第6版）》*Intimate Relationships* | 罗兰·米勒 · 2010-2015 | 亲密关系 / 依恋 / 冲突 / 关系维持 | 10 | [intimate-relationships/](./09-其他/intimate-relationships/) |
 | 《思考，快与慢》*Thinking, Fast and Slow* | 卡尼曼 · 2025 | 认知偏差 / 判断决策 | 28 | [`thinking-fast-and-slow/`](./09-其他/thinking-fast-and-slow/) |
 | 《稀缺》*Scarcity* | 穆来纳森、沙菲尔 · 2022 | 稀缺 / 带宽 / 决策 | 7 | [`scarcity/`](./09-其他/scarcity/) |
 | 《刻意练习》*PEAK* | 艾利克森、普尔 · 2016 | 学习 / 技能精进 | 8 | [`peak-deliberate-practice/`](./09-其他/peak-deliberate-practice/) |
@@ -109,6 +110,13 @@
 | 《领导梯队建设系列（共5册）》 | 拉姆·查兰 等 · 2001–2016 | 领导梯队 / 执行 / 人才培养 | 59 | [`leadership-pipeline-series/`](./09-其他/leadership-pipeline-series/) |
 
 ## 逐本详情
+
+### 0. 《亲密关系（第6版）》 — *Intimate Relationships* · [intimate-relationships/](./09-其他/intimate-relationships/)
+
+- **作者**：罗兰·米勒（Rowland S. Miller）· 第6版
+- **一句话**：亲密关系的质量不是运气而是多种可识别因素的动态交互结果——从相互依赖、认知偏差、依恋模式到冲突管理，本书用扎实的社会心理学研究系统纠正了关于爱情的常识误解。
+- **Skills**：interdependence-assessment · 
+egativity-bias-ratio · elationship-mindset · love-triangle-passion-decline · self-expansion-boredom · conflict-management-toolbox · elationship-maintenance · ttachment-pattern-awareness · social-penetration-intimacy · cognitive-bias-defense`r
 
 ### 1. 《心流：最优体验心理学》 — *Flow: The Psychology of Optimal Experience* · [`flow/`](./09-其他/flow/)
 
